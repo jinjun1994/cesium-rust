@@ -1,0 +1,38 @@
+[
+  {
+    "id": "point 1",
+    "name": "point",
+    "positionDegrees": [
+      -111,
+      40,
+      0
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 20,
+      "outlineWidth": 4,
+      "outlineColor": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  }
+]

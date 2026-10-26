@@ -1,0 +1,66 @@
+[
+  {
+    "id": "rgba",
+    "name": "Rectangle with outline using RGBA Colors",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -120,
+        40,
+        -110,
+        50
+      ],
+      "height": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.39215686274509803
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  },
+  {
+    "id": "rgbaf",
+    "name": "Rectangle using RGBAF Colors",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -100,
+        40,
+        -90,
+        50
+      ],
+      "height": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.39
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  }
+]

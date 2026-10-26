@@ -1,0 +1,2148 @@
+{
+  "version": "0.0.28",
+  "wasmSha256": "248a4e9d2b7534fb28b1ec6b17b4b2c83026309c5f265bfda7e9ce5542f407e8",
+  "backend": "Rust WASM / real browser WebGPU",
+  "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
+  "externalImagery": "local deterministic 256x256 neutral raster",
+  "cases": [
+    {
+      "id": "box",
+      "sourceSha256": "f34042b9397c542461ae10fc770d8d4d8645da259ed008495e8e751dc501ce0d",
+      "inputSha256": "c47e4de9dd0c5d429af4b4d58385e462c9cc850c2f2f8b258a78dc46b3bb076f",
+      "fixtureSha256": "c47e4de9dd0c5d429af4b4d58385e462c9cc850c2f2f8b258a78dc46b3bb076f",
+      "status": "passed",
+      "entities": 3,
+      "checks": [
+        "original parameters",
+        "collection fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 12342,
+        "blue": 13813,
+        "yellow": 875,
+        "green": 0,
+        "white": 0
+      },
+      "fittedColors": null,
+      "pickedEntities": [
+        "box-1",
+        "box-2"
+      ]
+    },
+    {
+      "id": "cylinders-and-cones",
+      "sourceSha256": "2f17c16b1ff67e5e8457999c16176b94e96bc938be1a37a8d602062f151bae17",
+      "inputSha256": "5f5f7718ff26f4d271e417d5a58a5a3644bad76374bb24d41e2cf77aaaab5e1a",
+      "fixtureSha256": "5f5f7718ff26f4d271e417d5a58a5a3644bad76374bb24d41e2cf77aaaab5e1a",
+      "status": "passed",
+      "entities": 2,
+      "checks": [
+        "original parameters",
+        "collection fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 18014,
+        "blue": 0,
+        "yellow": 0,
+        "green": 35873,
+        "white": 0
+      },
+      "fittedColors": null,
+      "pickedEntities": [
+        "cylinders-and-cones-1",
+        "cylinders-and-cones-2"
+      ]
+    },
+    {
+      "id": "plane",
+      "sourceSha256": "9912ae5e42010a4a8b25ecf1910666356d6162f40de1f39dbe1d24cc42c051d9",
+      "inputSha256": "492f4d97e2e59da192058b77c9c72f6c48568a88dd26f4ce2db1ccd1514ccd54",
+      "fixtureSha256": "492f4d97e2e59da192058b77c9c72f6c48568a88dd26f4ce2db1ccd1514ccd54",
+      "status": "passed",
+      "entities": 3,
+      "checks": [
+        "original parameters",
+        "collection fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 5999,
+        "blue": 4233,
+        "yellow": 319,
+        "green": 0,
+        "white": 0
+      },
+      "fittedColors": null,
+      "pickedEntities": [
+        "plane-1",
+        "plane-2"
+      ]
+    },
+    {
+      "id": "spheres-and-ellipsoids",
+      "sourceSha256": "34800a0c6848b787a431c7aa5caf51e1527681aea0fb353330a5064ae2d14d88",
+      "inputSha256": "e489cf7b6cebd230d6be8104a04d7343bc7c0597a073f4b520731363db70aa7d",
+      "fixtureSha256": "e489cf7b6cebd230d6be8104a04d7343bc7c0597a073f4b520731363db70aa7d",
+      "status": "passed",
+      "entities": 3,
+      "checks": [
+        "original parameters",
+        "collection fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 17315,
+        "blue": 10843,
+        "yellow": 6437,
+        "green": 0,
+        "white": 0
+      },
+      "fittedColors": null,
+      "pickedEntities": [
+        "spheres-and-ellipsoids-1",
+        "spheres-and-ellipsoids-2"
+      ]
+    },
+    {
+      "id": "czml-spheres-and-ellipsoids",
+      "sourceSha256": "736b602cb441c6f7dd1c2531876a0af655f9ef395baeda9d54827da65d6ff651",
+      "inputSha256": "472cebbccd454e4a3506cbb69ff9d17546303e41d9aa480df2ee0b67e4109d63",
+      "fixtureSha256": "1b2e9b9c36025d93b81e0bc97f3c0675c42cb4f27ed4f5b9ab5e9d45c775a9c0",
+      "status": "passed",
+      "entities": 3,
+      "checks": [
+        "original parameters",
+        "collection fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 17315,
+        "blue": 10843,
+        "yellow": 6437,
+        "green": 0,
+        "white": 0
+      },
+      "fittedColors": null,
+      "pickedEntities": [
+        "blueEllipsoid",
+        "redSphere"
+      ]
+    },
+    {
+      "id": "czml-cones-and-cylinders",
+      "sourceSha256": "2795c1d27f16f0d5d3045fb8e9f076a3a592b89fe59793f412c13f938627a2bd",
+      "inputSha256": "718af3cc629ff2867d7fbcf8a73a81354ad833b5c0bbede6f7b3b09cf0df514b",
+      "fixtureSha256": "760b5e41e3d583dcbc61d91138f53bd7f2c59f396193c4fa6aac3c22aa38bb86",
+      "status": "passed",
+      "entities": 2,
+      "checks": [
+        "original parameters",
+        "collection fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 18014,
+        "blue": 0,
+        "yellow": 0,
+        "green": 37124,
+        "white": 0
+      },
+      "fittedColors": null,
+      "pickedEntities": [
+        "shape1",
+        "shape2"
+      ]
+    },
+    {
+      "id": "czml-box",
+      "sourceSha256": "c3b28349c06007830c4571efe8aeef1321a8c6b6d499c5e381b595b86a6674e5",
+      "inputSha256": "1c14f824af3257af658d5b6f37e3761840a4657db415d000eee386e9a2e28268",
+      "fixtureSha256": "0d60b4f51fdaf3699ff6082ffb901ad433acc996c051df51b5aa55b433acf727",
+      "status": "passed",
+      "entities": 3,
+      "checks": [
+        "original parameters",
+        "collection fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 12342,
+        "blue": 13813,
+        "yellow": 875,
+        "green": 0,
+        "white": 0
+      },
+      "fittedColors": null,
+      "pickedEntities": [
+        "shape1",
+        "shape2"
+      ]
+    },
+    {
+      "id": "wall",
+      "sourceSha256": "a81f62dbaaa19a5f7e50ac70e7983385673a60f8669aa250e3d52161432728a5",
+      "inputSha256": "ead629b1142a46ae15f5d0ca7fb12134e1f08eb397b019f6aebd066e05a7cb46",
+      "fixtureSha256": "ead629b1142a46ae15f5d0ca7fb12134e1f08eb397b019f6aebd066e05a7cb46",
+      "status": "passed",
+      "entities": 3,
+      "checks": [
+        "original parameters",
+        "collection fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 5911,
+        "blue": 4004,
+        "yellow": 0,
+        "green": 4986,
+        "white": 0
+      },
+      "fittedColors": null,
+      "pickedEntities": [
+        "wall-1",
+        "wall-2",
+        "wall-3"
+      ]
+    },
+    {
+      "id": "czml-wall",
+      "sourceSha256": "62fdd37e74cb6914763a07d0242bfb56ed35f5d224edfff028c1358aaa8d2c67",
+      "inputSha256": "db0286e43a081c2adaa664c1bfb02bd1b3c8e230dda7ae1eb98e43b0a0bd759c",
+      "fixtureSha256": "2f7dd4922846485450ece810daf532c75ae3ac81aa9f9eb781e46e99f7118df7",
+      "status": "passed",
+      "entities": 1,
+      "checks": [
+        "original parameters",
+        "collection fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 26549,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 0
+      },
+      "fittedColors": null,
+      "pickedEntities": [
+        "wall"
+      ]
+    },
+    {
+      "id": "circles-and-ellipses",
+      "sourceSha256": "ee3cf2e2ce9b9df378c00994d12258c536e5ef55e199d22a3e9dab9fda3b6d06",
+      "inputSha256": "7b3f2048bb8b9b14b3847d07497bcdcc098ac30620045a9e59a07a5689a61cdd",
+      "fixtureSha256": "7b3f2048bb8b9b14b3847d07497bcdcc098ac30620045a9e59a07a5689a61cdd",
+      "status": "passed",
+      "entities": 3,
+      "checks": [
+        "original parameters",
+        "collection fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 9515,
+        "blue": 6086,
+        "yellow": 0,
+        "green": 8851,
+        "white": 0
+      },
+      "fittedColors": null,
+      "pickedEntities": [
+        "circles-and-ellipses-1",
+        "circles-and-ellipses-2",
+        "circles-and-ellipses-3"
+      ]
+    },
+    {
+      "id": "czml-circles-and-ellipses",
+      "sourceSha256": "4e6fa342492f8486d9881131e9bc5f129470a288f5206526612309ecfa02b5fd",
+      "inputSha256": "b00223429c2c72bb99b08069e08459bd38ee04ace90983b8abb35c06d18e0735",
+      "fixtureSha256": "5486738a585b4c5cf433ef6c0f9ce174a54f29373904d9313acf8d191119d62f",
+      "status": "passed",
+      "entities": 3,
+      "checks": [
+        "original parameters",
+        "collection fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 9394,
+        "blue": 6086,
+        "yellow": 0,
+        "green": 8936,
+        "white": 207
+      },
+      "fittedColors": null,
+      "pickedEntities": [
+        "shape1",
+        "shape2",
+        "shape3"
+      ]
+    },
+    {
+      "id": "czml-point",
+      "sourceSha256": "af8177633e45421b630a5dc2ab2cbdd79d2aceb92d36d64c5e5f4245bae20a1e",
+      "inputSha256": "f5426af016d2c08c2c27f1abbd1402365be08f4295c081d36647a62656a157f4",
+      "fixtureSha256": "646faeba382b9a226271eb3508e5d3680667f795cfb49947fdb3dee1074299b0",
+      "status": "passed",
+      "entities": 1,
+      "checks": [
+        "original parameters",
+        "collection fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 300,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 312
+      },
+      "fittedColors": null,
+      "pickedEntities": [
+        "point 1"
+      ]
+    },
+    {
+      "id": "box-outline-dev",
+      "sourceSha256": "8070e4763481322992c016d0421c41dc3d3f12feff18babd554d5fef6f7dfdc4",
+      "inputSha256": "40292e55489b4d4658c0cba5e8f657544f5df97ba019fed4f82d2ce7e5cc6c59",
+      "fixtureSha256": "b82c5794abd3d838ce7d7b3df71de69d07a579f2f2656f314d93943e8c4567bd",
+      "status": "passed",
+      "entities": 1,
+      "checks": [
+        "original parameters",
+        "default wide view then optional manual fit",
+        "real canvas colors",
+        "outline picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 0,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 81
+      },
+      "fittedColors": {
+        "red": 0,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 2243
+      },
+      "pickedEntities": [
+        "primitive-0-instance-0"
+      ]
+    },
+    {
+      "id": "cylinder-outline-dev",
+      "sourceSha256": "14205d8ef51fb2804066ddd72d63f789b3526f8bcf5b47ac88008d3c0377ae60",
+      "inputSha256": "3d1ff21c3b0b346b80d27a4a0b104f7dcc74cccfd035c9757b9417c7db9bf5f6",
+      "fixtureSha256": "211fbd642a721521f752b479777102053b352a7006140be9d1bdec5b2de20881",
+      "status": "passed",
+      "entities": 1,
+      "checks": [
+        "original parameters",
+        "default wide view then optional manual fit",
+        "real canvas colors",
+        "outline picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 0,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 22
+      },
+      "fittedColors": {
+        "red": 0,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 5269
+      },
+      "pickedEntities": [
+        "primitive-0-instance-0"
+      ]
+    },
+    {
+      "id": "sphere-outline-dev",
+      "sourceSha256": "c06bf232fb78ff88837eaf442d6440c76ebb662f04200d7b5cf11b7e612c863c",
+      "inputSha256": "2278b9c5d5a521901927ef270ee169cc1b639fbfd89fc94b80c08c4782b9d504",
+      "fixtureSha256": "4a6b6cafe9f40ba7f89ffbc4cae90a0482ddca66baa0aec8bf1d804280789ec1",
+      "status": "passed",
+      "entities": 1,
+      "checks": [
+        "original parameters",
+        "default wide view then optional manual fit",
+        "real canvas colors",
+        "outline picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 0,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 206
+      },
+      "fittedColors": {
+        "red": 0,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 11544
+      },
+      "pickedEntities": [
+        "primitive-0-instance-0"
+      ]
+    },
+    {
+      "id": "ellipsoid-outline-dev",
+      "sourceSha256": "7a11e811e2021271e5b5433797af2dd10cd9bf97b65aea38e0e6ad1b5c84b745",
+      "inputSha256": "6b557bfd4fbbf2c5eed7622cea4cb66fea53aa421648591a9eae2f49e27d6562",
+      "fixtureSha256": "126de29e5f19cb782fc4352066641d5ef6e46bb757db7c884a481e7f48da167f",
+      "status": "passed",
+      "entities": 1,
+      "checks": [
+        "original parameters",
+        "default wide view then optional manual fit",
+        "real canvas colors",
+        "outline picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 0,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 104
+      },
+      "fittedColors": {
+        "red": 0,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 10262
+      },
+      "pickedEntities": [
+        "primitive-0-instance-0"
+      ]
+    },
+    {
+      "id": "rectangle-outline-dev",
+      "sourceSha256": "5a611b81f141b4f432e06407f950e54115eb4a9a9fe2e08486cc3964e943ea64",
+      "inputSha256": "a1e98fdbd6c13c85c8d1d8e13ac4dcdf0a127ac6454a604af570ac7206e3ef36",
+      "fixtureSha256": "030c2adf3a51bfebdb3b0a8b4d45e7c35189bebf99c6fd2203d2899dcea3787d",
+      "status": "passed",
+      "entities": 1,
+      "checks": [
+        "original parameters",
+        "default wide view then optional manual fit",
+        "real canvas colors",
+        "outline picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 0,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 80
+      },
+      "fittedColors": {
+        "red": 0,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 801
+      },
+      "pickedEntities": [
+        "primitive-0-instance-0"
+      ]
+    },
+    {
+      "id": "wall-outline-dev",
+      "sourceSha256": "df777b07e1f8d4af64d6ab3a539bb82927262edaba98e1c7f8962679dea6f604",
+      "inputSha256": "5d4bce2b3a5da9e8c44ee31e8051d4b385a1c0a1eb79c7412f430039f35ff01d",
+      "fixtureSha256": "9c43b2e3b23890b1eeeff3a48e26ea3e368a1aec4c782583d0b878d124fc40fe",
+      "status": "passed",
+      "entities": 1,
+      "checks": [
+        "original parameters",
+        "default wide view then optional manual fit",
+        "real canvas colors",
+        "outline picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 0,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 79
+      },
+      "fittedColors": {
+        "red": 0,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 812
+      },
+      "pickedEntities": [
+        "primitive-0-instance-0"
+      ]
+    },
+    {
+      "id": "box-dev",
+      "sourceSha256": "de1b0323675812bec4a7473925fa683113595ac28663678c084c2523faf014c5",
+      "inputSha256": "b9294d3f41223dc4d383e420f49598931cbc26b04b93866588131f7b119e185a",
+      "fixtureSha256": "aa3d6376cd6c43a4da6c65672e171496ae012a7ea55e4b56aa830e674a3bfb91",
+      "status": "passed",
+      "entities": 1,
+      "checks": [
+        "original parameters",
+        "default wide view then optional manual fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 104,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 0
+      },
+      "fittedColors": {
+        "red": 97536,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 0
+      },
+      "pickedEntities": [
+        "primitive-0-instance-0"
+      ]
+    },
+    {
+      "id": "cylinder-dev",
+      "sourceSha256": "8a92c3064dc0e28bd2683816bbed6bd69a1924514d384240c494586267e3fa6c",
+      "inputSha256": "1e7ed5bf7c99fdba38519288414141d801fbe868c4dcc3cc22f1f6df2bf6f042",
+      "fixtureSha256": "14c0d9f5a048b2704613845ec3f4bcafe6da75d909df9f0868fbe1f408f6a968",
+      "status": "passed",
+      "entities": 2,
+      "checks": [
+        "original parameters",
+        "default wide view then optional manual fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 82,
+        "blue": 0,
+        "yellow": 0,
+        "green": 86,
+        "white": 0
+      },
+      "fittedColors": {
+        "red": 18014,
+        "blue": 0,
+        "yellow": 0,
+        "green": 37739,
+        "white": 0
+      },
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-0-instance-1"
+      ]
+    },
+    {
+      "id": "sphere-dev",
+      "sourceSha256": "c4acb31b49ddc41b95329db33445a0b0f6e39c760d4a66834d84f979a9f9f49f",
+      "inputSha256": "909d57c4ba76fdda3f6fb17d8381c1838c86d25f11b5782f7243b8c403f993b7",
+      "fixtureSha256": "9b9f33913ec38845cf670af24d7b3b3c8b6734de19c17685b973189538fac385",
+      "status": "passed",
+      "entities": 1,
+      "checks": [
+        "original parameters",
+        "default wide view then optional manual fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 196,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 0
+      },
+      "fittedColors": {
+        "red": 165692,
+        "blue": 0,
+        "yellow": 0,
+        "green": 0,
+        "white": 0
+      },
+      "pickedEntities": [
+        "primitive-0-instance-0"
+      ]
+    },
+    {
+      "id": "ellipsoid-dev",
+      "sourceSha256": "1a1f9fc9bfa9fab1d6ba50c331224d7c43a3c43beecad5e7bea1fb2e60167bea",
+      "inputSha256": "d4a393cdc8428ad9d958a7a23838490d1acac938c7a3f28a3d7a2d620910dfc0",
+      "fixtureSha256": "97b2b184aa8b95709c4951ef38469d8cd64e91e0408e244eaa68116b1a198b27",
+      "status": "passed",
+      "entities": 1,
+      "checks": [
+        "original parameters",
+        "default wide view then optional manual fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 0,
+        "blue": 84,
+        "yellow": 0,
+        "green": 0,
+        "white": 0
+      },
+      "fittedColors": {
+        "red": 0,
+        "blue": 88672,
+        "yellow": 0,
+        "green": 0,
+        "white": 0
+      },
+      "pickedEntities": [
+        "primitive-0-instance-0"
+      ]
+    },
+    {
+      "id": "wall-dev",
+      "sourceSha256": "106fbb66c4cbf85703c4c9f36babcf16650157cdfd701a5fe3e7399a960b0882",
+      "inputSha256": "71362def312c6ac650803b0f6a5f1568b465a1ab1a07cd3ece362da81bd55fef",
+      "fixtureSha256": "d17c04b1841191b8775d09b388a11ad12a6da33d587f954235b92553ee87a289",
+      "status": "passed",
+      "entities": 3,
+      "checks": [
+        "original parameters",
+        "default wide view then optional manual fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 11,
+        "blue": 26,
+        "yellow": 0,
+        "green": 4,
+        "white": 0
+      },
+      "fittedColors": {
+        "red": 5911,
+        "blue": 4233,
+        "yellow": 0,
+        "green": 5212,
+        "white": 0
+      },
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-0-instance-1",
+        "primitive-0-instance-2"
+      ]
+    },
+    {
+      "id": "ellipse-dev",
+      "sourceSha256": "c443c26911de1ee9d1ed22653eab32b001ee0781286cf47463f63b0ce89fff41",
+      "inputSha256": "ee2bedff70fde2d8c63f57d7a0bd33cfea0118014f48ccb10f4815c1d5c94e09",
+      "fixtureSha256": "5f7abf3b005f59edae0b5bbbbba4ae22c2b4dabbdc92758a4da44bb23f52e188",
+      "status": "passed",
+      "entities": 3,
+      "checks": [
+        "original parameters",
+        "default wide view then optional manual fit",
+        "real canvas colors",
+        "filled entity picking",
+        "wheel zoom",
+        "resize and reframe"
+      ],
+      "colors": {
+        "red": 256,
+        "blue": 142,
+        "yellow": 0,
+        "green": 178,
+        "white": 0
+      },
+      "fittedColors": {
+        "red": 11956,
+        "blue": 9084,
+        "yellow": 0,
+        "green": 20879,
+        "white": 0
+      },
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-0-instance-1",
+        "primitive-0-instance-2"
+      ]
+    },
+    {
+      "id": "czml-rectangle",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "e14f33a08f1175e7b99b0e6aabf781c2307fb2a95f72ea9cfdced9f623a11041",
+      "inputSha256": "620fb77f90c8284a37eded77b36ae1984ddabaeff008f25324642d94583015db",
+      "fixtureSha256": "5262a6b23fff8365da02c672c1d750e22300472bc82985af168c71723a98744e",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "redRectangle",
+        "stripeRectangle",
+        "yellowRectangle",
+        "textureRectangle"
+      ],
+      "pixelCounts": [
+        {
+          "id": "redRectangle",
+          "pixels": 85269
+        },
+        {
+          "id": "stripeRectangle",
+          "pixels": 59548
+        },
+        {
+          "id": "yellowRectangle",
+          "pixels": 1821
+        },
+        {
+          "id": "textureRectangle",
+          "pixels": 27514
+        }
+      ]
+    },
+    {
+      "id": "partial-ellipsoids",
+      "status": "passed",
+      "entities": 12,
+      "sourceSha256": "556de0788d2bbba3020c1345f396ada1302be14d84ff8181292e38a67a37c9ac",
+      "inputSha256": "bb4ea9ba9f843903bd573229308a6dc2003b2aabf2f86fc5d7436768a5a8c705",
+      "fixtureSha256": "bb4ea9ba9f843903bd573229308a6dc2003b2aabf2f86fc5d7436768a5a8c705",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "partial-ellipsoids-1",
+        "partial-ellipsoids-2",
+        "partial-ellipsoids-3",
+        "partial-ellipsoids-4",
+        "partial-ellipsoids-5",
+        "partial-ellipsoids-6",
+        "partial-ellipsoids-7",
+        "partial-ellipsoids-8",
+        "partial-ellipsoids-9",
+        "partial-ellipsoids-10",
+        "partial-ellipsoids-11",
+        "partial-ellipsoids-12"
+      ],
+      "pixelCounts": [
+        {
+          "id": "partial-ellipsoids-1",
+          "pixels": 165692
+        },
+        {
+          "id": "partial-ellipsoids-2",
+          "pixels": 38948
+        },
+        {
+          "id": "partial-ellipsoids-3",
+          "pixels": 18438
+        },
+        {
+          "id": "partial-ellipsoids-4",
+          "pixels": 128864
+        },
+        {
+          "id": "partial-ellipsoids-5",
+          "pixels": 92277
+        },
+        {
+          "id": "partial-ellipsoids-6",
+          "pixels": 122979
+        },
+        {
+          "id": "partial-ellipsoids-7",
+          "pixels": 144318
+        },
+        {
+          "id": "partial-ellipsoids-8",
+          "pixels": 109655
+        },
+        {
+          "id": "partial-ellipsoids-9",
+          "pixels": 69525
+        },
+        {
+          "id": "partial-ellipsoids-10",
+          "pixels": 89274
+        },
+        {
+          "id": "partial-ellipsoids-11",
+          "pixels": 24341
+        },
+        {
+          "id": "partial-ellipsoids-12",
+          "pixels": 78093
+        }
+      ]
+    },
+    {
+      "id": "polyline",
+      "status": "passed",
+      "entities": 6,
+      "sourceSha256": "26247a07666749d98c7cf3f3d293e320d16ef01e6a531733e0034145f6e69a76",
+      "inputSha256": "e1185938e5e2c44a74eb13c77cae46ff68887a11462374dfdef4dc6d23aba160",
+      "fixtureSha256": "e1185938e5e2c44a74eb13c77cae46ff68887a11462374dfdef4dc6d23aba160",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "polyline-1",
+        "polyline-2",
+        "polyline-3",
+        "polyline-4",
+        "polyline-5",
+        "polyline-6"
+      ],
+      "pixelCounts": [
+        {
+          "id": "polyline-1",
+          "pixels": 1037
+        },
+        {
+          "id": "polyline-2",
+          "pixels": 1068
+        },
+        {
+          "id": "polyline-3",
+          "pixels": 1972
+        },
+        {
+          "id": "polyline-4",
+          "pixels": 2060
+        },
+        {
+          "id": "polyline-5",
+          "pixels": 1664
+        },
+        {
+          "id": "polyline-6",
+          "pixels": 841
+        }
+      ]
+    },
+    {
+      "id": "polyline-dev",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "7eedf1c1bae3eed885fdfdcca9fc45a1fc34031aaf72a5f31a1b262803cc8b35",
+      "inputSha256": "e0d0f0065af6e847b73f47264493be8cbf5cfaaafde82affc673a61559197233",
+      "fixtureSha256": "ed539389b3520c21da2db6657130d1df3b3d7eca803054f3db93b028a95aa921",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-1-instance-0"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 1085
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 1356
+        }
+      ]
+    },
+    {
+      "id": "polyline-color-dev",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "c7b9b265c7bab3a5d2d7e0b76349da1d5a38c89c02051eaf0d20d26791d63578",
+      "inputSha256": "7bbb04ed1ac44ce5810e6c5b029e0b7007c24d95abf32e584862440826283175",
+      "fixtureSha256": "5bc18ed65a104ffe6c492d1993e9afb49383310cbd943fd63c9b8bf3e63ec1b7",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-1-instance-0"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 997
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 1024
+        }
+      ]
+    },
+    {
+      "id": "polyline-material-dev",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "c4b4c806acc5eb9f891e785c69113f3aece0031b4986fa0a489b0426348c357c",
+      "inputSha256": "319334198c94d121ddb1802fd24d287b5e2fc37cb1a51fff0b338d2640469457",
+      "fixtureSha256": "03f205f8ccf50127a9fbc9a9a0a215f17f4e3f364bff932eff4fc2672967508d",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-1-instance-0",
+        "primitive-2-instance-0"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 2081
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 1093
+        },
+        {
+          "id": "primitive-2-instance-0",
+          "pixels": 2102
+        }
+      ]
+    },
+    {
+      "id": "polyline-dash",
+      "status": "passed",
+      "entities": 5,
+      "sourceSha256": "738db4a78ed769955d1be7c9eef64c8d4ab45c167530b51f301ee2231d4fe700",
+      "inputSha256": "213ebaa791f31a69940cdb535e4de0706892f62e4222f6f0d0a4a106f43f94dd",
+      "fixtureSha256": "213ebaa791f31a69940cdb535e4de0706892f62e4222f6f0d0a4a106f43f94dd",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "polyline-dash-1",
+        "polyline-dash-2",
+        "polyline-dash-3",
+        "polyline-dash-4",
+        "polyline-dash-5"
+      ],
+      "pixelCounts": [
+        {
+          "id": "polyline-dash-1",
+          "pixels": 1017
+        },
+        {
+          "id": "polyline-dash-2",
+          "pixels": 12353
+        },
+        {
+          "id": "polyline-dash-3",
+          "pixels": 1022
+        },
+        {
+          "id": "polyline-dash-4",
+          "pixels": 1522
+        },
+        {
+          "id": "polyline-dash-5",
+          "pixels": 2071
+        }
+      ]
+    },
+    {
+      "id": "czml-polyline",
+      "status": "passed",
+      "entities": 5,
+      "sourceSha256": "9eb7a272816d46234f42ce7e5ea85577858a719ead14872b9463376c3fcd7e67",
+      "inputSha256": "ba48b82026619515429d2e465227e4c99b9d80b8a80ac8429795eeda2ff9586a",
+      "fixtureSha256": "d930670c9a92de7da3c223f513eb34ff113fcf01993602a47d5c11cc33e9dcd0",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "redLine",
+        "blueLine",
+        "orangeLine",
+        "purpleLine",
+        "dashedLine"
+      ],
+      "pixelCounts": [
+        {
+          "id": "redLine",
+          "pixels": 1037
+        },
+        {
+          "id": "blueLine",
+          "pixels": 1972
+        },
+        {
+          "id": "orangeLine",
+          "pixels": 2060
+        },
+        {
+          "id": "purpleLine",
+          "pixels": 1664
+        },
+        {
+          "id": "dashedLine",
+          "pixels": 841
+        }
+      ]
+    },
+    {
+      "id": "ellipse-outline-dev",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "821cb0b8ce6ac28fc8084c39de813d48d24bcbc3ed656c2283a157b4a5332aa3",
+      "inputSha256": "a52edcc9014311323ebf54f5f7f5513b63fc9f9952cf32b9013f2f4394a4244a",
+      "fixtureSha256": "bfbaf5475c66fcce678f8b30592d39abafaada97edaad9c3f83335ee764d7abf",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-0-instance-1"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 982
+        },
+        {
+          "id": "primitive-0-instance-1",
+          "pixels": 2536
+        }
+      ]
+    },
+    {
+      "id": "circle-outline-dev",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "ed1887775832f03fe10e2ad56f3df4a6c1c1c04898a3f7875e22448cfed7bcb8",
+      "inputSha256": "baa7eea39c7c5a5ef1cb41d9d7d61ea617f68a4bdabdadadecf91d79400ddd60",
+      "fixtureSha256": "d84446555bebf14f13c1edee4483cc3936d420200af69c4c24ce94e308597788",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-1-instance-0"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 1176
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 4950
+        }
+      ]
+    },
+    {
+      "id": "rectangle-dev",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "b52cb87d7d65c1914030b18c69c835285de75ebb8ad146cc594c169dfa4a51f3",
+      "inputSha256": "9e3627ccfd245c7b8a05b22780801959dd8b329e93bb9129efaceb1aeef10021",
+      "fixtureSha256": "7dbfbe7fb6023c0e5558e9f6b6151df6be3c2c295c5c1b6849ce07455a9be3c2",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-0-instance-1"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 20044
+        },
+        {
+          "id": "primitive-0-instance-1",
+          "pixels": 61913
+        }
+      ]
+    },
+    {
+      "id": "per-instance-color-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "37e4788e5d35b7619d9594a9bb640c22ccacc3e0b7e29a1d3c741daf1423bfed",
+      "inputSha256": "3e5485c4265e592a0a6e1ad5651d1a080eff913c9762a8c5079823c3fe480d49",
+      "fixtureSha256": "fc5374d5aa2af960d256f829f89ae3d0874b411e29f1679c57705f3928d2fdae",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-0-instance-1",
+        "primitive-0-instance-2",
+        "primitive-0-instance-3"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 62577
+        },
+        {
+          "id": "primitive-0-instance-1",
+          "pixels": 61874
+        },
+        {
+          "id": "primitive-0-instance-2",
+          "pixels": 61498
+        },
+        {
+          "id": "primitive-0-instance-3",
+          "pixels": 61497
+        }
+      ]
+    },
+    {
+      "id": "polygon-outline-dev",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "7e60da57551635367cb3f2c5fc4681a2c475f1752be99e48e1aec44b960f15e0",
+      "inputSha256": "719e4d52280e24f4c7e5bfa6079bbb063764e0ee28d7b4ff37d2da90966f3c04",
+      "fixtureSha256": "4b55e3da3bab5070083ea5cf4a556fb98f94e97945b7bb4ae1b9a573f491ab33",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-0-instance-1",
+        "primitive-0-instance-2"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 877
+        },
+        {
+          "id": "primitive-0-instance-1",
+          "pixels": 3505
+        },
+        {
+          "id": "primitive-0-instance-2",
+          "pixels": 912
+        }
+      ]
+    },
+    {
+      "id": "coplanar-polygon-outline-dev",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "229bb74d4d94ce68bcd1cd7fd7b9bd054ad2a8f1ad58cb4a276dc4fdd7928138",
+      "inputSha256": "9d1e3f747c257d0c234f8ad0281d306e6d26393dc634a5953cd1458ce16c103b",
+      "fixtureSha256": "7b9cbcf5453b140b4e4c2e7e17817b4112726be02db0e3a218dd328755c59960",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-0-instance-1"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 629
+        },
+        {
+          "id": "primitive-0-instance-1",
+          "pixels": 1759
+        }
+      ]
+    },
+    {
+      "id": "simple-polyline-dev",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "f596074cdd547c08994074fe0e42f2c6fc908c2e437dc2ad8415ffa4e03c5f4c",
+      "inputSha256": "1a5cd1bb2f69de65a3d85ea7993eb7e45101483b7f9a13daa30eb9e024e80586",
+      "fixtureSha256": "d6e31628a89fe4d7033e6246610409d9348043a97bd2c93994deeb1f67d4d9bb",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-1-instance-0",
+        "primitive-1-instance-1"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 222
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 429
+        },
+        {
+          "id": "primitive-1-instance-1",
+          "pixels": 262
+        }
+      ]
+    },
+    {
+      "id": "material-dev",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "50cfd6024e1aad9eb19f336f945bcf6619ce334d6716168ccf01c71de1cf7b7c",
+      "inputSha256": "ca8c8ec79731b54bd21d8abd5466898a993752f4372667d54ccc49242c033796",
+      "fixtureSha256": "12b0c799eb96320b95424d7442b4acbf5bf4534f41736456fbcde36f2d349887",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-1-instance-0"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 60432
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 60480
+        }
+      ]
+    },
+    {
+      "id": "ellipsoid-surface-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "9904bf8ce3b9ec56bd81d41355b071cb8916cec1b102f3d9a1cdecf072cf05a0",
+      "inputSha256": "9aa1e9e32a74ed136aa19ad8c954b95d3edef8a9162c9181e9d1076649288831",
+      "fixtureSha256": "74daaed78a42536207ff4da05a17e74314144c831b6bcc49c9f778c5721cff91",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-1-instance-0",
+        "primitive-2-instance-0",
+        "primitive-3-instance-0"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 62577
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 61874
+        },
+        {
+          "id": "primitive-2-instance-0",
+          "pixels": 61498
+        },
+        {
+          "id": "primitive-3-instance-0",
+          "pixels": 61497
+        }
+      ]
+    },
+    {
+      "id": "czml-colors",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "02d059a0b96f378d5074c9ada071b15590c16080b605539da5f8132f0df8a88b",
+      "inputSha256": "ee602499edae960d85cc9d8c38547375cc68b561fe0a800194c0a97942c9ff9d",
+      "fixtureSha256": "1b92bb62f659f9026c1991ea8ff9475491c20cc25f3dfe30d7e93f1a9cb92bd0",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "rgba",
+        "rgbaf"
+      ],
+      "pixelCounts": [
+        {
+          "id": "rgba",
+          "pixels": 61471
+        },
+        {
+          "id": "rgbaf",
+          "pixels": 59810
+        }
+      ]
+    },
+    {
+      "id": "czml-point-time-dynamic",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "c85832a7c086a6d7c62037546519a7084dc603eff1a206aecee5a268a32fbca2",
+      "inputSha256": "71b62e4987376059427df5be897804f47244987855fdf712626ae3f567cca09a",
+      "fixtureSha256": "44ef18b4ce1818a1119ca7d6b05c039d054498fa9214b6ea8f7cbd71983fe708",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "point"
+      ],
+      "pixelCounts": [
+        {
+          "id": "point",
+          "pixels": 345
+        }
+      ]
+    },
+    {
+      "id": "circle-dev",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "332d9298db77232897ed1951674c31292241a1a8af32aa0c7b9cdeb35d67c65a",
+      "inputSha256": "e0a84166e24b1fa8b1989afe55db72a0a1ef148eb05853c22f0d835c4002b29d",
+      "fixtureSha256": "8c47a44fad41277e007950c0a4cd15b3b75cb57cc49c516e827031433bb1be6f",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-1-instance-0",
+        "primitive-2-instance-0"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 109608
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 129791
+        },
+        {
+          "id": "primitive-2-instance-0",
+          "pixels": 109605
+        }
+      ]
+    },
+    {
+      "id": "corridor",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "625a50e6d68cad7a91ed9f522ff0fdafe6929c6b1ef51865fa46a68dd83832b3",
+      "inputSha256": "292e663fd7bc56b9addf0db2ea99c8475b7039a9c40d2f6a8b9bab9ea757adef",
+      "fixtureSha256": "292e663fd7bc56b9addf0db2ea99c8475b7039a9c40d2f6a8b9bab9ea757adef",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "corridor-1",
+        "corridor-2",
+        "corridor-3"
+      ],
+      "pixelCounts": [
+        {
+          "id": "corridor-1",
+          "pixels": 29691
+        },
+        {
+          "id": "corridor-2",
+          "pixels": 31588
+        },
+        {
+          "id": "corridor-3",
+          "pixels": 40275
+        }
+      ]
+    },
+    {
+      "id": "corridor-dev",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "41f80ff6616515842f00b917d8a44450daecea14d00437b5d598d6d932955e9c",
+      "inputSha256": "d31f9dd0244bf0c3eb4b5b7a2f6d5c442b8a833e271ea4c4927cdc111f430f0f",
+      "fixtureSha256": "8236d2a465cf68467ef55f756e2933112a9592df583300890c3f1d0e36a16e84",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-1-instance-0",
+        "primitive-2-instance-0"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 29691
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 31192
+        },
+        {
+          "id": "primitive-2-instance-0",
+          "pixels": 39849
+        }
+      ]
+    },
+    {
+      "id": "corridor-outline-dev",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "06331742cc2ba4c15fc6668e4c8bfb0d8fe363aad2d1a8c2221d89b98cd68e4f",
+      "inputSha256": "606b046791b649702ec929e90e72a7e343fd035aa52acb3f8fb1c0f751436297",
+      "fixtureSha256": "9abcba217755460bfdb5a52ff34503115085ae9a12dd00d546176084b327f17a",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-0-instance-1"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 787
+        },
+        {
+          "id": "primitive-0-instance-1",
+          "pixels": 1991
+        }
+      ]
+    },
+    {
+      "id": "czml-corridor",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "dab7a48a0b08e9517e3f73ed51f05d15309a0bb488df2473c3208d0a0da51455",
+      "inputSha256": "475b7ca715ad67b31aae121fb1317a8ff3bad0a67bbdf26e289477c35c899860",
+      "fixtureSha256": "14cf1feb242646cd5d09d16ceac381f9021fb87ada8c01127e1cb01e97611f1a",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "redCorridor",
+        "greenCorridor",
+        "blueCorridor"
+      ],
+      "pixelCounts": [
+        {
+          "id": "redCorridor",
+          "pixels": 29691
+        },
+        {
+          "id": "greenCorridor",
+          "pixels": 31588
+        },
+        {
+          "id": "blueCorridor",
+          "pixels": 40275
+        }
+      ]
+    },
+    {
+      "id": "czml-position-definitions",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "465b319443846920174f88637bcf603613e887e05d78d61b28ca2563f7e1e721",
+      "inputSha256": "cb5e85d78e04a3bd4d3d4b2c1d359686b6da46ce67fd8dfcd19c2dcbc358c4f3",
+      "fixtureSha256": "47ac0038498bc7d20de5cddb8b9c7468a664e62c3a88ccd739e516dbaf22c291",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "point1",
+        "point2",
+        "point 3"
+      ],
+      "pixelCounts": [
+        {
+          "id": "point1",
+          "pixels": 78
+        },
+        {
+          "id": "point2",
+          "pixels": 78
+        },
+        {
+          "id": "point 3",
+          "pixels": 78
+        }
+      ]
+    },
+    {
+      "id": "show-or-hide-entities",
+      "status": "passed",
+      "entities": 15,
+      "sourceSha256": "8f3ae5f4a8c5d33ebc09dbdc0093a203dec1ec7a1cdfb56a7aa2c0199d14fed7",
+      "inputSha256": "5545d054fa296a634e8a9b1cea36d11c557d2011b0791bdb613a9d8128ff01c2",
+      "fixtureSha256": "702dddd7a23e7dbc81310d3ed9bc8d51e5304f0d29671eafbc22555850ca434d",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "three source toolbar buttons change real frame pixels and parent visibility",
+        "child show preserved; infoBox disabled"
+      ],
+      "pickedEntities": [
+        "group-child-1",
+        "group-child-2",
+        "group-child-3",
+        "group-child-4",
+        "group-child-5",
+        "group-child-6",
+        "group-child-7",
+        "group-child-8",
+        "group-child-9",
+        "group-child-10",
+        "group-child-11",
+        "group-child-12",
+        "group-child-13",
+        "group-child-14",
+        "group-child-15"
+      ],
+      "pixelCounts": [
+        {
+          "id": "group-child-1",
+          "pixels": 102262
+        },
+        {
+          "id": "group-child-2",
+          "pixels": 61271
+        },
+        {
+          "id": "group-child-3",
+          "pixels": 165692
+        },
+        {
+          "id": "group-child-4",
+          "pixels": 102262
+        },
+        {
+          "id": "group-child-5",
+          "pixels": 61271
+        },
+        {
+          "id": "group-child-6",
+          "pixels": 165692
+        },
+        {
+          "id": "group-child-7",
+          "pixels": 102262
+        },
+        {
+          "id": "group-child-8",
+          "pixels": 61271
+        },
+        {
+          "id": "group-child-9",
+          "pixels": 165692
+        },
+        {
+          "id": "group-child-10",
+          "pixels": 102262
+        },
+        {
+          "id": "group-child-11",
+          "pixels": 61271
+        },
+        {
+          "id": "group-child-12",
+          "pixels": 165692
+        },
+        {
+          "id": "group-child-13",
+          "pixels": 102262
+        },
+        {
+          "id": "group-child-14",
+          "pixels": 61271
+        },
+        {
+          "id": "group-child-15",
+          "pixels": 165692
+        }
+      ]
+    },
+    {
+      "id": "polygon",
+      "status": "passed",
+      "entities": 8,
+      "sourceSha256": "759ea2f29f8596cc70ffa3ac084f9549566098768ca35f05eaeb82055c222d7c",
+      "inputSha256": "700dab90479754f2bc988acb17fedbd417a3271be82afd31a9baeab2fbd354fa",
+      "fixtureSha256": "700dab90479754f2bc988acb17fedbd417a3271be82afd31a9baeab2fbd354fa",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "polygon-1",
+        "polygon-2",
+        "polygon-3",
+        "polygon-4",
+        "polygon-5",
+        "polygon-6",
+        "polygon-7",
+        "polygon-8"
+      ],
+      "pixelCounts": [
+        {
+          "id": "polygon-1",
+          "pixels": 28368
+        },
+        {
+          "id": "polygon-2",
+          "pixels": 60478
+        },
+        {
+          "id": "polygon-3",
+          "pixels": 38150
+        },
+        {
+          "id": "polygon-4",
+          "pixels": 39450
+        },
+        {
+          "id": "polygon-5",
+          "pixels": 76140
+        },
+        {
+          "id": "polygon-6",
+          "pixels": 34934
+        },
+        {
+          "id": "polygon-7",
+          "pixels": 22589
+        },
+        {
+          "id": "polygon-8",
+          "pixels": 37519
+        }
+      ]
+    },
+    {
+      "id": "polygon-dev",
+      "status": "passed",
+      "entities": 6,
+      "sourceSha256": "1ee60fa7d873f6de9902aae7d007859baf9c76f5c42ab3cecfd6e4ea2b7c475f",
+      "inputSha256": "ad54b299c71ec6a08211f6b238ae7baa24335b03db9156a354bf1b3822b74f86",
+      "fixtureSha256": "0d252eec861ee6f452a3c90e37e2497504f9cb2cbc4ecdcba480350684e5410d",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-0-instance-1",
+        "primitive-0-instance-2",
+        "primitive-0-instance-3",
+        "primitive-1-instance-0",
+        "primitive-1-instance-1"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 28368
+        },
+        {
+          "id": "primitive-0-instance-1",
+          "pixels": 60483
+        },
+        {
+          "id": "primitive-0-instance-2",
+          "pixels": 33952
+        },
+        {
+          "id": "primitive-0-instance-3",
+          "pixels": 75764
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 39450
+        },
+        {
+          "id": "primitive-1-instance-1",
+          "pixels": 38150
+        }
+      ]
+    },
+    {
+      "id": "coplanar-polygon-dev",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "2100b8953783e0401d78455e3f0501a15e0236f7360947a1771b3104be42015f",
+      "inputSha256": "8ea8cf0700f06e751dc8424a5f1efebdc83cd0eff21af4f766f7cb83f1a1302e",
+      "fixtureSha256": "879bedfd0bc97ff5d6455a6a9ed2b5b3f189e11e1859b73e43becae1876a08af",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-0-instance-1",
+        "primitive-1-instance-0"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 37586
+        },
+        {
+          "id": "primitive-0-instance-1",
+          "pixels": 53296
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 54931
+        }
+      ]
+    },
+    {
+      "id": "czml-polygon",
+      "status": "passed",
+      "entities": 5,
+      "sourceSha256": "0e703b3a691d9f54e311f58122d585ebac76927af328a7d084ea8c44eb667922",
+      "inputSha256": "81faa2ee7e5e1fb0eb6f55913ccf00c0a8f852246d0d54a8da4f22d63770e833",
+      "fixtureSha256": "207ba3bbb576e76924d82d42ea6abb9f753c891ad53a2962db9c7b7fe00ebc50",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "redPolygon",
+        "checkerboardPolygon",
+        "greenPolygon",
+        "orangePolygon",
+        "bluePolygonWithHoles"
+      ],
+      "pixelCounts": [
+        {
+          "id": "redPolygon",
+          "pixels": 28061
+        },
+        {
+          "id": "checkerboardPolygon",
+          "pixels": 33024
+        },
+        {
+          "id": "greenPolygon",
+          "pixels": 60478
+        },
+        {
+          "id": "orangePolygon",
+          "pixels": 76140
+        },
+        {
+          "id": "bluePolygonWithHoles",
+          "pixels": 41506
+        }
+      ]
+    },
+    {
+      "id": "html-overlays",
+      "sourceSha256": "73b2dc9b3fd840cf289666d93b1392a835acaaae046b93cc74805aa117293a71",
+      "inputSha256": "df59d0a5c3c3c876c4a4cb05f1905f43579b26c8c527b742e75965f817397905",
+      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "status": "passed",
+      "entities": 0,
+      "globePixels": 16147,
+      "checks": [
+        "original source body and initial state",
+        "real WASM globe pixels",
+        "source default framing",
+        "original logo asset decoded",
+        "result object reused",
+        "preRender updates after camera/resize/resolution change",
+        "wheel zoom"
+      ],
+      "htmlSha256": "0e6d5c31d0196fd6c11268c463ea8c86355c9955a5c5ea5f86571eb1b4e7b81c",
+      "assetSha256": "1d6a9bbf468253843d3fda9021b1592c2f85da109cecb11f6f37f875dc251332"
+    },
+    {
+      "id": "resolution-scaling",
+      "sourceSha256": "f732be47d255c095871a1d841b7020b9ca3a86844439b43cb99229b409d0298a",
+      "inputSha256": "03ac66a666dad93a1aa5700ac305f37e6c9086790eee83848b9fadf54181432e",
+      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "status": "passed",
+      "entities": 0,
+      "globePixels": 1017,
+      "checks": [
+        "original source body and initial state",
+        "real WASM globe pixels",
+        "source default framing",
+        "range and text subscriptions",
+        "NaN fallback",
+        "0.1..2 clamp",
+        "recommended mode",
+        "actual framebuffer dimensions",
+        "wheel zoom",
+        "real DPR=2 framebuffer and recommended-mode comparison"
+      ],
+      "htmlSha256": "595ede83e6b39accb93e8749d75c779c03b054b6666103543bf157f47fac484b",
+      "dpr2": {
+        "native": {
+          "w": 308,
+          "h": 234,
+          "cssW": 615,
+          "cssH": 468,
+          "dpr": 2,
+          "scale": 0.25,
+          "rec": false
+        },
+        "recommended": {
+          "w": 154,
+          "h": 117,
+          "cssW": 615,
+          "cssH": 468,
+          "dpr": 2,
+          "scale": 0.25,
+          "rec": true
+        },
+        "globePixels": 822
+      }
+    },
+    {
+      "id": "hello-world",
+      "sourceSha256": "10329eeedf78a7b040f59a5edf8f8804644b440e56323b2bb3d1a846c61b6bce",
+      "inputSha256": "78b58e3d01df000ca3a15cad2bd97fe4189924f0510bbe8304f0d8c53413b24e",
+      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "status": "passed",
+      "entities": 0,
+      "globePixels": 16147,
+      "checks": [
+        "original source body and initial state",
+        "real WASM globe pixels",
+        "source default framing",
+        "overlay/event/resolution case cleanup",
+        "wheel zoom"
+      ]
+    },
+    {
+      "id": "points",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "78c0132b5b8b0171c3363401274bbd91e78f13ac06afc05778fa6090d9d3a1ba",
+      "inputSha256": "9c4e10c650857e25fec9ec42070775fbe87b15cda486bedfb198374c68526e4a",
+      "fixtureSha256": "40aaee3825e0af92cf6abc60131ccfeb23795a5533d983276847b0f9bf1745da",
+      "checks": [
+        "all six original menu callbacks and reset",
+        "exact positions, colors, sizes, outlines and NearFarScalar",
+        "real pixels and picking for every variant entity",
+        "measured distance scaling and fading"
+      ],
+      "variantResults": [
+        {
+          "label": "Add point",
+          "entities": 1,
+          "pixels": 78
+        },
+        {
+          "label": "Set point properties at creation",
+          "entities": 1,
+          "pixels": 196
+        },
+        {
+          "label": "Change point properties",
+          "entities": 1,
+          "pixels": 312
+        },
+        {
+          "label": "Add multiple points",
+          "entities": 3,
+          "pixels": 1044
+        },
+        {
+          "label": "Scale by viewer distance",
+          "entities": 1,
+          "pixels": 304
+        },
+        {
+          "label": "Fade by viewer distance",
+          "entities": 1,
+          "pixels": 312
+        }
+      ],
+      "scaleMeasurements": {
+        "near": {
+          "pixels": 312,
+          "energy": 209757
+        },
+        "far": {
+          "pixels": 11,
+          "energy": 7392
+        }
+      },
+      "fadeMeasurements": {
+        "near": {
+          "pixels": 312,
+          "energy": 209757
+        },
+        "far": {
+          "pixels": 156,
+          "energy": 44939
+        }
+      }
+    },
+    {
+      "id": "offline",
+      "status": "passed",
+      "entities": 0,
+      "sourceSha256": "cf0ff25e62c546a6a67bbfd65d96efbf4f2875f7d7c309f1abca8f55ed74ad4d",
+      "inputSha256": "8fdddda529719a67eb3444a5bf3713fe64210938b91a674107468c9392b812b6",
+      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "checks": [
+        "original local TMS provider and disabled picker/geocoder",
+        "all 42 pinned local JPEG files present and hashed",
+        "public network blocked; real local tile fetches",
+        "real detailed globe pixels and wheel zoom"
+      ],
+      "localTileRequests": 34,
+      "externalRequests": 0,
+      "colors": 20349,
+      "assetsSha256": "f7dbc2e3295e40bbd1f08bfcc476efe0c5237acdb6df8e7410943c9b8de081e4"
+    }
+  ],
+  "browser": "155.0.8059.85",
+  "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
+  "destroy": "passed"
+}

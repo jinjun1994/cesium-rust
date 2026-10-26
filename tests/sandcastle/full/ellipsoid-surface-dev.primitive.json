@@ -1,0 +1,84 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "RectangleGeometry",
+          "rectangle": [
+            -120,
+            30,
+            -110,
+            40
+          ],
+          "vertexFormat": "POSITION_ST"
+        }
+      },
+      "appearance": {
+        "type": "EllipsoidSurfaceAppearance",
+        "material": {
+          "type": "Stripe"
+        }
+      }
+    },
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "RectangleGeometry",
+          "rectangle": [
+            -110,
+            30,
+            -100,
+            40
+          ],
+          "vertexFormat": "POSITION_ST"
+        }
+      },
+      "appearance": {
+        "type": "EllipsoidSurfaceAppearance",
+        "material": {
+          "type": "Dot"
+        }
+      }
+    },
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "RectangleGeometry",
+          "rectangle": [
+            -100,
+            30,
+            -90,
+            40
+          ],
+          "vertexFormat": "POSITION_ST"
+        }
+      },
+      "appearance": {
+        "type": "EllipsoidSurfaceAppearance",
+        "material": {
+          "type": "Checkerboard"
+        }
+      }
+    },
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "RectangleGeometry",
+          "rectangle": [
+            -90,
+            30,
+            -80,
+            40
+          ],
+          "vertexFormat": "POSITION_ST"
+        }
+      },
+      "appearance": {
+        "type": "EllipsoidSurfaceAppearance",
+        "material": {
+          "type": "Grid"
+        }
+      }
+    }
+  ]
+}

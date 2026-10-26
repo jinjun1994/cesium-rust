@@ -1,0 +1,216 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -120,
+        30,
+        -110,
+        40
+      ],
+      "height": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "material": {
+      "type": "stripe",
+      "evenColor": [
+        1,
+        1,
+        1,
+        0.5
+      ],
+      "oddColor": [
+        0,
+        0,
+        1,
+        0.5
+      ],
+      "repeat": 5,
+      "offset": 0,
+      "orientation": "HORIZONTAL"
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-1-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -110,
+        30,
+        -100,
+        40
+      ],
+      "height": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "material": {
+      "type": "dot",
+      "lightColor": [
+        1,
+        1,
+        0,
+        0.75
+      ],
+      "darkColor": [
+        0,
+        1,
+        1,
+        0.75
+      ],
+      "repeat": [
+        5,
+        5
+      ]
+    },
+    "properties": {
+      "primitiveIndex": 1,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-2-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -100,
+        30,
+        -90,
+        40
+      ],
+      "height": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "material": {
+      "type": "checkerboard",
+      "evenColor": [
+        1,
+        1,
+        1,
+        0.5
+      ],
+      "oddColor": [
+        0,
+        0,
+        0,
+        0.5
+      ],
+      "repeat": [
+        5,
+        5
+      ]
+    },
+    "properties": {
+      "primitiveIndex": 2,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-3-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -90,
+        30,
+        -80,
+        40
+      ],
+      "height": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "material": {
+      "type": "grid",
+      "color": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "lineCount": [
+        8,
+        8
+      ],
+      "lineThickness": [
+        1,
+        1
+      ],
+      "cellAlpha": 0.1
+    },
+    "properties": {
+      "primitiveIndex": 3,
+      "instanceIndex": 0
+    }
+  }
+]

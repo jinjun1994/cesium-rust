@@ -1,0 +1,260 @@
+{
+  "version": "0.0.26",
+  "stage": "P0 plus selected P1/P2 foundations; not V0.1",
+  "wgpu": "30.0.1",
+  "coordinates": [
+    "WGS84",
+    "ECEF f64",
+    "ENU",
+    "camera-relative f32",
+    "Reverse-Z infinite perspective"
+  ],
+  "formats": {
+    "GLB": "static triangles, embedded BIN + PNG/JPEG bufferView/base64 data URI images, UV0/1, colors, tangents, core PBR texture channels, MASK/BLEND, sparse attributes",
+    "b3dm": "strict v1 header, integer BATCH_LENGTH, JSON/binary RTC_CENTER, JSON-array Batch Table, scalar non-sparse _BATCHID",
+    "tileset": "explicit 1.0/1.1 trees, sphere/box, inherited refine/transform, ADD, whole-group REPLACE, empty nodes, single content; external tileset JSON trees with inherited transform/refine, relative URL, cycle/depth/total-node checks",
+    "region": "WGS84 interval bounds enclosing curved interiors and antimeridian/polar regions"
+  },
+  "rendering": [
+    "wgpu baseline",
+    "sRGB output",
+    "GGX directional light plus ambient approximation",
+    "double-sided and negative-scale winding",
+    "texture/factor/vertex-color MASK shared with picking",
+    "single-sample async R32Uint feature picking",
+    "feature highlight",
+    "sRGB base color texture with filtering and shared MASK sampling",
+    "five glTF core texture slots with per-texture samplers",
+    "sRGB color/emissive; linear MR/normal/occlusion",
+    "linear-light color mips; authored or derivative TBN",
+    "straight-alpha blending in linear color space, opaque first and transparent mesh-center camera-depth sort",
+    "alpha-zero transparent pick-through with nearest covered feature ID",
+    "constant Entity/CZML stripe, checkerboard and grid shaders with generated projection UVs",
+    "one-pixel LineList Entity outlines with shared color/pick and opaque depth occlusion",
+    "constant PNG/JPEG Entity image materials, repeat and alpha pick-through",
+    "screen-facing point circles and PNG/JPEG billboard quads, framebuffer pixel sizes/offsets, shared alpha picking, globe/opaque depth occlusion",
+    "static Chinese/Latin Label alpha textures from bundled OFL font; five screen features include display distance, near/far scale/translucency and origins/baseline",
+    "static label background/padding and CPU glyph FILL/OUTLINE/FILL_AND_OUTLINE colors composed in linear light",
+    "counterclockwise billboard rotation around screen origin; independent pixel offset NearFarScalar",
+    "screen overlay pipelines after depth-tested draws when finite disableDepthTestDistance threshold is exceeded; no depth writes in color or ID overlays",
+    "screen color/pick share alpha coverage cutoff 1/255 to reject imperceptible mip tails",
+    "Dot procedural material with smooth 0.3..0.32 cell-radius transition and shared alpha picking; per-vertex/per-segment line colors",
+    "Framebuffer-pixel wide polylines with WGS84 geodesic/rhumb/straight ECEF paths, per-segment/vertex colors, glow+taper, arrow, outline and 16-bit dash materials; alpha-aware color/ID picking",
+    "paged dynamic uniform buffers without hard 4096-object slot cap, single-call batch page upload",
+    "robust device recovery state machine: Running -> Lost -> Recreating -> Rehydrating -> Running/Failed with device epoch invalidation",
+    "multi-tier frame statistics telemetry: prepare/uniform/pass/submit CPU breakdown, draw calls, triangles/lines, and memory metrics",
+    "scene and renderer dirty tracking with requestRenderMode",
+    "modular renderer architecture with dedicated capabilities, device, metrics, picking, pipelines, and uniforms subsystems"
+  ],
+  "native": [
+    "bounded local/HTTP reads",
+    "4 fetch/decode workers",
+    "generation guard",
+    "download/CPU reservation budgets",
+    "GPU pinned LRU",
+    "one content upload per frame",
+    "no transient retry; failures are terminal in this baseline"
+  ],
+  "web": [
+    "WebGPU canvas",
+    "embedded demo",
+    "static GLB/b3dm load",
+    "explicit tileset streaming via thin JS SDK (4 bounded fetches)",
+    "resize",
+    "orbit",
+    "pick",
+    "destroy",
+    "normalized wheel pixel/line/page units",
+    "touch pinch and keyboard zoom",
+    "visible zoom buttons",
+    "pinned bertt repository sample workbench and batch validation reports",
+    "live sample queue, request/decode counters, manual visual review and JSON export",
+    "global terrain toggles, custom source, exaggeration/SSE, oblique Everest view and cached elevation query",
+    "Sandcastle geographic geometry/CZML recipes, entity list/focus/show/hide/delete/upsert and case subset links",
+    "bounded asynchronous Entity/CZML image hydration with relative URLs, deduplication, cancellation and four shared image transport slots",
+    "Point/Billboard JSON, static CZML and sampled-motion recipes in Sandcastle UI",
+    "five independent Label/distance/origin recipes, combined CZML and near/middle/far camera test buttons",
+    "five independent screen-effect recipes and combined CZML for label backgrounds/outlines, rotation, offset distance and depth policy",
+    "bounded camera setView/flyTo/cancelFlight/lookAt/trackEntity/stopTracking and cameraState"
+  ],
+  "not_implemented": [
+    "multiple contents",
+    "implicit tiling",
+    "viewerRequestVolume",
+    "pnts/i3dm/cmpt",
+    "external glTF buffers",
+    "skins/animation/morph targets",
+    "required glTF extensions",
+    "binary Batch Table properties",
+    "HTTP retry/cache/auth/redirect policy",
+    "physical download cancellation",
+    "segmented uploads",
+    "Web Workers",
+    "device-loss recovery",
+    "compute culling",
+    "external glTF image resources",
+    "MikkTSpace tangent generation",
+    "IBL and full material extensions",
+    "cross-mesh GPU texture deduplication",
+    "full CZML / Entity / DataSource compatibility",
+    "full text/font styling/shaping and exact Cesium SDF text rendering, paths, full billboard graphics, terrain-clamped geometry and full entity material/outline/animation support",
+    "2D/Columbus view, full Cesium camera flight options, synced views",
+    "shadows, full atmosphere, post-processing and measurement/editing tools",
+    "order-independent transparency and per-triangle transparent sorting",
+    "wide or dynamic geometry outlines, exact Cesium geometry ST mappings, video/canvas Entity image materials"
+  ],
+  "validation": {
+    "native": "115 ordinary Rust, 85 distinct actual GPU tests, 8 Node suites; 57 source cases plus 5 additional Points alternatives each 90 frames errors 0",
+    "wasm": "build and bindings generation passed",
+    "browser_runtime": "57 source case contracts in one Chromium WebGPU main session plus existing DPR=2 context; per-instance pixels/picking, original parameters/controls, wheel zoom and resize; explicit Vulkan/SwiftShader"
+  },
+  "globe": {
+    "mesh": "WGS84 256x128 equirectangular ellipsoid",
+    "base_color": "bundled NASA Earth Observatory December 2004 Blue Marble, 1024x512 sRGB",
+    "camera": "global Asia view at 2.65 equatorial radii; exponential surface-height zoom to 10m clearance; local ellipsoid radius and altitude-dependent rotation/near plane",
+    "lighting": "directional GGX + approximate interior atmospheric rim; not physical scattering",
+    "offline": "CESIUM_OFFLINE=1 uses bundled NASA; default no-token online source is Natural Earth II"
+  },
+  "imagery": {
+    "providers": [
+      "Cesium ion default asset 2 → BING metadata and QuadKey",
+      "Cesium Natural Earth II geographic TMS levels 0..2",
+      "configured XYZ/TMS templates"
+    ],
+    "coverage": "adaptive disjoint regions, nearest ready ancestor UV fallback, ellipsoid skirt edges, NASA polar caps",
+    "limits": "4 concurrent fetches, 4 MiB image, 1024 longest edge, 8 MiB decoder allocation, 64 MiB combined CPU/GPU cache",
+    "credentials": "CESIUM_ION_TOKEN native; loadWorldImagery(token) Web; no embedded evaluation token",
+    "validation": "Natural Earth II real JPEGs, real Vulkan export and native asynchronous smoke passed; live ion/Bing not tested without user token",
+    "offline_case": "42 pinned NaturalEarthII geographic TMS JPEGs bundled for local server/native file loading; source Offline case blocks public network in browser test"
+  },
+  "geojson": {
+    "types": "FeatureCollection, Feature, Point, LineString, Polygon, Multi*, GeometryCollection, null geometry",
+    "geometry": "WGS84 world-size ENU disks/ribbons and tessellated simple polygons with holes; antimeridian unwrap",
+    "layers": "add/remove/clear/focus, coexist with imagery and tiles, id/properties picking",
+    "limits": "8 MiB input, 32 MiB decoded geometry, 10000 features, 100000 positions, 300000 vertices, 32 layers/64 MiB GPU",
+    "unsupported": "terrain clamp, labels, extrusion, transparent style, dynamic style expressions, spherical/global or polar polygon triangulation, full polyline joins"
+  },
+  "terrain": {
+    "providers": [
+      "public Mapzen/Tilezen Terrarium XYZ, Mercator levels 1..15 with polar ellipsoid fallback",
+      "Cesium ion asset 1 terrain endpoint, geographic quantized-mesh-1.0 TMS",
+      "custom quantized-mesh layer.json or Terrarium template"
+    ],
+    "decode": [
+      "gzip with output cap",
+      "zig-zag delta vertices",
+      "16/32-bit high-water-mark indices",
+      "validated/sorted edge lists and skirts",
+      "metadata tile availability",
+      "normal extension length checks; normals recomputed from geometry",
+      "watermask validated but not rendered"
+    ],
+    "coverage": "visible quadtree, complete-child-group replacement, parent pinning and bounded LRU, ellipsoid fallback before roots load",
+    "imagery": "reproject best resident geographic/Mercator image onto terrain texture, NASA fallback, one drape refresh per frame",
+    "coordinates": "ECEF f64 to per-tile RTC, local f32 vertices",
+    "camera": "loaded-height clearance and terrain-tracking oblique orbit",
+    "query": "barycentric loaded-tile raw heights; unknown points return null; no most-detailed remote query",
+    "limits": "4 concurrent terrain fetch/decode tasks, 8 MiB encoded/decompressed tile, 262144 source vertices, 1500000 source indices, 128 MiB mesh/query/GPU cache budget; source/generation guards",
+    "unsupported": [
+      "parentUrl layer chains",
+      "heightmap-1.0/LERC/GeoTIFF",
+      "water rendering",
+      "dynamic terrain edits",
+      "terrain clipping",
+      "geoid-to-ellipsoid datum conversion",
+      "GeoJSON or 3D Tiles automatic terrain clamping",
+      "Web Workers"
+    ],
+    "validation": "37 ordinary Rust tests, 5 explicit GPU tests, real Terrarium HTTP + native GPU/readback; ion live service and browser GPU not verified"
+  },
+  "entities": {
+    "geometry": "RGBA ENU box, ellipsoid, cylinder/cone, plane; geographic metre-width polyline, polygon with holes/constant extrusion, dateline rectangle, static surface ellipse and wall; static screen point and billboard; static corridor with rounded/mitered/beveled corners, caps, width in metres, height/extrusion and outline; bounded nested PolygonSurface with islands, authored ST, arbitrary per-position heights, open extrusion caps, WGS84/RHUMB curved surfaces and coplanar faces",
+    "animation": "UTC Unix-second clock; FIXED ECEF linear sampled position; availability and dynamic model transforms; infer absent document clock from availability with duration/120 multiplier; underground ECEF samples retain globe occlusion and safe camera fitting",
+    "czml": "strict document 1.0 subset plus polygon/rectangle/ellipse/wall, solidColor/stripe/checkerboard/grid/image, constant fill/outline/outlineColor/outlineWidth=1; rejects unsupported properties; point/billboard static graphics and FIXED sampled positions; label text/font/fillColor/scale/pixelOffset, static distanceDisplayCondition/scaleByDistance/translucencyByDistance and supported origins; static Label appearance, Billboard rotation, pixelOffsetScaleByDistance and disableDepthTestDistance; constant rgbaf 0..1 colors and ellipsoid integer stackPartitions/slicePartitions (number wrappers accepted); absent CZML material defaults white; static corridor; constant/sampled cartographicRadians normalized through WGS84 ECEF, mutually exclusive position encodings; polygon perPositionHeight and closeTop/closeBottom",
+    "limits": "8 MiB input, 256 entities, 32 MiB geometry, 100k total samples",
+    "api": "transactional replace/upsert complete specs, snapshot, show/hide/remove/clear/focus/pick; unrelated mesh IDs preserved; no CZML process/delete/refs/trackedEntity",
+    "materials": "constant solid RGBA/stripe/checkerboard/grid and static PNG/JPEG images; repeat, transparent and sRGB colors; generated projection ST; no Fabric/dynamic/video/canvas materials; constant Dot material in Entity JSON",
+    "outlines": "one-pixel box/ellipsoid/cylinder/plane/polygon/rectangle/ellipse/wall line outlines; fixed wire sampling, fill=false; no polyline outline or wide lines",
+    "image_resources": "PNG/JPEG <=2048 per edge, <=4 MiB encoded; <=16 unique external images/import, 4 shared browser transport slots, 8 MiB normalized input; native file/http/https and Web http/https; synchronous Rust/SDK requires inline data URI",
+    "screen": "Point/Billboard/Label framebuffer pixel quads; point circles/outlines, PNG/JPEG billboards, static Label text with bundled GB2312 + selected Latin/Greek/Cyrillic font subset; display distance, Cesium squared-distance pow(0.2) near/far scale and translucency, horizontal LEFT/CENTER/RIGHT and vertical TOP/CENTER/BOTTOM/Label BASELINE; no CSS/DPR compensation, full CSS fonts/shaping, eyeOffset or terrain clamp; static Label appearance showBackground/backgroundColor/backgroundPadding/style/outlineColor/outlineWidth; Billboard rotation; pixelOffsetScaleByDistance for Billboard/Label; finite disableDepthTestDistance for Point/Billboard/Label",
+    "screen_limits": "Label <=256 chars/8 lines/4096 UTF-8 bytes, fontSize 8..96 px (default 30), raster <=2048x512; static label scale <=8; distance 0..1e9 m with >=1 mm span; scale factors 0..8, alpha factors 0..1; entity aggregate GPU/geometry limits retained; global font memory is separate; background padding 0..64 px (rounded up), outline 0..8 px, rotation +/-10000 radians; offset distance factors 0..8; disable depth 0(default normal) or finite positive <=1e9 m",
+    "plane": "local unit normal and signed distance with shared fill/outline basis; defaults +Z/0",
+    "ellipsoid": "static radii; optional integer stackPartitions/slicePartitions 3..128; fill defaults 64/64, outline defaults 10/8, 128 samples per ring; analytic smooth normals; full/solid ellipsoids only",
+    "wall": "WGS84 Vincenty inverse/direct paths shared by standalone wall fill/outline, linear per-segment upper/lower heights; 0.1 degree-equivalent step; bounded iteration and explicit rejection of antipodal/nonconvergent/oversized input",
+    "ellipse": "static axes 1..1000000 m, minor <= major; pinned core quaternion surface boundary and rotation; optional graphic height independent of original entity position, CZML default height 0; adaptive radial caps, extrusion and matching outlines with configurable 0..256 vertical lines (default 16); existing 10 m fill surface offset retained",
+    "line_set": "outline-only paths, optional per-segment/per-vertex colors; WGS84 geodesic vs straight ECEF; up to 128 paths, 1024 total source positions, 100000 generated vertices",
+    "corridor": "2..32 static center positions, width 1..1000000 m, height +/-1000000 m, at most 1024 boundary points; WGS84 center arcs, pinned tangent offsets/corner equations; shared fill/outline; independent Cesium core boundary regression; Entity, Primitive and static CZML; no time-varying corridor properties",
+    "groups": "up to 256 flat geometry-free folders, unique child membership, inherited visibility without changing child show; atomic grouped import, group toggle cancels hidden tracking; not arbitrary nested Entity.parent/reference inheritance",
+    "polygon_surface": {
+      "hierarchy": "depth <=8, 1024 source positions, <=32 immediate holes; even-depth islands preserved",
+      "geometry": "coplanar principal covariance plane, earcut, per-position straight ECEF triangle caps, static extrusion walls and independently open top/bottom; bounded WGS84 or rhumb surface subdivision",
+      "texture": "matching authored ST hierarchy; coplanar rotated automatic ST shared across nested islands; independent pinned Cesium core position/ST reference test",
+      "limits": "height +/-1000000m, latitude +/-85 degrees, 300000 generated unique vertices per polygon, 32 MiB resident collection budget; curved caps use 20 km target edges plus depth bound; 10m geographic depth offset retained; no exact Cesium triangulation claim",
+      "outlines": "source one-pixel colors, straight ECEF for per-position faces, curved geodesic or rhumb paths for geodetic faces"
+    }
+  },
+  "sandcastle": {
+    "release": "1.146",
+    "commit": "b8d3a36fe98a3e432eb89253c95d5f20e605e0f1",
+    "catalog_cases": 309,
+    "full_recipe_passed": 57,
+    "status": "57 complete case-specific functional contracts; remaining 252 not verified; not pixel-exact Cesium or full Viewer parity",
+    "cases_with_native_subset_recipe": 19,
+    "full_recipe_evidence": "docs/polyline-validation.md"
+  },
+  "camera": {
+    "projection": "60 degree perspective, ECEF f64 eye/quaternion orientation; bounded 3D baseline",
+    "features": [
+      "setView geodetic eye + heading/pitch/roll",
+      "flyTo wall-clock great-circle normal interpolation, lifted altitude, world quaternion slerp",
+      "cancelFlight, replacement and manual control takeover",
+      "trackEntity with local ENU HeadingPitchRange and visibility/availability/removal lifecycle",
+      "lookAt fixed geodetic anchor with HeadingPitchRange",
+      "zoomToEntities actual visible geometry bounds, aspect-aware all/subset fit"
+    ],
+    "limits": "destination height 10..30000000 m; duration 0..120 s; look offset pitch -pi/2..0 and range 10..30000000 m; native command array <=16 commands/16KiB",
+    "unsupported": "full CesiumJS camera options, flyTo Promise/events, bounding sphere/rectangle targets, flyHome, lookAtTransform, 2D/Columbus/orthographic, inertia, predicted terrain collision, camera snapshot async picking",
+    "validation": "docs/camera-validation.md"
+  },
+  "primitive_instances": {
+    "geometry": "static Box/Cylinder/Sphere/Ellipsoid/Wall/Ellipse and Rectangle (rotation/extrusion) filled Geometry; eight outline families including ellipse/circle, PolygonOutline with extrusion/per-position heights and CoplanarPolygonOutline with nested rings; SimplePolylineGeometry WGS84 geodesic or straight ECEF with segment/vertex colors; CircleGeometry alias with radius and graphic height; CorridorGeometry and CorridorOutlineGeometry; filled PolygonGeometry and CoplanarPolygonGeometry, nested hierarchy, per-position heights and authored ST; PolylineGeometry with framebuffer-pixel width and segment/vertex colors",
+    "inputs": "single/array GeometryInstance, optional id, original modelMatrix, normalized byte instance color; filled PerInstanceColorAppearance flat/closed/translucent defaults; outline flat/one-pixel renderState",
+    "api": "Rust Scene::set_primitive_instances; Web loadPrimitiveInstances object/URL and maximumAliasedLineWidth=1; native CESIUM_PRIMITIVES",
+    "storage": "compiled into shared resident geometry store; replaces current entity/instance collection atomically; not a full independent Cesium PrimitiveCollection API",
+    "limits": "8 MiB JSON, 1..256 primitives/instances; previous geometry/model budgets; filled custom renderState/faceForward unsupported; filled Wall constant or per-position heights (mutually exclusive); world geometry requires identity modelMatrix",
+    "model_matrix": "local non-screen geometry only; finite nonsingular affine ECEF 4x4; column lengths 1e-6..100, translation length 1..1e8 m; mutually exclusive with positionDegrees and samples; float_roundtrip JSON parser retains f64",
+    "validation": "docs/corridor-circle-validation.md",
+    "surface_appearance": "default flat=false, closed=false, translucent=true; derived faceForward=!closed; fixed directional diffuse + 0.2 ambient approximation; closed opaque backface cull, closed translucent back/front two-pass; no OIT, exact Phong or astronomical sun matching",
+    "materials": "bounded MaterialAppearance TEXTURED and EllipsoidSurfaceAppearance POSITION_ST; Material.fromType defaults for Stripe, Checkerboard, Dot and Grid; no arbitrary Fabric; static Image material, bounded local/HTTP PNG/JPEG hydration shared with Entity imports",
+    "appearance": "; PolylineColorAppearance and PolylineMaterialAppearance with pinned Material.fromType defaults"
+  },
+  "web_scene": {
+    "projection": "ECEF camera-relative projection in Rust, CSS pixel conversion and result-object reuse in SDK; invalid/behind-camera returns undefined",
+    "events": "scene.preRender callbacks after clock/camera/resize, removable subscriptions; destroy clears callbacks",
+    "resolution": "resolutionScale 0.1..2, DPR multiplier or browser-recommended CSS resolution; framebuffer resize and pick invalidation; DOM controls clamp invalid source input",
+    "scope": "three scene cases tested in real browser; native smokes cover shared globe/projection only; no full Scene API, widgets or native HTML DOM",
+    "menus": "Points: all six original options, reset replaces rather than accumulates; source NearFarScalar scaling/fading and property mutation results"
+  },
+  "polyline": {
+    "api": "widePolyline distinct from legacy metre ribbon polyline",
+    "widthPixels": [
+      1,
+      256
+    ],
+    "maxPositions": 1024,
+    "maxSampledPositions": 50000,
+    "heightLimitMetres": 2000000,
+    "groundScope": "default ellipsoid for these six source cases; no new dynamic terrain or 3D Tiles clamping",
+    "corner": "screen miter bounded at 4",
+    "referenceShaders": "tests/sandcastle/batch26-shaders.json",
+    "sourceCases": [
+      "polyline",
+      "polyline-dev",
+      "polyline-color-dev",
+      "polyline-material-dev",
+      "polyline-dash",
+      "czml-polyline"
+    ],
+    "evidence": "docs/polyline-validation.md"
+  }
+}

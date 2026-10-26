@@ -1,0 +1,8 @@
+{
+  "format": "quantized-mesh-1.0",
+  "tiles": [
+    "{x}.terrain?z={z}&y={y}"
+  ],
+  "maxzoom": 0,
+  "attribution": "Synthetic offline test terrain, not real elevations"
+}

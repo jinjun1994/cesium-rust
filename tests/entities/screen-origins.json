@@ -1,0 +1,77 @@
+[
+  {
+    "id": "origin-0",
+    "name": "LEFT / TOP",
+    "positionDegrees": [
+      109.8,
+      25,
+      16000
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "image-test.png",
+      "width": 64,
+      "height": 48
+    },
+    "screen": {
+      "horizontalOrigin": "LEFT",
+      "verticalOrigin": "TOP"
+    }
+  },
+  {
+    "id": "origin-1",
+    "name": "CENTER / CENTER",
+    "positionDegrees": [
+      110.0,
+      25,
+      16000
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "image-test.png",
+      "width": 64,
+      "height": 48
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER"
+    }
+  },
+  {
+    "id": "origin-2",
+    "name": "RIGHT / BOTTOM",
+    "positionDegrees": [
+      110.2,
+      25,
+      16000
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "image-test.png",
+      "width": 64,
+      "height": 48
+    },
+    "screen": {
+      "horizontalOrigin": "RIGHT",
+      "verticalOrigin": "BOTTOM"
+    }
+  }
+]

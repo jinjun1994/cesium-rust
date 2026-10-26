@@ -1,0 +1,30 @@
+{
+  "commit": "b8d3a36fe98a3e432eb89253c95d5f20e605e0f1",
+  "license": "Apache-2.0",
+  "files": [
+    {
+      "path": "tests/sandcastle/reference-shaders/PolylineArrow.glsl",
+      "sourcePath": "packages/engine/Source/Shaders/Materials/PolylineArrowMaterial.glsl",
+      "sha256": "c991ad3cac9f14783756efc7d6ddda9aef9eb2f22d4d336429c6624dd7dd3a42",
+      "bytes": 1916
+    },
+    {
+      "path": "tests/sandcastle/reference-shaders/PolylineDash.glsl",
+      "sourcePath": "packages/engine/Source/Shaders/Materials/PolylineDashMaterial.glsl",
+      "sha256": "29fa17c5511d35ca8814a2d634461dedb61f1e62ea2d1ed2ff5661bfd7c7bd63",
+      "bytes": 1078
+    },
+    {
+      "path": "tests/sandcastle/reference-shaders/PolylineGlow.glsl",
+      "sourcePath": "packages/engine/Source/Shaders/Materials/PolylineGlowMaterial.glsl",
+      "sha256": "7f9cc2596d080094780420abdffb4c72a21bf5ee63bc63616d90a8b31a20ef0e",
+      "bytes": 703
+    },
+    {
+      "path": "tests/sandcastle/reference-shaders/PolylineOutline.glsl",
+      "sourcePath": "packages/engine/Source/Shaders/Materials/PolylineOutlineMaterial.glsl",
+      "sha256": "fd0781d5adba0a2e91703419fee6c5d9f2aaa8e2b75a3dbd2d8d0cfc096a8358",
+      "bytes": 922
+    }
+  ]
+}

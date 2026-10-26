@@ -1,0 +1,6 @@
+{
+  "type": "offline",
+  "template": "../../assets/NaturalEarthII/{z}/{x}/{reverseY}.jpg",
+  "baseLayerPicker": false,
+  "geocoder": false
+}

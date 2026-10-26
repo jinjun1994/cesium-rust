@@ -1,0 +1,49 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "wall",
+      "positionsDegrees": [
+        [
+          -120,
+          60,
+          0
+        ],
+        [
+          -90,
+          60,
+          0
+        ]
+      ],
+      "minimumHeights": [
+        0,
+        0
+      ],
+      "maximumHeights": [
+        500000,
+        500000
+      ]
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  }
+]

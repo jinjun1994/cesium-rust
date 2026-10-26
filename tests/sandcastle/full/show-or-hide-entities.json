@@ -1,0 +1,527 @@
+[
+  {
+    "id": "group-child-1",
+    "name": "",
+    "positionDegrees": [
+      -106,
+      45,
+      100000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        90000,
+        90000,
+        90000
+      ]
+    },
+    "color": [
+      0.19151945016346872,
+      0.49766366626136005,
+      0.6221087663434446,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "parentId": "folder-2"
+    }
+  },
+  {
+    "id": "group-child-2",
+    "name": "",
+    "positionDegrees": [
+      -102,
+      45,
+      100000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        45000,
+        45000,
+        90000
+      ]
+    },
+    "color": [
+      0.8178384427446872,
+      0.4377277372404933,
+      0.6121118934825063,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "parentId": "folder-3"
+    }
+  },
+  {
+    "id": "group-child-3",
+    "name": "",
+    "positionDegrees": [
+      -98,
+      45,
+      100000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        67500,
+        67500,
+        67500
+      ]
+    },
+    "color": [
+      0.7853585835546255,
+      0.7713599188718945,
+      0.7799758051987737,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "parentId": "folder-1"
+    }
+  },
+  {
+    "id": "group-child-4",
+    "name": "",
+    "positionDegrees": [
+      -106,
+      45,
+      300000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        90000,
+        90000,
+        90000
+      ]
+    },
+    "color": [
+      0.860669773304835,
+      0.27259260951541364,
+      0.15063696564175189,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "parentId": "folder-2"
+    }
+  },
+  {
+    "id": "group-child-5",
+    "name": "",
+    "positionDegrees": [
+      -102,
+      45,
+      300000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        45000,
+        45000,
+        90000
+      ]
+    },
+    "color": [
+      0.27646425971761346,
+      0.19851876003667712,
+      0.8018721740227193,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "parentId": "folder-3"
+    }
+  },
+  {
+    "id": "group-child-6",
+    "name": "",
+    "positionDegrees": [
+      -98,
+      45,
+      300000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        67500,
+        67500,
+        67500
+      ]
+    },
+    "color": [
+      0.815162933897227,
+      0.9581393552944064,
+      0.15881535317748785,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "parentId": "folder-1"
+    }
+  },
+  {
+    "id": "group-child-7",
+    "name": "",
+    "positionDegrees": [
+      -106,
+      45,
+      500000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        90000,
+        90000,
+        90000
+      ]
+    },
+    "color": [
+      0.8759326399303973,
+      0.11613783007487655,
+      0.3578172759152949,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "parentId": "folder-2"
+    }
+  },
+  {
+    "id": "group-child-8",
+    "name": "",
+    "positionDegrees": [
+      -102,
+      45,
+      500000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        45000,
+        45000,
+        90000
+      ]
+    },
+    "color": [
+      0.012907532975077629,
+      0.5009951256215572,
+      0.4868334447965026,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "parentId": "folder-3"
+    }
+  },
+  {
+    "id": "group-child-9",
+    "name": "",
+    "positionDegrees": [
+      -98,
+      45,
+      500000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        67500,
+        67500,
+        67500
+      ]
+    },
+    "color": [
+      0.6834629338700324,
+      0.3310154266655445,
+      0.7127020230982453,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "parentId": "folder-1"
+    }
+  },
+  {
+    "id": "group-child-10",
+    "name": "",
+    "positionDegrees": [
+      -106,
+      45,
+      700000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        90000,
+        90000,
+        90000
+      ]
+    },
+    "color": [
+      0.8026395735796541,
+      0.3702507591806352,
+      0.09825193835422397,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "parentId": "folder-2"
+    }
+  },
+  {
+    "id": "group-child-11",
+    "name": "",
+    "positionDegrees": [
+      -102,
+      45,
+      700000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        45000,
+        45000,
+        90000
+      ]
+    },
+    "color": [
+      0.561196189140901,
+      0.05599344940856099,
+      0.5030831657350063,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "parentId": "folder-3"
+    }
+  },
+  {
+    "id": "group-child-12",
+    "name": "",
+    "positionDegrees": [
+      -98,
+      45,
+      700000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        67500,
+        67500,
+        67500
+      ]
+    },
+    "color": [
+      0.44266265514306724,
+      0.01376845221966505,
+      0.022143909009173512,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "parentId": "folder-1"
+    }
+  },
+  {
+    "id": "group-child-13",
+    "name": "",
+    "positionDegrees": [
+      -106,
+      45,
+      900000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        90000,
+        90000,
+        90000
+      ]
+    },
+    "color": [
+      0.7728266199119389,
+      0.2907285480760038,
+      0.8826411948539317,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "parentId": "folder-2"
+    }
+  },
+  {
+    "id": "group-child-14",
+    "name": "",
+    "positionDegrees": [
+      -102,
+      45,
+      900000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        45000,
+        45000,
+        90000
+      ]
+    },
+    "color": [
+      0.24639444123022258,
+      0.36488598003052175,
+      0.7382867659907788,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "parentId": "folder-3"
+    }
+  },
+  {
+    "id": "group-child-15",
+    "name": "",
+    "positionDegrees": [
+      -98,
+      45,
+      900000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        67500,
+        67500,
+        67500
+      ]
+    },
+    "color": [
+      0.6153961718082428,
+      0.8892261332366616,
+      0.07538123684935272,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "parentId": "folder-1"
+    }
+  }
+]

@@ -1,0 +1,47 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> cesium-rs-browser-tests@0.0.16 test
+> npm run test:controls && npm run test:sdk && npm run test:ui && npm run test:terrain && npm run test:sandcastle && npm run test:images && npm run test:camera
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> cesium-rs-browser-tests@0.0.16 test:controls
+> node scripts/controls-test.mjs
+
+Controls passed: wheel units/direction, keyboard, pinch both directions, no pick after pinch, cancel, cleanup
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> cesium-rs-browser-tests@0.0.16 test:sdk
+> node scripts/sdk-lifecycle-test.mjs
+
+SDK lifecycle passed: source replacement drops stale tile bytes; clear cancels GeoJSON import; layer add/focus/remove/destroy
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> cesium-rs-browser-tests@0.0.16 test:ui
+> node scripts/workbench-test.mjs
+
+Workbench passed: 3721 catalog, filtering, selection, SDK actions, queue/export, manual visual guard, load failure, GPU-unavailable browsing
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> cesium-rs-browser-tests@0.0.16 test:terrain
+> node scripts/terrain-lifecycle-test.mjs
+
+Terrain lifecycle passed: in-flight old provider isolation, abort/clear/destroy guards, unknown heights, ion endpoint and bearer headers
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> cesium-rs-browser-tests@0.0.16 test:sandcastle
+> node scripts/sandcastle-test.mjs
+
+Sandcastle passed: all 309 pinned recipes, honest coverage, safe reference source, filters, notes, entity/CZML actions, pause/seek/reverse and GPU-unavailable browsing
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> cesium-rs-browser-tests@0.0.16 test:images
+> node scripts/image-resources-test.mjs
+
+Image resources passed: relative URLs, dedup, metadata isolation, global four-request cap, clear/stale guards, failure atomicity and CZML URI hydration
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> cesium-rs-browser-tests@0.0.16 test:camera
+> node scripts/camera-sdk-test.mjs
+
+Camera SDK passed: commands, defaults, IDs, cancellation, tracking, source replacement and destroy guards

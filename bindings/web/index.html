@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Cesium Rust · 测试工作台</title>
+    <link rel="stylesheet" href="workbench.css" />
+  </head>
+  <body>
+    <header>
+      <strong>CESIUM <em>RUST</em></strong
+      ><span>3D Tiles 测试工作台</span
+      ><a href="#terrainTools" aria-label="打开全球地形控制">地形</a>
+      <a href="sandcastle.html">Sandcastle 全案例</a><span id="gpuState">初始化中</span>
+    </header>
+    <main>
+      <aside>
+        <section>
+          <h1>样本目录</h1>
+          <p id="catalogStatus">读取目录…</p>
+          <input
+            id="search"
+            type="search"
+            placeholder="搜索名称 / 路径 / 版本"
+            aria-label="搜索样本"
+          />
+          <div class="row">
+            <select id="filter" aria-label="验证筛选">
+              <option value="all">全部结果</option>
+              <option value="passed">JSON 解析通过</option>
+              <option value="failed">解析失败</option>
+              <option value="download-failed">下载失败</option>
+              <option value="not-tested">未验证</option></select
+            ><label><input id="subtrees" type="checkbox" />点云子树</label>
+          </div>
+          <div class="row">
+            <button id="runQueue" data-gpu>轮测筛选结果</button
+            ><button id="stopQueue">停止</button
+            ><button id="export">导出结果</button>
+          </div>
+          <p id="queueStatus">轮测记录请求与驻留；视觉结果需人工确认。</p>
+        </section>
+        <div id="catalog" aria-label="Tileset 样本"></div>
+      </aside>
+      <div class="stage">
+        <canvas
+          id="globe"
+          width="1280"
+          height="800"
+          aria-label="地球与三维场景"
+        ></canvas>
+        <div id="emptyState">初始化三维场景…</div>
+        <div class="sceneLabel">
+          <strong id="currentName">全球影像</strong
+          ><span id="liveState">尚未加载样本</span>
+        </div>
+        <nav class="zoom-controls" aria-label="地图缩放">
+          <button id="zoomIn" data-gpu aria-label="放大">＋</button
+          ><button id="zoomOut" data-gpu aria-label="缩小">－</button
+          ><button id="resetView" data-gpu>全球视角</button>
+        </nav>
+        <div class="stats">
+          <p id="status">等待渲染器</p>
+          <p id="credits"></p>
+        </div>
+      </div>
+      <aside class="tools">
+        <section>
+          <h2>当前样本</h2>
+          <p id="selection">选择左侧样本查看结果。</p>
+          <div class="row">
+            <button id="loadSelected" data-gpu>加载选中样本</button
+            ><a id="source" target="_blank" rel="noopener">源文件</a>
+          </div>
+          <pre id="validation">验证报告加载中…</pre>
+          <figure id="gpuPreview" hidden>
+            <img id="previewImage" alt="原生 GPU 单个内容离屏预览" />
+            <figcaption>
+              原生 GPU：单个内容独立预览，非整个 tileset 验收。
+            </figcaption>
+          </figure>
+          <div class="row">
+            <button id="visualPass">视觉确认通过</button
+            ><button id="visualFail">视觉异常</button>
+          </div>
+          <p id="visualState">视觉状态：未验证</p>
+        </section>
+        <section id="terrainTools">
+          <details>
+            <summary>本次原生 GPU 地形预览</summary>
+            <figure>
+              <img
+                src="../../docs/terrain-preview.png"
+                alt="真实 Terrarium 珠峰周边的原生 GPU 地形渲染"
+              />
+              <figcaption>
+                真实原生离屏结果；不代表当前浏览器实时渲染。
+              </figcaption>
+            </figure>
+          </details>
+          <h2>全球地形</h2>
+          <p id="terrainStatus">
+            默认启用公开 Terrarium 高程；极区使用椭球回退。
+          </p>
+          <div class="row">
+            <button id="terrainPublic" data-gpu>公开全球地形</button
+            ><button id="terrainWorld" data-gpu>Cesium World Terrain</button
+            ><button id="terrainOff" data-gpu>关闭地形</button>
+          </div>
+          <input
+            id="terrainUrl"
+            placeholder="quantized-mesh layer.json 或 Terrarium XYZ 模板"
+            aria-label="地形 URL"
+          />
+          <div class="row">
+            <button id="terrainLoad" data-gpu>加载地形 URL</button
+            ><button id="terrainDemo" data-gpu>离线合成地形</button>
+          </div>
+          <div class="row">
+            <label
+              >高度倍率
+              <select id="terrainScale">
+                <option value="1">1×</option>
+                <option value="2">2×</option>
+                <option value="5">5×</option>
+              </select></label
+            ><label
+              >细化误差
+              <select id="terrainSse">
+                <option value="4">4 px</option>
+                <option value="8" selected>8 px</option>
+                <option value="16">16 px</option>
+                <option value="32">32 px</option>
+              </select></label
+            ><button id="terrainOptions" data-gpu>应用</button>
+          </div>
+          <div class="row">
+            <input
+              id="terrainLon"
+              type="number"
+              value="86.92528"
+              step="any"
+              aria-label="地形经度"
+            /><input
+              id="terrainLat"
+              type="number"
+              value="27.9881"
+              step="any"
+              aria-label="地形纬度"
+            />
+          </div>
+          <div class="row">
+            <button id="terrainFocus" data-gpu>定位（珠峰）</button
+            ><button id="terrainTilt" data-gpu>倾斜观察</button
+            ><button id="terrainSample" data-gpu>查询已加载高程</button>
+          </div>
+          <p id="terrainHeight">
+            高程查询只返回已加载的瓦片；未加载时显示未知。
+          </p>
+        </section>
+        <section>
+          <h2>功能测试</h2>
+          <input
+            id="url"
+            placeholder="tileset / GLB / b3dm / GeoJSON URL"
+            aria-label="资源 URL"
+          />
+          <div class="row">
+            <button id="load" data-gpu>加载 URL</button
+            ><button id="fileButton" data-gpu>打开 GLB / b3dm</button>
+          </div>
+          <input type="file" id="file" accept=".glb,.b3dm" hidden />
+          <div class="row">
+            <button id="earth" data-gpu>地球与渐进影像</button
+            ><button id="fixture" data-gpu>本地拾取样本</button>
+          </div>
+          <input
+            id="ionToken"
+            type="password"
+            autocomplete="off"
+            placeholder="Cesium ion token"
+            aria-label="Cesium ion token"
+          /><button id="world" data-gpu>默认全球航拍影像</button>
+          <div class="row">
+            <button id="geoDemo" data-gpu>GeoJSON 示例</button
+            ><button id="geoLoad" data-gpu>GeoJSON URL</button
+            ><button id="geoFocus" data-gpu>定位图层</button
+            ><button id="geoClear" data-gpu>清除图层</button>
+          </div>
+          <p>
+            拖动旋转 · 滚轮 / 双指缩放 · 点击拾取<br />可选扩展的完整语义可能尚未支持。
+          </p>
+        </section>
+        <section>
+          <h2>拾取属性</h2>
+
+          <pre id="properties">点击模型或 GeoJSON 要素</pre>
+          <h2>运行日志</h2>
+          <pre id="error"></pre>
+          <button id="clearLog">清空日志</button>
+        </section>
+      </aside>
+    </main>
+    <script type="module" src="workbench.js"></script>
+  </body>
+</html>

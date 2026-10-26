@@ -1,0 +1,112 @@
+[
+  {
+    "id": "spheres-and-ellipsoids-1",
+    "name": "Blue ellipsoid",
+    "positionDegrees": [
+      -114,
+      40,
+      300000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        200000,
+        200000,
+        300000
+      ]
+    },
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "spheres-and-ellipsoids",
+      "upstreamEntity": 1
+    }
+  },
+  {
+    "id": "spheres-and-ellipsoids-2",
+    "name": "Red sphere with black outline",
+    "positionDegrees": [
+      -107,
+      40,
+      300000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        300000,
+        300000,
+        300000
+      ]
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "spheres-and-ellipsoids",
+      "upstreamEntity": 2
+    }
+  },
+  {
+    "id": "spheres-and-ellipsoids-3",
+    "name": "Yellow ellipsoid outline",
+    "positionDegrees": [
+      -100,
+      40,
+      300000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        200000,
+        200000,
+        300000
+      ],
+      "stackPartitions": 36,
+      "slicePartitions": 24
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "spheres-and-ellipsoids",
+      "upstreamEntity": 3
+    }
+  }
+]

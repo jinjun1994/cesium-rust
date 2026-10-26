@@ -1,0 +1,106 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "beijing",
+      "properties": {
+        "name": "Beijing",
+        "kind": "point"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          116.4,
+          39.9
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "route",
+      "properties": {
+        "name": "Asia route",
+        "kind": "line"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            85,
+            24
+          ],
+          [
+            100,
+            30
+          ],
+          [
+            116,
+            40
+          ],
+          [
+            130,
+            34
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "area",
+      "properties": {
+        "name": "Area with a hole",
+        "kind": "polygon"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              105,
+              20
+            ],
+            [
+              115,
+              20
+            ],
+            [
+              115,
+              30
+            ],
+            [
+              105,
+              30
+            ],
+            [
+              105,
+              20
+            ]
+          ],
+          [
+            [
+              108,
+              23
+            ],
+            [
+              108,
+              27
+            ],
+            [
+              112,
+              27
+            ],
+            [
+              112,
+              23
+            ],
+            [
+              108,
+              23
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

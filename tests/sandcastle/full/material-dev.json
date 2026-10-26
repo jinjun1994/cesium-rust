@@ -1,0 +1,121 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "wall",
+      "positionsDegrees": [
+        [
+          -95.5,
+          50,
+          300000
+        ],
+        [
+          -90.5,
+          50,
+          300000
+        ]
+      ],
+      "minimumHeights": [],
+      "maximumHeights": []
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "material": {
+      "type": "checkerboard",
+      "evenColor": [
+        1,
+        1,
+        1,
+        0.5
+      ],
+      "oddColor": [
+        0,
+        0,
+        0,
+        0.5
+      ],
+      "repeat": [
+        5,
+        5
+      ]
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-1-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "wall",
+      "positionsDegrees": [
+        [
+          -100.5,
+          50,
+          300000
+        ],
+        [
+          -95.5,
+          50,
+          300000
+        ]
+      ],
+      "minimumHeights": [],
+      "maximumHeights": []
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "material": {
+      "type": "stripe",
+      "evenColor": [
+        1,
+        1,
+        1,
+        0.5
+      ],
+      "oddColor": [
+        0,
+        0,
+        1,
+        0.5
+      ],
+      "repeat": 5,
+      "offset": 0,
+      "orientation": "HORIZONTAL"
+    },
+    "properties": {
+      "primitiveIndex": 1,
+      "instanceIndex": 0
+    }
+  }
+]

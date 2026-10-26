@@ -1,0 +1,320 @@
+[
+  {
+    "id": "redPolygon",
+    "name": "Red polygon on surface",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          -115,
+          37,
+          0
+        ],
+        [
+          -115,
+          32,
+          0
+        ],
+        [
+          -107,
+          33,
+          0
+        ],
+        [
+          -102,
+          31,
+          0
+        ],
+        [
+          -102,
+          35,
+          0
+        ]
+      ],
+      "holes": [],
+      "extrudedHeight": null
+    },
+    "color": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  },
+  {
+    "id": "checkerboardPolygon",
+    "name": "Checkerboard polygon on surface",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          -94,
+          37,
+          0
+        ],
+        [
+          -95,
+          32,
+          0
+        ],
+        [
+          -87,
+          33,
+          0
+        ]
+      ],
+      "holes": [],
+      "extrudedHeight": null
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "material": {
+      "type": "checkerboard",
+      "evenColor": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "oddColor": [
+        0,
+        0.5019607843137255,
+        0.5019607843137255,
+        1
+      ],
+      "repeat": [
+        2,
+        2
+      ]
+    },
+    "properties": null
+  },
+  {
+    "id": "greenPolygon",
+    "name": "Green extruded polygon",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygonSurface",
+      "data": {
+        "hierarchy": {
+          "positions": [
+            [
+              -108,
+              42,
+              0
+            ],
+            [
+              -100,
+              42,
+              0
+            ],
+            [
+              -104,
+              40,
+              0
+            ]
+          ],
+          "holes": []
+        },
+        "textureCoordinates": null,
+        "height": 0,
+        "perPositionHeight": false,
+        "extrudedHeight": 500000,
+        "closeTop": false,
+        "closeBottom": false,
+        "coplanar": false,
+        "arcType": "GEODESIC",
+        "stRotation": 0
+      }
+    },
+    "color": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  },
+  {
+    "id": "orangePolygon",
+    "name": "Orange polygon with per-position heights and outline",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygonSurface",
+      "data": {
+        "hierarchy": {
+          "positions": [
+            [
+              -108,
+              25,
+              100000
+            ],
+            [
+              -100,
+              25,
+              100000
+            ],
+            [
+              -100,
+              30,
+              100000
+            ],
+            [
+              -108,
+              30,
+              300000
+            ]
+          ],
+          "holes": []
+        },
+        "textureCoordinates": null,
+        "height": 0,
+        "perPositionHeight": true,
+        "extrudedHeight": 0,
+        "closeTop": true,
+        "closeBottom": true,
+        "coplanar": false,
+        "arcType": "GEODESIC",
+        "stRotation": 0
+      }
+    },
+    "color": [
+      1,
+      0.39215686274509803,
+      0,
+      0.39215686274509803
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  },
+  {
+    "id": "bluePolygonWithHoles",
+    "name": "Blue polygon with holes",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          -82,
+          40.8,
+          0
+        ],
+        [
+          -83,
+          36.5,
+          0
+        ],
+        [
+          -76,
+          35.6,
+          0
+        ],
+        [
+          -73.5,
+          43.6,
+          0
+        ]
+      ],
+      "holes": [
+        [
+          [
+            -81,
+            40,
+            0
+          ],
+          [
+            -81,
+            38.2,
+            0
+          ],
+          [
+            -79,
+            38.2,
+            0
+          ],
+          [
+            -78,
+            40.8,
+            0
+          ]
+        ],
+        [
+          [
+            -77.5,
+            36.7,
+            0
+          ],
+          [
+            -78.5,
+            37,
+            0
+          ],
+          [
+            -76.5,
+            39.6,
+            0
+          ]
+        ]
+      ],
+      "extrudedHeight": null
+    },
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  }
+]

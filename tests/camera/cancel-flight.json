@@ -1,0 +1,32 @@
+[
+  {
+    "type": "setView",
+    "view": {
+      "destinationDegrees": [
+        109.3,
+        25.1,
+        96000
+      ],
+      "heading": 0,
+      "pitch": -1.5707963267948966,
+      "roll": 0
+    }
+  },
+  {
+    "type": "flyTo",
+    "view": {
+      "destinationDegrees": [
+        109.7,
+        25.1,
+        96000
+      ],
+      "heading": 0,
+      "pitch": -1.5707963267948966,
+      "roll": 0
+    },
+    "duration": 5
+  },
+  {
+    "type": "cancelFlight"
+  }
+]

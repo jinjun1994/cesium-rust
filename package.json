@@ -1,0 +1,23 @@
+{
+  "name": "cesium-rs-browser-tests",
+  "private": true,
+  "version": "0.0.26",
+  "scripts": {
+    "test:web": "node scripts/browser-smoke.cjs",
+    "test:controls": "node scripts/controls-test.mjs",
+    "test:sdk": "node scripts/sdk-lifecycle-test.mjs",
+    "start": "python3 scripts/start-test-ui.py",
+    "test:ui": "node scripts/workbench-test.mjs",
+    "test": "npm run test:controls && npm run test:sdk && npm run test:ui && npm run test:terrain && npm run test:sandcastle && npm run test:images && npm run test:camera && npm run test:recipes",
+    "test:terrain": "node scripts/terrain-lifecycle-test.mjs",
+    "test:sandcastle": "node scripts/sandcastle-test.mjs",
+    "test:images": "node scripts/image-resources-test.mjs",
+    "test:camera": "node scripts/camera-sdk-test.mjs",
+    "test:recipes": "node scripts/full-recipes-test.mjs",
+    "test:recipes:web": "node scripts/full-recipes-browser.cjs"
+  },
+  "devDependencies": {
+    "jsdom": "26.1.0",
+    "playwright": "1.62.1"
+  }
+}

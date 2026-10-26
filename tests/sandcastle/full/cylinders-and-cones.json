@@ -1,0 +1,70 @@
+[
+  {
+    "id": "cylinders-and-cones-1",
+    "name": "Green cylinder with black outline",
+    "positionDegrees": [
+      -100,
+      40,
+      200000
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 400000,
+      "topRadius": 200000,
+      "bottomRadius": 200000
+    },
+    "color": [
+      0,
+      0.5019607843137255,
+      0,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "cylinders-and-cones",
+      "upstreamEntity": 1
+    }
+  },
+  {
+    "id": "cylinders-and-cones-2",
+    "name": "Red cone",
+    "positionDegrees": [
+      -105,
+      40,
+      200000
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 400000,
+      "topRadius": 0,
+      "bottomRadius": 200000
+    },
+    "color": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "cylinders-and-cones",
+      "upstreamEntity": 2
+    }
+  }
+]

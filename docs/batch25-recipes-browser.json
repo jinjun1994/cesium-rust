@@ -1,0 +1,95 @@
+{
+  "version": "0.0.25",
+  "backend": "Rust WASM / real browser WebGPU",
+  "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
+  "externalImagery": "local deterministic 256x256 neutral raster",
+  "cases": [
+    {
+      "id": "points",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "78c0132b5b8b0171c3363401274bbd91e78f13ac06afc05778fa6090d9d3a1ba",
+      "inputSha256": "9c4e10c650857e25fec9ec42070775fbe87b15cda486bedfb198374c68526e4a",
+      "fixtureSha256": "40aaee3825e0af92cf6abc60131ccfeb23795a5533d983276847b0f9bf1745da",
+      "checks": [
+        "all six original menu callbacks and reset",
+        "exact positions, colors, sizes, outlines and NearFarScalar",
+        "real pixels and picking for every variant entity",
+        "measured distance scaling and fading"
+      ],
+      "variantResults": [
+        {
+          "label": "Add point",
+          "entities": 1,
+          "pixels": 78
+        },
+        {
+          "label": "Set point properties at creation",
+          "entities": 1,
+          "pixels": 196
+        },
+        {
+          "label": "Change point properties",
+          "entities": 1,
+          "pixels": 312
+        },
+        {
+          "label": "Add multiple points",
+          "entities": 3,
+          "pixels": 1044
+        },
+        {
+          "label": "Scale by viewer distance",
+          "entities": 1,
+          "pixels": 304
+        },
+        {
+          "label": "Fade by viewer distance",
+          "entities": 1,
+          "pixels": 312
+        }
+      ],
+      "scaleMeasurements": {
+        "near": {
+          "pixels": 312,
+          "energy": 209757
+        },
+        "far": {
+          "pixels": 11,
+          "energy": 7392
+        }
+      },
+      "fadeMeasurements": {
+        "near": {
+          "pixels": 312,
+          "energy": 209757
+        },
+        "far": {
+          "pixels": 156,
+          "energy": 44939
+        }
+      }
+    },
+    {
+      "id": "offline",
+      "status": "passed",
+      "entities": 0,
+      "sourceSha256": "cf0ff25e62c546a6a67bbfd65d96efbf4f2875f7d7c309f1abca8f55ed74ad4d",
+      "inputSha256": "8fdddda529719a67eb3444a5bf3713fe64210938b91a674107468c9392b812b6",
+      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "checks": [
+        "original local TMS provider and disabled picker/geocoder",
+        "all 42 pinned local JPEG files present and hashed",
+        "public network blocked; real local tile fetches",
+        "real detailed globe pixels and wheel zoom"
+      ],
+      "localTileRequests": 34,
+      "externalRequests": 0,
+      "colors": 20323,
+      "assetsSha256": "f7dbc2e3295e40bbd1f08bfcc476efe0c5237acdb6df8e7410943c9b8de081e4"
+    }
+  ],
+  "browser": "155.0.8059.39",
+  "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
+  "destroy": "passed"
+}

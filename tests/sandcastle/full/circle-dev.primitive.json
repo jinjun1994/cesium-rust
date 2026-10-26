@@ -1,0 +1,85 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "CircleGeometry",
+          "center": [
+            -95,
+            43,
+            0
+          ],
+          "radius": 250000,
+          "vertexFormat": "POSITION_NORMAL"
+        },
+        "attributes": {
+          "color": [
+            1,
+            0,
+            0,
+            0.5019607843137255
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "closed": true
+      }
+    },
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "CircleGeometry",
+          "center": [
+            -90,
+            50,
+            0
+          ],
+          "radius": 250000,
+          "extrudedHeight": 300000,
+          "vertexFormat": "POSITION_NORMAL"
+        },
+        "attributes": {
+          "color": [
+            0,
+            1,
+            0,
+            0.5019607843137255
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "closed": true
+      }
+    },
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "CircleGeometry",
+          "center": [
+            -85,
+            40,
+            0
+          ],
+          "radius": 400000,
+          "height": 150000,
+          "vertexFormat": "POSITION_NORMAL"
+        },
+        "attributes": {
+          "color": [
+            0,
+            0,
+            1,
+            1
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "closed": true,
+        "translucent": false
+      }
+    }
+  ]
+}

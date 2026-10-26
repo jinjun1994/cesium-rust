@@ -1,0 +1,7 @@
+[
+ {"id":"box","name":"Box","positionDegrees":[109.7,25,10000],"shape":{"type":"box","dimensions":[8000,8000,16000]},"color":[1,0.25,0.1,1]},
+ {"id":"ellipsoid","name":"Ellipsoid","positionDegrees":[110,25,13000],"shape":{"type":"ellipsoid","radii":[10000,6000,14000]},"color":[0.2,0.7,1,1]},
+ {"id":"cylinder","name":"Cylinder","positionDegrees":[110.3,25,10000],"shape":{"type":"cylinder","length":18000,"topRadius":7000,"bottomRadius":7000},"color":[0.1,0.9,0.3,1]},
+ {"id":"cone","name":"Cone","positionDegrees":[110,25.3,10000],"shape":{"type":"cylinder","length":18000,"topRadius":0,"bottomRadius":9000},"color":[1,0.8,0.1,1]},
+ {"id":"plane","name":"Plane","positionDegrees":[110,24.7,5000],"shape":{"type":"plane","dimensions":[16000,16000]},"color":[0.9,0.2,1,1]}
+]

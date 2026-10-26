@@ -1,0 +1,4 @@
+   Compiling cesium-viewer v0.0.16 (<project>/crates/cesium-viewer)
+    Finished `release` profile [optimized] target(s) in 20.60s
+Serve: python3 -m http.server 8000
+Open: http://localhost:8000/bindings/web/

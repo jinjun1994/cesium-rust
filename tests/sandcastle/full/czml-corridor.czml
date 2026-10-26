@@ -1,0 +1,126 @@
+[
+  {
+    "id": "document",
+    "name": "CZML Geometries: Polyline",
+    "version": "1.0"
+  },
+  {
+    "id": "redCorridor",
+    "name": "Red corridor on surface with rounded corners",
+    "corridor": {
+      "positions": {
+        "cartographicDegrees": [
+          -100,
+          40,
+          0,
+          -105,
+          40,
+          0,
+          -105,
+          35,
+          0
+        ]
+      },
+      "width": 200000,
+      "material": {
+        "solidColor": {
+          "color": {
+            "rgba": [
+              255,
+              0,
+              0,
+              127
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "greenCorridor",
+    "name": "Green corridor at height with mitered corners and outline",
+    "corridor": {
+      "positions": {
+        "cartographicDegrees": [
+          -90,
+          40,
+          0,
+          -95,
+          40,
+          0,
+          -95,
+          35,
+          0
+        ]
+      },
+      "height": 100000,
+      "cornerType": "MITERED",
+      "width": 200000,
+      "material": {
+        "solidColor": {
+          "color": {
+            "rgba": [
+              0,
+              255,
+              0,
+              255
+            ]
+          }
+        }
+      },
+      "outline": true,
+      "outlineColor": {
+        "rgba": [
+          0,
+          0,
+          0,
+          255
+        ]
+      }
+    }
+  },
+  {
+    "id": "blueCorridor",
+    "name": "Blue extruded corridor with beveled corners and outline",
+    "corridor": {
+      "positions": {
+        "cartographicDegrees": [
+          -80,
+          40,
+          0,
+          -85,
+          40,
+          0,
+          -85,
+          35,
+          0
+        ]
+      },
+      "height": 200000,
+      "extrudedHeight": 100000,
+      "width": 200000,
+      "cornerType": "BEVELED",
+      "material": {
+        "solidColor": {
+          "color": {
+            "rgba": [
+              0,
+              0,
+              255,
+              255
+            ]
+          }
+        }
+      },
+      "outline": true,
+      "outlineColor": {
+        "rgba": [
+          255,
+          255,
+          255,
+          255
+        ]
+      }
+    }
+  }
+]

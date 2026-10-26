@@ -1,0 +1,51 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "EllipsoidOutlineGeometry",
+          "radii": [
+            200000,
+            200000,
+            300000
+          ],
+          "stackPartitions": 16,
+          "slicePartitions": 8
+        },
+        "modelMatrix": [
+          0.9781476007338057,
+          -0.20791169081775912,
+          0,
+          0,
+          0.14701576646519832,
+          0.6916548014802255,
+          0.7071067811865476,
+          0,
+          -0.14701576646519834,
+          -0.6916548014802256,
+          0.7071067811865475,
+          0,
+          -983364.6879839273,
+          -4626367.119687076,
+          4699480.443221884,
+          1
+        ],
+        "attributes": {
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "flat": true,
+        "renderState": {
+          "lineWidth": 1
+        }
+      }
+    }
+  ]
+}

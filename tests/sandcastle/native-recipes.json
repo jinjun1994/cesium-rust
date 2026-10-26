@@ -1,0 +1,418 @@
+{
+  "schemaVersion": 1,
+  "recipes": [
+    {
+      "id": "geographic",
+      "label": "地理几何 / 孔洞 / 挤出 / 墙体",
+      "format": "entities",
+      "path": "../../tests/entities/geographic.json",
+      "view": [
+        110.0,
+        25.25,
+        230000.0
+      ]
+    },
+    {
+      "id": "geographic-czml",
+      "label": "CZML 地理几何",
+      "format": "czml",
+      "path": "../../tests/entities/geographic.czml",
+      "view": [
+        110.0,
+        25.25,
+        230000.0
+      ]
+    },
+    {
+      "id": "materials",
+      "label": "透明 / 条纹 / 棋盘格 / 网格",
+      "format": "entities",
+      "path": "../../tests/entities/materials.json",
+      "view": [
+        109.8,
+        25,
+        230000
+      ]
+    },
+    {
+      "id": "materials-czml",
+      "label": "CZML 材质",
+      "format": "czml",
+      "path": "../../tests/entities/materials.czml",
+      "view": [
+        109.8,
+        25,
+        230000
+      ]
+    },
+    {
+      "id": "sandcastle-wall",
+      "label": "原始 CZML Wall 数据与透明颜色",
+      "format": "czml",
+      "path": "../../tests/entities/sandcastle-wall.czml",
+      "view": [
+        -102.5,
+        50,
+        8000000
+      ]
+    },
+    {
+      "id": "image-outline",
+      "label": "图像与轮廓",
+      "format": "entities",
+      "resources": true,
+      "path": "../../tests/entities/image-outline-external.json",
+      "view": [
+        109.8,
+        25.1,
+        230000
+      ]
+    },
+    {
+      "id": "image-outline-czml",
+      "label": "CZML 图像与轮廓",
+      "format": "czml",
+      "resources": true,
+      "path": "../../tests/entities/image-outline.czml",
+      "view": [
+        109.8,
+        25.1,
+        230000
+      ]
+    },
+    {
+      "id": "screen",
+      "label": "Point / Billboard",
+      "format": "entities",
+      "path": "../../tests/entities/screen-external.json",
+      "resources": true,
+      "view": [
+        109.9,
+        25.1,
+        100000
+      ]
+    },
+    {
+      "id": "screen-czml",
+      "label": "CZML Point / Billboard",
+      "format": "czml",
+      "path": "../../tests/entities/screen.czml",
+      "resources": true,
+      "view": [
+        109.9,
+        25.1,
+        100000
+      ]
+    },
+    {
+      "id": "screen-motion",
+      "label": "CZML 动态 Point / Billboard",
+      "format": "czml",
+      "path": "../../tests/entities/screen-motion.czml",
+      "resources": true,
+      "view": [
+        109.9,
+        25.1,
+        100000
+      ]
+    },
+    {
+      "id": "labels",
+      "label": "Label 中英文",
+      "format": "entities",
+      "path": "../../tests/entities/labels.json",
+      "resources": false,
+      "view": [
+        110,
+        25,
+        56000
+      ]
+    },
+    {
+      "id": "distance-display",
+      "label": "距离显示范围",
+      "format": "entities",
+      "path": "../../tests/entities/distance-display.json",
+      "resources": false,
+      "view": [
+        110,
+        25,
+        56000
+      ]
+    },
+    {
+      "id": "distance-scale",
+      "label": "随距离缩放",
+      "format": "entities",
+      "path": "../../tests/entities/distance-scale.json",
+      "resources": false,
+      "view": [
+        110,
+        25,
+        56000
+      ]
+    },
+    {
+      "id": "distance-alpha",
+      "label": "随距离透明度",
+      "format": "entities",
+      "path": "../../tests/entities/distance-alpha.json",
+      "resources": false,
+      "view": [
+        110,
+        25,
+        56000
+      ]
+    },
+    {
+      "id": "screen-origins",
+      "label": "锚点对齐",
+      "format": "entities",
+      "path": "../../tests/entities/screen-origins.json",
+      "resources": true,
+      "view": [
+        110,
+        25,
+        56000
+      ]
+    },
+    {
+      "id": "label-distance-czml",
+      "label": "CZML 五项功能",
+      "format": "czml",
+      "path": "../../tests/entities/label-distance.czml",
+      "resources": true,
+      "view": [
+        110,
+        25,
+        56000
+      ]
+    },
+    {
+      "id": "label-background",
+      "label": "Label 背景",
+      "format": "entities",
+      "path": "../../tests/entities/label-background.json",
+      "resources": false,
+      "view": [
+        110,
+        25,
+        56000
+      ]
+    },
+    {
+      "id": "label-outline",
+      "label": "Label 描边",
+      "format": "entities",
+      "path": "../../tests/entities/label-outline.json",
+      "resources": false,
+      "view": [
+        110,
+        25,
+        56000
+      ]
+    },
+    {
+      "id": "billboard-rotation",
+      "label": "Billboard 旋转",
+      "format": "entities",
+      "path": "../../tests/entities/billboard-rotation.json",
+      "resources": false,
+      "view": [
+        110,
+        25,
+        56000
+      ]
+    },
+    {
+      "id": "pixel-offset-distance",
+      "label": "距离像素偏移",
+      "format": "entities",
+      "path": "../../tests/entities/pixel-offset-distance.json",
+      "resources": false,
+      "view": [
+        110,
+        25,
+        100000
+      ]
+    },
+    {
+      "id": "depth-test-distance",
+      "label": "深度测试距离",
+      "format": "entities",
+      "path": "../../tests/entities/depth-test-distance.json",
+      "resources": false,
+      "view": [
+        110,
+        25,
+        56000
+      ]
+    },
+    {
+      "id": "screen-effects-czml",
+      "label": "CZML 五项效果",
+      "format": "czml",
+      "path": "../../tests/entities/screen-effects.czml",
+      "resources": true,
+      "view": [
+        110,
+        25,
+        100000
+      ]
+    }
+  ],
+  "caseRecipes": {
+    "polygon": {
+      "recipe": "image-outline",
+      "status": "subset-only",
+      "remaining": [
+        "静态图像材质及一像素轮廓已有本地配方",
+        "宽轮廓、精确 ST、动态图像、视频与完整案例仍待完成/验收"
+      ]
+    },
+    "rectangle": {
+      "recipe": "image-outline",
+      "status": "subset-only",
+      "remaining": [
+        "静态图像材质及一像素轮廓已有本地配方",
+        "宽轮廓、精确 ST、动态图像、视频与完整案例仍待完成/验收"
+      ]
+    },
+    "wall": {
+      "recipe": "geographic",
+      "status": "subset-only",
+      "remaining": [
+        "完整上游配方的数据、材质与交互仍需独立验收",
+        "宽/动态图形轮廓、贴地、引用、动态图形属性、精确纹理坐标与高级透明仍待实施/验收"
+      ]
+    },
+    "circles-and-ellipses": {
+      "recipe": "geographic",
+      "status": "subset-only",
+      "remaining": [
+        "完整上游配方的数据、材质与交互仍需独立验收",
+        "宽/动态图形轮廓、贴地、引用、动态图形属性、精确纹理坐标与高级透明仍待实施/验收"
+      ]
+    },
+    "polyline": {
+      "recipe": "geographic",
+      "status": "subset-only",
+      "remaining": [
+        "完整上游配方的数据、材质与交互仍需独立验收",
+        "宽/动态图形轮廓、贴地、引用、动态图形属性、精确纹理坐标与高级透明仍待实施/验收"
+      ]
+    },
+    "geometry-and-appearances": {
+      "recipe": "geographic",
+      "status": "subset-only",
+      "remaining": [
+        "完整上游配方的数据、材质与交互仍需独立验收",
+        "宽/动态图形轮廓、贴地、引用、动态图形属性、精确纹理坐标与高级透明仍待实施/验收"
+      ]
+    },
+    "czml-polygon": {
+      "recipe": "geographic-czml",
+      "status": "subset-only",
+      "remaining": [
+        "完整上游配方的数据、材质与交互仍需独立验收",
+        "宽/动态图形轮廓、贴地、引用、动态图形属性、精确纹理坐标与高级透明仍待实施/验收"
+      ]
+    },
+    "czml-rectangle": {
+      "recipe": "image-outline-czml",
+      "status": "subset-only",
+      "remaining": [
+        "静态图像材质及一像素轮廓已有本地配方",
+        "宽轮廓、精确 ST、动态图像、视频与完整案例仍待完成/验收"
+      ]
+    },
+    "czml-wall": {
+      "recipe": "sandcastle-wall",
+      "status": "subset-only",
+      "remaining": [
+        "原案例的墙体坐标、高度及 RGBA 已加载",
+        "完整视觉与浏览器交互验收待完成；网格级透明排序存在复杂相交限制"
+      ]
+    },
+    "czml-circles-and-ellipses": {
+      "recipe": "geographic-czml",
+      "status": "subset-only",
+      "remaining": [
+        "完整上游配方的数据、材质与交互仍需独立验收",
+        "宽/动态图形轮廓、贴地、引用、动态图形属性、精确纹理坐标与高级透明仍待实施/验收"
+      ]
+    },
+    "materials": {
+      "recipe": "image-outline",
+      "status": "subset-only",
+      "remaining": [
+        "静态图像材质及一像素轮廓已有本地配方",
+        "宽轮廓、精确 ST、动态图像、视频与完整案例仍待完成/验收"
+      ]
+    },
+    "points": {
+      "recipe": "screen",
+      "status": "subset-only",
+      "remaining": [
+        "静态 point/billboard 及 FIXED 线性位置采样已有本地配方",
+        "Label、基本距离属性和锚点已有本地实现；完整字体、距离像素偏移、贴地、旋转与完整原配方仍待实施/验收"
+      ]
+    },
+    "billboards": {
+      "recipe": "screen-effects-czml",
+      "status": "subset-only",
+      "remaining": [
+        "静态背景、FILL/OUTLINE/FILL_AND_OUTLINE、旋转、距离像素偏移与深度策略已有本地配方",
+        "完整字体布局、贴地、动态图形属性和全部原案例交互仍待实施/验收"
+      ]
+    },
+    "czml-point": {
+      "recipe": "screen-czml",
+      "status": "subset-only",
+      "remaining": [
+        "静态 point/billboard 及 FIXED 线性位置采样已有本地配方",
+        "Label、基本距离属性和锚点已有本地实现；完整字体、距离像素偏移、贴地、旋转与完整原配方仍待实施/验收"
+      ]
+    },
+    "czml-billboard-and-label": {
+      "recipe": "screen-effects-czml",
+      "status": "subset-only",
+      "remaining": [
+        "静态背景、FILL/OUTLINE/FILL_AND_OUTLINE、旋转、距离像素偏移与深度策略已有本地配方",
+        "完整字体布局、贴地、动态图形属性和全部原案例交互仍待实施/验收"
+      ]
+    },
+    "czml-point-time-dynamic": {
+      "recipe": "screen-motion",
+      "status": "subset-only",
+      "remaining": [
+        "静态 point/billboard 及 FIXED 线性位置采样已有本地配方",
+        "Label、基本距离属性和锚点已有本地实现；完整字体、距离像素偏移、贴地、旋转与完整原配方仍待实施/验收"
+      ]
+    },
+    "labels": {
+      "recipe": "screen-effects-czml",
+      "status": "subset-only",
+      "remaining": [
+        "静态背景、FILL/OUTLINE/FILL_AND_OUTLINE、旋转、距离像素偏移与深度策略已有本地配方",
+        "完整字体布局、贴地、动态图形属性和全部原案例交互仍待实施/验收"
+      ]
+    },
+    "labels-dev": {
+      "recipe": "screen-effects-czml",
+      "status": "subset-only",
+      "remaining": [
+        "静态背景、FILL/OUTLINE/FILL_AND_OUTLINE、旋转、距离像素偏移与深度策略已有本地配方",
+        "完整字体布局、贴地、动态图形属性和全部原案例交互仍待实施/验收"
+      ]
+    },
+    "distance-display-conditions": {
+      "recipe": "distance-display",
+      "status": "subset-only",
+      "remaining": [
+        "静态 Label、距离显示/缩放/透明度、锚点已有本地配方",
+        "完整字体与样式、复杂文字排版、全部距离属性、其他图形距离规则、完整上游交互和视觉仍未验收"
+      ]
+    }
+  }
+}

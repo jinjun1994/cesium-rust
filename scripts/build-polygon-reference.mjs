@@ -1,0 +1,10 @@
+// Optional independent geometry/ST oracle; never imported by the runtime.
+import fs from 'node:fs';import path from 'node:path';import crypto from 'node:crypto';import assert from 'node:assert/strict';import {pathToFileURL} from 'node:url';
+const dir=path.resolve('.reference-tools/node_modules/@cesium/core/Source');
+const get=async name=>(await import(pathToFileURL(path.join(dir,name+'.js')).href)).default;
+const [Cartesian2,Cartesian3,CoplanarPolygonGeometry,VertexFormat]=await Promise.all(['Cartesian2','Cartesian3','CoplanarPolygonGeometry','VertexFormat'].map(get));
+const sources={};for(const [name,expected]of Object.entries({CoplanarPolygonGeometry:'446324d4d471f3045177c6e5ec6427b423eaf0e5',PolygonGeometry:'4ce6b6aec695677ab3a7d97ea3985572156a037a'})){const b=fs.readFileSync(path.join(dir,name+'.js'));const git=crypto.createHash('sha1').update(`blob ${b.length}\0`).update(b).digest('hex');assert.equal(git,expected,'npm core source must equal pinned commit');sources[name]=crypto.createHash('sha256').update(b).digest('hex');}
+const raw=JSON.parse(fs.readFileSync('tests/sandcastle/full/coplanar-polygon-dev.primitive.json'));const cases=[];
+const hierarchy=h=>({positions:h.positions.map(p=>Cartesian3.fromDegrees(...p)),holes:(h.holes||[]).map(hierarchy)});
+for(const p of raw.primitives)for(const i of Array.isArray(p.geometryInstances)?p.geometryInstances:[p.geometryInstances]){const g=i.geometry;const geo=CoplanarPolygonGeometry.createGeometry(new CoplanarPolygonGeometry({polygonHierarchy:hierarchy(g.polygonHierarchy||{positions:g.positions}),stRotation:g.stRotation??0,vertexFormat:VertexFormat.ALL}));const a=geo.attributes.position.values,t=geo.attributes.st.values;cases.push({vertices:Array.from({length:a.length/3},(_,i)=>({position:Array.from(a.slice(i*3,i*3+3)),st:Array.from(t.slice(i*2,i*2+2))})),indices:Array.from(geo.indices)});}
+fs.writeFileSync('tests/sandcastle/full/polygon-reference.json',JSON.stringify({commit:'b8d3a36fe98a3e432eb89253c95d5f20e605e0f1',package:'@cesium/core@0.1.0',sources,cases},null,2)+'\n');console.log('Independent coplanar geometry/ST reference:',cases.map(c=>c.vertices.length));

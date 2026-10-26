@@ -1,0 +1,11 @@
+[package]
+name = "asset-inspector"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+cesium-formats.workspace = true
+cesium-tiles.workspace = true
+url.workspace = true
+serde_json.workspace = true

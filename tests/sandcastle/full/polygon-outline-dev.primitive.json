@@ -1,0 +1,150 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": [
+        {
+          "geometry": {
+            "type": "PolygonOutlineGeometry",
+            "positions": [
+              [
+                -95,
+                37,
+                0
+              ],
+              [
+                -95,
+                32,
+                0
+              ],
+              [
+                -90,
+                33,
+                0
+              ],
+              [
+                -87,
+                31,
+                0
+              ],
+              [
+                -87,
+                35,
+                0
+              ]
+            ]
+          },
+          "attributes": {
+            "color": [
+              1,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "geometry": {
+            "type": "PolygonOutlineGeometry",
+            "polygonHierarchy": {
+              "positions": [
+                [
+                  -108,
+                  30,
+                  0
+                ],
+                [
+                  -98,
+                  30,
+                  0
+                ],
+                [
+                  -98,
+                  40,
+                  0
+                ],
+                [
+                  -108,
+                  40,
+                  0
+                ]
+              ],
+              "holes": [
+                {
+                  "positions": [
+                    [
+                      -106,
+                      31,
+                      0
+                    ],
+                    [
+                      -106,
+                      39,
+                      0
+                    ],
+                    [
+                      -100,
+                      39,
+                      0
+                    ],
+                    [
+                      -100,
+                      31,
+                      0
+                    ]
+                  ]
+                }
+              ]
+            },
+            "extrudedHeight": 500000
+          },
+          "attributes": {
+            "color": [
+              1,
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "geometry": {
+            "type": "PolygonOutlineGeometry",
+            "positions": [
+              [
+                -95,
+                44,
+                400000
+              ],
+              [
+                -95,
+                39,
+                100000
+              ],
+              [
+                -87,
+                42,
+                100000
+              ]
+            ],
+            "perPositionHeight": true
+          },
+          "attributes": {
+            "color": [
+              1,
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "flat": true,
+        "renderState": {
+          "lineWidth": 1
+        }
+      }
+    }
+  ]
+}

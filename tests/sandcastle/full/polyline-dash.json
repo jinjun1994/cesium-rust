@@ -1,0 +1,287 @@
+[
+  {
+    "id": "polyline-dash-1",
+    "name": "Red dashed line",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -75,
+            38,
+            250000
+          ],
+          [
+            -125,
+            38,
+            250000
+          ]
+        ],
+        "width": 5,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "dash",
+          "gapColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "dashLength": 16,
+          "dashPattern": 255
+        }
+      }
+    },
+    "color": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "polyline-dash",
+      "upstreamEntity": 1
+    }
+  },
+  {
+    "id": "polyline-dash-2",
+    "name": "Wide blue dashed line with a gap color",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -75,
+            40,
+            250000
+          ],
+          [
+            -125,
+            40,
+            250000
+          ]
+        ],
+        "width": 30,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "dash",
+          "gapColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "dashLength": 16,
+          "dashPattern": 255
+        }
+      }
+    },
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "polyline-dash",
+      "upstreamEntity": 2
+    }
+  },
+  {
+    "id": "polyline-dash-3",
+    "name": "Orange dashed line with a short dash length",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -75,
+            42,
+            250000
+          ],
+          [
+            -125,
+            42,
+            250000
+          ]
+        ],
+        "width": 5,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "dash",
+          "gapColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "dashLength": 8,
+          "dashPattern": 255
+        }
+      }
+    },
+    "color": [
+      1,
+      0.6470588235294118,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "polyline-dash",
+      "upstreamEntity": 3
+    }
+  },
+  {
+    "id": "polyline-dash-4",
+    "name": "Cyan dashed line with a dash pattern.",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -75,
+            44,
+            250000
+          ],
+          [
+            -125,
+            44,
+            250000
+          ]
+        ],
+        "width": 10,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "dash",
+          "gapColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "dashLength": 16,
+          "dashPattern": 3087
+        }
+      }
+    },
+    "color": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "polyline-dash",
+      "upstreamEntity": 4
+    }
+  },
+  {
+    "id": "polyline-dash-5",
+    "name": "Yellow dashed line with a dash pattern.",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -75,
+            46,
+            250000
+          ],
+          [
+            -125,
+            46,
+            250000
+          ]
+        ],
+        "width": 10,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "dash",
+          "gapColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "dashLength": 16,
+          "dashPattern": 43690
+        }
+      }
+    },
+    "color": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "polyline-dash",
+      "upstreamEntity": 5
+    }
+  }
+]

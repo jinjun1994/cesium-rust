@@ -1,0 +1,125 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": [
+      -95,
+      43,
+      0
+    ],
+    "shape": {
+      "type": "ellipse",
+      "height": 0,
+      "semiMajorAxis": 250000,
+      "semiMinorAxis": 250000,
+      "rotation": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.5019607843137255
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": true,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-1-instance-0",
+    "name": "",
+    "positionDegrees": [
+      -90,
+      50,
+      0
+    ],
+    "shape": {
+      "type": "ellipse",
+      "height": 0,
+      "semiMajorAxis": 250000,
+      "semiMinorAxis": 250000,
+      "rotation": 0,
+      "extrudedHeight": 300000
+    },
+    "color": [
+      0,
+      1,
+      0,
+      0.5019607843137255
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": true,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 1,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-2-instance-0",
+    "name": "",
+    "positionDegrees": [
+      -85,
+      40,
+      0
+    ],
+    "shape": {
+      "type": "ellipse",
+      "height": 150000,
+      "semiMajorAxis": 400000,
+      "semiMinorAxis": 400000,
+      "rotation": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": true,
+      "translucent": false
+    },
+    "properties": {
+      "primitiveIndex": 2,
+      "instanceIndex": 0
+    }
+  }
+]

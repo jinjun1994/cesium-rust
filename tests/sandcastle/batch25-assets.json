@@ -1,0 +1,224 @@
+{
+  "commit": "b8d3a36fe98a3e432eb89253c95d5f20e605e0f1",
+  "sourceRoots": [
+    "packages/engine/Source/Assets/Textures/NaturalEarthII",
+    "packages/sandcastle/public/images/Cesium_Logo_Color.jpg"
+  ],
+  "assets": [
+    {
+      "path": "assets/NaturalEarthII/0/0/0.jpg",
+      "sha256": "919864197d2f27a165420331d47458614a056c36dcdf306ce89ed2248bd0041d",
+      "bytes": 12067
+    },
+    {
+      "path": "assets/NaturalEarthII/0/1/0.jpg",
+      "sha256": "f336509772ab57ee14e15c72579dd9fb0297c779c853d4c65db04bef78305b48",
+      "bytes": 14055
+    },
+    {
+      "path": "assets/NaturalEarthII/1/0/0.jpg",
+      "sha256": "3f40b94a0adb4efe212899374d3dd2bc7abe0491ce3a30d89f4392f498a328cf",
+      "bytes": 7278
+    },
+    {
+      "path": "assets/NaturalEarthII/1/0/1.jpg",
+      "sha256": "76393f9322c791564a9dc9529822637fdcc8b63418be502f4ef0ab9ca2708664",
+      "bytes": 11399
+    },
+    {
+      "path": "assets/NaturalEarthII/1/1/0.jpg",
+      "sha256": "cec03089c65ac612ef0655739fd1c66e068a98739aec325ba8743aca7338e6f1",
+      "bytes": 10652
+    },
+    {
+      "path": "assets/NaturalEarthII/1/1/1.jpg",
+      "sha256": "b1b860b99fd3fdc1a91eb09576563efd5cc91d95f4e869fb436a35c4ff8994c6",
+      "bytes": 13142
+    },
+    {
+      "path": "assets/NaturalEarthII/1/2/0.jpg",
+      "sha256": "7c59ff20319379afea17d029fca11ea497fd16a4f9da574137948b0631c71c63",
+      "bytes": 9643
+    },
+    {
+      "path": "assets/NaturalEarthII/1/2/1.jpg",
+      "sha256": "ed0209ef589d9cc34a26663f8c9ecdd63de705482692290328cfd2fff984451d",
+      "bytes": 15312
+    },
+    {
+      "path": "assets/NaturalEarthII/1/3/0.jpg",
+      "sha256": "d7fa5cd581a7b1d004d6dfcf329a09cd51859dd503f864a85756a35a456a0030",
+      "bytes": 10532
+    },
+    {
+      "path": "assets/NaturalEarthII/1/3/1.jpg",
+      "sha256": "8637acf2981f7209ec449a5812c855650a7eeeca5bd8a9d328310bb2a5295b39",
+      "bytes": 13262
+    },
+    {
+      "path": "assets/NaturalEarthII/2/0/0.jpg",
+      "sha256": "d12e2e52ae4d2e0c23ec15de8a1e006ccae0d3142b286578670cb4a8fd3f2311",
+      "bytes": 8157
+    },
+    {
+      "path": "assets/NaturalEarthII/2/0/1.jpg",
+      "sha256": "87a7ea00d62fe0517680cb58953e46faf9b325b9ce8e982c5a68b7e6c6c46822",
+      "bytes": 9307
+    },
+    {
+      "path": "assets/NaturalEarthII/2/0/2.jpg",
+      "sha256": "eecc7078cc54ec05f96cdf472519d5f159797015afaad23c2e56bed2fb79b481",
+      "bytes": 7891
+    },
+    {
+      "path": "assets/NaturalEarthII/2/0/3.jpg",
+      "sha256": "3d4dc525adaed0c3ddf5e5047bd1b348f2df473449c50b6b8175d5d073e7d88b",
+      "bytes": 10341
+    },
+    {
+      "path": "assets/NaturalEarthII/2/1/0.jpg",
+      "sha256": "e586e2884f6fe3a78291776b5bd4b190ffa0c9129c146ef78c7918e570e40e07",
+      "bytes": 7852
+    },
+    {
+      "path": "assets/NaturalEarthII/2/1/1.jpg",
+      "sha256": "bd0b39a8e734b137e8017cb02f1bae541452bea034be5bc7e2bf8a6cb8a220ae",
+      "bytes": 6850
+    },
+    {
+      "path": "assets/NaturalEarthII/2/1/2.jpg",
+      "sha256": "af8eb0a43423d28c7cb3a92553967205d9e3ced5738bd75f773d653fa5849c90",
+      "bytes": 11581
+    },
+    {
+      "path": "assets/NaturalEarthII/2/1/3.jpg",
+      "sha256": "48450e09b99e3283945bda85be1513a5ed28a4b1e58cd0b299c295d16c25935c",
+      "bytes": 15862
+    },
+    {
+      "path": "assets/NaturalEarthII/2/2/0.jpg",
+      "sha256": "4615813c56a8ee304d78d3768c489a4e00a5c4542f2d937b6be7db7c12b42b28",
+      "bytes": 10657
+    },
+    {
+      "path": "assets/NaturalEarthII/2/2/1.jpg",
+      "sha256": "66df8171de54015866691a00fd03ad8c5c11dc75466a70d11a43b2020eb63dba",
+      "bytes": 12456
+    },
+    {
+      "path": "assets/NaturalEarthII/2/2/2.jpg",
+      "sha256": "669649edf6e1e0e66ee03224a792d5fb09e8aef7a7a187697a3c10f9a7904c5c",
+      "bytes": 12262
+    },
+    {
+      "path": "assets/NaturalEarthII/2/2/3.jpg",
+      "sha256": "21585c5a2551120948ec5d0f04a533805b2ba63b7a5b961ad722fca25cf6299f",
+      "bytes": 14940
+    },
+    {
+      "path": "assets/NaturalEarthII/2/3/0.jpg",
+      "sha256": "640f7fd8fd3e5923ef1b021476f13c1e6919f339b17e539b9e20fe6bc16240f7",
+      "bytes": 9531
+    },
+    {
+      "path": "assets/NaturalEarthII/2/3/1.jpg",
+      "sha256": "e418706ca6c844a67aa71e448ef97e703d5c3a9e3791db255366dad49b4adeb9",
+      "bytes": 10234
+    },
+    {
+      "path": "assets/NaturalEarthII/2/3/2.jpg",
+      "sha256": "79d04283b385d193bbf5bd84d40744c8f5bc8d6f52dfab8d965b647fdb61d72f",
+      "bytes": 11678
+    },
+    {
+      "path": "assets/NaturalEarthII/2/3/3.jpg",
+      "sha256": "4e693d36407dab81266071edbca5915872284532498dfa29472cc71b2810482d",
+      "bytes": 10754
+    },
+    {
+      "path": "assets/NaturalEarthII/2/4/0.jpg",
+      "sha256": "46e6a0608fc8261bbeaad8fffa995ee3c85fddebb3b463f3e391634ea8a2a9ec",
+      "bytes": 8474
+    },
+    {
+      "path": "assets/NaturalEarthII/2/4/1.jpg",
+      "sha256": "0f341c2ace1b0b1803aa22c09c2ab8fde4c3a1a7cb013a963e750997deb6b1c2",
+      "bytes": 12265
+    },
+    {
+      "path": "assets/NaturalEarthII/2/4/2.jpg",
+      "sha256": "13a22c18a223ba4d8c2689793a5dff83e4e50b3790ddcb2a32ac5a97b8e1e0c8",
+      "bytes": 16477
+    },
+    {
+      "path": "assets/NaturalEarthII/2/4/3.jpg",
+      "sha256": "93c5f45d481111b4cd2d38792cfb049e5176be566b622028e0704151c0c23aaf",
+      "bytes": 11888
+    },
+    {
+      "path": "assets/NaturalEarthII/2/5/0.jpg",
+      "sha256": "7fbb096ff03dd162ae965a6c7e1c47e29599e7f3f1031ce59fb07ff669ca3995",
+      "bytes": 7540
+    },
+    {
+      "path": "assets/NaturalEarthII/2/5/1.jpg",
+      "sha256": "70b04e7e362cb4c80d8c7cce1a9401ef9c7606bb2c4b9de011dea58d79b8b4e6",
+      "bytes": 10274
+    },
+    {
+      "path": "assets/NaturalEarthII/2/5/2.jpg",
+      "sha256": "8d03e07689c97fff91497250f1cbeb19fbe5331f38bd91b38a44bb69745bb29b",
+      "bytes": 16112
+    },
+    {
+      "path": "assets/NaturalEarthII/2/5/3.jpg",
+      "sha256": "17b46ab558da6e9fa715a8ab365109bd808d897c53a9f5401da55dd6b9566a7a",
+      "bytes": 11877
+    },
+    {
+      "path": "assets/NaturalEarthII/2/6/0.jpg",
+      "sha256": "e25e95c8a6dcb21f6668541c925ee670c42fdc0c0d409c520bf29542a2b3fc52",
+      "bytes": 6636
+    },
+    {
+      "path": "assets/NaturalEarthII/2/6/1.jpg",
+      "sha256": "0a57813b25a70cf86a09bb251018e488b87e795cd2dbcaee7f8a9e80e7c449bf",
+      "bytes": 11564
+    },
+    {
+      "path": "assets/NaturalEarthII/2/6/2.jpg",
+      "sha256": "f0e9d28b216838c7c30375bb50a7c285203d4bad20eb581c2ee0b2468da20f8a",
+      "bytes": 16411
+    },
+    {
+      "path": "assets/NaturalEarthII/2/6/3.jpg",
+      "sha256": "c2a663dcf812d9a7034d48707a33a2f341d22a99aa277f69b0e06f064de26fab",
+      "bytes": 12756
+    },
+    {
+      "path": "assets/NaturalEarthII/2/7/0.jpg",
+      "sha256": "65c1f1b10a04387f2f64b3c4bc111803ddbf32dd2708f02eabca048e88e8edf3",
+      "bytes": 9032
+    },
+    {
+      "path": "assets/NaturalEarthII/2/7/1.jpg",
+      "sha256": "11ac8ae6af861b966d25ed660549d2a9ce164cb9e327a247655e949f967fbc2b",
+      "bytes": 12957
+    },
+    {
+      "path": "assets/NaturalEarthII/2/7/2.jpg",
+      "sha256": "59ca5b5264df0421c42cc9d3e6369d91ff9f5f387fc8fd578c25b113cae52b78",
+      "bytes": 11362
+    },
+    {
+      "path": "assets/NaturalEarthII/2/7/3.jpg",
+      "sha256": "7064a9817de3f19fbfc66c36d575fdd10a8d976a93f655b7b1bee591b07314b7",
+      "bytes": 11859
+    },
+    {
+      "path": "tests/sandcastle/images/Cesium_Logo_Color.jpg",
+      "sha256": "b71481e38e7846a3784d74c86e3404e0ba0930fbaa334b3eb76e2a09c5f27819",
+      "bytes": 49939
+    }
+  ]
+}

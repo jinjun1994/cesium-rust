@@ -1,0 +1,31 @@
+[
+  {
+    "id": "outline",
+    "positionDegrees": [
+      110,
+      25,
+      16000
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "shape": {
+      "type": "label",
+      "text": "描边 Globe",
+      "fontSize": 32,
+      "appearance": {
+        "style": "FILL_AND_OUTLINE",
+        "outlineColor": [
+          1,
+          0.8,
+          0,
+          1
+        ],
+        "outlineWidth": 3
+      }
+    }
+  }
+]

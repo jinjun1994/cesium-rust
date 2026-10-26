@@ -1,0 +1,75 @@
+[
+  {
+    "id": "point",
+    "name": "32 px point + 4 px outline",
+    "positionDegrees": [
+      109.7,
+      25.1,
+      16000
+    ],
+    "color": [
+      1,
+      0.15,
+      0.1,
+      1
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 32,
+      "outlineWidth": 4,
+      "outlineColor": [
+        0,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "id": "billboard",
+    "name": "64 x 48 px image",
+    "positionDegrees": [
+      109.9,
+      25.1,
+      16000
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "image-test.png",
+      "width": 64,
+      "height": 48
+    }
+  },
+  {
+    "id": "offset",
+    "name": "Offset right 40, down 20 px",
+    "positionDegrees": [
+      110.1,
+      25.1,
+      16000
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      0.7
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "image-test.png",
+      "width": 48,
+      "height": 48,
+      "scale": 1,
+      "pixelOffset": [
+        40,
+        20
+      ]
+    }
+  }
+]

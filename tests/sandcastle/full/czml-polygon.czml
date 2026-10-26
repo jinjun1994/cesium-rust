@@ -1,0 +1,225 @@
+[
+  {
+    "id": "document",
+    "name": "CZML Geometries: Polygon",
+    "version": "1.0"
+  },
+  {
+    "id": "redPolygon",
+    "name": "Red polygon on surface",
+    "polygon": {
+      "positions": {
+        "cartographicDegrees": [
+          -115,
+          37,
+          0,
+          -115,
+          32,
+          0,
+          -107,
+          33,
+          0,
+          -102,
+          31,
+          0,
+          -102,
+          35,
+          0
+        ]
+      },
+      "material": {
+        "solidColor": {
+          "color": {
+            "rgba": [
+              255,
+              0,
+              0,
+              255
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "checkerboardPolygon",
+    "name": "Checkerboard polygon on surface",
+    "polygon": {
+      "positions": {
+        "cartographicDegrees": [
+          -94,
+          37,
+          0,
+          -95,
+          32,
+          0,
+          -87,
+          33,
+          0
+        ]
+      },
+      "material": {
+        "checkerboard": {
+          "evenColor": {
+            "rgba": [
+              255,
+              0,
+              0,
+              255
+            ]
+          },
+          "oddColor": {
+            "rgba": [
+              0,
+              128,
+              128,
+              255
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "greenPolygon",
+    "name": "Green extruded polygon",
+    "polygon": {
+      "positions": {
+        "cartographicDegrees": [
+          -108,
+          42,
+          0,
+          -100,
+          42,
+          0,
+          -104,
+          40,
+          0
+        ]
+      },
+      "material": {
+        "solidColor": {
+          "color": {
+            "rgba": [
+              0,
+              255,
+              0,
+              255
+            ]
+          }
+        }
+      },
+      "extrudedHeight": 500000,
+      "closeTop": false,
+      "closeBottom": false
+    }
+  },
+  {
+    "id": "orangePolygon",
+    "name": "Orange polygon with per-position heights and outline",
+    "polygon": {
+      "positions": {
+        "cartographicDegrees": [
+          -108,
+          25,
+          100000,
+          -100,
+          25,
+          100000,
+          -100,
+          30,
+          100000,
+          -108,
+          30,
+          300000
+        ]
+      },
+      "material": {
+        "solidColor": {
+          "color": {
+            "rgba": [
+              255,
+              100,
+              0,
+              100
+            ]
+          }
+        }
+      },
+      "extrudedHeight": 0,
+      "perPositionHeight": true,
+      "outline": true,
+      "outlineColor": {
+        "rgba": [
+          0,
+          0,
+          0,
+          255
+        ]
+      }
+    }
+  },
+  {
+    "id": "bluePolygonWithHoles",
+    "name": "Blue polygon with holes",
+    "polygon": {
+      "positions": {
+        "cartographicDegrees": [
+          -82,
+          40.8,
+          0,
+          -83,
+          36.5,
+          0,
+          -76,
+          35.6,
+          0,
+          -73.5,
+          43.6,
+          0
+        ]
+      },
+      "holes": {
+        "cartographicDegrees": [
+          [
+            -81,
+            40,
+            0,
+            -81,
+            38.2,
+            0,
+            -79,
+            38.2,
+            0,
+            -78,
+            40.8,
+            0
+          ],
+          [
+            -77.5,
+            36.7,
+            0,
+            -78.5,
+            37,
+            0,
+            -76.5,
+            39.6,
+            0
+          ]
+        ]
+      },
+      "material": {
+        "solidColor": {
+          "color": {
+            "rgba": [
+              0,
+              0,
+              255,
+              255
+            ]
+          }
+        }
+      }
+    }
+  }
+]

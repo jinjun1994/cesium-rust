@@ -1,0 +1,15 @@
+[
+  {
+    "type": "lookAt",
+    "targetDegrees": [
+      109.7,
+      25.1,
+      16000
+    ],
+    "offset": {
+      "heading": 0.6,
+      "pitch": -0.8,
+      "range": 80000
+    }
+  }
+]

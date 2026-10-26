@@ -1,0 +1,161 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "corridor",
+      "positionsDegrees": [
+        [
+          -100,
+          40,
+          0
+        ],
+        [
+          -105,
+          40,
+          0
+        ],
+        [
+          -105,
+          35,
+          0
+        ]
+      ],
+      "width": 200000,
+      "height": 0,
+      "extrudedHeight": null,
+      "cornerType": "ROUNDED"
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.5019607843137255
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": true,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-1-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "corridor",
+      "positionsDegrees": [
+        [
+          -90,
+          40,
+          0
+        ],
+        [
+          -95,
+          40,
+          0
+        ],
+        [
+          -95,
+          35,
+          0
+        ]
+      ],
+      "width": 200000,
+      "height": 100000,
+      "extrudedHeight": null,
+      "cornerType": "MITERED"
+    },
+    "color": [
+      0,
+      0.5019607843137255,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": true,
+      "translucent": false
+    },
+    "properties": {
+      "primitiveIndex": 1,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-2-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "corridor",
+      "positionsDegrees": [
+        [
+          -80,
+          40,
+          0
+        ],
+        [
+          -85,
+          40,
+          0
+        ],
+        [
+          -85,
+          35,
+          0
+        ]
+      ],
+      "width": 200000,
+      "height": 200000,
+      "extrudedHeight": 100000,
+      "cornerType": "BEVELED"
+    },
+    "color": [
+      0,
+      0,
+      1,
+      0.5019607843137255
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": true,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 2,
+      "instanceIndex": 0
+    }
+  }
+]

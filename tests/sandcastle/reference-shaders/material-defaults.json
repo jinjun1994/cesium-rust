@@ -1,0 +1,11 @@
+{
+  "commit": "b8d3a36fe98a3e432eb89253c95d5f20e605e0f1",
+  "sourcePath": "packages/engine/Source/Scene/Material.js",
+  "wholeSourceSha256": "54a2c51ab6cb91dc78fe311de517b7814553656804954d0dabf9e0972fa6a18c",
+  "extracts": {
+    "PolylineGlow": "Material._materialCache.addMaterial(Material.PolylineGlowType, {\n  fabric: {\n    type: Material.PolylineGlowType,\n    uniforms: {\n      color: new Color(0.0, 0.5, 1.0, 1.0),\n      glowPower: 0.25,\n      taperPower: 1.0,\n    },\n    source: PolylineGlowMaterial,\n  },\n  translucent: true,\n});",
+    "PolylineArrow": "Material._materialCache.addMaterial(Material.PolylineArrowType, {\n  fabric: {\n    type: Material.PolylineArrowType,\n    uniforms: {\n      color: new Color(1.0, 1.0, 1.0, 1.0),\n    },\n    source: PolylineArrowMaterial,\n  },\n  translucent: true,\n});",
+    "PolylineOutline": "Material._materialCache.addMaterial(Material.PolylineOutlineType, {\n  fabric: {\n    type: Material.PolylineOutlineType,\n    uniforms: {\n      color: new Color(1.0, 1.0, 1.0, 1.0),\n      outlineColor: new Color(1.0, 0.0, 0.0, 1.0),\n      outlineWidth: 1.0,\n    },\n    source: PolylineOutlineMaterial,\n  },\n  translucent: function (material) {\n    const uniforms = material.uniforms;\n    return uniforms.color.alpha < 1.0 || uniforms.outlineColor.alpha < 1.0;\n  },\n});",
+    "PolylineDash": "Material._materialCache.addMaterial(Material.PolylineDashType, {\n  fabric: {\n    type: Material.PolylineDashType,\n    uniforms: {\n      color: new Color(1.0, 0.0, 1.0, 1.0),\n      gapColor: new Color(0.0, 0.0, 0.0, 0.0),\n      dashLength: 16.0,\n      dashPattern: 255.0,\n    },\n    source: PolylineDashMaterial,\n  },\n  translucent: true,\n});"
+  }
+}

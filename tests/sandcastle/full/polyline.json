@@ -1,0 +1,313 @@
+[
+  {
+    "id": "polyline-1",
+    "name": "Red line on terrain",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -75,
+            35,
+            0
+          ],
+          [
+            -125,
+            35,
+            0
+          ]
+        ],
+        "width": 5,
+        "arcType": "GEODESIC",
+        "clampToGround": true,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "polyline",
+      "upstreamEntity": 1
+    }
+  },
+  {
+    "id": "polyline-2",
+    "name": "Green rhumb line",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -75,
+            35,
+            0
+          ],
+          [
+            -125,
+            35,
+            0
+          ]
+        ],
+        "width": 5,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0,
+      0.5019607843137255,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "polyline",
+      "upstreamEntity": 2
+    }
+  },
+  {
+    "id": "polyline-3",
+    "name": "Glowing blue line on the surface",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -75,
+            37,
+            0
+          ],
+          [
+            -125,
+            37,
+            0
+          ]
+        ],
+        "width": 10,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "glow",
+          "glowPower": 0.2,
+          "taperPower": 0.5
+        }
+      }
+    },
+    "color": [
+      0.39215686274509803,
+      0.5843137254901961,
+      0.9294117647058824,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "polyline",
+      "upstreamEntity": 3
+    }
+  },
+  {
+    "id": "polyline-4",
+    "name": "Orange line with black outline at height and following the surface",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -75,
+            39,
+            250000
+          ],
+          [
+            -125,
+            39,
+            250000
+          ]
+        ],
+        "width": 5,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "outline",
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 2
+        }
+      }
+    },
+    "color": [
+      1,
+      0.6470588235294118,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "polyline",
+      "upstreamEntity": 4
+    }
+  },
+  {
+    "id": "polyline-5",
+    "name": "Purple straight arrow at height",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -75,
+            43,
+            500000
+          ],
+          [
+            -125,
+            43,
+            500000
+          ]
+        ],
+        "width": 10,
+        "arcType": "NONE",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "arrow"
+        }
+      }
+    },
+    "color": [
+      0.5019607843137255,
+      0,
+      0.5019607843137255,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "polyline",
+      "upstreamEntity": 5
+    }
+  },
+  {
+    "id": "polyline-6",
+    "name": "Blue dashed line",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -75,
+            45,
+            500000
+          ],
+          [
+            -125,
+            45,
+            500000
+          ]
+        ],
+        "width": 4,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "dash",
+          "gapColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "dashLength": 16,
+          "dashPattern": 255
+        }
+      }
+    },
+    "color": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "polyline",
+      "upstreamEntity": 6
+    }
+  }
+]

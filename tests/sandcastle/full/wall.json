@@ -1,0 +1,212 @@
+[
+  {
+    "id": "wall-1",
+    "name": "Red wall at height",
+    "positionDegrees": null,
+    "shape": {
+      "type": "wall",
+      "positionsDegrees": [
+        [
+          -115,
+          44,
+          200000
+        ],
+        [
+          -90,
+          44,
+          200000
+        ]
+      ],
+      "minimumHeights": [
+        100000,
+        100000
+      ],
+      "maximumHeights": []
+    },
+    "color": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "wall",
+      "upstreamEntity": 1
+    }
+  },
+  {
+    "id": "wall-2",
+    "name": "Green wall from surface with outline",
+    "positionDegrees": null,
+    "shape": {
+      "type": "wall",
+      "positionsDegrees": [
+        [
+          -107,
+          43,
+          100000
+        ],
+        [
+          -97,
+          43,
+          100000
+        ],
+        [
+          -97,
+          40,
+          100000
+        ],
+        [
+          -107,
+          40,
+          100000
+        ],
+        [
+          -107,
+          43,
+          100000
+        ]
+      ],
+      "minimumHeights": [],
+      "maximumHeights": []
+    },
+    "color": [
+      0,
+      0.5019607843137255,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "wall",
+      "upstreamEntity": 2
+    }
+  },
+  {
+    "id": "wall-3",
+    "name": "Blue wall with sawtooth heights and outline",
+    "positionDegrees": null,
+    "shape": {
+      "type": "wall",
+      "positionsDegrees": [
+        [
+          -115,
+          50,
+          0
+        ],
+        [
+          -112.5,
+          50,
+          0
+        ],
+        [
+          -110,
+          50,
+          0
+        ],
+        [
+          -107.5,
+          50,
+          0
+        ],
+        [
+          -105,
+          50,
+          0
+        ],
+        [
+          -102.5,
+          50,
+          0
+        ],
+        [
+          -100,
+          50,
+          0
+        ],
+        [
+          -97.5,
+          50,
+          0
+        ],
+        [
+          -95,
+          50,
+          0
+        ],
+        [
+          -92.5,
+          50,
+          0
+        ],
+        [
+          -90,
+          50,
+          0
+        ]
+      ],
+      "minimumHeights": [
+        0,
+        100000,
+        0,
+        100000,
+        0,
+        100000,
+        0,
+        100000,
+        0,
+        100000,
+        0
+      ],
+      "maximumHeights": [
+        100000,
+        200000,
+        100000,
+        200000,
+        100000,
+        200000,
+        100000,
+        200000,
+        100000,
+        200000,
+        100000
+      ]
+    },
+    "color": [
+      0,
+      0,
+      1,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "wall",
+      "upstreamEntity": 3
+    }
+  }
+]

@@ -1,0 +1,242 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": false,
+      "translucent": false
+    },
+    "shape": {
+      "type": "wall",
+      "positionsDegrees": [
+        [
+          -115,
+          50,
+          0
+        ],
+        [
+          -112.5,
+          50,
+          0
+        ],
+        [
+          -110,
+          50,
+          0
+        ],
+        [
+          -107.5,
+          50,
+          0
+        ],
+        [
+          -105,
+          50,
+          0
+        ],
+        [
+          -102.5,
+          50,
+          0
+        ],
+        [
+          -100,
+          50,
+          0
+        ],
+        [
+          -97.5,
+          50,
+          0
+        ],
+        [
+          -95,
+          50,
+          0
+        ],
+        [
+          -92.5,
+          50,
+          0
+        ],
+        [
+          -90,
+          50,
+          0
+        ]
+      ],
+      "minimumHeights": [
+        0,
+        100000,
+        0,
+        100000,
+        0,
+        100000,
+        0,
+        100000,
+        0,
+        100000,
+        0
+      ],
+      "maximumHeights": [
+        100000,
+        200000,
+        100000,
+        200000,
+        100000,
+        200000,
+        100000,
+        200000,
+        100000,
+        200000,
+        100000
+      ]
+    },
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-0-instance-1",
+    "name": "",
+    "positionDegrees": null,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": false,
+      "translucent": false
+    },
+    "shape": {
+      "type": "wall",
+      "positionsDegrees": [
+        [
+          -115,
+          44,
+          0
+        ],
+        [
+          -90,
+          44,
+          0
+        ]
+      ],
+      "minimumHeights": [
+        100000,
+        100000
+      ],
+      "maximumHeights": [
+        200000,
+        200000
+      ]
+    },
+    "color": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 1
+    }
+  },
+  {
+    "id": "primitive-0-instance-2",
+    "name": "",
+    "positionDegrees": null,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": false,
+      "translucent": false
+    },
+    "shape": {
+      "type": "wall",
+      "positionsDegrees": [
+        [
+          -107,
+          43,
+          0
+        ],
+        [
+          -97,
+          43,
+          0
+        ],
+        [
+          -97,
+          40,
+          0
+        ],
+        [
+          -107,
+          40,
+          0
+        ],
+        [
+          -107,
+          43,
+          0
+        ]
+      ],
+      "minimumHeights": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "maximumHeights": [
+        100000,
+        100000,
+        100000,
+        100000,
+        100000
+      ]
+    },
+    "color": [
+      0,
+      0.5019607843137255,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 2
+    }
+  }
+]

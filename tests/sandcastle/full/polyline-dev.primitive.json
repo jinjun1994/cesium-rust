@@ -1,0 +1,69 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "PolylineGeometry",
+          "positions": [
+            [
+              -124,
+              40,
+              0
+            ],
+            [
+              -80,
+              40,
+              0
+            ]
+          ],
+          "width": 5,
+          "vertexFormat": "POLYLINE_COLOR"
+        },
+        "attributes": {
+          "color": [
+            1,
+            0,
+            0,
+            0.8
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PolylineColorAppearance"
+      }
+    },
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "PolylineGeometry",
+          "positions": [
+            [
+              -84,
+              50,
+              0
+            ],
+            [
+              -100,
+              30,
+              1000000
+            ]
+          ],
+          "width": 5,
+          "vertexFormat": "POLYLINE_COLOR",
+          "arcType": "NONE"
+        },
+        "attributes": {
+          "color": [
+            0,
+            0,
+            1,
+            1
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PolylineColorAppearance"
+      }
+    }
+  ]
+}

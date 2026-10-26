@@ -1,0 +1,75 @@
+[
+  {
+    "id": "point",
+    "name": "32 px point + 4 px outline",
+    "positionDegrees": [
+      109.7,
+      25.1,
+      16000
+    ],
+    "color": [
+      1,
+      0.15,
+      0.1,
+      1
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 32,
+      "outlineWidth": 4,
+      "outlineColor": [
+        0,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  {
+    "id": "billboard",
+    "name": "64 x 48 px image",
+    "positionDegrees": [
+      109.9,
+      25.1,
+      16000
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABBUlEQVR4nO2b0Q3CIBQAi+kc9rfO4jiu4Tg6S/11EvyWj9cYIFfD3adIc7lgqFTTes95CtjWJRqeLq93OH70+adwdAAMQAvQGIAWoDEALUCT8uMc3gfQ+3Tv+cOvAAPQAjQGoAVoDEAL0MxH36c9D+iMAWgBmrn1BbfblL5f2fmMXveuWMx/LuF3l18ZfgUYgBagmdvvs/H7ayl9PA+oxAC0AI0BaAEaA9ACNM3PA/bv7esofTwPqMQAtACNAWgBGgPQAjSeB1Qb/TkGoAVomj8XKM/tez/7q2X4FWAAWoDG3weEowNgAFqAxgC0AI0BaAEa/y8Qjg6AAWgBGgPQAjQGoAVoPsfWa1tv9ASzAAAAAElFTkSuQmCC",
+      "width": 64,
+      "height": 48
+    }
+  },
+  {
+    "id": "offset",
+    "name": "Offset right 40, down 20 px",
+    "positionDegrees": [
+      110.1,
+      25.1,
+      16000
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      0.7
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABBUlEQVR4nO2b0Q3CIBQAi+kc9rfO4jiu4Tg6S/11EvyWj9cYIFfD3adIc7lgqFTTes95CtjWJRqeLq93OH70+adwdAAMQAvQGIAWoDEALUCT8uMc3gfQ+3Tv+cOvAAPQAjQGoAVoDEAL0MxH36c9D+iMAWgBmrn1BbfblL5f2fmMXveuWMx/LuF3l18ZfgUYgBagmdvvs/H7ayl9PA+oxAC0AI0BaAEaA9ACNM3PA/bv7esofTwPqMQAtACNAWgBGgPQAjSeB1Qb/TkGoAVomj8XKM/tez/7q2X4FWAAWoDG3weEowNgAFqAxgC0AI0BaAEa/y8Qjg6AAWgBGgPQAjQGoAVoPsfWa1tv9ASzAAAAAElFTkSuQmCC",
+      "width": 48,
+      "height": 48,
+      "scale": 1,
+      "pixelOffset": [
+        40,
+        20
+      ]
+    }
+  }
+]

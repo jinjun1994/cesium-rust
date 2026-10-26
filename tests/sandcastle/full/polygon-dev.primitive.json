@@ -1,0 +1,423 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": [
+        {
+          "geometry": {
+            "type": "PolygonGeometry",
+            "positions": [
+              [
+                -115,
+                37,
+                0
+              ],
+              [
+                -115,
+                32,
+                0
+              ],
+              [
+                -107,
+                33,
+                0
+              ],
+              [
+                -102,
+                31,
+                0
+              ],
+              [
+                -102,
+                35,
+                0
+              ]
+            ],
+            "vertexFormat": "POSITION_NORMAL"
+          },
+          "attributes": {
+            "color": [
+              1,
+              0,
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "geometry": {
+            "type": "PolygonGeometry",
+            "positions": [
+              [
+                -108,
+                42,
+                0
+              ],
+              [
+                -100,
+                42,
+                0
+              ],
+              [
+                -104,
+                40,
+                0
+              ]
+            ],
+            "extrudedHeight": 500000,
+            "vertexFormat": "POSITION_NORMAL"
+          },
+          "attributes": {
+            "color": [
+              0,
+              0.5019607843137255,
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "geometry": {
+            "type": "PolygonGeometry",
+            "polygonHierarchy": {
+              "positions": [
+                [
+                  -99,
+                  30,
+                  0
+                ],
+                [
+                  -85,
+                  30,
+                  0
+                ],
+                [
+                  -85,
+                  40,
+                  0
+                ],
+                [
+                  -99,
+                  40,
+                  0
+                ]
+              ],
+              "holes": [
+                {
+                  "positions": [
+                    [
+                      -97,
+                      31,
+                      0
+                    ],
+                    [
+                      -97,
+                      39,
+                      0
+                    ],
+                    [
+                      -87,
+                      39,
+                      0
+                    ],
+                    [
+                      -87,
+                      31,
+                      0
+                    ]
+                  ],
+                  "holes": [
+                    {
+                      "positions": [
+                        [
+                          -95,
+                          33,
+                          0
+                        ],
+                        [
+                          -89,
+                          33,
+                          0
+                        ],
+                        [
+                          -89,
+                          37,
+                          0
+                        ],
+                        [
+                          -95,
+                          37,
+                          0
+                        ]
+                      ],
+                      "holes": [
+                        {
+                          "positions": [
+                            [
+                              -93,
+                              34,
+                              0
+                            ],
+                            [
+                              -91,
+                              34,
+                              0
+                            ],
+                            [
+                              -91,
+                              36,
+                              0
+                            ],
+                            [
+                              -93,
+                              36,
+                              0
+                            ]
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            "vertexFormat": "POSITION_NORMAL"
+          },
+          "attributes": {
+            "color": [
+              0,
+              0,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "geometry": {
+            "type": "PolygonGeometry",
+            "positions": [
+              [
+                -108,
+                25,
+                100000
+              ],
+              [
+                -100,
+                25,
+                100000
+              ],
+              [
+                -100,
+                30,
+                100000
+              ],
+              [
+                -108,
+                30,
+                300000
+              ]
+            ],
+            "extrudedHeight": 0,
+            "vertexFormat": "POSITION_NORMAL",
+            "perPositionHeight": true
+          },
+          "attributes": {
+            "color": [
+              1,
+              0.6470588235294118,
+              0,
+              1
+            ]
+          }
+        }
+      ],
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "closed": true,
+        "translucent": false
+      }
+    },
+    {
+      "geometryInstances": [
+        {
+          "geometry": {
+            "type": "PolygonGeometry",
+            "polygonHierarchy": {
+              "positions": [
+                [
+                  -130,
+                  40,
+                  50000
+                ],
+                [
+                  -130,
+                  36,
+                  30000
+                ],
+                [
+                  -125,
+                  37,
+                  35000
+                ],
+                [
+                  -120,
+                  36,
+                  30000
+                ],
+                [
+                  -120,
+                  40,
+                  50000
+                ]
+              ],
+              "holes": [
+                {
+                  "positions": [
+                    [
+                      -128,
+                      39.2,
+                      46000
+                    ],
+                    [
+                      -128,
+                      38.6,
+                      42000
+                    ],
+                    [
+                      -127,
+                      38.6,
+                      42000
+                    ],
+                    [
+                      -127,
+                      39.2,
+                      46000
+                    ]
+                  ]
+                }
+              ]
+            },
+            "perPositionHeight": true,
+            "vertexFormat": "POSITION_NORMAL_ST",
+            "textureCoordinates": {
+              "positions": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  0.5,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              "holes": [
+                {
+                  "positions": [
+                    [
+                      0.2,
+                      0.8
+                    ],
+                    [
+                      0.2,
+                      0.6
+                    ],
+                    [
+                      0.4,
+                      0.6
+                    ],
+                    [
+                      0.4,
+                      0.8
+                    ]
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "geometry": {
+            "type": "PolygonGeometry",
+            "polygonHierarchy": {
+              "positions": [
+                [
+                  -118.4,
+                  40.4,
+                  50000
+                ],
+                [
+                  -118.4,
+                  37,
+                  30000
+                ],
+                [
+                  -114.2,
+                  38,
+                  35000
+                ],
+                [
+                  -108,
+                  37,
+                  30000
+                ],
+                [
+                  -108,
+                  40.4,
+                  50000
+                ]
+              ]
+            },
+            "perPositionHeight": true,
+            "extrudedHeight": 0,
+            "vertexFormat": "POSITION_NORMAL_ST",
+            "textureCoordinates": {
+              "positions": [
+                [
+                  0,
+                  1
+                ],
+                [
+                  0,
+                  0
+                ],
+                [
+                  0.5,
+                  0
+                ],
+                [
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ]
+            }
+          }
+        }
+      ],
+      "appearance": {
+        "type": "EllipsoidSurfaceAppearance",
+        "aboveGround": false,
+        "material": {
+          "type": "Image",
+          "image": "../images/Cesium_Logo_Color.jpg"
+        }
+      },
+      "materialSupport": "TEXTURED",
+      "translucent": false
+    }
+  ]
+}

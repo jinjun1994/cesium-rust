@@ -1,0 +1,48 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "CylinderOutlineGeometry",
+          "length": 400000,
+          "topRadius": 150000,
+          "bottomRadius": 150000,
+          "numberOfVerticalLines": 16
+        },
+        "modelMatrix": [
+          0.984807753012208,
+          -0.1736481776669303,
+          0,
+          0,
+          0.11161889704894962,
+          0.633022221559489,
+          0.766044443118978,
+          0,
+          -0.13302222155948898,
+          -0.7544065067354889,
+          0.6427876096865393,
+          0,
+          -876214.2029216608,
+          -4969257.679120438,
+          4206543.0941376835,
+          1
+        ],
+        "attributes": {
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "flat": true,
+        "renderState": {
+          "lineWidth": 1
+        }
+      }
+    }
+  ]
+}

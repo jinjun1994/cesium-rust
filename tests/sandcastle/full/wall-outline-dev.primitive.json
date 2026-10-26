@@ -1,0 +1,39 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "WallOutlineGeometry",
+          "positions": [
+            [
+              -120,
+              60,
+              0
+            ],
+            [
+              -90,
+              60,
+              0
+            ]
+          ],
+          "maximumHeight": 500000
+        },
+        "attributes": {
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "flat": true,
+        "renderState": {
+          "lineWidth": 1
+        }
+      }
+    }
+  ]
+}

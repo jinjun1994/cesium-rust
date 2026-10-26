@@ -1,0 +1,54 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "modelMatrix": [
+      0.9781476007338057,
+      -0.20791169081775912,
+      0,
+      0,
+      0.14701576646519832,
+      0.6916548014802255,
+      0.7071067811865476,
+      0,
+      -0.14701576646519834,
+      -0.6916548014802256,
+      0.7071067811865475,
+      0,
+      -983364.6879839273,
+      -4626367.119687076,
+      4699480.443221884,
+      1
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        200000,
+        200000,
+        300000
+      ],
+      "stackPartitions": 16,
+      "slicePartitions": 8
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  }
+]

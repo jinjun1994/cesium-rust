@@ -1,0 +1,110 @@
+[
+  {
+    "id": "circles-and-ellipses-1",
+    "name": "Green circle at height with outline",
+    "positionDegrees": [
+      -111,
+      40,
+      150000
+    ],
+    "shape": {
+      "type": "ellipse",
+      "height": 200000,
+      "semiMajorAxis": 300000,
+      "semiMinorAxis": 300000,
+      "rotation": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      0,
+      0.5019607843137255,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "circles-and-ellipses",
+      "upstreamEntity": 1
+    }
+  },
+  {
+    "id": "circles-and-ellipses-2",
+    "name": "Red ellipse on surface",
+    "positionDegrees": [
+      -103,
+      40,
+      0
+    ],
+    "shape": {
+      "type": "ellipse",
+      "height": 0,
+      "semiMajorAxis": 400000,
+      "semiMinorAxis": 250000,
+      "rotation": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "circles-and-ellipses",
+      "upstreamEntity": 2
+    }
+  },
+  {
+    "id": "circles-and-ellipses-3",
+    "name": "Blue translucent, rotated, and extruded ellipse with outline",
+    "positionDegrees": [
+      -95,
+      40,
+      100000
+    ],
+    "shape": {
+      "type": "ellipse",
+      "height": 0,
+      "semiMajorAxis": 300000,
+      "semiMinorAxis": 150000,
+      "rotation": 0.7853981633974483,
+      "extrudedHeight": 200000
+    },
+    "color": [
+      0,
+      0,
+      1,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "circles-and-ellipses",
+      "upstreamEntity": 3
+    }
+  }
+]

@@ -1,0 +1,57 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": true,
+      "translucent": true
+    },
+    "modelMatrix": [
+      0.9659258262890683,
+      -0.25881904510252085,
+      0,
+      0,
+      0.18301270189221938,
+      0.6830127018922193,
+      0.7071067811865476,
+      0,
+      -0.1830127018922194,
+      -0.6830127018922194,
+      0.7071067811865475,
+      0,
+      -1214991.7329005934,
+      -4534410.877961167,
+      4664125.104162556,
+      1
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        400000,
+        300000,
+        500000
+      ]
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.5019607843137255
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  }
+]

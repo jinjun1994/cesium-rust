@@ -1,0 +1,522 @@
+[
+  {
+    "id": "partial-ellipsoids-1",
+    "name": "Saturn",
+    "positionDegrees": [
+      -95,
+      45,
+      300000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        200000,
+        200000,
+        200000
+      ]
+    },
+    "color": [
+      0.95,
+      0.82,
+      0.49,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "partial-ellipsoids",
+      "upstreamEntity": 1
+    }
+  },
+  {
+    "id": "partial-ellipsoids-2",
+    "name": "Saturn's inner ring",
+    "positionDegrees": [
+      -95,
+      45,
+      300000
+    ],
+    "orientation": [
+      0.28897772174459596,
+      -0.14804496222123592,
+      -0.3650475656313544,
+      0.8725335754702152
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        400000,
+        400000,
+        400000
+      ],
+      "innerRadii": [
+        300000,
+        300000,
+        300000
+      ],
+      "minimumCone": 1.5673056682909077,
+      "maximumCone": 1.5742869852988852
+    },
+    "color": [
+      0.95,
+      0.82,
+      0.49,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "partial-ellipsoids",
+      "upstreamEntity": 2
+    }
+  },
+  {
+    "id": "partial-ellipsoids-3",
+    "name": "Saturn's outer ring",
+    "positionDegrees": [
+      -95,
+      45,
+      300000
+    ],
+    "orientation": [
+      0.28897772174459596,
+      -0.14804496222123592,
+      -0.3650475656313544,
+      0.8725335754702152
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        460000,
+        460000,
+        460000
+      ],
+      "innerRadii": [
+        415000,
+        415000,
+        415000
+      ],
+      "minimumCone": 1.5673056682909077,
+      "maximumCone": 1.5742869852988852
+    },
+    "color": [
+      0.95,
+      0.82,
+      0.49,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "partial-ellipsoids",
+      "upstreamEntity": 3
+    }
+  },
+  {
+    "id": "partial-ellipsoids-4",
+    "name": "Dome",
+    "positionDegrees": [
+      -120,
+      40,
+      0
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        200000,
+        200000,
+        200000
+      ],
+      "maximumCone": 1.5707963267948966
+    },
+    "color": [
+      0,
+      0,
+      1,
+      0.3
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "partial-ellipsoids",
+      "upstreamEntity": 4
+    }
+  },
+  {
+    "id": "partial-ellipsoids-5",
+    "name": "Dome with inner radius",
+    "positionDegrees": [
+      -114,
+      40,
+      0
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        250000,
+        200000,
+        150000
+      ],
+      "innerRadii": [
+        100000,
+        80000,
+        60000
+      ],
+      "maximumCone": 1.5707963267948966
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.3
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "partial-ellipsoids",
+      "upstreamEntity": 5
+    }
+  },
+  {
+    "id": "partial-ellipsoids-6",
+    "name": "Dome with top cut out",
+    "positionDegrees": [
+      -108,
+      40,
+      0
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        200000,
+        200000,
+        200000
+      ],
+      "innerRadii": [
+        100000,
+        100000,
+        100000
+      ],
+      "minimumCone": 0.3490658503988659,
+      "maximumCone": 1.5707963267948966
+    },
+    "color": [
+      1,
+      1,
+      0,
+      0.3
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "partial-ellipsoids",
+      "upstreamEntity": 6
+    }
+  },
+  {
+    "id": "partial-ellipsoids-7",
+    "name": "Top and bottom cut out",
+    "positionDegrees": [
+      -102,
+      40,
+      140000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        200000,
+        200000,
+        200000
+      ],
+      "innerRadii": [
+        100000,
+        100000,
+        100000
+      ],
+      "minimumCone": 1.0471975511965976,
+      "maximumCone": 2.443460952792061
+    },
+    "color": [
+      0,
+      0.5450980392156862,
+      0.5450980392156862,
+      0.3
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "partial-ellipsoids",
+      "upstreamEntity": 7
+    }
+  },
+  {
+    "id": "partial-ellipsoids-8",
+    "name": "Bowl",
+    "positionDegrees": [
+      -96,
+      39.5,
+      200000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        200000,
+        200000,
+        200000
+      ],
+      "innerRadii": [
+        180000,
+        180000,
+        180000
+      ],
+      "minimumCone": 1.9198621771937625
+    },
+    "color": [
+      0,
+      0.5019607843137255,
+      0,
+      0.3
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "partial-ellipsoids",
+      "upstreamEntity": 8
+    }
+  },
+  {
+    "id": "partial-ellipsoids-9",
+    "name": "Clock cutout",
+    "positionDegrees": [
+      -90,
+      39,
+      0
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        200000,
+        200000,
+        200000
+      ],
+      "innerRadii": [
+        150000,
+        150000,
+        150000
+      ],
+      "minimumClock": -1.5707963267948966,
+      "maximumClock": 3.141592653589793,
+      "minimumCone": 0.3490658503988659,
+      "maximumCone": 1.2217304763960306
+    },
+    "color": [
+      0,
+      0,
+      1,
+      0.3
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "partial-ellipsoids",
+      "upstreamEntity": 9
+    }
+  },
+  {
+    "id": "partial-ellipsoids-10",
+    "name": "Partial dome",
+    "positionDegrees": [
+      -84,
+      38.5,
+      0
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        200000,
+        200000,
+        200000
+      ],
+      "minimumClock": -1.5707963267948966,
+      "maximumClock": 3.141592653589793,
+      "maximumCone": 1.5707963267948966
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.3
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "partial-ellipsoids",
+      "upstreamEntity": 10
+    }
+  },
+  {
+    "id": "partial-ellipsoids-11",
+    "name": "Wedge",
+    "positionDegrees": [
+      -102,
+      35,
+      20000
+    ],
+    "orientation": [
+      -0.2714090251260541,
+      -0.3735624752362072,
+      0.8103247175297432,
+      -0.3607798086587787
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        500000,
+        500000,
+        500000
+      ],
+      "innerRadii": [
+        10000,
+        10000,
+        10000
+      ],
+      "minimumClock": -0.2617993877991494,
+      "maximumClock": 0.2617993877991494,
+      "minimumCone": 1.3089969389957472,
+      "maximumCone": 1.8325957145940461
+    },
+    "color": [
+      0,
+      0.5450980392156862,
+      0.5450980392156862,
+      0.3
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "partial-ellipsoids",
+      "upstreamEntity": 11
+    }
+  },
+  {
+    "id": "partial-ellipsoids-12",
+    "name": "Partial ellipsoid",
+    "positionDegrees": [
+      -95,
+      34,
+      0
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        300000,
+        300000,
+        300000
+      ],
+      "innerRadii": [
+        70000,
+        70000,
+        70000
+      ],
+      "minimumClock": 3.141592653589793,
+      "maximumClock": 6.981317007977318,
+      "maximumCone": 1.5707963267948966
+    },
+    "color": [
+      0,
+      0.5450980392156862,
+      0.5450980392156862,
+      0.3
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "partial-ellipsoids",
+      "upstreamEntity": 12
+    }
+  }
+]

@@ -1,0 +1,179 @@
+[
+  {
+    "id": "document",
+    "name": "CZML procedural materials",
+    "version": "1.0"
+  },
+  {
+    "id": "stripe",
+    "name": "Stripe alpha holes",
+    "rectangle": {
+      "coordinates": {
+        "wsenDegrees": [
+          109,
+          25,
+          109.4,
+          25.4
+        ]
+      },
+      "height": 8000,
+      "material": {
+        "stripe": {
+          "evenColor": {
+            "rgba": [
+              26,
+              128,
+              255,
+              255
+            ]
+          },
+          "oddColor": {
+            "rgba": [
+              255,
+              255,
+              255,
+              0
+            ]
+          },
+          "repeat": 12,
+          "orientation": "VERTICAL"
+        }
+      }
+    }
+  },
+  {
+    "id": "checker",
+    "name": "Checkerboard",
+    "rectangle": {
+      "coordinates": {
+        "wsenDegrees": [
+          109.6,
+          25,
+          110,
+          25.4
+        ]
+      },
+      "height": 8000,
+      "material": {
+        "checkerboard": {
+          "evenColor": {
+            "rgba": [
+              255,
+              204,
+              26,
+              255
+            ]
+          },
+          "oddColor": {
+            "rgba": [
+              26,
+              204,
+              51,
+              255
+            ]
+          },
+          "repeat": {
+            "cartesian2": [
+              6,
+              6
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "grid",
+    "name": "Grid transparent cells",
+    "rectangle": {
+      "coordinates": {
+        "wsenDegrees": [
+          110.2,
+          25,
+          110.6,
+          25.4
+        ]
+      },
+      "height": 8000,
+      "material": {
+        "grid": {
+          "color": {
+            "rgba": [
+              255,
+              255,
+              255,
+              255
+            ]
+          },
+          "lineCount": {
+            "cartesian2": [
+              8,
+              8
+            ]
+          },
+          "lineThickness": {
+            "cartesian2": [
+              2,
+              2
+            ]
+          },
+          "cellAlpha": 0
+        }
+      }
+    }
+  },
+  {
+    "id": "blue",
+    "name": "Far translucent blue",
+    "rectangle": {
+      "coordinates": {
+        "wsenDegrees": [
+          109.6,
+          24.5,
+          110.05,
+          24.9
+        ]
+      },
+      "height": 5000,
+      "material": {
+        "solidColor": {
+          "color": {
+            "rgba": [
+              0,
+              51,
+              255,
+              153
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "red",
+    "name": "Near translucent red",
+    "rectangle": {
+      "coordinates": {
+        "wsenDegrees": [
+          109.8,
+          24.65,
+          110.25,
+          25.05
+        ]
+      },
+      "height": 16000,
+      "material": {
+        "solidColor": {
+          "color": {
+            "rgba": [
+              255,
+              0,
+              0,
+              128
+            ]
+          }
+        }
+      }
+    }
+  }
+]

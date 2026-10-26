@@ -1,0 +1,90 @@
+{
+  "version": "0.0.24",
+  "backend": "Rust WASM / real browser WebGPU",
+  "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
+  "externalImagery": "local deterministic 256x256 neutral raster",
+  "cases": [
+    {
+      "id": "html-overlays",
+      "sourceSha256": "73b2dc9b3fd840cf289666d93b1392a835acaaae046b93cc74805aa117293a71",
+      "inputSha256": "df59d0a5c3c3c876c4a4cb05f1905f43579b26c8c527b742e75965f817397905",
+      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "status": "passed",
+      "entities": 0,
+      "globePixels": 16147,
+      "checks": [
+        "original source body and initial state",
+        "real WASM globe pixels",
+        "source default framing",
+        "original logo asset decoded",
+        "result object reused",
+        "preRender updates after camera/resize/resolution change",
+        "wheel zoom"
+      ],
+      "htmlSha256": "0e6d5c31d0196fd6c11268c463ea8c86355c9955a5c5ea5f86571eb1b4e7b81c",
+      "assetSha256": "1d6a9bbf468253843d3fda9021b1592c2f85da109cecb11f6f37f875dc251332"
+    },
+    {
+      "id": "resolution-scaling",
+      "sourceSha256": "f732be47d255c095871a1d841b7020b9ca3a86844439b43cb99229b409d0298a",
+      "inputSha256": "03ac66a666dad93a1aa5700ac305f37e6c9086790eee83848b9fadf54181432e",
+      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "status": "passed",
+      "entities": 0,
+      "globePixels": 1017,
+      "checks": [
+        "original source body and initial state",
+        "real WASM globe pixels",
+        "source default framing",
+        "range and text subscriptions",
+        "NaN fallback",
+        "0.1..2 clamp",
+        "recommended mode",
+        "actual framebuffer dimensions",
+        "wheel zoom",
+        "real DPR=2 framebuffer and recommended-mode comparison"
+      ],
+      "htmlSha256": "595ede83e6b39accb93e8749d75c779c03b054b6666103543bf157f47fac484b",
+      "dpr2": {
+        "native": {
+          "w": 308,
+          "h": 234,
+          "cssW": 615,
+          "cssH": 468,
+          "dpr": 2,
+          "scale": 0.25,
+          "rec": false
+        },
+        "recommended": {
+          "w": 154,
+          "h": 117,
+          "cssW": 615,
+          "cssH": 468,
+          "dpr": 2,
+          "scale": 0.25,
+          "rec": true
+        },
+        "globePixels": 822
+      }
+    },
+    {
+      "id": "hello-world",
+      "sourceSha256": "10329eeedf78a7b040f59a5edf8f8804644b440e56323b2bb3d1a846c61b6bce",
+      "inputSha256": "78b58e3d01df000ca3a15cad2bd97fe4189924f0510bbe8304f0d8c53413b24e",
+      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "status": "passed",
+      "entities": 0,
+      "globePixels": 16147,
+      "checks": [
+        "original source body and initial state",
+        "real WASM globe pixels",
+        "source default framing",
+        "overlay/event/resolution case cleanup",
+        "wheel zoom"
+      ]
+    }
+  ],
+  "browser": "155.0.8059.39",
+  "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
+  "destroy": "passed"
+}

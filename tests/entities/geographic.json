@@ -1,0 +1,8 @@
+[
+ {"id":"ribbon","name":"Metre-width geographic polyline","shape":{"type":"polyline","positionsDegrees":[[109.2,24.6,5000],[109.5,24.75,5000],[109.8,24.6,5000]],"widthMetres":2000},"color":[1,0.8,0.1,1]},
+ {"id":"hole","name":"Polygon with real hole","shape":{"type":"polygon","positionsDegrees":[[109.2,25,8000],[109.6,25,8000],[109.6,25.4,8000],[109.2,25.4,8000]],"holes":[[[109.35,25.15,8000],[109.45,25.15,8000],[109.45,25.25,8000],[109.35,25.25,8000]]]},"color":[0.05,0.8,0.3,1]},
+ {"id":"rectangle","name":"Extruded rectangle","shape":{"type":"rectangle","coordinatesDegrees":[109.8,25,110.05,25.3],"height":1000,"extrudedHeight":20000},"color":[0.9,0.25,0.1,1]},
+ {"id":"ellipse","name":"Rotated ellipsoid-surface ellipse","positionDegrees":[110.3,25.15,6000],"shape":{"type":"ellipse","semiMajorAxis":18000,"semiMinorAxis":8000,"rotation":0.6},"color":[0.1,0.55,1,1]},
+ {"id":"wall","name":"Height-varying wall","shape":{"type":"wall","positionsDegrees":[[109.5,25.6,16000],[109.9,25.6,24000],[110.3,25.6,16000]],"minimumHeights":[1000,1000,1000]},"color":[1,0.2,0.8,1]},
+ {"id":"extruded-hole","name":"Extruded polygon and inner walls","shape":{"type":"polygon","positionsDegrees":[[110.55,25,4000],[110.9,25,4000],[110.9,25.35,4000],[110.55,25.35,4000]],"holes":[[[110.65,25.1,4000],[110.8,25.1,4000],[110.8,25.25,4000],[110.65,25.25,4000]]],"extrudedHeight":20000},"color":[0.75,0.45,1,1]}
+]

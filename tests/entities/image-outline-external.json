@@ -1,0 +1,129 @@
+[
+  {
+    "id": "image",
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        109,
+        25,
+        109.4,
+        25.4
+      ],
+      "height": 8000
+    },
+    "material": {
+      "type": "image",
+      "image": "image-test.png",
+      "transparent": true,
+      "repeat": [
+        1,
+        1
+      ]
+    },
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "repeated",
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        109.6,
+        25,
+        110,
+        25.4
+      ],
+      "height": 8000
+    },
+    "material": {
+      "type": "image",
+      "image": "image-test.png",
+      "transparent": true,
+      "repeat": [
+        2,
+        2
+      ]
+    },
+    "outline": true,
+    "outlineColor": [
+      1,
+      0,
+      0,
+      1
+    ]
+  },
+  {
+    "id": "outline-only",
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        110.2,
+        25,
+        110.6,
+        25.4
+      ],
+      "height": 8000
+    },
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      0.1,
+      1,
+      0.3,
+      1
+    ]
+  },
+  {
+    "id": "box-wire",
+    "positionDegrees": [
+      109.6,
+      24.7,
+      16000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        12000,
+        12000,
+        16000
+      ]
+    },
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.3,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "sphere-wire",
+    "positionDegrees": [
+      110.15,
+      24.7,
+      16000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        16000,
+        12000,
+        16000
+      ]
+    },
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      0,
+      1,
+      1,
+      1
+    ]
+  }
+]

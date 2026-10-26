@@ -1,0 +1,199 @@
+[
+  {
+    "id": "document",
+    "version": "1.0"
+  },
+  {
+    "id": "background",
+    "position": {
+      "cartographicDegrees": [
+        109.83,
+        25.1,
+        16000
+      ]
+    },
+    "label": {
+      "text": "地球 Globe",
+      "showBackground": true,
+      "backgroundColor": {
+        "rgba": [
+          26,
+          51,
+          204,
+          204
+        ]
+      },
+      "backgroundPadding": {
+        "cartesian2": [
+          12,
+          8
+        ]
+      },
+      "font": "26px sans-serif",
+      "fillColor": {
+        "rgba": [
+          255,
+          255,
+          255,
+          255
+        ]
+      }
+    }
+  },
+  {
+    "id": "outline",
+    "position": {
+      "cartographicDegrees": [
+        110.2,
+        25.1,
+        16000
+      ]
+    },
+    "label": {
+      "text": "描边 Globe",
+      "style": "FILL_AND_OUTLINE",
+      "outlineColor": {
+        "rgba": [
+          255,
+          204,
+          0,
+          255
+        ]
+      },
+      "outlineWidth": 3,
+      "font": "26px sans-serif",
+      "fillColor": {
+        "rgba": [
+          255,
+          255,
+          255,
+          255
+        ]
+      }
+    }
+  },
+  {
+    "id": "rotation",
+    "position": {
+      "cartographicDegrees": [
+        109.92,
+        24.95,
+        16000
+      ]
+    },
+    "billboard": {
+      "image": {
+        "uri": "image-test.png"
+      },
+      "width": 96,
+      "height": 48,
+      "pixelOffset": {
+        "cartesian2": [
+          30,
+          0
+        ]
+      },
+      "rotation": 1.5707963267948966,
+      "color": {
+        "rgba": [
+          255,
+          255,
+          255,
+          255
+        ]
+      }
+    }
+  },
+  {
+    "id": "offset-distance",
+    "position": {
+      "cartographicDegrees": [
+        109.78,
+        24.85,
+        16000
+      ]
+    },
+    "billboard": {
+      "image": {
+        "uri": "image-test.png"
+      },
+      "width": 48,
+      "height": 48,
+      "pixelOffset": {
+        "cartesian2": [
+          40,
+          20
+        ]
+      },
+      "pixelOffsetScaleByDistance": {
+        "nearFarScalar": [
+          40000,
+          1,
+          160000,
+          3
+        ]
+      },
+      "color": {
+        "rgba": [
+          255,
+          255,
+          255,
+          255
+        ]
+      }
+    }
+  },
+  {
+    "id": "depth-distance",
+    "position": {
+      "cartographicDegrees": [
+        110.18,
+        24.87,
+        16000
+      ]
+    },
+    "point": {
+      "pixelSize": 40,
+      "disableDepthTestDistance": 80000,
+      "color": {
+        "rgba": [
+          255,
+          38,
+          26,
+          255
+        ]
+      }
+    }
+  },
+  {
+    "id": "occluder",
+    "position": {
+      "cartographicDegrees": [
+        110.18,
+        24.87,
+        24000
+      ]
+    },
+    "ellipsoid": {
+      "radii": {
+        "cartesian": [
+          10000,
+          10000,
+          10000
+        ]
+      },
+      "material": {
+        "solidColor": {
+          "color": {
+            "rgba": [
+              25,
+              51,
+              204,
+              255
+            ]
+          }
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,328 @@
+   Compiling cesium-viewer v0.0.26 (/workspace/scratch/0ad6a1084781/cesium-rs/crates/cesium-viewer)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 12.43s
+     Running unittests src/main.rs (/workspace/scratch/0ad6a1084781/.build-b26-native/debug/deps/asset_inspector-3ccefc3fa9cc0016)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (/workspace/scratch/0ad6a1084781/.build-b26-native/debug/deps/cesium_formats-d01e24ceeaf1bf86)
+
+running 10 tests
+test tests::axis_rotation ... ok
+test tests::every_truncation_rejected_without_panic ... ok
+test tests::accessor_and_cycles_rejected ... ok
+test tests::range_overflow_and_limits ... ok
+test tests::blend_material_decode ... ok
+test tests::sparse_and_stride ... ok
+test tests::globe_seam_and_axes_match_equirectangular_uvs ... ok
+test tests::containers_and_decode ... ok
+test tests::embedded_and_data_uri_material_channels ... ok
+test tests::deterministic_corruption_smoke ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/lib.rs (/workspace/scratch/0ad6a1084781/.build-b26-native/debug/deps/cesium_math-7f224438adbd2531)
+
+running 4 tests
+test tests::projection_and_relative_translation ... ok
+test tests::enu_is_orthonormal ... ok
+test tests::ray_and_shear ... ok
+test tests::roundtrips ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (/workspace/scratch/0ad6a1084781/.build-b26-native/debug/deps/cesium_renderer-2630f5a6ba990d24)
+
+running 7 tests
+test tests::offscreen_render_and_pick ... ignored, requires a native GPU or Mesa Vulkan software adapter
+test tests::one_pixel_lines_pick_and_occlusion ... ignored, requires a native GPU or Mesa Vulkan software adapter
+test tests::textured_material_channels_and_alpha_pick ... ignored, requires a native GPU or Mesa Vulkan software adapter
+test tests::transparent_order_and_procedural_alpha_pick ... ignored, requires a native GPU or Mesa Vulkan software adapter
+test screen_distance::effect_tests::offset_curve_and_depth_threshold_are_independent ... ok
+test screen_distance::tests::near_far_clamps_and_reference_interpolation ... ok
+test tests::shader_and_layout ... ok
+
+test result: ok. 3 passed; 0 failed; 4 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running unittests src/lib.rs (/workspace/scratch/0ad6a1084781/.build-b26-native/debug/deps/cesium_streaming-d6d66d27c159664b)
+
+running 3 tests
+test tests::pinned_lru_backpressure ... ok
+test tests::reservation_conservation ... ok
+test tests::stale_tasks ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (/workspace/scratch/0ad6a1084781/.build-b26-native/debug/deps/cesium_tiles-334c972325e76caa)
+
+running 7 tests
+test tests::external_inheritance_cycles_and_atomic_limits ... ok
+test tests::add_and_empty_parent ... ok
+test tests::region_not_transformed ... ok
+test tests::inherited_refine_transform_and_relative_url ... ok
+test tests::replace_transaction_and_failure ... ok
+test tests::region_bounds_are_tight_and_conservative ... ok
+test tests::randomized_replace_never_mixes_ancestor_and_descendant ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/lib.rs (/workspace/scratch/0ad6a1084781/.build-b26-native/debug/deps/cesium_viewer-a8a244bc8629fcfb)
+
+running 91 tests
+test camera_control::tests::flight_antipodes_pause_and_zero_duration ... ok
+test clock::tests::loop_and_reverse ... ok
+test camera_control::tests::look_at_heading_range_and_manual_pose_clearance ... ok
+test camera_control::tests::bounds_and_strict_commands ... ok
+test clock::tests::clamp_pause_invalid ... ok
+test camera_control::tests::set_view_hpr_roundtrip_and_poles ... ok
+test camera_control::tests::flight_dateline_arc_and_exact_endpoint ... ok
+test ellipsoid_tests::czml_float_colors_strict_encoding ... ok
+test earth_tests::global_camera_stays_outside_and_sees_earth ... ok
+test earth_tests::globe_zoom_reaches_close_view_and_roundtrips ... ok
+test entities::tests::czml_subset_and_rejection ... ok
+test entities::tests::invalid_alpha_and_leap_seconds ... ok
+test ellipsoid_tests::czml_partitions_and_rgbaf_outline ... ok
+test entity_framing::tests::bounds_enclose_corners_and_empty_fails ... ok
+test corridor::tests::boundary_tracks_independent_cesium_geometry ... ok
+test entities::tests::motion_geometry_and_validation ... ok
+test entity_material::tests::constant_materials_limits_and_czml ... ok
+test entity_material::tests::corrupt_and_oversized_images_rejected ... ok
+test entity_resources::tests::relative_images_dedup_and_metadata_isolation ... ok
+test entity_resources::tests::invalid_resource_failure ... ok
+test ellipsoid_tests::ellipsoid_partition_topology_and_smooth_normals ... ok
+test entity_material::tests::image_decode_alpha_switch_and_limits ... ok
+test ellipsoid_tests::ellipsoid_partition_bounds_and_legacy_default ... ok
+test geodesic::tests::equator_distance_and_dateline ... ok
+test geodesic::tests::long_wall_bows_and_reverses ... ok
+test geographic::tests::dateline_rectangle_and_invalid_geometry ... ok
+test extended_instances::tests::invalid_extended_input_is_rejected ... ok
+test geographic::tests::geographic_czml_and_rejected_unsupported_properties ... ok
+test geographic_case_tests::ellipse_large_axes_rotation_and_height_bounds ... ok
+test geographic::tests::shapes_have_finite_rtc_meshes_and_extrusion_faces ... ok
+test geographic_case_tests::original_czml_point_pixel_graphic ... ok
+test extended_instances::tests::line_arc_color_and_hierarchy_semantics ... ok
+test geographic_case_tests::wall_geodesic_path_and_sawtooth_heights ... ok
+test geojson::tests::decimal_ring_closure_and_wide_ribbon_curvature ... ok
+test geojson::tests::globe_overlay_hole_pick_and_layer_lifecycle ... ignored, requires a native GPU or Mesa Vulkan software adapter
+test geojson::tests::geometry_types_properties_and_limits ... ok
+test imagery::tests::metadata_credentials_and_bounded_decode ... ok
+test imagery::tests::progressive_coverage_cache_and_cancellation ... ignored, requires a native GPU or Mesa Vulkan software adapter
+test imagery::tests::quadkeys_tms_and_poles ... ok
+test imagery::tests::refinement_and_parent_uv ... ok
+test geojson::tests::holes_dateline_and_invalid_polygons ... ok
+test extended_instances::tests::czml_byte_and_float_colors_and_inferred_clock ... ok
+test geographic_case_tests::ellipse_override_keeps_original_position_and_extrusion ... ok
+test label_appearance::tests::czml_style_and_resource_bounds ... ok
+test earth_tests::bundled_map_has_global_two_to_one_extent ... ok
+test native::tests::bounded_file_fetch ... ok
+test native::tests::scene_normal_and_orbit ... ok
+test outline::tests::analytic_edges_and_czml_flags ... ok
+test outline::tests::geographic_holes_extrusion_and_wire_meshes ... ok
+test plane::tests::legacy_defaults_and_invalid_normals ... ok
+test plane::tests::three_axes_and_offset_share_fill_outline_basis ... ok
+test extended_instances::tests::all_extended_source_instances_match_independent_snapshot ... ok
+test polygon_surface::tests::independent_coplanar_position_and_rotated_st_reference ... ok
+test label::tests::chinese_multiline_coverage_and_baseline ... ok
+test label_appearance::tests::outline_only_has_hollow_ink_and_colored_ring ... ok
+test label::tests::bounded_css_fonts_and_text_placement ... ok
+test label_appearance::tests::background_padding_and_independent_colors ... ok
+test polygon_surface::tests::rhumb_and_all_point_menu_alternatives ... ok
+test primitive_fill_tests::cylinder_smooth_normals_and_solid_winding ... ok
+test primitive_fill_tests::filled_input_rejects_unmapped_and_ambiguous_parameters ... ok
+test primitive_fill_tests::appearance_defaults_quantized_color_and_render_flags ... ok
+test primitive_instances::tests::affine_model_rejections_and_nonuniform_transform ... ok
+test primitive_instances::tests::enu_model_matrix_translation_is_exact ... ok
+test primitive_fill_tests::opaque_attribute_alpha_and_flat_override ... ok
+test primitive_instances::tests::geographic_world_outlines_follow_surface ... ok
+test primitive_instances::tests::instance_arrays_ids_and_outline_topology ... ok
+test primitive_fill_tests::complete_filled_instances_preserve_original_graph ... ok
+test primitive_fill_tests::ellipse_filled_caps_rotation_and_extrusion ... ok
+test scene_recipes::tests::strict_scene_contracts ... ok
+test screen::tests::czml_screen_defaults_samples_and_strict_properties ... ok
+test screen::tests::pixel_geometry_and_bounded_parameters ... ok
+test primitive_instances::tests::unsupported_fields_budgets_and_colors_fail ... ok
+test screen_options::tests::czml_all_five_features_and_invalid_curves ... ok
+test primitive_instances::tests::source_instances_keep_all_parameters ... ok
+test screen_options::tests::origins_and_screen_properties_reject_wrong_graphics ... ok
+test terrain::tests::provider_tms_auth_metadata_and_validation ... ok
+test terrain::tests::terrain_replacement_drape_collision_and_lifecycle ... ignored, requires a native GPU or Mesa Vulkan software adapter
+test terrain::tests::quantized_decode_gzip_ranges_and_rtc ... ok
+test wide_polyline::material_defaults_test::pinned_material_defaults_are_distinct_from_property_defaults ... ok
+test screen_options::effect_tests::czml_effects_and_wrong_graphics_rejection ... ok
+test wide_polyline::source_tests::interpolation_and_segment_discontinuities ... ok
+test wide_polyline::source_tests::strict_material_and_source_validation ... ok
+test wide_polyline::tests::rejects_invalid_budgets_and_colors ... ok
+test wide_polyline::tests::rhumb_latitude_and_dateline ... ok
+test wide_polyline::source_tests::all_six_complete_source_contracts ... ok
+test corridor::tests::rejects_degenerate_width_positions_and_corners ... ok
+test terrain::tests::terrarium_real_heights_and_official_mesh ... ok
+test scene_recipes::tests::original_czml_positions_and_corridors ... ok
+test corridor::tests::full_case_source_parameters_and_geometry ... ok
+test polygon_surface::tests::open_caps_and_authored_texture_coordinates ... ok
+test polygon_surface::tests::all_four_original_polygon_contracts ... ok
+
+test result: ok. 88 passed; 0 failed; 3 ignored; 0 measured; 0 filtered out; finished in 5.16s
+
+     Running unittests src/main.rs (/workspace/scratch/0ad6a1084781/.build-b26-native/debug/deps/desktop_viewer-f0c19cc73835e4f9)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/sample-render-check.rs (/workspace/scratch/0ad6a1084781/.build-b26-native/debug/deps/sample_render_check-d6da67a7fd41996b)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/terrain-render-check.rs (/workspace/scratch/0ad6a1084781/.build-b26-native/debug/deps/terrain_render_check-44147b4464817262)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/camera-gpu.rs (/workspace/scratch/0ad6a1084781/.build-b26-native/debug/deps/camera_gpu-6e403e0aaa40742e)
+
+running 5 tests
+test cancellation_replacement_atomicity_and_manual_takeover ... ignored, requires native GPU or Mesa Vulkan
+test fly_to_advances_with_paused_entity_clock_and_exact_end ... ignored, requires native GPU or Mesa Vulkan
+test look_at_fixed_anchor_range_and_orbit_takeover ... ignored, requires native GPU or Mesa Vulkan
+test set_view_pose_matches_visible_and_pick_center ... ignored, requires native GPU or Mesa Vulkan
+test tracked_entity_motion_visibility_removal_and_availability ... ignored, requires native GPU or Mesa Vulkan
+
+test result: ok. 0 passed; 0 failed; 5 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/entities-gpu.rs (/workspace/scratch/0ad6a1084781/.build-b26-native/debug/deps/entities_gpu-28fa58c0c019e223)
+
+running 5 tests
+test entities_draw_pick_motion_and_atomic_replacement ... ignored, requires native GPU or Mesa Vulkan
+test entity_material_uvs_transparent_cells_and_czml_wall ... ignored, requires native GPU or Mesa Vulkan
+test geographic_holes_extrusion_visibility_and_upsert ... ignored, requires native GPU or Mesa Vulkan
+test images_outlines_fill_toggle_and_lifecycle ... ignored, requires native GPU or Mesa Vulkan
+test screen_pixels_zoom_depth_and_pick_lifecycle ... ignored, requires native GPU or Mesa Vulkan
+
+test result: ok. 0 passed; 0 failed; 5 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/full-recipes-gpu.rs (/workspace/scratch/0ad6a1084781/.build-b26-native/debug/deps/full_recipes_gpu-47ee9b84a3ea45ce)
+
+running 58 tests
+test complete_box ... ignored, requires native GPU or Mesa Vulkan
+test complete_box_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_box_outline_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_circle_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_circle_outline_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_circles_and_ellipses ... ignored, requires native GPU or Mesa Vulkan
+test complete_coplanar_polygon_dev ... ignored, requires GPU
+test complete_coplanar_polygon_outline_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_corridor ... ignored, requires native GPU or Mesa Vulkan
+test complete_corridor_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_corridor_outline_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_cylinder_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_cylinder_outline_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_cylinders_and_cones ... ignored, requires native GPU or Mesa Vulkan
+test complete_czml_box ... ignored, requires native GPU or Mesa Vulkan
+test complete_czml_circles_and_ellipses ... ignored, requires native GPU or Mesa Vulkan
+test complete_czml_colors ... ignored, requires native GPU or Mesa Vulkan
+test complete_czml_cones_and_cylinders ... ignored, requires native GPU or Mesa Vulkan
+test complete_czml_corridor ... ignored, requires native GPU or Mesa Vulkan
+test complete_czml_point ... ignored, requires native GPU or Mesa Vulkan
+test complete_czml_point_time_dynamic ... ignored, requires native GPU or Mesa Vulkan
+test complete_czml_polygon ... ignored, requires GPU
+test complete_czml_polyline ... ignored, requires GPU
+test complete_czml_position_definitions ... ignored, requires native GPU or Mesa Vulkan
+test complete_czml_spheres_and_ellipsoids ... ignored, requires native GPU or Mesa Vulkan
+test complete_czml_wall ... ignored, requires native GPU or Mesa Vulkan
+test complete_ellipse_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_ellipse_outline_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_ellipsoid_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_ellipsoid_outline_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_ellipsoid_surface_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_hello_world ... ignored, requires native GPU or Mesa Vulkan
+test complete_html_overlays ... ignored, requires native GPU or Mesa Vulkan; DOM behavior tested in Chromium
+test complete_material_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_offline ... ignored, requires GPU
+test complete_per_instance_color_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_plane ... ignored, requires native GPU or Mesa Vulkan
+test complete_points ... ignored, requires GPU
+test complete_polygon ... ignored, requires GPU
+test complete_polygon_dev ... ignored, requires GPU
+test complete_polygon_outline_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_polyline ... ignored, requires GPU
+test complete_polyline_color_dev ... ignored, requires GPU
+test complete_polyline_dash ... ignored, requires GPU
+test complete_polyline_dev ... ignored, requires GPU
+test complete_polyline_material_dev ... ignored, requires GPU
+test complete_rectangle_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_rectangle_outline_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_resolution_scaling ... ignored, requires native GPU or Mesa Vulkan; physical/CSS resolution tested in Chromium
+test complete_show_or_hide_entities ... ignored, requires native GPU or Mesa Vulkan
+test complete_simple_polyline_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_sphere_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_sphere_outline_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_spheres_and_ellipsoids ... ignored, requires native GPU or Mesa Vulkan
+test complete_wall ... ignored, requires native GPU or Mesa Vulkan
+test complete_wall_dev ... ignored, requires native GPU or Mesa Vulkan
+test complete_wall_outline_dev ... ignored, requires native GPU or Mesa Vulkan
+test wide_line_pixel_width_materials_and_picking ... ignored, requires GPU
+
+test result: ok. 0 passed; 0 failed; 58 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/screen-advanced-gpu.rs (/workspace/scratch/0ad6a1084781/.build-b26-native/debug/deps/screen_advanced_gpu-30b456215e9ef2f5)
+
+running 5 tests
+test distance_display_condition_draw_and_pick ... ignored, requires native GPU or Mesa Vulkan
+test distance_scale_pixel_diameter_and_fixed_offset ... ignored, requires native GPU or Mesa Vulkan
+test distance_translucency_blend_and_zero_alpha_pick ... ignored, requires native GPU or Mesa Vulkan
+test label_chinese_text_alpha_pick_and_lifecycle ... ignored, requires native GPU or Mesa Vulkan
+test origins_billboard_quadrants_and_label_baseline ... ignored, requires native GPU or Mesa Vulkan
+
+test result: ok. 0 passed; 0 failed; 5 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/screen-effects-gpu.rs (/workspace/scratch/0ad6a1084781/.build-b26-native/debug/deps/screen_effects_gpu-f8de9050af810a97)
+
+running 5 tests
+test billboard_rotation_preserves_pixel_offset ... ignored, requires native GPU or Mesa Vulkan
+test depth_distance_overlay_color_pick_and_transparent_holes ... ignored, requires native GPU or Mesa Vulkan
+test distance_pixel_offset_moves_without_resizing ... ignored, requires native GPU or Mesa Vulkan
+test label_background_color_and_pick_rectangle ... ignored, requires native GPU or Mesa Vulkan
+test label_outline_color_hollow_ink_and_pick ... ignored, requires native GPU or Mesa Vulkan
+
+test result: ok. 0 passed; 0 failed; 5 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests cesium_formats
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests cesium_math
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests cesium_renderer
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests cesium_streaming
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests cesium_tiles
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests cesium_viewer
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

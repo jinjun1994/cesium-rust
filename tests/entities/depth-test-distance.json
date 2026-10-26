@@ -1,0 +1,45 @@
+[
+  {
+    "id": "occluder",
+    "positionDegrees": [
+      110,
+      25,
+      24000
+    ],
+    "color": [
+      0.1,
+      0.2,
+      0.8,
+      1
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        10000,
+        10000,
+        10000
+      ]
+    }
+  },
+  {
+    "id": "depth-distance",
+    "positionDegrees": [
+      110,
+      25,
+      16000
+    ],
+    "color": [
+      1,
+      0.15,
+      0.1,
+      1
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 40
+    },
+    "screen": {
+      "disableDepthTestDistance": 80000
+    }
+  }
+]

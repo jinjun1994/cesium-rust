@@ -1,0 +1,91 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": [
+        {
+          "geometry": {
+            "type": "RectangleGeometry",
+            "rectangle": [
+              -120,
+              30,
+              -110,
+              40
+            ],
+            "vertexFormat": "POSITION_NORMAL"
+          },
+          "attributes": {
+            "color": [
+              0.8156862745098039,
+              0.13333333333333333,
+              0.9058823529411765,
+              0.7019607843137254
+            ]
+          }
+        },
+        {
+          "geometry": {
+            "type": "RectangleGeometry",
+            "rectangle": [
+              -110,
+              30,
+              -100,
+              40
+            ],
+            "vertexFormat": "POSITION_NORMAL"
+          },
+          "attributes": {
+            "color": [
+              0.8352941176470589,
+              0.12549019607843137,
+              0.9725490196078431,
+              0.7019607843137254
+            ]
+          }
+        },
+        {
+          "geometry": {
+            "type": "RectangleGeometry",
+            "rectangle": [
+              -100,
+              30,
+              -90,
+              40
+            ],
+            "vertexFormat": "POSITION_NORMAL"
+          },
+          "attributes": {
+            "color": [
+              0.9137254901960784,
+              0.2196078431372549,
+              0.6313725490196078,
+              0.7019607843137254
+            ]
+          }
+        },
+        {
+          "geometry": {
+            "type": "RectangleGeometry",
+            "rectangle": [
+              -90,
+              30,
+              -80,
+              40
+            ],
+            "vertexFormat": "POSITION_NORMAL"
+          },
+          "attributes": {
+            "color": [
+              0.3058823529411765,
+              0.09411764705882353,
+              0.5490196078431373,
+              0.7019607843137254
+            ]
+          }
+        }
+      ],
+      "appearance": {
+        "type": "PerInstanceColorAppearance"
+      }
+    }
+  ]
+}

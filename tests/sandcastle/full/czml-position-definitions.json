@@ -1,0 +1,110 @@
+[
+  {
+    "id": "point1",
+    "name": "point in cartographic degrees",
+    "positionDegrees": [
+      -111,
+      40,
+      150000
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 10,
+      "outlineWidth": 0,
+      "outlineColor": [
+        0.7843137254901961,
+        0,
+        0.7843137254901961,
+        1
+      ]
+    },
+    "color": [
+      0.39215686274509803,
+      0,
+      0.7843137254901961,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0.7843137254901961,
+      0,
+      0.7843137254901961,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  },
+  {
+    "id": "point2",
+    "name": "point in cartesian coordinates",
+    "positionDegrees": [
+      -75.595,
+      40.039999999954084,
+      -0.000002139247953891754
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 10,
+      "outlineWidth": 0,
+      "outlineColor": [
+        0.7843137254901961,
+        0,
+        0.7843137254901961,
+        1
+      ]
+    },
+    "color": [
+      0,
+      0.39215686274509803,
+      0.7843137254901961,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0.7843137254901961,
+      0,
+      0.7843137254901961,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  },
+  {
+    "id": "point 3",
+    "name": "point in cartographic radians",
+    "positionDegrees": [
+      -7.016709298534877e-15,
+      45.00000000000001,
+      150000
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 10,
+      "outlineWidth": 0,
+      "outlineColor": [
+        0.7843137254901961,
+        0,
+        0.7843137254901961,
+        1
+      ]
+    },
+    "color": [
+      0.0392156862745098,
+      0.7843137254901961,
+      0.0392156862745098,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0.7843137254901961,
+      0,
+      0.7843137254901961,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  }
+]

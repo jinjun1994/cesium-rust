@@ -1,0 +1,3 @@
+    Checking asset-inspector v0.0.16 (<project>/tools/asset-inspector)
+    Checking cesium-viewer v0.0.16 (<project>/crates/cesium-viewer)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.80s

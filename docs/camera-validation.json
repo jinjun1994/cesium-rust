@@ -1,0 +1,106 @@
+{
+  "version": "0.0.16",
+  "features": [
+    "setView",
+    "flyTo",
+    "cancelFlight",
+    "trackEntity",
+    "lookAt"
+  ],
+  "ordinaryRustPassed": 71,
+  "gpuPassed": 27,
+  "nodeSuitesPassed": 7,
+  "native90FrameCasesPassed": 5,
+  "fmt": "passed",
+  "clippy": "passed",
+  "wasmBuildAndBindings": "passed",
+  "browser": "not-run: Chromium missing; historical DeviceLost unresolved",
+  "sandcastleFullRecipesPassed": 0,
+  "nativeCameraStates": {
+    "set-view": {
+      "flightId": 0,
+      "flightProgress": 0.0,
+      "flightStatus": "idle",
+      "mode": "view",
+      "trackedEntity": null,
+      "view": {
+        "destinationDegrees": [
+          109.7,
+          25.1,
+          96000.00000000093
+        ],
+        "heading": 0.7853981633974483,
+        "pitch": -1.5707963267948966,
+        "roll": 0.7853981633974483
+      }
+    },
+    "fly-to": {
+      "flightId": 1,
+      "flightProgress": 1.0,
+      "flightStatus": "completed",
+      "mode": "view",
+      "trackedEntity": null,
+      "view": {
+        "destinationDegrees": [
+          109.7,
+          25.1,
+          96000.00000000093
+        ],
+        "heading": 0.7853981633974483,
+        "pitch": -1.5707963267948966,
+        "roll": 0.7853981633974483
+      }
+    },
+    "cancel-flight": {
+      "flightId": 1,
+      "flightProgress": 0.0,
+      "flightStatus": "cancelled",
+      "mode": "view",
+      "trackedEntity": null,
+      "view": {
+        "destinationDegrees": [
+          109.3,
+          25.1,
+          96000.00000000093
+        ],
+        "heading": -0.12435499454676144,
+        "pitch": -1.5707963267948966,
+        "roll": -0.1243549945467615
+      }
+    },
+    "look-at": {
+      "flightId": 0,
+      "flightProgress": 0.0,
+      "flightStatus": "idle",
+      "mode": "lookAt",
+      "trackedEntity": null,
+      "view": {
+        "destinationDegrees": [
+          109.392572963356,
+          24.689157282928928,
+          73630.00100669637
+        ],
+        "heading": 0.597764317001647,
+        "pitch": -0.8086662868148999,
+        "roll": 3.191548302823811e-05
+      }
+    },
+    "track-entity": {
+      "flightId": 0,
+      "flightProgress": 0.0,
+      "flightStatus": "idle",
+      "mode": "tracking",
+      "trackedEntity": "point",
+      "view": {
+        "destinationDegrees": [
+          109.7495730416967,
+          24.970301329026693,
+          53284.09388737939
+        ],
+        "heading": 1.3406032354270154e-14,
+        "pitch": -1.202264690838824,
+        "roll": 1.4032070435690343e-16
+      }
+    }
+  }
+}

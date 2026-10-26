@@ -1,0 +1,68 @@
+[
+  {
+    "id": "document",
+    "version": "1.0",
+    "name": "Image material and outlines"
+  },
+  {
+    "id": "image",
+    "rectangle": {
+      "coordinates": {
+        "wsenDegrees": [
+          109,
+          25,
+          109.4,
+          25.4
+        ]
+      },
+      "height": 8000,
+      "outline": true,
+      "outlineColor": {
+        "rgba": [
+          255,
+          255,
+          255,
+          255
+        ]
+      },
+      "material": {
+        "image": {
+          "image": {
+            "uri": "image-test.png"
+          },
+          "transparent": true,
+          "repeat": {
+            "cartesian2": [
+              1,
+              1
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "outline-only",
+    "rectangle": {
+      "coordinates": {
+        "wsenDegrees": [
+          110.2,
+          25,
+          110.6,
+          25.4
+        ]
+      },
+      "height": 8000,
+      "fill": false,
+      "outline": true,
+      "outlineColor": {
+        "rgba": [
+          0,
+          255,
+          80,
+          255
+        ]
+      }
+    }
+  }
+]

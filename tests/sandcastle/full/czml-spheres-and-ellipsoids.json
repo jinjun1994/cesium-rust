@@ -1,0 +1,103 @@
+[
+  {
+    "id": "blueEllipsoid",
+    "name": "blue ellipsoid",
+    "positionDegrees": [
+      -114,
+      40,
+      300000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        200000,
+        200000,
+        300000
+      ]
+    },
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  },
+  {
+    "id": "redSphere",
+    "name": "Red sphere with black outline",
+    "positionDegrees": [
+      -107,
+      40,
+      300000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        300000,
+        300000,
+        300000
+      ]
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.39215686274509803
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  },
+  {
+    "id": "yellowEllipsoid",
+    "name": "ellipsoid with yellow outline",
+    "positionDegrees": [
+      -100,
+      40,
+      300000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        200000,
+        200000,
+        300000
+      ],
+      "stackPartitions": 36,
+      "slicePartitions": 24
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  }
+]

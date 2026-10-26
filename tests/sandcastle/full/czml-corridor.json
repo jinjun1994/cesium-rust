@@ -1,0 +1,137 @@
+[
+  {
+    "id": "redCorridor",
+    "name": "Red corridor on surface with rounded corners",
+    "positionDegrees": null,
+    "shape": {
+      "type": "corridor",
+      "positionsDegrees": [
+        [
+          -100,
+          40,
+          0
+        ],
+        [
+          -105,
+          40,
+          0
+        ],
+        [
+          -105,
+          35,
+          0
+        ]
+      ],
+      "width": 200000,
+      "height": 0,
+      "extrudedHeight": null,
+      "cornerType": "ROUNDED"
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.4980392156862745
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  },
+  {
+    "id": "greenCorridor",
+    "name": "Green corridor at height with mitered corners and outline",
+    "positionDegrees": null,
+    "shape": {
+      "type": "corridor",
+      "positionsDegrees": [
+        [
+          -90,
+          40,
+          0
+        ],
+        [
+          -95,
+          40,
+          0
+        ],
+        [
+          -95,
+          35,
+          0
+        ]
+      ],
+      "width": 200000,
+      "height": 100000,
+      "extrudedHeight": null,
+      "cornerType": "MITERED"
+    },
+    "color": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  },
+  {
+    "id": "blueCorridor",
+    "name": "Blue extruded corridor with beveled corners and outline",
+    "positionDegrees": null,
+    "shape": {
+      "type": "corridor",
+      "positionsDegrees": [
+        [
+          -80,
+          40,
+          0
+        ],
+        [
+          -85,
+          40,
+          0
+        ],
+        [
+          -85,
+          35,
+          0
+        ]
+      ],
+      "width": 200000,
+      "height": 200000,
+      "extrudedHeight": 100000,
+      "cornerType": "BEVELED"
+    },
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "id": "label-0",
+    "name": "全球地球 Globe",
+    "positionDegrees": [
+      109.8,
+      25,
+      16000
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "shape": {
+      "type": "label",
+      "text": "全球地球 Globe",
+      "fontSize": 28,
+      "pixelOffset": [
+        0,
+        0
+      ]
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER"
+    }
+  },
+  {
+    "id": "label-1",
+    "name": "多行标签\nText Label",
+    "positionDegrees": [
+      110.0,
+      25,
+      16000
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "shape": {
+      "type": "label",
+      "text": "多行标签\nText Label",
+      "fontSize": 28,
+      "pixelOffset": [
+        0,
+        20
+      ]
+    },
+    "screen": {
+      "horizontalOrigin": "LEFT",
+      "verticalOrigin": "CENTER"
+    }
+  },
+  {
+    "id": "label-2",
+    "name": "基线 gyp",
+    "positionDegrees": [
+      110.2,
+      25,
+      16000
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "shape": {
+      "type": "label",
+      "text": "基线 gyp",
+      "fontSize": 28,
+      "pixelOffset": [
+        0,
+        40
+      ]
+    },
+    "screen": {
+      "horizontalOrigin": "RIGHT",
+      "verticalOrigin": "BASELINE"
+    }
+  }
+]

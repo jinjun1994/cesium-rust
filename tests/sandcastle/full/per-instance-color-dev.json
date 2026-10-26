@@ -1,0 +1,162 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -120,
+        30,
+        -110,
+        40
+      ],
+      "height": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      0.8156862745098039,
+      0.13333333333333333,
+      0.9058823529411765,
+      0.7019607843137254
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": false,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-0-instance-1",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -110,
+        30,
+        -100,
+        40
+      ],
+      "height": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      0.8352941176470589,
+      0.12549019607843137,
+      0.9725490196078431,
+      0.7019607843137254
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": false,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 1
+    }
+  },
+  {
+    "id": "primitive-0-instance-2",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -100,
+        30,
+        -90,
+        40
+      ],
+      "height": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      0.9137254901960784,
+      0.2196078431372549,
+      0.6313725490196078,
+      0.7019607843137254
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": false,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 2
+    }
+  },
+  {
+    "id": "primitive-0-instance-3",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -90,
+        30,
+        -80,
+        40
+      ],
+      "height": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      0.3058823529411765,
+      0.09411764705882353,
+      0.5490196078431373,
+      0.7019607843137254
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": false,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 3
+    }
+  }
+]

@@ -1,0 +1,58 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "WallGeometry",
+          "positions": [
+            [
+              -95.5,
+              50,
+              300000
+            ],
+            [
+              -90.5,
+              50,
+              300000
+            ]
+          ],
+          "vertexFormat": "POSITION_NORMAL_ST"
+        }
+      },
+      "appearance": {
+        "type": "MaterialAppearance",
+        "material": {
+          "type": "Checkerboard"
+        },
+        "materialSupport": "TEXTURED"
+      }
+    },
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "WallGeometry",
+          "positions": [
+            [
+              -100.5,
+              50,
+              300000
+            ],
+            [
+              -95.5,
+              50,
+              300000
+            ]
+          ],
+          "vertexFormat": "POSITION_NORMAL_ST"
+        }
+      },
+      "appearance": {
+        "type": "MaterialAppearance",
+        "material": {
+          "type": "Stripe"
+        },
+        "materialSupport": "TEXTURED"
+      }
+    }
+  ]
+}

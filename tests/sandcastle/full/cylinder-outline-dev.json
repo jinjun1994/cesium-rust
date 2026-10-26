@@ -1,0 +1,50 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "modelMatrix": [
+      0.984807753012208,
+      -0.1736481776669303,
+      0,
+      0,
+      0.11161889704894962,
+      0.633022221559489,
+      0.766044443118978,
+      0,
+      -0.13302222155948898,
+      -0.7544065067354889,
+      0.6427876096865393,
+      0,
+      -876214.2029216608,
+      -4969257.679120438,
+      4206543.0941376835,
+      1
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 400000,
+      "topRadius": 150000,
+      "bottomRadius": 150000
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  }
+]

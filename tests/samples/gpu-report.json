@@ -1,0 +1,118 @@
+{
+  "commit": "e703196140dfbcf828b17136d6da691cd3cc9ce9",
+  "scope": "GPU previews of isolated decoded contents; does not certify entire tilesets.",
+  "candidates": 10,
+  "checked": 10,
+  "results": [
+    {
+      "id": "https://raw.githubusercontent.com/bertt/cesium_3dtiles_samples/e703196140dfbcf828b17136d6da691cd3cc9ce9/samples/1.1/MetadataGranularities/house-3-0.glb",
+      "result": {
+        "pixelsDifferentFromCorner": 739,
+        "preview": "../../tests/samples/previews/5862c786620ec14ee8ad7db5c13fed83ce9348b7b0cf6c043e89225b537d41c8.png",
+        "primitives": 5,
+        "stage": "isolated-content-gpu-readback",
+        "visiblePixelsObserved": true
+      },
+      "status": "passed"
+    },
+    {
+      "id": "https://raw.githubusercontent.com/bertt/cesium_3dtiles_samples/e703196140dfbcf828b17136d6da691cd3cc9ce9/samples/external/Connecticut/tiles/1.b3dm",
+      "result": {
+        "pixelsDifferentFromCorner": 478,
+        "preview": "../../tests/samples/previews/ea837323732723bddbe3ab710ffb7d017c4e7ce951a69e4b7531e24f9651434a.png",
+        "primitives": 3,
+        "stage": "isolated-content-gpu-readback",
+        "visiblePixelsObserved": true
+      },
+      "status": "passed"
+    },
+    {
+      "id": "https://raw.githubusercontent.com/bertt/cesium_3dtiles_samples/e703196140dfbcf828b17136d6da691cd3cc9ce9/samples/external/Connecticut/tiles/2.b3dm",
+      "result": {
+        "pixelsDifferentFromCorner": 1688,
+        "preview": "../../tests/samples/previews/8243200f1e73dd66d85d1c6034900c74ac4a8b19bc2867c360eeb7939ae72db3.png",
+        "primitives": 3,
+        "stage": "isolated-content-gpu-readback",
+        "visiblePixelsObserved": true
+      },
+      "status": "passed"
+    },
+    {
+      "id": "https://raw.githubusercontent.com/bertt/cesium_3dtiles_samples/e703196140dfbcf828b17136d6da691cd3cc9ce9/samples/external/delaware/tiles/1.b3dm",
+      "result": {
+        "pixelsDifferentFromCorner": 774,
+        "preview": "../../tests/samples/previews/519c22f0f40168d23244f0040cf37106b59bc06233e6900bccc2a02f2cfe5a7a.png",
+        "primitives": 3,
+        "stage": "isolated-content-gpu-readback",
+        "visiblePixelsObserved": true
+      },
+      "status": "passed"
+    },
+    {
+      "id": "https://raw.githubusercontent.com/bertt/cesium_3dtiles_samples/e703196140dfbcf828b17136d6da691cd3cc9ce9/samples/external/delaware/tiles/2.b3dm",
+      "result": {
+        "pixelsDifferentFromCorner": 146,
+        "preview": "../../tests/samples/previews/3e0555c066893f216b3ad4732c1294df868c4aab465bf79864b6cb77abcfd29a.png",
+        "primitives": 3,
+        "stage": "isolated-content-gpu-readback",
+        "visiblePixelsObserved": true
+      },
+      "status": "passed"
+    },
+    {
+      "id": "https://raw.githubusercontent.com/bertt/cesium_3dtiles_samples/e703196140dfbcf828b17136d6da691cd3cc9ce9/samples/lod_bag3d/content/2_0_0_1.glb",
+      "result": {
+        "pixelsDifferentFromCorner": 490,
+        "preview": "../../tests/samples/previews/9c9c9028439c3db7bb370bee90e53884c3da9156deb2c6036f148c3ab1a93c07.png",
+        "primitives": 1,
+        "stage": "isolated-content-gpu-readback",
+        "visiblePixelsObserved": true
+      },
+      "status": "passed"
+    },
+    {
+      "id": "https://raw.githubusercontent.com/bertt/cesium_3dtiles_samples/e703196140dfbcf828b17136d6da691cd3cc9ce9/samples/lod_bag3d/content/2_0_0_2.glb",
+      "result": {
+        "pixelsDifferentFromCorner": 461,
+        "preview": "../../tests/samples/previews/cc96e62e224a028e9e870f950933fee987b5bb6503d8a0ba0c9eac9254aee616.png",
+        "primitives": 1,
+        "stage": "isolated-content-gpu-readback",
+        "visiblePixelsObserved": true
+      },
+      "status": "passed"
+    },
+    {
+      "id": "https://raw.githubusercontent.com/bertt/cesium_3dtiles_samples/e703196140dfbcf828b17136d6da691cd3cc9ce9/samples/obj2tiles/LOD-2/Mesh-XR-YR-XR-YR.b3dm",
+      "result": {
+        "pixelsDifferentFromCorner": 86,
+        "preview": "../../tests/samples/previews/63feed81cd91a05fbb911290558b9c5f4d3ea80f746c814eda82412d49ea7f4c.png",
+        "primitives": 2,
+        "stage": "isolated-content-gpu-readback",
+        "visiblePixelsObserved": true
+      },
+      "status": "passed"
+    },
+    {
+      "id": "https://raw.githubusercontent.com/bertt/cesium_3dtiles_samples/e703196140dfbcf828b17136d6da691cd3cc9ce9/samples/obj2tiles/LOD-1/Mesh-XR-YR-XR-YR.b3dm",
+      "result": {
+        "pixelsDifferentFromCorner": 83,
+        "preview": "../../tests/samples/previews/8b225a8261f2483b5b6f49d02a8c972605a421cb3d0243b5017bd5f421358281.png",
+        "primitives": 2,
+        "stage": "isolated-content-gpu-readback",
+        "visiblePixelsObserved": true
+      },
+      "status": "passed"
+    },
+    {
+      "id": "https://raw.githubusercontent.com/bertt/cesium_3dtiles_samples/e703196140dfbcf828b17136d6da691cd3cc9ce9/samples/ship/Watercraft.ArleighBurke.glb",
+      "result": {
+        "pixelsDifferentFromCorner": 2826,
+        "preview": "../../tests/samples/previews/e4a2a233d79b2396e403579aeaaac4bcfcbeeeee45fccbc95d2a829bf799e09e.png",
+        "primitives": 1,
+        "stage": "isolated-content-gpu-readback",
+        "visiblePixelsObserved": true
+      },
+      "status": "passed"
+    }
+  ]
+}

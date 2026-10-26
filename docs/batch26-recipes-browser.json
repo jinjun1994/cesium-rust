@@ -1,0 +1,254 @@
+{
+  "version": "0.0.26",
+  "wasmSha256": "c1e503409bc5865b9430d0acce9a2864d0af789c7364ebd4029dc95d77cd8a79",
+  "backend": "Rust WASM / real browser WebGPU",
+  "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
+  "externalImagery": "local deterministic 256x256 neutral raster",
+  "cases": [
+    {
+      "id": "polyline",
+      "status": "passed",
+      "entities": 6,
+      "sourceSha256": "26247a07666749d98c7cf3f3d293e320d16ef01e6a531733e0034145f6e69a76",
+      "inputSha256": "e1185938e5e2c44a74eb13c77cae46ff68887a11462374dfdef4dc6d23aba160",
+      "fixtureSha256": "e1185938e5e2c44a74eb13c77cae46ff68887a11462374dfdef4dc6d23aba160",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "polyline-1",
+        "polyline-2",
+        "polyline-3",
+        "polyline-4",
+        "polyline-5",
+        "polyline-6"
+      ],
+      "pixelCounts": [
+        {
+          "id": "polyline-1",
+          "pixels": 1037
+        },
+        {
+          "id": "polyline-2",
+          "pixels": 1068
+        },
+        {
+          "id": "polyline-3",
+          "pixels": 1972
+        },
+        {
+          "id": "polyline-4",
+          "pixels": 2060
+        },
+        {
+          "id": "polyline-5",
+          "pixels": 1664
+        },
+        {
+          "id": "polyline-6",
+          "pixels": 841
+        }
+      ]
+    },
+    {
+      "id": "polyline-dev",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "7eedf1c1bae3eed885fdfdcca9fc45a1fc34031aaf72a5f31a1b262803cc8b35",
+      "inputSha256": "e0d0f0065af6e847b73f47264493be8cbf5cfaaafde82affc673a61559197233",
+      "fixtureSha256": "ed539389b3520c21da2db6657130d1df3b3d7eca803054f3db93b028a95aa921",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-1-instance-0"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 1085
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 1356
+        }
+      ]
+    },
+    {
+      "id": "polyline-color-dev",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "c7b9b265c7bab3a5d2d7e0b76349da1d5a38c89c02051eaf0d20d26791d63578",
+      "inputSha256": "7bbb04ed1ac44ce5810e6c5b029e0b7007c24d95abf32e584862440826283175",
+      "fixtureSha256": "5bc18ed65a104ffe6c492d1993e9afb49383310cbd943fd63c9b8bf3e63ec1b7",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-1-instance-0"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 997
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 1024
+        }
+      ]
+    },
+    {
+      "id": "polyline-material-dev",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "c4b4c806acc5eb9f891e785c69113f3aece0031b4986fa0a489b0426348c357c",
+      "inputSha256": "319334198c94d121ddb1802fd24d287b5e2fc37cb1a51fff0b338d2640469457",
+      "fixtureSha256": "03f205f8ccf50127a9fbc9a9a0a215f17f4e3f364bff932eff4fc2672967508d",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-1-instance-0",
+        "primitive-2-instance-0"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 2081
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 1093
+        },
+        {
+          "id": "primitive-2-instance-0",
+          "pixels": 2102
+        }
+      ]
+    },
+    {
+      "id": "polyline-dash",
+      "status": "passed",
+      "entities": 5,
+      "sourceSha256": "738db4a78ed769955d1be7c9eef64c8d4ab45c167530b51f301ee2231d4fe700",
+      "inputSha256": "213ebaa791f31a69940cdb535e4de0706892f62e4222f6f0d0a4a106f43f94dd",
+      "fixtureSha256": "213ebaa791f31a69940cdb535e4de0706892f62e4222f6f0d0a4a106f43f94dd",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "polyline-dash-1",
+        "polyline-dash-2",
+        "polyline-dash-3",
+        "polyline-dash-4",
+        "polyline-dash-5"
+      ],
+      "pixelCounts": [
+        {
+          "id": "polyline-dash-1",
+          "pixels": 1017
+        },
+        {
+          "id": "polyline-dash-2",
+          "pixels": 12353
+        },
+        {
+          "id": "polyline-dash-3",
+          "pixels": 1022
+        },
+        {
+          "id": "polyline-dash-4",
+          "pixels": 1522
+        },
+        {
+          "id": "polyline-dash-5",
+          "pixels": 2071
+        }
+      ]
+    },
+    {
+      "id": "czml-polyline",
+      "status": "passed",
+      "entities": 5,
+      "sourceSha256": "9eb7a272816d46234f42ce7e5ea85577858a719ead14872b9463376c3fcd7e67",
+      "inputSha256": "ba48b82026619515429d2e465227e4c99b9d80b8a80ac8429795eeda2ff9586a",
+      "fixtureSha256": "d930670c9a92de7da3c223f513eb34ff113fcf01993602a47d5c11cc33e9dcd0",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "redLine",
+        "blueLine",
+        "orangeLine",
+        "purpleLine",
+        "dashedLine"
+      ],
+      "pixelCounts": [
+        {
+          "id": "redLine",
+          "pixels": 1037
+        },
+        {
+          "id": "blueLine",
+          "pixels": 1972
+        },
+        {
+          "id": "orangeLine",
+          "pixels": 2060
+        },
+        {
+          "id": "purpleLine",
+          "pixels": 1664
+        },
+        {
+          "id": "dashedLine",
+          "pixels": 841
+        }
+      ]
+    }
+  ],
+  "browser": "155.0.8059.39",
+  "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
+  "destroy": "passed",
+  "scope": "Six new cases extracted from the accepted 57-case final WASM cohort"
+}

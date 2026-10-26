@@ -1,0 +1,9 @@
+{
+  "z": 12,
+  "x": 3037,
+  "y": 1716,
+  "lon": 86.92528,
+  "lat": 27.9881,
+  "source": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/12/3037/1716.png",
+  "sha256": "fc91d79e680cebd18d896ef488facb03845039cf870bca44c915a55153627ff6"
+}

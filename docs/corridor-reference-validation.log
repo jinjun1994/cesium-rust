@@ -1,0 +1,12 @@
+   Compiling cesium-viewer v0.0.23 (/workspace/scratch/0ad6a1084781/cesium-rs/crates/cesium-viewer)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.99s
+     Running unittests src/lib.rs (/tmp/cesium-b23-native/debug/deps/cesium_viewer-f7ccd6c37dfcdfb8)
+
+running 1 test
+reference String("ROUNDED"): maximum boundary deviation 236.362 m
+reference String("MITERED"): maximum boundary deviation 236.362 m
+reference String("BEVELED"): maximum boundary deviation 236.362 m
+test corridor::tests::boundary_tracks_independent_cesium_geometry ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 78 filtered out; finished in 0.01s
+

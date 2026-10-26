@@ -1,0 +1,17 @@
+[package]
+name = "cesium-formats"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[dependencies]
+glam.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+bytemuck.workspace = true
+gltf.workspace = true
+cesium-math.workspace = true
+image.workspace = true
+base64 = "0.22"

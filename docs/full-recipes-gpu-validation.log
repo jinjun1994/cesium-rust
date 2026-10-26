@@ -1,0 +1,67 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.36s
+     Running tests/full-recipes-gpu.rs (target/debug/deps/full_recipes_gpu-be9b5b5b3359a270)
+
+running 60 tests
+test complete_box_outline_dev ... ok
+test complete_box ... ok
+test complete_box_dev ... ok
+test complete_cylinder_dev ... ok
+test complete_coplanar_polygon_outline_dev ... ok
+test complete_circle_outline_dev ... ok
+test complete_coplanar_polygon_dev ... ok
+test complete_circles_and_ellipses ... ok
+test complete_circle_dev ... ok
+test complete_cylinder_outline_dev ... ok
+test complete_cylinders_and_cones ... ok
+test complete_czml_box ... ok
+test complete_czml_cones_and_cylinders ... ok
+test complete_czml_point ... ok
+test complete_czml_circles_and_ellipses ... ok
+test complete_czml_point_time_dynamic ... ok
+test complete_czml_colors ... ok
+test complete_corridor_dev ... ok
+test complete_czml_wall ... ok
+test complete_czml_position_definitions ... ok
+test complete_czml_polyline ... ok
+test complete_czml_spheres_and_ellipsoids ... ok
+test complete_ellipse_outline_dev ... ok
+test complete_corridor_outline_dev ... ok
+test complete_czml_polygon ... ok
+test complete_ellipse_dev ... ok
+test complete_hello_world ... ok
+test complete_ellipsoid_outline_dev ... ok
+test complete_html_overlays ... ok
+test complete_ellipsoid_dev ... ok
+test complete_corridor ... ok
+test complete_material_dev ... ok
+test complete_ellipsoid_surface_dev ... ok
+test complete_plane ... ok
+test complete_per_instance_color_dev ... ok
+test complete_polygon_outline_dev ... ok
+test complete_offline ... ok
+test complete_czml_corridor ... ok
+test complete_polyline_color_dev ... ok
+test complete_polyline ... ok
+test complete_points ... ok
+test complete_polyline_dash ... ok
+test complete_polyline_dev ... ok
+test complete_polyline_material_dev ... ok
+test complete_resolution_scaling ... ok
+test complete_rectangle_outline_dev ... ok
+test complete_czml_rectangle ... ok
+test complete_simple_polyline_dev ... ok
+test complete_sphere_dev ... ok
+test complete_sphere_outline_dev ... ok
+test complete_wall_dev ... ok
+test complete_wall ... ok
+test complete_spheres_and_ellipsoids ... ok
+test complete_rectangle_dev ... ok
+test complete_wall_outline_dev ... ok
+test complete_partial_ellipsoids ... ok
+test wide_line_pixel_width_materials_and_picking ... ok
+test complete_show_or_hide_entities ... ok
+test complete_polygon_dev ... ok
+test complete_polygon ... ok
+
+test result: ok. 60 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 18.64s
+

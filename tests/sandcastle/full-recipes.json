@@ -1,0 +1,1676 @@
+{
+  "schemaVersion": 1,
+  "release": "1.146",
+  "commit": "b8d3a36fe98a3e432eb89253c95d5f20e605e0f1",
+  "cases": [
+    {
+      "id": "box",
+      "title": "Box",
+      "sourceSha256": "f34042b9397c542461ae10fc770d8d4d8645da259ed008495e8e751dc501ce0d",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=box",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/box.json",
+      "expectedPath": "../../tests/sandcastle/full/box.json",
+      "entityCount": 3,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "all upstream entity positions and dimensions",
+        "all upstream materials and alpha",
+        "fill and outline controls",
+        "plane normal and distance, if present",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "cylinders-and-cones",
+      "title": "Cylinders and Cones",
+      "sourceSha256": "2f17c16b1ff67e5e8457999c16176b94e96bc938be1a37a8d602062f151bae17",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=cylinders-and-cones",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/cylinders-and-cones.json",
+      "expectedPath": "../../tests/sandcastle/full/cylinders-and-cones.json",
+      "entityCount": 2,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "all upstream entity positions and dimensions",
+        "all upstream materials and alpha",
+        "fill and outline controls",
+        "plane normal and distance, if present",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "plane",
+      "title": "Plane",
+      "sourceSha256": "9912ae5e42010a4a8b25ecf1910666356d6162f40de1f39dbe1d24cc42c051d9",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=plane",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/plane.json",
+      "expectedPath": "../../tests/sandcastle/full/plane.json",
+      "entityCount": 3,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "all upstream entity positions and dimensions",
+        "all upstream materials and alpha",
+        "fill and outline controls",
+        "plane normal and distance, if present",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "spheres-and-ellipsoids",
+      "title": "Spheres and Ellipsoids",
+      "sourceSha256": "34800a0c6848b787a431c7aa5caf51e1527681aea0fb353330a5064ae2d14d88",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=spheres-and-ellipsoids",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/spheres-and-ellipsoids.json",
+      "expectedPath": "../../tests/sandcastle/full/spheres-and-ellipsoids.json",
+      "entityCount": 3,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "all upstream entity positions and dimensions",
+        "all upstream materials and alpha",
+        "fill and outline controls",
+        "plane normal and distance, if present",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-spheres-and-ellipsoids",
+      "title": "CZML Spheres and Ellipsoids",
+      "sourceSha256": "736b602cb441c6f7dd1c2531876a0af655f9ef395baeda9d54827da65d6ff651",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-spheres-and-ellipsoids",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-spheres-and-ellipsoids.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-spheres-and-ellipsoids.json",
+      "entityCount": 3,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "all upstream entity positions and dimensions",
+        "all upstream materials and alpha",
+        "fill and outline controls",
+        "plane normal and distance, if present",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-cones-and-cylinders",
+      "title": "CZML Cones and Cylinders",
+      "sourceSha256": "2795c1d27f16f0d5d3045fb8e9f076a3a592b89fe59793f412c13f938627a2bd",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-cones-and-cylinders",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-cones-and-cylinders.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-cones-and-cylinders.json",
+      "entityCount": 2,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "all upstream entity positions and dimensions",
+        "all upstream materials and alpha",
+        "fill and outline controls",
+        "plane normal and distance, if present",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-box",
+      "title": "CZML Box",
+      "sourceSha256": "c3b28349c06007830c4571efe8aeef1321a8c6b6d499c5e381b595b86a6674e5",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-box",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-box.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-box.json",
+      "entityCount": 3,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "all upstream entity positions and dimensions",
+        "all upstream materials and alpha",
+        "fill and outline controls",
+        "plane normal and distance, if present",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "wall",
+      "title": "Wall",
+      "sourceSha256": "a81f62dbaaa19a5f7e50ac70e7983385673a60f8669aa250e3d52161432728a5",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=wall",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/wall.json",
+      "expectedPath": "../../tests/sandcastle/full/wall.json",
+      "entityCount": 3,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "all upstream entity positions and dimensions",
+        "all upstream materials and alpha",
+        "fill and outline controls",
+        "plane normal and distance, if present",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-wall",
+      "title": "CZML Wall",
+      "sourceSha256": "62fdd37e74cb6914763a07d0242bfb56ed35f5d224edfff028c1358aaa8d2c67",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-wall",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-wall.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-wall.json",
+      "entityCount": 1,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "all upstream entity positions and dimensions",
+        "all upstream materials and alpha",
+        "fill and outline controls",
+        "plane normal and distance, if present",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "circles-and-ellipses",
+      "title": "Circles and Ellipses",
+      "sourceSha256": "ee3cf2e2ce9b9df378c00994d12258c536e5ef55e199d22a3e9dab9fda3b6d06",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=circles-and-ellipses",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/circles-and-ellipses.json",
+      "expectedPath": "../../tests/sandcastle/full/circles-and-ellipses.json",
+      "entityCount": 3,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "all upstream entity positions and dimensions",
+        "all upstream materials and alpha",
+        "fill and outline controls",
+        "plane normal and distance, if present",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-circles-and-ellipses",
+      "title": "CZML Circles and Ellipses",
+      "sourceSha256": "4e6fa342492f8486d9881131e9bc5f129470a288f5206526612309ecfa02b5fd",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-circles-and-ellipses",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-circles-and-ellipses.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-circles-and-ellipses.json",
+      "entityCount": 3,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "all upstream entity positions and dimensions",
+        "all upstream materials and alpha",
+        "fill and outline controls",
+        "plane normal and distance, if present",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-point",
+      "title": "CZML Point",
+      "sourceSha256": "af8177633e45421b630a5dc2ab2cbdd79d2aceb92d36d64c5e5f4245bae20a1e",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-point",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-point.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-point.json",
+      "entityCount": 1,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "all upstream entity positions and dimensions",
+        "all upstream materials and alpha",
+        "fill and outline controls",
+        "plane normal and distance, if present",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "box-outline-dev",
+      "title": "Box Outline - Dev",
+      "sourceSha256": "8070e4763481322992c016d0421c41dc3d3f12feff18babd554d5fef6f7dfdc4",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=box-outline-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/box-outline-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/box-outline-dev.json",
+      "entityCount": 1,
+      "framing": "viewer-default",
+      "requirements": [
+        "all original GeometryInstance options",
+        "original full modelMatrix in ECEF",
+        "all per-instance colors, quantization, flat/closed/translucent appearance",
+        "lineWidth=min(2, maximumAliasedLineWidth=1)",
+        "all fill/outline geometry; no case-specific camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "cylinder-outline-dev",
+      "title": "Cylinder Outline - Dev",
+      "sourceSha256": "14205d8ef51fb2804066ddd72d63f789b3526f8bcf5b47ac88008d3c0377ae60",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=cylinder-outline-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/cylinder-outline-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/cylinder-outline-dev.json",
+      "entityCount": 1,
+      "framing": "viewer-default",
+      "requirements": [
+        "all original GeometryInstance options",
+        "original full modelMatrix in ECEF",
+        "all per-instance colors, quantization, flat/closed/translucent appearance",
+        "lineWidth=min(2, maximumAliasedLineWidth=1)",
+        "all fill/outline geometry; no case-specific camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "sphere-outline-dev",
+      "title": "Sphere Outline - Dev",
+      "sourceSha256": "c06bf232fb78ff88837eaf442d6440c76ebb662f04200d7b5cf11b7e612c863c",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=sphere-outline-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/sphere-outline-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/sphere-outline-dev.json",
+      "entityCount": 1,
+      "framing": "viewer-default",
+      "requirements": [
+        "all original GeometryInstance options",
+        "original full modelMatrix in ECEF",
+        "all per-instance colors, quantization, flat/closed/translucent appearance",
+        "lineWidth=min(2, maximumAliasedLineWidth=1)",
+        "all fill/outline geometry; no case-specific camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "ellipsoid-outline-dev",
+      "title": "Ellipsoid Outline - Dev",
+      "sourceSha256": "7a11e811e2021271e5b5433797af2dd10cd9bf97b65aea38e0e6ad1b5c84b745",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=ellipsoid-outline-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/ellipsoid-outline-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/ellipsoid-outline-dev.json",
+      "entityCount": 1,
+      "framing": "viewer-default",
+      "requirements": [
+        "all original GeometryInstance options",
+        "original full modelMatrix in ECEF",
+        "all per-instance colors, quantization, flat/closed/translucent appearance",
+        "lineWidth=min(2, maximumAliasedLineWidth=1)",
+        "all fill/outline geometry; no case-specific camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "rectangle-outline-dev",
+      "title": "Rectangle Outline - Dev",
+      "sourceSha256": "5a611b81f141b4f432e06407f950e54115eb4a9a9fe2e08486cc3964e943ea64",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=rectangle-outline-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/rectangle-outline-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/rectangle-outline-dev.json",
+      "entityCount": 1,
+      "framing": "viewer-default",
+      "requirements": [
+        "all original GeometryInstance options",
+        "original full modelMatrix in ECEF",
+        "all per-instance colors, quantization, flat/closed/translucent appearance",
+        "lineWidth=min(2, maximumAliasedLineWidth=1)",
+        "all fill/outline geometry; no case-specific camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "wall-outline-dev",
+      "title": "Wall Outline - Dev",
+      "sourceSha256": "df777b07e1f8d4af64d6ab3a539bb82927262edaba98e1c7f8962679dea6f604",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=wall-outline-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/wall-outline-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/wall-outline-dev.json",
+      "entityCount": 1,
+      "framing": "viewer-default",
+      "requirements": [
+        "all original GeometryInstance options",
+        "original full modelMatrix in ECEF",
+        "all per-instance colors, quantization, flat/closed/translucent appearance",
+        "lineWidth=min(2, maximumAliasedLineWidth=1)",
+        "all fill/outline geometry; no case-specific camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "box-dev",
+      "title": "Box - Dev",
+      "sourceSha256": "de1b0323675812bec4a7473925fa683113595ac28663678c084c2523faf014c5",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=box-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/box-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/box-dev.json",
+      "entityCount": 1,
+      "framing": "viewer-default",
+      "requirements": [
+        "all original GeometryInstance options",
+        "original full modelMatrix in ECEF",
+        "all per-instance colors, quantization, flat/closed/translucent appearance",
+        "lineWidth=min(2, maximumAliasedLineWidth=1)",
+        "all fill/outline geometry; no case-specific camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "cylinder-dev",
+      "title": "Cylinder - Dev",
+      "sourceSha256": "8a92c3064dc0e28bd2683816bbed6bd69a1924514d384240c494586267e3fa6c",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=cylinder-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/cylinder-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/cylinder-dev.json",
+      "entityCount": 2,
+      "framing": "viewer-default",
+      "requirements": [
+        "all original GeometryInstance options",
+        "original full modelMatrix in ECEF",
+        "all per-instance colors, quantization, flat/closed/translucent appearance",
+        "lineWidth=min(2, maximumAliasedLineWidth=1)",
+        "all fill/outline geometry; no case-specific camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "sphere-dev",
+      "title": "Sphere - Dev",
+      "sourceSha256": "c4acb31b49ddc41b95329db33445a0b0f6e39c760d4a66834d84f979a9f9f49f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=sphere-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/sphere-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/sphere-dev.json",
+      "entityCount": 1,
+      "framing": "viewer-default",
+      "requirements": [
+        "all original GeometryInstance options",
+        "original full modelMatrix in ECEF",
+        "all per-instance colors, quantization, flat/closed/translucent appearance",
+        "lineWidth=min(2, maximumAliasedLineWidth=1)",
+        "all fill/outline geometry; no case-specific camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "ellipsoid-dev",
+      "title": "Ellipsoid - Dev",
+      "sourceSha256": "1a1f9fc9bfa9fab1d6ba50c331224d7c43a3c43beecad5e7bea1fb2e60167bea",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=ellipsoid-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/ellipsoid-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/ellipsoid-dev.json",
+      "entityCount": 1,
+      "framing": "viewer-default",
+      "requirements": [
+        "all original GeometryInstance options",
+        "original full modelMatrix in ECEF",
+        "all per-instance colors, quantization, flat/closed/translucent appearance",
+        "lineWidth=min(2, maximumAliasedLineWidth=1)",
+        "all fill/outline geometry; no case-specific camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "wall-dev",
+      "title": "Wall - Dev",
+      "sourceSha256": "106fbb66c4cbf85703c4c9f36babcf16650157cdfd701a5fe3e7399a960b0882",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=wall-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/wall-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/wall-dev.json",
+      "entityCount": 3,
+      "framing": "viewer-default",
+      "requirements": [
+        "all original GeometryInstance options",
+        "original full modelMatrix in ECEF",
+        "all per-instance colors, quantization, flat/closed/translucent appearance",
+        "lineWidth=min(2, maximumAliasedLineWidth=1)",
+        "all fill/outline geometry; no case-specific camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "ellipse-dev",
+      "title": "Ellipse - Dev",
+      "sourceSha256": "c443c26911de1ee9d1ed22653eab32b001ee0781286cf47463f63b0ce89fff41",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=ellipse-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/ellipse-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/ellipse-dev.json",
+      "entityCount": 3,
+      "framing": "viewer-default",
+      "requirements": [
+        "all original GeometryInstance options",
+        "original full modelMatrix in ECEF",
+        "all per-instance colors, quantization, flat/closed/translucent appearance",
+        "lineWidth=min(2, maximumAliasedLineWidth=1)",
+        "all fill/outline geometry; no case-specific camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "ellipse-outline-dev",
+      "title": "Ellipse Outline - Dev",
+      "sourceSha256": "821cb0b8ce6ac28fc8084c39de813d48d24bcbc3ed656c2283a157b4a5332aa3",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=ellipse-outline-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/ellipse-outline-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/ellipse-outline-dev.json",
+      "entityCount": 2,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original statements and instances",
+        "original geometry, hierarchy, colors, appearance and default material uniforms",
+        "geodesic vs straight ECEF and per-segment vs per-vertex coloring",
+        "source camera behavior and shouldAnimate; manual fit remains available"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "circle-outline-dev",
+      "title": "Circle Outline - Dev",
+      "sourceSha256": "ed1887775832f03fe10e2ad56f3df4a6c1c1c04898a3f7875e22448cfed7bcb8",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=circle-outline-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/circle-outline-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/circle-outline-dev.json",
+      "entityCount": 2,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original statements and instances",
+        "original geometry, hierarchy, colors, appearance and default material uniforms",
+        "geodesic vs straight ECEF and per-segment vs per-vertex coloring",
+        "source camera behavior and shouldAnimate; manual fit remains available"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "rectangle-dev",
+      "title": "Rectangle - Dev",
+      "sourceSha256": "b52cb87d7d65c1914030b18c69c835285de75ebb8ad146cc594c169dfa4a51f3",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=rectangle-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/rectangle-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/rectangle-dev.json",
+      "entityCount": 2,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original statements and instances",
+        "original geometry, hierarchy, colors, appearance and default material uniforms",
+        "geodesic vs straight ECEF and per-segment vs per-vertex coloring",
+        "source camera behavior and shouldAnimate; manual fit remains available"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "per-instance-color-dev",
+      "title": "Per Instance Color - Dev",
+      "sourceSha256": "37e4788e5d35b7619d9594a9bb640c22ccacc3e0b7e29a1d3c741daf1423bfed",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=per-instance-color-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/per-instance-color-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/per-instance-color-dev.json",
+      "entityCount": 4,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "randomTestSeed": 5489,
+      "requirements": [
+        "all original statements and instances",
+        "original geometry, hierarchy, colors, appearance and default material uniforms",
+        "geodesic vs straight ECEF and per-segment vs per-vertex coloring",
+        "source camera behavior and shouldAnimate; manual fit remains available"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "polygon-outline-dev",
+      "title": "Polygon Outline - Dev",
+      "sourceSha256": "7e60da57551635367cb3f2c5fc4681a2c475f1752be99e48e1aec44b960f15e0",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=polygon-outline-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/polygon-outline-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/polygon-outline-dev.json",
+      "entityCount": 3,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original statements and instances",
+        "original geometry, hierarchy, colors, appearance and default material uniforms",
+        "geodesic vs straight ECEF and per-segment vs per-vertex coloring",
+        "source camera behavior and shouldAnimate; manual fit remains available"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "coplanar-polygon-outline-dev",
+      "title": "Coplanar Polygon Outline - Dev",
+      "sourceSha256": "229bb74d4d94ce68bcd1cd7fd7b9bd054ad2a8f1ad58cb4a276dc4fdd7928138",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=coplanar-polygon-outline-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/coplanar-polygon-outline-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/coplanar-polygon-outline-dev.json",
+      "entityCount": 2,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original statements and instances",
+        "original geometry, hierarchy, colors, appearance and default material uniforms",
+        "geodesic vs straight ECEF and per-segment vs per-vertex coloring",
+        "source camera behavior and shouldAnimate; manual fit remains available"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "simple-polyline-dev",
+      "title": "Simple Polyline - Dev",
+      "sourceSha256": "f596074cdd547c08994074fe0e42f2c6fc908c2e437dc2ad8415ffa4e03c5f4c",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=simple-polyline-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/simple-polyline-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/simple-polyline-dev.json",
+      "entityCount": 3,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "randomTestSeed": 5489,
+      "requirements": [
+        "all original statements and instances",
+        "original geometry, hierarchy, colors, appearance and default material uniforms",
+        "geodesic vs straight ECEF and per-segment vs per-vertex coloring",
+        "source camera behavior and shouldAnimate; manual fit remains available"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "material-dev",
+      "title": "Material - Dev",
+      "sourceSha256": "50cfd6024e1aad9eb19f336f945bcf6619ce334d6716168ccf01c71de1cf7b7c",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=material-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/material-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/material-dev.json",
+      "entityCount": 2,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original statements and instances",
+        "original geometry, hierarchy, colors, appearance and default material uniforms",
+        "geodesic vs straight ECEF and per-segment vs per-vertex coloring",
+        "source camera behavior and shouldAnimate; manual fit remains available"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "ellipsoid-surface-dev",
+      "title": "Ellipsoid Surface - Dev",
+      "sourceSha256": "9904bf8ce3b9ec56bd81d41355b071cb8916cec1b102f3d9a1cdecf072cf05a0",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=ellipsoid-surface-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/ellipsoid-surface-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/ellipsoid-surface-dev.json",
+      "entityCount": 4,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original statements and instances",
+        "original geometry, hierarchy, colors, appearance and default material uniforms",
+        "geodesic vs straight ECEF and per-segment vs per-vertex coloring",
+        "source camera behavior and shouldAnimate; manual fit remains available"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-colors",
+      "title": "CZML Colors",
+      "sourceSha256": "02d059a0b96f378d5074c9ada071b15590c16080b605539da5f8132f0df8a88b",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-colors",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-colors.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-colors.json",
+      "entityCount": 2,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original statements and instances",
+        "original geometry, hierarchy, colors, appearance and default material uniforms",
+        "geodesic vs straight ECEF and per-segment vs per-vertex coloring",
+        "source camera behavior and shouldAnimate; manual fit remains available"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-point-time-dynamic",
+      "title": "CZML Point - Time Dynamic",
+      "sourceSha256": "c85832a7c086a6d7c62037546519a7084dc603eff1a206aecee5a268a32fbca2",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-point-time-dynamic",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-point-time-dynamic.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-point-time-dynamic.json",
+      "entityCount": 1,
+      "framing": "viewer-default",
+      "shouldAnimate": true,
+      "requirements": [
+        "all original statements and instances",
+        "original geometry, hierarchy, colors, appearance and default material uniforms",
+        "geodesic vs straight ECEF and per-segment vs per-vertex coloring",
+        "source camera behavior and shouldAnimate; manual fit remains available"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "circle-dev",
+      "title": "Circle - Dev",
+      "sourceSha256": "332d9298db77232897ed1951674c31292241a1a8af32aa0c7b9cdeb35d67c65a",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=circle-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/circle-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/circle-dev.json",
+      "entityCount": 3,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original instances and colors/alpha",
+        "rounded/mitered/beveled corners and rounded/flat end caps",
+        "source width, height, extrusion, fill and outline",
+        "source appearance state and camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "corridor",
+      "title": "Corridor",
+      "sourceSha256": "625a50e6d68cad7a91ed9f522ff0fdafe6929c6b1ef51865fa46a68dd83832b3",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=corridor",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/corridor.json",
+      "expectedPath": "../../tests/sandcastle/full/corridor.json",
+      "entityCount": 3,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original instances and colors/alpha",
+        "rounded/mitered/beveled corners and rounded/flat end caps",
+        "source width, height, extrusion, fill and outline",
+        "source appearance state and camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "corridor-dev",
+      "title": "Corridor - Dev",
+      "sourceSha256": "41f80ff6616515842f00b917d8a44450daecea14d00437b5d598d6d932955e9c",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=corridor-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/corridor-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/corridor-dev.json",
+      "entityCount": 3,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original instances and colors/alpha",
+        "rounded/mitered/beveled corners and rounded/flat end caps",
+        "source width, height, extrusion, fill and outline",
+        "source appearance state and camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "corridor-outline-dev",
+      "title": "Corridor Outline - Dev",
+      "sourceSha256": "06331742cc2ba4c15fc6668e4c8bfb0d8fe363aad2d1a8c2221d89b98cd68e4f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=corridor-outline-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/corridor-outline-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/corridor-outline-dev.json",
+      "entityCount": 2,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original instances and colors/alpha",
+        "rounded/mitered/beveled corners and rounded/flat end caps",
+        "source width, height, extrusion, fill and outline",
+        "source appearance state and camera calls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-corridor",
+      "title": "CZML Corridor",
+      "sourceSha256": "dab7a48a0b08e9517e3f73ed51f05d15309a0bb488df2473c3208d0a0da51455",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-corridor",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-corridor.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-corridor.json",
+      "entityCount": 3,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "all source statements, inputs and initial state",
+        "all source controls and callbacks",
+        "actual globe, geometry or DOM render and lifecycle",
+        "source camera behavior; manual fit is separate"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-position-definitions",
+      "title": "CZML Position Definitions",
+      "sourceSha256": "465b319443846920174f88637bcf603613e887e05d78d61b28ca2563f7e1e721",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-position-definitions",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-position-definitions.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-position-definitions.json",
+      "entityCount": 3,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all source statements, inputs and initial state",
+        "all source controls and callbacks",
+        "actual globe, geometry or DOM render and lifecycle",
+        "source camera behavior; manual fit is separate"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "show-or-hide-entities",
+      "title": "Show or Hide Entities",
+      "sourceSha256": "8f3ae5f4a8c5d33ebc09dbdc0093a203dec1ec7a1cdfb56a7aa2c0199d14fed7",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=show-or-hide-entities",
+      "format": "groups",
+      "path": "../../tests/sandcastle/full/show-or-hide-entities.groups.json",
+      "expectedPath": "../../tests/sandcastle/full/show-or-hide-entities.json",
+      "entityCount": 15,
+      "originalEntityCount": 18,
+      "groupCount": 3,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "all source statements, inputs and initial state",
+        "all source controls and callbacks",
+        "actual globe, geometry or DOM render and lifecycle",
+        "source camera behavior; manual fit is separate"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "html-overlays",
+      "title": "HTML Overlays",
+      "sourceSha256": "73b2dc9b3fd840cf289666d93b1392a835acaaae046b93cc74805aa117293a71",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=html-overlays",
+      "format": "scene",
+      "path": "../../tests/sandcastle/full/html-overlays.scene.json",
+      "expectedPath": "../../tests/sandcastle/full/html-overlays.json",
+      "entityCount": 0,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all source statements, inputs and initial state",
+        "all source controls and callbacks",
+        "actual globe, geometry or DOM render and lifecycle",
+        "source camera behavior; manual fit is separate"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "shared globe/projection kernel only; browser verifies DOM and resolution"
+      },
+      "htmlSha256": "0e6d5c31d0196fd6c11268c463ea8c86355c9955a5c5ea5f86571eb1b4e7b81c",
+      "assetSha256": "1d6a9bbf468253843d3fda9021b1592c2f85da109cecb11f6f37f875dc251332"
+    },
+    {
+      "id": "resolution-scaling",
+      "title": "Resolution Scaling",
+      "sourceSha256": "f732be47d255c095871a1d841b7020b9ca3a86844439b43cb99229b409d0298a",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=resolution-scaling",
+      "format": "scene",
+      "path": "../../tests/sandcastle/full/resolution-scaling.scene.json",
+      "expectedPath": "../../tests/sandcastle/full/resolution-scaling.json",
+      "entityCount": 0,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all source statements, inputs and initial state",
+        "all source controls and callbacks",
+        "actual globe, geometry or DOM render and lifecycle",
+        "source camera behavior; manual fit is separate"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "shared globe/projection kernel only; browser verifies DOM and resolution"
+      },
+      "htmlSha256": "595ede83e6b39accb93e8749d75c779c03b054b6666103543bf157f47fac484b"
+    },
+    {
+      "id": "hello-world",
+      "title": "Hello World",
+      "sourceSha256": "10329eeedf78a7b040f59a5edf8f8804644b440e56323b2bb3d1a846c61b6bce",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=hello-world",
+      "format": "scene",
+      "path": "../../tests/sandcastle/full/hello-world.scene.json",
+      "expectedPath": "../../tests/sandcastle/full/hello-world.json",
+      "entityCount": 0,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all source statements, inputs and initial state",
+        "all source controls and callbacks",
+        "actual globe, geometry or DOM render and lifecycle",
+        "source camera behavior; manual fit is separate"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "shared globe/projection kernel only; browser verifies DOM and resolution"
+      }
+    },
+    {
+      "id": "polygon",
+      "title": "Polygon",
+      "sourceSha256": "759ea2f29f8596cc70ffa3ac084f9549566098768ca35f05eaeb82055c222d7c",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=polygon",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/polygon.json",
+      "expectedPath": "../../tests/sandcastle/full/polygon.json",
+      "entityCount": 8,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original source statements and options",
+        "all geometry, hierarchy, per-position heights and authored ST",
+        "original controls, reset and camera behavior",
+        "real GPU and browser behavior; no pixel-exact claim"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "polygon-dev",
+      "title": "Polygon - Dev",
+      "sourceSha256": "1ee60fa7d873f6de9902aae7d007859baf9c76f5c42ab3cecfd6e4ea2b7c475f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=polygon-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/polygon-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/polygon-dev.json",
+      "entityCount": 6,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original source statements and options",
+        "all geometry, hierarchy, per-position heights and authored ST",
+        "original controls, reset and camera behavior",
+        "real GPU and browser behavior; no pixel-exact claim"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "coplanar-polygon-dev",
+      "title": "Coplanar Polygon - Dev",
+      "sourceSha256": "2100b8953783e0401d78455e3f0501a15e0236f7360947a1771b3104be42015f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=coplanar-polygon-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/coplanar-polygon-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/coplanar-polygon-dev.json",
+      "entityCount": 3,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original source statements and options",
+        "all geometry, hierarchy, per-position heights and authored ST",
+        "original controls, reset and camera behavior",
+        "real GPU and browser behavior; no pixel-exact claim"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-polygon",
+      "title": "CZML Polygon",
+      "sourceSha256": "0e703b3a691d9f54e311f58122d585ebac76927af328a7d084ea8c44eb667922",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-polygon",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-polygon.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-polygon.json",
+      "entityCount": 5,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original source statements and options",
+        "all geometry, hierarchy, per-position heights and authored ST",
+        "original controls, reset and camera behavior",
+        "real GPU and browser behavior; no pixel-exact claim"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "points",
+      "title": "Points",
+      "sourceSha256": "78c0132b5b8b0171c3363401274bbd91e78f13ac06afc05778fa6090d9d3a1ba",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=points",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/points.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/points.json",
+      "entityCount": 1,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "variantCount": 6,
+      "requirements": [
+        "all original source statements and options",
+        "all geometry, hierarchy, per-position heights and authored ST",
+        "original controls, reset and camera behavior",
+        "real GPU and browser behavior; no pixel-exact claim"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "offline",
+      "title": "Offline",
+      "sourceSha256": "cf0ff25e62c546a6a67bbfd65d96efbf4f2875f7d7c309f1abca8f55ed74ad4d",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=offline",
+      "format": "scene",
+      "path": "../../tests/sandcastle/full/offline.scene.json",
+      "expectedPath": "../../tests/sandcastle/full/offline.json",
+      "entityCount": 0,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original source statements and options",
+        "all geometry, hierarchy, per-position heights and authored ST",
+        "original controls, reset and camera behavior",
+        "real GPU and browser behavior; no pixel-exact claim"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "local Natural Earth image files and shared globe"
+      }
+    },
+    {
+      "id": "polyline",
+      "title": "Polyline",
+      "sourceSha256": "26247a07666749d98c7cf3f3d293e320d16ef01e6a531733e0034145f6e69a76",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=polyline",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/polyline.json",
+      "expectedPath": "../../tests/sandcastle/full/polyline.json",
+      "entityCount": 6,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "all source statements and options",
+        "pixel line width, geodesic/rhumb/straight paths",
+        "per-segment/per-vertex colors; deterministic random seed",
+        "glow, arrow, outline and 16-bit screen-pixel dash materials",
+        "real GPU pixels and alpha-aware ID picking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "polyline-dev",
+      "title": "Polyline - Dev",
+      "sourceSha256": "7eedf1c1bae3eed885fdfdcca9fc45a1fc34031aaf72a5f31a1b262803cc8b35",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=polyline-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/polyline-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/polyline-dev.json",
+      "entityCount": 2,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all source statements and options",
+        "pixel line width, geodesic/rhumb/straight paths",
+        "per-segment/per-vertex colors; deterministic random seed",
+        "glow, arrow, outline and 16-bit screen-pixel dash materials",
+        "real GPU pixels and alpha-aware ID picking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "polyline-color-dev",
+      "title": "Polyline Color - Dev",
+      "sourceSha256": "c7b9b265c7bab3a5d2d7e0b76349da1d5a38c89c02051eaf0d20d26791d63578",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=polyline-color-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/polyline-color-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/polyline-color-dev.json",
+      "entityCount": 2,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all source statements and options",
+        "pixel line width, geodesic/rhumb/straight paths",
+        "per-segment/per-vertex colors; deterministic random seed",
+        "glow, arrow, outline and 16-bit screen-pixel dash materials",
+        "real GPU pixels and alpha-aware ID picking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "polyline-material-dev",
+      "title": "Polyline Material - Dev",
+      "sourceSha256": "c4b4c806acc5eb9f891e785c69113f3aece0031b4986fa0a489b0426348c357c",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=polyline-material-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/polyline-material-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/polyline-material-dev.json",
+      "entityCount": 3,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all source statements and options",
+        "pixel line width, geodesic/rhumb/straight paths",
+        "per-segment/per-vertex colors; deterministic random seed",
+        "glow, arrow, outline and 16-bit screen-pixel dash materials",
+        "real GPU pixels and alpha-aware ID picking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "polyline-dash",
+      "title": "Polyline Dash",
+      "sourceSha256": "738db4a78ed769955d1be7c9eef64c8d4ab45c167530b51f301ee2231d4fe700",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=polyline-dash",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/polyline-dash.json",
+      "expectedPath": "../../tests/sandcastle/full/polyline-dash.json",
+      "entityCount": 5,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "all source statements and options",
+        "pixel line width, geodesic/rhumb/straight paths",
+        "per-segment/per-vertex colors; deterministic random seed",
+        "glow, arrow, outline and 16-bit screen-pixel dash materials",
+        "real GPU pixels and alpha-aware ID picking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-polyline",
+      "title": "CZML Polyline",
+      "sourceSha256": "9eb7a272816d46234f42ce7e5ea85577858a719ead14872b9463376c3fcd7e67",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-polyline",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-polyline.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-polyline.json",
+      "entityCount": 5,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "all source statements and options",
+        "pixel line width, geodesic/rhumb/straight paths",
+        "per-segment/per-vertex colors; deterministic random seed",
+        "glow, arrow, outline and 16-bit screen-pixel dash materials",
+        "real GPU pixels and alpha-aware ID picking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-rectangle",
+      "title": "CZML Rectangle",
+      "sourceSha256": "e14f33a08f1175e7b99b0e6aabf781c2307fb2a95f72ea9cfdced9f623a11041",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-rectangle",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-rectangle.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-rectangle.json",
+      "entityCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "all four CZML rectangles with extruded height, rotation, and materials",
+        "solid color, vertical stripe, and image materials",
+        "fill and outline rendering",
+        "zoomTo CZML data source"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "partial-ellipsoids",
+      "title": "Partial Ellipsoids",
+      "sourceSha256": "556de0788d2bbba3020c1345f396ada1302be14d84ff8181292e38a67a37c9ac",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=partial-ellipsoids",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/partial-ellipsoids.json",
+      "expectedPath": "../../tests/sandcastle/full/partial-ellipsoids.json",
+      "entityCount": 12,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "all twelve whole and partial ellipsoids with correct radii and cutouts",
+        "inner radii hollow shells, minimum and maximum clock angles, minimum and maximum cone angles",
+        "orientation quaternions from headingPitchRoll",
+        "outer and inner surfaces, end caps, and outlines",
+        "viewer.zoomTo entire collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    }
+  ],
+  "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",
+  "acceptanceScope": "All case-specific source statements, inputs, geometry/entities, visibility groups, browser DOM/events/resolution controls and camera behavior in the fixed sources; not a pixel-exact Cesium renderer or implementation of all Viewer widgets."
+}

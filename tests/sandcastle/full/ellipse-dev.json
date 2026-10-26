@@ -1,0 +1,125 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": [
+      -100,
+      40,
+      0
+    ],
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": true,
+      "translucent": false
+    },
+    "shape": {
+      "type": "ellipse",
+      "semiMajorAxis": 400000,
+      "semiMinorAxis": 300000,
+      "height": 0,
+      "rotation": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-0-instance-1",
+    "name": "",
+    "positionDegrees": [
+      -95,
+      35,
+      0
+    ],
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": true,
+      "translucent": false
+    },
+    "shape": {
+      "type": "ellipse",
+      "semiMajorAxis": 400000,
+      "semiMinorAxis": 200000,
+      "height": 200000,
+      "rotation": 0.7853981633974483,
+      "extrudedHeight": null
+    },
+    "color": [
+      0,
+      0.5019607843137255,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 1
+    }
+  },
+  {
+    "id": "primitive-0-instance-2",
+    "name": "",
+    "positionDegrees": [
+      -90,
+      40,
+      0
+    ],
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": true,
+      "translucent": false
+    },
+    "shape": {
+      "type": "ellipse",
+      "semiMajorAxis": 300000,
+      "semiMinorAxis": 200000,
+      "height": 0,
+      "rotation": 1.5707963267948966,
+      "extrudedHeight": 200000
+    },
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 2
+    }
+  }
+]

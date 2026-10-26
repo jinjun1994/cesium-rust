@@ -1,0 +1,300 @@
+launch ok
+viewer ready
+start box
+loaded box
+readback box
+box passed { red: 12342, blue: 13813, yellow: 875, green: 0, white: 0 }
+start cylinders-and-cones
+loaded cylinders-and-cones
+readback cylinders-and-cones
+cylinders-and-cones passed { red: 18014, blue: 0, yellow: 0, green: 35873, white: 0 }
+start plane
+loaded plane
+readback plane
+plane passed { red: 5999, blue: 4233, yellow: 319, green: 0, white: 0 }
+start spheres-and-ellipsoids
+loaded spheres-and-ellipsoids
+readback spheres-and-ellipsoids
+spheres-and-ellipsoids passed { red: 17315, blue: 10843, yellow: 6437, green: 0, white: 0 }
+start czml-spheres-and-ellipsoids
+loaded czml-spheres-and-ellipsoids
+readback czml-spheres-and-ellipsoids
+czml-spheres-and-ellipsoids passed { red: 17315, blue: 10843, yellow: 6437, green: 0, white: 0 }
+start czml-cones-and-cylinders
+loaded czml-cones-and-cylinders
+readback czml-cones-and-cylinders
+czml-cones-and-cylinders passed { red: 18014, blue: 0, yellow: 0, green: 37125, white: 0 }
+start czml-box
+loaded czml-box
+readback czml-box
+czml-box passed { red: 12342, blue: 13813, yellow: 875, green: 0, white: 0 }
+start wall
+loaded wall
+readback wall
+wall passed { red: 5911, blue: 4004, yellow: 0, green: 4986, white: 0 }
+start czml-wall
+loaded czml-wall
+readback czml-wall
+czml-wall passed { red: 26549, blue: 0, yellow: 0, green: 0, white: 0 }
+start circles-and-ellipses
+loaded circles-and-ellipses
+readback circles-and-ellipses
+circles-and-ellipses passed { red: 9515, blue: 6086, yellow: 0, green: 8851, white: 0 }
+start czml-circles-and-ellipses
+loaded czml-circles-and-ellipses
+readback czml-circles-and-ellipses
+czml-circles-and-ellipses passed { red: 9394, blue: 6086, yellow: 0, green: 8936, white: 207 }
+start czml-point
+loaded czml-point
+readback czml-point
+czml-point passed { red: 300, blue: 0, yellow: 0, green: 0, white: 312 }
+start box-outline-dev
+loaded box-outline-dev
+readback box-outline-dev
+box-outline-dev passed { red: 0, blue: 0, yellow: 0, green: 0, white: 81 }
+start cylinder-outline-dev
+loaded cylinder-outline-dev
+readback cylinder-outline-dev
+cylinder-outline-dev passed { red: 0, blue: 0, yellow: 0, green: 0, white: 22 }
+start sphere-outline-dev
+loaded sphere-outline-dev
+readback sphere-outline-dev
+sphere-outline-dev passed { red: 0, blue: 0, yellow: 0, green: 0, white: 206 }
+start ellipsoid-outline-dev
+loaded ellipsoid-outline-dev
+readback ellipsoid-outline-dev
+ellipsoid-outline-dev passed { red: 0, blue: 0, yellow: 0, green: 0, white: 104 }
+start rectangle-outline-dev
+loaded rectangle-outline-dev
+readback rectangle-outline-dev
+rectangle-outline-dev passed { red: 0, blue: 0, yellow: 0, green: 0, white: 80 }
+start wall-outline-dev
+loaded wall-outline-dev
+readback wall-outline-dev
+wall-outline-dev passed { red: 0, blue: 0, yellow: 0, green: 0, white: 79 }
+start box-dev
+loaded box-dev
+readback box-dev
+box-dev passed { red: 104, blue: 0, yellow: 0, green: 0, white: 0 }
+start cylinder-dev
+loaded cylinder-dev
+readback cylinder-dev
+cylinder-dev passed { red: 82, blue: 0, yellow: 0, green: 86, white: 0 }
+start sphere-dev
+loaded sphere-dev
+readback sphere-dev
+sphere-dev passed { red: 196, blue: 0, yellow: 0, green: 0, white: 0 }
+start ellipsoid-dev
+loaded ellipsoid-dev
+readback ellipsoid-dev
+ellipsoid-dev passed { red: 0, blue: 84, yellow: 0, green: 0, white: 0 }
+start wall-dev
+loaded wall-dev
+readback wall-dev
+wall-dev passed { red: 11, blue: 26, yellow: 0, green: 4, white: 0 }
+start ellipse-dev
+loaded ellipse-dev
+readback ellipse-dev
+ellipse-dev passed { red: 256, blue: 142, yellow: 0, green: 178, white: 0 }
+start extended polyline
+polyline passed [
+  { id: 'polyline-1', pixels: 1037 },
+  { id: 'polyline-2', pixels: 1068 },
+  { id: 'polyline-3', pixels: 1972 },
+  { id: 'polyline-4', pixels: 2060 },
+  { id: 'polyline-5', pixels: 1664 },
+  { id: 'polyline-6', pixels: 841 }
+]
+start extended polyline-dev
+polyline-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 1085 },
+  { id: 'primitive-1-instance-0', pixels: 1356 }
+]
+start extended polyline-color-dev
+polyline-color-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 997 },
+  { id: 'primitive-1-instance-0', pixels: 1024 }
+]
+start extended polyline-material-dev
+polyline-material-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 2081 },
+  { id: 'primitive-1-instance-0', pixels: 1093 },
+  { id: 'primitive-2-instance-0', pixels: 2102 }
+]
+start extended polyline-dash
+polyline-dash passed [
+  { id: 'polyline-dash-1', pixels: 1017 },
+  { id: 'polyline-dash-2', pixels: 12353 },
+  { id: 'polyline-dash-3', pixels: 1022 },
+  { id: 'polyline-dash-4', pixels: 1522 },
+  { id: 'polyline-dash-5', pixels: 2071 }
+]
+start extended czml-polyline
+czml-polyline passed [
+  { id: 'redLine', pixels: 1037 },
+  { id: 'blueLine', pixels: 1972 },
+  { id: 'orangeLine', pixels: 2060 },
+  { id: 'purpleLine', pixels: 1664 },
+  { id: 'dashedLine', pixels: 841 }
+]
+start extended ellipse-outline-dev
+ellipse-outline-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 982 },
+  { id: 'primitive-0-instance-1', pixels: 2536 }
+]
+start extended circle-outline-dev
+circle-outline-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 1176 },
+  { id: 'primitive-1-instance-0', pixels: 4950 }
+]
+start extended rectangle-dev
+rectangle-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 20045 },
+  { id: 'primitive-0-instance-1', pixels: 61913 }
+]
+start extended per-instance-color-dev
+per-instance-color-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 62577 },
+  { id: 'primitive-0-instance-1', pixels: 61874 },
+  { id: 'primitive-0-instance-2', pixels: 61498 },
+  { id: 'primitive-0-instance-3', pixels: 61497 }
+]
+start extended polygon-outline-dev
+polygon-outline-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 877 },
+  { id: 'primitive-0-instance-1', pixels: 3505 },
+  { id: 'primitive-0-instance-2', pixels: 912 }
+]
+start extended coplanar-polygon-outline-dev
+coplanar-polygon-outline-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 629 },
+  { id: 'primitive-0-instance-1', pixels: 1759 }
+]
+start extended simple-polyline-dev
+simple-polyline-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 222 },
+  { id: 'primitive-1-instance-0', pixels: 429 },
+  { id: 'primitive-1-instance-1', pixels: 262 }
+]
+start extended material-dev
+material-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 60432 },
+  { id: 'primitive-1-instance-0', pixels: 60480 }
+]
+start extended ellipsoid-surface-dev
+ellipsoid-surface-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 62577 },
+  { id: 'primitive-1-instance-0', pixels: 61874 },
+  { id: 'primitive-2-instance-0', pixels: 61498 },
+  { id: 'primitive-3-instance-0', pixels: 61497 }
+]
+start extended czml-colors
+czml-colors passed [ { id: 'rgba', pixels: 61471 }, { id: 'rgbaf', pixels: 59811 } ]
+start extended czml-point-time-dynamic
+czml-point-time-dynamic passed [ { id: 'point', pixels: 345 } ]
+start extended circle-dev
+circle-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 109608 },
+  { id: 'primitive-1-instance-0', pixels: 129791 },
+  { id: 'primitive-2-instance-0', pixels: 109605 }
+]
+start extended corridor
+corridor passed [
+  { id: 'corridor-1', pixels: 29691 },
+  { id: 'corridor-2', pixels: 31588 },
+  { id: 'corridor-3', pixels: 40275 }
+]
+start extended corridor-dev
+corridor-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 29691 },
+  { id: 'primitive-1-instance-0', pixels: 31192 },
+  { id: 'primitive-2-instance-0', pixels: 39849 }
+]
+start extended corridor-outline-dev
+corridor-outline-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 787 },
+  { id: 'primitive-0-instance-1', pixels: 1991 }
+]
+start extended czml-corridor
+czml-corridor passed [
+  { id: 'redCorridor', pixels: 29691 },
+  { id: 'greenCorridor', pixels: 31588 },
+  { id: 'blueCorridor', pixels: 40275 }
+]
+start extended czml-position-definitions
+czml-position-definitions passed [
+  { id: 'point1', pixels: 78 },
+  { id: 'point2', pixels: 78 },
+  { id: 'point 3', pixels: 78 }
+]
+start extended show-or-hide-entities
+show-or-hide-entities passed [
+  { id: 'group-child-1', pixels: 102262 },
+  { id: 'group-child-2', pixels: 61271 },
+  { id: 'group-child-3', pixels: 165692 },
+  { id: 'group-child-4', pixels: 102262 },
+  { id: 'group-child-5', pixels: 61271 },
+  { id: 'group-child-6', pixels: 165692 },
+  { id: 'group-child-7', pixels: 102262 },
+  { id: 'group-child-8', pixels: 61271 },
+  { id: 'group-child-9', pixels: 165692 },
+  { id: 'group-child-10', pixels: 102262 },
+  { id: 'group-child-11', pixels: 61271 },
+  { id: 'group-child-12', pixels: 165692 },
+  { id: 'group-child-13', pixels: 102262 },
+  { id: 'group-child-14', pixels: 61271 },
+  { id: 'group-child-15', pixels: 165692 }
+]
+start extended polygon
+nested hole probe polygon -98 true { x: 331.6212826594413, y: 257.9764543284425 }
+nested hole probe polygon -96 false { x: 373.67744182888265, y: 257.336122138551 }
+nested hole probe polygon -94 true { x: 416.6547102962191, y: 256.9529976998974 }
+nested hole probe polygon -92 false { x: 460.08597628497847, y: 256.83505318218096 }
+polygon passed [
+  { id: 'polygon-1', pixels: 28368 },
+  { id: 'polygon-2', pixels: 60478 },
+  { id: 'polygon-3', pixels: 38150 },
+  { id: 'polygon-4', pixels: 39450 },
+  { id: 'polygon-5', pixels: 76140 },
+  { id: 'polygon-6', pixels: 34935 },
+  { id: 'polygon-7', pixels: 22589 },
+  { id: 'polygon-8', pixels: 37519 }
+]
+start extended polygon-dev
+nested hole probe polygon-dev -98 true { x: 331.6212826594413, y: 257.9764543284425 }
+nested hole probe polygon-dev -96 false { x: 373.67744182888265, y: 257.336122138551 }
+nested hole probe polygon-dev -94 true { x: 416.6547102962191, y: 256.9529976998974 }
+nested hole probe polygon-dev -92 false { x: 460.08597628497847, y: 256.83505318218096 }
+polygon-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 28368 },
+  { id: 'primitive-0-instance-1', pixels: 60483 },
+  { id: 'primitive-0-instance-2', pixels: 33953 },
+  { id: 'primitive-0-instance-3', pixels: 75764 },
+  { id: 'primitive-1-instance-0', pixels: 39450 },
+  { id: 'primitive-1-instance-1', pixels: 38150 }
+]
+start extended coplanar-polygon-dev
+coplanar-polygon-dev passed [
+  { id: 'primitive-0-instance-0', pixels: 37586 },
+  { id: 'primitive-0-instance-1', pixels: 53296 },
+  { id: 'primitive-1-instance-0', pixels: 54931 }
+]
+start extended czml-polygon
+czml-polygon passed [
+  { id: 'redPolygon', pixels: 28061 },
+  { id: 'checkerboardPolygon', pixels: 33024 },
+  { id: 'greenPolygon', pixels: 60478 },
+  { id: 'orangePolygon', pixels: 76140 },
+  { id: 'bluePolygonWithHoles', pixels: 41506 }
+]
+start web scene html-overlays
+html-overlays passed 16147
+start web scene resolution-scaling
+resolution-scaling passed 1017
+start web scene hello-world
+hello-world passed 16147
+start complete points menu
+points menu passed
+start complete offline imagery
+offline passed 34 20323
+57 complete recipe browser WebGPU checks passed.

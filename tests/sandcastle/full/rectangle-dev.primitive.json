@@ -1,0 +1,55 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": [
+        {
+          "geometry": {
+            "type": "RectangleGeometry",
+            "rectangle": [
+              -110,
+              20,
+              -80,
+              25
+            ],
+            "vertexFormat": "POSITION_NORMAL"
+          },
+          "attributes": {
+            "color": [
+              1,
+              0,
+              0,
+              0.5019607843137255
+            ]
+          }
+        },
+        {
+          "geometry": {
+            "type": "RectangleGeometry",
+            "rectangle": [
+              -100,
+              30,
+              -90,
+              40
+            ],
+            "rotation": 0.7853981633974483,
+            "extrudedHeight": 300000,
+            "height": 100000,
+            "vertexFormat": "POSITION_NORMAL"
+          },
+          "attributes": {
+            "color": [
+              0,
+              1,
+              0,
+              0.5019607843137255
+            ]
+          }
+        }
+      ],
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "closed": true
+      }
+    }
+  ]
+}

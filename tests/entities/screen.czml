@@ -1,0 +1,102 @@
+[
+  {
+    "id": "document",
+    "version": "1.0"
+  },
+  {
+    "id": "point",
+    "name": "32 px point + 4 px outline",
+    "position": {
+      "cartographicDegrees": [
+        109.7,
+        25.1,
+        16000
+      ]
+    },
+    "point": {
+      "pixelSize": 32,
+      "outlineWidth": 4,
+      "outlineColor": {
+        "rgba": [
+          0,
+          255,
+          255,
+          255
+        ]
+      },
+      "color": {
+        "rgba": [
+          255,
+          38,
+          26,
+          255
+        ]
+      }
+    }
+  },
+  {
+    "id": "billboard",
+    "name": "64 x 48 px image",
+    "position": {
+      "cartographicDegrees": [
+        109.9,
+        25.1,
+        16000
+      ]
+    },
+    "billboard": {
+      "image": {
+        "uri": "image-test.png"
+      },
+      "width": 64,
+      "height": 48,
+      "color": {
+        "rgba": [
+          255,
+          255,
+          255,
+          255
+        ]
+      },
+      "pixelOffset": {
+        "cartesian2": [
+          0,
+          0
+        ]
+      }
+    }
+  },
+  {
+    "id": "offset",
+    "name": "Offset right 40, down 20 px",
+    "position": {
+      "cartographicDegrees": [
+        110.1,
+        25.1,
+        16000
+      ]
+    },
+    "billboard": {
+      "image": {
+        "uri": "image-test.png"
+      },
+      "width": 48,
+      "height": 48,
+      "scale": 1,
+      "pixelOffset": {
+        "cartesian2": [
+          40,
+          20
+        ]
+      },
+      "color": {
+        "rgba": [
+          255,
+          255,
+          255,
+          178
+        ]
+      }
+    }
+  }
+]

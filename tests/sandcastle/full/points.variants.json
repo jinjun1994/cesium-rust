@@ -1,0 +1,363 @@
+{
+  "variants": [
+    {
+      "label": "Add point",
+      "entities": [
+        {
+          "id": "points-1",
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "color": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sandcastleCase": "points",
+            "upstreamEntity": 1
+          }
+        }
+      ]
+    },
+    {
+      "label": "Set point properties at creation",
+      "entities": [
+        {
+          "id": "points-1",
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "color": [
+            0.5294117647058824,
+            0.807843137254902,
+            0.9215686274509803,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sandcastleCase": "points",
+            "upstreamEntity": 1
+          }
+        }
+      ]
+    },
+    {
+      "label": "Change point properties",
+      "entities": [
+        {
+          "id": "points-1",
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            300000
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 20,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "color": [
+            1,
+            1,
+            0,
+            0.33
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sandcastleCase": "points",
+            "upstreamEntity": 1
+          }
+        }
+      ]
+    },
+    {
+      "label": "Add multiple points",
+      "entities": [
+        {
+          "id": "points-1",
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "color": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sandcastleCase": "points",
+            "upstreamEntity": 1
+          }
+        },
+        {
+          "id": "points-2",
+          "name": "",
+          "positionDegrees": [
+            -80.5,
+            35.14,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 16,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "color": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sandcastleCase": "points",
+            "upstreamEntity": 2
+          }
+        },
+        {
+          "id": "points-3",
+          "name": "",
+          "positionDegrees": [
+            -80.12,
+            25.46,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 32,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "color": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sandcastleCase": "points",
+            "upstreamEntity": 3
+          }
+        }
+      ]
+    },
+    {
+      "label": "Scale by viewer distance",
+      "entities": [
+        {
+          "id": "points-1",
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "screen": {
+            "scaleByDistance": [
+              150,
+              2,
+              15000000,
+              0.5
+            ]
+          },
+          "properties": {
+            "sandcastleCase": "points",
+            "upstreamEntity": 1
+          }
+        }
+      ]
+    },
+    {
+      "label": "Fade by viewer distance",
+      "entities": [
+        {
+          "id": "points-1",
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 20,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "screen": {
+            "translucencyByDistance": [
+              150,
+              1,
+              15000000,
+              0.2
+            ]
+          },
+          "properties": {
+            "sandcastleCase": "points",
+            "upstreamEntity": 1
+          }
+        }
+      ]
+    }
+  ],
+  "initial": 0
+}

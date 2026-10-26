@@ -1,0 +1,181 @@
+[
+  {
+    "id": "document",
+    "version": "1.0"
+  },
+  {
+    "id": "label-0",
+    "position": {
+      "cartographicDegrees": [
+        110,
+        25.06,
+        16000
+      ]
+    },
+    "label": {
+      "text": "全球地球 Globe",
+      "pixelOffset": {
+        "cartesian2": [
+          0,
+          0
+        ]
+      },
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "font": "28px sans-serif",
+      "fillColor": {
+        "rgba": [
+          255,
+          255,
+          255,
+          255
+        ]
+      }
+    }
+  },
+  {
+    "id": "distance-display",
+    "position": {
+      "cartographicDegrees": [
+        109.94,
+        25,
+        16000
+      ]
+    },
+    "point": {
+      "pixelSize": 32,
+      "outlineWidth": 4,
+      "outlineColor": {
+        "rgba": [
+          0,
+          255,
+          255,
+          255
+        ]
+      },
+      "distanceDisplayCondition": {
+        "distanceDisplayCondition": [
+          30000,
+          80000
+        ]
+      },
+      "color": {
+        "rgba": [
+          255,
+          38,
+          26,
+          255
+        ]
+      }
+    }
+  },
+  {
+    "id": "distance-scale",
+    "position": {
+      "cartographicDegrees": [
+        110,
+        25,
+        16000
+      ]
+    },
+    "point": {
+      "pixelSize": 32,
+      "outlineWidth": 4,
+      "outlineColor": {
+        "rgba": [
+          0,
+          255,
+          255,
+          255
+        ]
+      },
+      "scaleByDistance": {
+        "nearFarScalar": [
+          40000,
+          2,
+          160000,
+          0.5
+        ]
+      },
+      "color": {
+        "rgba": [
+          255,
+          38,
+          26,
+          255
+        ]
+      }
+    }
+  },
+  {
+    "id": "distance-alpha",
+    "position": {
+      "cartographicDegrees": [
+        110.06,
+        25,
+        16000
+      ]
+    },
+    "point": {
+      "pixelSize": 32,
+      "outlineWidth": 4,
+      "outlineColor": {
+        "rgba": [
+          0,
+          255,
+          255,
+          255
+        ]
+      },
+      "translucencyByDistance": {
+        "nearFarScalar": [
+          40000,
+          1,
+          160000,
+          0
+        ]
+      },
+      "color": {
+        "rgba": [
+          255,
+          38,
+          26,
+          255
+        ]
+      }
+    }
+  },
+  {
+    "id": "origin-0",
+    "position": {
+      "cartographicDegrees": [
+        110,
+        24.94,
+        16000
+      ]
+    },
+    "billboard": {
+      "image": {
+        "uri": "image-test.png"
+      },
+      "width": 64,
+      "height": 48,
+      "pixelOffset": {
+        "cartesian2": [
+          0,
+          0
+        ]
+      },
+      "horizontalOrigin": "LEFT",
+      "verticalOrigin": "TOP",
+      "color": {
+        "rgba": [
+          255,
+          255,
+          255,
+          255
+        ]
+      }
+    }
+  }
+]

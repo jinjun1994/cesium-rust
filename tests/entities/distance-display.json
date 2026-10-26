@@ -1,0 +1,33 @@
+[
+  {
+    "id": "distance-display",
+    "positionDegrees": [
+      110,
+      25,
+      16000
+    ],
+    "color": [
+      1,
+      0.15,
+      0.1,
+      1
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 32,
+      "outlineWidth": 4,
+      "outlineColor": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    "screen": {
+      "distanceDisplayCondition": [
+        30000,
+        80000
+      ]
+    }
+  }
+]

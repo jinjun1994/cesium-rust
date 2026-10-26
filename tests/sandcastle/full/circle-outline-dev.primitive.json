@@ -1,0 +1,62 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "CircleOutlineGeometry",
+          "center": [
+            -100,
+            40,
+            0
+          ],
+          "radius": 200000
+        },
+        "attributes": {
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "flat": true,
+        "renderState": {
+          "lineWidth": 1
+        }
+      }
+    },
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "CircleOutlineGeometry",
+          "center": [
+            -95,
+            40,
+            0
+          ],
+          "radius": 100000,
+          "extrudedHeight": 200000,
+          "numberOfVerticalLines": 16
+        },
+        "attributes": {
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "flat": true,
+        "renderState": {
+          "lineWidth": 1
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+[
+  {
+    "id": "stripe",
+    "name": "Stripe alpha holes",
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        109,
+        25,
+        109.4,
+        25.4
+      ],
+      "height": 8000
+    },
+    "material": {
+      "type": "stripe",
+      "evenColor": [
+        0.1,
+        0.5,
+        1,
+        1
+      ],
+      "oddColor": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "repeat": 12,
+      "orientation": "VERTICAL"
+    }
+  },
+  {
+    "id": "checker",
+    "name": "Checkerboard",
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        109.6,
+        25,
+        110,
+        25.4
+      ],
+      "height": 8000
+    },
+    "material": {
+      "type": "checkerboard",
+      "evenColor": [
+        1,
+        0.8,
+        0.1,
+        1
+      ],
+      "oddColor": [
+        0.1,
+        0.8,
+        0.2,
+        1
+      ],
+      "repeat": [
+        6,
+        6
+      ]
+    }
+  },
+  {
+    "id": "grid",
+    "name": "Grid transparent cells",
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        110.2,
+        25,
+        110.6,
+        25.4
+      ],
+      "height": 8000
+    },
+    "material": {
+      "type": "grid",
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "lineCount": [
+        8,
+        8
+      ],
+      "lineThickness": [
+        2,
+        2
+      ],
+      "cellAlpha": 0
+    }
+  },
+  {
+    "id": "blue",
+    "name": "Far translucent blue",
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        109.6,
+        24.5,
+        110.05,
+        24.9
+      ],
+      "height": 5000
+    },
+    "color": [
+      0,
+      0.2,
+      1,
+      0.6
+    ]
+  },
+  {
+    "id": "red",
+    "name": "Near translucent red",
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        109.8,
+        24.65,
+        110.25,
+        25.05
+      ],
+      "height": 16000
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.5
+    ]
+  }
+]

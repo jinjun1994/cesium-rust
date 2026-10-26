@@ -1,0 +1,62 @@
+{
+  "version": "0.0.26",
+  "backend": "Rust WASM / real browser WebGPU",
+  "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
+  "externalImagery": "local deterministic 256x256 neutral raster",
+  "cases": [
+    {
+      "id": "polyline",
+      "status": "passed",
+      "entities": 6,
+      "sourceSha256": "26247a07666749d98c7cf3f3d293e320d16ef01e6a531733e0034145f6e69a76",
+      "inputSha256": "e1185938e5e2c44a74eb13c77cae46ff68887a11462374dfdef4dc6d23aba160",
+      "fixtureSha256": "e1185938e5e2c44a74eb13c77cae46ff68887a11462374dfdef4dc6d23aba160",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "polyline-1",
+        "polyline-2",
+        "polyline-3",
+        "polyline-4",
+        "polyline-5",
+        "polyline-6"
+      ],
+      "pixelCounts": [
+        {
+          "id": "polyline-1",
+          "pixels": 1037
+        },
+        {
+          "id": "polyline-2",
+          "pixels": 1068
+        },
+        {
+          "id": "polyline-3",
+          "pixels": 1972
+        },
+        {
+          "id": "polyline-4",
+          "pixels": 2060
+        },
+        {
+          "id": "polyline-5",
+          "pixels": 1664
+        },
+        {
+          "id": "polyline-6",
+          "pixels": 841
+        }
+      ]
+    }
+  ],
+  "browser": "155.0.8059.39",
+  "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
+  "destroy": "passed"
+}

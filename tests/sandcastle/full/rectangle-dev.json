@@ -1,0 +1,98 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -110,
+        20,
+        -80,
+        25
+      ],
+      "height": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.5019607843137255
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": true,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-0-instance-1",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          -95,
+          27.928932188134524,
+          100000
+        ],
+        [
+          -87.92893218813452,
+          35,
+          100000
+        ],
+        [
+          -95,
+          42.071067811865476,
+          100000
+        ],
+        [
+          -102.07106781186548,
+          35,
+          100000
+        ]
+      ],
+      "holes": [],
+      "extrudedHeight": 300000
+    },
+    "color": [
+      0,
+      1,
+      0,
+      0.5019607843137255
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "flat": false,
+      "closed": true,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 1
+    }
+  }
+]

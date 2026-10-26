@@ -1,0 +1,76 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": [
+      -100,
+      40,
+      0
+    ],
+    "shape": {
+      "type": "ellipse",
+      "height": 0,
+      "semiMajorAxis": 200000,
+      "semiMinorAxis": 200000,
+      "rotation": 0,
+      "extrudedHeight": null,
+      "numberOfVerticalLines": 16
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-1-instance-0",
+    "name": "",
+    "positionDegrees": [
+      -95,
+      40,
+      0
+    ],
+    "shape": {
+      "type": "ellipse",
+      "height": 0,
+      "semiMajorAxis": 100000,
+      "semiMinorAxis": 100000,
+      "rotation": 0,
+      "extrudedHeight": 200000,
+      "numberOfVerticalLines": 16
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 1,
+      "instanceIndex": 0
+    }
+  }
+]

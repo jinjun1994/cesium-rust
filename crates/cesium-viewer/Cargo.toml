@@ -1,0 +1,43 @@
+[package]
+name = "cesium-viewer"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[[bin]]
+name = "desktop-viewer"
+path = "src/main.rs"
+
+[dependencies]
+base64 = "=0.22.1"
+chrono = { version = "=0.4.42", default-features = false, features = ["std"] }
+flate2 = "1"
+serde.workspace = true
+earcutr = "=0.4.3"
+image.workspace = true
+serde_json.workspace = true
+glam.workspace = true
+winit.workspace = true
+pollster.workspace = true
+wgpu.workspace = true
+thiserror.workspace = true
+url.workspace = true
+cesium-math.workspace = true
+cesium-formats.workspace = true
+cesium-tiles.workspace = true
+cesium-streaming.workspace = true
+cesium-renderer.workspace = true
+fontdue = "=0.9.3"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "rustls-tls-native-roots"] }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+js-sys = "0.3"
+web-sys = { version = "0.3", features = ["Window", "Document", "HtmlCanvasElement", "Response", "console"] }

@@ -1,0 +1,28 @@
+{
+  "release": "1.146",
+  "commit": "b8d3a36fe98a3e432eb89253c95d5f20e605e0f1",
+  "references": [
+    {
+      "path": "packages/engine/Source/Scene/Material.js",
+      "sha256": "54a2c51ab6cb91dc78fe311de517b7814553656804954d0dabf9e0972fa6a18c",
+      "url": "https://github.com/CesiumGS/cesium/blob/b8d3a36fe98a3e432eb89253c95d5f20e605e0f1/packages/engine/Source/Scene/Material.js"
+    },
+    {
+      "path": "packages/core/Source/RectangleGeometryLibrary.js",
+      "sha256": "00d0e4b978ceb17bf212ffbf83a7cab9ae57e26eac38a3242f73be448cb77f11",
+      "url": "https://github.com/CesiumGS/cesium/blob/b8d3a36fe98a3e432eb89253c95d5f20e605e0f1/packages/core/Source/RectangleGeometryLibrary.js"
+    },
+    {
+      "path": "packages/engine/Source/Shaders/Materials/DotMaterial.glsl",
+      "sha256": "b238ed01c400cb87bff16d91d7a36b21d4b7579a1d17774ddbccdfa568b2b261",
+      "url": "https://github.com/CesiumGS/cesium/blob/b8d3a36fe98a3e432eb89253c95d5f20e605e0f1/packages/engine/Source/Shaders/Materials/DotMaterial.glsl"
+    },
+    {
+      "path": "packages/core/Source/CorridorGeometryLibrary.js",
+      "sha256": "d4e040e851045cff862e8f69a74b0907878e41cf70cc6be5aed9c931e8ec25d8",
+      "url": "https://github.com/CesiumGS/cesium/blob/b8d3a36fe98a3e432eb89253c95d5f20e605e0f1/packages/core/Source/CorridorGeometryLibrary.js",
+      "fixture": "full/corridor-reference.json",
+      "generator": "../../scripts/build-corridor-reference.mjs"
+    }
+  ]
+}

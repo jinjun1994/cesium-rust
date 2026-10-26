@@ -1,0 +1,29 @@
+[
+  {
+    "id": "rotation",
+    "positionDegrees": [
+      110,
+      25,
+      16000
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAABBUlEQVR4nO2b0Q3CIBQAi+kc9rfO4jiu4Tg6S/11EvyWj9cYIFfD3adIc7lgqFTTes95CtjWJRqeLq93OH70+adwdAAMQAvQGIAWoDEALUCT8uMc3gfQ+3Tv+cOvAAPQAjQGoAVoDEAL0MxH36c9D+iMAWgBmrn1BbfblL5f2fmMXveuWMx/LuF3l18ZfgUYgBagmdvvs/H7ayl9PA+oxAC0AI0BaAEaA9ACNM3PA/bv7esofTwPqMQAtACNAWgBGgPQAjSeB1Qb/TkGoAVomj8XKM/tez/7q2X4FWAAWoDG3weEowNgAFqAxgC0AI0BaAEa/y8Qjg6AAWgBGgPQAjQGoAVoPsfWa1tv9ASzAAAAAElFTkSuQmCC",
+      "width": 96,
+      "height": 48,
+      "pixelOffset": [
+        30,
+        0
+      ]
+    },
+    "screen": {
+      "rotation": 1.5707963267948966
+    }
+  }
+]

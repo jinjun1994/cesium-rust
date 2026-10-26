@@ -1,0 +1,18 @@
+{
+  "credits": "Mapzen / Tilezen Terrain Tiles · sources: https://github.com/tilezen/joerd/blob/master/docs/attribution.md · polar ellipsoid fallback",
+  "decodedTiles": 92,
+  "failures": [],
+  "height": 8323.25314241666,
+  "location": {
+    "latitude": 27.9881,
+    "longitude": 86.92528
+  },
+  "pixelsDifferentFromEllipsoid": 389053,
+  "scope": "Native public Terrarium HTTP streaming and GPU readback. Not a Cesium ion live-service test or browser rendering test.",
+  "source": "https://registry.opendata.aws/terrain-tiles/",
+  "stats": "Earth yes | height 20000.0 m | resident 0 | GPU 75.9 MiB | draws 57 | errors 0 | GeoJSON 0 layers | offline base | terrain 92 ready / 55 draws | LOD 9 | height x1.0 | errors 0",
+  "engineVersion": "0.0.8",
+  "cachedOnly": true,
+  "firstRunHTTPVerified": true,
+  "retrievedDate": "2026-10-13"
+}

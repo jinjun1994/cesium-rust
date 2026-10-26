@@ -1,0 +1,48 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "EllipsoidGeometry",
+          "vertexFormat": "POSITION_NORMAL",
+          "radii": [
+            200000,
+            200000,
+            300000
+          ]
+        },
+        "modelMatrix": [
+          0.984807753012208,
+          -0.1736481776669303,
+          0,
+          0,
+          0.11161889704894962,
+          0.633022221559489,
+          0.766044443118978,
+          0,
+          -0.13302222155948898,
+          -0.7544065067354889,
+          0.6427876096865393,
+          0,
+          -889516.4250776097,
+          -5044698.329793988,
+          4270821.855106338,
+          1
+        ],
+        "attributes": {
+          "color": [
+            0,
+            0,
+            1,
+            1
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "translucent": false,
+        "closed": true
+      }
+    }
+  ]
+}

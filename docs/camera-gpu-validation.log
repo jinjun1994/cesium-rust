@@ -1,0 +1,150 @@
+    Blocking waiting for file lock on package cache
+   Compiling cesium-viewer v0.0.16 (<project>/crates/cesium-viewer)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 23.13s
+     Running unittests src/main.rs (target/debug/deps/asset_inspector-85cb16d76e565def)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/cesium_formats-148a3be71d1f4699)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/cesium_math-da30b2c0dd0ddf18)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/cesium_renderer-3e268c5e089f38da)
+
+running 4 tests
+test tests::offscreen_render_and_pick ... ok
+test tests::one_pixel_lines_pick_and_occlusion ... ok
+test tests::textured_material_channels_and_alpha_pick ... ok
+test tests::transparent_order_and_procedural_alpha_pick ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 7.35s
+
+     Running unittests src/lib.rs (target/debug/deps/cesium_streaming-621ec534fd73a711)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/cesium_tiles-f66f7245c8ff4a2d)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/cesium_viewer-58fecb7fae1b7387)
+
+running 3 tests
+test geojson::tests::globe_overlay_hole_pick_and_layer_lifecycle ... ok
+test imagery::tests::progressive_coverage_cache_and_cancellation ... ok
+test terrain::tests::terrain_replacement_drape_collision_and_lifecycle ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 44 filtered out; finished in 11.39s
+
+     Running unittests src/main.rs (target/debug/deps/desktop_viewer-a8c9fb8b60cc73ac)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/sample-render-check.rs (target/debug/deps/sample_render_check-6cfa1effe1125a29)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/terrain-render-check.rs (target/debug/deps/terrain_render_check-82e1e1b67478f36b)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/camera-gpu.rs (target/debug/deps/camera_gpu-69b94bc54131e29f)
+
+running 5 tests
+test cancellation_replacement_atomicity_and_manual_takeover ... ok
+test fly_to_advances_with_paused_entity_clock_and_exact_end ... ok
+test look_at_fixed_anchor_range_and_orbit_takeover ... ok
+test set_view_pose_matches_visible_and_pick_center ... ok
+test tracked_entity_motion_visibility_removal_and_availability ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.04s
+
+     Running tests/entities-gpu.rs (target/debug/deps/entities_gpu-2999ca4153ae8296)
+
+running 5 tests
+test entities_draw_pick_motion_and_atomic_replacement ... ok
+test entity_material_uvs_transparent_cells_and_czml_wall ... ok
+test geographic_holes_extrusion_visibility_and_upsert ... ok
+test images_outlines_fill_toggle_and_lifecycle ... ok
+test screen_pixels_zoom_depth_and_pick_lifecycle ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 10.00s
+
+     Running tests/screen-advanced-gpu.rs (target/debug/deps/screen_advanced_gpu-5c1665fe3bae409a)
+
+running 5 tests
+test distance_display_condition_draw_and_pick ... ok
+test distance_scale_pixel_diameter_and_fixed_offset ... ok
+test distance_translucency_blend_and_zero_alpha_pick ... ok
+test label_chinese_text_alpha_pick_and_lifecycle ... ok
+test origins_billboard_quadrants_and_label_baseline ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 10.56s
+
+     Running tests/screen-effects-gpu.rs (target/debug/deps/screen_effects_gpu-adf2679396ec65d3)
+
+running 5 tests
+test billboard_rotation_preserves_pixel_offset ... ok
+test depth_distance_overlay_color_pick_and_transparent_holes ... ok
+test distance_pixel_offset_moves_without_resizing ... ok
+test label_background_color_and_pick_rectangle ... ok
+test label_outline_color_hollow_ink_and_pick ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 6.47s
+
+   Doc-tests cesium_formats
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests cesium_math
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests cesium_renderer
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests cesium_streaming
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests cesium_tiles
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests cesium_viewer
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

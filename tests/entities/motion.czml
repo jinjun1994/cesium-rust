@@ -1,0 +1,4 @@
+[
+ {"id":"document","version":"1.0","name":"Rust CZML subset motion","clock":{"interval":"2026-01-01T00:00:00Z/2026-01-01T00:01:00Z","currentTime":"2026-01-01T00:00:00Z","multiplier":1,"range":"LOOP_STOP","step":"SYSTEM_CLOCK_MULTIPLIER"}},
+ {"id":"moving-box","name":"ECEF linear motion","availability":"2026-01-01T00:00:00Z/2026-01-01T00:01:00Z","position":{"epoch":"2026-01-01T00:00:00Z","cartographicDegrees":[0,110,25,18000,30,110.4,25.1,30000,60,110,25,18000],"interpolationAlgorithm":"LINEAR","interpolationDegree":1,"referenceFrame":"FIXED"},"box":{"dimensions":{"cartesian":[6000,6000,10000]},"material":{"solidColor":{"color":{"rgba":[255,80,45,255]}}}},"properties":{"test":"Pause, seek, reverse, loop and pick"}}
+]

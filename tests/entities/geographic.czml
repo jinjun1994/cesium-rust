@@ -1,0 +1,7 @@
+[
+ {"id":"document","version":"1.0","name":"Opaque geographic CZML subset"},
+ {"id":"polygon","polygon":{"positions":{"cartographicDegrees":[109.2,25,0,109.6,25,0,109.6,25.4,0,109.2,25.4,0]},"holes":{"cartographicDegrees":[[109.35,25.15,0,109.45,25.15,0,109.45,25.25,0,109.35,25.25,0]]},"height":8000,"material":{"solidColor":{"color":{"rgba":[20,200,80,255]}}}}},
+ {"id":"rectangle","rectangle":{"coordinates":{"wsenDegrees":[109.8,25,110.05,25.3]},"height":1000,"extrudedHeight":20000,"material":{"solidColor":{"color":{"rgba":[230,60,20,255]}}}}},
+ {"id":"ellipse","position":{"cartographicDegrees":[110.3,25.15,0]},"ellipse":{"semiMajorAxis":18000,"semiMinorAxis":8000,"height":6000,"rotation":0.6,"material":{"solidColor":{"color":{"rgba":[30,140,255,255]}}}}},
+ {"id":"wall","wall":{"positions":{"cartographicDegrees":[109.5,25.6,16000,109.9,25.6,24000,110.3,25.6,16000]},"minimumHeights":{"array":[1000,1000,1000]},"material":{"solidColor":{"color":{"rgba":[255,50,200,255]}}}}}
+]

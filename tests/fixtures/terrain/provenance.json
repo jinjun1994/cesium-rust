@@ -1,0 +1,31 @@
+{
+  "retrievedDate": "2026-10-13",
+  "fixtures": [
+    {
+      "file": "terrarium-root.png",
+      "url": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/1/1/0.png",
+      "sha256": "120b705b9e33e829c49475e2238471efdc5cc00f08fb2b3f7057b7868ef0e619"
+    },
+    {
+      "file": "everest.png",
+      "url": "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/12/3037/1716.png",
+      "sha256": "fc91d79e680cebd18d896ef488facb03845039cf870bca44c915a55153627ff6"
+    },
+    {
+      "file": "quantized-mesh.terrain",
+      "url": "https://raw.githubusercontent.com/CesiumGS/cesium/main/Specs/Data/CesiumTerrainTileJson/QuantizedMesh/tile.terrain",
+      "sha256": "8dc69d9e132d059ad77080c51daf844e255295c35a3c2654d243349b81a565b2"
+    },
+    {
+      "file": "quantized-wide.terrain",
+      "url": "https://raw.githubusercontent.com/CesiumGS/cesium/main/Specs/Data/CesiumTerrainTileJson/QuantizedMeshWith32BitIndices/tile.32bitIndices.terrain",
+      "sha256": "03238b8e18c2983669289444a0a992ea687f57bdecb284ac65e59c500badc623"
+    },
+    {
+      "file": "quantized-metadata.terrain",
+      "url": "https://raw.githubusercontent.com/CesiumGS/cesium/main/Specs/Data/CesiumTerrainTileJson/QuantizedMeshWithMetadataAvailability/tile.metadataavailability.terrain",
+      "sha256": "e5a9ae882933ca21f1fef93c3645f769bbfa7d1dbc9080756e486679f6300eb1"
+    }
+  ],
+  "demo": "Generated synthetic Gaussian elevations; not real geography."
+}

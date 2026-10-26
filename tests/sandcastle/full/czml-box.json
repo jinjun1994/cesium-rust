@@ -1,0 +1,101 @@
+[
+  {
+    "id": "shape1",
+    "name": "Blue box",
+    "positionDegrees": [
+      -114,
+      40,
+      300000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        400000,
+        300000,
+        500000
+      ]
+    },
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  },
+  {
+    "id": "shape2",
+    "name": "Red box with black outline",
+    "positionDegrees": [
+      -107,
+      40,
+      300000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        400000,
+        300000,
+        500000
+      ]
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.5019607843137255
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  },
+  {
+    "id": "shape3",
+    "name": "Yellow box outline",
+    "positionDegrees": [
+      -100,
+      40,
+      300000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        400000,
+        300000,
+        500000
+      ]
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  }
+]

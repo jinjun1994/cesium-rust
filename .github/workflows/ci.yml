@@ -1,0 +1,50 @@
+name: baseline
+on: [push, pull_request]
+jobs:
+  rust:
+    runs-on: ubuntu-latest
+    env:
+      CARGO_INCREMENTAL: 0
+      CESIUM_OFFLINE: 1
+      XDG_RUNTIME_DIR: /tmp/cesium-runtime
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: '1.99.0'
+          components: rustfmt, clippy
+          targets: wasm32-unknown-unknown
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo fmt --all -- --check
+      - run: cargo clippy --locked --workspace --all-targets -- -D warnings
+      - run: cargo test --locked --workspace
+      - run: cargo build --locked -p cesium-viewer --lib --target wasm32-unknown-unknown
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y mesa-vulkan-drivers xvfb
+          mkdir -p "$XDG_RUNTIME_DIR"
+          chmod 700 "$XDG_RUNTIME_DIR"
+      - run: cargo test --locked -p cesium-renderer -- --ignored
+      - run: cargo test --locked -p cesium-viewer -- --ignored
+      - run: cargo run --locked -p cesium-viewer --example render-earth -- /tmp/earth.png
+      - run: xvfb-run -a cargo run --locked -p cesium-viewer --bin desktop-viewer -- --smoke-frames=6
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: '1.99.0'
+          targets: wasm32-unknown-unknown
+      - uses: Swatinem/rust-cache@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: cargo install wasm-bindgen-cli --version 0.2.129 --locked
+      - run: python3 scripts/build-web.py
+      - run: node scripts/controls-test.mjs
+      - run: node scripts/sdk-lifecycle-test.mjs
+      - run: npm ci
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:web

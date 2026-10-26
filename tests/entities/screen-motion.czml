@@ -1,0 +1,97 @@
+[
+  {
+    "id": "document",
+    "version": "1.0",
+    "name": "Rust CZML subset motion",
+    "clock": {
+      "interval": "2026-01-01T00:00:00Z/2026-01-01T00:01:00Z",
+      "currentTime": "2026-01-01T00:00:00Z",
+      "multiplier": 1,
+      "range": "LOOP_STOP",
+      "step": "SYSTEM_CLOCK_MULTIPLIER"
+    }
+  },
+  {
+    "id": "point",
+    "name": "32 px point + 4 px outline",
+    "position": {
+      "epoch": "2026-01-01T00:00:00Z",
+      "cartographicDegrees": [
+        0,
+        109.7,
+        25.1,
+        16000,
+        30,
+        110.1,
+        25.1,
+        16000,
+        60,
+        109.7,
+        25.1,
+        16000
+      ]
+    },
+    "point": {
+      "pixelSize": 32,
+      "outlineWidth": 4,
+      "outlineColor": {
+        "rgba": [
+          0,
+          255,
+          255,
+          255
+        ]
+      },
+      "color": {
+        "rgba": [
+          255,
+          38,
+          26,
+          255
+        ]
+      }
+    }
+  },
+  {
+    "id": "billboard",
+    "name": "64 x 48 px image",
+    "position": {
+      "epoch": "2026-01-01T00:00:00Z",
+      "cartographicDegrees": [
+        0,
+        109.9,
+        25.15,
+        18000,
+        30,
+        109.9,
+        24.95,
+        18000,
+        60,
+        109.9,
+        25.15,
+        18000
+      ]
+    },
+    "billboard": {
+      "image": {
+        "uri": "image-test.png"
+      },
+      "width": 64,
+      "height": 48,
+      "color": {
+        "rgba": [
+          255,
+          255,
+          255,
+          255
+        ]
+      },
+      "pixelOffset": {
+        "cartesian2": [
+          0,
+          0
+        ]
+      }
+    }
+  }
+]
