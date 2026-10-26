@@ -120,5 +120,30 @@
   - 产出 [Geometry Offset 与 CZML Dynamic Properties 专项验证文档](docs/geometry-offset-czml-validation.md)。
   - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
 
+---
+
+### [2026-10-26] v0.0.32 批次启动：G01 核心几何与高级图元攻坚
+- **目标配方**（累计推进至 **75 / 309**，剩余 234 个）：
+  1. `polylines-dev`（底层 Primitive：`PolylineCollection` 包含 7 条经典折线，覆盖 `PolylinePipeline` 大圆与等角航线 RHUMB 弧线生成、闭环 `loop: true`、局部 ENU 变换矩阵、7 类核心材质：Color、PolylineOutline、PolylineGlow、PolylineArrow、Fade）
+  2. `frustum-dev`（底层 Primitive：`FrustumGeometry` 与 `FrustumOutlineGeometry`，视锥体参数：透视视锥 `PerspectiveFrustum`、椭球表面起点与四元数姿态、包围球相机聚焦 `viewBoundingSphere` 与实心/线框渲染）
+  3. `parallels-and-meridians`（实体与屏幕交互：赤道与本初子午线、等角航线 RhumbPolyline、递归网格生成 `makeGrid`、屏幕拾取十字交叉线 Crosshairs 与对跖点 Antipodal 计算、经纬度标签标注）
+  4. `polygon-texture-coordinates-dev`（底层 Primitive：6 组带自定义 UV 纹理坐标的 `PolygonGeometry` 实例，覆盖平坦面、嵌套多级内孔、`perPositionHeight: true` 绝对高程、拉伸几何体与 `ArcType.RHUMB` 等角多边形，以及 `GroundPrimitive` 贴地映射）
+- **核心研发规划**：
+  1. **PolylineCollection 与折线材质管线扩展**：
+     - 在底层 Primitive 解析与渲染管线中支持 `PolylineCollection` 与多段折线局部 `modelMatrix` 姿态变换。
+     - 确保 `Fade`（渐变淡出）、`PolylineArrow`（箭头线）、`PolylineGlow`（发光线）与 `PolylineOutline`（轮廓线）参数全面对齐。
+  2. **视锥体几何与轮廓管线（FrustumGeometry & FrustumOutlineGeometry）**：
+     - 依据 `PerspectiveFrustum`（fov, aspectRatio, near, far）与四元数姿态在局部空间构建 8 个角点坐标，并变换至椭球世界坐标系。
+     - 生成视锥 6 个面的三角网格与 12 条棱边轮廓线网格。
+  3. **自定义多边形纹理坐标（Explicit Polygon TextureCoordinates）**：
+     - 在 `PolygonGeometry` 中支持 `textureCoordinates: { positions, holes }` 显式 UV 通道。
+     - 在顶点生成时直接采用用户提供的 UV 坐标，处理内嵌孔洞的 UV 插值与对应。
+  4. **经纬网与十字准星交互（Parallels & Meridians Pipeline）**：
+     - 支持递归经纬线网格批量生成，支持通过按钮动态切换不同分辨率网格与对跖点显示。
+  5. **自动化测试与端到端验证**：
+     - 编写 `scripts/batch32-recipes.mjs`，执行 4 个案例源码并提取实体/图元标准契约。
+     - 补充普通 Rust 单元测试、实际 GPU 离屏渲染测试、90 帧桌面冒烟测试与真实 Chromium WebGPU 测试。
+
+
 
 
