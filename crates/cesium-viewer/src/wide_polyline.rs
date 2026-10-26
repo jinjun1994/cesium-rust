@@ -34,6 +34,8 @@ pub enum LineMaterial {
     #[default]
     Solid,
     Glow {
+        #[serde(default, skip_serializing_if = "Option::is_none")]
+        color: Option<[f32; 4]>,
         #[serde(rename = "glowPower")]
         glow_power: f32,
         #[serde(rename = "taperPower")]
@@ -89,6 +91,7 @@ impl Polyline {
             LineMaterial::Glow {
                 glow_power: g,
                 taper_power: t,
+                ..
             } if !g.is_finite()
                 || !t.is_finite()
                 || !(0.0..=1.).contains(&g)
@@ -162,6 +165,7 @@ pub fn primitive(e: &Entity, d: &Polyline) -> Result<Primitive, String> {
         LineMaterial::Glow {
             glow_power: g,
             taper_power: t,
+            ..
         } => (7, [0.; 4], [g, t], [0.; 2]),
         LineMaterial::Arrow => (8, [0.; 4], [0.; 2], [0.; 2]),
         LineMaterial::Outline { color, width } => (
@@ -341,6 +345,7 @@ pub fn source_material(t: &str, v: &serde_json::Value) -> Result<(LineMaterial, 
         match t {
             "Color" | "Solid" => LineMaterial::Solid,
             "PolylineGlow" => LineMaterial::Glow {
+                color: None,
                 glow_power: n("glowPower", 0.25)?,
                 taper_power: n("taperPower", 1.)?,
             },
@@ -440,6 +445,7 @@ pub fn czml(packet: &serde_json::Value) -> Result<Entity, String> {
             "clampToGround",
             "material",
             "show",
+            "zIndex",
         ],
     )?;
     keys(
@@ -482,7 +488,13 @@ pub fn czml(packet: &serde_json::Value) -> Result<Entity, String> {
     };
     let (m, c) = source_material(t, &v)?;
     let d = json!({"positions":crate::entities::position_list(&g["positions"])?,"width":g.get("width").cloned().unwrap_or(json!(1)),"arcType":g.get("arcType").cloned().unwrap_or(json!("GEODESIC")),"clampToGround":g.get("clampToGround").cloned().unwrap_or(json!(false)),"material":m});
-    let e:Entity=serde_json::from_value(json!({"id":packet["id"],"name":packet.get("name").cloned().unwrap_or(json!("")),"positionDegrees":null,"shape":{"type":"widePolyline","data":d},"color":c,"fill":true,"outline":false,"show":g.get("show").cloned().unwrap_or(json!(true)),"properties":packet.get("properties").cloned().unwrap_or(Value::Null),"availability":packet.get("availability").map(|_| Value::Null).unwrap_or(Value::Null)})).map_err(|e|e.to_string())?;
+    let z_index = g
+        .get("zIndex")
+        .and_then(|v| v.as_i64())
+        .map(|v| v as i32)
+        .unwrap_or(0);
+    let mut e: Entity = serde_json::from_value(json!({"id":packet["id"],"name":packet.get("name").cloned().unwrap_or(json!("")),"positionDegrees":null,"shape":{"type":"widePolyline","data":d},"color":c,"fill":true,"outline":false,"show":g.get("show").cloned().unwrap_or(json!(true)),"properties":packet.get("properties").cloned().unwrap_or(Value::Null),"availability":packet.get("availability").map(|_| Value::Null).unwrap_or(Value::Null)})).map_err(|e|e.to_string())?;
+    e.z_index = z_index;
     if packet.get("position").is_some() || packet.get("availability").is_some() {
         return Err("static standalone line required".into());
     }

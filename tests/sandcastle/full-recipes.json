@@ -1781,6 +1781,119 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "rectangle",
+      "title": "Rectangle",
+      "sourceSha256": "f93d368bc9e55f1c1ed398710762cbbbe5f3cd8de89999044e76790819ebf826",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=rectangle",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/rectangle.json",
+      "expectedPath": "../../tests/sandcastle/full/rectangle.json",
+      "entityCount": 3,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "red translucent, green extruded and rotated, and textured rectangle entities",
+        "height, extrudedHeight and outline rendering",
+        "image material texture binding",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "z-indexing-geometry",
+      "title": "Z-Indexing Geometry",
+      "sourceSha256": "568f68a974e75029ace8f988ad14e9d903cb1f78329034319ab917e137ffa2b4",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=z-indexing-geometry",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/z-indexing-geometry.json",
+      "expectedPath": "../../tests/sandcastle/full/z-indexing-geometry.json",
+      "entityCount": 7,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "all six overlapping rectangles with zIndex 1, 2, and 3",
+        "blue glow polyline clamped to ground with zIndex 2",
+        "color and image texture materials on layered rectangles",
+        "depth bias and correct front-to-back compositing without z-fighting",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-zindex",
+      "title": "CZML ZIndex",
+      "sourceSha256": "cbbafc7526c533cb8560a27edf7e4675556fd394bf6bd8702cee83dfd6026787",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-zindex",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-zindex.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-zindex.json",
+      "entityCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "CZML ellipse, corridor, polygon, and rectangle instances with zIndex",
+        "solidColor and vertical stripe materials",
+        "correct layered compositing matching zIndex ordering (1, 2, 3)",
+        "CzmlDataSource.load Promise resolution and zoomTo"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "volumes-dev",
+      "title": "Volumes - Dev",
+      "sourceSha256": "95916e7cf8ba3260d0952285cbad1cc61377051b0e6e8b39a27359e558c78fda",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=volumes-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/volumes-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/volumes-dev.json",
+      "entityCount": 2,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "EllipsoidPrimitive instances with RimLighting and Stripe materials",
+        "center and modelMatrix local frame positioning",
+        "mouse move hover picking and Sandcastle highlight",
+        "source camera default view; manual fit available"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

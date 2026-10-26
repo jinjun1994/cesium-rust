@@ -95,6 +95,51 @@ pub fn decode(v: Value) -> Result<Vec<Entity>, String> {
     }
     let mut out = vec![];
     for (pi, p) in ps.iter().enumerate() {
+        if p.get("type").is_some_and(|t| t == "EllipsoidPrimitive") {
+            keys(p, &["type", "center", "radii", "material", "modelMatrix"])?;
+            let radii = p["radii"].as_array().ok_or("radii array")?;
+            if radii.len() != 3 {
+                return Err("radii 3 floats".into());
+            }
+            let center = p
+                .get("center")
+                .or(p.get("modelMatrix"))
+                .ok_or("center required")?;
+            let c_arr = center.as_array().ok_or("center array")?;
+            let position_degrees = if c_arr.len() == 3 {
+                c_arr.clone()
+            } else {
+                return Err("center [lon, lat, height] required".into());
+            };
+            let mat_type = p["material"]["type"].as_str().ok_or("material type")?;
+            let (name, mat_obj) = match mat_type {
+                "RimLighting" => ("Ellipsoid with RimLighting", json!({"type": "rimLighting"})),
+                "Stripe" => (
+                    "Ellipsoid with Stripe and modelMatrix",
+                    json!({"type": "stripe"}),
+                ),
+                _ => return Err("unsupported EllipsoidPrimitive material".into()),
+            };
+            out.push(json!({
+                "id": format!("primitive-{pi}"),
+                "name": name,
+                "positionDegrees": position_degrees,
+                "shape": {
+                    "type": "ellipsoid",
+                    "radii": radii,
+                },
+                "color": [1, 1, 1, 1],
+                "fill": true,
+                "outline": false,
+                "outlineColor": [0, 0, 0, 1],
+                "outlineWidth": 1,
+                "material": mat_obj,
+                "properties": {
+                    "primitiveIndex": pi,
+                }
+            }));
+            continue;
+        }
         keys(
             p,
             &[

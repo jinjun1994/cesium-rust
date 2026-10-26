@@ -1,0 +1,115 @@
+[
+  {
+    "id": "rectangle-1",
+    "name": "Red translucent rectangle",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -110,
+        20,
+        -80,
+        25
+      ],
+      "height": 0,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "rectangle",
+      "upstreamEntity": 1
+    }
+  },
+  {
+    "id": "rectangle-2",
+    "name": "Green translucent, rotated, and extruded rectangle at height with outline",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -110,
+        30,
+        -100,
+        40
+      ],
+      "height": 100000,
+      "extrudedHeight": 300000,
+      "rotation": 0.7853981633974483
+    },
+    "color": [
+      0,
+      0.5019607843137255,
+      0,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "rectangle",
+      "upstreamEntity": 2
+    }
+  },
+  {
+    "id": "rectangle-3",
+    "name": "Rotating rectangle with rotating texture coordinate",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -92,
+        30,
+        -76,
+        40
+      ],
+      "height": 0,
+      "extrudedHeight": null,
+      "rotation": 0.5285987755982988,
+      "stRotation": 0.5335987755982988
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "material": {
+      "type": "image",
+      "image": "../images/Cesium_Logo_Color.jpg"
+    },
+    "properties": {
+      "sandcastleCase": "rectangle",
+      "upstreamEntity": 3
+    }
+  }
+]

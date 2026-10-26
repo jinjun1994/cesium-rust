@@ -581,12 +581,32 @@ async fn verify_extended(id: &str, data: &[u8]) {
         "polyline",
         "polyline-dash",
         "polyline-volume",
+        "rectangle",
+        "z-indexing-geometry",
     ]
     .contains(&id)
     {
-        entities::decode(data).unwrap()
+        let base = url::Url::from_file_path(
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+                .join(format!("../../tests/sandcastle/full/{id}.json")),
+        )
+        .unwrap();
+        let hydrated = cesium_viewer::entity_resources::hydrate(data, &base, |u, _| {
+            std::fs::read(u.to_file_path().unwrap()).map_err(|e| e.to_string())
+        })
+        .unwrap();
+        entities::decode(&hydrated).unwrap()
     } else if id.starts_with("czml-") {
-        let (e, c) = entities::czml(data).unwrap();
+        let base = url::Url::from_file_path(
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+                .join(format!("../../tests/sandcastle/full/{id}.czml")),
+        )
+        .unwrap();
+        let hydrated = cesium_viewer::entity_resources::hydrate(data, &base, |u, _| {
+            std::fs::read(u.to_file_path().unwrap()).map_err(|e| e.to_string())
+        })
+        .unwrap();
+        let (e, c) = entities::czml(&hydrated).unwrap();
         s.clock = c;
         e
     } else {
@@ -1276,5 +1296,41 @@ fn complete_czml_polyline_volume() {
     pollster::block_on(verify_extended(
         "czml-polyline-volume",
         include_bytes!("../../../tests/sandcastle/full/czml-polyline-volume.czml"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_rectangle() {
+    pollster::block_on(verify_extended(
+        "rectangle",
+        include_bytes!("../../../tests/sandcastle/full/rectangle.json"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_z_indexing_geometry() {
+    pollster::block_on(verify_extended(
+        "z-indexing-geometry",
+        include_bytes!("../../../tests/sandcastle/full/z-indexing-geometry.json"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_czml_zindex() {
+    pollster::block_on(verify_extended(
+        "czml-zindex",
+        include_bytes!("../../../tests/sandcastle/full/czml-zindex.czml"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_volumes_dev() {
+    pollster::block_on(verify_extended(
+        "volumes-dev",
+        include_bytes!("../../../tests/sandcastle/full/volumes-dev.primitive.json"),
     ));
 }

@@ -1,0 +1,295 @@
+[
+  {
+    "id": "Red rectangle, zIndex 1",
+    "name": "Red rectangle, zIndex 1",
+    "positionDegrees": null,
+    "zIndex": 1,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -110,
+        20,
+        -100.5,
+        30
+      ],
+      "height": 0,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "z-indexing-geometry",
+      "upstreamEntity": 1,
+      "zIndex": 1
+    }
+  },
+  {
+    "id": "Textured rectangle, zIndex 2",
+    "name": "Textured rectangle, zIndex 2",
+    "positionDegrees": null,
+    "zIndex": 2,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -112,
+        25,
+        -102.5,
+        35
+      ],
+      "height": 0,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "material": {
+      "type": "image",
+      "image": "../images/Cesium_Logo_Color.jpg"
+    },
+    "properties": {
+      "sandcastleCase": "z-indexing-geometry",
+      "upstreamEntity": 2,
+      "zIndex": 2
+    }
+  },
+  {
+    "id": "Blue rectangle, zIndex 3",
+    "name": "Blue rectangle, zIndex 3",
+    "positionDegrees": null,
+    "zIndex": 3,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -110,
+        31,
+        -100.5,
+        41
+      ],
+      "height": 0,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "z-indexing-geometry",
+      "upstreamEntity": 3,
+      "zIndex": 3
+    }
+  },
+  {
+    "id": "Textured rectangle, zIndex 3",
+    "name": "Textured rectangle, zIndex 3",
+    "positionDegrees": null,
+    "zIndex": 3,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -99.5,
+        20,
+        -90,
+        30
+      ],
+      "height": 0,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "material": {
+      "type": "image",
+      "image": "../images/Cesium_Logo_Color.jpg"
+    },
+    "properties": {
+      "sandcastleCase": "z-indexing-geometry",
+      "upstreamEntity": 4,
+      "zIndex": 3
+    }
+  },
+  {
+    "id": "Green rectangle, zIndex 2",
+    "name": "Green rectangle, zIndex 2",
+    "positionDegrees": null,
+    "zIndex": 2,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -97.5,
+        25,
+        -88,
+        35
+      ],
+      "height": 0,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      0,
+      0.5019607843137255,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "z-indexing-geometry",
+      "upstreamEntity": 5,
+      "zIndex": 2
+    }
+  },
+  {
+    "id": "Blue rectangle, zIndex 1",
+    "name": "Blue rectangle, zIndex 1",
+    "positionDegrees": null,
+    "zIndex": 1,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -99.5,
+        31,
+        -90,
+        41
+      ],
+      "height": 0,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "z-indexing-geometry",
+      "upstreamEntity": 6,
+      "zIndex": 1
+    }
+  },
+  {
+    "id": "Polyline, zIndex 2",
+    "name": "Polyline, zIndex 2",
+    "positionDegrees": null,
+    "zIndex": 2,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -120,
+            22,
+            0
+          ],
+          [
+            -80,
+            22,
+            0
+          ]
+        ],
+        "width": 8,
+        "arcType": "GEODESIC",
+        "clampToGround": true,
+        "material": {
+          "type": "glow",
+          "color": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "glowPower": 0.2,
+          "taperPower": 1
+        }
+      }
+    },
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "z-indexing-geometry",
+      "upstreamEntity": 7,
+      "zIndex": 2
+    }
+  }
+]

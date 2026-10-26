@@ -15,11 +15,18 @@ pub enum SurfaceMaterial {
         #[serde(default)]
         transparent: bool,
     },
+    RimLighting {
+        #[serde(default = "white")]
+        color: [f32; 4],
+        #[serde(default = "default_rim_power", rename = "rimPower")]
+        rim_power: f32,
+    },
     Stripe {
-        #[serde(rename = "evenColor")]
+        #[serde(default = "white", rename = "evenColor")]
         even: [f32; 4],
-        #[serde(rename = "oddColor")]
+        #[serde(default = "black", rename = "oddColor")]
         odd: [f32; 4],
+        #[serde(default = "unit_f32")]
         repeat: f32,
         #[serde(default)]
         offset: f32,
@@ -59,6 +66,15 @@ pub enum Orientation {
 }
 fn white() -> [f32; 4] {
     [1.; 4]
+}
+fn black() -> [f32; 4] {
+    [0., 0., 0., 1.]
+}
+fn unit_f32() -> f32 {
+    1.0
+}
+fn default_rim_power() -> f32 {
+    4.0
 }
 fn repeat() -> [f32; 2] {
     [1.; 2]
@@ -111,6 +127,21 @@ impl SurfaceMaterial {
                         axis: 0,
                         thickness: [0.; 2],
                         cell_alpha: if transparent { 1. } else { 0. },
+                    },
+                )
+            }
+            Self::RimLighting { color, rim_power } => {
+                valid_color(color)?;
+                (
+                    linear(color),
+                    Pattern {
+                        kind: 1,
+                        secondary: linear([0.035, 0.16, 0.32, 1.0]),
+                        repeat: [rim_power.clamp(0.1, 10.0), 1.],
+                        offset: 0.,
+                        axis: 0,
+                        thickness: [1.; 2],
+                        cell_alpha: 1.,
                     },
                 )
             }
@@ -282,13 +313,27 @@ pub fn apply(entity: &crate::entities::Entity, p: &mut Primitive) -> Result<(), 
         for v in &mut p.vertices {
             let point = (local(v.position) - min) / extent;
             let n = local(v.normal).abs();
-            let uv = if n.z >= n.x.max(n.y) {
+            let mut uv = if n.z >= n.x.max(n.y) {
                 [point.x, point.y]
             } else if n.y >= n.x {
                 [point.x, point.z]
             } else {
                 [point.y, point.z]
             };
+            if let crate::entities::Shape::Rectangle {
+                st_rotation: Some(st),
+                ..
+            } = entity.shape
+            {
+                if st.abs() > 1e-8 {
+                    let cos_st = st.cos();
+                    let sin_st = st.sin();
+                    let du = uv[0] - 0.5;
+                    let dv = uv[1] - 0.5;
+                    uv[0] = 0.5 + du * cos_st - dv * sin_st;
+                    uv[1] = 0.5 + du * sin_st + dv * cos_st;
+                }
+            }
             v.uv = uv.map(|x| x as f32);
         }
     } else {

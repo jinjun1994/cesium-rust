@@ -1,0 +1,196 @@
+[
+  {
+    "id": "shape1",
+    "name": "Blue circle",
+    "positionDegrees": [
+      -105,
+      40,
+      0
+    ],
+    "zIndex": 3,
+    "shape": {
+      "type": "ellipse",
+      "height": 0,
+      "semiMajorAxis": 300000,
+      "semiMinorAxis": 300000,
+      "rotation": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "zIndex": 3
+    }
+  },
+  {
+    "id": "shape2",
+    "name": "Green corridor",
+    "positionDegrees": null,
+    "zIndex": 3,
+    "shape": {
+      "type": "corridor",
+      "positionsDegrees": [
+        [
+          -90,
+          43,
+          0
+        ],
+        [
+          -95,
+          43,
+          0
+        ],
+        [
+          -95,
+          38,
+          0
+        ]
+      ],
+      "width": 200000,
+      "cornerType": "ROUNDED",
+      "height": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "zIndex": 3
+    }
+  },
+  {
+    "id": "shape3",
+    "name": "Red polygon",
+    "positionDegrees": null,
+    "zIndex": 1,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          -115,
+          47,
+          0
+        ],
+        [
+          -115,
+          42,
+          0
+        ],
+        [
+          -107,
+          43,
+          0
+        ],
+        [
+          -102,
+          41,
+          0
+        ],
+        [
+          -102,
+          45,
+          0
+        ]
+      ],
+      "holes": [],
+      "extrudedHeight": null
+    },
+    "color": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "zIndex": 1
+    }
+  },
+  {
+    "id": "shape4",
+    "name": "Striped rectangle",
+    "positionDegrees": null,
+    "zIndex": 2,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -105,
+        40,
+        -95,
+        50
+      ],
+      "height": 0,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "material": {
+      "type": "stripe",
+      "orientation": "VERTICAL",
+      "evenColor": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "oddColor": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "repeat": 5,
+      "offset": 0
+    },
+    "properties": {
+      "zIndex": 2
+    }
+  }
+]

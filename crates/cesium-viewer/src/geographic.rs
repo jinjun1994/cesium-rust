@@ -509,6 +509,7 @@ pub fn primitive(e: &Entity) -> Result<Primitive, String> {
             height,
             extruded_height,
             rotation,
+            ..
         } => surface(
             &mut out,
             vec![rectangle(*coordinates, *height, *rotation)?],

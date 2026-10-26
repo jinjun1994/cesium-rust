@@ -145,6 +145,7 @@ pub fn primitive(e: &Entity) -> Result<Option<Primitive>, String> {
             height,
             extruded_height,
             rotation,
+            ..
         } => {
             let width = (e - w).rem_euclid(360.);
             let center_lon = crate::geographic::unwrap(w + width / 2., 0.);
@@ -181,6 +182,7 @@ pub fn primitive(e: &Entity) -> Result<Option<Primitive>, String> {
             extruded_height,
             height,
             vertical_lines,
+            ..
         } => {
             let ring = crate::geographic::ellipse_ring(
                 e.position_degrees.ok_or("ellipse center")?,

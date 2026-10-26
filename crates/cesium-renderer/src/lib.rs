@@ -347,6 +347,7 @@ pub struct GpuMesh {
     screen_rotation: f32,
     center: DVec3,
     feature_count: u32,
+    pub z_index: i32,
 }
 
 struct PassOptions<'a> {
@@ -932,6 +933,7 @@ impl Renderer {
                 (min + max) * 0.5
             },
             feature_count,
+            z_index: 0,
         })
     }
 
@@ -965,6 +967,7 @@ impl Renderer {
             overlay(a)
                 .cmp(&overlay(b))
                 .then_with(|| a.alpha_blend.cmp(&b.alpha_blend))
+                .then_with(|| a.z_index.cmp(&b.z_index))
                 .then_with(|| {
                     if a.alpha_blend {
                         let depth = |m: &GpuMesh| {

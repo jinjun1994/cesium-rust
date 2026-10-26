@@ -1,0 +1,36 @@
+{
+  "primitives": [
+    {
+      "type": "EllipsoidPrimitive",
+      "center": [
+        -75,
+        40,
+        500000
+      ],
+      "radii": [
+        500000,
+        500000,
+        500000
+      ],
+      "material": {
+        "type": "RimLighting"
+      }
+    },
+    {
+      "type": "EllipsoidPrimitive",
+      "center": [
+        -95,
+        40,
+        500000
+      ],
+      "radii": [
+        300000,
+        300000,
+        500000
+      ],
+      "material": {
+        "type": "Stripe"
+      }
+    }
+  ]
+}

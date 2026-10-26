@@ -1,0 +1,78 @@
+[
+  {
+    "id": "primitive-0",
+    "name": "Ellipsoid with RimLighting",
+    "positionDegrees": [
+      -75,
+      40,
+      500000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        500000,
+        500000,
+        500000
+      ]
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "material": {
+      "type": "rimLighting"
+    },
+    "properties": {
+      "primitiveIndex": 0
+    }
+  },
+  {
+    "id": "primitive-1",
+    "name": "Ellipsoid with Stripe and modelMatrix",
+    "positionDegrees": [
+      -95,
+      40,
+      500000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        300000,
+        300000,
+        500000
+      ]
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "material": {
+      "type": "stripe"
+    },
+    "properties": {
+      "primitiveIndex": 1
+    }
+  }
+]

@@ -277,6 +277,7 @@ impl Scene {
             } else {
                 renderer.upload(&primitive, model.unwrap_or(DMat4::IDENTITY), true)?
             };
+            mesh.z_index = spec.z_index;
             if spec.shape.screen() {
                 Renderer::configure_screen_distance(
                     &mut mesh,
@@ -285,10 +286,13 @@ impl Scene {
                     spec.screen.rotation as f32,
                 )?;
             }
-            let outline = crate::outline::primitive(&spec)
+            let mut outline = crate::outline::primitive(&spec)
                 .map_err(RenderError)?
                 .map(|p| renderer.upload_lines(&p, model.unwrap_or(DMat4::IDENTITY), true))
                 .transpose()?;
+            if let Some(o) = &mut outline {
+                o.z_index = spec.z_index;
+            }
             residents.insert(
                 spec.id.clone(),
                 ResidentEntity {
@@ -338,6 +342,7 @@ impl Scene {
             } else {
                 renderer.upload(&primitive, model.unwrap_or(DMat4::IDENTITY), true)?
             };
+            mesh.z_index = spec.z_index;
             if spec.shape.screen() {
                 Renderer::configure_screen_distance(
                     &mut mesh,
@@ -346,10 +351,13 @@ impl Scene {
                     spec.screen.rotation as f32,
                 )?;
             }
-            let outline = crate::outline::primitive(&spec)
+            let mut outline = crate::outline::primitive(&spec)
                 .map_err(RenderError)?
                 .map(|p| renderer.upload_lines(&p, model.unwrap_or(DMat4::IDENTITY), true))
                 .transpose()?;
+            if let Some(o) = &mut outline {
+                o.z_index = spec.z_index;
+            }
             residents.push(ResidentEntity {
                 spec,
                 mesh,
@@ -691,7 +699,10 @@ impl Scene {
         } else if let Some(g) = &self.globe {
             meshes.push(g);
         }
-        for e in self.entities.values().filter(|e| e.visible) {
+        let mut sorted_entities: Vec<&ResidentEntity> =
+            self.entities.values().filter(|e| e.visible).collect();
+        sorted_entities.sort_by_key(|e| e.spec.z_index);
+        for e in sorted_entities {
             if e.spec.fill {
                 meshes.push(&e.mesh);
             }

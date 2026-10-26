@@ -16,7 +16,7 @@ pub enum CornerType {
 #[serde(tag = "type", rename_all = "camelCase", deny_unknown_fields)]
 pub enum Shape {
     Corridor {
-        #[serde(rename = "positionsDegrees")]
+        #[serde(rename = "positionsDegrees", alias = "positions")]
         positions: Vec<[f64; 3]>,
         width: f64,
         #[serde(default)]
@@ -140,7 +140,7 @@ pub enum Shape {
         data: crate::polygon_surface::PolygonSurface,
     },
     Polygon {
-        #[serde(rename = "positionsDegrees")]
+        #[serde(rename = "positionsDegrees", alias = "positions")]
         positions: Vec<[f64; 3]>,
         #[serde(default)]
         holes: Vec<Vec<[f64; 3]>>,
@@ -148,7 +148,7 @@ pub enum Shape {
         extruded_height: Option<f64>,
     },
     Rectangle {
-        #[serde(rename = "coordinatesDegrees")]
+        #[serde(rename = "coordinatesDegrees", alias = "coordinates")]
         coordinates: [f64; 4],
         #[serde(default)]
         height: f64,
@@ -156,6 +156,12 @@ pub enum Shape {
         extruded_height: Option<f64>,
         #[serde(default)]
         rotation: f64,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "stRotation"
+        )]
+        st_rotation: Option<f64>,
     },
     Ellipse {
         #[serde(
@@ -172,6 +178,12 @@ pub enum Shape {
         semi_minor: f64,
         #[serde(default)]
         rotation: f64,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "stRotation"
+        )]
+        st_rotation: Option<f64>,
         #[serde(default, rename = "extrudedHeight")]
         extruded_height: Option<f64>,
     },
@@ -184,7 +196,7 @@ pub enum Shape {
         maximum_heights: Vec<f64>,
     },
     PolylineVolume {
-        #[serde(rename = "positionsDegrees")]
+        #[serde(rename = "positionsDegrees", alias = "positions")]
         positions: Vec<[f64; 3]>,
         #[serde(rename = "shapePositions", alias = "shape")]
         shape_positions: Vec<[f64; 2]>,
@@ -215,6 +227,8 @@ pub struct Entity {
     pub name: String,
     #[serde(default)]
     pub position_degrees: Option<[f64; 3]>,
+    #[serde(default, rename = "zIndex", skip_serializing_if = "is_zero_i32")]
+    pub z_index: i32,
     #[serde(default, skip_serializing_if = "Option::is_none")]
     pub model_matrix: Option<[f64; 16]>,
     #[serde(default, skip_serializing_if = "Option::is_none")]
@@ -242,6 +256,9 @@ pub struct Entity {
     pub availability: Option<[f64; 2]>,
     #[serde(default)]
     pub properties: Value,
+}
+fn is_zero_i32(v: &i32) -> bool {
+    *v == 0
 }
 fn plane_normal() -> [f64; 3] {
     [0., 0., 1.]
@@ -354,6 +371,9 @@ impl Entity {
         }
         if self.id.is_empty() || self.id.len() > 256 || self.name.len() > 1024 {
             return Err("entity id/name limit".into());
+        }
+        if self.z_index.abs() > 1000 {
+            return Err("zIndex must be between -1000 and 1000".into());
         }
         if self
             .color
@@ -1012,6 +1032,7 @@ fn geographic_packet(packet: &Value, key: &str) -> Result<Entity, String> {
         "outline",
         "outlineColor",
         "outlineWidth",
+        "zIndex",
     ];
     allowed.extend(match key {
         "polygon" => vec![
@@ -1023,7 +1044,13 @@ fn geographic_packet(packet: &Value, key: &str) -> Result<Entity, String> {
             "closeTop",
             "closeBottom",
         ],
-        "rectangle" => vec!["coordinates", "height", "extrudedHeight", "rotation"],
+        "rectangle" => vec![
+            "coordinates",
+            "height",
+            "extrudedHeight",
+            "rotation",
+            "stRotation",
+        ],
         "corridor" => vec![
             "positions",
             "width",
@@ -1172,6 +1199,7 @@ fn geographic_packet(packet: &Value, key: &str) -> Result<Entity, String> {
                 height: g.get("height").map(number).transpose()?.unwrap_or(0.),
                 extruded_height: g.get("extrudedHeight").map(number).transpose()?,
                 rotation: g.get("rotation").map(number).transpose()?.unwrap_or(0.),
+                st_rotation: g.get("stRotation").map(number).transpose()?,
             }
         }
         "corridor" => Shape::Corridor {
@@ -1191,6 +1219,12 @@ fn geographic_packet(packet: &Value, key: &str) -> Result<Entity, String> {
             maximum_heights: height_list(g.get("maximumHeights"))?,
         },
     };
+    let z_index = g
+        .get("zIndex")
+        .map(number)
+        .transpose()?
+        .map(|v| v as i32)
+        .unwrap_or(0);
     Ok(Entity {
         id: packet["id"].as_str().ok_or("entity id required")?.into(),
         show: graphics_show(g)?,
@@ -1200,6 +1234,7 @@ fn geographic_packet(packet: &Value, key: &str) -> Result<Entity, String> {
             .transpose()?
             .unwrap_or("")
             .into(),
+        z_index,
         model_matrix: None,
         orientation: None,
         surface_appearance: None,
@@ -1333,7 +1368,11 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
         }
         let key = shapes[0];
         if key == "polyline" {
-            entities.push(crate::wide_polyline::czml(packet)?);
+            let mut entity = crate::wide_polyline::czml(packet)?;
+            if let Some(zi) = packet["polyline"].get("zIndex") {
+                entity.z_index = number(zi)? as i32;
+            }
+            entities.push(entity);
             continue;
         }
         if matches!(
@@ -1432,6 +1471,7 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
             "outline",
             "outlineColor",
             "outlineWidth",
+            "zIndex",
         ];
         if matches!(key, "point" | "billboard" | "label") {
             allowed = vec![
@@ -1484,6 +1524,7 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
                 "semiMajorAxis",
                 "semiMinorAxis",
                 "rotation",
+                "stRotation",
                 "height",
                 "extrudedHeight",
             ],
@@ -1576,6 +1617,7 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
                     semi_major: number(&g["semiMajorAxis"])?,
                     semi_minor: number(&g["semiMinorAxis"])?,
                     rotation: g.get("rotation").map(number).transpose()?.unwrap_or(0.),
+                    st_rotation: g.get("stRotation").map(number).transpose()?,
                     extruded_height: g.get("extrudedHeight").map(number).transpose()?,
                 }
             }
@@ -1624,6 +1666,12 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
         } else {
             None
         };
+        let z_index = g
+            .get("zIndex")
+            .map(number)
+            .transpose()?
+            .map(|v| v as i32)
+            .unwrap_or(0);
         let e = Entity {
             id: packet["id"].as_str().ok_or("entity id required")?.into(),
             show: graphics_show(g)?,
@@ -1633,6 +1681,7 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
                 .transpose()?
                 .unwrap_or("")
                 .into(),
+            z_index,
             model_matrix: None,
             orientation,
             surface_appearance: None,
@@ -1726,6 +1775,7 @@ mod tests {
             orientation: None,
             surface_appearance: None,
             position_degrees: None,
+            z_index: 0,
             samples: vec![
                 Sample {
                     time: 0.,
@@ -1776,5 +1826,87 @@ mod tests {
     fn invalid_alpha_and_leap_seconds() {
         assert!(utc("2016-12-31T23:59:60Z").is_err());
         assert!(decode(br#"[{"id":"x","positionDegrees":[0,0,0],"shape":{"type":"box","dimensions":[1,1,1]},"color":[1,1,1,1.5]}]"#).is_err());
+    }
+    #[test]
+    fn batch30_rectangle_zindex_volumes_all_four_cases() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Rectangle entities
+        let rect_data = std::fs::read(base.join("rectangle.json")).unwrap();
+        let rect_base = url::Url::from_file_path(base.join("rectangle.json")).unwrap();
+        let rect_hydrated = crate::entity_resources::hydrate(&rect_data, &rect_base, |u, _| {
+            std::fs::read(u.to_file_path().unwrap()).map_err(|e| e.to_string())
+        })
+        .unwrap();
+        let rect_entities = decode(&rect_hydrated).unwrap();
+        assert_eq!(rect_entities.len(), 3);
+        for e in &rect_entities {
+            let prim = e.primitive().unwrap();
+            assert!(!prim.vertices.is_empty());
+            assert!(!prim.indices.is_empty());
+            if e.outline {
+                let out = crate::outline::primitive(e).unwrap().unwrap();
+                assert!(!out.vertices.is_empty());
+                assert!(!out.indices.is_empty());
+            }
+        }
+
+        // 2. Z-indexing geometry
+        let zindex_data = std::fs::read(base.join("z-indexing-geometry.json")).unwrap();
+        let zindex_base = url::Url::from_file_path(base.join("z-indexing-geometry.json")).unwrap();
+        let zindex_hydrated =
+            crate::entity_resources::hydrate(&zindex_data, &zindex_base, |u, _| {
+                std::fs::read(u.to_file_path().unwrap()).map_err(|e| e.to_string())
+            })
+            .unwrap();
+        let zindex_entities = decode(&zindex_hydrated).unwrap();
+        assert_eq!(zindex_entities.len(), 7);
+        assert_eq!(zindex_entities[0].z_index, 1);
+        assert_eq!(zindex_entities[1].z_index, 2);
+        assert_eq!(zindex_entities[2].z_index, 3);
+        assert_eq!(zindex_entities[3].z_index, 3);
+        assert_eq!(zindex_entities[4].z_index, 2);
+        assert_eq!(zindex_entities[5].z_index, 1);
+        assert_eq!(zindex_entities[6].z_index, 2);
+        for e in &zindex_entities {
+            let prim = e.primitive().unwrap();
+            assert!(!prim.vertices.is_empty());
+            assert!(!prim.indices.is_empty());
+        }
+
+        // 3. CZML zIndex
+        let czml_data = std::fs::read(base.join("czml-zindex.czml")).unwrap();
+        let (czml_entities, _) = czml(&czml_data).unwrap();
+        assert_eq!(czml_entities.len(), 4);
+        assert_eq!(czml_entities[0].z_index, 3);
+        assert_eq!(czml_entities[1].z_index, 3);
+        assert_eq!(czml_entities[2].z_index, 1);
+        assert_eq!(czml_entities[3].z_index, 2);
+        for e in &czml_entities {
+            let prim = e.primitive().unwrap();
+            assert!(!prim.vertices.is_empty());
+            assert!(!prim.indices.is_empty());
+        }
+
+        // 4. Volumes Dev primitives
+        let vol_data = std::fs::read(base.join("volumes-dev.primitive.json")).unwrap();
+        let vol_entities = crate::primitive_instances::decode(&vol_data).unwrap();
+        assert_eq!(vol_entities.len(), 2);
+        assert_eq!(vol_entities[0].id, "primitive-0");
+        assert_eq!(vol_entities[1].id, "primitive-1");
+        assert!(matches!(
+            vol_entities[0].material,
+            Some(crate::entity_material::SurfaceMaterial::RimLighting { .. })
+        ));
+        assert!(matches!(
+            vol_entities[1].material,
+            Some(crate::entity_material::SurfaceMaterial::Stripe { .. })
+        ));
+        for e in &vol_entities {
+            let prim = e.primitive().unwrap();
+            assert!(!prim.vertices.is_empty());
+            assert!(!prim.indices.is_empty());
+        }
     }
 }

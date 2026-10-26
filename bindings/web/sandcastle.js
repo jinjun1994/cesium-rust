@@ -74,6 +74,10 @@ $('fullNew36').onclick=guarded(()=>runFull('polyline-volume'));
 $('fullNew37').onclick=guarded(()=>runFull('polyline-volume-dev'));
 $('fullNew38').onclick=guarded(()=>runFull('polyline-volume-outline-dev'));
 $('fullNew39').onclick=guarded(()=>runFull('czml-polyline-volume'));
+$('fullNew40').onclick=guarded(()=>runFull('rectangle'));
+$('fullNew41').onclick=guarded(()=>runFull('z-indexing-geometry'));
+$('fullNew42').onclick=guarded(()=>runFull('czml-zindex'));
+$('fullNew43').onclick=guarded(()=>runFull('volumes-dev'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);
