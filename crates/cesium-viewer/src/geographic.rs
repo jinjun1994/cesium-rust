@@ -98,6 +98,7 @@ pub fn rectangle(
 pub fn anchor(shape: &Shape) -> Result<DVec3, String> {
     match shape {
         Shape::PolygonSurface { data } => crate::polygon_surface::anchor(data),
+        Shape::PolylineVolume { positions, .. } => crate::polyline_volume::anchor(positions),
         Shape::WidePolyline { data } => mean(&data.positions),
         Shape::Corridor { positions, .. } => mean(positions),
         Shape::LineSet { paths, .. } => mean(&paths.iter().flatten().copied().collect::<Vec<_>>()),

@@ -574,7 +574,16 @@ async fn verify_extended(id: &str, data: &[u8]) {
         serde_json::from_slice::<cesium_viewer::entity_groups::GroupedEntities>(data)
             .unwrap()
             .entities
-    } else if ["corridor", "polygon", "points", "polyline", "polyline-dash"].contains(&id) {
+    } else if [
+        "corridor",
+        "polygon",
+        "points",
+        "polyline",
+        "polyline-dash",
+        "polyline-volume",
+    ]
+    .contains(&id)
+    {
         entities::decode(data).unwrap()
     } else if id.starts_with("czml-") {
         let (e, c) = entities::czml(data).unwrap();
@@ -1232,4 +1241,40 @@ fn wide_line_pixel_width_materials_and_picking() {
             .unwrap();
         assert!(!is_id(&s, pick(&s, &mut r, 384, 256), "line"));
     });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_polyline_volume() {
+    pollster::block_on(verify_extended(
+        "polyline-volume",
+        include_bytes!("../../../tests/sandcastle/full/polyline-volume.json"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_polyline_volume_dev() {
+    pollster::block_on(verify_extended(
+        "polyline-volume-dev",
+        include_bytes!("../../../tests/sandcastle/full/polyline-volume-dev.primitive.json"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_polyline_volume_outline_dev() {
+    pollster::block_on(verify_extended(
+        "polyline-volume-outline-dev",
+        include_bytes!("../../../tests/sandcastle/full/polyline-volume-outline-dev.primitive.json"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_czml_polyline_volume() {
+    pollster::block_on(verify_extended(
+        "czml-polyline-volume",
+        include_bytes!("../../../tests/sandcastle/full/czml-polyline-volume.czml"),
+    ));
 }

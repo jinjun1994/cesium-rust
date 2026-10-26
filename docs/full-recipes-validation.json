@@ -1,8 +1,10 @@
 {
-  "version": "0.0.28",
+  "version": "0.0.29",
   "newCompleteFunctionalCases": [
-    "czml-rectangle",
-    "partial-ellipsoids"
+    "polyline-volume",
+    "polyline-volume-dev",
+    "polyline-volume-outline-dev",
+    "czml-polyline-volume"
   ],
   "completeFunctionalCases": [
     "box",
@@ -63,16 +65,20 @@
     "polyline-dash",
     "czml-polyline",
     "czml-rectangle",
-    "partial-ellipsoids"
+    "partial-ellipsoids",
+    "polyline-volume",
+    "polyline-volume-dev",
+    "polyline-volume-outline-dev",
+    "czml-polyline-volume"
   ],
-  "fullCasePassed": 59,
+  "fullCasePassed": 63,
   "catalogCases": 309,
-  "remainingFullCaseAcceptance": 250,
-  "ordinaryRustPassed": 122,
-  "realGpuPassed": 90,
+  "remainingFullCaseAcceptance": 246,
+  "ordinaryRustPassed": 126,
+  "realGpuPassed": 94,
   "nodeSuitesPassed": 8,
-  "browserFullCasePassed": 59,
-  "native90FrameCasesPassed": 59,
+  "browserFullCasePassed": 63,
+  "native90FrameCasesPassed": 63,
   "nativeBuild": "passed",
   "wasmBuildAndBindings": "passed",
   "fmt": "passed",
@@ -81,8 +87,8 @@
   "browserImagery": "local deterministic 256x256 neutral raster",
   "pixelExactCesiumComparison": "not-claimed",
   "defaultBrowserBackendDeviceLoss": "unresolved",
-  "evidence": "docs/czml-rectangle-partial-ellipsoids-validation.md",
-  "wasmSha256": "248a4e9d2b7534fb28b1ec6b17b4b2c83026309c5f265bfda7e9ce5542f407e8",
+  "evidence": "docs/polyline-volume-validation.md",
+  "wasmSha256": "d10fc7cc5b9870ccac4530ae52228813a3547bfae8d3caa9cb056cd95fb9e112",
   "webSceneNativeScope": "For HTML Overlays, Resolution Scaling and Hello World native smoke exercises shared globe/projection; HTML DOM and browser resolution controls verified in Chromium, not implemented as native HTML widgets.",
   "browserVersion": "155.0.8059.39",
   "dpr2FramebufferValidation": {
@@ -106,7 +112,7 @@
     },
     "globePixels": 822
   },
-  "native90FrameConfigurationsPassed": 64,
+  "native90FrameConfigurationsPassed": 68,
   "independentCoplanarReference": "20 source vertices: world position <0.1m, ST <1e-5; exact pinned core source hashes",
   "offlineValidation": {
     "localTileRequests": 34,

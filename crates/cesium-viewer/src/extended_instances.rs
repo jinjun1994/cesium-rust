@@ -14,6 +14,8 @@ const TYPES: &[&str] = &[
     "PolygonOutlineGeometry",
     "CoplanarPolygonOutlineGeometry",
     "SimplePolylineGeometry",
+    "PolylineVolumeGeometry",
+    "PolylineVolumeOutlineGeometry",
 ];
 pub fn handles(v: &Value) -> bool {
     v["primitives"].as_array().is_some_and(|ps| {
@@ -242,6 +244,38 @@ pub fn decode(v: Value) -> Result<Vec<Entity>, String> {
                     )?;
                     json!({"type":"corridor","positionsDegrees":g["positions"],"width":g["width"],"height":number(&g["height"],0.)?,"extrudedHeight":g["extrudedHeight"],"cornerType":g.get("cornerType").cloned().unwrap_or(json!("ROUNDED"))})
                 }
+                "PolylineVolumeGeometry" | "PolylineVolumeOutlineGeometry" => {
+                    keys(
+                        g,
+                        &[
+                            "type",
+                            "polylinePositions",
+                            "shapePositions",
+                            "cornerType",
+                            "vertexFormat",
+                        ],
+                    )?;
+                    let shape_pos: Vec<[f64; 2]> = g["shapePositions"]
+                        .as_array()
+                        .ok_or("shapePositions array")?
+                        .iter()
+                        .map(|pt| {
+                            if let Some(arr) = pt.as_array() {
+                                Ok([number(&arr[0], 0.)?, number(&arr[1], 0.)?])
+                            } else if let Some(obj) = pt.as_object() {
+                                Ok([number(&obj["x"], 0.)?, number(&obj["y"], 0.)?])
+                            } else {
+                                Err("invalid shape point".into())
+                            }
+                        })
+                        .collect::<Result<Vec<_>, String>>()?;
+                    json!({
+                        "type": "polylineVolume",
+                        "positionsDegrees": g["polylinePositions"],
+                        "shapePositions": shape_pos,
+                        "cornerType": g.get("cornerType").cloned().unwrap_or(json!("ROUNDED"))
+                    })
+                }
 
                 "EllipseOutlineGeometry" | "CircleOutlineGeometry" => {
                     keys(
@@ -358,7 +392,9 @@ pub fn decode(v: Value) -> Result<Vec<Entity>, String> {
             let mut e = json!({"id":i["id"].as_str().map(str::to_owned).unwrap_or(format!("primitive-{pi}-instance-{ii}")),"positionDegrees":pos,"shape":shape,"color":if outline{json!([1,1,1,1])}else{color.clone()},"fill":!outline,"outline":outline,"outlineColor":if outline{color}else{json!([0,0,0,1])},"properties":{"primitiveIndex":pi,"instanceIndex":ii}});
             if !outline {
                 if appearance == "PerInstanceColorAppearance" {
-                    if g["vertexFormat"] != "POSITION_NORMAL" {
+                    if g["vertexFormat"] != "POSITION_NORMAL"
+                        && g["vertexFormat"] != "POSITION_NORMAL_ST"
+                    {
                         return Err("POSITION_NORMAL required".into());
                     }
                     e["surfaceAppearance"] = json!({"flat":flag(&a["flat"],false)?,"closed":flag(&a["closed"],false)?,"translucent":flag(&a["translucent"],true)?});

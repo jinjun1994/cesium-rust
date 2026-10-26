@@ -183,6 +183,14 @@ pub enum Shape {
         #[serde(default, rename = "maximumHeights")]
         maximum_heights: Vec<f64>,
     },
+    PolylineVolume {
+        #[serde(rename = "positionsDegrees")]
+        positions: Vec<[f64; 3]>,
+        #[serde(rename = "shapePositions", alias = "shape")]
+        shape_positions: Vec<[f64; 2]>,
+        #[serde(default, rename = "cornerType")]
+        corner_type: CornerType,
+    },
 }
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields, rename_all = "camelCase")]
@@ -263,7 +271,7 @@ fn color() -> [f32; 4] {
     [1., 0.65, 0.1, 1.]
 }
 impl Entity {
-    fn apply_surface_appearance(&self, p: &mut Primitive) {
+    pub(crate) fn apply_surface_appearance(&self, p: &mut Primitive) {
         if let Some(a) = self.surface_appearance {
             p.material.unlit = a.flat;
             p.material.lambert = !a.flat;
@@ -493,6 +501,23 @@ impl Entity {
                     && (0.0..=1e6).contains(&bottom_radius)
                     && (top_radius > 0. || bottom_radius > 0.)
             }
+            Shape::PolylineVolume {
+                ref positions,
+                ref shape_positions,
+                ..
+            } => {
+                (2..=64).contains(&positions.len())
+                    && (3..=1024).contains(&shape_positions.len())
+                    && positions.iter().all(|p| {
+                        p.iter().all(|v| v.is_finite())
+                            && p[0].abs() <= 180.
+                            && p[1].abs() <= 85.
+                            && p[2].abs() <= 1e7
+                    })
+                    && shape_positions.iter().all(|p| {
+                        p.iter().all(|v| v.is_finite()) && p[0].abs() <= 1e7 && p[1].abs() <= 1e7
+                    })
+            }
             _ => true,
         };
         if !valid {
@@ -506,6 +531,19 @@ impl Entity {
         self.validate()?;
         if let Shape::WidePolyline { data } = &self.shape {
             return crate::wide_polyline::primitive(self, data);
+        }
+        if let Shape::PolylineVolume {
+            positions,
+            shape_positions,
+            corner_type,
+        } = &self.shape
+        {
+            return crate::polyline_volume::primitive(
+                self,
+                positions,
+                shape_positions,
+                *corner_type,
+            );
         }
         if matches!(self.shape, Shape::LineSet { .. }) {
             return crate::line_set::primitive(self);
@@ -812,6 +850,7 @@ impl Shape {
         matches!(
             self,
             Self::WidePolyline { .. }
+                | Self::PolylineVolume { .. }
                 | Self::Corridor { .. }
                 | Self::LineSet { .. }
                 | Self::Polyline { .. }
@@ -992,10 +1031,43 @@ fn geographic_packet(packet: &Value, key: &str) -> Result<Entity, String> {
             "extrudedHeight",
             "cornerType",
         ],
+        "polylineVolume" => vec!["positions", "shape", "cornerType"],
         _ => vec!["positions", "minimumHeights", "maximumHeights"],
     });
     known(g, &allowed)?;
     let shape = match key {
+        "polylineVolume" => {
+            let positions = position_list(&g["positions"])?;
+            let shape_val = g.get("shape").ok_or("polylineVolume shape required")?;
+            known(shape_val, &["cartesian2"])?;
+            let c2 = shape_val
+                .get("cartesian2")
+                .ok_or("cartesian2 shape array required")?
+                .as_array()
+                .ok_or("cartesian2 array required")?;
+            if c2.len() < 6 || !c2.len().is_multiple_of(2) {
+                return Err("cartesian2 requires at least 3 [x, y] points".into());
+            }
+            let mut shape_positions = Vec::with_capacity(c2.len() / 2);
+            for chunk in c2.as_chunks::<2>().0 {
+                shape_positions.push([number(&chunk[0])?, number(&chunk[1])?]);
+            }
+            let corner_type = if let Some(ct) = g.get("cornerType") {
+                match ct.as_str().ok_or("cornerType string required")? {
+                    "ROUNDED" => CornerType::Rounded,
+                    "MITERED" => CornerType::Mitered,
+                    "BEVELED" => CornerType::Beveled,
+                    _ => return Err("unsupported cornerType".into()),
+                }
+            } else {
+                CornerType::Rounded
+            };
+            Shape::PolylineVolume {
+                positions,
+                shape_positions,
+                corner_type,
+            }
+        }
         "polygon" => {
             let per_position = g
                 .get("perPositionHeight")
@@ -1235,6 +1307,7 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
                 "point",
                 "billboard",
                 "label",
+                "polylineVolume",
             ],
         )?;
         let shapes: Vec<_> = [
@@ -1250,6 +1323,7 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
             "point",
             "billboard",
             "label",
+            "polylineVolume",
         ]
         .into_iter()
         .filter(|s| packet.get(*s).is_some())
@@ -1262,7 +1336,10 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
             entities.push(crate::wide_polyline::czml(packet)?);
             continue;
         }
-        if matches!(key, "polygon" | "rectangle" | "wall" | "corridor") {
+        if matches!(
+            key,
+            "polygon" | "rectangle" | "wall" | "corridor" | "polylineVolume"
+        ) {
             if packet.get("position").is_some() {
                 return Err("geographic CZML geometry uses graphics.positions/coordinates; extra entity position is unsupported".into());
             }

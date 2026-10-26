@@ -1669,6 +1669,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "polyline-volume",
+      "title": "Polyline Volume",
+      "sourceSha256": "4c32e6fef0ef43c80cc7a5fa05ca8326176823a379d8bb969a0e0449258bf228",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=polyline-volume",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/polyline-volume.json",
+      "expectedPath": "../../tests/sandcastle/full/polyline-volume.json",
+      "entityCount": 3,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "all three original polyline volume instances (circle tube, square box, star)",
+        "rounded, beveled, and mitered corner topology",
+        "materials with alpha, fill and outline controls",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "polyline-volume-dev",
+      "title": "Polyline Volume - Dev",
+      "sourceSha256": "940ee539abbeb793d1088bd36fda529246c520fe970132907a74653b45941dc6",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=polyline-volume-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/polyline-volume-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/polyline-volume-dev.json",
+      "entityCount": 3,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original geometry instances and appearance options",
+        "PolylineVolumeGeometry with tube, box and star shapes",
+        "per-instance colors and appearance states",
+        "source camera default view; manual fit available"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "polyline-volume-outline-dev",
+      "title": "Polyline Volume Outline - Dev",
+      "sourceSha256": "21f23985aeafa35b5bf9581edae4e89c232dcc647721f0b1b10a925b3bda307a",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=polyline-volume-outline-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/polyline-volume-outline-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/polyline-volume-outline-dev.json",
+      "entityCount": 2,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "all original geometry instances and appearance options",
+        "PolylineVolumeOutlineGeometry with mitered and rounded corners",
+        "per-instance colors and appearance states",
+        "source camera default view; manual fit available"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-polyline-volume",
+      "title": "CZML Polyline Volume",
+      "sourceSha256": "3100d69af8856ce77882ec0c49bb62656bac350bc4b099c774fcc34073e91fce",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-polyline-volume",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-polyline-volume.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-polyline-volume.json",
+      "entityCount": 2,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "CZML polylineVolume packet decoding and validation",
+        "beveled box and mitered star volume instances",
+        "solidColor material with alpha and outline controls",
+        "CzmlDataSource.load Promise resolution and zoomTo"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

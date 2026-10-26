@@ -1,0 +1,147 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polylineVolume",
+      "positionsDegrees": [
+        [
+          -89,
+          32,
+          0
+        ],
+        [
+          -89,
+          36,
+          0
+        ],
+        [
+          -93,
+          36,
+          0
+        ]
+      ],
+      "shapePositions": [
+        [
+          -50000,
+          -50000
+        ],
+        [
+          50000,
+          -50000
+        ],
+        [
+          50000,
+          50000
+        ],
+        [
+          -50000,
+          50000
+        ]
+      ],
+      "cornerType": "MITERED"
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-0-instance-1",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polylineVolume",
+      "positionsDegrees": [
+        [
+          -95,
+          32,
+          0
+        ],
+        [
+          -95,
+          36,
+          0
+        ]
+      ],
+      "shapePositions": [
+        [
+          70000,
+          0
+        ],
+        [
+          32360.679774997898,
+          23511.410091698926
+        ],
+        [
+          21631.18960624632,
+          66573.95614066075
+        ],
+        [
+          -12360.679774997894,
+          38042.260651806144
+        ],
+        [
+          -56631.18960624631,
+          41144.96766047313
+        ],
+        [
+          -40000,
+          4.898587196589413e-12
+        ],
+        [
+          -56631.18960624632,
+          -41144.967660473114
+        ],
+        [
+          -12360.679774997903,
+          -38042.260651806144
+        ],
+        [
+          21631.189606246306,
+          -66573.95614066075
+        ],
+        [
+          32360.679774997894,
+          -23511.410091698934
+        ]
+      ],
+      "cornerType": "ROUNDED"
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 1
+    }
+  }
+]

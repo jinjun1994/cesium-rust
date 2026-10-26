@@ -1050,4 +1050,6 @@ pub mod scene_recipes;
 
 pub mod polygon_surface;
 
+pub mod polyline_volume;
+
 pub mod entity_variants;

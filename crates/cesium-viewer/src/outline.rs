@@ -115,6 +115,14 @@ pub fn primitive(e: &Entity) -> Result<Option<Primitive>, String> {
                 path(&points, false)?;
             }
         }
+        Shape::PolylineVolume {
+            positions,
+            shape_positions,
+            corner_type,
+        } => {
+            return crate::polyline_volume::outline(e, positions, shape_positions, *corner_type)
+                .map(Some);
+        }
         Shape::LineSet { .. } => return e.primitive().map(Some),
         Shape::Polygon {
             positions,
