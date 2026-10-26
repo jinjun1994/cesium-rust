@@ -1,6 +1,6 @@
 {
   "version": "0.0.29",
-  "wasmSha256": "223cd9d0ff68944a18ca628ae5cac608c9debb7a73ad8e5490e18e9802554883",
+  "wasmSha256": "70a2830eff4f19da0ebc05ce358933635d614a089620f26890244ea456eaf782",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
   "externalImagery": "local deterministic 256x256 neutral raster",
@@ -741,6 +741,176 @@
         "primitive-0-instance-0",
         "primitive-0-instance-1",
         "primitive-0-instance-2"
+      ]
+    },
+    {
+      "id": "geometry-offset-attribute-dev",
+      "status": "passed",
+      "entities": 6,
+      "sourceSha256": "62f0c64676c1f72c85239cc0fdbf3a3b6d9df971635ff9d6a4b81ae143d1e45c",
+      "inputSha256": "75b6e29cf483547d095a06693de803e92a3239cfa3a33e4dbf4b1fff3ec0adf6",
+      "fixtureSha256": "82c9f7e1e5c78ab6faeca051e95df98cda62318125ecbe9428851af9187c6a96",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-0-instance-1",
+        "primitive-0-instance-2",
+        "primitive-1-instance-0",
+        "primitive-1-instance-1",
+        "primitive-1-instance-2"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 95664
+        },
+        {
+          "id": "primitive-0-instance-1",
+          "pixels": 79829
+        },
+        {
+          "id": "primitive-0-instance-2",
+          "pixels": 79746
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 2354
+        },
+        {
+          "id": "primitive-1-instance-1",
+          "pixels": 2223
+        },
+        {
+          "id": "primitive-1-instance-2",
+          "pixels": 2230
+        }
+      ]
+    },
+    {
+      "id": "geometry-offset-attribute-box-cylinder-ellipsoid-dev",
+      "status": "passed",
+      "entities": 6,
+      "sourceSha256": "21638acd60afa26ca06f266ba0f6bf8732f6e3d5717e8ed2f8ecb2bd83ca7a28",
+      "inputSha256": "76de7fea59bfddc4f0e155040414e6ac8df91cead5553bb178cb6b0e1b54988a",
+      "fixtureSha256": "b9278b4bf6e116fc2d1274e9e030e8c6adc2e75158c2a186a7f5fb678e269405",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-0-instance-1",
+        "primitive-0-instance-2",
+        "primitive-1-instance-0",
+        "primitive-1-instance-1",
+        "primitive-1-instance-2"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 96294
+        },
+        {
+          "id": "primitive-0-instance-1",
+          "pixels": 117682
+        },
+        {
+          "id": "primitive-0-instance-2",
+          "pixels": 87829
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 1744
+        },
+        {
+          "id": "primitive-1-instance-1",
+          "pixels": 4963
+        },
+        {
+          "id": "primitive-1-instance-2",
+          "pixels": 9757
+        }
+      ]
+    },
+    {
+      "id": "czml-polygon-intervals-availability",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "0628932358b98db7d882d43db75a4d878c142e5a22853561a6bf1d2e9e473c39",
+      "inputSha256": "c97e7fbea9ae91858e20af1e30925f08201a7822d8aa85bf5d9e16a54f461b28",
+      "fixtureSha256": "96415a7db7d959fb59b32a46bad828db1f0efcce248d07bdc3b1aa1a872a49d0",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "dynamicPolygon",
+        "california",
+        "pennsylvania"
+      ],
+      "pixelCounts": [
+        {
+          "id": "dynamicPolygon",
+          "pixels": 48190
+        },
+        {
+          "id": "california",
+          "pixels": 22914
+        },
+        {
+          "id": "pennsylvania",
+          "pixels": 69135
+        }
+      ]
+    },
+    {
+      "id": "czml-custom-properties",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "5c1a8eab14893efdec2d217f8ce89c9a14d196aeabc2cdbb3cabc785901216f0",
+      "inputSha256": "7bb050202e0e319267c0c91bc97a20c2e6e9c2a835759f35f4cbd6c44b2a4fe1",
+      "fixtureSha256": "738d9dd417075add29304c4fbc2def309424f1d4e312d38f07a0ad034c944033",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "colorado"
+      ],
+      "pixelCounts": [
+        {
+          "id": "colorado",
+          "pixels": 57457
+        }
       ]
     },
     {

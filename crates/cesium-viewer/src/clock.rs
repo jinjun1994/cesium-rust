@@ -42,7 +42,7 @@ impl Clock {
         .all(|v| v.is_finite())
             || self.start_time >= self.stop_time
             || (self.stop_time - self.start_time) > 1e12
-            || self.multiplier.abs() > 1e6
+            || self.multiplier.abs() > 1e12
             || self.current_time.abs() > 1e12
             || self.start_time.abs() > 1e12
             || self.stop_time.abs() > 1e12

@@ -78,6 +78,10 @@ $('fullNew40').onclick=guarded(()=>runFull('rectangle'));
 $('fullNew41').onclick=guarded(()=>runFull('z-indexing-geometry'));
 $('fullNew42').onclick=guarded(()=>runFull('czml-zindex'));
 $('fullNew43').onclick=guarded(()=>runFull('volumes-dev'));
+$('fullNew44').onclick=guarded(()=>runFull('geometry-offset-attribute-dev'));
+$('fullNew45').onclick=guarded(()=>runFull('geometry-offset-attribute-box-cylinder-ellipsoid-dev'));
+$('fullNew46').onclick=guarded(()=>runFull('czml-polygon-intervals-availability'));
+$('fullNew47').onclick=guarded(()=>runFull('czml-custom-properties'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

@@ -201,11 +201,20 @@ pub fn decode(v: Value) -> Result<Vec<Entity>, String> {
                 out.push(serde_json::to_value(e).map_err(|e| e.to_string())?);
                 continue;
             }
-            if i.get("modelMatrix").is_some() {
-                return Err("world geometry requires no modelMatrix".into());
-            }
             let g = &i["geometry"];
             let t = g["type"].as_str().ok_or("geometry type")?;
+            let is_local = matches!(
+                t,
+                "BoxGeometry"
+                    | "BoxOutlineGeometry"
+                    | "CylinderGeometry"
+                    | "CylinderOutlineGeometry"
+                    | "EllipsoidGeometry"
+                    | "EllipsoidOutlineGeometry"
+            );
+            if !is_local && i.get("modelMatrix").is_some() {
+                return Err("world geometry requires no modelMatrix".into());
+            }
             if t == "PolylineGeometry" {
                 let attrs = i.get("attributes").cloned().unwrap_or(json!({}));
                 out.push(crate::wide_polyline::primitive_entity(
@@ -231,8 +240,27 @@ pub fn decode(v: Value) -> Result<Vec<Entity>, String> {
                 return Err("custom renderState unsupported".into());
             }
             let attrs = i.get("attributes").cloned().unwrap_or(json!({}));
-            keys(&attrs, &["color"])?;
+            keys(&attrs, &["color", "offset"])?;
             let color = attrs.get("color").cloned().unwrap_or(json!([1, 1, 1, 1]));
+            let mut model_matrix_val = Value::Null;
+            if is_local {
+                if let Some(mm) = i.get("modelMatrix") {
+                    let mut m: [f64; 16] =
+                        serde_json::from_value(mm.clone()).map_err(|e| e.to_string())?;
+                    if let Some(off_val) = attrs.get("offset") {
+                        if let Ok([ox, oy, oz]) =
+                            serde_json::from_value::<[f64; 3]>(off_val.clone())
+                        {
+                            m[12] += ox;
+                            m[13] += oy;
+                            m[14] += oz;
+                        }
+                    }
+                    model_matrix_val = json!(m);
+                } else {
+                    return Err("local geometry requires modelMatrix".into());
+                }
+            }
             let mut pos = Value::Null;
             let shape = match t {
                 "PolygonGeometry" | "CoplanarPolygonGeometry" => {
@@ -364,14 +392,37 @@ pub fn decode(v: Value) -> Result<Vec<Entity>, String> {
                             "height",
                             "extrudedHeight",
                             "rotation",
+                            "offsetAttribute",
                         ],
                     )?;
                     let [w, s, e, n]: [f64; 4] = serde_json::from_value(g["rectangle"].clone())
                         .map_err(|e| e.to_string())?;
-                    let h = number(&g["height"], 0.)?;
+                    let mut h = number(&g["height"], 0.)?;
+                    let mut ext = g.get("extrudedHeight").and_then(|v| v.as_f64());
+                    if let Some(off_val) = attrs.get("offset") {
+                        if let Ok([ox, oy, oz]) =
+                            serde_json::from_value::<[f64; 3]>(off_val.clone())
+                        {
+                            let off_len = (ox * ox + oy * oy + oz * oz).sqrt();
+                            let off_attr = g
+                                .get("offsetAttribute")
+                                .and_then(|v| v.as_u64())
+                                .unwrap_or(0);
+                            if off_attr == 1 {
+                                if let Some(e) = ext.as_mut() {
+                                    *e += off_len;
+                                }
+                            } else if off_attr == 2 {
+                                h += off_len;
+                                if let Some(e) = ext.as_mut() {
+                                    *e += off_len;
+                                }
+                            }
+                        }
+                    }
                     let rotation = number(&g["rotation"], 0.)?;
                     if rotation == 0. {
-                        json!({"type":"rectangle","coordinatesDegrees":[w,s,e,n],"height":h,"extrudedHeight":g["extrudedHeight"]})
+                        json!({"type":"rectangle","coordinatesDegrees":[w,s,e,n],"height":h,"extrudedHeight":ext})
                     } else {
                         let (sin, cos) = rotation.sin_cos();
                         let (cx, cy) = ((w + e) / 2., (s + n) / 2.);
@@ -382,8 +433,87 @@ pub fn decode(v: Value) -> Result<Vec<Entity>, String> {
                                 h,
                             ]
                         });
-                        json!({"type":"polygon","positionsDegrees":p,"holes":[],"extrudedHeight":g["extrudedHeight"]})
+                        json!({"type":"polygon","positionsDegrees":p,"holes":[],"extrudedHeight":ext})
                     }
+                }
+                "RectangleOutlineGeometry" => {
+                    keys(
+                        g,
+                        &[
+                            "type",
+                            "rectangle",
+                            "height",
+                            "extrudedHeight",
+                            "rotation",
+                            "offsetAttribute",
+                        ],
+                    )?;
+                    let [w, s, e, n]: [f64; 4] = serde_json::from_value(g["rectangle"].clone())
+                        .map_err(|e| e.to_string())?;
+                    let mut h = number(&g["height"], 0.)?;
+                    let mut ext = g.get("extrudedHeight").and_then(|v| v.as_f64());
+                    if let Some(off_val) = attrs.get("offset") {
+                        if let Ok([ox, oy, oz]) =
+                            serde_json::from_value::<[f64; 3]>(off_val.clone())
+                        {
+                            let off_len = (ox * ox + oy * oy + oz * oz).sqrt();
+                            let off_attr = g
+                                .get("offsetAttribute")
+                                .and_then(|v| v.as_u64())
+                                .unwrap_or(0);
+                            if off_attr == 1 {
+                                if let Some(e) = ext.as_mut() {
+                                    *e += off_len;
+                                }
+                            } else if off_attr == 2 {
+                                h += off_len;
+                                if let Some(e) = ext.as_mut() {
+                                    *e += off_len;
+                                }
+                            }
+                        }
+                    }
+                    json!({"type":"rectangle","coordinatesDegrees":[w,s,e,n],"height":h,"extrudedHeight":ext})
+                }
+                "BoxGeometry" | "BoxOutlineGeometry" => {
+                    keys(
+                        g,
+                        &["type", "dimensions", "vertexFormat", "offsetAttribute"],
+                    )?;
+                    let dims: [f64; 3] = serde_json::from_value(g["dimensions"].clone())
+                        .map_err(|e| e.to_string())?;
+                    json!({"type":"box","dimensions":dims})
+                }
+                "CylinderGeometry" | "CylinderOutlineGeometry" => {
+                    keys(
+                        g,
+                        &[
+                            "type",
+                            "length",
+                            "topRadius",
+                            "bottomRadius",
+                            "numberOfVerticalLines",
+                            "vertexFormat",
+                            "offsetAttribute",
+                        ],
+                    )?;
+                    json!({"type":"cylinder","length":number(&g["length"],0.)?,"topRadius":number(&g["topRadius"],0.)?,"bottomRadius":number(&g["bottomRadius"],0.)?})
+                }
+                "EllipsoidGeometry" | "EllipsoidOutlineGeometry" => {
+                    keys(
+                        g,
+                        &[
+                            "type",
+                            "radii",
+                            "stackPartitions",
+                            "slicePartitions",
+                            "vertexFormat",
+                            "offsetAttribute",
+                        ],
+                    )?;
+                    let radii: [f64; 3] =
+                        serde_json::from_value(g["radii"].clone()).map_err(|e| e.to_string())?;
+                    json!({"type":"ellipsoid","radii":radii})
                 }
                 "PolygonOutlineGeometry" | "CoplanarPolygonOutlineGeometry" => {
                     keys(
@@ -434,11 +564,15 @@ pub fn decode(v: Value) -> Result<Vec<Entity>, String> {
                 }
                 _ => return Err("unsupported extended geometry".into()),
             };
-            let mut e = json!({"id":i["id"].as_str().map(str::to_owned).unwrap_or(format!("primitive-{pi}-instance-{ii}")),"positionDegrees":pos,"shape":shape,"color":if outline{json!([1,1,1,1])}else{color.clone()},"fill":!outline,"outline":outline,"outlineColor":if outline{color}else{json!([0,0,0,1])},"properties":{"primitiveIndex":pi,"instanceIndex":ii}});
+            let mut e = json!({"id":i["id"].as_str().map(str::to_owned).unwrap_or(format!("primitive-{pi}-instance-{ii}")),"positionDegrees":pos,"shape":shape,"color":if outline{json!([1,1,1,1])}else{color.clone()},"fill":!outline,"outline":outline,"outlineColor":if outline{color}else{json!([0,0,0,1])},"outlineWidth":1,"properties":{"primitiveIndex":pi,"instanceIndex":ii}});
+            if !model_matrix_val.is_null() {
+                e["modelMatrix"] = model_matrix_val;
+            }
             if !outline {
                 if appearance == "PerInstanceColorAppearance" {
                     if g["vertexFormat"] != "POSITION_NORMAL"
                         && g["vertexFormat"] != "POSITION_NORMAL_ST"
+                        && g["vertexFormat"] != "PerInstanceColor"
                     {
                         return Err("POSITION_NORMAL required".into());
                     }

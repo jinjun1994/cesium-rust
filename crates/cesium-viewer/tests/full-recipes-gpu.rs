@@ -646,6 +646,9 @@ async fn verify_extended(id: &str, data: &[u8]) {
     for e in &specs {
         let mut one = e.clone();
         one.show = false;
+        if let Some([start, _]) = e.availability {
+            s.clock.current_time = start + 1.0;
+        }
         s.set_entities(&mut r, vec![e.clone()]).unwrap();
         s.zoom_to_entities(&[], 768, 512).unwrap();
         let visible = pixels(&mut r, &s).unwrap();
@@ -754,6 +757,32 @@ async fn verify_extended(id: &str, data: &[u8]) {
     // Selection does not change geometry ownership; repeated replacements remain bounded.
     s.set_entities(&mut r, specs.clone()).unwrap();
     assert_eq!(s.entity_specs().len(), expected.len());
+    let smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+        .join(format!("../../docs/full-{id}-smoke.log"));
+    if !smoke_path.exists()
+        || std::fs::read_to_string(&smoke_path)
+            .unwrap_or_default()
+            .trim()
+            .is_empty()
+    {
+        let _ = s.zoom_to_entities(&[], 768, 512);
+        let t = attachment(
+            &r.device,
+            768,
+            512,
+            r.format(),
+            wgpu::TextureUsages::RENDER_ATTACHMENT,
+        );
+        let view = t.create_view(&Default::default());
+        for _ in 0..90 {
+            s.tick(1.0 / 60.0);
+            let _ = s.render(&mut r, &view, None);
+        }
+        let stats = s.stats();
+        let camera = s.camera_state();
+        let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+        std::fs::write(&smoke_path, text).unwrap();
+    }
 }
 
 #[test]
@@ -1332,5 +1361,43 @@ fn complete_volumes_dev() {
     pollster::block_on(verify_extended(
         "volumes-dev",
         include_bytes!("../../../tests/sandcastle/full/volumes-dev.primitive.json"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_geometry_offset_attribute_dev() {
+    pollster::block_on(verify_extended(
+        "geometry-offset-attribute-dev",
+        include_bytes!(
+            "../../../tests/sandcastle/full/geometry-offset-attribute-dev.primitive.json"
+        ),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_geometry_offset_attribute_box_cylinder_ellipsoid_dev() {
+    pollster::block_on(verify_extended(
+        "geometry-offset-attribute-box-cylinder-ellipsoid-dev",
+        include_bytes!("../../../tests/sandcastle/full/geometry-offset-attribute-box-cylinder-ellipsoid-dev.primitive.json"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_czml_polygon_intervals_availability() {
+    pollster::block_on(verify_extended(
+        "czml-polygon-intervals-availability",
+        include_bytes!("../../../tests/sandcastle/full/czml-polygon-intervals-availability.czml"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_czml_custom_properties() {
+    pollster::block_on(verify_extended(
+        "czml-custom-properties",
+        include_bytes!("../../../tests/sandcastle/full/czml-custom-properties.czml"),
     ));
 }

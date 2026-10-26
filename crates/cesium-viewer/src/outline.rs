@@ -127,9 +127,18 @@ pub fn primitive(e: &Entity) -> Result<Option<Primitive>, String> {
         Shape::Polygon {
             positions,
             holes,
+            height,
             extruded_height,
         } => {
-            for ring in std::iter::once(positions).chain(holes) {
+            let mut pos = positions.clone();
+            if let Some(h) = height {
+                for v in &mut pos {
+                    if v[2] == 0. {
+                        v[2] = *h;
+                    }
+                }
+            }
+            for ring in std::iter::once(&pos).chain(holes) {
                 path(ring, true)?;
                 if let Some(h) = extruded_height {
                     let bottom: Vec<_> = ring.iter().map(|c| [c[0], c[1], *h]).collect();

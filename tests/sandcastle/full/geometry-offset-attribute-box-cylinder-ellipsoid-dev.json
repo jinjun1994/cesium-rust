@@ -1,0 +1,315 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        400000,
+        300000,
+        500000
+      ]
+    },
+    "modelMatrix": [
+      0.9396926207859085,
+      -0.34202014332566877,
+      0,
+      0,
+      0.17101007166283438,
+      0.46984631039295427,
+      0.8660254037844389,
+      0,
+      -0.29619813272602386,
+      -0.8137976813493738,
+      0.5,
+      0,
+      -1920394.9413846312,
+      -5276241.737889158,
+      3470373.73538348,
+      1
+    ],
+    "color": [
+      1,
+      0,
+      0,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "closed": true,
+      "flat": false,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-0-instance-1",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "cylinder",
+      "length": 400000,
+      "topRadius": 200000,
+      "bottomRadius": 200000
+    },
+    "modelMatrix": [
+      0.9848077530122082,
+      -0.17364817766693033,
+      0,
+      0,
+      0.08682408883346515,
+      0.492403876506104,
+      0.8660254037844388,
+      0,
+      -0.15038373318043527,
+      -0.8528685319524433,
+      0.4999999999999999,
+      0,
+      -975010.0644063598,
+      -5529556.852212082,
+      3420373.73538348,
+      1
+    ],
+    "color": [
+      1,
+      0,
+      0,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "closed": true,
+      "flat": false,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 1
+    }
+  },
+  {
+    "id": "primitive-0-instance-2",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        200000,
+        200000,
+        300000
+      ]
+    },
+    "modelMatrix": [
+      1,
+      6.123233995736766e-17,
+      0,
+      0,
+      -3.0616169978683824e-17,
+      0.4999999999999999,
+      0.8660254037844387,
+      0,
+      5.302876193624534e-17,
+      -0.8660254037844387,
+      0.4999999999999999,
+      0,
+      3.438109661023807e-10,
+      -5614859.179671319,
+      3520373.73538348,
+      1
+    ],
+    "color": [
+      1,
+      0,
+      0,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "closed": true,
+      "flat": false,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 2
+    }
+  },
+  {
+    "id": "primitive-1-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        400000,
+        300000,
+        500000
+      ]
+    },
+    "modelMatrix": [
+      0.9396926207859085,
+      -0.34202014332566877,
+      0,
+      0,
+      0.17101007166283438,
+      0.46984631039295427,
+      0.8660254037844389,
+      0,
+      -0.29619813272602386,
+      -0.8137976813493738,
+      0.5,
+      0,
+      -1920394.9413846312,
+      -5276241.737889158,
+      3470373.73538348,
+      1
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 1,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-1-instance-1",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "cylinder",
+      "length": 400000,
+      "topRadius": 200000,
+      "bottomRadius": 200000
+    },
+    "modelMatrix": [
+      0.9848077530122082,
+      -0.17364817766693033,
+      0,
+      0,
+      0.08682408883346515,
+      0.492403876506104,
+      0.8660254037844388,
+      0,
+      -0.15038373318043527,
+      -0.8528685319524433,
+      0.4999999999999999,
+      0,
+      -975010.0644063598,
+      -5529556.852212082,
+      3420373.73538348,
+      1
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 1,
+      "instanceIndex": 1
+    }
+  },
+  {
+    "id": "primitive-1-instance-2",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        200000,
+        200000,
+        300000
+      ],
+      "stackPartitions": 16,
+      "slicePartitions": 8
+    },
+    "modelMatrix": [
+      1,
+      6.123233995736766e-17,
+      0,
+      0,
+      -3.0616169978683824e-17,
+      0.4999999999999999,
+      0.8660254037844387,
+      0,
+      5.302876193624534e-17,
+      -0.8660254037844387,
+      0.4999999999999999,
+      0,
+      3.438109661023807e-10,
+      -5614859.179671319,
+      3520373.73538348,
+      1
+    ],
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 1,
+      "instanceIndex": 2
+    }
+  }
+]

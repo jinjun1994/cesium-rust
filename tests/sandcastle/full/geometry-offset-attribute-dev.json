@@ -1,0 +1,227 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -100,
+        30,
+        -99,
+        31
+      ],
+      "height": 10000,
+      "extrudedHeight": 130000
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "closed": true,
+      "flat": false,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-0-instance-1",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -99,
+        30,
+        -98,
+        31
+      ],
+      "height": 10000,
+      "extrudedHeight": 30000
+    },
+    "color": [
+      0,
+      1,
+      0,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "closed": true,
+      "flat": false,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 1
+    }
+  },
+  {
+    "id": "primitive-0-instance-2",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -98,
+        30,
+        -97,
+        31
+      ],
+      "height": 110000,
+      "extrudedHeight": 130000
+    },
+    "color": [
+      0,
+      0,
+      1,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "closed": true,
+      "flat": false,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 2
+    }
+  },
+  {
+    "id": "primitive-1-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -100,
+        30,
+        -99,
+        31
+      ],
+      "height": 10000,
+      "extrudedHeight": 130000
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 1,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-1-instance-1",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -99,
+        30,
+        -98,
+        31
+      ],
+      "height": 10000,
+      "extrudedHeight": 30000
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 1,
+      "instanceIndex": 1
+    }
+  },
+  {
+    "id": "primitive-1-instance-2",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -98,
+        30,
+        -97,
+        31
+      ],
+      "height": 110000,
+      "extrudedHeight": 130000
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 1,
+      "instanceIndex": 2
+    }
+  }
+]

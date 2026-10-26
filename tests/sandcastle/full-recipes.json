@@ -1894,6 +1894,119 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "geometry-offset-attribute-dev",
+      "title": "Geometry Offset Attribute - Dev",
+      "sourceSha256": "62f0c64676c1f72c85239cc0fdbf3a3b6d9df971635ff9d6a4b81ae143d1e45c",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=geometry-offset-attribute-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/geometry-offset-attribute-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/geometry-offset-attribute-dev.json",
+      "entityCount": 6,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "three extruded rectangles with GeometryOffsetAttribute TOP, ALL, and NONE",
+        "three matching outline rectangles with same offset attributes",
+        "per-instance offset attributes along geodetic surface normals",
+        "toolbar buttons 1, 2, 3 updating offset dynamically"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "geometry-offset-attribute-box-cylinder-ellipsoid-dev",
+      "title": "Geometry Offset Attribute box cylinder ellipsoid - Dev",
+      "sourceSha256": "21638acd60afa26ca06f266ba0f6bf8732f6e3d5717e8ed2f8ecb2bd83ca7a28",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=geometry-offset-attribute-box-cylinder-ellipsoid-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/geometry-offset-attribute-box-cylinder-ellipsoid-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/geometry-offset-attribute-box-cylinder-ellipsoid-dev.json",
+      "entityCount": 6,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "BoxGeometry, CylinderGeometry, and EllipsoidGeometry with offsetAttribute ALL",
+        "matching outline geometry instances with same offsetAttribute",
+        "local eastNorthUpToFixedFrame modelMatrix translations",
+        "toolbar buttons to move box, cylinder, and ellipsoid dynamically"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-polygon-intervals-availability",
+      "title": "CZML Polygon - Intervals, Availability",
+      "sourceSha256": "0628932358b98db7d882d43db75a4d878c142e5a22853561a6bf1d2e9e473c39",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-polygon-intervals-availability",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-polygon-intervals-availability.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-polygon-intervals-availability.json",
+      "entityCount": 3,
+      "framing": "viewer-default",
+      "shouldAnimate": true,
+      "requirements": [
+        "CZML document packet with clock interval and multiplier",
+        "dynamicPolygon with position intervals, hole interval, and solidColor intervals",
+        "california polygon with availability interval and perPositionHeight",
+        "pennsylvania polygon with availability interval, height, and extrudedHeight"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-custom-properties",
+      "title": "CZML Custom Properties",
+      "sourceSha256": "5c1a8eab14893efdec2d217f8ce89c9a14d196aeabc2cdbb3cabc785901216f0",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-custom-properties",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-custom-properties.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-custom-properties.json",
+      "entityCount": 1,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "requirements": [
+        "CZML document clock with interval 1970/2010",
+        "custom_property_object with population_intervals and population_sampled",
+        "colorado polygon with solidColor and initial extrudedHeight 0",
+        "toolbar menu to bind extrudedHeight to scaled interval data or sampled data",
+        "viewer.zoomTo dataSource"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

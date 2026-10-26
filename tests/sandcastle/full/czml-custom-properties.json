@@ -1,0 +1,52 @@
+[
+  {
+    "id": "colorado",
+    "show": true,
+    "name": "Colorado",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          -109.03,
+          41,
+          0
+        ],
+        [
+          -102.03,
+          41,
+          0
+        ],
+        [
+          -102.03,
+          37,
+          0
+        ],
+        [
+          -109.03,
+          37,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 0,
+      "extrudedHeight": 0
+    },
+    "color": [
+      0,
+      1,
+      0,
+      0.5882352941176471
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  }
+]

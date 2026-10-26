@@ -1,0 +1,188 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": [
+        {
+          "geometry": {
+            "type": "RectangleGeometry",
+            "rectangle": [
+              -100,
+              30,
+              -99,
+              31
+            ],
+            "height": 10000,
+            "extrudedHeight": 30000,
+            "vertexFormat": "PerInstanceColor",
+            "offsetAttribute": 1
+          },
+          "attributes": {
+            "color": [
+              1,
+              0,
+              0,
+              0.5
+            ],
+            "offset": [
+              -14220.983007061961,
+              -84981.243480809,
+              50753.83629607042
+            ]
+          }
+        },
+        {
+          "geometry": {
+            "type": "RectangleGeometry",
+            "rectangle": [
+              -99,
+              30,
+              -98,
+              31
+            ],
+            "height": 10000,
+            "extrudedHeight": 30000,
+            "vertexFormat": "PerInstanceColor",
+            "offsetAttribute": 1
+          },
+          "attributes": {
+            "color": [
+              0,
+              1,
+              0,
+              0.5
+            ],
+            "offset": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "geometry": {
+            "type": "RectangleGeometry",
+            "rectangle": [
+              -98,
+              30,
+              -97,
+              31
+            ],
+            "height": 10000,
+            "extrudedHeight": 30000,
+            "vertexFormat": "PerInstanceColor",
+            "offsetAttribute": 2
+          },
+          "attributes": {
+            "color": [
+              0,
+              0,
+              1,
+              0.5
+            ],
+            "offset": [
+              -11246.51734181921,
+              -85425.78035295814,
+              50753.83629607041
+            ]
+          }
+        }
+      ],
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "closed": true
+      }
+    },
+    {
+      "geometryInstances": [
+        {
+          "geometry": {
+            "type": "RectangleOutlineGeometry",
+            "rectangle": [
+              -100,
+              30,
+              -99,
+              31
+            ],
+            "height": 10000,
+            "extrudedHeight": 30000,
+            "offsetAttribute": 1
+          },
+          "attributes": {
+            "color": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "offset": [
+              -14220.983007061961,
+              -84981.243480809,
+              50753.83629607042
+            ]
+          }
+        },
+        {
+          "geometry": {
+            "type": "RectangleOutlineGeometry",
+            "rectangle": [
+              -99,
+              30,
+              -98,
+              31
+            ],
+            "height": 10000,
+            "extrudedHeight": 30000,
+            "offsetAttribute": 1
+          },
+          "attributes": {
+            "color": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "offset": [
+              0,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "geometry": {
+            "type": "RectangleOutlineGeometry",
+            "rectangle": [
+              -98,
+              30,
+              -97,
+              31
+            ],
+            "height": 10000,
+            "extrudedHeight": 30000,
+            "offsetAttribute": 2
+          },
+          "attributes": {
+            "color": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "offset": [
+              -11246.51734181921,
+              -85425.78035295814,
+              50753.83629607041
+            ]
+          }
+        }
+      ],
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "flat": true,
+        "renderState": {
+          "lineWidth": 1
+        }
+      }
+    }
+  ]
+}

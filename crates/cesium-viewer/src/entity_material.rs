@@ -413,7 +413,12 @@ fn pair(v: &Value) -> Result<[f32; 2], String> {
     Ok([number(&a[0])?, number(&a[1])?])
 }
 pub(crate) fn rgba(v: &Value) -> Result<[f32; 4], String> {
-    known(v, &["rgba", "rgbaf"])?;
+    let v = if let Some(arr) = v.as_array() {
+        arr.first().ok_or("color intervals array not empty")?
+    } else {
+        v
+    };
+    known(v, &["rgba", "rgbaf", "interval"])?;
     if v.get("rgba").is_some() == v.get("rgbaf").is_some() {
         return Err("exactly one RGBA encoding required".into());
     }

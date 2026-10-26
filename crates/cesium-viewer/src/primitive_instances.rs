@@ -34,9 +34,17 @@ struct Instance {
 #[serde(deny_unknown_fields)]
 struct Attributes {
     color: [f32; 4],
+    #[serde(default)]
+    offset: Option<[f64; 3]>,
 }
 fn yes() -> bool {
     true
+}
+fn default_16() -> u32 {
+    16
+}
+fn default_8() -> u32 {
+    8
 }
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields, rename_all = "camelCase")]
@@ -65,6 +73,8 @@ enum Geometry {
         dimensions: [f64; 3],
         #[serde(rename = "vertexFormat")]
         format: String,
+        #[serde(default, rename = "offsetAttribute")]
+        offset_attribute: Option<u32>,
     },
     #[serde(rename = "CylinderGeometry")]
     FilledCylinder {
@@ -75,18 +85,24 @@ enum Geometry {
         bottom: f64,
         #[serde(rename = "vertexFormat")]
         format: String,
+        #[serde(default, rename = "offsetAttribute")]
+        offset_attribute: Option<u32>,
     },
     #[serde(rename = "SphereGeometry")]
     FilledSphere {
         radius: f64,
         #[serde(rename = "vertexFormat")]
         format: String,
+        #[serde(default, rename = "offsetAttribute")]
+        offset_attribute: Option<u32>,
     },
     #[serde(rename = "EllipsoidGeometry")]
     FilledEllipsoid {
         radii: [f64; 3],
         #[serde(rename = "vertexFormat")]
         format: String,
+        #[serde(default, rename = "offsetAttribute")]
+        offset_attribute: Option<u32>,
     },
     #[serde(rename = "WallGeometry")]
     FilledWall {
@@ -101,6 +117,8 @@ enum Geometry {
         maximum: Option<f64>,
         #[serde(rename = "vertexFormat")]
         format: String,
+        #[serde(default, rename = "offsetAttribute")]
+        offset_attribute: Option<u32>,
     },
     #[serde(rename = "EllipseGeometry")]
     FilledEllipse {
@@ -117,9 +135,27 @@ enum Geometry {
         extruded: Option<f64>,
         #[serde(rename = "vertexFormat")]
         format: String,
+        #[serde(default, rename = "offsetAttribute")]
+        offset_attribute: Option<u32>,
+    },
+    #[serde(rename = "RectangleGeometry")]
+    FilledRectangle {
+        rectangle: [f64; 4],
+        #[serde(default)]
+        height: f64,
+        #[serde(default, rename = "extrudedHeight")]
+        extruded: Option<f64>,
+        #[serde(rename = "vertexFormat")]
+        format: String,
+        #[serde(default, rename = "offsetAttribute")]
+        offset_attribute: Option<u32>,
     },
     #[serde(rename = "BoxOutlineGeometry")]
-    Box { dimensions: [f64; 3] },
+    Box {
+        dimensions: [f64; 3],
+        #[serde(default, rename = "offsetAttribute")]
+        offset_attribute: Option<u32>,
+    },
     #[serde(rename = "CylinderOutlineGeometry")]
     Cylinder {
         length: f64,
@@ -127,27 +163,41 @@ enum Geometry {
         top: f64,
         #[serde(rename = "bottomRadius")]
         bottom: f64,
-        #[serde(rename = "numberOfVerticalLines")]
+        #[serde(default = "default_16", rename = "numberOfVerticalLines")]
         vertical: u32,
+        #[serde(default, rename = "offsetAttribute")]
+        offset_attribute: Option<u32>,
     },
     #[serde(rename = "SphereOutlineGeometry")]
     Sphere {
         radius: f64,
-        #[serde(rename = "stackPartitions")]
+        #[serde(default = "default_16", rename = "stackPartitions")]
         stacks: u32,
-        #[serde(rename = "slicePartitions")]
+        #[serde(default = "default_8", rename = "slicePartitions")]
         slices: u32,
+        #[serde(default, rename = "offsetAttribute")]
+        offset_attribute: Option<u32>,
     },
     #[serde(rename = "EllipsoidOutlineGeometry")]
     Ellipsoid {
         radii: [f64; 3],
-        #[serde(rename = "stackPartitions")]
+        #[serde(default = "default_16", rename = "stackPartitions")]
         stacks: u32,
-        #[serde(rename = "slicePartitions")]
+        #[serde(default = "default_8", rename = "slicePartitions")]
         slices: u32,
+        #[serde(default, rename = "offsetAttribute")]
+        offset_attribute: Option<u32>,
     },
     #[serde(rename = "RectangleOutlineGeometry")]
-    Rectangle { rectangle: [f64; 4] },
+    Rectangle {
+        rectangle: [f64; 4],
+        #[serde(default)]
+        height: f64,
+        #[serde(default, rename = "extrudedHeight")]
+        extruded: Option<f64>,
+        #[serde(default, rename = "offsetAttribute")]
+        offset_attribute: Option<u32>,
+    },
     #[serde(rename = "WallOutlineGeometry")]
     Wall {
         positions: Vec<[f64; 3]>,
@@ -155,6 +205,8 @@ enum Geometry {
         maximum: f64,
         #[serde(default, rename = "minimumHeight")]
         minimum: f64,
+        #[serde(default, rename = "offsetAttribute")]
+        offset_attribute: Option<u32>,
     },
 }
 impl Geometry {
@@ -169,9 +221,52 @@ impl Geometry {
                 | Self::Wall { .. }
         )
     }
+    fn offset_attribute(&self) -> Option<u32> {
+        match self {
+            Self::FilledBox {
+                offset_attribute, ..
+            }
+            | Self::FilledCylinder {
+                offset_attribute, ..
+            }
+            | Self::FilledSphere {
+                offset_attribute, ..
+            }
+            | Self::FilledEllipsoid {
+                offset_attribute, ..
+            }
+            | Self::FilledWall {
+                offset_attribute, ..
+            }
+            | Self::FilledEllipse {
+                offset_attribute, ..
+            }
+            | Self::FilledRectangle {
+                offset_attribute, ..
+            }
+            | Self::Box {
+                offset_attribute, ..
+            }
+            | Self::Cylinder {
+                offset_attribute, ..
+            }
+            | Self::Sphere {
+                offset_attribute, ..
+            }
+            | Self::Ellipsoid {
+                offset_attribute, ..
+            }
+            | Self::Rectangle {
+                offset_attribute, ..
+            }
+            | Self::Wall {
+                offset_attribute, ..
+            } => *offset_attribute,
+        }
+    }
 }
 fn vertex_format(format: &str) -> Result<(), String> {
-    if format != "POSITION_NORMAL" {
+    if format != "POSITION_NORMAL" && format != "PerInstanceColor" {
         return Err("filled instances require POSITION_NORMAL vertexFormat".into());
     }
     Ok(())
@@ -217,8 +312,11 @@ pub fn decode(bytes: &[u8]) -> Result<Vec<entities::Entity>, String> {
                 return Err("custom renderState unsupported for filled geometry".into());
             }
             let mut position = None;
+            let offset_attr = instance.geometry.offset_attribute();
             let shape = match instance.geometry {
-                Geometry::FilledBox { dimensions, format } => {
+                Geometry::FilledBox {
+                    dimensions, format, ..
+                } => {
                     vertex_format(&format)?;
                     json!({"type":"box","dimensions":dimensions})
                 }
@@ -227,15 +325,16 @@ pub fn decode(bytes: &[u8]) -> Result<Vec<entities::Entity>, String> {
                     top,
                     bottom,
                     format,
+                    ..
                 } => {
                     vertex_format(&format)?;
                     json!({"type":"cylinder","length":length,"topRadius":top,"bottomRadius":bottom})
                 }
-                Geometry::FilledSphere { radius, format } => {
+                Geometry::FilledSphere { radius, format, .. } => {
                     vertex_format(&format)?;
                     json!({"type":"ellipsoid","radii":[radius,radius,radius]})
                 }
-                Geometry::FilledEllipsoid { radii, format } => {
+                Geometry::FilledEllipsoid { radii, format, .. } => {
                     vertex_format(&format)?;
                     json!({"type":"ellipsoid","radii":radii})
                 }
@@ -246,6 +345,7 @@ pub fn decode(bytes: &[u8]) -> Result<Vec<entities::Entity>, String> {
                     minimum,
                     maximum,
                     format,
+                    ..
                 } => {
                     vertex_format(&format)?;
                     let count = positions.len();
@@ -273,12 +373,36 @@ pub fn decode(bytes: &[u8]) -> Result<Vec<entities::Entity>, String> {
                     rotation,
                     extruded,
                     format,
+                    ..
                 } => {
                     vertex_format(&format)?;
                     position = Some(center);
                     json!({"type":"ellipse","semiMajorAxis":major,"semiMinorAxis":minor,"height":height,"rotation":rotation,"extrudedHeight":extruded})
                 }
-                Geometry::Box { dimensions } => {
+                Geometry::FilledRectangle {
+                    rectangle,
+                    mut height,
+                    mut extruded,
+                    format,
+                    offset_attribute,
+                } => {
+                    vertex_format(&format)?;
+                    if let Some(off) = instance.attributes.offset {
+                        let off_len = (off[0] * off[0] + off[1] * off[1] + off[2] * off[2]).sqrt();
+                        if offset_attribute == Some(1) {
+                            if let Some(e) = extruded.as_mut() {
+                                *e += off_len;
+                            }
+                        } else if offset_attribute == Some(2) {
+                            height += off_len;
+                            if let Some(e) = extruded.as_mut() {
+                                *e += off_len;
+                            }
+                        }
+                    }
+                    json!({"type":"rectangle","coordinatesDegrees":rectangle,"height":height,"extrudedHeight":extruded})
+                }
+                Geometry::Box { dimensions, .. } => {
                     json!({"type":"box","dimensions":dimensions})
                 }
                 Geometry::Cylinder {
@@ -286,6 +410,7 @@ pub fn decode(bytes: &[u8]) -> Result<Vec<entities::Entity>, String> {
                     top,
                     bottom,
                     vertical,
+                    ..
                 } => {
                     if vertical != 16 {
                         return Err("static cylinder numberOfVerticalLines=16 required".into());
@@ -296,6 +421,7 @@ pub fn decode(bytes: &[u8]) -> Result<Vec<entities::Entity>, String> {
                     radius,
                     stacks,
                     slices,
+                    ..
                 } => {
                     json!({"type":"ellipsoid","radii":[radius,radius,radius],"stackPartitions":stacks,"slicePartitions":slices})
                 }
@@ -303,16 +429,36 @@ pub fn decode(bytes: &[u8]) -> Result<Vec<entities::Entity>, String> {
                     radii,
                     stacks,
                     slices,
+                    ..
                 } => {
                     json!({"type":"ellipsoid","radii":radii,"stackPartitions":stacks,"slicePartitions":slices})
                 }
-                Geometry::Rectangle { rectangle } => {
-                    json!({"type":"rectangle","coordinatesDegrees":rectangle,"height":0,"extrudedHeight":null})
+                Geometry::Rectangle {
+                    rectangle,
+                    mut height,
+                    mut extruded,
+                    offset_attribute,
+                } => {
+                    if let Some(off) = instance.attributes.offset {
+                        let off_len = (off[0] * off[0] + off[1] * off[1] + off[2] * off[2]).sqrt();
+                        if offset_attribute == Some(1) {
+                            if let Some(e) = extruded.as_mut() {
+                                *e += off_len;
+                            }
+                        } else if offset_attribute == Some(2) {
+                            height += off_len;
+                            if let Some(e) = extruded.as_mut() {
+                                *e += off_len;
+                            }
+                        }
+                    }
+                    json!({"type":"rectangle","coordinatesDegrees":rectangle,"height":height,"extrudedHeight":extruded})
                 }
                 Geometry::Wall {
                     positions,
                     minimum,
                     maximum,
+                    ..
                 } => {
                     let count = positions.len();
                     json!({"type":"wall","positionsDegrees":positions,"minimumHeights":vec![minimum;count],"maximumHeights":vec![maximum;count]})
@@ -322,16 +468,22 @@ pub fn decode(bytes: &[u8]) -> Result<Vec<entities::Entity>, String> {
                 shape["type"].as_str(),
                 Some("rectangle" | "wall" | "ellipse")
             );
-            if world
-                && instance
-                    .model_matrix
-                    .is_some_and(|m| m != glam::DMat4::IDENTITY.to_cols_array())
-            {
+            let mut model_matrix = instance.model_matrix;
+            if let Some(m) = &mut model_matrix {
+                if let Some(off) = instance.attributes.offset {
+                    if offset_attr == Some(2) {
+                        m[12] += off[0];
+                        m[13] += off[1];
+                        m[14] += off[2];
+                    }
+                }
+            }
+            if world && model_matrix.is_some_and(|m| m != glam::DMat4::IDENTITY.to_cols_array()) {
                 return Err(
                     "world outline geometry currently requires identity modelMatrix".into(),
                 );
             }
-            if !world && instance.model_matrix.is_none() {
+            if !world && model_matrix.is_none() {
                 return Err("local outline geometry requires modelMatrix".into());
             }
             let id = instance
@@ -343,7 +495,7 @@ pub fn decode(bytes: &[u8]) -> Result<Vec<entities::Entity>, String> {
             }
             value["positionDegrees"] = json!(position);
             if !world {
-                value["modelMatrix"] = json!(instance.model_matrix);
+                value["modelMatrix"] = json!(model_matrix);
             }
             output.push(value);
         }

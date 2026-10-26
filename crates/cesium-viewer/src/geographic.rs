@@ -304,8 +304,8 @@ fn surface(
             return Err("extrusion requires a constant-height polygon".into());
         }
         let initial = rings[0][0][2];
-        if height == initial {
-            return Err("extrusion height equals polygon height".into());
+        if (height - initial).abs() < 1e-6 {
+            return Ok(());
         }
         let lower = height.min(initial);
         let upper = height.max(initial);
@@ -493,14 +493,31 @@ pub fn primitive(e: &Entity) -> Result<Primitive, String> {
         Shape::Polygon {
             positions,
             holes,
+            height,
             extruded_height,
         } => {
             if holes.len() > 32 {
                 return Err("polygon hole count limit".into());
             }
-            let mut rings = vec![ring(positions)?];
+            let mut pos = positions.clone();
+            if let Some(h) = height {
+                for v in &mut pos {
+                    if v[2] == 0. {
+                        v[2] = *h;
+                    }
+                }
+            }
+            let mut rings = vec![ring(&pos)?];
             for hole in holes {
-                rings.push(ring(hole)?);
+                let mut h_pos = hole.clone();
+                if let Some(h) = height {
+                    for v in &mut h_pos {
+                        if v[2] == 0. {
+                            v[2] = *h;
+                        }
+                    }
+                }
+                rings.push(ring(&h_pos)?);
             }
             surface(&mut out, rings, *extruded_height, origin, e.color)?;
         }

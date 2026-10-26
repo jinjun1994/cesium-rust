@@ -142,8 +142,10 @@ pub enum Shape {
     Polygon {
         #[serde(rename = "positionsDegrees", alias = "positions")]
         positions: Vec<[f64; 3]>,
-        #[serde(default)]
+        #[serde(default, alias = "holesDegrees")]
         holes: Vec<Vec<[f64; 3]>>,
+        #[serde(default, skip_serializing_if = "Option::is_none")]
+        height: Option<f64>,
         #[serde(default, rename = "extrudedHeight")]
         extruded_height: Option<f64>,
     },
@@ -915,7 +917,14 @@ fn validate_collection(entities: &[Entity]) -> Result<(), String> {
     Ok(())
 }
 fn utc(v: &str) -> Result<f64, String> {
-    let t = chrono::DateTime::parse_from_rfc3339(v).map_err(|e| e.to_string())?;
+    let v_norm = if v.len() == 4 && v.chars().all(|c| c.is_ascii_digit()) {
+        format!("{v}-01-01T00:00:00Z")
+    } else if v.len() == 10 && v.chars().filter(|c| *c == '-').count() == 2 {
+        format!("{v}T00:00:00Z")
+    } else {
+        v.to_string()
+    };
+    let t = chrono::DateTime::parse_from_rfc3339(&v_norm).map_err(|e| e.to_string())?;
     if chrono::Timelike::nanosecond(&t) >= 1_000_000_000 {
         return Err("leap-second dates not supported by UTC clock".into());
     }
@@ -979,7 +988,12 @@ fn material_color(g: &Value) -> Result<[f32; 4], String> {
     crate::entity_material::czml(g).map(|(c, _)| c)
 }
 pub(crate) fn position_list(v: &Value) -> Result<Vec<[f64; 3]>, String> {
-    known(v, &["cartographicDegrees", "cartesian"])?;
+    let v = if let Some(arr) = v.as_array() {
+        arr.first().ok_or("position intervals array not empty")?
+    } else {
+        v
+    };
+    known(v, &["cartographicDegrees", "cartesian", "interval"])?;
     let geographic = v.get("cartographicDegrees");
     let cartesian = v.get("cartesian");
     if geographic.is_some() == cartesian.is_some() {
@@ -1105,7 +1119,12 @@ fn geographic_packet(packet: &Value, key: &str) -> Result<Entity, String> {
             let mut p = position_list(&g["positions"])?;
             let mut holes = vec![];
             if let Some(h) = g.get("holes") {
-                known(h, &["cartographicDegrees", "cartesian"])?;
+                let h = if let Some(arr) = h.as_array() {
+                    arr.first().ok_or("hole intervals array not empty")?
+                } else {
+                    h
+                };
+                known(h, &["cartographicDegrees", "cartesian", "interval"])?;
                 let geo = h.get("cartographicDegrees");
                 let cart = h.get("cartesian");
                 if geo.is_some() == cart.is_some() {
@@ -1167,6 +1186,7 @@ fn geographic_packet(packet: &Value, key: &str) -> Result<Entity, String> {
                 Shape::Polygon {
                     positions: p,
                     holes,
+                    height: g.get("height").map(number).transpose()?,
                     extruded_height: g.get("extrudedHeight").map(number).transpose()?,
                 }
             }
@@ -1363,6 +1383,12 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
         .into_iter()
         .filter(|s| packet.get(*s).is_some())
         .collect();
+        if shapes.is_empty() {
+            if packet.get("properties").is_some() {
+                continue;
+            }
+            return Err("one supported geometry required".into());
+        }
         if shapes.len() != 1 {
             return Err("one supported geometry required".into());
         }
@@ -1908,5 +1934,75 @@ mod tests {
             assert!(!prim.vertices.is_empty());
             assert!(!prim.indices.is_empty());
         }
+    }
+    #[test]
+    fn batch31_geometry_offset_czml_properties_all_four_cases() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Geometry offset attribute dev
+        let offset_rect_data =
+            std::fs::read(base.join("geometry-offset-attribute-dev.primitive.json")).unwrap();
+        let offset_rect_entities = crate::primitive_instances::decode(&offset_rect_data).unwrap();
+        assert_eq!(offset_rect_entities.len(), 6);
+        for e in &offset_rect_entities {
+            let prim = e.primitive().unwrap();
+            assert!(!prim.vertices.is_empty());
+            assert!(!prim.indices.is_empty());
+            if e.outline {
+                let out = crate::outline::primitive(e).unwrap().unwrap();
+                assert!(!out.vertices.is_empty());
+                assert!(!out.indices.is_empty());
+            }
+        }
+        if let Shape::Rectangle {
+            extruded_height, ..
+        } = &offset_rect_entities[0].shape
+        {
+            assert!((extruded_height.unwrap() - 130000.0).abs() < 1e-3);
+        } else {
+            panic!("expected rectangle");
+        }
+
+        // 2. Geometry offset attribute box cylinder ellipsoid dev
+        let offset_local_data = std::fs::read(
+            base.join("geometry-offset-attribute-box-cylinder-ellipsoid-dev.primitive.json"),
+        )
+        .unwrap();
+        let offset_local_entities = crate::primitive_instances::decode(&offset_local_data).unwrap();
+        assert_eq!(offset_local_entities.len(), 6);
+        for e in &offset_local_entities {
+            let prim = e.primitive().unwrap();
+            assert!(!prim.vertices.is_empty());
+            assert!(!prim.indices.is_empty());
+            assert!(e.model_matrix.is_some());
+        }
+
+        // 3. CZML polygon intervals and availability
+        let poly_intervals_data =
+            std::fs::read(base.join("czml-polygon-intervals-availability.czml")).unwrap();
+        let (poly_entities, poly_clock) = czml(&poly_intervals_data).unwrap();
+        assert_eq!(poly_entities.len(), 3);
+        assert_eq!(poly_clock.multiplier, 900.0);
+        assert_eq!(poly_entities[0].id, "dynamicPolygon");
+        assert_eq!(poly_entities[1].id, "california");
+        assert_eq!(poly_entities[2].id, "pennsylvania");
+        assert!(poly_entities[1].availability.is_some());
+        assert!(poly_entities[2].availability.is_some());
+        for e in &poly_entities {
+            let prim = e.primitive().unwrap();
+            assert!(!prim.vertices.is_empty());
+            assert!(!prim.indices.is_empty());
+        }
+
+        // 4. CZML custom properties
+        let custom_prop_data = std::fs::read(base.join("czml-custom-properties.czml")).unwrap();
+        let (prop_entities, prop_clock) = czml(&custom_prop_data).unwrap();
+        assert_eq!(prop_entities.len(), 1);
+        assert_eq!(prop_entities[0].id, "colorado");
+        assert_eq!(prop_clock.multiplier, 500000000.0);
+        let prim = prop_entities[0].primitive().unwrap();
+        assert!(!prim.vertices.is_empty());
+        assert!(!prim.indices.is_empty());
     }
 }

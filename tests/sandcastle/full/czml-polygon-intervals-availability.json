@@ -1,0 +1,252 @@
+[
+  {
+    "id": "dynamicPolygon",
+    "show": true,
+    "name": "Dynamic Polygon with Intervals",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          -50,
+          20,
+          0
+        ],
+        [
+          -50,
+          40,
+          0
+        ],
+        [
+          -40,
+          40,
+          0
+        ],
+        [
+          -40,
+          20,
+          0
+        ]
+      ],
+      "holes": [
+        [
+          [
+            -47,
+            35,
+            0
+          ],
+          [
+            -46,
+            25,
+            0
+          ],
+          [
+            -42,
+            30,
+            0
+          ]
+        ]
+      ],
+      "extrudedHeight": null
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "availability": [
+      1344096000,
+      1344099600
+    ],
+    "properties": null
+  },
+  {
+    "id": "california",
+    "show": true,
+    "name": "static california with set availability",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygonSurface",
+      "data": {
+        "hierarchy": {
+          "positions": [
+            [
+              -120,
+              42,
+              50000
+            ],
+            [
+              -124,
+              42,
+              30500
+            ],
+            [
+              -124.5,
+              40,
+              3000
+            ],
+            [
+              -123,
+              38,
+              0
+            ],
+            [
+              -122,
+              36,
+              0
+            ],
+            [
+              -120.8,
+              34.2,
+              0
+            ],
+            [
+              -118,
+              34,
+              0
+            ],
+            [
+              -117,
+              32.2,
+              6000
+            ],
+            [
+              -115.5,
+              32.5,
+              1530
+            ],
+            [
+              -115,
+              35,
+              1530
+            ],
+            [
+              -120,
+              39,
+              30500
+            ]
+          ],
+          "holes": []
+        },
+        "textureCoordinates": null,
+        "height": 0,
+        "perPositionHeight": true,
+        "extrudedHeight": 0,
+        "closeTop": true,
+        "closeBottom": true,
+        "coplanar": false,
+        "arcType": "GEODESIC",
+        "stRotation": 0
+      }
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      0,
+      0,
+      0.5882352941176471
+    ],
+    "availability": [
+      1344096600,
+      1344097800
+    ],
+    "properties": null
+  },
+  {
+    "id": "pennsylvania",
+    "show": true,
+    "name": "static pennsylvania with set availability",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          -75.5,
+          42,
+          50000
+        ],
+        [
+          -79.8,
+          42,
+          50000
+        ],
+        [
+          -79.9,
+          42.3,
+          50000
+        ],
+        [
+          -80.5,
+          42,
+          50000
+        ],
+        [
+          -80.5,
+          39.8,
+          50000
+        ],
+        [
+          -75.7,
+          39.8,
+          50000
+        ],
+        [
+          -74.5,
+          40.2,
+          50000
+        ],
+        [
+          -75.2,
+          40.8,
+          50000
+        ],
+        [
+          -74.7,
+          41.3,
+          50000
+        ]
+      ],
+      "holes": [],
+      "height": 50000,
+      "extrudedHeight": 200000
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0,
+      1,
+      0,
+      0.5882352941176471
+    ],
+    "availability": [
+      1344097200,
+      1344098400
+    ],
+    "properties": null
+  }
+]
