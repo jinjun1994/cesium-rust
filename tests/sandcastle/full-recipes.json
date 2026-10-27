@@ -2007,6 +2007,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "polylines-dev",
+      "title": "Polylines - Dev",
+      "sourceSha256": "033510dce81a1affb27228ff85aff53370ec9417ee623884dd87f5325ce1dafa",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=polylines-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/polylines-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/polylines-dev.json",
+      "entityCount": 7,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "PolylineCollection with seven distinct polylines",
+        "PolylineColorAppearance, PolylineOutline, PolylineGlow, PolylineArrow and Fade materials",
+        "Cartesian arc and rhumb arc interpolation with loop support",
+        "local modelMatrix reference frame with East-oriented arrow"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "frustum-dev",
+      "title": "Frustum - Dev",
+      "sourceSha256": "5f653cec5cb35b15bbfac2edc5505f54c05e9ba041e9873dbeff6878078b13c9",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=frustum-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/frustum-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/frustum-dev.json",
+      "entityCount": 2,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "FrustumGeometry and FrustumOutlineGeometry from PerspectiveFrustum",
+        "ellipsoid surface origin and local ENU rotation matrix to quaternion",
+        "PerInstanceColorAppearance with red translucent fill and black outline",
+        "viewBoundingSphere framing of perspective frustum"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "parallels-and-meridians",
+      "title": "Parallels and Meridians",
+      "sourceSha256": "6f675d9f6593e8766f69f9bedc5e252d21fefc2485ede64dac5084dfe3be81bd",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=parallels-and-meridians",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/parallels-and-meridians.json",
+      "expectedPath": "../../tests/sandcastle/full/parallels-and-meridians.json",
+      "entityCount": 144,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "equator and prime meridian rhumb polylines",
+        "recursive multi-resolution grid generation",
+        "toggle controls for equator, prime meridian, grids and antipodal point",
+        "interactive screen space event handler for latitude/longitude coordinate crosshairs"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "polygon-texture-coordinates-dev",
+      "title": "Polygon Texture Coordinates - Dev",
+      "sourceSha256": "83aa240dde303512ebf27c12a04373d2cfe39a07e01fe219f9b44c3ae6fe3481",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=polygon-texture-coordinates-dev",
+      "format": "primitives",
+      "path": "../../tests/sandcastle/full/polygon-texture-coordinates-dev.primitive.json",
+      "expectedPath": "../../tests/sandcastle/full/polygon-texture-coordinates-dev.json",
+      "entityCount": 7,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "six PolygonGeometry instances with explicit textureCoordinates",
+        "nested holes with matching nested textureCoordinate hierarchies",
+        "perPositionHeight, rhumb arcType and extruded polygon variations",
+        "GroundPrimitive with image material appearance"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

@@ -583,6 +583,7 @@ async fn verify_extended(id: &str, data: &[u8]) {
         "polyline-volume",
         "rectangle",
         "z-indexing-geometry",
+        "parallels-and-meridians",
     ]
     .contains(&id)
     {
@@ -643,7 +644,12 @@ async fn verify_extended(id: &str, data: &[u8]) {
         image::ColorType::Rgba8,
     )
     .unwrap();
-    for e in &specs {
+    let test_specs: Vec<_> = if id == "parallels-and-meridians" {
+        specs.iter().filter(|e| e.show).cloned().collect()
+    } else {
+        specs.clone()
+    };
+    for e in &test_specs {
         let mut one = e.clone();
         one.show = false;
         if let Some([start, _]) = e.availability {
@@ -1399,5 +1405,43 @@ fn complete_czml_custom_properties() {
     pollster::block_on(verify_extended(
         "czml-custom-properties",
         include_bytes!("../../../tests/sandcastle/full/czml-custom-properties.czml"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_polylines_dev() {
+    pollster::block_on(verify_extended(
+        "polylines-dev",
+        include_bytes!("../../../tests/sandcastle/full/polylines-dev.primitive.json"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_frustum_dev() {
+    pollster::block_on(verify_extended(
+        "frustum-dev",
+        include_bytes!("../../../tests/sandcastle/full/frustum-dev.primitive.json"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_parallels_and_meridians() {
+    pollster::block_on(verify_extended(
+        "parallels-and-meridians",
+        include_bytes!("../../../tests/sandcastle/full/parallels-and-meridians.json"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_polygon_texture_coordinates_dev() {
+    pollster::block_on(verify_extended(
+        "polygon-texture-coordinates-dev",
+        include_bytes!(
+            "../../../tests/sandcastle/full/polygon-texture-coordinates-dev.primitive.json"
+        ),
     ));
 }

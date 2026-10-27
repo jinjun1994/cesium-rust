@@ -1,0 +1,8056 @@
+[
+  {
+    "id": "parallel-meridian-0",
+    "name": "Parallel 0",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            0,
+            0
+          ],
+          [
+            -90,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            90,
+            0,
+            0
+          ],
+          [
+            180,
+            0,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-1",
+    "name": "Meridian 0",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            0,
+            90,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-2",
+    "name": "Parallel 0",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            0,
+            0
+          ],
+          [
+            -90,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            90,
+            0,
+            0
+          ],
+          [
+            180,
+            0,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0.596078431372549,
+      0.984313725490196,
+      0.596078431372549,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-3",
+    "name": "Parallel -45",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -45,
+            0
+          ],
+          [
+            -90,
+            -45,
+            0
+          ],
+          [
+            0,
+            -45,
+            0
+          ],
+          [
+            90,
+            -45,
+            0
+          ],
+          [
+            180,
+            -45,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0.596078431372549,
+      0.984313725490196,
+      0.596078431372549,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-4",
+    "name": "Parallel -67.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -67.5,
+            0
+          ],
+          [
+            -90,
+            -67.5,
+            0
+          ],
+          [
+            0,
+            -67.5,
+            0
+          ],
+          [
+            90,
+            -67.5,
+            0
+          ],
+          [
+            180,
+            -67.5,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0.596078431372549,
+      0.984313725490196,
+      0.596078431372549,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-5",
+    "name": "Parallel -22.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -22.5,
+            0
+          ],
+          [
+            -90,
+            -22.5,
+            0
+          ],
+          [
+            0,
+            -22.5,
+            0
+          ],
+          [
+            90,
+            -22.5,
+            0
+          ],
+          [
+            180,
+            -22.5,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0.596078431372549,
+      0.984313725490196,
+      0.596078431372549,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-6",
+    "name": "Parallel 45",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            45,
+            0
+          ],
+          [
+            -90,
+            45,
+            0
+          ],
+          [
+            0,
+            45,
+            0
+          ],
+          [
+            90,
+            45,
+            0
+          ],
+          [
+            180,
+            45,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0.596078431372549,
+      0.984313725490196,
+      0.596078431372549,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-7",
+    "name": "Parallel 22.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            22.5,
+            0
+          ],
+          [
+            -90,
+            22.5,
+            0
+          ],
+          [
+            0,
+            22.5,
+            0
+          ],
+          [
+            90,
+            22.5,
+            0
+          ],
+          [
+            180,
+            22.5,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0.596078431372549,
+      0.984313725490196,
+      0.596078431372549,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-8",
+    "name": "Parallel 67.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            67.5,
+            0
+          ],
+          [
+            -90,
+            67.5,
+            0
+          ],
+          [
+            0,
+            67.5,
+            0
+          ],
+          [
+            90,
+            67.5,
+            0
+          ],
+          [
+            180,
+            67.5,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0.596078431372549,
+      0.984313725490196,
+      0.596078431372549,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-9",
+    "name": "Meridian 0",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            0,
+            90,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0.596078431372549,
+      0.984313725490196,
+      0.596078431372549,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-10",
+    "name": "Meridian -90",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -90,
+            90,
+            0
+          ],
+          [
+            -90,
+            0,
+            0
+          ],
+          [
+            -90,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0.596078431372549,
+      0.984313725490196,
+      0.596078431372549,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-11",
+    "name": "Meridian -135",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -135,
+            90,
+            0
+          ],
+          [
+            -135,
+            0,
+            0
+          ],
+          [
+            -135,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0.596078431372549,
+      0.984313725490196,
+      0.596078431372549,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-12",
+    "name": "Meridian -45",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -45,
+            90,
+            0
+          ],
+          [
+            -45,
+            0,
+            0
+          ],
+          [
+            -45,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0.596078431372549,
+      0.984313725490196,
+      0.596078431372549,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-13",
+    "name": "Meridian 90",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            90,
+            90,
+            0
+          ],
+          [
+            90,
+            0,
+            0
+          ],
+          [
+            90,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0.596078431372549,
+      0.984313725490196,
+      0.596078431372549,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-14",
+    "name": "Meridian 45",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            45,
+            90,
+            0
+          ],
+          [
+            45,
+            0,
+            0
+          ],
+          [
+            45,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0.596078431372549,
+      0.984313725490196,
+      0.596078431372549,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-15",
+    "name": "Meridian 135",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            135,
+            90,
+            0
+          ],
+          [
+            135,
+            0,
+            0
+          ],
+          [
+            135,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0.596078431372549,
+      0.984313725490196,
+      0.596078431372549,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-16",
+    "name": "Meridian 180",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            180,
+            90,
+            0
+          ],
+          [
+            180,
+            0,
+            0
+          ],
+          [
+            180,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0.596078431372549,
+      0.984313725490196,
+      0.596078431372549,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-17",
+    "name": "Parallel 0",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            0,
+            0
+          ],
+          [
+            -90,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            90,
+            0,
+            0
+          ],
+          [
+            180,
+            0,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-18",
+    "name": "Parallel -45",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -45,
+            0
+          ],
+          [
+            -90,
+            -45,
+            0
+          ],
+          [
+            0,
+            -45,
+            0
+          ],
+          [
+            90,
+            -45,
+            0
+          ],
+          [
+            180,
+            -45,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-19",
+    "name": "Parallel -67.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -67.5,
+            0
+          ],
+          [
+            -90,
+            -67.5,
+            0
+          ],
+          [
+            0,
+            -67.5,
+            0
+          ],
+          [
+            90,
+            -67.5,
+            0
+          ],
+          [
+            180,
+            -67.5,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-20",
+    "name": "Parallel -78.75",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -78.75,
+            0
+          ],
+          [
+            -90,
+            -78.75,
+            0
+          ],
+          [
+            0,
+            -78.75,
+            0
+          ],
+          [
+            90,
+            -78.75,
+            0
+          ],
+          [
+            180,
+            -78.75,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-21",
+    "name": "Parallel -84.375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -84.375,
+            0
+          ],
+          [
+            -90,
+            -84.375,
+            0
+          ],
+          [
+            0,
+            -84.375,
+            0
+          ],
+          [
+            90,
+            -84.375,
+            0
+          ],
+          [
+            180,
+            -84.375,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-22",
+    "name": "Parallel -87.1875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -87.1875,
+            0
+          ],
+          [
+            -90,
+            -87.1875,
+            0
+          ],
+          [
+            0,
+            -87.1875,
+            0
+          ],
+          [
+            90,
+            -87.1875,
+            0
+          ],
+          [
+            180,
+            -87.1875,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-23",
+    "name": "Parallel -81.5625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -81.5625,
+            0
+          ],
+          [
+            -90,
+            -81.5625,
+            0
+          ],
+          [
+            0,
+            -81.5625,
+            0
+          ],
+          [
+            90,
+            -81.5625,
+            0
+          ],
+          [
+            180,
+            -81.5625,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-24",
+    "name": "Parallel -73.125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -73.125,
+            0
+          ],
+          [
+            -90,
+            -73.125,
+            0
+          ],
+          [
+            0,
+            -73.125,
+            0
+          ],
+          [
+            90,
+            -73.125,
+            0
+          ],
+          [
+            180,
+            -73.125,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-25",
+    "name": "Parallel -75.9375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -75.9375,
+            0
+          ],
+          [
+            -90,
+            -75.9375,
+            0
+          ],
+          [
+            0,
+            -75.9375,
+            0
+          ],
+          [
+            90,
+            -75.9375,
+            0
+          ],
+          [
+            180,
+            -75.9375,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-26",
+    "name": "Parallel -70.3125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -70.3125,
+            0
+          ],
+          [
+            -90,
+            -70.3125,
+            0
+          ],
+          [
+            0,
+            -70.3125,
+            0
+          ],
+          [
+            90,
+            -70.3125,
+            0
+          ],
+          [
+            180,
+            -70.3125,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-27",
+    "name": "Parallel -56.25",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -56.25,
+            0
+          ],
+          [
+            -90,
+            -56.25,
+            0
+          ],
+          [
+            0,
+            -56.25,
+            0
+          ],
+          [
+            90,
+            -56.25,
+            0
+          ],
+          [
+            180,
+            -56.25,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-28",
+    "name": "Parallel -61.875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -61.875,
+            0
+          ],
+          [
+            -90,
+            -61.875,
+            0
+          ],
+          [
+            0,
+            -61.875,
+            0
+          ],
+          [
+            90,
+            -61.875,
+            0
+          ],
+          [
+            180,
+            -61.875,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-29",
+    "name": "Parallel -64.6875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -64.6875,
+            0
+          ],
+          [
+            -90,
+            -64.6875,
+            0
+          ],
+          [
+            0,
+            -64.6875,
+            0
+          ],
+          [
+            90,
+            -64.6875,
+            0
+          ],
+          [
+            180,
+            -64.6875,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-30",
+    "name": "Parallel -59.0625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -59.0625,
+            0
+          ],
+          [
+            -90,
+            -59.0625,
+            0
+          ],
+          [
+            0,
+            -59.0625,
+            0
+          ],
+          [
+            90,
+            -59.0625,
+            0
+          ],
+          [
+            180,
+            -59.0625,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-31",
+    "name": "Parallel -50.625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -50.625,
+            0
+          ],
+          [
+            -90,
+            -50.625,
+            0
+          ],
+          [
+            0,
+            -50.625,
+            0
+          ],
+          [
+            90,
+            -50.625,
+            0
+          ],
+          [
+            180,
+            -50.625,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-32",
+    "name": "Parallel -53.4375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -53.4375,
+            0
+          ],
+          [
+            -90,
+            -53.4375,
+            0
+          ],
+          [
+            0,
+            -53.4375,
+            0
+          ],
+          [
+            90,
+            -53.4375,
+            0
+          ],
+          [
+            180,
+            -53.4375,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-33",
+    "name": "Parallel -47.8125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -47.8125,
+            0
+          ],
+          [
+            -90,
+            -47.8125,
+            0
+          ],
+          [
+            0,
+            -47.8125,
+            0
+          ],
+          [
+            90,
+            -47.8125,
+            0
+          ],
+          [
+            180,
+            -47.8125,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-34",
+    "name": "Parallel -22.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -22.5,
+            0
+          ],
+          [
+            -90,
+            -22.5,
+            0
+          ],
+          [
+            0,
+            -22.5,
+            0
+          ],
+          [
+            90,
+            -22.5,
+            0
+          ],
+          [
+            180,
+            -22.5,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-35",
+    "name": "Parallel -33.75",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -33.75,
+            0
+          ],
+          [
+            -90,
+            -33.75,
+            0
+          ],
+          [
+            0,
+            -33.75,
+            0
+          ],
+          [
+            90,
+            -33.75,
+            0
+          ],
+          [
+            180,
+            -33.75,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-36",
+    "name": "Parallel -39.375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -39.375,
+            0
+          ],
+          [
+            -90,
+            -39.375,
+            0
+          ],
+          [
+            0,
+            -39.375,
+            0
+          ],
+          [
+            90,
+            -39.375,
+            0
+          ],
+          [
+            180,
+            -39.375,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-37",
+    "name": "Parallel -42.1875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -42.1875,
+            0
+          ],
+          [
+            -90,
+            -42.1875,
+            0
+          ],
+          [
+            0,
+            -42.1875,
+            0
+          ],
+          [
+            90,
+            -42.1875,
+            0
+          ],
+          [
+            180,
+            -42.1875,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-38",
+    "name": "Parallel -36.5625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -36.5625,
+            0
+          ],
+          [
+            -90,
+            -36.5625,
+            0
+          ],
+          [
+            0,
+            -36.5625,
+            0
+          ],
+          [
+            90,
+            -36.5625,
+            0
+          ],
+          [
+            180,
+            -36.5625,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-39",
+    "name": "Parallel -28.125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -28.125,
+            0
+          ],
+          [
+            -90,
+            -28.125,
+            0
+          ],
+          [
+            0,
+            -28.125,
+            0
+          ],
+          [
+            90,
+            -28.125,
+            0
+          ],
+          [
+            180,
+            -28.125,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-40",
+    "name": "Parallel -30.9375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -30.9375,
+            0
+          ],
+          [
+            -90,
+            -30.9375,
+            0
+          ],
+          [
+            0,
+            -30.9375,
+            0
+          ],
+          [
+            90,
+            -30.9375,
+            0
+          ],
+          [
+            180,
+            -30.9375,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-41",
+    "name": "Parallel -25.3125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -25.3125,
+            0
+          ],
+          [
+            -90,
+            -25.3125,
+            0
+          ],
+          [
+            0,
+            -25.3125,
+            0
+          ],
+          [
+            90,
+            -25.3125,
+            0
+          ],
+          [
+            180,
+            -25.3125,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-42",
+    "name": "Parallel -11.25",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -11.25,
+            0
+          ],
+          [
+            -90,
+            -11.25,
+            0
+          ],
+          [
+            0,
+            -11.25,
+            0
+          ],
+          [
+            90,
+            -11.25,
+            0
+          ],
+          [
+            180,
+            -11.25,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-43",
+    "name": "Parallel -16.875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -16.875,
+            0
+          ],
+          [
+            -90,
+            -16.875,
+            0
+          ],
+          [
+            0,
+            -16.875,
+            0
+          ],
+          [
+            90,
+            -16.875,
+            0
+          ],
+          [
+            180,
+            -16.875,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-44",
+    "name": "Parallel -19.6875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -19.6875,
+            0
+          ],
+          [
+            -90,
+            -19.6875,
+            0
+          ],
+          [
+            0,
+            -19.6875,
+            0
+          ],
+          [
+            90,
+            -19.6875,
+            0
+          ],
+          [
+            180,
+            -19.6875,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-45",
+    "name": "Parallel -14.0625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -14.0625,
+            0
+          ],
+          [
+            -90,
+            -14.0625,
+            0
+          ],
+          [
+            0,
+            -14.0625,
+            0
+          ],
+          [
+            90,
+            -14.0625,
+            0
+          ],
+          [
+            180,
+            -14.0625,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-46",
+    "name": "Parallel -5.625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -5.625,
+            0
+          ],
+          [
+            -90,
+            -5.625,
+            0
+          ],
+          [
+            0,
+            -5.625,
+            0
+          ],
+          [
+            90,
+            -5.625,
+            0
+          ],
+          [
+            180,
+            -5.625,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-47",
+    "name": "Parallel -8.4375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -8.4375,
+            0
+          ],
+          [
+            -90,
+            -8.4375,
+            0
+          ],
+          [
+            0,
+            -8.4375,
+            0
+          ],
+          [
+            90,
+            -8.4375,
+            0
+          ],
+          [
+            180,
+            -8.4375,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-48",
+    "name": "Parallel -2.8125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            -2.8125,
+            0
+          ],
+          [
+            -90,
+            -2.8125,
+            0
+          ],
+          [
+            0,
+            -2.8125,
+            0
+          ],
+          [
+            90,
+            -2.8125,
+            0
+          ],
+          [
+            180,
+            -2.8125,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-49",
+    "name": "Parallel 45",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            45,
+            0
+          ],
+          [
+            -90,
+            45,
+            0
+          ],
+          [
+            0,
+            45,
+            0
+          ],
+          [
+            90,
+            45,
+            0
+          ],
+          [
+            180,
+            45,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-50",
+    "name": "Parallel 22.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            22.5,
+            0
+          ],
+          [
+            -90,
+            22.5,
+            0
+          ],
+          [
+            0,
+            22.5,
+            0
+          ],
+          [
+            90,
+            22.5,
+            0
+          ],
+          [
+            180,
+            22.5,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-51",
+    "name": "Parallel 11.25",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            11.25,
+            0
+          ],
+          [
+            -90,
+            11.25,
+            0
+          ],
+          [
+            0,
+            11.25,
+            0
+          ],
+          [
+            90,
+            11.25,
+            0
+          ],
+          [
+            180,
+            11.25,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-52",
+    "name": "Parallel 5.625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            5.625,
+            0
+          ],
+          [
+            -90,
+            5.625,
+            0
+          ],
+          [
+            0,
+            5.625,
+            0
+          ],
+          [
+            90,
+            5.625,
+            0
+          ],
+          [
+            180,
+            5.625,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-53",
+    "name": "Parallel 2.8125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            2.8125,
+            0
+          ],
+          [
+            -90,
+            2.8125,
+            0
+          ],
+          [
+            0,
+            2.8125,
+            0
+          ],
+          [
+            90,
+            2.8125,
+            0
+          ],
+          [
+            180,
+            2.8125,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-54",
+    "name": "Parallel 8.4375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            8.4375,
+            0
+          ],
+          [
+            -90,
+            8.4375,
+            0
+          ],
+          [
+            0,
+            8.4375,
+            0
+          ],
+          [
+            90,
+            8.4375,
+            0
+          ],
+          [
+            180,
+            8.4375,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-55",
+    "name": "Parallel 16.875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            16.875,
+            0
+          ],
+          [
+            -90,
+            16.875,
+            0
+          ],
+          [
+            0,
+            16.875,
+            0
+          ],
+          [
+            90,
+            16.875,
+            0
+          ],
+          [
+            180,
+            16.875,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-56",
+    "name": "Parallel 14.0625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            14.0625,
+            0
+          ],
+          [
+            -90,
+            14.0625,
+            0
+          ],
+          [
+            0,
+            14.0625,
+            0
+          ],
+          [
+            90,
+            14.0625,
+            0
+          ],
+          [
+            180,
+            14.0625,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-57",
+    "name": "Parallel 19.6875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            19.6875,
+            0
+          ],
+          [
+            -90,
+            19.6875,
+            0
+          ],
+          [
+            0,
+            19.6875,
+            0
+          ],
+          [
+            90,
+            19.6875,
+            0
+          ],
+          [
+            180,
+            19.6875,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-58",
+    "name": "Parallel 33.75",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            33.75,
+            0
+          ],
+          [
+            -90,
+            33.75,
+            0
+          ],
+          [
+            0,
+            33.75,
+            0
+          ],
+          [
+            90,
+            33.75,
+            0
+          ],
+          [
+            180,
+            33.75,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-59",
+    "name": "Parallel 28.125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            28.125,
+            0
+          ],
+          [
+            -90,
+            28.125,
+            0
+          ],
+          [
+            0,
+            28.125,
+            0
+          ],
+          [
+            90,
+            28.125,
+            0
+          ],
+          [
+            180,
+            28.125,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-60",
+    "name": "Parallel 25.3125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            25.3125,
+            0
+          ],
+          [
+            -90,
+            25.3125,
+            0
+          ],
+          [
+            0,
+            25.3125,
+            0
+          ],
+          [
+            90,
+            25.3125,
+            0
+          ],
+          [
+            180,
+            25.3125,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-61",
+    "name": "Parallel 30.9375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            30.9375,
+            0
+          ],
+          [
+            -90,
+            30.9375,
+            0
+          ],
+          [
+            0,
+            30.9375,
+            0
+          ],
+          [
+            90,
+            30.9375,
+            0
+          ],
+          [
+            180,
+            30.9375,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-62",
+    "name": "Parallel 39.375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            39.375,
+            0
+          ],
+          [
+            -90,
+            39.375,
+            0
+          ],
+          [
+            0,
+            39.375,
+            0
+          ],
+          [
+            90,
+            39.375,
+            0
+          ],
+          [
+            180,
+            39.375,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-63",
+    "name": "Parallel 36.5625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            36.5625,
+            0
+          ],
+          [
+            -90,
+            36.5625,
+            0
+          ],
+          [
+            0,
+            36.5625,
+            0
+          ],
+          [
+            90,
+            36.5625,
+            0
+          ],
+          [
+            180,
+            36.5625,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-64",
+    "name": "Parallel 42.1875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            42.1875,
+            0
+          ],
+          [
+            -90,
+            42.1875,
+            0
+          ],
+          [
+            0,
+            42.1875,
+            0
+          ],
+          [
+            90,
+            42.1875,
+            0
+          ],
+          [
+            180,
+            42.1875,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-65",
+    "name": "Parallel 67.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            67.5,
+            0
+          ],
+          [
+            -90,
+            67.5,
+            0
+          ],
+          [
+            0,
+            67.5,
+            0
+          ],
+          [
+            90,
+            67.5,
+            0
+          ],
+          [
+            180,
+            67.5,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-66",
+    "name": "Parallel 56.25",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            56.25,
+            0
+          ],
+          [
+            -90,
+            56.25,
+            0
+          ],
+          [
+            0,
+            56.25,
+            0
+          ],
+          [
+            90,
+            56.25,
+            0
+          ],
+          [
+            180,
+            56.25,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-67",
+    "name": "Parallel 50.625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            50.625,
+            0
+          ],
+          [
+            -90,
+            50.625,
+            0
+          ],
+          [
+            0,
+            50.625,
+            0
+          ],
+          [
+            90,
+            50.625,
+            0
+          ],
+          [
+            180,
+            50.625,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-68",
+    "name": "Parallel 47.8125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            47.8125,
+            0
+          ],
+          [
+            -90,
+            47.8125,
+            0
+          ],
+          [
+            0,
+            47.8125,
+            0
+          ],
+          [
+            90,
+            47.8125,
+            0
+          ],
+          [
+            180,
+            47.8125,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-69",
+    "name": "Parallel 53.4375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            53.4375,
+            0
+          ],
+          [
+            -90,
+            53.4375,
+            0
+          ],
+          [
+            0,
+            53.4375,
+            0
+          ],
+          [
+            90,
+            53.4375,
+            0
+          ],
+          [
+            180,
+            53.4375,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-70",
+    "name": "Parallel 61.875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            61.875,
+            0
+          ],
+          [
+            -90,
+            61.875,
+            0
+          ],
+          [
+            0,
+            61.875,
+            0
+          ],
+          [
+            90,
+            61.875,
+            0
+          ],
+          [
+            180,
+            61.875,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-71",
+    "name": "Parallel 59.0625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            59.0625,
+            0
+          ],
+          [
+            -90,
+            59.0625,
+            0
+          ],
+          [
+            0,
+            59.0625,
+            0
+          ],
+          [
+            90,
+            59.0625,
+            0
+          ],
+          [
+            180,
+            59.0625,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-72",
+    "name": "Parallel 64.6875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            64.6875,
+            0
+          ],
+          [
+            -90,
+            64.6875,
+            0
+          ],
+          [
+            0,
+            64.6875,
+            0
+          ],
+          [
+            90,
+            64.6875,
+            0
+          ],
+          [
+            180,
+            64.6875,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-73",
+    "name": "Parallel 78.75",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            78.75,
+            0
+          ],
+          [
+            -90,
+            78.75,
+            0
+          ],
+          [
+            0,
+            78.75,
+            0
+          ],
+          [
+            90,
+            78.75,
+            0
+          ],
+          [
+            180,
+            78.75,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-74",
+    "name": "Parallel 73.125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            73.125,
+            0
+          ],
+          [
+            -90,
+            73.125,
+            0
+          ],
+          [
+            0,
+            73.125,
+            0
+          ],
+          [
+            90,
+            73.125,
+            0
+          ],
+          [
+            180,
+            73.125,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-75",
+    "name": "Parallel 70.3125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            70.3125,
+            0
+          ],
+          [
+            -90,
+            70.3125,
+            0
+          ],
+          [
+            0,
+            70.3125,
+            0
+          ],
+          [
+            90,
+            70.3125,
+            0
+          ],
+          [
+            180,
+            70.3125,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-76",
+    "name": "Parallel 75.9375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            75.9375,
+            0
+          ],
+          [
+            -90,
+            75.9375,
+            0
+          ],
+          [
+            0,
+            75.9375,
+            0
+          ],
+          [
+            90,
+            75.9375,
+            0
+          ],
+          [
+            180,
+            75.9375,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-77",
+    "name": "Parallel 84.375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            84.375,
+            0
+          ],
+          [
+            -90,
+            84.375,
+            0
+          ],
+          [
+            0,
+            84.375,
+            0
+          ],
+          [
+            90,
+            84.375,
+            0
+          ],
+          [
+            180,
+            84.375,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-78",
+    "name": "Parallel 81.5625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            81.5625,
+            0
+          ],
+          [
+            -90,
+            81.5625,
+            0
+          ],
+          [
+            0,
+            81.5625,
+            0
+          ],
+          [
+            90,
+            81.5625,
+            0
+          ],
+          [
+            180,
+            81.5625,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-79",
+    "name": "Parallel 87.1875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -180,
+            87.1875,
+            0
+          ],
+          [
+            -90,
+            87.1875,
+            0
+          ],
+          [
+            0,
+            87.1875,
+            0
+          ],
+          [
+            90,
+            87.1875,
+            0
+          ],
+          [
+            180,
+            87.1875,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-80",
+    "name": "Meridian 0",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            0,
+            90,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-81",
+    "name": "Meridian -90",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -90,
+            90,
+            0
+          ],
+          [
+            -90,
+            0,
+            0
+          ],
+          [
+            -90,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-82",
+    "name": "Meridian -135",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -135,
+            90,
+            0
+          ],
+          [
+            -135,
+            0,
+            0
+          ],
+          [
+            -135,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-83",
+    "name": "Meridian -157.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -157.5,
+            90,
+            0
+          ],
+          [
+            -157.5,
+            0,
+            0
+          ],
+          [
+            -157.5,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-84",
+    "name": "Meridian -168.75",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -168.75,
+            90,
+            0
+          ],
+          [
+            -168.75,
+            0,
+            0
+          ],
+          [
+            -168.75,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-85",
+    "name": "Meridian -174.375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -174.375,
+            90,
+            0
+          ],
+          [
+            -174.375,
+            0,
+            0
+          ],
+          [
+            -174.375,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-86",
+    "name": "Meridian -163.125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -163.125,
+            90,
+            0
+          ],
+          [
+            -163.125,
+            0,
+            0
+          ],
+          [
+            -163.125,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-87",
+    "name": "Meridian -146.25",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -146.25,
+            90,
+            0
+          ],
+          [
+            -146.25,
+            0,
+            0
+          ],
+          [
+            -146.25,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-88",
+    "name": "Meridian -151.875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -151.875,
+            90,
+            0
+          ],
+          [
+            -151.875,
+            0,
+            0
+          ],
+          [
+            -151.875,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-89",
+    "name": "Meridian -140.625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -140.625,
+            90,
+            0
+          ],
+          [
+            -140.625,
+            0,
+            0
+          ],
+          [
+            -140.625,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-90",
+    "name": "Meridian -112.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -112.5,
+            90,
+            0
+          ],
+          [
+            -112.5,
+            0,
+            0
+          ],
+          [
+            -112.5,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-91",
+    "name": "Meridian -123.75",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -123.75,
+            90,
+            0
+          ],
+          [
+            -123.75,
+            0,
+            0
+          ],
+          [
+            -123.75,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-92",
+    "name": "Meridian -129.375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -129.375,
+            90,
+            0
+          ],
+          [
+            -129.375,
+            0,
+            0
+          ],
+          [
+            -129.375,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-93",
+    "name": "Meridian -118.125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -118.125,
+            90,
+            0
+          ],
+          [
+            -118.125,
+            0,
+            0
+          ],
+          [
+            -118.125,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-94",
+    "name": "Meridian -101.25",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -101.25,
+            90,
+            0
+          ],
+          [
+            -101.25,
+            0,
+            0
+          ],
+          [
+            -101.25,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-95",
+    "name": "Meridian -106.875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -106.875,
+            90,
+            0
+          ],
+          [
+            -106.875,
+            0,
+            0
+          ],
+          [
+            -106.875,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-96",
+    "name": "Meridian -95.625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -95.625,
+            90,
+            0
+          ],
+          [
+            -95.625,
+            0,
+            0
+          ],
+          [
+            -95.625,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-97",
+    "name": "Meridian -45",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -45,
+            90,
+            0
+          ],
+          [
+            -45,
+            0,
+            0
+          ],
+          [
+            -45,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-98",
+    "name": "Meridian -67.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -67.5,
+            90,
+            0
+          ],
+          [
+            -67.5,
+            0,
+            0
+          ],
+          [
+            -67.5,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-99",
+    "name": "Meridian -78.75",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -78.75,
+            90,
+            0
+          ],
+          [
+            -78.75,
+            0,
+            0
+          ],
+          [
+            -78.75,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-100",
+    "name": "Meridian -84.375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -84.375,
+            90,
+            0
+          ],
+          [
+            -84.375,
+            0,
+            0
+          ],
+          [
+            -84.375,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-101",
+    "name": "Meridian -73.125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -73.125,
+            90,
+            0
+          ],
+          [
+            -73.125,
+            0,
+            0
+          ],
+          [
+            -73.125,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-102",
+    "name": "Meridian -56.25",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -56.25,
+            90,
+            0
+          ],
+          [
+            -56.25,
+            0,
+            0
+          ],
+          [
+            -56.25,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-103",
+    "name": "Meridian -61.875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -61.875,
+            90,
+            0
+          ],
+          [
+            -61.875,
+            0,
+            0
+          ],
+          [
+            -61.875,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-104",
+    "name": "Meridian -50.625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -50.625,
+            90,
+            0
+          ],
+          [
+            -50.625,
+            0,
+            0
+          ],
+          [
+            -50.625,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-105",
+    "name": "Meridian -22.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -22.5,
+            90,
+            0
+          ],
+          [
+            -22.5,
+            0,
+            0
+          ],
+          [
+            -22.5,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-106",
+    "name": "Meridian -33.75",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -33.75,
+            90,
+            0
+          ],
+          [
+            -33.75,
+            0,
+            0
+          ],
+          [
+            -33.75,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-107",
+    "name": "Meridian -39.375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -39.375,
+            90,
+            0
+          ],
+          [
+            -39.375,
+            0,
+            0
+          ],
+          [
+            -39.375,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-108",
+    "name": "Meridian -28.125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -28.125,
+            90,
+            0
+          ],
+          [
+            -28.125,
+            0,
+            0
+          ],
+          [
+            -28.125,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-109",
+    "name": "Meridian -11.25",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -11.25,
+            90,
+            0
+          ],
+          [
+            -11.25,
+            0,
+            0
+          ],
+          [
+            -11.25,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-110",
+    "name": "Meridian -16.875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -16.875,
+            90,
+            0
+          ],
+          [
+            -16.875,
+            0,
+            0
+          ],
+          [
+            -16.875,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-111",
+    "name": "Meridian -5.625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -5.625,
+            90,
+            0
+          ],
+          [
+            -5.625,
+            0,
+            0
+          ],
+          [
+            -5.625,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-112",
+    "name": "Meridian 90",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            90,
+            90,
+            0
+          ],
+          [
+            90,
+            0,
+            0
+          ],
+          [
+            90,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-113",
+    "name": "Meridian 45",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            45,
+            90,
+            0
+          ],
+          [
+            45,
+            0,
+            0
+          ],
+          [
+            45,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-114",
+    "name": "Meridian 22.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            22.5,
+            90,
+            0
+          ],
+          [
+            22.5,
+            0,
+            0
+          ],
+          [
+            22.5,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-115",
+    "name": "Meridian 11.25",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            11.25,
+            90,
+            0
+          ],
+          [
+            11.25,
+            0,
+            0
+          ],
+          [
+            11.25,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-116",
+    "name": "Meridian 5.625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            5.625,
+            90,
+            0
+          ],
+          [
+            5.625,
+            0,
+            0
+          ],
+          [
+            5.625,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-117",
+    "name": "Meridian 16.875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            16.875,
+            90,
+            0
+          ],
+          [
+            16.875,
+            0,
+            0
+          ],
+          [
+            16.875,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-118",
+    "name": "Meridian 33.75",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            33.75,
+            90,
+            0
+          ],
+          [
+            33.75,
+            0,
+            0
+          ],
+          [
+            33.75,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-119",
+    "name": "Meridian 28.125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            28.125,
+            90,
+            0
+          ],
+          [
+            28.125,
+            0,
+            0
+          ],
+          [
+            28.125,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-120",
+    "name": "Meridian 39.375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            39.375,
+            90,
+            0
+          ],
+          [
+            39.375,
+            0,
+            0
+          ],
+          [
+            39.375,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-121",
+    "name": "Meridian 67.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            67.5,
+            90,
+            0
+          ],
+          [
+            67.5,
+            0,
+            0
+          ],
+          [
+            67.5,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-122",
+    "name": "Meridian 56.25",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            56.25,
+            90,
+            0
+          ],
+          [
+            56.25,
+            0,
+            0
+          ],
+          [
+            56.25,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-123",
+    "name": "Meridian 50.625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            50.625,
+            90,
+            0
+          ],
+          [
+            50.625,
+            0,
+            0
+          ],
+          [
+            50.625,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-124",
+    "name": "Meridian 61.875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            61.875,
+            90,
+            0
+          ],
+          [
+            61.875,
+            0,
+            0
+          ],
+          [
+            61.875,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-125",
+    "name": "Meridian 78.75",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            78.75,
+            90,
+            0
+          ],
+          [
+            78.75,
+            0,
+            0
+          ],
+          [
+            78.75,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-126",
+    "name": "Meridian 73.125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            73.125,
+            90,
+            0
+          ],
+          [
+            73.125,
+            0,
+            0
+          ],
+          [
+            73.125,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-127",
+    "name": "Meridian 84.375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            84.375,
+            90,
+            0
+          ],
+          [
+            84.375,
+            0,
+            0
+          ],
+          [
+            84.375,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-128",
+    "name": "Meridian 135",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            135,
+            90,
+            0
+          ],
+          [
+            135,
+            0,
+            0
+          ],
+          [
+            135,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-129",
+    "name": "Meridian 112.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            112.5,
+            90,
+            0
+          ],
+          [
+            112.5,
+            0,
+            0
+          ],
+          [
+            112.5,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-130",
+    "name": "Meridian 101.25",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            101.25,
+            90,
+            0
+          ],
+          [
+            101.25,
+            0,
+            0
+          ],
+          [
+            101.25,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-131",
+    "name": "Meridian 95.625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            95.625,
+            90,
+            0
+          ],
+          [
+            95.625,
+            0,
+            0
+          ],
+          [
+            95.625,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-132",
+    "name": "Meridian 106.875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            106.875,
+            90,
+            0
+          ],
+          [
+            106.875,
+            0,
+            0
+          ],
+          [
+            106.875,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-133",
+    "name": "Meridian 123.75",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            123.75,
+            90,
+            0
+          ],
+          [
+            123.75,
+            0,
+            0
+          ],
+          [
+            123.75,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-134",
+    "name": "Meridian 118.125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            118.125,
+            90,
+            0
+          ],
+          [
+            118.125,
+            0,
+            0
+          ],
+          [
+            118.125,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-135",
+    "name": "Meridian 129.375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            129.375,
+            90,
+            0
+          ],
+          [
+            129.375,
+            0,
+            0
+          ],
+          [
+            129.375,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-136",
+    "name": "Meridian 157.5",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            157.5,
+            90,
+            0
+          ],
+          [
+            157.5,
+            0,
+            0
+          ],
+          [
+            157.5,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-137",
+    "name": "Meridian 146.25",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            146.25,
+            90,
+            0
+          ],
+          [
+            146.25,
+            0,
+            0
+          ],
+          [
+            146.25,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-138",
+    "name": "Meridian 140.625",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            140.625,
+            90,
+            0
+          ],
+          [
+            140.625,
+            0,
+            0
+          ],
+          [
+            140.625,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-139",
+    "name": "Meridian 151.875",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            151.875,
+            90,
+            0
+          ],
+          [
+            151.875,
+            0,
+            0
+          ],
+          [
+            151.875,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-140",
+    "name": "Meridian 168.75",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            168.75,
+            90,
+            0
+          ],
+          [
+            168.75,
+            0,
+            0
+          ],
+          [
+            168.75,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-141",
+    "name": "Meridian 163.125",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            163.125,
+            90,
+            0
+          ],
+          [
+            163.125,
+            0,
+            0
+          ],
+          [
+            163.125,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-142",
+    "name": "Meridian 174.375",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            174.375,
+            90,
+            0
+          ],
+          [
+            174.375,
+            0,
+            0
+          ],
+          [
+            174.375,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "parallel-meridian-143",
+    "name": "Meridian 180",
+    "show": false,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            180,
+            90,
+            0
+          ],
+          [
+            180,
+            0,
+            0
+          ],
+          [
+            180,
+            -90,
+            0
+          ]
+        ],
+        "width": 2,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5490196078431373,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1
+  }
+]

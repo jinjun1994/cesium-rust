@@ -1,0 +1,391 @@
+[
+  {
+    "id": "primitive-0-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -120,
+            40,
+            0
+          ],
+          [
+            -110,
+            30,
+            0
+          ]
+        ],
+        "width": 1,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-1-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -105,
+            40,
+            0
+          ],
+          [
+            -100,
+            38,
+            0
+          ],
+          [
+            -105,
+            35,
+            0
+          ],
+          [
+            -100,
+            32,
+            0
+          ]
+        ],
+        "width": 10,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "outline",
+          "outlineColor": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 5
+        }
+      }
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 1,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-2-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -95,
+            30,
+            0
+          ],
+          [
+            -85,
+            40,
+            0
+          ]
+        ],
+        "width": 10,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "glow",
+          "glowPower": 0.2,
+          "taperPower": 0.2
+        }
+      }
+    },
+    "color": [
+      1,
+      0.5,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 2,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-3-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -105,
+            30,
+            0
+          ],
+          [
+            -105,
+            25,
+            0
+          ],
+          [
+            -100,
+            22,
+            0
+          ],
+          [
+            -100,
+            28,
+            0
+          ],
+          [
+            -105,
+            30,
+            0
+          ]
+        ],
+        "width": 3,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 3,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-4-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -75,
+            43,
+            500000
+          ],
+          [
+            -125,
+            43,
+            500000
+          ]
+        ],
+        "width": 5,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "fade",
+          "fadeInColor": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "fadeOutColor": [
+            0,
+            1,
+            1,
+            0
+          ]
+        }
+      }
+    },
+    "color": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 4,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-5-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -130,
+            30,
+            0
+          ],
+          [
+            -75,
+            30,
+            0
+          ]
+        ],
+        "width": 5,
+        "arcType": "RHUMB",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      0,
+      1,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 5,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-6-instance-0",
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -80,
+            35,
+            0
+          ],
+          [
+            -69.17629702067126,
+            34.51610060274048,
+            77833.08369033784
+          ]
+        ],
+        "width": 10,
+        "arcType": "NONE",
+        "clampToGround": false,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "arrow"
+        }
+      }
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 6,
+      "instanceIndex": 0
+    }
+  }
+]

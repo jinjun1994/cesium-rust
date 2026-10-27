@@ -56,6 +56,12 @@ pub enum LineMaterial {
         #[serde(rename = "dashPattern")]
         pattern: u16,
     },
+    Fade {
+        #[serde(rename = "fadeInColor")]
+        fade_in_color: [f32; 4],
+        #[serde(rename = "fadeOutColor")]
+        fade_out_color: [f32; 4],
+    },
 }
 fn color(c: [f32; 4]) -> bool {
     c.iter().all(|n| n.is_finite() && (0.0..=1.).contains(n))
@@ -71,7 +77,7 @@ impl Polyline {
         for c in &self.positions {
             if c.iter().any(|n| !n.is_finite())
                 || c[0].abs() > 180.
-                || c[1].abs() > 85.
+                || c[1].abs() > 90.0001
                 || c[2].abs() > 2e6
             {
                 return Err("polyline coordinate limit".into());
@@ -109,6 +115,12 @@ impl Polyline {
             } if !color(g) || !l.is_finite() || !(1.0..=1024.).contains(&l) => {
                 return Err("dash limit".into())
             }
+            LineMaterial::Fade {
+                fade_in_color,
+                fade_out_color,
+            } if !color(fade_in_color) || !color(fade_out_color) => {
+                return Err("fade color limit".into())
+            }
             _ => {}
         }
         Ok(())
@@ -124,6 +136,10 @@ fn world(p: [f64; 3], clamp: bool) -> Result<DVec3, String> {
 fn rhumb(a: [f64; 3], b: [f64; 3], t: f64) -> [f64; 3] {
     let e = (1. - (1. - 1. / 298.257223563_f64).powi(2)).sqrt();
     let iso = |p: f64| {
+        let p = p.clamp(
+            -std::f64::consts::FRAC_PI_2 + 1e-7,
+            std::f64::consts::FRAC_PI_2 - 1e-7,
+        );
         (std::f64::consts::FRAC_PI_4 + p / 2.).tan().ln()
             - e * ((1. + e * p.sin()) / (1. - e * p.sin())).ln() / 2.
     };
@@ -184,6 +200,12 @@ pub fn primitive(e: &Entity, d: &Polyline) -> Result<Primitive, String> {
             [length, pattern as f32],
             [0.; 2],
         ),
+        LineMaterial::Fade { fade_out_color, .. } => (
+            11,
+            crate::entity_material::linear(fade_out_color),
+            [0.; 2],
+            [0.; 2],
+        ),
     };
     p.material.pattern = Some(Pattern {
         kind,
@@ -204,11 +226,16 @@ pub fn primitive(e: &Entity, d: &Polyline) -> Result<Primitive, String> {
         if a.distance(b) < 1e-3 {
             return Err("distinct line positions required".into());
         }
-        let arc = crate::geodesic::Line::new([pair[0][0], pair[0][1]], [pair[1][0], pair[1][1]])?;
-        let n = if d.arc_type == Arc::NONE {
-            1
+        let (arc, n) = if d.arc_type == Arc::NONE {
+            (None, 1)
+        } else if d.arc_type == Arc::RHUMB {
+            let n = (a.distance(b) / 11000.).ceil().max(1.) as usize;
+            (None, n)
         } else {
-            (arc.distance / 11000.).ceil().max(1.) as usize
+            let arc =
+                crate::geodesic::Line::new([pair[0][0], pair[0][1]], [pair[1][0], pair[1][1]])?;
+            let n = (arc.distance / 11000.).ceil().max(1.) as usize;
+            (Some(arc), n)
         };
         sampled_count += n + 1;
         if n > 3600 || sampled_count > 50000 {
@@ -221,7 +248,7 @@ pub fn primitive(e: &Entity, d: &Polyline) -> Result<Primitive, String> {
                 Arc::NONE => a.lerp(b, t),
                 Arc::RHUMB => world(rhumb(pair[0], pair[1], t), d.clamp_to_ground)?,
                 Arc::GEODESIC => {
-                    let [lon, lat] = arc.at(t);
+                    let [lon, lat] = arc.as_ref().unwrap().at(t);
                     world(
                         [lon, lat, pair[0][2] + (pair[1][2] - pair[0][2]) * t],
                         d.clamp_to_ground,
@@ -329,6 +356,11 @@ pub fn source_material(t: &str, v: &serde_json::Value) -> Result<(LineMaterial, 
             "gapColor",
             "dashLength",
             "dashPattern",
+            "fadeInColor",
+            "fadeOutColor",
+            "repeat",
+            "time",
+            "fadeDirection",
         ],
     )?;
     let c = |k: &str, default: serde_json::Value| -> Result<[f32; 4], String> {
@@ -364,9 +396,17 @@ pub fn source_material(t: &str, v: &serde_json::Value) -> Result<(LineMaterial, 
                         .ok_or("dashPattern u16")
                 })?,
             },
+            "Fade" => LineMaterial::Fade {
+                fade_in_color: c("fadeInColor", json!([0, 1, 1, 1]))?,
+                fade_out_color: c("fadeOutColor", json!([0, 1, 1, 0]))?,
+            },
             _ => return Err("unknown line material".into()),
         },
-        c("color", json!([1, 1, 1, 1]))?,
+        if t == "Fade" {
+            c("fadeInColor", json!([0, 1, 1, 1]))?
+        } else {
+            c("color", json!([1, 1, 1, 1]))?
+        },
     ))
 }
 pub fn primitive_entity(

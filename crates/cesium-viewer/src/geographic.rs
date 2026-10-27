@@ -7,9 +7,9 @@ use serde_json::json;
 const OFFSET: f64 = 10.;
 const STEP: f64 = 0.1;
 fn coordinate(p: [f64; 3]) -> Result<DVec3, String> {
-    if p[0].abs() > 180. || p[1].abs() > 85. || p[2].abs() > 2_000_000. {
+    if p[0].abs() > 180. || p[1].abs() > 90.0001 || p[2].abs() > 2_000_000. {
         return Err(
-            "geographic geometry supports longitude ±180°, latitude ±85°, height ±2,000,000m"
+            "geographic geometry supports longitude ±180°, latitude ±90°, height ±2,000,000m"
                 .into(),
         );
     }

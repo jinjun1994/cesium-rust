@@ -4,7 +4,7 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.31（已通过 71 / 309 个完整案例，剩余 238 个）
+- **当前版本**：v0.0.32（已通过 75 / 309 个完整案例，剩余 234 个）
 
 ---
 
@@ -122,27 +122,55 @@
 
 ---
 
-### [2026-10-26] v0.0.32 批次启动：G01 核心几何与高级图元攻坚
-- **目标配方**（累计推进至 **75 / 309**，剩余 234 个）：
-  1. `polylines-dev`（底层 Primitive：`PolylineCollection` 包含 7 条经典折线，覆盖 `PolylinePipeline` 大圆与等角航线 RHUMB 弧线生成、闭环 `loop: true`、局部 ENU 变换矩阵、7 类核心材质：Color、PolylineOutline、PolylineGlow、PolylineArrow、Fade）
-  2. `frustum-dev`（底层 Primitive：`FrustumGeometry` 与 `FrustumOutlineGeometry`，视锥体参数：透视视锥 `PerspectiveFrustum`、椭球表面起点与四元数姿态、包围球相机聚焦 `viewBoundingSphere` 与实心/线框渲染）
-  3. `parallels-and-meridians`（实体与屏幕交互：赤道与本初子午线、等角航线 RhumbPolyline、递归网格生成 `makeGrid`、屏幕拾取十字交叉线 Crosshairs 与对跖点 Antipodal 计算、经纬度标签标注）
-  4. `polygon-texture-coordinates-dev`（底层 Primitive：6 组带自定义 UV 纹理坐标的 `PolygonGeometry` 实例，覆盖平坦面、嵌套多级内孔、`perPositionHeight: true` 绝对高程、拉伸几何体与 `ArcType.RHUMB` 等角多边形，以及 `GroundPrimitive` 贴地映射）
+### [2026-10-27] v0.0.32 验收完成：高级折线、视锥几何、经纬网格与自定义多边形纹理坐标
+- **完成配方**（累计推进至 **75 / 309**，剩余 234 个）：
+  1. `polylines-dev`（底层 Primitive：`PolylineCollection` 包含 7 条经典折线，覆盖 `PolylineColorAppearance` 单色、`PolylineOutline` 描边、`PolylineGlow` 发光、`PolylineArrow` 箭头与 `Fade` 渐隐材质；大圆与等角航线 RHUMB 弧线生成、闭环 `loop: true`、局部 ENU 变换矩阵东向 1,000 km 箭头）
+  2. `frustum-dev`（底层 Primitive：`FrustumGeometry` 与 `FrustumOutlineGeometry`，基于 `PerspectiveFrustum` fov=60°/aspect=1.5/near=10m/far=50m 视图空间角点推导，结合局部 ENU 旋转四元数姿态与包围球自适应取景，生成 6 表面三角网格与 12 棱边轮廓骨架）
+  3. `parallels-and-meridians`（实体经纬网：赤道与本初子午线、等角航线 RhumbPolyline、递归网格生成 `makeGrid` 144 条经纬线、极点 ±90° 贯通、工具栏多级网格/对跖点切换及交互屏幕十字准星坐标标注）
+  4. `polygon-texture-coordinates-dev`（底层 Primitive：6 组定制 UV `PolygonGeometry` 实例与 1 个 `GroundPrimitive`，外环与嵌套多级内孔 1:1 显式 `textureCoordinates` 贴图、perPositionHeight 绝对高程、拉伸与 RHUMB 等角多边形）
+- **核心研发突破**：
+  1. **Fade 折线渐隐材质与 WGSL 管线扩充**（`mesh.wgsl` & `wide_polyline.rs`）：
+     - 在 WGSL 中增加 LineMaterial `11u`（Fade 材质），根据归一化纹理坐标 \( u \in [0, 1] \) 对输入颜色与淡出颜色进行线性过渡插值 `mix(color, material.secondary, clamp(uv.x, 0.0, 1.0))`。
+     - 在 Rust 引擎中增加 `LineMaterial::Fade` 枚举与合法性校验，严格校验 `fade_in_color` 与 `fade_out_color`。
+  2. **视锥体实体与轮廓管线（FrustumGeometry & FrustumOutlineGeometry）**：
+     - 在 `entities.rs` 中增加 `Shape::Frustum`，计算透视锥体近远平面的 8 个视图空间顶点，构建 6 面三角网格与外向法向量。
+     - 在 `outline.rs` 中生成 12 条线框边；在 `extended_instances.rs` 中隔离 outline 实例的 `surfaceAppearance`，保证实体验证契约绝对纯净。
+  3. **全球极点经纬度解算与等角航线容差**：
+     - 将经纬度硬编码限制由 85° 扩展为 90.0001°，支持南北极点（-90° 与 +90°）全子午线贯通。
+     - 在折线分段采样中隔离 Vincenty 大地线算法对 `ArcType::RHUMB` 的干扰，并对极点等角正切发散进行安全钳制。
+  4. **全集合包围球地心零点退化自适应**（`entity_framing.rs`）：
+     - 解决对称全球经纬线导致中心点落于地心 `[0, 0, 0]`（向量长度为 0）时 `Cartographic::from_ecef` 无法反解经纬度的数学退化，自适应重定向至参考椭球面 `(0, 0, 0)` 并根据全球包围球半径设置平稳全局轨道视角。
+  5. **显式多边形纹理坐标（Authored ST Texture Coordinates）**：
+     - 在 `polygon_surface.rs` 中，对配置有显式 `textureCoordinates` 的多边形保留外环原始输入拓扑，避免细分导致顶点-UV 数量失配。
+     - 在 `extended_instances.rs` 中支持 `POSITION_NORMAL_ST` 顶点格式与内嵌孔洞 UV 层级传递。
+- **验证结果**：
+  - **普通 Rust 单元测试**：96 / 96 项全部通过（`cargo test -p cesium-viewer --lib`，93 passed, 0 failed, 3 ignored）。
+  - **真实 GPU 离屏渲染测试**：76 / 76 项全部通过（用时 21.16s，全部包含离屏像素反读与实体 ID 拾取）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 75 个固定案例哈希与实体结构精准契合）。
+  - **浏览器真实 WebGPU 端到端**：75 个完整案例在真实 Chromium 155 环境下全部通过（`full-recipes-browser.cjs`），包含实体像素反读、ID 拾取、显隐交互、鼠标滚轮缩放与窗口自适应验证。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy -p cesium-viewer --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [高级折线、视锥几何、经纬网格与自定义多边形纹理坐标专项验证文档](docs/polylines-frustum-polygon-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
+---
+
+### [2026-10-27] v0.0.33 批次启动：CZML 屏幕要素、贴地几何高程与时态路径攻坚
+- **目标配方**（累计推进至 **79 / 309**，剩余 230 个）：
+  1. `czml-billboard-and-label`（CZML 屏幕要素：Billboard 图像图标与 Label 文本标签联动、像素偏移、水平/垂直对齐对齐点、字体与缩放控制）
+  2. `geometry-height-reference`（几何高程基准：`HeightReference.CLAMP_TO_GROUND` 与 `HeightReference.RELATIVE_TO_GROUND` 在实体几何与椭球地表的混合渲染与贴地自适应）
+  3. `czml-path`（CZML 动态轨迹线：`PathGraphics` 实时尾迹追踪、leadTime / trailTime 前瞻与后顾时间窗、分辨率与线宽材质渲染）
+  4. `czml-reference-properties`（CZML 实体引用属性：跨实体属性链接 `targetEntity#property`、动态关联位姿与多实体拓扑图谱）
 - **核心研发规划**：
-  1. **PolylineCollection 与折线材质管线扩展**：
-     - 在底层 Primitive 解析与渲染管线中支持 `PolylineCollection` 与多段折线局部 `modelMatrix` 姿态变换。
-     - 确保 `Fade`（渐变淡出）、`PolylineArrow`（箭头线）、`PolylineGlow`（发光线）与 `PolylineOutline`（轮廓线）参数全面对齐。
-  2. **视锥体几何与轮廓管线（FrustumGeometry & FrustumOutlineGeometry）**：
-     - 依据 `PerspectiveFrustum`（fov, aspectRatio, near, far）与四元数姿态在局部空间构建 8 个角点坐标，并变换至椭球世界坐标系。
-     - 生成视锥 6 个面的三角网格与 12 条棱边轮廓线网格。
-  3. **自定义多边形纹理坐标（Explicit Polygon TextureCoordinates）**：
-     - 在 `PolygonGeometry` 中支持 `textureCoordinates: { positions, holes }` 显式 UV 通道。
-     - 在顶点生成时直接采用用户提供的 UV 坐标，处理内嵌孔洞的 UV 插值与对应。
-  4. **经纬网与十字准星交互（Parallels & Meridians Pipeline）**：
-     - 支持递归经纬线网格批量生成，支持通过按钮动态切换不同分辨率网格与对跖点显示。
-  5. **自动化测试与端到端验证**：
-     - 编写 `scripts/batch32-recipes.mjs`，执行 4 个案例源码并提取实体/图元标准契约。
-     - 补充普通 Rust 单元测试、实际 GPU 离屏渲染测试、90 帧桌面冒烟测试与真实 Chromium WebGPU 测试。
+  1. **CZML 屏幕要素图层联动（Billboard + Label）**：
+     - 在 CZML 解析器中支持双组件绑定，确保同一实体的文本和图像在屏幕空间中按照锚点和对齐方式正确合成渲染。
+  2. **几何高度基准（HeightReference Pipeline）**：
+     - 在几何图元解析与顶点着色器中支持 `HeightReference` 枚举，实现贴地（Clamp to Ground）与离地相对高度（Relative to Ground）空间偏移计算。
+  3. **时态路径追踪管线（PathGraphics Lead/Trail）**：
+     - 结合实体时钟时间序列，动态截取 `[t - trailTime, t + leadTime]` 时间窗口内的样条折线段并动态推送到渲染管线。
+  4. **引用属性解析引擎（Reference Properties Engine）**：
+     - 建立 CZML 实体间属性引用的延迟解析机制，在实体集合加载完成后完成引用图拓扑解析与属性值同步。
+
 
 
 

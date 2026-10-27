@@ -1,0 +1,83 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": {
+        "id": "frustum",
+        "geometry": {
+          "type": "FrustumGeometry",
+          "frustum": {
+            "fov": 1.0471975511965976,
+            "aspectRatio": 1.5,
+            "near": 10,
+            "far": 50
+          },
+          "origin": [
+            -105,
+            45,
+            20
+          ],
+          "orientation": [
+            -0.3794095225512603,
+            0.04995021125231483,
+            -0.12059047744873966,
+            0.9159756150367535
+          ],
+          "vertexFormat": "POSITION_ONLY"
+        },
+        "attributes": {
+          "color": [
+            1,
+            0,
+            0,
+            0.5
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "closed": true,
+        "flat": true
+      }
+    },
+    {
+      "geometryInstances": {
+        "id": "primitive-1-instance-0",
+        "geometry": {
+          "type": "FrustumOutlineGeometry",
+          "frustum": {
+            "fov": 1.0471975511965976,
+            "aspectRatio": 1.5,
+            "near": 10,
+            "far": 50
+          },
+          "origin": [
+            -105,
+            45,
+            20
+          ],
+          "orientation": [
+            -0.3794095225512603,
+            0.04995021125231483,
+            -0.12059047744873966,
+            0.9159756150367535
+          ]
+        },
+        "attributes": {
+          "color": [
+            0,
+            0,
+            0,
+            1
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PerInstanceColorAppearance",
+        "flat": true,
+        "renderState": {
+          "lineWidth": 1
+        }
+      }
+    }
+  ]
+}

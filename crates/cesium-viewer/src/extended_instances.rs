@@ -16,6 +16,8 @@ const TYPES: &[&str] = &[
     "SimplePolylineGeometry",
     "PolylineVolumeGeometry",
     "PolylineVolumeOutlineGeometry",
+    "FrustumGeometry",
+    "FrustumOutlineGeometry",
 ];
 pub fn handles(v: &Value) -> bool {
     v["primitives"].as_array().is_some_and(|ps| {
@@ -211,14 +213,37 @@ pub fn decode(v: Value) -> Result<Vec<Entity>, String> {
                     | "CylinderOutlineGeometry"
                     | "EllipsoidGeometry"
                     | "EllipsoidOutlineGeometry"
+                    | "PolylineGeometry"
+                    | "FrustumGeometry"
+                    | "FrustumOutlineGeometry"
             );
             if !is_local && i.get("modelMatrix").is_some() {
                 return Err("world geometry requires no modelMatrix".into());
             }
             if t == "PolylineGeometry" {
+                let mut g_obj = g.clone();
+                if let Some(mm) = i.get("modelMatrix") {
+                    let m_arr: [f64; 16] =
+                        serde_json::from_value(mm.clone()).map_err(|e| e.to_string())?;
+                    let m = glam::DMat4::from_cols_array(&m_arr);
+                    let pos_arr: Vec<[f64; 3]> = serde_json::from_value(g["positions"].clone())
+                        .map_err(|e| e.to_string())?;
+                    let mut transformed = Vec::with_capacity(pos_arr.len());
+                    for p in pos_arr {
+                        let ecef = m.transform_point3(glam::DVec3::from_array(p));
+                        let c = cesium_math::Cartographic::from_ecef(ecef)
+                            .map_err(|e| e.to_string())?;
+                        transformed.push([
+                            c.longitude.to_degrees(),
+                            c.latitude.to_degrees(),
+                            c.height,
+                        ]);
+                    }
+                    g_obj["positions"] = json!(transformed);
+                }
                 let attrs = i.get("attributes").cloned().unwrap_or(json!({}));
                 out.push(crate::wide_polyline::primitive_entity(
-                    g,
+                    &g_obj,
                     a,
                     &attrs,
                     i["id"]
@@ -228,6 +253,84 @@ pub fn decode(v: Value) -> Result<Vec<Entity>, String> {
                     pi,
                     ii,
                 )?);
+                continue;
+            }
+            if t == "FrustumGeometry" || t == "FrustumOutlineGeometry" {
+                keys(
+                    g,
+                    &["type", "frustum", "origin", "orientation", "vertexFormat"],
+                )?;
+                let f = &g["frustum"];
+                keys(f, &["fov", "aspectRatio", "near", "far"])?;
+                let fov = number(&f["fov"], 1.0)?;
+                let aspect_ratio = number(&f["aspectRatio"], 1.0)?;
+                let near = number(&f["near"], 1.0)?;
+                let far = number(&f["far"], 50.0)?;
+                let origin_val = g.get("origin").ok_or("frustum origin required")?;
+                let origin_deg: [f64; 3] = if origin_val.as_array().is_some_and(|a| a.len() == 3) {
+                    serde_json::from_value(origin_val.clone()).map_err(|e| e.to_string())?
+                } else {
+                    let o = serde_json::from_value::<[f64; 3]>(origin_val.clone())
+                        .map_err(|e| e.to_string())?;
+                    let c = cesium_math::Cartographic::from_ecef(glam::DVec3::from_array(o))
+                        .map_err(|e| e.to_string())?;
+                    [c.longitude.to_degrees(), c.latitude.to_degrees(), c.height]
+                };
+                let orientation: [f64; 4] =
+                    serde_json::from_value(g["orientation"].clone()).map_err(|e| e.to_string())?;
+                let outline = t == "FrustumOutlineGeometry";
+                if outline {
+                    if a["flat"] != true {
+                        return Err("frustum outline requires flat".into());
+                    }
+                    if let Some(rs) = a.get("renderState") {
+                        if rs["lineWidth"] != 1 {
+                            return Err("frustum outline requires lineWidth 1".into());
+                        }
+                    }
+                }
+                let attrs = i.get("attributes").cloned().unwrap_or(json!({}));
+                let color: [f32; 4] =
+                    serde_json::from_value(attrs.get("color").cloned().unwrap_or(if outline {
+                        json!([0, 0, 0, 1])
+                    } else {
+                        json!([1, 0, 0, 0.5])
+                    }))
+                    .map_err(|e| e.to_string())?;
+                let id = i["id"]
+                    .as_str()
+                    .map(str::to_owned)
+                    .unwrap_or(format!("primitive-{pi}-instance-{ii}"));
+                let mut obj = json!({
+                    "id": id,
+                    "name": "",
+                    "positionDegrees": origin_deg,
+                    "orientation": orientation,
+                    "shape": {
+                        "type": "frustum",
+                        "fov": fov,
+                        "aspectRatio": aspect_ratio,
+                        "near": near,
+                        "far": far
+                    },
+                    "color": color,
+                    "fill": !outline,
+                    "outline": outline,
+                    "outlineColor": color,
+                    "outlineWidth": 1,
+                    "properties": {
+                        "primitiveIndex": pi,
+                        "instanceIndex": ii
+                    }
+                });
+                if !outline {
+                    obj["surfaceAppearance"] = json!({
+                        "closed": true,
+                        "flat": true,
+                        "translucent": color[3] < 1.0
+                    });
+                }
+                out.push(obj);
                 continue;
             }
             let outline = t.contains("Outline") || t == "SimplePolylineGeometry";

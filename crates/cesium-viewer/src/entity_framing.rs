@@ -60,8 +60,15 @@ impl Scene {
         let b = bounds(&points).ok_or_else(|| RenderError("no visible entity bounds".into()))?;
         let vertical = 30f64.to_radians();
         let horizontal = (vertical.tan() * width as f64 / height as f64).atan();
-        let center = cesium_math::Cartographic::from_ecef(b.center)
-            .map_err(|e| RenderError(e.to_string()))?;
+        let (center, target) = if b.center.length() < 100.0 {
+            let c = cesium_math::Cartographic::degrees(0., 0., 0.).unwrap();
+            let t = c.to_ecef();
+            (c, t)
+        } else {
+            let c = cesium_math::Cartographic::from_ecef(b.center)
+                .map_err(|e| RenderError(e.to_string()))?;
+            (c, b.center)
+        };
         // ECEF linear interpolation may put a sampled point below the ellipsoid.
         // Keep the eye above ground without changing the object's position/occlusion.
         let clearance_range = if center.height < 0. {
@@ -69,14 +76,15 @@ impl Scene {
         } else {
             1000.
         };
-        let range =
-            (b.radius.max(100.) / vertical.min(horizontal).sin() * 1.1).max(clearance_range);
+        let range = (b.radius.max(100.) / vertical.min(horizontal).sin() * 1.1)
+            .max(clearance_range)
+            .min(29_000_000.);
         let orbit = LookOffset {
             heading: 0.,
             pitch: -std::f64::consts::FRAC_PI_4,
             range,
         }
-        .orbit(b.center)?;
+        .orbit(target)?;
         self.release_camera();
         self.orbit = orbit;
         Ok(())

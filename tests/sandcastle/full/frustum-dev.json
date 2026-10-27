@@ -1,0 +1,89 @@
+[
+  {
+    "id": "frustum",
+    "name": "",
+    "positionDegrees": [
+      -105,
+      45,
+      20
+    ],
+    "orientation": [
+      -0.3794095225512603,
+      0.04995021125231483,
+      -0.12059047744873966,
+      0.9159756150367535
+    ],
+    "shape": {
+      "type": "frustum",
+      "fov": 1.0471975511965976,
+      "aspectRatio": 1.5,
+      "near": 10,
+      "far": 50
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      1,
+      0,
+      0,
+      0.5
+    ],
+    "outlineWidth": 1,
+    "surfaceAppearance": {
+      "closed": true,
+      "flat": true,
+      "translucent": true
+    },
+    "properties": {
+      "primitiveIndex": 0,
+      "instanceIndex": 0
+    }
+  },
+  {
+    "id": "primitive-1-instance-0",
+    "name": "",
+    "positionDegrees": [
+      -105,
+      45,
+      20
+    ],
+    "orientation": [
+      -0.3794095225512603,
+      0.04995021125231483,
+      -0.12059047744873966,
+      0.9159756150367535
+    ],
+    "shape": {
+      "type": "frustum",
+      "fov": 1.0471975511965976,
+      "aspectRatio": 1.5,
+      "near": 10,
+      "far": 50
+    },
+    "color": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveIndex": 1,
+      "instanceIndex": 0
+    }
+  }
+]

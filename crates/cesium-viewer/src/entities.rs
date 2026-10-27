@@ -59,6 +59,13 @@ pub enum Shape {
     Box {
         dimensions: [f64; 3],
     },
+    Frustum {
+        fov: f64,
+        #[serde(rename = "aspectRatio")]
+        aspect_ratio: f64,
+        near: f64,
+        far: f64,
+    },
     Ellipsoid {
         radii: [f64; 3],
         #[serde(
@@ -465,6 +472,18 @@ impl Entity {
         let positive = |x: f64| x.is_finite() && (0.0..=1e6).contains(&x) && x > 0.;
         let valid = match self.shape {
             Shape::Box { dimensions } => dimensions.into_iter().all(positive),
+            Shape::Frustum {
+                fov,
+                aspect_ratio,
+                near,
+                far,
+            } => {
+                positive(fov)
+                    && positive(aspect_ratio)
+                    && positive(near)
+                    && positive(far)
+                    && far > near
+            }
             Shape::Ellipsoid {
                 radii,
                 inner_radii,
@@ -629,6 +648,40 @@ impl Entity {
                     [1, 2, 6, 5],
                     [2, 3, 7, 6],
                     [3, 0, 4, 7],
+                ] {
+                    triangle(v[a], v[b], v[c]);
+                    triangle(v[a], v[c], v[d]);
+                }
+            }
+            Shape::Frustum {
+                fov,
+                aspect_ratio,
+                near,
+                far,
+            } => {
+                let half_fov = fov * 0.5;
+                let tan_fov = half_fov.tan();
+                let y_near = near * tan_fov;
+                let x_near = y_near * aspect_ratio;
+                let y_far = far * tan_fov;
+                let x_far = y_far * aspect_ratio;
+                let v = [
+                    DVec3::new(-x_near, -y_near, -near),
+                    DVec3::new(x_near, -y_near, -near),
+                    DVec3::new(x_near, y_near, -near),
+                    DVec3::new(-x_near, y_near, -near),
+                    DVec3::new(-x_far, -y_far, -far),
+                    DVec3::new(x_far, -y_far, -far),
+                    DVec3::new(x_far, y_far, -far),
+                    DVec3::new(-x_far, y_far, -far),
+                ];
+                for [a, b, c, d] in [
+                    [0, 1, 2, 3],
+                    [5, 4, 7, 6],
+                    [0, 4, 5, 1],
+                    [1, 5, 6, 2],
+                    [2, 6, 7, 3],
+                    [3, 7, 4, 0],
                 ] {
                     triangle(v[a], v[b], v[c]);
                     triangle(v[a], v[c], v[d]);

@@ -1,0 +1,329 @@
+{
+  "primitives": [
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "PolylineGeometry",
+          "positions": [
+            [
+              -120,
+              40,
+              0
+            ],
+            [
+              -110,
+              30,
+              0
+            ]
+          ],
+          "width": 1,
+          "vertexFormat": "POLYLINE_COLOR",
+          "arcType": "GEODESIC"
+        },
+        "attributes": {
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PolylineColorAppearance"
+      }
+    },
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "PolylineGeometry",
+          "positions": [
+            [
+              -105,
+              40,
+              0
+            ],
+            [
+              -100,
+              38,
+              0
+            ],
+            [
+              -105,
+              35,
+              0
+            ],
+            [
+              -100,
+              32,
+              0
+            ]
+          ],
+          "width": 10,
+          "vertexFormat": "POLYLINE_MATERIAL",
+          "arcType": "GEODESIC"
+        },
+        "attributes": {
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PolylineMaterialAppearance",
+        "material": {
+          "type": "PolylineOutline",
+          "uniforms": {
+            "color": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineColor": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "outlineWidth": 5
+          }
+        }
+      }
+    },
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "PolylineGeometry",
+          "positions": [
+            [
+              -95,
+              30,
+              0
+            ],
+            [
+              -85,
+              40,
+              0
+            ]
+          ],
+          "width": 10,
+          "vertexFormat": "POLYLINE_MATERIAL",
+          "arcType": "GEODESIC"
+        },
+        "attributes": {
+          "color": [
+            1,
+            0.5,
+            0,
+            1
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PolylineMaterialAppearance",
+        "material": {
+          "type": "PolylineGlow",
+          "uniforms": {
+            "color": [
+              1,
+              0.5,
+              0,
+              1
+            ],
+            "glowPower": 0.2,
+            "taperPower": 0.2
+          }
+        }
+      }
+    },
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "PolylineGeometry",
+          "positions": [
+            [
+              -105,
+              30,
+              0
+            ],
+            [
+              -105,
+              25,
+              0
+            ],
+            [
+              -100,
+              22,
+              0
+            ],
+            [
+              -100,
+              28,
+              0
+            ],
+            [
+              -105,
+              30,
+              0
+            ]
+          ],
+          "width": 3,
+          "vertexFormat": "POLYLINE_COLOR",
+          "arcType": "GEODESIC"
+        },
+        "attributes": {
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PolylineColorAppearance"
+      }
+    },
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "PolylineGeometry",
+          "positions": [
+            [
+              -75,
+              43,
+              500000
+            ],
+            [
+              -125,
+              43,
+              500000
+            ]
+          ],
+          "width": 5,
+          "vertexFormat": "POLYLINE_MATERIAL",
+          "arcType": "GEODESIC"
+        },
+        "attributes": {
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PolylineMaterialAppearance",
+        "material": {
+          "type": "Fade",
+          "uniforms": {
+            "fadeInColor": [
+              0,
+              1,
+              1,
+              1
+            ],
+            "fadeOutColor": [
+              0,
+              1,
+              1,
+              0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "PolylineGeometry",
+          "positions": [
+            [
+              -130,
+              30,
+              0
+            ],
+            [
+              -75,
+              30,
+              0
+            ]
+          ],
+          "width": 5,
+          "vertexFormat": "POLYLINE_COLOR",
+          "arcType": "RHUMB"
+        },
+        "attributes": {
+          "color": [
+            0,
+            1,
+            0,
+            1
+          ]
+        }
+      },
+      "appearance": {
+        "type": "PolylineColorAppearance"
+      }
+    },
+    {
+      "geometryInstances": {
+        "geometry": {
+          "type": "PolylineGeometry",
+          "positions": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              1000000,
+              0,
+              0
+            ]
+          ],
+          "width": 10,
+          "vertexFormat": "POLYLINE_MATERIAL",
+          "arcType": "NONE"
+        },
+        "modelMatrix": [
+          0.984807753012208,
+          0.17364817766693041,
+          0,
+          0,
+          -0.09960050292505125,
+          0.5648625214636234,
+          0.8191520442889918,
+          0,
+          0.1422442597229241,
+          -0.8067072841115988,
+          0.573576436351046,
+          0,
+          908254.0892210018,
+          -5150964.903792506,
+          3637866.909377923,
+          1
+        ]
+      },
+      "appearance": {
+        "type": "PolylineMaterialAppearance",
+        "material": {
+          "type": "PolylineArrow",
+          "uniforms": {
+            "color": [
+              1,
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

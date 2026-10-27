@@ -356,7 +356,7 @@ fn boundary(h: &Hierarchy, s: &PolygonSurface, height: f64) -> Result<Vec<[f64; 
             a[2] = height;
             b[2] = height;
         }
-        if s.per_position_height || s.coplanar {
+        if s.texture_coordinates.is_some() || s.per_position_height || s.coplanar {
             out.push(a);
             continue;
         }
@@ -558,9 +558,6 @@ pub fn primitive(e: &Entity, s: &PolygonSurface) -> Result<Primitive, String> {
     }
     if s.coplanar && s.extruded_height.is_some() {
         return Err("coplanar extrusion unsupported".into());
-    }
-    if s.texture_coordinates.is_some() && !s.per_position_height && !s.coplanar {
-        return Err("authored ST currently requires per-position or coplanar polygon".into());
     }
     let mut b = Builder {
         p: Primitive {

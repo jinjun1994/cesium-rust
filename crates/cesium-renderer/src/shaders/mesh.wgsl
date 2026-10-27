@@ -101,6 +101,8 @@ fn base_color(v:VertexOutput)->vec4<f32> {
   let along=dot(v.position.xy,v.line.xy);
   let bit=u32(floor(fract(along/material.pattern.x)*16.0));
   color=select(material.secondary,color,(u32(material.pattern.y)&(1u<<bit))!=0u);
+ } else if material.extras.w==11u {
+  color=mix(color,material.secondary,clamp(uv.x,0.0,1.0));
  }
  return texel*color*v.color;
 }

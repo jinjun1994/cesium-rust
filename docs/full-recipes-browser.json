@@ -1,6 +1,6 @@
 {
   "version": "0.0.29",
-  "wasmSha256": "70a2830eff4f19da0ebc05ce358933635d614a089620f26890244ea456eaf782",
+  "wasmSha256": "d72f46006408e65654de676313e13542e121abd2ad7e0ca24552b17f819a0c92",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
   "externalImagery": "local deterministic 256x256 neutral raster",
@@ -744,6 +744,180 @@
       ]
     },
     {
+      "id": "polylines-dev",
+      "status": "passed",
+      "entities": 7,
+      "sourceSha256": "033510dce81a1affb27228ff85aff53370ec9417ee623884dd87f5325ce1dafa",
+      "inputSha256": "9a3f40bf433f52cb2a9a7e1595c8a3e3cead850590afef504f906a2417654efe",
+      "fixtureSha256": "22814d01165fe0a5f3d490d9602d8dc3ebd56854f3bfce7f5463453f9d2e9e88",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-1-instance-0",
+        "primitive-2-instance-0",
+        "primitive-3-instance-0",
+        "primitive-4-instance-0",
+        "primitive-5-instance-0",
+        "primitive-6-instance-0"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 299
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 3453
+        },
+        {
+          "id": "primitive-2-instance-0",
+          "pixels": 1763
+        },
+        {
+          "id": "primitive-3-instance-0",
+          "pixels": 1830
+        },
+        {
+          "id": "primitive-4-instance-0",
+          "pixels": 2053
+        },
+        {
+          "id": "primitive-5-instance-0",
+          "pixels": 1031
+        },
+        {
+          "id": "primitive-6-instance-0",
+          "pixels": 1871
+        }
+      ]
+    },
+    {
+      "id": "frustum-dev",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "5f653cec5cb35b15bbfac2edc5505f54c05e9ba041e9873dbeff6878078b13c9",
+      "inputSha256": "8655f373c4fe8a8086ebe06f00c946a7ea5990d094f284b63c2011e70ca66700",
+      "fixtureSha256": "5490ff1fe0d3a03cb5ee76eb50afbab719fad86fcf654cfeb44e435114d06ca7",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "frustum",
+        "primitive-1-instance-0"
+      ],
+      "pixelCounts": [
+        {
+          "id": "frustum",
+          "pixels": 850
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 210
+        }
+      ]
+    },
+    {
+      "id": "parallels-and-meridians",
+      "status": "passed",
+      "entities": 144,
+      "sourceSha256": "6f675d9f6593e8766f69f9bedc5e252d21fefc2485ede64dac5084dfe3be81bd",
+      "inputSha256": "fca571b1ee7a4f25e4b61aa747df4b1251d2c5007a371513bbd3f4316b99b4b3",
+      "fixtureSha256": "fca571b1ee7a4f25e4b61aa747df4b1251d2c5007a371513bbd3f4316b99b4b3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "parallel-meridian-0",
+        "parallel-meridian-1"
+      ],
+      "pixelCounts": [
+        {
+          "id": "parallel-meridian-0",
+          "pixels": 392
+        },
+        {
+          "id": "parallel-meridian-1",
+          "pixels": 578
+        }
+      ]
+    },
+    {
+      "id": "polygon-texture-coordinates-dev",
+      "status": "passed",
+      "entities": 7,
+      "sourceSha256": "83aa240dde303512ebf27c12a04373d2cfe39a07e01fe219f9b44c3ae6fe3481",
+      "inputSha256": "43d5d3c667931b5909c699f2f574adbb640daf9871a5d06c99cbace60808c05b",
+      "fixtureSha256": "326fe6ed54e4f4c3c57bf8ebbf997869a99f4d12bfd52e0bd5038ce42b8e3d7c",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "primitive-0-instance-0",
+        "primitive-0-instance-1",
+        "primitive-0-instance-2",
+        "primitive-0-instance-3",
+        "primitive-0-instance-4",
+        "primitive-0-instance-5",
+        "primitive-1-instance-0"
+      ],
+      "pixelCounts": [
+        {
+          "id": "primitive-0-instance-0",
+          "pixels": 50911
+        },
+        {
+          "id": "primitive-0-instance-1",
+          "pixels": 57585
+        },
+        {
+          "id": "primitive-0-instance-2",
+          "pixels": 52048
+        },
+        {
+          "id": "primitive-0-instance-3",
+          "pixels": 50399
+        },
+        {
+          "id": "primitive-0-instance-4",
+          "pixels": 87411
+        },
+        {
+          "id": "primitive-0-instance-5",
+          "pixels": 82166
+        },
+        {
+          "id": "primitive-1-instance-0",
+          "pixels": 14415
+        }
+      ]
+    },
+    {
       "id": "geometry-offset-attribute-dev",
       "status": "passed",
       "entities": 6,
@@ -1364,7 +1538,7 @@
         },
         {
           "id": "polyline-2",
-          "pixels": 1068
+          "pixels": 1066
         },
         {
           "id": "polyline-3",
@@ -2610,7 +2784,7 @@
       "assetsSha256": "f7dbc2e3295e40bbd1f08bfcc476efe0c5237acdb6df8e7410943c9b8de081e4"
     }
   ],
-  "browser": "155.0.8059.85",
+  "browser": "156.0.8078.48",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed"
 }

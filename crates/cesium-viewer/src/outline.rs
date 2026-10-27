@@ -287,6 +287,45 @@ pub fn primitive(e: &Entity) -> Result<Option<Primitive>, String> {
                 line(v[a], v[b])?;
             }
         }
+        Shape::Frustum {
+            fov,
+            aspect_ratio,
+            near,
+            far,
+        } => {
+            let half_fov = fov * 0.5;
+            let tan_fov = half_fov.tan();
+            let y_near = near * tan_fov;
+            let x_near = y_near * aspect_ratio;
+            let y_far = far * tan_fov;
+            let x_far = y_far * aspect_ratio;
+            let v = [
+                DVec3::new(-x_near, -y_near, -near),
+                DVec3::new(x_near, -y_near, -near),
+                DVec3::new(x_near, y_near, -near),
+                DVec3::new(-x_near, y_near, -near),
+                DVec3::new(-x_far, -y_far, -far),
+                DVec3::new(x_far, -y_far, -far),
+                DVec3::new(x_far, y_far, -far),
+                DVec3::new(-x_far, y_far, -far),
+            ];
+            for [a, b] in [
+                [0, 1],
+                [1, 2],
+                [2, 3],
+                [3, 0],
+                [4, 5],
+                [5, 6],
+                [6, 7],
+                [7, 4],
+                [0, 4],
+                [1, 5],
+                [2, 6],
+                [3, 7],
+            ] {
+                line(v[a], v[b])?;
+            }
+        }
         Shape::Plane {
             dimensions,
             normal,
