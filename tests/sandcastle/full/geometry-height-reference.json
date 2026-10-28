@@ -1,0 +1,882 @@
+[
+  {
+    "id": "polygon-0",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.950615989890521,
+          45.79546589994886,
+          0
+        ],
+        [
+          6.950615989890521,
+          45.796465899948856,
+          0
+        ],
+        [
+          6.951615989890521,
+          45.796465899948856,
+          0
+        ],
+        [
+          6.951615989890521,
+          45.79546589994886,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.36334324534982443,
+      0.15153388935141265,
+      0.1832406329922378,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 0
+    }
+  },
+  {
+    "id": "polygon-1",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.950615989890521,
+          45.796465899948856,
+          0
+        ],
+        [
+          6.950615989890521,
+          45.797465899948854,
+          0
+        ],
+        [
+          6.951615989890521,
+          45.797465899948854,
+          0
+        ],
+        [
+          6.951615989890521,
+          45.796465899948856,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.8506993774790317,
+      0.6173662580549717,
+      0.806756924604997,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 1
+    }
+  },
+  {
+    "id": "polygon-2",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.950615989890521,
+          45.79746589994886,
+          0
+        ],
+        [
+          6.950615989890521,
+          45.79846589994886,
+          0
+        ],
+        [
+          6.951615989890521,
+          45.79846589994886,
+          0
+        ],
+        [
+          6.951615989890521,
+          45.79746589994886,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.3059961055405438,
+      0.4036428465042263,
+      0.8451454201713204,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 2
+    }
+  },
+  {
+    "id": "polygon-3",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.950615989890521,
+          45.79846589994886,
+          0
+        ],
+        [
+          6.950615989890521,
+          45.799465899948856,
+          0
+        ],
+        [
+          6.951615989890521,
+          45.799465899948856,
+          0
+        ],
+        [
+          6.951615989890521,
+          45.79846589994886,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.9165786399971694,
+      0.2968092611990869,
+      0.6715653829742223,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 3
+    }
+  },
+  {
+    "id": "polygon-4",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.951615989890521,
+          45.79546589994886,
+          0
+        ],
+        [
+          6.951615989890521,
+          45.796465899948856,
+          0
+        ],
+        [
+          6.952615989890521,
+          45.796465899948856,
+          0
+        ],
+        [
+          6.952615989890521,
+          45.79546589994886,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.6051631402224302,
+      0.4120467135217041,
+      0.2918926873244345,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 4
+    }
+  },
+  {
+    "id": "polygon-5",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.951615989890521,
+          45.796465899948856,
+          0
+        ],
+        [
+          6.951615989890521,
+          45.797465899948854,
+          0
+        ],
+        [
+          6.952615989890521,
+          45.797465899948854,
+          0
+        ],
+        [
+          6.952615989890521,
+          45.796465899948856,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.9114366772118956,
+      0.37120410334318876,
+      0.7461852941196412,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 5
+    }
+  },
+  {
+    "id": "polygon-6",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.951615989890521,
+          45.79746589994886,
+          0
+        ],
+        [
+          6.951615989890521,
+          45.79846589994886,
+          0
+        ],
+        [
+          6.952615989890521,
+          45.79846589994886,
+          0
+        ],
+        [
+          6.952615989890521,
+          45.79746589994886,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.31276246858760715,
+      0.18409375962801278,
+      0.9013127908110619,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 6
+    }
+  },
+  {
+    "id": "polygon-7",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.951615989890521,
+          45.79846589994886,
+          0
+        ],
+        [
+          6.951615989890521,
+          45.799465899948856,
+          0
+        ],
+        [
+          6.952615989890521,
+          45.799465899948856,
+          0
+        ],
+        [
+          6.952615989890521,
+          45.79846589994886,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.9091927555855364,
+      0.3075589877553284,
+      0.8601614108774811,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 7
+    }
+  },
+  {
+    "id": "polygon-8",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.95261598989052,
+          45.79546589994886,
+          0
+        ],
+        [
+          6.95261598989052,
+          45.796465899948856,
+          0
+        ],
+        [
+          6.953615989890521,
+          45.796465899948856,
+          0
+        ],
+        [
+          6.953615989890521,
+          45.79546589994886,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.40850881207734346,
+      0.3664910129737109,
+      0.6894380389712751,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 8
+    }
+  },
+  {
+    "id": "polygon-9",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.95261598989052,
+          45.796465899948856,
+          0
+        ],
+        [
+          6.95261598989052,
+          45.797465899948854,
+          0
+        ],
+        [
+          6.953615989890521,
+          45.797465899948854,
+          0
+        ],
+        [
+          6.953615989890521,
+          45.796465899948856,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.08788663451559842,
+      0.7363850492984056,
+      0.5602514015045017,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 9
+    }
+  },
+  {
+    "id": "polygon-10",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.95261598989052,
+          45.79746589994886,
+          0
+        ],
+        [
+          6.95261598989052,
+          45.79846589994886,
+          0
+        ],
+        [
+          6.953615989890521,
+          45.79846589994886,
+          0
+        ],
+        [
+          6.953615989890521,
+          45.79746589994886,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.700157253537327,
+      0.4885121921543032,
+      0.9927136143669486,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 10
+    }
+  },
+  {
+    "id": "polygon-11",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.95261598989052,
+          45.79846589994886,
+          0
+        ],
+        [
+          6.95261598989052,
+          45.799465899948856,
+          0
+        ],
+        [
+          6.953615989890521,
+          45.799465899948856,
+          0
+        ],
+        [
+          6.953615989890521,
+          45.79846589994886,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.8650221179705113,
+      0.1769828381948173,
+      0.5948142011184245,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 11
+    }
+  },
+  {
+    "id": "polygon-12",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.953615989890521,
+          45.79546589994886,
+          0
+        ],
+        [
+          6.953615989890521,
+          45.796465899948856,
+          0
+        ],
+        [
+          6.954615989890521,
+          45.796465899948856,
+          0
+        ],
+        [
+          6.954615989890521,
+          45.79546589994886,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.34418461844325066,
+      0.1380822246428579,
+      0.551041625905782,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 12
+    }
+  },
+  {
+    "id": "polygon-13",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.953615989890521,
+          45.796465899948856,
+          0
+        ],
+        [
+          6.953615989890521,
+          45.797465899948854,
+          0
+        ],
+        [
+          6.954615989890521,
+          45.797465899948854,
+          0
+        ],
+        [
+          6.954615989890521,
+          45.796465899948856,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.7984287946019322,
+      0.9254027539864182,
+      0.25514721567742527,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 13
+    }
+  },
+  {
+    "id": "polygon-14",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.953615989890521,
+          45.79746589994886,
+          0
+        ],
+        [
+          6.953615989890521,
+          45.79846589994886,
+          0
+        ],
+        [
+          6.954615989890521,
+          45.79846589994886,
+          0
+        ],
+        [
+          6.954615989890521,
+          45.79746589994886,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.15524343913421035,
+      0.8215928443241864,
+      0.06526668928563595,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 14
+    }
+  },
+  {
+    "id": "polygon-15",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          6.953615989890521,
+          45.79846589994886,
+          0
+        ],
+        [
+          6.953615989890521,
+          45.799465899948856,
+          0
+        ],
+        [
+          6.954615989890521,
+          45.799465899948856,
+          0
+        ],
+        [
+          6.954615989890521,
+          45.79846589994886,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 40,
+      "heightReference": "RELATIVE_TO_GROUND",
+      "extrudedHeight": 0,
+      "extrudedHeightReference": "CLAMP_TO_GROUND"
+    },
+    "color": [
+      0.2720511460211128,
+      0.16989876562729478,
+      0.9789237456861883,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sandcastleCase": "geometry-height-reference",
+      "gridIndex": 15
+    }
+  }
+]

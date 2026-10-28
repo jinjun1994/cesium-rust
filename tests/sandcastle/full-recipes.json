@@ -2119,6 +2119,116 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "czml-billboard-and-label",
+      "title": "CZML Billboard and Label",
+      "sourceSha256": "1c6208234a3353aac8b33ec549341d0c50641598eca857075f774ab82dc3c874",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-billboard-and-label",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-billboard-and-label.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-billboard-and-label.json",
+      "entityCount": 2,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "CZML billboard with data URI and scale",
+        "CZML label with font, background, and pixel offset",
+        "billboard and label share position and display concurrently",
+        "viewer.zoomTo entire entity collection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "geometry-height-reference",
+      "title": "Geometry Height Reference",
+      "sourceSha256": "fb6d9a15546ea8c41efe497af30861d89738df0cb911aebeb4e64c072d9f2be3",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=geometry-height-reference",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/geometry-height-reference.json",
+      "expectedPath": "../../tests/sandcastle/full/geometry-height-reference.json",
+      "entityCount": 16,
+      "framing": "zoomToEntities",
+      "randomTestSeed": 5489,
+      "requirements": [
+        "16 side-by-side polygons with height and extrudedHeight",
+        "HeightReference RELATIVE_TO_GROUND and CLAMP_TO_GROUND",
+        "toolbar menu switching between polygons and boxes/cylinders/ellipsoids",
+        "viewer.camera.lookAt camera framing"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-path",
+      "title": "CZML Path",
+      "sourceSha256": "56b125c019b8e935fb33c0af77a61208172f7e4f6890e9c4454269f8f627b2e9",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-path",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-path.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-path.json",
+      "entityCount": 2,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "requirements": [
+        "GPS flight data sampled cartographic coordinates",
+        "billboard moving with time animation and eyeOffset",
+        "lead and trail wide polyline with PolylineOutline material",
+        "viewer.trackedEntity tracking the moving entity"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-reference-properties",
+      "title": "CZML Reference Properties",
+      "sourceSha256": "145f4fe8f96213a36b84ec0ee87a6d4d92439544c789754035a4fbd691962370",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-reference-properties",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-reference-properties.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-reference-properties.json",
+      "entityCount": 4,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "cross-entity property references resolved cleanly",
+        "position referencing position-reference#position",
+        "polygon fillColor referencing fillColor-reference#label.outlineColor",
+        "pure reference target packets with position-only emit zero graphics"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

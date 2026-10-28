@@ -68,7 +68,7 @@ fn color(c: [f32; 4]) -> bool {
 }
 impl Polyline {
     pub fn validate(&self) -> Result<(), String> {
-        if !(2..=1024).contains(&self.positions.len())
+        if !(2..=4096).contains(&self.positions.len())
             || !self.width.is_finite()
             || !(1.0..=256.).contains(&self.width)
         {
@@ -224,7 +224,10 @@ pub fn primitive(e: &Entity, d: &Polyline) -> Result<Primitive, String> {
         let a = world(pair[0], d.clamp_to_ground)?;
         let b = world(pair[1], d.clamp_to_ground)?;
         if a.distance(b) < 1e-3 {
-            return Err("distinct line positions required".into());
+            if d.positions.len() == 2 {
+                return Err("distinct line positions required".into());
+            }
+            continue;
         }
         let (arc, n) = if d.arc_type == Arc::NONE {
             (None, 1)
@@ -538,6 +541,106 @@ pub fn czml(packet: &serde_json::Value) -> Result<Entity, String> {
     if packet.get("position").is_some() || packet.get("availability").is_some() {
         return Err("static standalone line required".into());
     }
+    e.primitive()?;
+    Ok(e)
+}
+pub fn path_czml(packet: &serde_json::Value) -> Result<Entity, String> {
+    use serde_json::{json, Value};
+    let g = &packet["path"];
+    keys(
+        g,
+        &[
+            "material",
+            "width",
+            "leadTime",
+            "trailTime",
+            "resolution",
+            "show",
+        ],
+    )?;
+    keys(
+        &g["material"],
+        &[
+            "solidColor",
+            "polylineGlow",
+            "polylineArrow",
+            "polylineOutline",
+            "polylineDash",
+        ],
+    )?;
+    let entries = g["material"].as_object().ok_or("path material object")?;
+    if entries.len() != 1 {
+        return Err("one path material required".into());
+    }
+    let (kind, v) = entries.iter().next().unwrap();
+    let mut v = v.clone();
+    for k in ["color", "outlineColor", "gapColor"] {
+        if let Some(c) = v.get(k) {
+            keys(c, &["rgba", "rgbaf"])?;
+            let c: Vec<f32> = if let Some(a) = c.get("rgba") {
+                serde_json::from_value::<Vec<f32>>(a.clone())
+                    .map_err(|e| e.to_string())?
+                    .into_iter()
+                    .map(|n| n / 255.)
+                    .collect()
+            } else {
+                serde_json::from_value(c["rgbaf"].clone()).map_err(|e| e.to_string())?
+            };
+            v[k] = json!(c);
+        }
+    }
+    let t = match kind.as_str() {
+        "solidColor" => "Color",
+        "polylineGlow" => "PolylineGlow",
+        "polylineArrow" => "PolylineArrow",
+        "polylineOutline" => "PolylineOutline",
+        _ => "PolylineDash",
+    };
+    let (m, c) = source_material(t, &v)?;
+    let pos_val = packet.get("position").ok_or("path position required")?;
+    let raw_coords = pos_val
+        .get("cartographicDegrees")
+        .and_then(|v| v.as_array())
+        .ok_or("path position cartographicDegrees required")?;
+    if raw_coords.len() < 8 || !raw_coords.len().is_multiple_of(4) {
+        return Err("path cartographicDegrees time,lon,lat,alt tuples required".into());
+    }
+    let mut positions = Vec::with_capacity(raw_coords.len() / 4);
+    for chunk in raw_coords.as_chunks::<4>().0 {
+        let p = [
+            crate::entities::number(&chunk[1])?,
+            crate::entities::number(&chunk[2])?,
+            crate::entities::number(&chunk[3])?,
+        ];
+        if positions.last().is_none_or(|last| *last != p) {
+            positions.push(p);
+        }
+    }
+    let width = g
+        .get("width")
+        .map(crate::entities::number)
+        .transpose()?
+        .unwrap_or(1.);
+    let d = json!({
+        "positions": positions,
+        "width": width,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "material": m,
+    });
+    let id_str = packet["id"].as_str().ok_or("path id required")?;
+    let e: Entity = serde_json::from_value(json!({
+        "id": format!("{id_str}-lead-trail"),
+        "name": packet.get("name").cloned().unwrap_or(json!("")),
+        "positionDegrees": null,
+        "shape": { "type": "widePolyline", "data": d },
+        "color": c,
+        "fill": true,
+        "outline": false,
+        "show": g.get("show").cloned().unwrap_or(json!(true)),
+        "properties": packet.get("properties").cloned().unwrap_or(Value::Null),
+    }))
+    .map_err(|e| e.to_string())?;
     e.primitive()?;
     Ok(e)
 }

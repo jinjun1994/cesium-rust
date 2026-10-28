@@ -4,7 +4,7 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.32（已通过 75 / 309 个完整案例，剩余 234 个）
+- **当前版本**：v0.0.33（已通过 79 / 309 个完整案例，剩余 230 个）
 
 ---
 
@@ -155,21 +155,55 @@
 
 ---
 
-### [2026-10-27] v0.0.33 批次启动：CZML 屏幕要素、贴地几何高程与时态路径攻坚
-- **目标配方**（累计推进至 **79 / 309**，剩余 230 个）：
+### [2026-10-27] v0.0.33 验收完成：CZML 屏幕要素复合渲染、高程基准、时态轨迹与属性解引用引擎全面突破
+- **完成配方**（累计推进至 **79 / 309**，剩余 230 个）：
   1. `czml-billboard-and-label`（CZML 屏幕要素：Billboard 图像图标与 Label 文本标签联动、像素偏移、水平/垂直对齐对齐点、字体与缩放控制）
   2. `geometry-height-reference`（几何高程基准：`HeightReference.CLAMP_TO_GROUND` 与 `HeightReference.RELATIVE_TO_GROUND` 在实体几何与椭球地表的混合渲染与贴地自适应）
   3. `czml-path`（CZML 动态轨迹线：`PathGraphics` 实时尾迹追踪、leadTime / trailTime 前瞻与后顾时间窗、分辨率与线宽材质渲染）
   4. `czml-reference-properties`（CZML 实体引用属性：跨实体属性链接 `targetEntity#property`、动态关联位姿与多实体拓扑图谱）
+- **核心研发突破**：
+  1. **CZML 跨实体属性引用解算引擎**（`crates/cesium-viewer/src/entities.rs`）：
+     - 实现了 `dereference_czml_packets` 递归解引用系统，支持 `targetId#propPath` 跨包属性解包（如 `position-reference#position`、`fillColor-reference#label.outlineColor`）。
+     - 支持至多 16 层深度嵌套防环保护，正确处理非渲染参考包与多级嵌套属性。
+  2. **HeightReference 高度基准类型系统**：
+     - 新增 `HeightReference` 枚举（`None`、`ClampToGround`、`RelativeToGround`），支持字符串与整型兼容的反序列化。
+     - 为 `Shape::Polygon`、`Shape::Box`、`Shape::Cylinder`、`Shape::Ellipsoid` 引入 `height_reference` 及 `extruded_height_reference` 字段。
+  3. **高频采样轨迹点去重与线段几何容差**：
+     - 将地理折线采样上限由 1024 提升至 4096，并在几何构建中平滑处理相邻两点距离小于 1mm 的连续退化点，保障大圆弧与法向扩展不退化。
+     - 统一 `PolylineOutline` 材质在 CZML 路径中的语义映射，转换为带有 `outlineColor` 与 `outlineWidth` 的宽折线渲染管线。
+  4. **单数据包多图元展开**：
+     - 扩展 CZML 数据包解码器，支持在单个数据包中同时声明 `billboard + label`、`billboard + path` 或 `polygon + label`，自动将其展开为主实体与附着实体。
+  5. **视距偏移（Eye Offset）与 CSS 字体尺寸拓展**：
+     - 在 `screen_options.rs` 中为屏幕对象引入 `eye_offset: Option<[f64; 3]>`，并支持从 CZML `eyeOffset.cartesian` 解析。
+     - 在 `label.rs` 的 CSS 字体解析器中增加对 `pt` 单位换算（`pt * 4/3 = px`）与 "Lucida Console" 字体识别。
+- **验证结果**：
+  - **普通 Rust 单元测试**：97 / 97 项全部通过（新增 `batch33_czml_billboard_label_height_reference_path_reference_properties`）。
+  - **真实 GPU 离屏渲染测试**：80 / 80 项全部通过（用时 22.42s，全部包含离屏像素反读与实体 ID 拾取）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 79 个固定案例哈希与实体结构精准契合）。
+  - **浏览器真实 WebGPU 端到端**：79 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`），包含实体像素反读、ID 拾取、显隐交互、鼠标滚轮缩放与窗口自适应验证。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy -p cesium-viewer --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [CZML 复合广告牌与标签、几何高度参考基准、飞行路径与跨实体引用属性验证文档](docs/czml-billboard-label-path-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
+---
+
+### [2026-10-29] v0.0.34 批次启动：CZML 动态插值多边形、距离显示条件、回调属性与地图图钉攻坚
+- **目标配方**（累计推进至 **83 / 309**，剩余 226 个）：
+  1. `czml-polygon-interpolating-references`（CZML 动态插值引用多边形：`references` 数组引用时间动态采样的顶点 `v1#position`、`v2#position`、`v3#position`，动态嵌套内孔 `holes.references`，随时间区间变化的 `rgbaf` 材质）
+  2. `distance-display-conditions`（实体距离显示条件：`DistanceDisplayCondition` 在 Billboard、Rectangle、Point 与 Model 上的可见距离阈值近远裁剪控制，双变体工具栏切换）
+  3. `callback-property`（实体回调动态属性：`CallbackProperty` 驱动随时间推移自动延伸的大圆折线、折线中点测地线距离动态计算与标注标签动态跟踪）
+  4. `map-pins`（图钉生成器要素：`PinBuilder` 纯色图钉、文字标号图钉、Maki 矢量图标图钉与自定义 URL 图钉，`verticalOrigin: BOTTOM` 贴地锚定与 Promise 集合取景）
 - **核心研发规划**：
-  1. **CZML 屏幕要素图层联动（Billboard + Label）**：
-     - 在 CZML 解析器中支持双组件绑定，确保同一实体的文本和图像在屏幕空间中按照锚点和对齐方式正确合成渲染。
-  2. **几何高度基准（HeightReference Pipeline）**：
-     - 在几何图元解析与顶点着色器中支持 `HeightReference` 枚举，实现贴地（Clamp to Ground）与离地相对高度（Relative to Ground）空间偏移计算。
-  3. **时态路径追踪管线（PathGraphics Lead/Trail）**：
-     - 结合实体时钟时间序列，动态截取 `[t - trailTime, t + leadTime]` 时间窗口内的样条折线段并动态推送到渲染管线。
-  4. **引用属性解析引擎（Reference Properties Engine）**：
-     - 建立 CZML 实体间属性引用的延迟解析机制，在实体集合加载完成后完成引用图拓扑解析与属性值同步。
+  1. **CZML 数组多引用与动态多边形（Array References & Dynamic Polygons）**：
+     - 在 `dereference_czml_packets` 中支持 `references` 数组解析与递归解包，支持动态多边形外环与内孔的多点动态拓扑重构。
+  2. **距离显示条件管线（DistanceDisplayCondition Pipeline）**：
+     - 在实体几何、屏幕图元与模型渲染中扩展近远距离阈值裁剪逻辑，实现基于相机距离的视平滑过渡与切换。
+  3. **回调属性与实时几何更新（CallbackProperty Evaluation）**：
+     - 在实体属性系统中支持 `CallbackProperty` 惰性求值与动画时钟步进触发机制。
+  4. **图钉生成器与 SVG/Canvas 光栅化（PinBuilder Canvas Rasterization）**：
+     - 在前端沙盒环境中提供 `PinBuilder` 兼容实现，支持 Maki 图标与字符标注图钉导出为标准 DataURL。
+
 
 
 

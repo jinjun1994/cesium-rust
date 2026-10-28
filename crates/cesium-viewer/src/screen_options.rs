@@ -29,6 +29,8 @@ pub struct ScreenOptions {
     pub rotation: f64,
     pub horizontal_origin: HorizontalOrigin,
     pub vertical_origin: VerticalOrigin,
+    #[serde(default, skip_serializing_if = "Option::is_none", rename = "eyeOffset")]
+    pub eye_offset: Option<[f64; 3]>,
 }
 impl ScreenOptions {
     pub fn distance(&self) -> cesium_renderer::ScreenDistance {
@@ -43,6 +45,11 @@ impl ScreenOptions {
     pub fn validate(&self) -> Result<(), String> {
         if !self.rotation.is_finite() || self.rotation.abs() > 10000. {
             return Err("finite billboard rotation <=10000 radians required".into());
+        }
+        if let Some(eo) = self.eye_offset {
+            if eo.iter().any(|v| !v.is_finite() || v.abs() > 1e7) {
+                return Err("finite eyeOffset required".into());
+            }
         }
         self.distance().validate().map_err(|e| e.to_string())
     }
@@ -116,6 +123,23 @@ pub fn czml(g: &Value) -> Result<ScreenOptions, String> {
             })
             .transpose()?
             .unwrap_or_default(),
+        eye_offset: if let Some(eo) = g.get("eyeOffset") {
+            if let Some(c) = eo.get("cartesian") {
+                let a = c.as_array().ok_or("cartesian eyeOffset array")?;
+                if a.len() != 3 {
+                    return Err("eyeOffset cartesian array length 3".into());
+                }
+                Some([
+                    super::entities::number(&a[0])?,
+                    super::entities::number(&a[1])?,
+                    super::entities::number(&a[2])?,
+                ])
+            } else {
+                None
+            }
+        } else {
+            None
+        },
     };
     options.validate()?;
     Ok(options)

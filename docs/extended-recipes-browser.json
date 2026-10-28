@@ -1,16 +1,17 @@
 {
-  "version": "0.0.26",
+  "version": "0.0.29",
+  "wasmSha256": "e8023db9f2369c5a94bd3c84a7080fdace671b0b7deaff5f76e8ad81067ef723",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "polyline",
+      "id": "czml-billboard-and-label",
       "status": "passed",
-      "entities": 6,
-      "sourceSha256": "26247a07666749d98c7cf3f3d293e320d16ef01e6a531733e0034145f6e69a76",
-      "inputSha256": "e1185938e5e2c44a74eb13c77cae46ff68887a11462374dfdef4dc6d23aba160",
-      "fixtureSha256": "e1185938e5e2c44a74eb13c77cae46ff68887a11462374dfdef4dc6d23aba160",
+      "entities": 2,
+      "sourceSha256": "1c6208234a3353aac8b33ec549341d0c50641598eca857075f774ab82dc3c874",
+      "inputSha256": "c6272440006485b6a1cc20d7a9ac745cb48ba214297f727a1d23fdabfce4b95a",
+      "fixtureSha256": "8d4018c1d1e3753717afa7c252115775596c5cce49e4ebef4b2719400da1118e",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -21,42 +22,361 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "polyline-1",
-        "polyline-2",
-        "polyline-3",
-        "polyline-4",
-        "polyline-5",
-        "polyline-6"
+        "some-unique-id",
+        "some-unique-id-label"
       ],
       "pixelCounts": [
         {
-          "id": "polyline-1",
-          "pixels": 1037
+          "id": "some-unique-id",
+          "pixels": 8246
         },
         {
-          "id": "polyline-2",
-          "pixels": 1068
-        },
-        {
-          "id": "polyline-3",
-          "pixels": 1972
-        },
-        {
-          "id": "polyline-4",
-          "pixels": 2060
-        },
-        {
-          "id": "polyline-5",
-          "pixels": 1664
-        },
-        {
-          "id": "polyline-6",
-          "pixels": 841
+          "id": "some-unique-id-label",
+          "pixels": 1344
         }
       ]
+    },
+    {
+      "id": "geometry-height-reference",
+      "status": "passed",
+      "entities": 16,
+      "sourceSha256": "fb6d9a15546ea8c41efe497af30861d89738df0cb911aebeb4e64c072d9f2be3",
+      "inputSha256": "238c8fe1660a89fa5aa7a0bd8d5a7ad43667f99644b41d8d0ccff55694fe318c",
+      "fixtureSha256": "238c8fe1660a89fa5aa7a0bd8d5a7ad43667f99644b41d8d0ccff55694fe318c",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "polygon-0",
+        "polygon-1",
+        "polygon-2",
+        "polygon-3",
+        "polygon-4",
+        "polygon-5",
+        "polygon-6",
+        "polygon-7",
+        "polygon-8",
+        "polygon-9",
+        "polygon-10",
+        "polygon-11",
+        "polygon-12",
+        "polygon-13",
+        "polygon-14",
+        "polygon-15"
+      ],
+      "pixelCounts": [
+        {
+          "id": "polygon-0",
+          "pixels": 1761
+        },
+        {
+          "id": "polygon-1",
+          "pixels": 1761
+        },
+        {
+          "id": "polygon-2",
+          "pixels": 1761
+        },
+        {
+          "id": "polygon-3",
+          "pixels": 1761
+        },
+        {
+          "id": "polygon-4",
+          "pixels": 1761
+        },
+        {
+          "id": "polygon-5",
+          "pixels": 1761
+        },
+        {
+          "id": "polygon-6",
+          "pixels": 1761
+        },
+        {
+          "id": "polygon-7",
+          "pixels": 1761
+        },
+        {
+          "id": "polygon-8",
+          "pixels": 1761
+        },
+        {
+          "id": "polygon-9",
+          "pixels": 1761
+        },
+        {
+          "id": "polygon-10",
+          "pixels": 1761
+        },
+        {
+          "id": "polygon-11",
+          "pixels": 1761
+        },
+        {
+          "id": "polygon-12",
+          "pixels": 1761
+        },
+        {
+          "id": "polygon-13",
+          "pixels": 1761
+        },
+        {
+          "id": "polygon-14",
+          "pixels": 1761
+        },
+        {
+          "id": "polygon-15",
+          "pixels": 1761
+        }
+      ]
+    },
+    {
+      "id": "czml-path",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "56b125c019b8e935fb33c0af77a61208172f7e4f6890e9c4454269f8f627b2e9",
+      "inputSha256": "474ec8e9e7a3e9f2c219becd79cfbfe8694b658fadadbd02889ab1545cbbd78c",
+      "fixtureSha256": "dd407b43b7c3ba35ac172c0be20d608ffb1c472b6f524543540304bf61867bf3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "path",
+        "path-lead-trail"
+      ],
+      "pixelCounts": [
+        {
+          "id": "path",
+          "pixels": 4170
+        },
+        {
+          "id": "path-lead-trail",
+          "pixels": 4880
+        }
+      ]
+    },
+    {
+      "id": "czml-reference-properties",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "145f4fe8f96213a36b84ec0ee87a6d4d92439544c789754035a4fbd691962370",
+      "inputSha256": "f3ed75b47017eb8bcc278ae3a49e86ccf12837eb3694271516c803d2e2cb333b",
+      "fixtureSha256": "8adce2f132f96b7806c1a3c221bbd60c2314736df0722701605a0557c0558935",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "fillColor-reference",
+        "fillColor-reference-label",
+        "polygon",
+        "polygon-label"
+      ],
+      "pixelCounts": [
+        {
+          "id": "fillColor-reference",
+          "pixels": 8252
+        },
+        {
+          "id": "fillColor-reference-label",
+          "pixels": 3279
+        },
+        {
+          "id": "polygon",
+          "pixels": 28061
+        },
+        {
+          "id": "polygon-label",
+          "pixels": 1825
+        }
+      ]
+    },
+    {
+      "id": "html-overlays",
+      "sourceSha256": "73b2dc9b3fd840cf289666d93b1392a835acaaae046b93cc74805aa117293a71",
+      "inputSha256": "df59d0a5c3c3c876c4a4cb05f1905f43579b26c8c527b742e75965f817397905",
+      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "status": "passed",
+      "entities": 0,
+      "globePixels": 16147,
+      "checks": [
+        "original source body and initial state",
+        "real WASM globe pixels",
+        "source default framing",
+        "original logo asset decoded",
+        "result object reused",
+        "preRender updates after camera/resize/resolution change",
+        "wheel zoom"
+      ],
+      "htmlSha256": "0e6d5c31d0196fd6c11268c463ea8c86355c9955a5c5ea5f86571eb1b4e7b81c",
+      "assetSha256": "1d6a9bbf468253843d3fda9021b1592c2f85da109cecb11f6f37f875dc251332"
+    },
+    {
+      "id": "resolution-scaling",
+      "sourceSha256": "f732be47d255c095871a1d841b7020b9ca3a86844439b43cb99229b409d0298a",
+      "inputSha256": "03ac66a666dad93a1aa5700ac305f37e6c9086790eee83848b9fadf54181432e",
+      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "status": "passed",
+      "entities": 0,
+      "globePixels": 1017,
+      "checks": [
+        "original source body and initial state",
+        "real WASM globe pixels",
+        "source default framing",
+        "range and text subscriptions",
+        "NaN fallback",
+        "0.1..2 clamp",
+        "recommended mode",
+        "actual framebuffer dimensions",
+        "wheel zoom",
+        "real DPR=2 framebuffer and recommended-mode comparison"
+      ],
+      "htmlSha256": "595ede83e6b39accb93e8749d75c779c03b054b6666103543bf157f47fac484b",
+      "dpr2": {
+        "native": {
+          "w": 308,
+          "h": 234,
+          "cssW": 615,
+          "cssH": 468,
+          "dpr": 2,
+          "scale": 0.25,
+          "rec": false
+        },
+        "recommended": {
+          "w": 154,
+          "h": 117,
+          "cssW": 615,
+          "cssH": 468,
+          "dpr": 2,
+          "scale": 0.25,
+          "rec": true
+        },
+        "globePixels": 822
+      }
+    },
+    {
+      "id": "hello-world",
+      "sourceSha256": "10329eeedf78a7b040f59a5edf8f8804644b440e56323b2bb3d1a846c61b6bce",
+      "inputSha256": "78b58e3d01df000ca3a15cad2bd97fe4189924f0510bbe8304f0d8c53413b24e",
+      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "status": "passed",
+      "entities": 0,
+      "globePixels": 16147,
+      "checks": [
+        "original source body and initial state",
+        "real WASM globe pixels",
+        "source default framing",
+        "overlay/event/resolution case cleanup",
+        "wheel zoom"
+      ]
+    },
+    {
+      "id": "points",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "78c0132b5b8b0171c3363401274bbd91e78f13ac06afc05778fa6090d9d3a1ba",
+      "inputSha256": "9c4e10c650857e25fec9ec42070775fbe87b15cda486bedfb198374c68526e4a",
+      "fixtureSha256": "40aaee3825e0af92cf6abc60131ccfeb23795a5533d983276847b0f9bf1745da",
+      "checks": [
+        "all six original menu callbacks and reset",
+        "exact positions, colors, sizes, outlines and NearFarScalar",
+        "real pixels and picking for every variant entity",
+        "measured distance scaling and fading"
+      ],
+      "variantResults": [
+        {
+          "label": "Add point",
+          "entities": 1,
+          "pixels": 78
+        },
+        {
+          "label": "Set point properties at creation",
+          "entities": 1,
+          "pixels": 196
+        },
+        {
+          "label": "Change point properties",
+          "entities": 1,
+          "pixels": 312
+        },
+        {
+          "label": "Add multiple points",
+          "entities": 3,
+          "pixels": 1044
+        },
+        {
+          "label": "Scale by viewer distance",
+          "entities": 1,
+          "pixels": 304
+        },
+        {
+          "label": "Fade by viewer distance",
+          "entities": 1,
+          "pixels": 312
+        }
+      ],
+      "scaleMeasurements": {
+        "near": {
+          "pixels": 312,
+          "energy": 209757
+        },
+        "far": {
+          "pixels": 11,
+          "energy": 7392
+        }
+      },
+      "fadeMeasurements": {
+        "near": {
+          "pixels": 312,
+          "energy": 209757
+        },
+        "far": {
+          "pixels": 156,
+          "energy": 44939
+        }
+      }
+    },
+    {
+      "id": "offline",
+      "status": "passed",
+      "entities": 0,
+      "sourceSha256": "cf0ff25e62c546a6a67bbfd65d96efbf4f2875f7d7c309f1abca8f55ed74ad4d",
+      "inputSha256": "8fdddda529719a67eb3444a5bf3713fe64210938b91a674107468c9392b812b6",
+      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "checks": [
+        "original local TMS provider and disabled picker/geocoder",
+        "all 42 pinned local JPEG files present and hashed",
+        "public network blocked; real local tile fetches",
+        "real detailed globe pixels and wheel zoom"
+      ],
+      "localTileRequests": 34,
+      "externalRequests": 0,
+      "colors": 20297,
+      "assetsSha256": "f7dbc2e3295e40bbd1f08bfcc476efe0c5237acdb6df8e7410943c9b8de081e4"
     }
   ],
-  "browser": "155.0.8059.39",
+  "browser": "156.0.8078.48",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed"
 }

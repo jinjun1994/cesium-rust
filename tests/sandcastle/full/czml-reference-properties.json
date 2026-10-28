@@ -1,0 +1,223 @@
+[
+  {
+    "id": "fillColor-reference",
+    "show": true,
+    "name": "Referencing Position",
+    "positionDegrees": [
+      -110,
+      50,
+      0
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+      "width": 64,
+      "height": 64,
+      "scale": 1.5,
+      "pixelOffset": [
+        0,
+        0
+      ]
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  },
+  {
+    "id": "fillColor-reference-label",
+    "show": true,
+    "name": "Referencing Position",
+    "positionDegrees": [
+      -110,
+      50,
+      0
+    ],
+    "shape": {
+      "type": "label",
+      "appearance": {
+        "style": "FILL_AND_OUTLINE",
+        "showBackground": false,
+        "backgroundColor": [
+          0.165,
+          0.165,
+          0.165,
+          0.8
+        ],
+        "backgroundPadding": [
+          7,
+          5
+        ],
+        "outlineColor": [
+          0.5882352941176471,
+          0,
+          0.5882352941176471,
+          1
+        ],
+        "outlineWidth": 3
+      },
+      "text": "referencing position",
+      "fontSize": 17.333333333333332,
+      "scale": 1,
+      "pixelOffset": [
+        20,
+        0
+      ]
+    },
+    "screen": {
+      "horizontalOrigin": "LEFT",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0.5882352941176471,
+      0,
+      0.5882352941176471,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  },
+  {
+    "id": "polygon",
+    "show": true,
+    "name": "Referencing Fill Color",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          -115,
+          37,
+          0
+        ],
+        [
+          -115,
+          32,
+          0
+        ],
+        [
+          -107,
+          33,
+          0
+        ],
+        [
+          -102,
+          31,
+          0
+        ],
+        [
+          -102,
+          35,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      0.5882352941176471,
+      0,
+      0.5882352941176471,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": null
+  },
+  {
+    "id": "polygon-label",
+    "show": true,
+    "name": "Referencing Fill Color",
+    "positionDegrees": [
+      -105,
+      35,
+      0
+    ],
+    "shape": {
+      "type": "label",
+      "appearance": {
+        "style": "FILL_AND_OUTLINE",
+        "showBackground": false,
+        "backgroundColor": [
+          0.165,
+          0.165,
+          0.165,
+          0.8
+        ],
+        "backgroundPadding": [
+          7,
+          5
+        ],
+        "outlineColor": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "outlineWidth": 1
+      },
+      "text": "referencing fillColor",
+      "fontSize": 17.333333333333332,
+      "scale": 1,
+      "pixelOffset": [
+        20,
+        0
+      ]
+    },
+    "screen": {
+      "horizontalOrigin": "LEFT",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  }
+]

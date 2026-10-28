@@ -129,6 +129,7 @@ pub fn primitive(e: &Entity) -> Result<Option<Primitive>, String> {
             holes,
             height,
             extruded_height,
+            ..
         } => {
             let mut pos = positions.clone();
             if let Some(h) = height {
@@ -258,7 +259,7 @@ pub fn primitive(e: &Entity) -> Result<Option<Primitive>, String> {
             return Err("screen graphics use their own outline fields".into())
         }
         Shape::Polyline { .. } => return Err("polyline outlines are not supported".into()),
-        Shape::Box { dimensions } => {
+        Shape::Box { dimensions, .. } => {
             let d = DVec3::from_array(*dimensions) * 0.5;
             let v = [
                 DVec3::new(-d.x, -d.y, -d.z),
@@ -340,6 +341,7 @@ pub fn primitive(e: &Entity) -> Result<Option<Primitive>, String> {
             length,
             top_radius,
             bottom_radius,
+            ..
         } => {
             for (radius, z) in [(*top_radius, length / 2.), (*bottom_radius, -length / 2.)] {
                 for i in 0..128 {
@@ -372,6 +374,7 @@ pub fn primitive(e: &Entity) -> Result<Option<Primitive>, String> {
             maximum_cone,
             stacks,
             slices,
+            ..
         } => {
             let min_clock = minimum_clock.unwrap_or(0.0);
             let max_clock = maximum_clock.unwrap_or(std::f64::consts::TAU);

@@ -18,7 +18,7 @@ fn coordinate(p: [f64; 3]) -> Result<DVec3, String> {
         .to_ecef())
 }
 fn positions(p: &[[f64; 3]], minimum: usize) -> Result<(), String> {
-    if p.len() < minimum || p.len() > 1024 {
+    if p.len() < minimum || p.len() > 4096 {
         return Err("geographic geometry position count".into());
     }
     for p in p {
@@ -495,6 +495,7 @@ pub fn primitive(e: &Entity) -> Result<Primitive, String> {
             holes,
             height,
             extruded_height,
+            ..
         } => {
             if holes.len() > 32 {
                 return Err("polygon hole count limit".into());

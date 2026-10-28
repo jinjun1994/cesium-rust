@@ -137,13 +137,20 @@ pub fn css_font(v: &serde_json::Value) -> Result<f32, String> {
         v.as_str()
     }
     .ok_or("constant label font string required")?;
-    let (size, family) = raw
-        .split_once("px ")
-        .ok_or("label font must be '<size>px sans-serif' or '<size>px Globe Sans'")?;
-    if !matches!(family, "sans-serif" | "Globe Sans") {
+    let (size, family) = if let Some(p) = raw.split_once("px ") {
+        (p.0.parse::<f32>().map_err(|_| "label font size")?, p.1)
+    } else if let Some(p) = raw.split_once("pt ") {
+        (
+            p.0.parse::<f32>().map_err(|_| "label font size")? * (4.0 / 3.0),
+            p.1,
+        )
+    } else {
+        return Err("label font must specify size in px or pt followed by family".into());
+    };
+    if !matches!(family, "sans-serif" | "Globe Sans" | "Lucida Console") {
         return Err("label font family is unsupported".into());
     }
-    size.parse::<f32>().map_err(|_| "label font size".into())
+    Ok(size)
 }
 
 #[cfg(test)]

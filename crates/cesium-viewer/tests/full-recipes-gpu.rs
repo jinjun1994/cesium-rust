@@ -584,6 +584,7 @@ async fn verify_extended(id: &str, data: &[u8]) {
         "rectangle",
         "z-indexing-geometry",
         "parallels-and-meridians",
+        "geometry-height-reference",
     ]
     .contains(&id)
     {
@@ -1443,5 +1444,41 @@ fn complete_polygon_texture_coordinates_dev() {
         include_bytes!(
             "../../../tests/sandcastle/full/polygon-texture-coordinates-dev.primitive.json"
         ),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_czml_billboard_and_label() {
+    pollster::block_on(verify_extended(
+        "czml-billboard-and-label",
+        include_bytes!("../../../tests/sandcastle/full/czml-billboard-and-label.czml"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_geometry_height_reference() {
+    pollster::block_on(verify_extended(
+        "geometry-height-reference",
+        include_bytes!("../../../tests/sandcastle/full/geometry-height-reference.json"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_czml_path() {
+    pollster::block_on(verify_extended(
+        "czml-path",
+        include_bytes!("../../../tests/sandcastle/full/czml-path.czml"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_czml_reference_properties() {
+    pollster::block_on(verify_extended(
+        "czml-reference-properties",
+        include_bytes!("../../../tests/sandcastle/full/czml-reference-properties.czml"),
     ));
 }

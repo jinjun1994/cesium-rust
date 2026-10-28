@@ -1,0 +1,106 @@
+[
+  {
+    "id": "some-unique-id",
+    "show": true,
+    "name": "AGI",
+    "positionDegrees": [
+      -75.59661481113855,
+      40.0385954542758,
+      0
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+      "width": 64,
+      "height": 64,
+      "scale": 1.5,
+      "pixelOffset": [
+        0,
+        0
+      ]
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  },
+  {
+    "id": "some-unique-id-label",
+    "show": true,
+    "name": "AGI",
+    "positionDegrees": [
+      -75.59661481113855,
+      40.0385954542758,
+      0
+    ],
+    "shape": {
+      "type": "label",
+      "appearance": {
+        "style": "FILL",
+        "showBackground": true,
+        "backgroundColor": [
+          0.4392156862745098,
+          0.34901960784313724,
+          0.2235294117647059,
+          0.7843137254901961
+        ],
+        "backgroundPadding": [
+          7,
+          5
+        ],
+        "outlineColor": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "outlineWidth": 1
+      },
+      "text": "AGI",
+      "fontSize": 16,
+      "scale": 1,
+      "pixelOffset": [
+        8,
+        0
+      ]
+    },
+    "screen": {
+      "horizontalOrigin": "LEFT",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  }
+]

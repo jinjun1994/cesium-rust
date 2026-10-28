@@ -12,6 +12,65 @@ pub enum CornerType {
     Mitered,
     Beveled,
 }
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default, Serialize)]
+#[serde(rename_all = "SCREAMING_SNAKE_CASE")]
+pub enum HeightReference {
+    #[default]
+    None,
+    ClampToGround,
+    RelativeToGround,
+}
+
+impl<'de> Deserialize<'de> for HeightReference {
+    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
+    where
+        D: serde::Deserializer<'de>,
+    {
+        struct HeightReferenceVisitor;
+        impl<'de> serde::de::Visitor<'de> for HeightReferenceVisitor {
+            type Value = HeightReference;
+            fn expecting(&self, formatter: &mut std::fmt::Formatter) -> std::fmt::Result {
+                formatter.write_str("a HeightReference integer (0, 1, 2) or string")
+            }
+            fn visit_i64<E>(self, v: i64) -> Result<Self::Value, E>
+            where
+                E: serde::de::Error,
+            {
+                match v {
+                    0 => Ok(HeightReference::None),
+                    1 => Ok(HeightReference::ClampToGround),
+                    2 => Ok(HeightReference::RelativeToGround),
+                    _ => Err(E::custom(format!("invalid heightReference int {v}"))),
+                }
+            }
+            fn visit_u64<E>(self, v: u64) -> Result<Self::Value, E>
+            where
+                E: serde::de::Error,
+            {
+                self.visit_i64(v as i64)
+            }
+            fn visit_f64<E>(self, v: f64) -> Result<Self::Value, E>
+            where
+                E: serde::de::Error,
+            {
+                self.visit_i64(v as i64)
+            }
+            fn visit_str<E>(self, v: &str) -> Result<Self::Value, E>
+            where
+                E: serde::de::Error,
+            {
+                match v {
+                    "NONE" => Ok(HeightReference::None),
+                    "CLAMP_TO_GROUND" => Ok(HeightReference::ClampToGround),
+                    "RELATIVE_TO_GROUND" => Ok(HeightReference::RelativeToGround),
+                    _ => Err(E::custom(format!("invalid heightReference string {v}"))),
+                }
+            }
+        }
+        deserializer.deserialize_any(HeightReferenceVisitor)
+    }
+}
+
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(tag = "type", rename_all = "camelCase", deny_unknown_fields)]
 pub enum Shape {
@@ -58,6 +117,12 @@ pub enum Shape {
     },
     Box {
         dimensions: [f64; 3],
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "heightReference"
+        )]
+        height_reference: Option<HeightReference>,
     },
     Frustum {
         fov: f64,
@@ -110,6 +175,12 @@ pub enum Shape {
             rename = "slicePartitions"
         )]
         slices: Option<u32>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "heightReference"
+        )]
+        height_reference: Option<HeightReference>,
     },
     Cylinder {
         length: f64,
@@ -117,6 +188,12 @@ pub enum Shape {
         top_radius: f64,
         #[serde(rename = "bottomRadius")]
         bottom_radius: f64,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "heightReference"
+        )]
+        height_reference: Option<HeightReference>,
     },
     Plane {
         dimensions: [f64; 2],
@@ -153,8 +230,20 @@ pub enum Shape {
         holes: Vec<Vec<[f64; 3]>>,
         #[serde(default, skip_serializing_if = "Option::is_none")]
         height: Option<f64>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "heightReference"
+        )]
+        height_reference: Option<HeightReference>,
         #[serde(default, rename = "extrudedHeight")]
         extruded_height: Option<f64>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "extrudedHeightReference"
+        )]
+        extruded_height_reference: Option<HeightReference>,
     },
     Rectangle {
         #[serde(rename = "coordinatesDegrees", alias = "coordinates")]
@@ -471,7 +560,7 @@ impl Entity {
         }
         let positive = |x: f64| x.is_finite() && (0.0..=1e6).contains(&x) && x > 0.;
         let valid = match self.shape {
-            Shape::Box { dimensions } => dimensions.into_iter().all(positive),
+            Shape::Box { dimensions, .. } => dimensions.into_iter().all(positive),
             Shape::Frustum {
                 fov,
                 aspect_ratio,
@@ -493,6 +582,7 @@ impl Entity {
                 maximum_cone,
                 stacks,
                 slices,
+                ..
             } => {
                 radii.into_iter().all(positive)
                     && inner_radii.as_ref().is_none_or(|in_r| {
@@ -534,6 +624,7 @@ impl Entity {
                 length,
                 top_radius,
                 bottom_radius,
+                ..
             } => {
                 positive(length)
                     && top_radius.is_finite()
@@ -629,7 +720,7 @@ impl Entity {
             p.indices.extend([first, first + 1, first + 2]);
         };
         match self.shape {
-            Shape::Box { dimensions } => {
+            Shape::Box { dimensions, .. } => {
                 let d = DVec3::from_array(dimensions) * 0.5;
                 let v = [
                     DVec3::new(-d.x, -d.y, -d.z),
@@ -705,6 +796,7 @@ impl Entity {
                 maximum_cone,
                 stacks,
                 slices,
+                ..
             } => {
                 let stacks = stacks.unwrap_or(64);
                 let slices = slices.unwrap_or(64);
@@ -832,6 +924,7 @@ impl Entity {
                 length,
                 top_radius,
                 bottom_radius,
+                ..
             } => {
                 for i in 0..128 {
                     let u = i as f64 * std::f64::consts::TAU / 128.;
@@ -889,6 +982,7 @@ impl Entity {
                 length,
                 top_radius,
                 bottom_radius,
+                ..
             } = self.shape
             {
                 for v in &mut p.vertices {
@@ -1240,7 +1334,9 @@ fn geographic_packet(packet: &Value, key: &str) -> Result<Entity, String> {
                     positions: p,
                     holes,
                     height: g.get("height").map(number).transpose()?,
+                    height_reference: None,
                     extruded_height: g.get("extrudedHeight").map(number).transpose()?,
+                    extruded_height_reference: None,
                 }
             }
         }
@@ -1353,14 +1449,413 @@ fn screen_offset(g: &Value) -> Result<[f64; 2], String> {
     }
     Ok([number(&a[0])?, number(&a[1])?])
 }
+fn dereference_czml_packets(packets: &mut [Value]) -> Result<(), String> {
+    let mut lookup = std::collections::HashMap::new();
+    for p in packets.iter() {
+        if let Some(id) = p.get("id").and_then(|v| v.as_str()) {
+            lookup.insert(id.to_string(), p.clone());
+        }
+    }
+
+    fn resolve_node(
+        v: &mut Value,
+        lookup: &std::collections::HashMap<String, Value>,
+        depth: usize,
+    ) -> Result<(), String> {
+        if depth > 16 {
+            return Err("circular CZML reference detected".into());
+        }
+        if let Value::Object(map) = v {
+            if let Some(ref_val) = map.get("reference").and_then(|r| r.as_str()) {
+                let (target_id, prop_path) = ref_val
+                    .split_once('#')
+                    .ok_or_else(|| format!("invalid CZML reference syntax '{ref_val}'"))?;
+                let target = lookup
+                    .get(target_id)
+                    .ok_or_else(|| format!("CZML reference target '{target_id}' not found"))?;
+                let mut current = target;
+                for part in prop_path.split('.') {
+                    current = current.get(part).ok_or_else(|| {
+                        format!("CZML reference property '{part}' in '{ref_val}' not found")
+                    })?;
+                }
+                let mut resolved = current.clone();
+                resolve_node(&mut resolved, lookup, depth + 1)?;
+                *v = resolved;
+                return Ok(());
+            }
+            for val in map.values_mut() {
+                resolve_node(val, lookup, depth)?;
+            }
+        } else if let Value::Array(arr) = v {
+            for val in arr.iter_mut() {
+                resolve_node(val, lookup, depth)?;
+            }
+        }
+        Ok(())
+    }
+
+    for p in packets.iter_mut() {
+        resolve_node(p, &lookup, 0)?;
+    }
+    Ok(())
+}
+fn decode_screen_or_model_packet(
+    packet: &Value,
+    key: &str,
+    entity_id: &str,
+) -> Result<Entity, String> {
+    let pos = packet.get("position").ok_or("position required")?;
+    known(
+        pos,
+        &[
+            "cartographicDegrees",
+            "cartographicRadians",
+            "cartesian",
+            "epoch",
+            "referenceFrame",
+            "interpolationAlgorithm",
+            "interpolationDegree",
+        ],
+    )?;
+    if pos.get("referenceFrame").is_some_and(|v| v != "FIXED")
+        || pos
+            .get("interpolationAlgorithm")
+            .is_some_and(|v| v != "LINEAR")
+        || pos.get("interpolationDegree").is_some_and(|v| v != 1)
+    {
+        return Err("only FIXED LINEAR position interpolation supported".into());
+    }
+    let radians = pos.get("cartographicRadians");
+    if radians.is_some() && pos.get("cartographicDegrees").is_some() {
+        return Err("one geographic position encoding required".into());
+    }
+    let geographic = pos.get("cartographicDegrees").or(radians);
+    let cartesian = pos.get("cartesian");
+    if geographic.is_some() == cartesian.is_some() {
+        return Err("exactly one CZML position encoding required".into());
+    }
+    let a = geographic
+        .or(cartesian)
+        .unwrap()
+        .as_array()
+        .ok_or("position array")?;
+    let mut samples = vec![];
+    let mut position_degrees = None;
+    if a.len() == 3 && pos.get("epoch").is_none() {
+        let mut p = triple(&Value::Array(a.clone()))?;
+        if radians.is_some() {
+            p = radian_position(p)?;
+        }
+        if geographic.is_some() {
+            position_degrees = Some(p);
+        } else {
+            let c = Cartographic::from_ecef(DVec3::from_array(p)).map_err(|e| e.to_string())?;
+            position_degrees = Some([c.longitude.to_degrees(), c.latitude.to_degrees(), c.height]);
+        }
+    } else {
+        if a.is_empty() || !a.len().is_multiple_of(4) || a.len() > 40000 {
+            return Err("sampled position time,x,y,z tuples required".into());
+        }
+        let epoch = pos
+            .get("epoch")
+            .map(|v| utc(v.as_str().ok_or("epoch ISO date")?))
+            .transpose()?;
+        for v in a.as_chunks::<4>().0 {
+            let time = if let Some(epoch) = epoch {
+                epoch + number(&v[0])?
+            } else {
+                utc(v[0].as_str().ok_or("sample ISO time or epoch required")?)?
+            };
+            let mut p = [number(&v[1])?, number(&v[2])?, number(&v[3])?];
+            if radians.is_some() {
+                p = radian_position(p)?;
+            }
+            let p = if geographic.is_some() {
+                Cartographic::degrees(p[0], p[1], p[2])
+                    .map_err(|e| e.to_string())?
+                    .to_ecef()
+                    .to_array()
+            } else {
+                p
+            };
+            samples.push(Sample { time, cartesian: p });
+        }
+    }
+    let g = &packet[key];
+    let mut allowed = vec![
+        "material",
+        "show",
+        "fill",
+        "outline",
+        "outlineColor",
+        "outlineWidth",
+        "zIndex",
+        "heightReference",
+    ];
+    if matches!(key, "point" | "billboard" | "label") {
+        allowed = vec![
+            "show",
+            "color",
+            "distanceDisplayCondition",
+            "scaleByDistance",
+            "translucencyByDistance",
+            "pixelOffsetScaleByDistance",
+            "disableDepthTestDistance",
+        ];
+        if key != "point" {
+            allowed.extend(["horizontalOrigin", "verticalOrigin"]);
+            if key == "billboard" {
+                allowed.extend(["rotation", "eyeOffset"]);
+            }
+        }
+        if key == "label" {
+            allowed.retain(|k| *k != "color");
+        }
+    }
+    allowed.extend(match key {
+        "point" => vec!["pixelSize", "outlineWidth", "outlineColor"],
+        "label" => vec![
+            "text",
+            "font",
+            "fillColor",
+            "scale",
+            "pixelOffset",
+            "style",
+            "showBackground",
+            "backgroundColor",
+            "backgroundPadding",
+            "outlineColor",
+            "outlineWidth",
+        ],
+        "billboard" => vec!["image", "width", "height", "scale", "pixelOffset"],
+        "box" => vec!["dimensions"],
+        "ellipsoid" => vec![
+            "radii",
+            "innerRadii",
+            "minimumClock",
+            "maximumClock",
+            "minimumCone",
+            "maximumCone",
+            "stackPartitions",
+            "slicePartitions",
+        ],
+        "ellipse" => vec![
+            "semiMajorAxis",
+            "semiMinorAxis",
+            "rotation",
+            "stRotation",
+            "height",
+            "extrudedHeight",
+        ],
+        _ => vec!["length", "topRadius", "bottomRadius"],
+    });
+    known(g, &allowed)?;
+    let shape = match key {
+        "label" => {
+            let raw = &g["text"];
+            let text = if raw.is_object() {
+                known(raw, &["string"])?;
+                raw["string"].as_str()
+            } else {
+                raw.as_str()
+            }
+            .ok_or("label text string required")?
+            .to_owned();
+            Shape::Label {
+                appearance: crate::label_appearance::czml(g)?,
+                text,
+                font_size: g
+                    .get("font")
+                    .map(crate::label::css_font)
+                    .transpose()?
+                    .unwrap_or(30.),
+                scale: g.get("scale").map(number).transpose()?.unwrap_or(1.),
+                pixel_offset: screen_offset(g)?,
+            }
+        }
+        "point" => Shape::Point {
+            pixel_size: g.get("pixelSize").map(number).transpose()?.unwrap_or(1.),
+            outline_width: g.get("outlineWidth").map(number).transpose()?.unwrap_or(0.),
+            outline_color: g
+                .get("outlineColor")
+                .map(crate::entity_material::rgba)
+                .transpose()?
+                .unwrap_or(outline_color()),
+        },
+        "billboard" => {
+            let raw = &g["image"];
+            let image = if raw.is_object() {
+                known(raw, &["uri"])?;
+                raw["uri"].as_str()
+            } else {
+                raw.as_str()
+            }
+            .ok_or("billboard image URI required")?
+            .to_owned();
+            let offset = screen_offset(g)?;
+            Shape::Billboard {
+                image,
+                width: g.get("width").map(number).transpose()?.unwrap_or(64.),
+                height: g.get("height").map(number).transpose()?.unwrap_or(64.),
+                scale: g.get("scale").map(number).transpose()?.unwrap_or(1.),
+                pixel_offset: offset,
+            }
+        }
+        "box" => {
+            known(&g["dimensions"], &["cartesian"])?;
+            Shape::Box {
+                dimensions: triple(&g["dimensions"]["cartesian"])?,
+                height_reference: None,
+            }
+        }
+        "ellipsoid" => {
+            known(&g["radii"], &["cartesian"])?;
+            let in_r = if let Some(ir) = g.get("innerRadii") {
+                known(ir, &["cartesian"])?;
+                Some(triple(&ir["cartesian"])?)
+            } else {
+                None
+            };
+            Shape::Ellipsoid {
+                radii: triple(&g["radii"]["cartesian"])?,
+                inner_radii: in_r,
+                minimum_clock: g.get("minimumClock").map(number).transpose()?,
+                maximum_clock: g.get("maximumClock").map(number).transpose()?,
+                minimum_cone: g.get("minimumCone").map(number).transpose()?,
+                maximum_cone: g.get("maximumCone").map(number).transpose()?,
+                stacks: g.get("stackPartitions").map(partitions).transpose()?,
+                slices: g.get("slicePartitions").map(partitions).transpose()?,
+                height_reference: None,
+            }
+        }
+        "ellipse" => {
+            if !samples.is_empty() {
+                return Err("sampled ellipse center unsupported".into());
+            }
+            Shape::Ellipse {
+                vertical_lines: None,
+                height: Some(g.get("height").map(number).transpose()?.unwrap_or(0.)),
+                semi_major: number(&g["semiMajorAxis"])?,
+                semi_minor: number(&g["semiMinorAxis"])?,
+                rotation: g.get("rotation").map(number).transpose()?.unwrap_or(0.),
+                st_rotation: g.get("stRotation").map(number).transpose()?,
+                extruded_height: g.get("extrudedHeight").map(number).transpose()?,
+            }
+        }
+        _ => Shape::Cylinder {
+            length: number(&g["length"])?,
+            top_radius: number(&g["topRadius"])?,
+            bottom_radius: number(&g["bottomRadius"])?,
+            height_reference: None,
+        },
+    };
+    let screen = shape.screen();
+    let rgba = if screen {
+        g.get(if key == "label" { "fillColor" } else { "color" })
+            .map(crate::entity_material::rgba)
+            .transpose()?
+            .unwrap_or([1.; 4])
+    } else {
+        material_color(g)?
+    };
+    let orientation = if let Some(o) = packet.get("orientation") {
+        if let Some(uq) = o.get("unitQuaternion") {
+            let a = uq.as_array().ok_or("unitQuaternion array required")?;
+            if a.len() == 4 {
+                Some([
+                    number(&a[0])?,
+                    number(&a[1])?,
+                    number(&a[2])?,
+                    number(&a[3])?,
+                ])
+            } else {
+                None
+            }
+        } else if let Some(a) = o.as_array() {
+            if a.len() == 4 {
+                Some([
+                    number(&a[0])?,
+                    number(&a[1])?,
+                    number(&a[2])?,
+                    number(&a[3])?,
+                ])
+            } else {
+                None
+            }
+        } else {
+            None
+        }
+    } else {
+        None
+    };
+    let z_index = g
+        .get("zIndex")
+        .map(number)
+        .transpose()?
+        .map(|v| v as i32)
+        .unwrap_or(0);
+    Ok(Entity {
+        id: entity_id.into(),
+        show: graphics_show(g)?,
+        name: packet
+            .get("name")
+            .map(|v| v.as_str().ok_or("entity name string"))
+            .transpose()?
+            .unwrap_or("")
+            .into(),
+        z_index,
+        model_matrix: None,
+        orientation,
+        surface_appearance: None,
+        position_degrees,
+        samples,
+        shape,
+        screen: if screen {
+            crate::screen_options::czml(g)?
+        } else {
+            Default::default()
+        },
+        fill: g.get("fill").map(boolean).transpose()?.unwrap_or(true),
+        outline: g.get("outline").map(boolean).transpose()?.unwrap_or(false),
+        outline_color: g
+            .get("outlineColor")
+            .map(crate::entity_material::rgba)
+            .transpose()?
+            .unwrap_or(outline_color()),
+        outline_width: if screen {
+            1.
+        } else if let Some(w) = g.get("outlineWidth") {
+            let n = number(w)?;
+            if !(1.0..=10.0).contains(&n) {
+                return Err("outlineWidth between 1 and 10 required".into());
+            }
+            1.
+        } else {
+            1.
+        },
+        color: rgba,
+        material: if screen {
+            None
+        } else {
+            crate::entity_material::czml(g)?.1
+        },
+        availability: packet
+            .get("availability")
+            .map(|v| interval(v.as_str().ok_or("availability ISO interval")?))
+            .transpose()?,
+        properties: packet.get("properties").cloned().unwrap_or(Value::Null),
+    })
+}
 pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> {
     if bytes.len() > 8 * 1024 * 1024 {
         return Err("CZML input limit".into());
     }
-    let packets: Vec<Value> = serde_json::from_slice(bytes).map_err(|e| e.to_string())?;
+    let mut packets: Vec<Value> = serde_json::from_slice(bytes).map_err(|e| e.to_string())?;
     if packets.is_empty() || packets.len() > 257 {
         return Err("CZML document and <=256 entities required".into());
     }
+    dereference_czml_packets(&mut packets)?;
     let doc = &packets[0];
     known(doc, &["id", "name", "version", "clock"])?;
     if doc["id"] != "document" || doc["version"] != "1.0" {
@@ -1400,6 +1895,7 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
             &[
                 "id",
                 "name",
+                "description",
                 "position",
                 "availability",
                 "box",
@@ -1408,6 +1904,7 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
                 "properties",
                 "polygon",
                 "polyline",
+                "path",
                 "corridor",
                 "rectangle",
                 "ellipse",
@@ -1424,6 +1921,7 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
             "cylinder",
             "polygon",
             "polyline",
+            "path",
             "corridor",
             "rectangle",
             "ellipse",
@@ -1437,372 +1935,62 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
         .filter(|s| packet.get(*s).is_some())
         .collect();
         if shapes.is_empty() {
-            if packet.get("properties").is_some() {
+            if packet.get("properties").is_some() || packet.get("position").is_some() {
                 continue;
             }
             return Err("one supported geometry required".into());
         }
-        if shapes.len() != 1 {
+        let id_str = packet["id"].as_str().ok_or("entity id required")?;
+        if shapes.len() == 1 {
+            let key = shapes[0];
+            if key == "polyline" {
+                let mut entity = crate::wide_polyline::czml(packet)?;
+                if let Some(zi) = packet["polyline"].get("zIndex") {
+                    entity.z_index = number(zi)? as i32;
+                }
+                entities.push(entity);
+            } else if key == "path" {
+                entities.push(crate::wide_polyline::path_czml(packet)?);
+            } else if matches!(
+                key,
+                "polygon" | "rectangle" | "wall" | "corridor" | "polylineVolume"
+            ) {
+                if packet.get("position").is_some() {
+                    return Err("geographic CZML geometry uses graphics.positions/coordinates; extra entity position is unsupported".into());
+                }
+                entities.push(geographic_packet(packet, key)?);
+            } else {
+                entities.push(decode_screen_or_model_packet(packet, key, id_str)?);
+            }
+        } else if packet.get("billboard").is_some()
+            && packet.get("path").is_some()
+            && shapes.len() == 2
+        {
+            entities.push(decode_screen_or_model_packet(packet, "billboard", id_str)?);
+            entities.push(crate::wide_polyline::path_czml(packet)?);
+        } else if packet.get("billboard").is_some()
+            && packet.get("label").is_some()
+            && shapes.len() == 2
+        {
+            entities.push(decode_screen_or_model_packet(packet, "billboard", id_str)?);
+            entities.push(decode_screen_or_model_packet(
+                packet,
+                "label",
+                &format!("{id_str}-label"),
+            )?);
+        } else if packet.get("polygon").is_some()
+            && packet.get("label").is_some()
+            && shapes.len() == 2
+        {
+            entities.push(geographic_packet(packet, "polygon")?);
+            entities.push(decode_screen_or_model_packet(
+                packet,
+                "label",
+                &format!("{id_str}-label"),
+            )?);
+        } else {
             return Err("one supported geometry required".into());
         }
-        let key = shapes[0];
-        if key == "polyline" {
-            let mut entity = crate::wide_polyline::czml(packet)?;
-            if let Some(zi) = packet["polyline"].get("zIndex") {
-                entity.z_index = number(zi)? as i32;
-            }
-            entities.push(entity);
-            continue;
-        }
-        if matches!(
-            key,
-            "polygon" | "rectangle" | "wall" | "corridor" | "polylineVolume"
-        ) {
-            if packet.get("position").is_some() {
-                return Err("geographic CZML geometry uses graphics.positions/coordinates; extra entity position is unsupported".into());
-            }
-            entities.push(geographic_packet(packet, key)?);
-            continue;
-        }
-        let pos = packet.get("position").ok_or("position required")?;
-        known(
-            pos,
-            &[
-                "cartographicDegrees",
-                "cartographicRadians",
-                "cartesian",
-                "epoch",
-                "referenceFrame",
-                "interpolationAlgorithm",
-                "interpolationDegree",
-            ],
-        )?;
-        if pos.get("referenceFrame").is_some_and(|v| v != "FIXED")
-            || pos
-                .get("interpolationAlgorithm")
-                .is_some_and(|v| v != "LINEAR")
-            || pos.get("interpolationDegree").is_some_and(|v| v != 1)
-        {
-            return Err("only FIXED LINEAR position interpolation supported".into());
-        }
-        let radians = pos.get("cartographicRadians");
-        if radians.is_some() && pos.get("cartographicDegrees").is_some() {
-            return Err("one geographic position encoding required".into());
-        }
-        let geographic = pos.get("cartographicDegrees").or(radians);
-        let cartesian = pos.get("cartesian");
-        if geographic.is_some() == cartesian.is_some() {
-            return Err("exactly one CZML position encoding required".into());
-        }
-        let a = geographic
-            .or(cartesian)
-            .unwrap()
-            .as_array()
-            .ok_or("position array")?;
-        let mut samples = vec![];
-        let mut position_degrees = None;
-        if a.len() == 3 && pos.get("epoch").is_none() {
-            let mut p = triple(&Value::Array(a.clone()))?;
-            if radians.is_some() {
-                p = radian_position(p)?;
-            }
-            if geographic.is_some() {
-                position_degrees = Some(p);
-            } else {
-                let c = Cartographic::from_ecef(DVec3::from_array(p)).map_err(|e| e.to_string())?;
-                position_degrees =
-                    Some([c.longitude.to_degrees(), c.latitude.to_degrees(), c.height]);
-            }
-        } else {
-            if a.is_empty() || !a.len().is_multiple_of(4) || a.len() > 40000 {
-                return Err("sampled position time,x,y,z tuples required".into());
-            }
-            let epoch = pos
-                .get("epoch")
-                .map(|v| utc(v.as_str().ok_or("epoch ISO date")?))
-                .transpose()?;
-            for v in a.as_chunks::<4>().0 {
-                let time = if let Some(epoch) = epoch {
-                    epoch + number(&v[0])?
-                } else {
-                    utc(v[0].as_str().ok_or("sample ISO time or epoch required")?)?
-                };
-                let mut p = [number(&v[1])?, number(&v[2])?, number(&v[3])?];
-                if radians.is_some() {
-                    p = radian_position(p)?;
-                }
-                let p = if geographic.is_some() {
-                    Cartographic::degrees(p[0], p[1], p[2])
-                        .map_err(|e| e.to_string())?
-                        .to_ecef()
-                        .to_array()
-                } else {
-                    p
-                };
-                samples.push(Sample { time, cartesian: p });
-            }
-        }
-        let g = &packet[key];
-        let mut allowed = vec![
-            "material",
-            "show",
-            "fill",
-            "outline",
-            "outlineColor",
-            "outlineWidth",
-            "zIndex",
-        ];
-        if matches!(key, "point" | "billboard" | "label") {
-            allowed = vec![
-                "show",
-                "color",
-                "distanceDisplayCondition",
-                "scaleByDistance",
-                "translucencyByDistance",
-                "pixelOffsetScaleByDistance",
-                "disableDepthTestDistance",
-            ];
-            if key != "point" {
-                allowed.extend(["horizontalOrigin", "verticalOrigin"]);
-                if key == "billboard" {
-                    allowed.push("rotation");
-                }
-            }
-            if key == "label" {
-                allowed.retain(|k| *k != "color");
-            }
-        }
-        allowed.extend(match key {
-            "point" => vec!["pixelSize", "outlineWidth", "outlineColor"],
-            "label" => vec![
-                "text",
-                "font",
-                "fillColor",
-                "scale",
-                "pixelOffset",
-                "style",
-                "showBackground",
-                "backgroundColor",
-                "backgroundPadding",
-                "outlineColor",
-                "outlineWidth",
-            ],
-            "billboard" => vec!["image", "width", "height", "scale", "pixelOffset"],
-            "box" => vec!["dimensions"],
-            "ellipsoid" => vec![
-                "radii",
-                "innerRadii",
-                "minimumClock",
-                "maximumClock",
-                "minimumCone",
-                "maximumCone",
-                "stackPartitions",
-                "slicePartitions",
-            ],
-            "ellipse" => vec![
-                "semiMajorAxis",
-                "semiMinorAxis",
-                "rotation",
-                "stRotation",
-                "height",
-                "extrudedHeight",
-            ],
-            _ => vec!["length", "topRadius", "bottomRadius"],
-        });
-        known(g, &allowed)?;
-        let shape = match key {
-            "label" => {
-                let raw = &g["text"];
-                let text = if raw.is_object() {
-                    known(raw, &["string"])?;
-                    raw["string"].as_str()
-                } else {
-                    raw.as_str()
-                }
-                .ok_or("label text string required")?
-                .to_owned();
-                Shape::Label {
-                    appearance: crate::label_appearance::czml(g)?,
-                    text,
-                    font_size: g
-                        .get("font")
-                        .map(crate::label::css_font)
-                        .transpose()?
-                        .unwrap_or(30.),
-                    scale: g.get("scale").map(number).transpose()?.unwrap_or(1.),
-                    pixel_offset: screen_offset(g)?,
-                }
-            }
-            "point" => Shape::Point {
-                pixel_size: g.get("pixelSize").map(number).transpose()?.unwrap_or(1.),
-                outline_width: g.get("outlineWidth").map(number).transpose()?.unwrap_or(0.),
-                outline_color: g
-                    .get("outlineColor")
-                    .map(crate::entity_material::rgba)
-                    .transpose()?
-                    .unwrap_or(outline_color()),
-            },
-            "billboard" => {
-                let raw = &g["image"];
-                let image = if raw.is_object() {
-                    known(raw, &["uri"])?;
-                    raw["uri"].as_str()
-                } else {
-                    raw.as_str()
-                }
-                .ok_or("billboard image URI required")?
-                .to_owned();
-                let offset = screen_offset(g)?;
-                Shape::Billboard {
-                    image,
-                    width: g.get("width").map(number).transpose()?.unwrap_or(64.),
-                    height: g.get("height").map(number).transpose()?.unwrap_or(64.),
-                    scale: g.get("scale").map(number).transpose()?.unwrap_or(1.),
-                    pixel_offset: offset,
-                }
-            }
-            "box" => {
-                known(&g["dimensions"], &["cartesian"])?;
-                Shape::Box {
-                    dimensions: triple(&g["dimensions"]["cartesian"])?,
-                }
-            }
-            "ellipsoid" => {
-                known(&g["radii"], &["cartesian"])?;
-                let in_r = if let Some(ir) = g.get("innerRadii") {
-                    known(ir, &["cartesian"])?;
-                    Some(triple(&ir["cartesian"])?)
-                } else {
-                    None
-                };
-                Shape::Ellipsoid {
-                    radii: triple(&g["radii"]["cartesian"])?,
-                    inner_radii: in_r,
-                    minimum_clock: g.get("minimumClock").map(number).transpose()?,
-                    maximum_clock: g.get("maximumClock").map(number).transpose()?,
-                    minimum_cone: g.get("minimumCone").map(number).transpose()?,
-                    maximum_cone: g.get("maximumCone").map(number).transpose()?,
-                    stacks: g.get("stackPartitions").map(partitions).transpose()?,
-                    slices: g.get("slicePartitions").map(partitions).transpose()?,
-                }
-            }
-            "ellipse" => {
-                if !samples.is_empty() {
-                    return Err("sampled ellipse center unsupported".into());
-                }
-                Shape::Ellipse {
-                    vertical_lines: None,
-                    height: Some(g.get("height").map(number).transpose()?.unwrap_or(0.)),
-                    semi_major: number(&g["semiMajorAxis"])?,
-                    semi_minor: number(&g["semiMinorAxis"])?,
-                    rotation: g.get("rotation").map(number).transpose()?.unwrap_or(0.),
-                    st_rotation: g.get("stRotation").map(number).transpose()?,
-                    extruded_height: g.get("extrudedHeight").map(number).transpose()?,
-                }
-            }
-            _ => Shape::Cylinder {
-                length: number(&g["length"])?,
-                top_radius: number(&g["topRadius"])?,
-                bottom_radius: number(&g["bottomRadius"])?,
-            },
-        };
-        let screen = shape.screen();
-        let rgba = if screen {
-            g.get(if key == "label" { "fillColor" } else { "color" })
-                .map(crate::entity_material::rgba)
-                .transpose()?
-                .unwrap_or([1.; 4])
-        } else {
-            material_color(g)?
-        };
-        let orientation = if let Some(o) = packet.get("orientation") {
-            if let Some(uq) = o.get("unitQuaternion") {
-                let a = uq.as_array().ok_or("unitQuaternion array required")?;
-                if a.len() == 4 {
-                    Some([
-                        number(&a[0])?,
-                        number(&a[1])?,
-                        number(&a[2])?,
-                        number(&a[3])?,
-                    ])
-                } else {
-                    None
-                }
-            } else if let Some(a) = o.as_array() {
-                if a.len() == 4 {
-                    Some([
-                        number(&a[0])?,
-                        number(&a[1])?,
-                        number(&a[2])?,
-                        number(&a[3])?,
-                    ])
-                } else {
-                    None
-                }
-            } else {
-                None
-            }
-        } else {
-            None
-        };
-        let z_index = g
-            .get("zIndex")
-            .map(number)
-            .transpose()?
-            .map(|v| v as i32)
-            .unwrap_or(0);
-        let e = Entity {
-            id: packet["id"].as_str().ok_or("entity id required")?.into(),
-            show: graphics_show(g)?,
-            name: packet
-                .get("name")
-                .map(|v| v.as_str().ok_or("entity name string"))
-                .transpose()?
-                .unwrap_or("")
-                .into(),
-            z_index,
-            model_matrix: None,
-            orientation,
-            surface_appearance: None,
-            position_degrees,
-            samples,
-            shape,
-            screen: if screen {
-                crate::screen_options::czml(g)?
-            } else {
-                Default::default()
-            },
-            fill: g.get("fill").map(boolean).transpose()?.unwrap_or(true),
-            outline: g.get("outline").map(boolean).transpose()?.unwrap_or(false),
-            outline_color: g
-                .get("outlineColor")
-                .map(crate::entity_material::rgba)
-                .transpose()?
-                .unwrap_or(outline_color()),
-            outline_width: if screen {
-                1.
-            } else if let Some(w) = g.get("outlineWidth") {
-                let n = number(w)?;
-                if !(1.0..=10.0).contains(&n) {
-                    return Err("outlineWidth between 1 and 10 required".into());
-                }
-                1.
-            } else {
-                1.
-            },
-            color: rgba,
-            material: if screen {
-                None
-            } else {
-                crate::entity_material::czml(g)?.1
-            },
-            availability: packet
-                .get("availability")
-                .map(|v| interval(v.as_str().ok_or("availability ISO interval")?))
-                .transpose()?,
-            properties: packet.get("properties").cloned().unwrap_or(Value::Null),
-        };
-        entities.push(e);
     }
     validate_collection(&entities)?;
     if doc.get("clock").is_none() {
@@ -1872,6 +2060,7 @@ mod tests {
             screen: Default::default(),
             shape: Shape::Box {
                 dimensions: [10., 20., 30.],
+                height_reference: None,
             },
             color: color(),
             material: None,
@@ -2057,5 +2246,80 @@ mod tests {
         let prim = prop_entities[0].primitive().unwrap();
         assert!(!prim.vertices.is_empty());
         assert!(!prim.indices.is_empty());
+    }
+
+    #[test]
+    fn batch33_czml_billboard_label_height_reference_path_reference_properties() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. czml-billboard-and-label
+        let raw = std::fs::read(base.join("czml-billboard-and-label.czml")).unwrap();
+        let (entities, _) = czml(&raw).unwrap();
+        assert_eq!(entities.len(), 2);
+        assert_eq!(entities[0].id, "some-unique-id");
+        assert!(matches!(entities[0].shape, Shape::Billboard { .. }));
+        assert_eq!(entities[1].id, "some-unique-id-label");
+        assert!(matches!(entities[1].shape, Shape::Label { .. }));
+        for e in &entities {
+            let prim = e.primitive().unwrap();
+            assert!(!prim.vertices.is_empty());
+        }
+
+        // 2. geometry-height-reference
+        let raw = std::fs::read(base.join("geometry-height-reference.json")).unwrap();
+        let entities = decode(&raw).unwrap();
+        assert_eq!(entities.len(), 16);
+        for e in &entities {
+            if let Shape::Polygon {
+                height_reference,
+                extruded_height_reference,
+                ..
+            } = &e.shape
+            {
+                assert_eq!(*height_reference, Some(HeightReference::RelativeToGround));
+                assert_eq!(
+                    *extruded_height_reference,
+                    Some(HeightReference::ClampToGround)
+                );
+            } else {
+                panic!("expected polygon");
+            }
+            let prim = e.primitive().unwrap();
+            assert!(!prim.vertices.is_empty());
+        }
+
+        // 3. czml-path
+        let raw = std::fs::read(base.join("czml-path.czml")).unwrap();
+        let (entities, clock) = czml(&raw).unwrap();
+        assert_eq!(entities.len(), 2);
+        assert_eq!(entities[0].id, "path");
+        assert!(matches!(entities[0].shape, Shape::Billboard { .. }));
+        assert_eq!(entities[0].samples.len(), 1790);
+        assert_eq!(entities[1].id, "path-lead-trail");
+        assert!(matches!(entities[1].shape, Shape::WidePolyline { .. }));
+        assert_eq!(clock.multiplier, 10.0);
+        for e in &entities {
+            let prim = e.primitive().unwrap();
+            assert!(!prim.vertices.is_empty());
+        }
+
+        // 4. czml-reference-properties
+        let raw = std::fs::read(base.join("czml-reference-properties.czml")).unwrap();
+        let (entities, _) = czml(&raw).unwrap();
+        assert_eq!(entities.len(), 4);
+        assert_eq!(entities[0].id, "fillColor-reference");
+        assert!(matches!(entities[0].shape, Shape::Billboard { .. }));
+        assert_eq!(entities[1].id, "fillColor-reference-label");
+        assert!(matches!(entities[1].shape, Shape::Label { .. }));
+        assert_eq!(entities[2].id, "polygon");
+        assert!(matches!(entities[2].shape, Shape::Polygon { .. }));
+        assert_eq!(entities[2].color, [150. / 255., 0., 150. / 255., 1.]);
+        assert_eq!(entities[3].id, "polygon-label");
+        assert!(matches!(entities[3].shape, Shape::Label { .. }));
+        for e in &entities {
+            let prim = e.primitive().unwrap();
+            assert!(!prim.vertices.is_empty());
+        }
     }
 }
