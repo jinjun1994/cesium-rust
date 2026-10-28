@@ -1,0 +1,34 @@
+[
+  {
+    "id": "aircraft model",
+    "show": true,
+    "name": "Cesium Air",
+    "positionDegrees": [
+      -77,
+      37,
+      10000
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "scale": 2,
+      "minimumPixelSize": 128
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  }
+]

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "document",
+    "name": "CZML Model",
+    "version": "1.0"
+  },
+  {
+    "id": "aircraft model",
+    "name": "Cesium Air",
+    "position": {
+      "cartographicDegrees": [
+        -77,
+        37,
+        10000
+      ]
+    },
+    "model": {
+      "gltf": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "scale": 2,
+      "minimumPixelSize": 128
+    }
+  }
+]

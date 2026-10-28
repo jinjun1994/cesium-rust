@@ -1,10 +1,10 @@
 {
-  "version": "0.0.34",
+  "version": "0.0.35",
   "newCompleteFunctionalCases": [
-    "czml-polygon-interpolating-references",
-    "distance-display-conditions",
-    "callback-property",
-    "map-pins"
+    "billboards",
+    "czml-model",
+    "czml-model-data-url",
+    "callback-position-property"
   ],
   "completeFunctionalCases": [
     "box",
@@ -89,16 +89,20 @@
     "czml-polygon-interpolating-references",
     "distance-display-conditions",
     "callback-property",
-    "map-pins"
+    "map-pins",
+    "billboards",
+    "czml-model",
+    "czml-model-data-url",
+    "callback-position-property"
   ],
-  "fullCasePassed": 83,
+  "fullCasePassed": 87,
   "catalogCases": 309,
-  "remainingFullCaseAcceptance": 226,
+  "remainingFullCaseAcceptance": 222,
   "ordinaryRustPassed": 97,
   "realGpuPassed": 114,
   "nodeSuitesPassed": 8,
-  "browserFullCasePassed": 83,
-  "native90FrameCasesPassed": 83,
+  "browserFullCasePassed": 87,
+  "native90FrameCasesPassed": 87,
   "nativeBuild": "passed",
   "wasmBuildAndBindings": "passed",
   "fmt": "passed",
@@ -132,7 +136,7 @@
     },
     "globePixels": 822
   },
-  "native90FrameConfigurationsPassed": 88,
+  "native90FrameConfigurationsPassed": 102,
   "independentCoplanarReference": "20 source vertices: world position <0.1m, ST <1e-5; exact pinned core source hashes",
   "offlineValidation": {
     "localTileRequests": 34,

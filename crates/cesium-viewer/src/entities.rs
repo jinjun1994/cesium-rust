@@ -679,12 +679,14 @@ impl Entity {
             Shape::Model {
                 scale,
                 minimum_pixel_size,
+                maximum_scale,
                 ..
             } => {
                 scale.is_finite()
                     && scale > 0.
                     && minimum_pixel_size.is_finite()
                     && minimum_pixel_size >= 0.
+                    && maximum_scale.is_none_or(|m| m.is_finite() && m > 0.)
             }
             _ => true,
         };
@@ -781,7 +783,7 @@ impl Entity {
                 }
             }
             Shape::Model { scale, .. } => {
-                let d = DVec3::new(2.5, 4.5, 1.8) * (scale.max(0.1) * 0.5);
+                let d = DVec3::new(8.0, 14.0, 6.0) * (scale.max(0.1) * 0.5);
                 let v = [
                     DVec3::new(-d.x, -d.y, -d.z),
                     DVec3::new(d.x, -d.y, -d.z),
@@ -1810,6 +1812,7 @@ fn decode_screen_or_model_packet(
             "height",
             "extrudedHeight",
         ],
+        "model" => vec!["gltf", "scale", "minimumPixelSize", "maximumScale"],
         _ => vec!["length", "topRadius", "bottomRadius"],
     });
     known(g, &allowed)?;
@@ -1903,6 +1906,27 @@ fn decode_screen_or_model_packet(
                 rotation: g.get("rotation").map(number).transpose()?.unwrap_or(0.),
                 st_rotation: g.get("stRotation").map(number).transpose()?,
                 extruded_height: g.get("extrudedHeight").map(number).transpose()?,
+            }
+        }
+        "model" => {
+            let raw = &g["gltf"];
+            let uri = if raw.is_object() {
+                known(raw, &["uri"])?;
+                raw["uri"].as_str()
+            } else {
+                raw.as_str()
+            }
+            .ok_or("model gltf URI required")?
+            .to_owned();
+            Shape::Model {
+                uri,
+                scale: g.get("scale").map(number).transpose()?.unwrap_or(1.),
+                minimum_pixel_size: g
+                    .get("minimumPixelSize")
+                    .map(number)
+                    .transpose()?
+                    .unwrap_or(0.),
+                maximum_scale: g.get("maximumScale").map(number).transpose()?,
             }
         }
         _ => Shape::Cylinder {
@@ -2079,6 +2103,7 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
                 "billboard",
                 "label",
                 "polylineVolume",
+                "model",
             ],
         )?;
         let shapes: Vec<_> = [
@@ -2096,6 +2121,7 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
             "billboard",
             "label",
             "polylineVolume",
+            "model",
         ]
         .into_iter()
         .filter(|s| packet.get(*s).is_some())
@@ -2488,5 +2514,85 @@ mod tests {
             let prim = e.primitive().unwrap();
             assert!(!prim.vertices.is_empty());
         }
+    }
+
+    #[test]
+    fn batch35_czml_model_and_billboard_contracts() {
+        let czml_model = serde_json::json!([
+            {
+                "id": "document",
+                "name": "CZML Model",
+                "version": "1.0"
+            },
+            {
+                "id": "aircraft model",
+                "name": "Cesium Air",
+                "position": {
+                    "cartographicDegrees": [-77.0, 37.0, 10000.0]
+                },
+                "model": {
+                    "gltf": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+                    "scale": 2.0,
+                    "minimumPixelSize": 128.0
+                }
+            }
+        ]);
+        let raw = serde_json::to_vec(&czml_model).unwrap();
+        let (entities, _) = czml(&raw).unwrap();
+        assert_eq!(entities.len(), 1);
+        assert_eq!(entities[0].id, "aircraft model");
+        assert_eq!(entities[0].name, "Cesium Air");
+        assert_eq!(entities[0].position_degrees, Some([-77.0, 37.0, 10000.0]));
+        if let Shape::Model {
+            uri,
+            scale,
+            minimum_pixel_size,
+            maximum_scale,
+        } = &entities[0].shape
+        {
+            assert_eq!(uri, "../../SampleData/models/CesiumAir/Cesium_Air.glb");
+            assert_eq!(*scale, 2.0);
+            assert_eq!(*minimum_pixel_size, 128.0);
+            assert_eq!(*maximum_scale, None);
+        } else {
+            panic!("expected Shape::Model");
+        }
+        let prim = entities[0].primitive().unwrap();
+        assert_eq!(prim.vertices.len(), 36);
+        assert_eq!(prim.indices.len(), 36);
+
+        // Also verify Shape::Billboard with full screen options
+        let bb_json = serde_json::json!([
+            {
+                "id": "bb-1",
+                "show": true,
+                "name": "test billboard",
+                "positionDegrees": [-75.59777, 40.03883, 0.0],
+                "shape": {
+                    "type": "billboard",
+                    "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+                    "width": 100.0,
+                    "height": 25.0,
+                    "scale": 2.0,
+                    "pixelOffset": [0.0, -50.0]
+                },
+                "screen": {
+                    "horizontalOrigin": "CENTER",
+                    "verticalOrigin": "BOTTOM",
+                    "rotation": std::f64::consts::FRAC_PI_4,
+                    "eyeOffset": [0.0, 0.0, 0.0]
+                },
+                "fill": true,
+                "outline": false,
+                "outlineColor": [0.0, 0.0, 0.0, 1.0],
+                "outlineWidth": 1.0,
+                "color": [0.0, 1.0, 0.0, 1.0]
+            }
+        ]);
+        let bb_raw = serde_json::to_vec(&bb_json).unwrap();
+        let bb_entities = decode(&bb_raw).unwrap();
+        assert_eq!(bb_entities.len(), 1);
+        let prim = bb_entities[0].primitive().unwrap();
+        assert_eq!(prim.vertices.len(), 4);
     }
 }

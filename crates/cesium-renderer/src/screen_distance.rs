@@ -24,7 +24,7 @@ impl ScreenDistance {
                 "distanceDisplayCondition requires 0<=near<far<=1e9".into(),
             ));
         }
-        for (curve, max) in [(self.scale, 8.), (self.translucency, 1.), (self.offset, 8.)] {
+        for (curve, max) in [(self.scale, 8.), (self.translucency, 8.), (self.offset, 8.)] {
             if curve.is_some_and(|[near, a, far, b]| {
                 [near, a, far, b].iter().any(|x| !x.is_finite())
                     || near < 0.

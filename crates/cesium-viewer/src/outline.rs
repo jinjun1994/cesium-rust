@@ -289,7 +289,7 @@ pub fn primitive(e: &Entity) -> Result<Option<Primitive>, String> {
             }
         }
         Shape::Model { scale, .. } => {
-            let d = DVec3::new(2.5, 4.5, 1.8) * (scale.max(0.1) * 0.5);
+            let d = DVec3::new(8.0, 14.0, 6.0) * (scale.max(0.1) * 0.5);
             let v = [
                 DVec3::new(-d.x, -d.y, -d.z),
                 DVec3::new(d.x, -d.y, -d.z),

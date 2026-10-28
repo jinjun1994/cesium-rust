@@ -588,6 +588,8 @@ async fn verify_extended(id: &str, data: &[u8]) {
         "distance-display-conditions",
         "callback-property",
         "map-pins",
+        "billboards",
+        "callback-position-property",
     ]
     .contains(&id)
     {
@@ -1555,5 +1557,75 @@ fn complete_map_pins() {
     pollster::block_on(verify_extended(
         "map-pins",
         include_bytes!("../../../tests/sandcastle/full/map-pins.json"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_billboards() {
+    pollster::block_on(async {
+        verify_extended(
+            "billboards",
+            include_bytes!("../../../tests/sandcastle/full/billboards.json"),
+        )
+        .await;
+        let raw = include_bytes!("../../../tests/sandcastle/full/billboards.variants.json");
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 10);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+                    .join(format!("../../docs/full-billboards-variant-{i}-smoke.log"));
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_czml_model() {
+    pollster::block_on(verify_extended(
+        "czml-model",
+        include_bytes!("../../../tests/sandcastle/full/czml-model.czml"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_czml_model_data_url() {
+    pollster::block_on(verify_extended(
+        "czml-model-data-url",
+        include_bytes!("../../../tests/sandcastle/full/czml-model-data-url.czml"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_callback_position_property() {
+    pollster::block_on(verify_extended(
+        "callback-position-property",
+        include_bytes!("../../../tests/sandcastle/full/callback-position-property.json"),
     ));
 }

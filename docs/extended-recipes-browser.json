@@ -1,17 +1,43 @@
 {
   "version": "0.0.29",
-  "wasmSha256": "86c924489b07f72d398a9c755b3d9686ce3a3d3b80bce0a5ab3862b2d693d41c",
+  "wasmSha256": "817337f4325f2f205e0e8a79ce6fb567c33f066cbb627e5a236c5546c7e96b18",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "czml-polygon-interpolating-references",
+      "id": "billboards",
       "status": "passed",
-      "entities": 2,
-      "sourceSha256": "312b5fdd41a41e69756777df285079f8b461c92c7f8223872458c17de7e13dac",
-      "inputSha256": "d31a4f2ac94a47e8c2a97afc46b34997cb5a3a4ae7b491ebd7b8b1b6933b0a38",
-      "fixtureSha256": "75e6cc2f69354884494b37b4a2dd68e33e3fa1a1f59da0b5a139d42a71b624ae",
+      "entities": 1,
+      "sourceSha256": "498250cd15171f0291c5d073e003f514ea7e472eb9876e56cbc41c7f6347b9b6",
+      "inputSha256": "511cba79168fc429b2ae11f9e8a5047d11b820f3be7a35e55df49afea1c6f94e",
+      "fixtureSha256": "db0f3cca43215a492b3da49af103c2c9a4ba15921d5f4989e2d344864f246e76",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "billboard-add"
+      ],
+      "pixelCounts": [
+        {
+          "id": "billboard-add",
+          "pixels": 3662
+        }
+      ]
+    },
+    {
+      "id": "czml-model",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "a699c670b74a83f7b00f400978e655e91638b7790f94604bba21f72664b3d25c",
+      "inputSha256": "bbe318c092ef5f22df872d012c93277a04195e2e48074b2493e2182df4bbc6bb",
+      "fixtureSha256": "24a8a55a4fff6608902677af23e0d159f126c07087b9c7b9e9e8ea3290f25af3",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -25,58 +51,22 @@
         "play/pause/loop"
       ],
       "pickedEntities": [
-        "dynamicPolygon",
-        "Polygon with Dynamic Holes"
+        "aircraft model"
       ],
       "pixelCounts": [
         {
-          "id": "dynamicPolygon",
-          "pixels": 2034
-        },
-        {
-          "id": "Polygon with Dynamic Holes",
-          "pixels": 51575
+          "id": "aircraft model",
+          "pixels": 84
         }
       ]
     },
     {
-      "id": "distance-display-conditions",
+      "id": "czml-model-data-url",
       "status": "passed",
-      "entities": 2,
-      "sourceSha256": "ba831085ce17cf35e442c2a61d1bf3189079ac7a811b06ded0595816194b7c8b",
-      "inputSha256": "95231cb4d50c7a599140932465c029063bf8d85f5028fed8ca9813d4bddcb48a",
-      "fixtureSha256": "8cee26317f134ce6971846e9b2bfa6d1d30dfc7fbacb82e023c132438562dc73",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "distance-billboard",
-        "distance-rectangle"
-      ],
-      "pixelCounts": [
-        {
-          "id": "distance-billboard",
-          "pixels": 3616
-        },
-        {
-          "id": "distance-rectangle",
-          "pixels": 51506
-        }
-      ]
-    },
-    {
-      "id": "callback-property",
-      "status": "passed",
-      "entities": 2,
-      "sourceSha256": "376f06c58cfa68cb493f96791796c0d010da5e9de9ee490cd5263ea07d050414",
-      "inputSha256": "b2fec36c9a9112e0c9bcf345144f3bd31c439da61e546f1ecde27f8d960904d2",
-      "fixtureSha256": "b2fec36c9a9112e0c9bcf345144f3bd31c439da61e546f1ecde27f8d960904d2",
+      "entities": 1,
+      "sourceSha256": "68808333f11a00922a60517ee870e0ba25927bce928efdf628b0f589a019b010",
+      "inputSha256": "aa46845fb86cf0a96e1c5387671274fda31d64cf4b7149794233db8ac7c38d4f",
+      "fixtureSha256": "59a8f31b7fa277d93aed2d421ceed723eeec8877bbc613925ab52f9bab99a046",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -90,27 +80,22 @@
         "play/pause/loop"
       ],
       "pickedEntities": [
-        "redLine",
-        "lengthLabel"
+        "cube"
       ],
       "pixelCounts": [
         {
-          "id": "redLine",
-          "pixels": 2045
-        },
-        {
-          "id": "lengthLabel",
-          "pixels": 461
+          "id": "cube",
+          "pixels": 84
         }
       ]
     },
     {
-      "id": "map-pins",
+      "id": "callback-position-property",
       "status": "passed",
-      "entities": 4,
-      "sourceSha256": "f0bdd92952c8b10e816010c31734927a33ca13ebd8268b033182f4712d6f89e4",
-      "inputSha256": "041cc488a43bfbcee48e1d7c5784619e6761c524298bdca1bbe873526d40bc0a",
-      "fixtureSha256": "041cc488a43bfbcee48e1d7c5784619e6761c524298bdca1bbe873526d40bc0a",
+      "entities": 10,
+      "sourceSha256": "d5fadb8cec71ad6859701c1325dc28181b7d364fb79b53140c98b4899480e85f",
+      "inputSha256": "f657a8c39b4b712a104568067fbe7142f6ca5b2da6885ac47a49c17f785918da",
+      "fixtureSha256": "f657a8c39b4b712a104568067fbe7142f6ca5b2da6885ac47a49c17f785918da",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -118,30 +103,63 @@
         "every instance ID picking",
         "hide/show",
         "wheel zoom",
-        "resize and manual fit"
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
       ],
       "pickedEntities": [
-        "bluePin",
-        "questionPin",
-        "groceryPin",
-        "hospitalPin"
+        "waypoint-0",
+        "waypoint-1",
+        "waypoint-2",
+        "waypoint-3",
+        "waypoint-4",
+        "waypoint-5",
+        "waypoint-6",
+        "waypoint-7",
+        "waypoint-8",
+        "drone"
       ],
       "pixelCounts": [
         {
-          "id": "bluePin",
-          "pixels": 982
+          "id": "waypoint-0",
+          "pixels": 106
         },
         {
-          "id": "questionPin",
-          "pixels": 696
+          "id": "waypoint-1",
+          "pixels": 106
         },
         {
-          "id": "groceryPin",
-          "pixels": 982
+          "id": "waypoint-2",
+          "pixels": 106
         },
         {
-          "id": "hospitalPin",
-          "pixels": 982
+          "id": "waypoint-3",
+          "pixels": 106
+        },
+        {
+          "id": "waypoint-4",
+          "pixels": 106
+        },
+        {
+          "id": "waypoint-5",
+          "pixels": 106
+        },
+        {
+          "id": "waypoint-6",
+          "pixels": 106
+        },
+        {
+          "id": "waypoint-7",
+          "pixels": 106
+        },
+        {
+          "id": "waypoint-8",
+          "pixels": 106
+        },
+        {
+          "id": "drone",
+          "pixels": 18
         }
       ]
     },
@@ -309,7 +327,7 @@
       "assetsSha256": "f7dbc2e3295e40bbd1f08bfcc476efe0c5237acdb6df8e7410943c9b8de081e4"
     }
   ],
-  "browser": "156.0.8078.48",
+  "browser": "156.0.8078.75",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed"
 }

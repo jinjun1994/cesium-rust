@@ -1,0 +1,372 @@
+[
+  {
+    "id": "waypoint-0",
+    "show": true,
+    "name": "",
+    "positionDegrees": [
+      -112.87709,
+      36.27782,
+      620.01
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 8,
+      "outlineWidth": 3,
+      "outlineColor": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "properties": null
+  },
+  {
+    "id": "waypoint-1",
+    "show": true,
+    "name": "",
+    "positionDegrees": [
+      -112.87351,
+      36.27992,
+      617.9
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 8,
+      "outlineWidth": 3,
+      "outlineColor": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "properties": null
+  },
+  {
+    "id": "waypoint-2",
+    "show": true,
+    "name": "",
+    "positionDegrees": [
+      -112.87081,
+      36.2816,
+      617.6
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 8,
+      "outlineWidth": 3,
+      "outlineColor": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "properties": null
+  },
+  {
+    "id": "waypoint-3",
+    "show": true,
+    "name": "",
+    "positionDegrees": [
+      -112.86539,
+      36.28239,
+      625.36
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 8,
+      "outlineWidth": 3,
+      "outlineColor": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "properties": null
+  },
+  {
+    "id": "waypoint-4",
+    "show": true,
+    "name": "",
+    "positionDegrees": [
+      -112.86108,
+      36.28137,
+      627.82
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 8,
+      "outlineWidth": 3,
+      "outlineColor": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "properties": null
+  },
+  {
+    "id": "waypoint-5",
+    "show": true,
+    "name": "",
+    "positionDegrees": [
+      -112.85551,
+      36.27967,
+      625.54
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 8,
+      "outlineWidth": 3,
+      "outlineColor": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "properties": null
+  },
+  {
+    "id": "waypoint-6",
+    "show": true,
+    "name": "",
+    "positionDegrees": [
+      -112.848,
+      36.27732,
+      628.9
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 8,
+      "outlineWidth": 3,
+      "outlineColor": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "properties": null
+  },
+  {
+    "id": "waypoint-7",
+    "show": true,
+    "name": "",
+    "positionDegrees": [
+      -112.84086,
+      36.27739,
+      638.81
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 8,
+      "outlineWidth": 3,
+      "outlineColor": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "properties": null
+  },
+  {
+    "id": "waypoint-8",
+    "show": true,
+    "name": "",
+    "positionDegrees": [
+      -112.83682,
+      36.27995,
+      643.31
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 8,
+      "outlineWidth": 3,
+      "outlineColor": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "properties": null
+  },
+  {
+    "id": "drone",
+    "show": true,
+    "name": "",
+    "positionDegrees": [
+      -112.87709,
+      36.27782,
+      620.01
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumDrone/CesiumDrone.glb",
+      "scale": 1,
+      "minimumPixelSize": 64,
+      "maximumScale": 20000
+    },
+    "availability": [
+      1427308800,
+      1427308808
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  }
+]

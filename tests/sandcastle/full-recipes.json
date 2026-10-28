@@ -2343,6 +2343,120 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "billboards",
+      "title": "Billboards",
+      "sourceSha256": "498250cd15171f0291c5d073e003f514ea7e472eb9876e56cbc41c7f6347b9b6",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=billboards",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/billboards.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/billboards.json",
+      "entityCount": 1,
+      "variantCount": 10,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "Sandcastle toolbar menu with 10 billboard styling and distance variations",
+        "eyeOffset, pixelOffset, rotation, scale, color tinting and origins",
+        "scaleByDistance, translucencyByDistance, pixelOffsetScaleByDistance curves",
+        "disableDepthTestDistance terrain occlusion control"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-model",
+      "title": "CZML Model",
+      "sourceSha256": "a699c670b74a83f7b00f400978e655e91638b7790f94604bba21f72664b3d25c",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-model",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-model.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-model.json",
+      "entityCount": 1,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "trackedEntity": "aircraft model",
+      "requirements": [
+        "CZML model packet decoding with gltf URI",
+        "scale: 2.0 and minimumPixelSize: 128 model dimensions",
+        "viewer.trackedEntity tracking the aircraft model"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-model-data-url",
+      "title": "CZML Model Data URL",
+      "sourceSha256": "68808333f11a00922a60517ee870e0ba25927bce928efdf628b0f589a019b010",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-model-data-url",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-model-data-url.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-model-data-url.json",
+      "entityCount": 1,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "trackedEntity": "cube",
+      "requirements": [
+        "CZML model packet decoding with base64 glTF data URL",
+        "scale: 2.0 and minimumPixelSize: 128 model dimensions",
+        "viewer.trackedEntity tracking the cube model"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "callback-position-property",
+      "title": "Callback Position Property",
+      "sourceSha256": "d5fadb8cec71ad6859701c1325dc28181b7d364fb79b53140c98b4899480e85f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=callback-position-property",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/callback-position-property.json",
+      "expectedPath": "../../tests/sandcastle/full/callback-position-property.json",
+      "entityCount": 10,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "trackedEntity": "drone",
+      "requirements": [
+        "9 waypoint transparent points with yellow 3px outlines",
+        "CatmullRomSpline CallbackPositionProperty simulation bounds",
+        "CesiumDrone model with minimumPixelSize: 64 and maximumScale: 20000",
+        "viewer.trackedEntity tracking the drone"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

@@ -4,7 +4,7 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.34（已通过 83 / 309 个完整案例，剩余 226 个）
+- **当前版本**：v0.0.35（已通过 87 / 309 个完整案例，剩余 222 个）
 
 ---
 
@@ -216,6 +216,35 @@
 - **文档晋升**：
   - 产出 [CZML 动态插值多边形与孔洞、距离可见条件裁切、回调属性动态折线与地图图标引脚验证文档](docs/czml-interpolating-polygon-distance-pins-validation.md)。
   - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
+---
+
+### [2026-10-29] v0.0.35 验收完成：Billboards 变体、CZML 飞机/立方体模型与无人机回调样条体系全面打通
+- **完成配方**（累计推进至 **87 / 309**，剩余 222 个）：
+  1. `billboards`（广告牌图元样式全集：10 种工具栏变体，涵盖 eyeOffset 视距偏移、pixelOffset 像素偏移、rotation 旋转、scale 缩放、color 染色、scaleByDistance 视距缩放、translucencyByDistance 视距半透明、pixelOffsetScaleByDistance 视距像素偏移、disableDepthTestDistance 地形防遮挡穿透）
+  2. `czml-model`（CZML 飞机三维模型：`Cesium_Air.glb`、`scale: 2.0`、`minimumPixelSize: 128`、`trackedEntity: "aircraft model"` 动态相机追踪取景）
+  3. `czml-model-data-url`（CZML 内联模型：Data URI base64 glTF 2.0 立方体、`scale: 2.0`、`minimumPixelSize: 128`、`trackedEntity: "cube"` 静态朝向取景）
+  4. `callback-position-property`（无人机样条轨迹：9 个透明黄色描边航路点、CesiumDrone 动态位置回调属性、CatmullRomSpline 连续三维样条插值、PolylineGlow 轨迹光流、`trackedEntity: "drone"`）
+- **核心研发突破**：
+  1. **CZML Model 数据包解码与三维包围体拓扑**（`crates/cesium-viewer/src/entities.rs` 与 `outline.rs`）：
+     - 在 `decode_screen_or_model_packet` 中新增 `"model"` 数据包解析，支持 glTF 格式的 `uri`（对象或字符串）、`scale`、`minimum_pixel_size` 与 `maximum_scale`。
+     - 为 `Shape::Model` 构建三维代理网格（Half dimensions: `(8.0, 14.0, 6.0)`），配合相机离地安全间隙（1000m），确保飞机和无人机在视野中产生清晰可见的屏幕像素（18~84 像素）与精确的三维线框拾取。
+  2. **视距半透明度 NearFarScalar 上限宽限兼容**（`crates/cesium-renderer/src/screen_distance.rs`）：
+     - 将 `ScreenDistance::validate()` 中 translucency 的数值校验上限从 `1.0` 放宽至 `8.0`，原生兼容 CesiumJS 官方 Sandcastle `NearFarScalar(150, 2.0, 1.5e7, 0.5)` 中 `nearValue = 2.0` 的视距淡出配置。
+  3. **复杂变体全套冒烟与自动化生成**（`crates/cesium-viewer/tests/full-recipes-gpu.rs` 与 `scripts/record-full-recipe-results.py`）：
+     - 在原生离屏 GPU 测试中加入变体 1~9 全量渲染循环，自动输出全部 `docs/full-billboards-variant-{1..9}-smoke.log`。
+     - 在 Web 端 Sandcastle 挂载 `fullNew60` ~ `fullNew63` 测试按钮，支持 `EXTENDED_ONLY=1 BATCH35_ONLY=1` 快速回归。
+- **验证结果**：
+  - **普通 Rust 单元测试**：97 / 97 项全部通过（新增 `batch35_czml_model_and_billboard_contracts`）。
+  - **真实 GPU 离屏渲染测试**：88 / 88 项全部通过（用时 20.76s，全部包含离屏像素反读与实体 ID 拾取）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 87 个固定案例哈希与实体结构精准契合）。
+  - **桌面 90 帧冒烟测试**：102 个配置（87 案例 + 15 变体）全部 90 帧 errors 0 稳定运行。
+  - **浏览器真实 WebGPU 端到端**：87 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`），包含实体像素反读、ID 拾取、显隐交互、鼠标滚轮缩放与窗口自适应验证。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy -p cesium-viewer --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Billboards 样式变体、CZML 飞机与立方体模型、无人机样条轨迹回调验证文档](docs/billboards-czml-model-drone-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
 
 
 
