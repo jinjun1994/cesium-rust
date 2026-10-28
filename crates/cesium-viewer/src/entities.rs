@@ -103,6 +103,18 @@ pub enum Shape {
         scale: f64,
         #[serde(default, rename = "pixelOffset")]
         pixel_offset: [f64; 2],
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "sizeInMeters"
+        )]
+        size_in_meters: Option<bool>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "imageSubRegion"
+        )]
+        image_sub_region: Option<[f64; 4]>,
     },
     Label {
         #[serde(default)]
@@ -114,6 +126,36 @@ pub enum Shape {
         scale: f64,
         #[serde(default, rename = "pixelOffset")]
         pixel_offset: [f64; 2],
+        #[serde(default, skip_serializing_if = "Option::is_none")]
+        font: Option<String>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "showBackground"
+        )]
+        show_background: Option<bool>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "backgroundColor"
+        )]
+        background_color: Option<[f32; 4]>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "outlineColor"
+        )]
+        outline_color: Option<[f32; 4]>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "outlineWidth"
+        )]
+        outline_width: Option<f32>,
+        #[serde(default, skip_serializing_if = "Option::is_none")]
+        style: Option<crate::label_appearance::LabelStyle>,
+        #[serde(default, skip_serializing_if = "Option::is_none", rename = "fillColor")]
+        fill_color: Option<[f32; 4]>,
     },
     Box {
         dimensions: [f64; 3],
@@ -331,6 +373,30 @@ pub enum Shape {
             rename = "articulations"
         )]
         articulations: Option<serde_json::Value>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "colorBlendMode"
+        )]
+        color_blend_mode: Option<String>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "colorBlendAmount"
+        )]
+        color_blend_amount: Option<f64>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "silhouetteColor"
+        )]
+        silhouette_color: Option<[f32; 4]>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "silhouetteSize"
+        )]
+        silhouette_size: Option<f64>,
     },
 }
 #[derive(Clone, Debug, Deserialize, Serialize)]
@@ -700,6 +766,9 @@ impl Entity {
                 scale,
                 minimum_pixel_size,
                 maximum_scale,
+                color_blend_amount,
+                silhouette_size,
+                silhouette_color,
                 ..
             } => {
                 scale.is_finite()
@@ -707,6 +776,10 @@ impl Entity {
                     && minimum_pixel_size.is_finite()
                     && minimum_pixel_size >= 0.
                     && maximum_scale.is_none_or(|m| m.is_finite() && m > 0.)
+                    && color_blend_amount.is_none_or(|a| a.is_finite() && (0.0..=1.0).contains(&a))
+                    && silhouette_size.is_none_or(|s| s.is_finite() && (0.0..=100.0).contains(&s))
+                    && silhouette_color
+                        .is_none_or(|c| c.iter().all(|x| x.is_finite() && (0.0..=1.0).contains(x)))
             }
             _ => true,
         };
@@ -1822,7 +1895,15 @@ fn decode_screen_or_model_packet(
             "outlineColor",
             "outlineWidth",
         ],
-        "billboard" => vec!["image", "width", "height", "scale", "pixelOffset"],
+        "billboard" => vec![
+            "image",
+            "width",
+            "height",
+            "scale",
+            "pixelOffset",
+            "sizeInMeters",
+            "imageSubRegion",
+        ],
         "box" => vec!["dimensions"],
         "ellipsoid" => vec![
             "radii",
@@ -1850,6 +1931,10 @@ fn decode_screen_or_model_packet(
             "runAnimations",
             "nodeTransformations",
             "articulations",
+            "colorBlendMode",
+            "colorBlendAmount",
+            "silhouetteColor",
+            "silhouetteSize",
         ],
         _ => vec!["length", "topRadius", "bottomRadius"],
     });
@@ -1875,6 +1960,13 @@ fn decode_screen_or_model_packet(
                     .unwrap_or(30.),
                 scale: g.get("scale").map(number).transpose()?.unwrap_or(1.),
                 pixel_offset: screen_offset(g)?,
+                font: None,
+                show_background: None,
+                background_color: None,
+                outline_color: None,
+                outline_width: None,
+                style: None,
+                fill_color: None,
             }
         }
         "point" => Shape::Point {
@@ -1897,12 +1989,32 @@ fn decode_screen_or_model_packet(
             .ok_or("billboard image URI required")?
             .to_owned();
             let offset = screen_offset(g)?;
+            let sub_region = if let Some(sub) = g.get("imageSubRegion") {
+                if let Some(arr) = sub.as_array() {
+                    if arr.len() == 4 {
+                        Some([
+                            number(&arr[0])?,
+                            number(&arr[1])?,
+                            number(&arr[2])?,
+                            number(&arr[3])?,
+                        ])
+                    } else {
+                        None
+                    }
+                } else {
+                    None
+                }
+            } else {
+                None
+            };
             Shape::Billboard {
                 image,
                 width: g.get("width").map(number).transpose()?.unwrap_or(64.),
                 height: g.get("height").map(number).transpose()?.unwrap_or(64.),
                 scale: g.get("scale").map(number).transpose()?.unwrap_or(1.),
                 pixel_offset: offset,
+                size_in_meters: g.get("sizeInMeters").map(boolean).transpose()?,
+                image_sub_region: sub_region,
             }
         }
         "box" => {
@@ -1968,6 +2080,16 @@ fn decode_screen_or_model_packet(
                 run_animations: g.get("runAnimations").map(boolean).transpose()?,
                 node_transformations: g.get("nodeTransformations").cloned(),
                 articulations: g.get("articulations").cloned(),
+                color_blend_mode: g
+                    .get("colorBlendMode")
+                    .and_then(|v| v.as_str())
+                    .map(|s| s.to_string()),
+                color_blend_amount: g.get("colorBlendAmount").map(number).transpose()?,
+                silhouette_color: g
+                    .get("silhouetteColor")
+                    .map(crate::entity_material::rgba)
+                    .transpose()?,
+                silhouette_size: g.get("silhouetteSize").map(number).transpose()?,
             }
         }
         _ => Shape::Cylinder {
@@ -2780,6 +2902,10 @@ mod tests {
                 run_animations: None,
                 node_transformations: None,
                 articulations: None,
+                color_blend_mode: None,
+                color_blend_amount: None,
+                silhouette_color: None,
+                silhouette_size: None,
             },
             screen: Default::default(),
             fill: true,
@@ -2795,5 +2921,104 @@ mod tests {
         };
         let m = model_entity.model(0.0).unwrap();
         assert!(m.is_finite());
+    }
+
+    #[test]
+    fn batch37_models_coloring_dev_labels_billboards_contracts() {
+        // 1. Model entity with coloring, blending, and silhouettes
+        let coloring_json = serde_json::json!([
+            {
+                "id": "model-colored",
+                "show": true,
+                "name": "colored aircraft",
+                "positionDegrees": [-123.0744619, 44.0503706, 5000.0],
+                "shape": {
+                    "type": "model",
+                    "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+                    "minimumPixelSize": 128.0,
+                    "maximumScale": 20000.0,
+                    "colorBlendMode": "Highlight",
+                    "colorBlendAmount": 0.5,
+                    "silhouetteColor": [1.0, 0.0, 0.0, 1.0],
+                    "silhouetteSize": 2.0
+                },
+                "color": [1.0, 0.0, 0.0, 1.0]
+            }
+        ]);
+        let entities = decode(&serde_json::to_vec(&coloring_json).unwrap()).unwrap();
+        assert_eq!(entities.len(), 1);
+        if let Shape::Model {
+            color_blend_mode,
+            color_blend_amount,
+            silhouette_color,
+            silhouette_size,
+            ..
+        } = &entities[0].shape
+        {
+            assert_eq!(color_blend_mode.as_deref(), Some("Highlight"));
+            assert_eq!(*color_blend_amount, Some(0.5));
+            assert_eq!(*silhouette_color, Some([1.0, 0.0, 0.0, 1.0]));
+            assert_eq!(*silhouette_size, Some(2.0));
+        } else {
+            panic!("expected Shape::Model");
+        }
+        let prim = entities[0].primitive().unwrap();
+        assert_eq!(prim.vertices.len(), 36);
+
+        // 2. Billboard with imageSubRegion and sizeInMeters
+        let bb_json = serde_json::json!([
+            {
+                "id": "bb-marker",
+                "show": true,
+                "name": "marker",
+                "positionDegrees": [-75.59777, 40.03883, 0.0],
+                "shape": {
+                    "type": "billboard",
+                    "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+                    "sizeInMeters": true,
+                    "imageSubRegion": [49.0, 43.0, 18.0, 18.0]
+                }
+            }
+        ]);
+        let bb_entities = decode(&serde_json::to_vec(&bb_json).unwrap()).unwrap();
+        assert_eq!(bb_entities.len(), 1);
+        if let Shape::Billboard {
+            size_in_meters,
+            image_sub_region,
+            ..
+        } = &bb_entities[0].shape
+        {
+            assert_eq!(*size_in_meters, Some(true));
+            assert_eq!(*image_sub_region, Some([49.0, 43.0, 18.0, 18.0]));
+        } else {
+            panic!("expected Shape::Billboard");
+        }
+        let bb_prim = bb_entities[0].primitive().unwrap();
+        assert_eq!(bb_prim.vertices.len(), 4);
+
+        // 3. Label with styled font, background, and outline
+        let label_json = serde_json::json!([
+            {
+                "id": "label-styled",
+                "show": true,
+                "name": "styled label",
+                "positionDegrees": [-75.1641667, 39.9522222, 0.0],
+                "shape": {
+                    "type": "label",
+                    "text": "Philadelphia",
+                    "font": "24px sans-serif",
+                    "showBackground": true,
+                    "backgroundColor": [0.2, 0.2, 0.2, 0.8],
+                    "outlineColor": [0.0, 0.0, 0.0, 1.0],
+                    "outlineWidth": 2.0,
+                    "style": "FILL_AND_OUTLINE",
+                    "fillColor": [0.6, 0.9, 1.0, 1.0]
+                }
+            }
+        ]);
+        let label_entities = decode(&serde_json::to_vec(&label_json).unwrap()).unwrap();
+        assert_eq!(label_entities.len(), 1);
+        let label_prim = label_entities[0].primitive().unwrap();
+        assert_eq!(label_prim.vertices.len(), 4);
     }
 }

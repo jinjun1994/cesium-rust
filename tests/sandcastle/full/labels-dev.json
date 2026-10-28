@@ -1,0 +1,38 @@
+[
+  {
+    "id": "label-dev-add",
+    "show": true,
+    "name": "",
+    "positionDegrees": [
+      -75.1641667,
+      39.9522222,
+      0
+    ],
+    "shape": {
+      "type": "label",
+      "text": "Philadelphia",
+      "fontSize": 30,
+      "scale": 1,
+      "pixelOffset": [
+        0,
+        0
+      ]
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  }
+]

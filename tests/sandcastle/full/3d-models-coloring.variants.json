@@ -1,0 +1,265 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Aircraft",
+      "entities": [
+        {
+          "id": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+          "show": true,
+          "name": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            5000
+          ],
+          "orientation": [
+            -0.24583746499641562,
+            -0.3031809562358025,
+            0.915695296185518,
+            -0.09564190046102714
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+            "minimumPixelSize": 128,
+            "maximumScale": 20000,
+            "colorBlendMode": "Highlight",
+            "colorBlendAmount": 0.5,
+            "silhouetteColor": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "silhouetteSize": 2
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Ground Vehicle",
+      "entities": [
+        {
+          "id": "../../SampleData/models/GroundVehicle/GroundVehicle.glb",
+          "show": true,
+          "name": "../../SampleData/models/GroundVehicle/GroundVehicle.glb",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            0
+          ],
+          "orientation": [
+            -0.24583746499641562,
+            -0.3031809562358025,
+            0.915695296185518,
+            -0.09564190046102714
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/GroundVehicle/GroundVehicle.glb",
+            "minimumPixelSize": 128,
+            "maximumScale": 20000,
+            "colorBlendMode": "Highlight",
+            "colorBlendAmount": 0.5,
+            "silhouetteColor": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "silhouetteSize": 2
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Hot Air Balloon",
+      "entities": [
+        {
+          "id": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+          "show": true,
+          "name": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            1000
+          ],
+          "orientation": [
+            -0.24583746499641562,
+            -0.3031809562358025,
+            0.915695296185518,
+            -0.09564190046102714
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+            "minimumPixelSize": 128,
+            "maximumScale": 20000,
+            "colorBlendMode": "Highlight",
+            "colorBlendAmount": 0.5,
+            "silhouetteColor": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "silhouetteSize": 2
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Milk Truck",
+      "entities": [
+        {
+          "id": "../../SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+          "show": true,
+          "name": "../../SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            0
+          ],
+          "orientation": [
+            -0.24583746499641562,
+            -0.3031809562358025,
+            0.915695296185518,
+            -0.09564190046102714
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+            "minimumPixelSize": 128,
+            "maximumScale": 20000,
+            "colorBlendMode": "Highlight",
+            "colorBlendAmount": 0.5,
+            "silhouetteColor": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "silhouetteSize": 2
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Skinned Character",
+      "entities": [
+        {
+          "id": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+          "show": true,
+          "name": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            0
+          ],
+          "orientation": [
+            -0.24583746499641562,
+            -0.3031809562358025,
+            0.915695296185518,
+            -0.09564190046102714
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+            "minimumPixelSize": 128,
+            "maximumScale": 20000,
+            "colorBlendMode": "Highlight",
+            "colorBlendAmount": 0.5,
+            "silhouetteColor": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "silhouetteSize": 2
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    }
+  ]
+}

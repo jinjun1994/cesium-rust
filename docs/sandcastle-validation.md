@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.37
+
+新增 3D Models Coloring、3D Models - Dev、Labels - Dev、Billboards - Dev 四个完整案例，累计 **95 / 309**，剩余 214 个。97 项普通 Rust、122 项实际 GPU（全套 96 测试项）、8 组 Node、95 个浏览器 WebGPU 案例及 149 个桌面 90 帧配置通过。验证包含 3D 模型材质颜色与轮廓着色（color、colorBlendMode、silhouetteColor、silhouetteSize）、底层 Model.fromGltf 基元与 HeadingPitchRoll 局部坐标系到 ECEF 四元数姿态解算与相机 lookAt 矩阵绑定、底层 LabelCollection 基元自定义字体/描边/背景框/多行文本/ENU 参考系多标签与近远视距曲线、以及底层 BillboardCollection 广告牌基元属性/物理米级尺寸（sizeInMeters）/纯点广告牌阵列/图集切片子区域采样（imageSubRegion: [x, y, w, h]）归一化 UV 映射。详见 [本批验证](models-coloring-dev-labels-billboards-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.36
 
 新增 Labels、3D Models、CZML Model Node Transformations、CZML Model Articulations 四个完整案例，累计 **91 / 309**，剩余 218 个。97 项普通 Rust、118 项实际 GPU、8 组 Node、91 个浏览器 WebGPU 案例及 122 个桌面 90 帧配置通过。验证包含 Labels 8 种变体（包含希伯来语/RTL 文本安全排版降级、广告牌视距偏移、视距淡出与缩放、文字动画）、3D Models 10 种变体工具栏（包含飞机、无人机、地面车辆、热气球、牛奶卡车、蒙皮角色、Draco/KTX2 等模型及 ENU 朝向四元数与相机追踪）、CZML Model Node Transformations（CesiumMan 骨骼节点旋转动画与视距跟踪）以及 CZML Model Articulations（运载火箭整流罩展开/分离/下落铰接动画与插值）。详见 [本批验证](labels-3d-models-articulations-validation.md)。以下保留历史记录。

@@ -1,0 +1,989 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Add billboard",
+      "entities": [
+        {
+          "id": "bb-dev-add",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "width": 64,
+            "height": 64,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Set billboard properties at creation",
+      "entities": [
+        {
+          "id": "bb-dev-properties-create",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "width": 100,
+            "height": 25,
+            "scale": 2,
+            "pixelOffset": [
+              0,
+              -50
+            ],
+            "sizeInMeters": false
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "BOTTOM",
+            "rotation": 0.7853981633974483,
+            "eyeOffset": [
+              0,
+              0,
+              0
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Change billboard properties",
+      "entities": [
+        {
+          "id": "bb-dev-change-props",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            300000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "width": 64,
+            "height": 64,
+            "scale": 3,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            0.25
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Size billboard in meters",
+      "entities": [
+        {
+          "id": "bb-dev-size-meters",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "width": 64,
+            "height": 64,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ],
+            "sizeInMeters": true
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Add multiple billboards",
+      "entities": [
+        {
+          "id": "bb-dev-multi-logo",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "width": 64,
+            "height": 64,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        },
+        {
+          "id": "bb-dev-multi-fac1",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -80.5,
+            35.14,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEVAQEDAwMDAoAD///+gYADAgACgoKSAYADgwAD///8AAAAAAAAAAAAAAAAAAAAAAAC6opgsAAAACnRSTlP///////////8AsswszwAAAH1JREFUeJw9xiEOwjAYhuF33/6KyQVPlh6AjOwWqBoOgMKScJo6LI5rIAg3IE0WFIK5CpIVQ3jUU0XygQgiH4d2D8R6WKx3TTRI3eoClnvSwxWMxPL5CRjdnHAgZt5TAKG7LydQc/O4zZkKD2N4XaV621MMIWACQUsBxM8/X+GkICjYO7GLAAAAAElFTkSuQmCC",
+            "width": 64,
+            "height": 64,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        },
+        {
+          "id": "bb-dev-multi-fac2",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -80.12,
+            25.46,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEVAQEDAwMDAoAD///+gYADAgACgoKSAYADgwAD///8AAAAAAAAAAAAAAAAAAAAAAAC6opgsAAAACnRSTlP///////////8AsswszwAAAH1JREFUeJw9xiEOwjAYhuF33/6KyQVPlh6AjOwWqBoOgMKScJo6LI5rIAg3IE0WFIK5CpIVQ3jUU0XygQgiH4d2D8R6WKx3TTRI3eoClnvSwxWMxPL5CRjdnHAgZt5TAKG7LydQc/O4zZkKD2N4XaV621MMIWACQUsBxM8/X+GkICjYO7GLAAAAAElFTkSuQmCC",
+            "width": 64,
+            "height": 64,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Scale by distance",
+      "entities": [
+        {
+          "id": "bb-dev-scale-dist",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEVAQEDAwMDAoAD///+gYADAgACgoKSAYADgwAD///8AAAAAAAAAAAAAAAAAAAAAAAC6opgsAAAACnRSTlP///////////8AsswszwAAAH1JREFUeJw9xiEOwjAYhuF33/6KyQVPlh6AjOwWqBoOgMKScJo6LI5rIAg3IE0WFIK5CpIVQ3jUU0XygQgiH4d2D8R6WKx3TTRI3eoClnvSwxWMxPL5CRjdnHAgZt5TAKG7LydQc/O4zZkKD2N4XaV621MMIWACQUsBxM8/X+GkICjYO7GLAAAAAElFTkSuQmCC",
+            "width": 64,
+            "height": 64,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "scaleByDistance": [
+              150,
+              2,
+              15000000,
+              0.5
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Fade by distance",
+      "entities": [
+        {
+          "id": "bb-dev-fade-dist",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "width": 64,
+            "height": 64,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "translucencyByDistance": [
+              150,
+              1,
+              15000000,
+              0.2
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Offset by distance",
+      "entities": [
+        {
+          "id": "bb-dev-offset-fac",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEVAQEDAwMDAoAD///+gYADAgACgoKSAYADgwAD///8AAAAAAAAAAAAAAAAAAAAAAAC6opgsAAAACnRSTlP///////////8AsswszwAAAH1JREFUeJw9xiEOwjAYhuF33/6KyQVPlh6AjOwWqBoOgMKScJo6LI5rIAg3IE0WFIK5CpIVQ3jUU0XygQgiH4d2D8R6WKx3TTRI3eoClnvSwxWMxPL5CRjdnHAgZt5TAKG7LydQc/O4zZkKD2N4XaV621MMIWACQUsBxM8/X+GkICjYO7GLAAAAAElFTkSuQmCC",
+            "width": 64,
+            "height": 64,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "BOTTOM"
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        },
+        {
+          "id": "bb-dev-offset-logo",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "width": 64,
+            "height": 64,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              -16
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "BOTTOM",
+            "pixelOffsetScaleByDistance": [
+              1000,
+              1,
+              1500000,
+              0
+            ],
+            "translucencyByDistance": [
+              1000,
+              1,
+              1500000,
+              0.1
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Add point billboards",
+      "entities": [
+        {
+          "id": "bb-dev-pt-red",
+          "show": true,
+          "name": "red point",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 16,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "properties": null
+        },
+        {
+          "id": "bb-dev-pt-blue",
+          "show": true,
+          "name": "blue point",
+          "positionDegrees": [
+            -80.5,
+            35.14,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 32,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "properties": null
+        },
+        {
+          "id": "bb-dev-pt-lime",
+          "show": true,
+          "name": "lime point",
+          "positionDegrees": [
+            -80.12,
+            25.46,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 64,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Add marker billboards",
+      "entities": [
+        {
+          "id": "bb-dev-marker-lime",
+          "show": true,
+          "name": "lime marker",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGUlEQVR4nGP4TyXAMGrQqEGjBo0aNNwMAgDZMQs8Mzy3wQAAAABJRU5ErkJggg==",
+            "width": 18,
+            "height": 18,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ],
+            "imageSubRegion": [
+              49,
+              43,
+              18,
+              18
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "properties": null
+        },
+        {
+          "id": "bb-dev-marker-azure",
+          "show": true,
+          "name": "azure marker",
+          "positionDegrees": [
+            -84,
+            39,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGUlEQVR4nGP4TyXAMGrQqEGjBo0aNNwMAgDZMQs8Mzy3wQAAAABJRU5ErkJggg==",
+            "width": 18,
+            "height": 18,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ],
+            "imageSubRegion": [
+              61,
+              23,
+              18,
+              18
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0.5,
+            1,
+            1
+          ],
+          "properties": null
+        },
+        {
+          "id": "bb-dev-marker-cyan",
+          "show": true,
+          "name": "cyan marker",
+          "positionDegrees": [
+            -70,
+            41,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGUlEQVR4nGP4TyXAMGrQqEGjBo0aNNwMAgDZMQs8Mzy3wQAAAABJRU5ErkJggg==",
+            "width": 14,
+            "height": 14,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ],
+            "imageSubRegion": [
+              67,
+              80,
+              14,
+              14
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.5,
+            0.9,
+            1,
+            1
+          ],
+          "properties": null
+        },
+        {
+          "id": "bb-dev-marker-red",
+          "show": true,
+          "name": "red marker",
+          "positionDegrees": [
+            -73,
+            37,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGUlEQVR4nGP4TyXAMGrQqEGjBo0aNNwMAgDZMQs8Mzy3wQAAAABJRU5ErkJggg==",
+            "width": 22,
+            "height": 22,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ],
+            "imageSubRegion": [
+              27,
+              103,
+              22,
+              22
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "properties": null
+        },
+        {
+          "id": "bb-dev-marker-yellow",
+          "show": true,
+          "name": "yellow marker",
+          "positionDegrees": [
+            -79,
+            35,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAGUlEQVR4nGP4TyXAMGrQqEGjBo0aNNwMAgDZMQs8Mzy3wQAAAABJRU5ErkJggg==",
+            "width": 18,
+            "height": 18,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ],
+            "imageSubRegion": [
+              105,
+              105,
+              18,
+              18
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "In reference frame",
+      "entities": [
+        {
+          "id": "bb-dev-ref-center",
+          "show": true,
+          "name": "center",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEVAQEDAwMDAoAD///+gYADAgACgoKSAYADgwAD///8AAAAAAAAAAAAAAAAAAAAAAAC6opgsAAAACnRSTlP///////////8AsswszwAAAH1JREFUeJw9xiEOwjAYhuF33/6KyQVPlh6AjOwWqBoOgMKScJo6LI5rIAg3IE0WFIK5CpIVQ3jUU0XygQgiH4d2D8R6WKx3TTRI3eoClnvSwxWMxPL5CRjdnHAgZt5TAKG7LydQc/O4zZkKD2N4XaV621MMIWACQUsBxM8/X+GkICjYO7GLAAAAAElFTkSuQmCC",
+            "width": 64,
+            "height": 64,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        },
+        {
+          "id": "bb-dev-ref-east",
+          "show": true,
+          "name": "east",
+          "positionDegrees": [
+            -64.04004598202077,
+            39.45953233238251,
+            77811.45631176047
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEVAQEDAwMDAoAD///+gYADAgACgoKSAYADgwAD///8AAAAAAAAAAAAAAAAAAAAAAAC6opgsAAAACnRSTlP///////////8AsswszwAAAH1JREFUeJw9xiEOwjAYhuF33/6KyQVPlh6AjOwWqBoOgMKScJo6LI5rIAg3IE0WFIK5CpIVQ3jUU0XygQgiH4d2D8R6WKx3TTRI3eoClnvSwxWMxPL5CRjdnHAgZt5TAKG7LydQc/O4zZkKD2N4XaV621MMIWACQUsBxM8/X+GkICjYO7GLAAAAAElFTkSuQmCC",
+            "width": 64,
+            "height": 64,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        },
+        {
+          "id": "bb-dev-ref-north",
+          "show": true,
+          "name": "north",
+          "positionDegrees": [
+            -75.59777,
+            48.965002100193935,
+            78073.68778630253
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEVAQEDAwMDAoAD///+gYADAgACgoKSAYADgwAD///8AAAAAAAAAAAAAAAAAAAAAAAC6opgsAAAACnRSTlP///////////8AsswszwAAAH1JREFUeJw9xiEOwjAYhuF33/6KyQVPlh6AjOwWqBoOgMKScJo6LI5rIAg3IE0WFIK5CpIVQ3jUU0XygQgiH4d2D8R6WKx3TTRI3eoClnvSwxWMxPL5CRjdnHAgZt5TAKG7LydQc/O4zZkKD2N4XaV621MMIWACQUsBxM8/X+GkICjYO7GLAAAAAElFTkSuQmCC",
+            "width": 64,
+            "height": 64,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        },
+        {
+          "id": "bb-dev-ref-up",
+          "show": true,
+          "name": "up",
+          "positionDegrees": [
+            -75.59777,
+            40.03883004954934,
+            1000000.0053495103
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEVAQEDAwMDAoAD///+gYADAgACgoKSAYADgwAD///8AAAAAAAAAAAAAAAAAAAAAAAC6opgsAAAACnRSTlP///////////8AsswszwAAAH1JREFUeJw9xiEOwjAYhuF33/6KyQVPlh6AjOwWqBoOgMKScJo6LI5rIAg3IE0WFIK5CpIVQ3jUU0XygQgiH4d2D8R6WKx3TTRI3eoClnvSwxWMxPL5CRjdnHAgZt5TAKG7LydQc/O4zZkKD2N4XaV621MMIWACQUsBxM8/X+GkICjYO7GLAAAAAElFTkSuQmCC",
+            "width": 64,
+            "height": 64,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    }
+  ]
+}

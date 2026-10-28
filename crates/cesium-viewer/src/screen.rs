@@ -50,7 +50,16 @@ pub fn validate(e: &Entity) -> Result<(), String> {
             scale,
             pixel_offset,
             image,
+            image_sub_region,
+            ..
         } => {
+            if let Some(sub) = image_sub_region {
+                if sub.iter().any(|v| !v.is_finite() || *v < 0.) || sub[2] <= 0. || sub[3] <= 0. {
+                    return Err(
+                        "imageSubRegion requires finite non-negative x, y, width, height".into(),
+                    );
+                }
+            }
             if !size(*width)
                 || !size(*height)
                 || !scale.is_finite()
@@ -74,6 +83,7 @@ pub fn validate(e: &Entity) -> Result<(), String> {
             scale,
             pixel_offset,
             appearance,
+            ..
         } => {
             appearance.validate()?;
             crate::label::validate(text, *font_size)?;
@@ -101,7 +111,7 @@ pub fn primitive(e: &Entity) -> Result<Primitive, String> {
         alpha_blend: true,
         ..Default::default()
     };
-    let (width, height, offset, baseline) = match &e.shape {
+    let (width, height, offset, baseline, [u0, u1, v0, v1]) = match &e.shape {
         Shape::Point {
             pixel_size,
             outline_width,
@@ -117,7 +127,7 @@ pub fn primitive(e: &Entity) -> Result<Primitive, String> {
                 thickness: [1.; 2],
                 cell_alpha: 1.,
             });
-            (diameter, diameter, [0.; 2], None)
+            (diameter, diameter, [0.; 2], None, [0.0, 1.0, 0.0, 1.0])
         }
         Shape::Billboard {
             image,
@@ -125,9 +135,23 @@ pub fn primitive(e: &Entity) -> Result<Primitive, String> {
             height,
             scale,
             pixel_offset,
+            image_sub_region,
+            ..
         } => {
-            material.textures[0] = Some(crate::entity_material::decode_image(image)?);
-            (width * scale, height * scale, *pixel_offset, None)
+            let tex = crate::entity_material::decode_image(image)?;
+            let tex_w = tex.image.width as f64;
+            let tex_h = tex.image.height as f64;
+            let (uv_box, w, h) = if let Some([sx, sy, sw, sh]) = image_sub_region {
+                let u0 = (sx / tex_w) as f32;
+                let u1 = ((sx + sw) / tex_w) as f32;
+                let v0 = (sy / tex_h) as f32;
+                let v1 = ((sy + sh) / tex_h) as f32;
+                ([u0, u1, v0, v1], *sw, *sh)
+            } else {
+                ([0.0, 1.0, 0.0, 1.0], *width, *height)
+            };
+            material.textures[0] = Some(tex);
+            (w * scale, h * scale, *pixel_offset, None, uv_box)
         }
         Shape::Label {
             text,
@@ -135,14 +159,44 @@ pub fn primitive(e: &Entity) -> Result<Primitive, String> {
             scale,
             pixel_offset,
             appearance,
+            font,
+            show_background,
+            background_color,
+            outline_color,
+            outline_width,
+            style,
+            fill_color,
         } => {
-            let label = crate::label_appearance::raster(text, *font_size, appearance, e.color)?;
+            let mut app = appearance.clone();
+            if let Some(sb) = show_background {
+                app.show_background = *sb;
+            }
+            if let Some(bc) = background_color {
+                app.background_color = *bc;
+            }
+            if let Some(oc) = outline_color {
+                app.outline_color = *oc;
+            }
+            if let Some(ow) = outline_width {
+                app.outline_width = *ow;
+            }
+            if let Some(st) = style {
+                app.style = *st;
+            }
+            let fill = fill_color.unwrap_or(e.color);
+            let effective_size = if let Some(f) = font {
+                crate::label::css_font(&serde_json::Value::String(f.clone())).unwrap_or(*font_size)
+            } else {
+                *font_size
+            };
+            let label = crate::label_appearance::raster(text, effective_size, &app, fill)?;
             material.base_color = [1.; 4];
             let dimensions = (
                 label.width * scale,
                 label.height * scale,
                 *pixel_offset,
                 Some(label.baseline * scale),
+                [0.0, 1.0, 0.0, 1.0],
             );
             material.textures[0] = Some(label.texture);
             dimensions
@@ -165,10 +219,10 @@ pub fn primitive(e: &Entity) -> Result<Primitive, String> {
         V::Baseline => baseline.ok_or("label baseline")? - height / 2.,
     };
     let vertices = [
-        (-1., -1., [0., 1.]),
-        (1., -1., [1., 1.]),
-        (1., 1., [1., 0.]),
-        (-1., 1., [0., 0.]),
+        (-1., -1., [u0, v1]),
+        (1., -1., [u1, v1]),
+        (1., 1., [u1, v0]),
+        (-1., 1., [u0, v0]),
     ]
     .into_iter()
     .map(|(x, y, uv)| Vertex {

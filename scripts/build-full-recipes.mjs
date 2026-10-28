@@ -1,6 +1,7 @@
 // Execute all statements of the fixed upstream recipes in a data-recording environment.
 // This is build-time extraction, not a CesiumJS runtime or a fallback renderer.
 import vm from 'node:vm';
+import {batch37Ids,extractBatch37} from './batch37-recipes.mjs';
 import {batch36Ids,extractBatch36} from './batch36-recipes.mjs';
 import {batch35Ids,extractBatch35} from './batch35-recipes.mjs';
 import {batch34Ids,extractBatch34} from './batch34-recipes.mjs';
@@ -21,11 +22,12 @@ import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 const root=new URL('../',import.meta.url);
 const catalog=JSON.parse(await fs.readFile(new URL('tests/sandcastle/catalog.json',root),'utf8'));
-export const ids=['box','cylinders-and-cones','plane','spheres-and-ellipsoids','czml-spheres-and-ellipsoids','czml-cones-and-cylinders','czml-box','wall','czml-wall','circles-and-ellipses','czml-circles-and-ellipses','czml-point',...primitiveIds,...batch22Ids,...batch23Ids,...batch24Ids,...batch25Ids,...batch26Ids,...batch28Ids,...batch29Ids,...batch30Ids,...batch31Ids,...batch32Ids,...batch33Ids,...batch34Ids,...batch35Ids,...batch36Ids];
+export const ids=['box','cylinders-and-cones','plane','spheres-and-ellipsoids','czml-spheres-and-ellipsoids','czml-cones-and-cylinders','czml-box','wall','czml-wall','circles-and-ellipses','czml-circles-and-ellipses','czml-point',...primitiveIds,...batch22Ids,...batch23Ids,...batch24Ids,...batch25Ids,...batch26Ids,...batch28Ids,...batch29Ids,...batch30Ids,...batch31Ids,...batch32Ids,...batch33Ids,...batch34Ids,...batch35Ids,...batch36Ids,...batch37Ids];
 export async function extract(id){
  const item=catalog.cases.find(c=>c.id===id);assert(item);
  const source=await fs.readFile(new URL(`tests/sandcastle/sources/${id}/main.js`,root),'utf8');
  const hash=crypto.createHash('sha256').update(source).digest('hex');assert.equal(hash,item.sourceSha256,'pinned source changed');
+ if(batch37Ids.includes(id))return extractBatch37(id,source,item,hash);
  if(batch36Ids.includes(id))return extractBatch36(id,source,item,hash);
  if(batch35Ids.includes(id))return extractBatch35(id,source,item,hash);
  if(batch34Ids.includes(id))return extractBatch34(id,source,item,hash);

@@ -2572,6 +2572,124 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "3d-models-coloring",
+      "title": "Coloring and Styling glTF Models",
+      "sourceSha256": "f86a91924d1e7f7b597dd4ea230928b2e3d7a33768fce5d2c950280064ce8e21",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-models-coloring",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-models-coloring.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-models-coloring.json",
+      "entityCount": 1,
+      "variantCount": 5,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "trackedEntity": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "requirements": [
+        "Sandcastle toolbar menu with 5 glTF model coloring variations",
+        "color blending modes: Highlight, Replace, Mix with colorBlendAmount",
+        "silhouette coloring and silhouetteSize outline styling",
+        "viewer.trackedEntity camera tracking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-models-dev",
+      "title": "glTF Models — Development",
+      "sourceSha256": "b78ab655e781cf885de81fbd20dfe840006021d5289864a8d6e91aedf41d7323",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-models-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-models-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-models-dev.json",
+      "entityCount": 1,
+      "variantCount": 5,
+      "framing": "lookAt",
+      "shouldAnimate": true,
+      "requirements": [
+        "Sandcastle toolbar menu with 5 primitive Model.fromGltf development variations",
+        "modelMatrix computed from headingPitchRollToFixedFrame",
+        "minimumPixelSize: 128 and activeAnimations multiplier/repeat loop",
+        "camera.lookAt with HeadingPitchRange orientation"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "labels-dev",
+      "title": "Labels - Dev",
+      "sourceSha256": "567da87aaac1a1dea2ab58dc1d9f5e62f661f92ea6dddd5e8273073d1b2b0674",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=labels-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/labels-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/labels-dev.json",
+      "entityCount": 1,
+      "variantCount": 6,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "Sandcastle toolbar menu with 6 LabelCollection development variations",
+        "font, style (FILL_AND_OUTLINE), outline width and color tinting",
+        "labels in local ENU reference frame transformed to ECEF positions",
+        "offsetByDistance and fadeByDistance with NearFarScalar curves"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "billboards-dev",
+      "title": "Billboards - Dev",
+      "sourceSha256": "24f0643bdd54339874ab61ca2d2a668150208101ea78b70c67780ba6fe36130b",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=billboards-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/billboards-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/billboards-dev.json",
+      "entityCount": 1,
+      "variantCount": 11,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "Sandcastle toolbar menu with 11 BillboardCollection development variations",
+        "billboard properties at creation: rotation, width, height, sizeInMeters, pixelOffset, eyeOffset",
+        "distance display curves: scaleByDistance, translucencyByDistance, pixelOffsetScaleByDistance",
+        "canvas point billboards and marker billboards with imageSubRegion",
+        "billboards in local ENU reference frame transformed to ECEF positions"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

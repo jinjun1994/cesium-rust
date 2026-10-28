@@ -1,6 +1,6 @@
 {
   "version": "0.0.29",
-  "wasmSha256": "ba58b9cde90e4096aef7c4bee2e11f0242298d037216000c943a78de518fa67d",
+  "wasmSha256": "315702971225bc58f7e34f26e50187dd3698ef0c36ab1a4672cf9ff672b86656",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
   "externalImagery": "local deterministic 256x256 neutral raster",
@@ -741,6 +741,116 @@
         "primitive-0-instance-0",
         "primitive-0-instance-1",
         "primitive-0-instance-2"
+      ]
+    },
+    {
+      "id": "3d-models-coloring",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "f86a91924d1e7f7b597dd4ea230928b2e3d7a33768fce5d2c950280064ce8e21",
+      "inputSha256": "4b5e2043222bcdaab2b023c75f281ddcc074145a76c25f73da35e606a857f5f3",
+      "fixtureSha256": "dc613688f6ccd49e58ead4112533b43e791e3e1e11f90c3a68bcd7a77ec951ce",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "../../SampleData/models/CesiumAir/Cesium_Air.glb"
+      ],
+      "pixelCounts": [
+        {
+          "id": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+          "pixels": 30
+        }
+      ]
+    },
+    {
+      "id": "3d-models-dev",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "b78ab655e781cf885de81fbd20dfe840006021d5289864a8d6e91aedf41d7323",
+      "inputSha256": "06865cc74637617d2aee94e5ecf52eb5631cf0eaf6a18f2c638620eaf6292259",
+      "fixtureSha256": "1ec7414f031ec564d1dae723db8123b21b93ea92136469897586b10339cc667e",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "../../SampleData/models/CesiumAir/Cesium_Air.glb"
+      ],
+      "pixelCounts": [
+        {
+          "id": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+          "pixels": 20
+        }
+      ]
+    },
+    {
+      "id": "labels-dev",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "567da87aaac1a1dea2ab58dc1d9f5e62f661f92ea6dddd5e8273073d1b2b0674",
+      "inputSha256": "8763bc97a654ffa2d59f549db390548ec9d5ab8d68d2961d27c7970292dfec76",
+      "fixtureSha256": "f0d4129526f355664908e1a11f8b38f3591f6af914168d8c3ae7fac925efb339",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "label-dev-add"
+      ],
+      "pixelCounts": [
+        {
+          "id": "label-dev-add",
+          "pixels": 2307
+        }
+      ]
+    },
+    {
+      "id": "billboards-dev",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "24f0643bdd54339874ab61ca2d2a668150208101ea78b70c67780ba6fe36130b",
+      "inputSha256": "8f2279105c16611bcdd9b37827603c07b1fa24abc8576ba9c89e58e80a668eb5",
+      "fixtureSha256": "56055a5ba21b8f0610004bf019520cb41f6a2afe2bd202234e9b937c42d1d9da",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "bb-dev-add"
+      ],
+      "pixelCounts": [
+        {
+          "id": "bb-dev-add",
+          "pixels": 3662
+        }
       ]
     },
     {

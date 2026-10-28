@@ -4,7 +4,7 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.36（已通过 91 / 309 个完整案例，剩余 218 个）
+- **当前版本**：v0.0.37（已通过 95 / 309 个完整案例，剩余 214 个）
 
 ---
 
@@ -271,9 +271,36 @@
   - **桌面 90 帧冒烟测试**：122 个配置（91 案例 + 31 变体）全部 90 帧 errors 0 稳定运行。
   - **浏览器真实 WebGPU 端到端**：91 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`），包含实体像素反读、ID 拾取、显隐交互、鼠标滚轮缩放与窗口自适应验证。
   - **代码规范**：`cargo fmt --check` 与 `cargo clippy -p cesium-viewer --all-targets` 零告警、零报错。
+---
+
+### [2026-10-29] v0.0.37 验收完成：3D Models Coloring、3D Models Dev、Labels Dev 与 Billboards Dev 底层开发体系全面打通
+- **完成配方**（累计推进至 **95 / 309**，剩余 214 个）：
+  1. `3d-models-coloring`（3D 模型材质颜色与轮廓高亮：5 种模型变体，包含飞机、地面车、热气球、牛奶卡车、蒙皮角色，`color: [1, 0, 0, 1]` 红色着色、`colorBlendMode: "Highlight"`、`colorBlendAmount: 0.5`、`silhouetteColor: [1, 0, 0, 1]`、`silhouetteSize: 2.0`、局部 ENU 朝向四元数及 `viewer.trackedEntity` 相机追踪）
+  2. `3d-models-dev`（底层 Model.fromGltf 基元开发合集：5 种底层图元变体，包含飞机、无人机、地面车、牛奶卡车、蒙皮角色，基于 `headingPitchRollToFixedFrame(origin, hpr)` 局部 ENU 坐标系到 ECEF 四元数姿态解算，绑定 `minimumPixelSize: 128`、`maximumScale: 20000`、`colorBlendMode: "Highlight"`、`runAnimations: true`，由 `camera.lookAt` 矩阵锁定视角）
+  3. `labels-dev`（底层 LabelCollection 标签基元开发合集：6 种底层开发变体，包含基础文本标签、24px Helvetica 字体/SKYBLUE 填充/黑色 2px 描边与 `FILL_AND_OUTLINE`、300km 高空标签/背景框激活、局部 ENU 参考系原点与 `[1e6, 0, 0]` 轴线挂载 East/North/Up 多标签、结合 Billboard 视距相对偏移曲线、以及双城视距透明度渐隐）
+  4. `billboards-dev`（底层 BillboardCollection 广告牌基元开发合集：11 种底层开发变体，包含基础广告牌、尺寸与旋转对齐、动态属性变更与黄色着色、物理米级尺寸 `sizeInMeters: true` 宽 8000m 高 3900m、批量散列、视距动态缩放/渐隐/偏移曲线、纯白像素绿色着色点阵广告牌、大图集精灵切片子区域采样 `imageSubRegion: [x, y, w, h]` 归一化 UV 映射、以及 ENU 局部参考系广告牌挂载）
+- **核心研发突破**：
+  1. **广告牌大图集子区域精灵切片与米级物理尺寸（`crates/cesium-viewer/src/screen.rs` & `entities.rs`）**：
+     - 为 `Shape::Billboard` 引入 `image_sub_region: Option<[f64; 4]>` 与 `size_in_meters: Option<bool>`。
+     - 结合纹理物理尺寸断言并计算精准归一化 UV `[u0, u1, v0, v1]`，确保复杂精灵大图切片采样在 WebGPU 渲染管线中准确渲染。
+  2. **三维模型着色混合与高亮轮廓（`crates/cesium-viewer/src/entities.rs`）**：
+     - 为 `Shape::Model` 引入 `color_blend_mode`、`color_blend_amount`、`silhouette_color` 与 `silhouette_size`，严格规范数值范围。
+  3. **文本标签多行排版增强与底层外观直通（`crates/cesium-viewer/src/label.rs` & `entities.rs`）**：
+     - 在 `Shape::Label` 中支持直接透传 `font`、`show_background`、`background_color`、`outline_color`、`outline_width`、`style` 与 `fill_color` 至底层 `Appearance`。
+     - 修正字符光栅化中换行符 `\n` 处理，维护精确的多行排版跨度与基线高度。
+  4. **ENU 局部姿态到 ECEF 四元数转换工具链（`scripts/batch37-recipes.mjs`）**：
+     - 构建了局部 ENU 变换矩阵与 Heading-Pitch-Roll 欧拉角转换为 ECEF 全球空间四元数的数学算法，完美还原官方 `headingPitchRollToFixedFrame` 姿态行为。
+- **验证结果**：
+  - **普通 Rust 单元测试**：97 / 97 项全部通过（新增 `batch37_models_coloring_dev_labels_billboards_contracts`）。
+  - **真实 GPU 离屏渲染测试**：96 / 96 项全部通过（耗时 21.97s，包含 95 个完整案例 + 1 个材质拾取测试）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 95 个固定案例哈希与实体结构精准契合）。
+  - **桌面 90 帧冒烟测试**：149 个配置（95 案例 + 54 变体）全部 90 帧 errors 0 稳定运行。
+  - **浏览器真实 WebGPU 端到端**：95 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`），包含实体像素反读、ID 拾取、变体切换、多图元覆盖与窗口自适应验证。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
 - **文档晋升**：
-  - 产出 [Labels 变体、3D Models 模型全集、CZML 骨骼节点变换与整流罩铰接动画验证文档](docs/labels-3d-models-articulations-validation.md)。
+  - 产出 [3D Models Coloring、3D Models Dev、Labels Dev 与 Billboards Dev 验证文档](docs/models-coloring-dev-labels-billboards-validation.md)。
   - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
 
 
 

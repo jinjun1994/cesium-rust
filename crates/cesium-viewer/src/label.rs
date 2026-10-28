@@ -56,7 +56,9 @@ pub fn raster(text: &str, px: f32) -> Result<Raster, String> {
     let sanitized: String = text
         .chars()
         .map(|ch| {
-            if font.lookup_glyph_index(ch) == 0 {
+            if ch == '\n' {
+                ch
+            } else if font.lookup_glyph_index(ch) == 0 {
                 '?'
             } else {
                 ch
