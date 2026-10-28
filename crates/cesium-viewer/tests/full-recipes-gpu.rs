@@ -596,6 +596,10 @@ async fn verify_extended(id: &str, data: &[u8]) {
         "3d-models-dev",
         "labels-dev",
         "billboards-dev",
+        "3d-models-articulations-dev",
+        "3d-models-node-explorer-dev",
+        "headingpitchroll",
+        "entity-tracking",
     ]
     .contains(&id)
     {
@@ -1892,6 +1896,186 @@ fn complete_billboards_dev() {
             if i > 0 {
                 let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
                     format!("../../docs/full-billboards-dev-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_3d_models_articulations_dev() {
+    pollster::block_on(async {
+        verify_extended(
+            "3d-models-articulations-dev",
+            include_bytes!("../../../tests/sandcastle/full/3d-models-articulations-dev.json"),
+        )
+        .await;
+        let raw = include_bytes!(
+            "../../../tests/sandcastle/full/3d-models-articulations-dev.variants.json"
+        );
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-3d-models-articulations-dev-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_3d_models_node_explorer_dev() {
+    pollster::block_on(async {
+        verify_extended(
+            "3d-models-node-explorer-dev",
+            include_bytes!("../../../tests/sandcastle/full/3d-models-node-explorer-dev.json"),
+        )
+        .await;
+        let raw = include_bytes!(
+            "../../../tests/sandcastle/full/3d-models-node-explorer-dev.variants.json"
+        );
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-3d-models-node-explorer-dev-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_headingpitchroll() {
+    pollster::block_on(async {
+        verify_extended(
+            "headingpitchroll",
+            include_bytes!("../../../tests/sandcastle/full/headingpitchroll.json"),
+        )
+        .await;
+        let raw = include_bytes!("../../../tests/sandcastle/full/headingpitchroll.variants.json");
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 5);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-headingpitchroll-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_entity_tracking() {
+    pollster::block_on(async {
+        verify_extended(
+            "entity-tracking",
+            include_bytes!("../../../tests/sandcastle/full/entity-tracking.json"),
+        )
+        .await;
+        let raw = include_bytes!("../../../tests/sandcastle/full/entity-tracking.variants.json");
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 5);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-entity-tracking-variant-{i}-smoke.log"),
                 );
                 let _ = s.zoom_to_entities(&[], 768, 512);
                 let t = attachment(

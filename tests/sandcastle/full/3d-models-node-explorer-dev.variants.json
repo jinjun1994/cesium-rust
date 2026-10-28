@@ -1,0 +1,207 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Default Pose",
+      "entities": [
+        {
+          "id": "CesiumMan",
+          "show": true,
+          "name": "Cesium Man",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            250000
+          ],
+          "orientation": [
+            0.37418060502221906,
+            -0.11110187327460132,
+            -0.26205982465841676,
+            0.8825927129090068
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "runAnimations": false,
+            "nodeTransformations": {}
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Left Arm Rotated (Roll 45°)",
+      "entities": [
+        {
+          "id": "CesiumMan",
+          "show": true,
+          "name": "Cesium Man",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            250000
+          ],
+          "orientation": [
+            0.37418060502221906,
+            -0.11110187327460132,
+            -0.26205982465841676,
+            0.8825927129090068
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "runAnimations": false,
+            "nodeTransformations": {
+              "Skeleton_arm_joint_L__3_": {
+                "rotation": {
+                  "unitQuaternion": [
+                    0,
+                    0,
+                    0.3826834323650898,
+                    0.9238795325112867
+                  ]
+                }
+              }
+            }
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Right Arm Rotated (Pitch 45°)",
+      "entities": [
+        {
+          "id": "CesiumMan",
+          "show": true,
+          "name": "Cesium Man",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            250000
+          ],
+          "orientation": [
+            0.37418060502221906,
+            -0.11110187327460132,
+            -0.26205982465841676,
+            0.8825927129090068
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "runAnimations": false,
+            "nodeTransformations": {
+              "Skeleton_arm_joint_R__2_": {
+                "rotation": {
+                  "unitQuaternion": [
+                    0,
+                    0.3826834323650898,
+                    0,
+                    0.9238795325112867
+                  ]
+                }
+              }
+            }
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Hide Man (show: false)",
+      "entities": [
+        {
+          "id": "CesiumMan",
+          "show": false,
+          "name": "Cesium Man",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            250000
+          ],
+          "orientation": [
+            0.37418060502221906,
+            -0.11110187327460132,
+            -0.26205982465841676,
+            0.8825927129090068
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "runAnimations": false,
+            "nodeTransformations": {}
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    }
+  ]
+}

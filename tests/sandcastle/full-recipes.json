@@ -2690,6 +2690,125 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "3d-models-articulations-dev",
+      "title": "3D Models Articulations - Dev",
+      "sourceSha256": "7a5817b9bd08fd8111690c2eb2a18c2c9842dd5f0df4c335f0306b5b33c7ccdb",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-models-articulations-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-models-articulations-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-models-articulations-dev.json",
+      "entityCount": 1,
+      "variantCount": 4,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "Model.fromGltfAsync loading launchvehicle.glb with minimumPixelSize: 128",
+        "Knockout viewModel tracking articulation stages and stage values",
+        "Fairing Open, Fairing Separate, Fairing Drop runtime stages",
+        "camera.lookAt targeting modelMatrix with HeadingPitchRange"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-models-node-explorer-dev",
+      "title": "3D Models Node Explorer - Dev",
+      "sourceSha256": "781673d1fa9e840a796c5aaa0d65bfafb41dcfa84e3729d8ef07be2cc68a71ad",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-models-node-explorer-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-models-node-explorer-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-models-node-explorer-dev.json",
+      "entityCount": 1,
+      "variantCount": 4,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "Model.fromGltfAsync loading Cesium_Man.glb at 250km altitude",
+        "Knockout viewModel node explorer with translation, rotation, and scale",
+        "Transformations applied to node matrices via Matrix4 computed from translation/quaternion/scale",
+        "camera.lookAt targeting boundingSphere center with HeadingPitchRange",
+        "Sandcastle toggle button for showing and hiding nodes"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "headingpitchroll",
+      "title": "HeadingPitchRoll",
+      "sourceSha256": "03f19f155f106606b1a3747459415a5018ca788001d48128bcc64e7ffb54b610",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=headingpitchroll",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/headingpitchroll.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/headingpitchroll.json",
+      "entityCount": 2,
+      "variantCount": 5,
+      "framing": "viewer-default",
+      "shouldAnimate": true,
+      "requirements": [
+        "SampledPositionProperty path entity with PolylineGlowMaterialProperty (color: PALEGOLDENROD, glowPower: 0.3, taperPower: 0.3, width: 10)",
+        "CesiumAir.glb model primitive with headingPitchRollToFixedFrame orientation in North-West-Up frame",
+        "Keyboard controls for Arrow keys modifying Heading, Pitch, Roll, and Speed",
+        "camera.lookAt targeting model with HeadingPitchRange in fromBehind mode",
+        "HTML status spans updating heading, pitch, roll, and speed"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "entity-tracking",
+      "title": "Entity tracking",
+      "sourceSha256": "cedd8a4692d1c560f6ad5aced78de41f9efd564d72a26b9b38b83c5aee3d7941",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=entity-tracking",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/entity-tracking.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/entity-tracking.json",
+      "entityCount": 2,
+      "variantCount": 5,
+      "framing": "viewer-default",
+      "shouldAnimate": true,
+      "requirements": [
+        "CzmlDataSource.load tracking.czml containing Satellite/ISS and CesiumDrone entities",
+        "Satellite tracking with viewFrom [-300, 20, 100] and 30x clock multiplier",
+        "Drone tracking with viewFrom [-50, 0, 5] and 1x clock multiplier",
+        "Tracking reference frames: Auto-detect, Inertial, Velocity, and East-North-Up",
+        "timeline.zoomTo interval for active tracked entity"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

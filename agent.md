@@ -4,7 +4,7 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.37（已通过 95 / 309 个完整案例，剩余 214 个）
+- **当前版本**：v0.0.38（已通过 99 / 309 个完整案例，剩余 210 个）
 
 ---
 
@@ -300,6 +300,37 @@
 - **文档晋升**：
   - 产出 [3D Models Coloring、3D Models Dev、Labels Dev 与 Billboards Dev 验证文档](docs/models-coloring-dev-labels-billboards-validation.md)。
   - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
+---
+
+### [2026-10-29] v0.0.38 验收完成：3D Models Articulations Dev、3D Models Node Explorer Dev、HeadingPitchRoll 与 Entity Tracking 体系全面打通
+- **完成配方**（累计推进至 **99 / 309**，剩余 210 个）：
+  1. `3d-models-articulations-dev`（底层 Model.fromGltfAsync 运载火箭铰接动画阶段控制：4 个铰接阶段控制变体，涵盖闭合初始态、整流罩半开态、整流罩展开平移分离态与整流罩下落态，220km 高空姿态与 `camera.lookAt` 矩阵定格）
+  2. `3d-models-node-explorer-dev`（底层 Model.fromGltfAsync 蒙皮角色节点骨骼探索器：4 个骨骼节点变换变体，涵盖默认站立骨骼姿态、左臂关节 `Skeleton_arm_joint_L__3_` 绕局部轴翻滚 45°、右臂关节 `Skeleton_arm_joint_R__2_` 绕局部轴俯仰 45° 与节点显隐控制，250km 高空姿态与 `camera.lookAt` 定位）
+  3. `headingpitchroll`（飞机姿态欧拉角交互、西北天 NWU 局部坐标系与 PolylineGlow 飞行轨迹：5 个姿态键盘交互变体，涵盖平飞基准态、ArrowDown 俯冲姿态、ArrowUp 爬升姿态、ArrowRight 右转偏航姿态与 ArrowLeft 左转偏航姿态，西北天 localFrameToFixedFrameGenerator("north", "west") 正交基矩阵四元数解算，SampledPositionProperty 采样轨迹绑定 PolylineGlow 发光材质与追尾相机）
+  4. `entity-tracking`（CZML 卫星与无人机跨实体相机追踪与多种跟踪参考系：5 个实体与参考系变体，涵盖锁定跟踪国际空间站卫星 viewFrom `[-300, 20, 100]` 与 30x 时钟、锁定跟踪无人机模型 viewFrom `[-50, 0, 5]` 与 1x 时钟、惯性参考系 INERTIAL、速度矢量标架 VELOCITY 与东北天局部切平面 ENU）
+- **核心研发突破**：
+  1. **CZML 复合数据包解析增强（`crates/cesium-viewer/src/entities.rs`）**：
+     - 支持 `model` + `path`（无人机模型与发光轨迹拖尾）及 `billboard` + `label` + `path`（卫星公告牌、标签与轨道线）多图元复合包。
+     - 扩展 `trackingReferenceFrame` 与 `parent` 属性解析，严格校验 `AUTODETECT`、`INERTIAL`、`VELOCITY` 与 `ENU` 跟踪参考系。
+  2. **笛卡尔 ECEF 轨迹在 Path 图元中的自适应重投影（`crates/cesium-viewer/src/wide_polyline.rs`）**：
+     - `path_czml` 扩展支持 `cartesian` 格式时间序列，利用 `Cartographic::from_ecef` 精确投射到测地线宽折线细分管线，打通惯性卫星轨道的连续曲面渲染。
+     - 兼容了时间区间数组形式的动态线宽与颜色定义。
+  3. **高阶拉格朗日与惯性参考系插值容差放行（`crates/cesium-viewer/src/entities.rs`）**：
+     - 放行 `referenceFrame: "INERTIAL"` 与 `interpolationAlgorithm: "LAGRANGE"`（1..=10 阶多项式插值），避免对官方航天轨道 CZML 的误判拦截。
+  4. **西北天（NWU）局部切平面到全球 ECEF 姿态四元数映射（`scripts/batch38-recipes.mjs`）**：
+     - 构建了从 North-West-Up（X=北、Y=西、Z=天）局部切空间到 ECEF 全球空间四元数的精确算法，与 Cesium 原生 `localFrameToFixedFrameGenerator("north", "west")` 的欧拉角偏航/俯仰/翻滚顺序完全对齐。
+- **验证结果**：
+  - **普通 Rust 单元测试**：98 / 98 项全部通过（新增 `batch38_models_articulations_node_explorer_headingpitchroll_tracking`）。
+  - **真实 GPU 离屏渲染测试**：100 / 100 项全部通过（耗时 23.73s，包含 99 个完整案例 + 1 个材质拾取测试）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 99 个固定案例哈希与实体结构精准契合）。
+  - **桌面 90 帧冒烟测试**：167 个配置（99 案例 + 68 变体）全部 90 帧 errors 0 稳定运行。
+  - **浏览器真实 WebGPU 端到端**：99 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`），包含实体像素反读、ID 拾取、变体切换、复合多图元与窗口自适应验证。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [3D Models Articulations Dev、3D Models Node Explorer Dev、HeadingPitchRoll 与 Entity Tracking 验证文档](docs/models-articulations-explorer-hpr-tracking-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
 
 
 

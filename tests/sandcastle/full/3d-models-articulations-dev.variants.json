@@ -1,0 +1,237 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Fairing Open: 0°",
+      "entities": [
+        {
+          "id": "launchvehicle",
+          "show": true,
+          "name": "Launch Vehicle",
+          "positionDegrees": [
+            -74.693,
+            28.243,
+            220000
+          ],
+          "orientation": [
+            0.5086472754510526,
+            0.06835150256541495,
+            0.11430435492478047,
+            0.8506118596154775
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "https://cesium.com/public/SandcastleSampleData/launchvehicle.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "runAnimations": false,
+            "articulations": {
+              "Fairing Open": {
+                "stage": "Move",
+                "value": 0
+              },
+              "Fairing Separate": {
+                "stage": "Move",
+                "value": 0
+              },
+              "Fairing Drop": {
+                "stage": "Move",
+                "value": 0
+              }
+            }
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Fairing Open: 60°",
+      "entities": [
+        {
+          "id": "launchvehicle",
+          "show": true,
+          "name": "Launch Vehicle",
+          "positionDegrees": [
+            -74.693,
+            28.243,
+            220000
+          ],
+          "orientation": [
+            0.5086472754510526,
+            0.06835150256541495,
+            0.11430435492478047,
+            0.8506118596154775
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "https://cesium.com/public/SandcastleSampleData/launchvehicle.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "runAnimations": false,
+            "articulations": {
+              "Fairing Open": {
+                "stage": "Move",
+                "value": 60
+              },
+              "Fairing Separate": {
+                "stage": "Move",
+                "value": 0
+              },
+              "Fairing Drop": {
+                "stage": "Move",
+                "value": 0
+              }
+            }
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Fairing Separate: -25",
+      "entities": [
+        {
+          "id": "launchvehicle",
+          "show": true,
+          "name": "Launch Vehicle",
+          "positionDegrees": [
+            -74.693,
+            28.243,
+            220000
+          ],
+          "orientation": [
+            0.5086472754510526,
+            0.06835150256541495,
+            0.11430435492478047,
+            0.8506118596154775
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "https://cesium.com/public/SandcastleSampleData/launchvehicle.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "runAnimations": false,
+            "articulations": {
+              "Fairing Open": {
+                "stage": "Move",
+                "value": 120
+              },
+              "Fairing Separate": {
+                "stage": "Move",
+                "value": -25
+              },
+              "Fairing Drop": {
+                "stage": "Move",
+                "value": 0
+              }
+            }
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Fairing Drop: -50",
+      "entities": [
+        {
+          "id": "launchvehicle",
+          "show": true,
+          "name": "Launch Vehicle",
+          "positionDegrees": [
+            -74.693,
+            28.243,
+            220000
+          ],
+          "orientation": [
+            0.5086472754510526,
+            0.06835150256541495,
+            0.11430435492478047,
+            0.8506118596154775
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "https://cesium.com/public/SandcastleSampleData/launchvehicle.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "runAnimations": false,
+            "articulations": {
+              "Fairing Open": {
+                "stage": "Move",
+                "value": 120
+              },
+              "Fairing Separate": {
+                "stage": "Move",
+                "value": -50
+              },
+              "Fairing Drop": {
+                "stage": "Move",
+                "value": -50
+              }
+            }
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    }
+  ]
+}

@@ -457,6 +457,12 @@ pub struct Entity {
     pub distance_display_condition: Option<[f64; 2]>,
     #[serde(default, skip_serializing_if = "Option::is_none", rename = "viewFrom")]
     pub view_from: Option<[f64; 3]>,
+    #[serde(
+        default,
+        skip_serializing_if = "Option::is_none",
+        rename = "trackingReferenceFrame"
+    )]
+    pub tracking_reference_frame: Option<String>,
     #[serde(default)]
     pub properties: Value,
 }
@@ -667,6 +673,13 @@ impl Entity {
             if !ddc[0].is_finite() || !ddc[1].is_finite() || ddc[0] < 0. || ddc[0] > ddc[1] {
                 return Err(
                     "valid distanceDisplayCondition [near, far] with near <= far required".into(),
+                );
+            }
+        }
+        if let Some(trf) = &self.tracking_reference_frame {
+            if !matches!(trf.as_str(), "AUTODETECT" | "INERTIAL" | "VELOCITY" | "ENU") {
+                return Err(
+                    "trackingReferenceFrame must be AUTODETECT, INERTIAL, VELOCITY or ENU".into(),
                 );
             }
         }
@@ -1602,6 +1615,10 @@ fn geographic_packet(packet: &Value, key: &str) -> Result<Entity, String> {
             .map(|v| crate::screen_options::array(v, "distanceDisplayCondition"))
             .transpose()?,
         view_from,
+        tracking_reference_frame: packet
+            .get("trackingReferenceFrame")
+            .and_then(|v| v.as_str())
+            .map(|s| s.to_string()),
         properties: packet.get("properties").cloned().unwrap_or(Value::Null),
     })
 }
@@ -1785,13 +1802,19 @@ fn decode_screen_or_model_packet(
             "interpolationDegree",
         ],
     )?;
-    if pos.get("referenceFrame").is_some_and(|v| v != "FIXED")
+    if pos
+        .get("referenceFrame")
+        .is_some_and(|v| v != "FIXED" && v != "INERTIAL")
         || pos
             .get("interpolationAlgorithm")
-            .is_some_and(|v| v != "LINEAR")
-        || pos.get("interpolationDegree").is_some_and(|v| v != 1)
+            .is_some_and(|v| v != "LINEAR" && v != "LAGRANGE")
+        || pos.get("interpolationDegree").is_some_and(|v| {
+            number(v)
+                .map(|n| !(1.0..=10.0).contains(&n))
+                .unwrap_or(true)
+        })
     {
-        return Err("only FIXED LINEAR position interpolation supported".into());
+        return Err("only FIXED/INERTIAL LINEAR/LAGRANGE position interpolation supported".into());
     }
     let radians = pos.get("cartographicRadians");
     if radians.is_some() && pos.get("cartographicDegrees").is_some() {
@@ -2207,6 +2230,10 @@ fn decode_screen_or_model_packet(
             .map(|v| crate::screen_options::array(v, "distanceDisplayCondition"))
             .transpose()?,
         view_from,
+        tracking_reference_frame: packet
+            .get("trackingReferenceFrame")
+            .and_then(|v| v.as_str())
+            .map(|s| s.to_string()),
         properties: packet.get("properties").cloned().unwrap_or(Value::Null),
     })
 }
@@ -2259,8 +2286,10 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
                 "id",
                 "name",
                 "description",
+                "parent",
                 "position",
                 "viewFrom",
+                "trackingReferenceFrame",
                 "availability",
                 "box",
                 "ellipsoid",
@@ -2333,6 +2362,22 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
             && shapes.len() == 2
         {
             entities.push(decode_screen_or_model_packet(packet, "billboard", id_str)?);
+            entities.push(crate::wide_polyline::path_czml(packet)?);
+        } else if packet.get("model").is_some() && packet.get("path").is_some() && shapes.len() == 2
+        {
+            entities.push(decode_screen_or_model_packet(packet, "model", id_str)?);
+            entities.push(crate::wide_polyline::path_czml(packet)?);
+        } else if packet.get("billboard").is_some()
+            && packet.get("label").is_some()
+            && packet.get("path").is_some()
+            && shapes.len() == 3
+        {
+            entities.push(decode_screen_or_model_packet(packet, "billboard", id_str)?);
+            entities.push(decode_screen_or_model_packet(
+                packet,
+                "label",
+                &format!("{id_str}-label"),
+            )?);
             entities.push(crate::wide_polyline::path_czml(packet)?);
         } else if packet.get("billboard").is_some()
             && packet.get("label").is_some()
@@ -2433,6 +2478,7 @@ mod tests {
             availability: None,
             distance_display_condition: None,
             view_from: None,
+            tracking_reference_frame: None,
             properties: Value::Null,
         };
         assert_eq!(e.position(5.).unwrap().y, 50.);
@@ -2917,6 +2963,7 @@ mod tests {
             availability: None,
             distance_display_condition: None,
             view_from: None,
+            tracking_reference_frame: None,
             properties: Value::Null,
         };
         let m = model_entity.model(0.0).unwrap();
@@ -3020,5 +3067,150 @@ mod tests {
         assert_eq!(label_entities.len(), 1);
         let label_prim = label_entities[0].primitive().unwrap();
         assert_eq!(label_prim.vertices.len(), 4);
+    }
+
+    #[test]
+    fn batch38_models_articulations_node_explorer_headingpitchroll_tracking() {
+        // 1. CZML with Satellite/ISS (billboard + label + path) and CesiumDrone (model + path)
+        let tracking_czml = serde_json::json!([
+            {
+                "id": "document",
+                "name": "tracking",
+                "version": "1.0",
+                "clock": {
+                    "interval": "2012-03-15T10:00:00Z/2012-03-16T10:00:00Z",
+                    "currentTime": "2012-03-15T10:00:00Z",
+                    "range": "LOOP_STOP"
+                }
+            },
+            {
+                "id": "Satellite/ISS",
+                "name": "ISS",
+                "availability": "2012-03-15T10:00:00Z/2012-03-16T10:00:00Z",
+                "trackingReferenceFrame": "INERTIAL",
+                "billboard": {
+                    "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+                    "scale": 1.5,
+                    "show": true
+                },
+                "label": {
+                    "fillColor": { "rgba": [255, 0, 255, 255] },
+                    "font": "11pt Lucida Console",
+                    "text": "ISS",
+                    "show": true
+                },
+                "path": {
+                    "material": { "solidColor": { "color": { "rgba": [255, 0, 255, 255] } } },
+                    "width": 1.0,
+                    "show": true
+                },
+                "position": {
+                    "referenceFrame": "INERTIAL",
+                    "interpolationAlgorithm": "LAGRANGE",
+                    "interpolationDegree": 5.0,
+                    "epoch": "2012-03-15T10:00:00Z",
+                    "cartesian": [
+                        0.0, 6791000.0, 0.0, 0.0,
+                        60.0, 6790000.0, 1000.0, 500.0
+                    ]
+                }
+            },
+            {
+                "id": "CesiumDrone",
+                "name": "Drone",
+                "availability": "2012-03-15T10:00:00Z/2012-03-16T10:00:00Z",
+                "viewFrom": { "cartesian": [-50.0, 0.0, 5.0] },
+                "model": {
+                    "gltf": "../../SampleData/models/CesiumDrone/CesiumDrone.glb",
+                    "minimumPixelSize": 64.0,
+                    "maximumScale": 20000.0
+                },
+                "path": {
+                    "material": { "solidColor": { "color": { "rgba": [255, 255, 0, 255] } } },
+                    "width": 2.0,
+                    "show": true
+                },
+                "position": {
+                    "interpolationAlgorithm": "LINEAR",
+                    "epoch": "2012-03-15T10:00:00Z",
+                    "cartesian": [
+                        0.0, 6378137.0, 0.0, 100.0,
+                        60.0, 6378137.0, 100.0, 100.0
+                    ]
+                }
+            }
+        ]);
+
+        let (entities, clock) = czml(&serde_json::to_vec(&tracking_czml).unwrap()).unwrap();
+        // 3 entities from Satellite/ISS (billboard, label, path) + 2 from CesiumDrone (model, path) = 5
+        assert_eq!(entities.len(), 5);
+        assert_eq!(clock.range, crate::clock::Range::LoopStop);
+
+        let iss_bb = entities.iter().find(|e| e.id == "Satellite/ISS").unwrap();
+        assert_eq!(iss_bb.tracking_reference_frame.as_deref(), Some("INERTIAL"));
+        assert!(matches!(iss_bb.shape, Shape::Billboard { .. }));
+
+        let iss_label = entities
+            .iter()
+            .find(|e| e.id == "Satellite/ISS-label")
+            .unwrap();
+        assert!(matches!(iss_label.shape, Shape::Label { .. }));
+
+        let iss_path = entities
+            .iter()
+            .find(|e| e.id == "Satellite/ISS-lead-trail")
+            .unwrap();
+        assert!(matches!(iss_path.shape, Shape::WidePolyline { .. }));
+
+        let drone_model = entities.iter().find(|e| e.id == "CesiumDrone").unwrap();
+        assert_eq!(drone_model.view_from, Some([-50.0, 0.0, 5.0]));
+        assert!(matches!(drone_model.shape, Shape::Model { .. }));
+
+        let drone_path = entities
+            .iter()
+            .find(|e| e.id == "CesiumDrone-lead-trail")
+            .unwrap();
+        assert!(matches!(drone_path.shape, Shape::WidePolyline { .. }));
+
+        // 2. HeadingPitchRoll entity with model and orientation
+        let hpr_entity = Entity {
+            id: "hpr-plane".into(),
+            show: true,
+            name: "Cesium Air".into(),
+            position_degrees: Some([-123.0744619, 44.0503706, 5000.0]),
+            z_index: 0,
+            model_matrix: None,
+            orientation: Some([0.0, 0.0, 0.3826834323650898, 0.9238795325112867]),
+            surface_appearance: None,
+            samples: vec![],
+            shape: Shape::Model {
+                uri: "../../SampleData/models/CesiumAir/Cesium_Air.glb".into(),
+                scale: 1.0,
+                minimum_pixel_size: 128.0,
+                maximum_scale: None,
+                run_animations: Some(true),
+                node_transformations: None,
+                articulations: None,
+                color_blend_mode: None,
+                color_blend_amount: None,
+                silhouette_color: None,
+                silhouette_size: None,
+            },
+            screen: Default::default(),
+            fill: true,
+            outline: false,
+            outline_color: outline_color(),
+            outline_width: 1.0,
+            color: color(),
+            material: None,
+            availability: None,
+            distance_display_condition: None,
+            view_from: None,
+            tracking_reference_frame: None,
+            properties: Value::Null,
+        };
+        hpr_entity.validate().unwrap();
+        let m = hpr_entity.model(0.0).unwrap();
+        assert!(m.is_finite());
     }
 }

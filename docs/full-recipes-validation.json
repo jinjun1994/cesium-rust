@@ -1,10 +1,10 @@
 {
-  "version": "0.0.37",
+  "version": "0.0.38",
   "newCompleteFunctionalCases": [
-    "3d-models-coloring",
-    "3d-models-dev",
-    "labels-dev",
-    "billboards-dev"
+    "3d-models-articulations-dev",
+    "3d-models-node-explorer-dev",
+    "headingpitchroll",
+    "entity-tracking"
   ],
   "completeFunctionalCases": [
     "box",
@@ -101,16 +101,20 @@
     "3d-models-coloring",
     "3d-models-dev",
     "labels-dev",
-    "billboards-dev"
+    "billboards-dev",
+    "3d-models-articulations-dev",
+    "3d-models-node-explorer-dev",
+    "headingpitchroll",
+    "entity-tracking"
   ],
-  "fullCasePassed": 95,
+  "fullCasePassed": 99,
   "catalogCases": 309,
-  "remainingFullCaseAcceptance": 214,
-  "ordinaryRustPassed": 97,
-  "realGpuPassed": 122,
+  "remainingFullCaseAcceptance": 210,
+  "ordinaryRustPassed": 98,
+  "realGpuPassed": 126,
   "nodeSuitesPassed": 8,
-  "browserFullCasePassed": 95,
-  "native90FrameCasesPassed": 95,
+  "browserFullCasePassed": 99,
+  "native90FrameCasesPassed": 99,
   "nativeBuild": "passed",
   "wasmBuildAndBindings": "passed",
   "fmt": "passed",
@@ -119,8 +123,8 @@
   "browserImagery": "local deterministic 256x256 neutral raster",
   "pixelExactCesiumComparison": "not-claimed",
   "defaultBrowserBackendDeviceLoss": "unresolved",
-  "evidence": "docs/models-coloring-dev-labels-billboards-validation.md",
-  "wasmSha256": "315702971225bc58f7e34f26e50187dd3698ef0c36ab1a4672cf9ff672b86656",
+  "evidence": "docs/models-articulations-explorer-hpr-tracking-validation.md",
+  "wasmSha256": "8f082512df8a725d7c4d2237edfd8f58662b022ea60c660bc0e90f012eb29437",
   "webSceneNativeScope": "For HTML Overlays, Resolution Scaling and Hello World native smoke exercises shared globe/projection; HTML DOM and browser resolution controls verified in Chromium, not implemented as native HTML widgets.",
   "browserVersion": "155.0.8059.39",
   "dpr2FramebufferValidation": {
@@ -144,7 +148,7 @@
     },
     "globePixels": 822
   },
-  "native90FrameConfigurationsPassed": 149,
+  "native90FrameConfigurationsPassed": 167,
   "independentCoplanarReference": "20 source vertices: world position <0.1m, ST <1e-5; exact pinned core source hashes",
   "offlineValidation": {
     "localTileRequests": 34,

@@ -1,0 +1,104 @@
+[
+  {
+    "id": "path",
+    "show": true,
+    "name": "path",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -123.0744619,
+            44.0503706,
+            5000
+          ],
+          [
+            -123.074,
+            44.0507,
+            5000
+          ],
+          [
+            -123.0735,
+            44.0511,
+            5000
+          ],
+          [
+            -123.073,
+            44.0515,
+            5000
+          ]
+        ],
+        "width": 10,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "material": {
+          "type": "glow",
+          "glowPower": 0.3,
+          "taperPower": 0.3,
+          "color": [
+            0.933,
+            0.91,
+            0.667,
+            1
+          ]
+        }
+      }
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0.933,
+      0.91,
+      0.667,
+      1
+    ],
+    "properties": null
+  },
+  {
+    "id": "plane",
+    "show": true,
+    "name": "Cesium Air",
+    "positionDegrees": [
+      -123.0744619,
+      44.0503706,
+      5000
+    ],
+    "orientation": [
+      0.18602475520469713,
+      -0.34314653119469524,
+      0.4387830132312662,
+      0.8093915714163146
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "scale": 1,
+      "minimumPixelSize": 128,
+      "runAnimations": true
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  }
+]

@@ -1,0 +1,89 @@
+[
+  {
+    "id": "Satellite/ISS",
+    "show": true,
+    "name": "ISS",
+    "positionDegrees": [
+      -45,
+      20,
+      400000
+    ],
+    "viewFrom": [
+      -300,
+      20,
+      100
+    ],
+    "trackingReferenceFrame": "AUTODETECT",
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADJSURBVDhPnZHRDcMgEEMZjVEYpaNklIzSEfLfD4qNnXAJSFWfhO7w2Zc0Tf9QG2rXrEzSUeZLOGm47WoH95x3Hl3jEgilvDgsOQUTqsNl68ezEwn1vae6lceSEEYvvWNT/Rxc4CXQNGadho1NXoJ+9iaqc2xi2xbt23PJCDIB6TQjOC6Bho/sDy3fBQT8PrVhibU7yBFcEPaRxOoeTwbwByCOYf9VGp1BYI1BA+EeHhmfzKbBoJEQwn1yzUZtyspIQUha85MpkNIXB7GizqDEECsAAAAASUVORK5CYII=",
+      "scale": 1.5,
+      "width": 16,
+      "height": 16,
+      "pixelOffset": [
+        0,
+        0
+      ]
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  },
+  {
+    "id": "CesiumDrone",
+    "show": true,
+    "name": "Drone",
+    "positionDegrees": [
+      -123.0744619,
+      44.0503706,
+      150
+    ],
+    "orientation": [
+      0.37418060502221906,
+      -0.11110187327460132,
+      -0.26205982465841676,
+      0.8825927129090068
+    ],
+    "viewFrom": [
+      -50,
+      0,
+      5
+    ],
+    "trackingReferenceFrame": "AUTODETECT",
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumDrone/CesiumDrone.glb",
+      "minimumPixelSize": 64,
+      "maximumScale": 20000
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  }
+]

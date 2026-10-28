@@ -576,15 +576,21 @@ pub fn path_czml(packet: &serde_json::Value) -> Result<Entity, String> {
     let mut v = v.clone();
     for k in ["color", "outlineColor", "gapColor"] {
         if let Some(c) = v.get(k) {
-            keys(c, &["rgba", "rgbaf"])?;
-            let c: Vec<f32> = if let Some(a) = c.get("rgba") {
+            let c_obj = if let Some(arr) = c.as_array() {
+                arr.first().ok_or("color interval array empty")?
+            } else {
+                c
+            };
+            let c: Vec<f32> = if let Some(a) = c_obj.get("rgba") {
                 serde_json::from_value::<Vec<f32>>(a.clone())
                     .map_err(|e| e.to_string())?
                     .into_iter()
                     .map(|n| n / 255.)
                     .collect()
+            } else if let Some(a) = c_obj.get("rgbaf") {
+                serde_json::from_value(a.clone()).map_err(|e| e.to_string())?
             } else {
-                serde_json::from_value(c["rgbaf"].clone()).map_err(|e| e.to_string())?
+                return Err("rgba or rgbaf color required".into());
             };
             v[k] = json!(c);
         }
@@ -598,29 +604,55 @@ pub fn path_czml(packet: &serde_json::Value) -> Result<Entity, String> {
     };
     let (m, c) = source_material(t, &v)?;
     let pos_val = packet.get("position").ok_or("path position required")?;
-    let raw_coords = pos_val
-        .get("cartographicDegrees")
+    let geographic = pos_val.get("cartographicDegrees");
+    let cartesian = pos_val.get("cartesian");
+    if geographic.is_none() && cartesian.is_none() {
+        return Err("path position cartographicDegrees or cartesian required".into());
+    }
+    let raw_coords = geographic
+        .or(cartesian)
         .and_then(|v| v.as_array())
-        .ok_or("path position cartographicDegrees required")?;
+        .ok_or("path position array required")?;
     if raw_coords.len() < 8 || !raw_coords.len().is_multiple_of(4) {
-        return Err("path cartographicDegrees time,lon,lat,alt tuples required".into());
+        return Err("path position time,x,y,z tuples required".into());
     }
     let mut positions = Vec::with_capacity(raw_coords.len() / 4);
     for chunk in raw_coords.as_chunks::<4>().0 {
-        let p = [
-            crate::entities::number(&chunk[1])?,
-            crate::entities::number(&chunk[2])?,
-            crate::entities::number(&chunk[3])?,
-        ];
+        let p = if geographic.is_some() {
+            [
+                crate::entities::number(&chunk[1])?,
+                crate::entities::number(&chunk[2])?,
+                crate::entities::number(&chunk[3])?,
+            ]
+        } else {
+            let x = crate::entities::number(&chunk[1])?;
+            let y = crate::entities::number(&chunk[2])?;
+            let z = crate::entities::number(&chunk[3])?;
+            let carto = cesium_math::Cartographic::from_ecef(glam::DVec3::new(x, y, z))
+                .map_err(|e| e.to_string())?;
+            [
+                carto.longitude.to_degrees(),
+                carto.latitude.to_degrees(),
+                carto.height,
+            ]
+        };
         if positions.last().is_none_or(|last| *last != p) {
             positions.push(p);
         }
     }
-    let width = g
-        .get("width")
-        .map(crate::entities::number)
-        .transpose()?
-        .unwrap_or(1.);
+    let width = if let Some(w) = g.get("width") {
+        if let Some(arr) = w.as_array() {
+            arr.first()
+                .and_then(|item| item.get("number"))
+                .map(crate::entities::number)
+                .transpose()?
+                .unwrap_or(1.)
+        } else {
+            crate::entities::number(w)?
+        }
+    } else {
+        1.
+    };
     let d = json!({
         "positions": positions,
         "width": width,
@@ -629,6 +661,18 @@ pub fn path_czml(packet: &serde_json::Value) -> Result<Entity, String> {
         "material": m,
     });
     let id_str = packet["id"].as_str().ok_or("path id required")?;
+    let show = if let Some(s) = g.get("show") {
+        if let Some(arr) = s.as_array() {
+            arr.first()
+                .and_then(|o| o.get("boolean"))
+                .and_then(|b| b.as_bool())
+                .unwrap_or(true)
+        } else {
+            s.as_bool().unwrap_or(true)
+        }
+    } else {
+        true
+    };
     let e: Entity = serde_json::from_value(json!({
         "id": format!("{id_str}-lead-trail"),
         "name": packet.get("name").cloned().unwrap_or(json!("")),
@@ -637,7 +681,7 @@ pub fn path_czml(packet: &serde_json::Value) -> Result<Entity, String> {
         "color": c,
         "fill": true,
         "outline": false,
-        "show": g.get("show").cloned().unwrap_or(json!(true)),
+        "show": show,
         "properties": packet.get("properties").cloned().unwrap_or(Value::Null),
     }))
     .map_err(|e| e.to_string())?;
