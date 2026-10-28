@@ -1,0 +1,174 @@
+[
+  {
+    "id": "rect-red",
+    "show": true,
+    "name": "CZML1 Red Rectangle",
+    "positionDegrees": null,
+    "zIndex": 0,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -120,
+        40,
+        -110,
+        50
+      ],
+      "height": 0,
+      "rotation": 0
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "properties": {
+      "dataSource": "czml1",
+      "color": "red",
+      "zIndex": 0
+    }
+  },
+  {
+    "id": "rect-blue",
+    "show": true,
+    "name": "CZML1 Blue Rectangle",
+    "positionDegrees": null,
+    "zIndex": 0,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -110,
+        40,
+        -100,
+        50
+      ],
+      "height": 0,
+      "rotation": 0
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0,
+      0,
+      1,
+      1
+    ],
+    "properties": {
+      "dataSource": "czml1",
+      "color": "blue",
+      "zIndex": 0
+    }
+  },
+  {
+    "id": "rect-yellow",
+    "show": true,
+    "name": "CZML2 Yellow Rectangle",
+    "positionDegrees": null,
+    "zIndex": 1,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -120,
+        45,
+        -110,
+        55
+      ],
+      "height": 0,
+      "rotation": 0
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      0,
+      1
+    ],
+    "properties": {
+      "dataSource": "czml2",
+      "color": "yellow",
+      "zIndex": 1
+    }
+  },
+  {
+    "id": "rect-cyan",
+    "show": true,
+    "name": "CZML2 Cyan Rectangle",
+    "positionDegrees": null,
+    "zIndex": 1,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -110,
+        45,
+        -100,
+        55
+      ],
+      "height": 0,
+      "rotation": 0
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "dataSource": "czml2",
+      "color": "cyan",
+      "zIndex": 1
+    }
+  }
+]

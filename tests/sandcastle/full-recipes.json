@@ -2809,6 +2809,131 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "billboardclamptoground-dev",
+      "title": "BillboardClampToGround - Dev",
+      "sourceSha256": "9fbd57cfaf181505a5822956a7064812b325922d7c65134e71af8a1e373dd45a",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=billboardclamptoground-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/billboardclamptoground-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/billboardclamptoground-dev.json",
+      "entityCount": 10,
+      "variantCount": 5,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "BillboardCollection with Seneca Rocks facility grid clamped to ground (heightReference: CLAMP_TO_GROUND)",
+        "Cesium logo overlay billboard with heightReference: RELATIVE_TO_GROUND, CLAMP_TO_GROUND, and NONE",
+        "Interactive add, remove, heightReference menu, and longitude increment controls",
+        "depthTestAgainstTerrain enabled on Globe"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "clock",
+      "title": "Clock",
+      "sourceSha256": "e25090de4c8a25a1ee8163a380f0018998d0369e60338bfe223c5c847bfa8d5c",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=clock",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/clock.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/clock.json",
+      "entityCount": 2,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "clock": {
+        "startTime": 1387929600,
+        "stopTime": 1388016000,
+        "currentTime": 1387929600,
+        "multiplier": 4000,
+        "range": "LOOP_STOP"
+      },
+      "requirements": [
+        "Clock initialization for Christmas day 2013 interval (2013-12-25 to 2013-12-26)",
+        "ClockRange.LOOP_STOP boundary behavior with SYSTEM_CLOCK_MULTIPLIER",
+        "4000x real-time clock multiplier with speed up (*2) and slow down (/2) controls",
+        "Globe enableLighting dynamically tracking subsolar illumination",
+        "Reset Current Time updating ClockViewModel and Timeline"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "datasource-ordering",
+      "title": "DataSource Ordering",
+      "sourceSha256": "158fbf09f6e339c8dd70db8713b028f0464f5bce7c43fd04f1d2ab58bd464051",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=datasource-ordering",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/datasource-ordering.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/datasource-ordering.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "CzmlDataSource loading czml1 (Red [-120,40,-110,50] and Blue [-110,40,-100,50])",
+        "CzmlDataSource loading czml2 (Yellow [-120,45,-110,55] and Cyan [-110,45,-100,55])",
+        "Overlapping rectangle regions displaying layer order and zIndex priority",
+        "Toolbar Swap button dynamically calling viewer.dataSources.raise and lower"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "display-conditions-dev",
+      "title": "Display Conditions - Dev",
+      "sourceSha256": "0e0ffa94413475e893d5512efe8151dc6411fb336d890ca51dd440814792a6e0",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=display-conditions-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/display-conditions-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/display-conditions-dev.json",
+      "entityCount": 2,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Billboard distanceDisplayCondition with near distance 5.5e6 meters",
+        "PerInstanceColorAppearance Rectangle primitive distanceDisplayCondition with [0.0, 5.5e6]",
+        "PointPrimitiveCollection with distanceDisplayCondition near 250.5 meters",
+        "Model.fromGltfAsync with distanceDisplayCondition [0.0, 250.5] meters",
+        "Sandcastle toolbar menu switching between Billboard/Primitive and Point/Model modes"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

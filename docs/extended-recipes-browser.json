@@ -1,17 +1,17 @@
 {
   "version": "0.0.29",
-  "wasmSha256": "8f082512df8a725d7c4d2237edfd8f58662b022ea60c660bc0e90f012eb29437",
+  "wasmSha256": "0cebc595e3b25bfd8bcad2c16a60c3eb3dcd03499484095f0ab286cfef7f51b8",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "3d-models-articulations-dev",
+      "id": "billboardclamptoground-dev",
       "status": "passed",
-      "entities": 1,
-      "sourceSha256": "7a5817b9bd08fd8111690c2eb2a18c2c9842dd5f0df4c335f0306b5b33c7ccdb",
-      "inputSha256": "b4dd85c2847aabe1604459d34f837c0777e78bae0601ec96a6af78cc020f8887",
-      "fixtureSha256": "b5c93fa0d3b3bbe4e6eb8f405a46350fac9ca09b8d10c95dc032c63c90c4c66b",
+      "entities": 10,
+      "sourceSha256": "9fbd57cfaf181505a5822956a7064812b325922d7c65134e71af8a1e373dd45a",
+      "inputSha256": "cceba7332e5f5ec0ee05eb9af346e56880195c8ee79f8808e27d7bb78bf624a9",
+      "fixtureSha256": "edb3b68001eee546ce716c44fc6a599a2992f8c03d3f6f0ad75fc1416f246686",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,48 +22,67 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "launchvehicle"
+        "facility-0-0",
+        "facility-0-1",
+        "facility-0-2",
+        "facility-1-0",
+        "facility-1-1",
+        "facility-1-2",
+        "facility-2-0",
+        "facility-2-1",
+        "facility-2-2",
+        "billboard-logo"
       ],
       "pixelCounts": [
         {
-          "id": "launchvehicle",
-          "pixels": 18
+          "id": "facility-0-0",
+          "pixels": 888
+        },
+        {
+          "id": "facility-0-1",
+          "pixels": 888
+        },
+        {
+          "id": "facility-0-2",
+          "pixels": 888
+        },
+        {
+          "id": "facility-1-0",
+          "pixels": 888
+        },
+        {
+          "id": "facility-1-1",
+          "pixels": 888
+        },
+        {
+          "id": "facility-1-2",
+          "pixels": 888
+        },
+        {
+          "id": "facility-2-0",
+          "pixels": 888
+        },
+        {
+          "id": "facility-2-1",
+          "pixels": 888
+        },
+        {
+          "id": "facility-2-2",
+          "pixels": 888
+        },
+        {
+          "id": "billboard-logo",
+          "pixels": 1764
         }
       ]
     },
     {
-      "id": "3d-models-node-explorer-dev",
-      "status": "passed",
-      "entities": 1,
-      "sourceSha256": "781673d1fa9e840a796c5aaa0d65bfafb41dcfa84e3729d8ef07be2cc68a71ad",
-      "inputSha256": "dfbfdc54d20d474d0173f083f49bf012ee670866210a9224eebc0626e821d866",
-      "fixtureSha256": "b2395981093bbabd74d60989d9b67f75d7a8aeffe28bd2b58046dc08a856d1a8",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "CesiumMan"
-      ],
-      "pixelCounts": [
-        {
-          "id": "CesiumMan",
-          "pixels": 18
-        }
-      ]
-    },
-    {
-      "id": "headingpitchroll",
+      "id": "clock",
       "status": "passed",
       "entities": 2,
-      "sourceSha256": "03f19f155f106606b1a3747459415a5018ca788001d48128bcc64e7ffb54b610",
-      "inputSha256": "2757664204158d517d20da9dc66ae1fcace88f273f9b5769d80628dc7eacbb47",
-      "fixtureSha256": "18bade662ebf8a0218ecb2d8344f8163028fc05a1ac658fb19e65f50c6fac47d",
+      "sourceSha256": "e25090de4c8a25a1ee8163a380f0018998d0369e60338bfe223c5c847bfa8d5c",
+      "inputSha256": "f1c0a2e75f41538b644c0ce1b9d91618b140beb4b4cfcc136a09796b9fd0326a",
+      "fixtureSha256": "ad34c886ae5920d111ae52be46214ce0705b5a1d62d33e02c22b7bc7c8f3133a",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -77,27 +96,27 @@
         "play/pause/loop"
       ],
       "pickedEntities": [
-        "path",
-        "plane"
+        "christmas-sun-marker",
+        "christmas-clock-label"
       ],
       "pixelCounts": [
         {
-          "id": "path",
-          "pixels": 636
+          "id": "christmas-sun-marker",
+          "pixels": 312
         },
         {
-          "id": "plane",
-          "pixels": 28
+          "id": "christmas-clock-label",
+          "pixels": 13804
         }
       ]
     },
     {
-      "id": "entity-tracking",
+      "id": "datasource-ordering",
       "status": "passed",
-      "entities": 2,
-      "sourceSha256": "cedd8a4692d1c560f6ad5aced78de41f9efd564d72a26b9b38b83c5aee3d7941",
-      "inputSha256": "946688bee2c808016dfed9d88b82f804a066490971fd8c149ab631ae8a7d1bb7",
-      "fixtureSha256": "446b1f4f6c77f7343a35ecb02ec04b3fc60deaa6ad5035a1c31975784299a45a",
+      "entities": 4,
+      "sourceSha256": "158fbf09f6e339c8dd70db8713b028f0464f5bce7c43fd04f1d2ab58bd464051",
+      "inputSha256": "6b0ccf978675a2c289cc13a58ae942fafdc9f1110cb57ab35e679d0a7981e73a",
+      "fixtureSha256": "67013c8028d0a48350c2ff9cb17b62b99022eb5d297025d6554cc4e68ff33179",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -105,23 +124,61 @@
         "every instance ID picking",
         "hide/show",
         "wheel zoom",
-        "resize and manual fit",
-        "inferred clock",
-        "seek at all samples",
-        "play/pause/loop"
+        "resize and manual fit"
       ],
       "pickedEntities": [
-        "Satellite/ISS",
-        "CesiumDrone"
+        "rect-red",
+        "rect-blue",
+        "rect-yellow",
+        "rect-cyan"
       ],
       "pixelCounts": [
         {
-          "id": "Satellite/ISS",
-          "pixels": 425
+          "id": "rect-red",
+          "pixels": 61039
         },
         {
-          "id": "CesiumDrone",
-          "pixels": 18
+          "id": "rect-blue",
+          "pixels": 59930
+        },
+        {
+          "id": "rect-yellow",
+          "pixels": 59644
+        },
+        {
+          "id": "rect-cyan",
+          "pixels": 58476
+        }
+      ]
+    },
+    {
+      "id": "display-conditions-dev",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "0e0ffa94413475e893d5512efe8151dc6411fb336d890ca51dd440814792a6e0",
+      "inputSha256": "7edfa414465b44acad73feddd94da678321ca5fca1b3f108de3d5388b8aa1ff4",
+      "fixtureSha256": "fbebb013d4dc9a8da9433d8f69520b72a12afeb7951d9cbc017001de7a97fa5f",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "billboard-primitive",
+        "rectangle-primitive"
+      ],
+      "pixelCounts": [
+        {
+          "id": "billboard-primitive",
+          "pixels": 888
+        },
+        {
+          "id": "rectangle-primitive",
+          "pixels": 50938
         }
       ]
     },

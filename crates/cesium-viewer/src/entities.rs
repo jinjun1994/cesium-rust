@@ -115,6 +115,12 @@ pub enum Shape {
             rename = "imageSubRegion"
         )]
         image_sub_region: Option<[f64; 4]>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "heightReference"
+        )]
+        height_reference: Option<HeightReference>,
     },
     Label {
         #[serde(default)]
@@ -1926,6 +1932,7 @@ fn decode_screen_or_model_packet(
             "pixelOffset",
             "sizeInMeters",
             "imageSubRegion",
+            "heightReference",
         ],
         "box" => vec!["dimensions"],
         "ellipsoid" => vec![
@@ -2030,6 +2037,14 @@ fn decode_screen_or_model_packet(
             } else {
                 None
             };
+            let hr = if let Some(hr_val) = g.get("heightReference") {
+                Some(
+                    serde_json::from_value::<HeightReference>(hr_val.clone())
+                        .map_err(|e| e.to_string())?,
+                )
+            } else {
+                None
+            };
             Shape::Billboard {
                 image,
                 width: g.get("width").map(number).transpose()?.unwrap_or(64.),
@@ -2038,6 +2053,7 @@ fn decode_screen_or_model_packet(
                 pixel_offset: offset,
                 size_in_meters: g.get("sizeInMeters").map(boolean).transpose()?,
                 image_sub_region: sub_region,
+                height_reference: hr,
             }
         }
         "box" => {
@@ -3212,5 +3228,151 @@ mod tests {
         hpr_entity.validate().unwrap();
         let m = hpr_entity.model(0.0).unwrap();
         assert!(m.is_finite());
+    }
+
+    #[test]
+    fn batch39_billboard_clamptoground_datasource_ordering_display_conditions() {
+        // 1. Billboard with heightReference (CLAMP_TO_GROUND, RELATIVE_TO_GROUND, NONE)
+        let bb_json = serde_json::json!([
+            {
+                "id": "bb-clamped",
+                "positionDegrees": [-79.366258, 38.834614, 0.0],
+                "shape": {
+                    "type": "billboard",
+                    "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+                    "width": 32.0,
+                    "height": 32.0,
+                    "scale": 1.0,
+                    "pixelOffset": [0.0, 0.0],
+                    "heightReference": "CLAMP_TO_GROUND"
+                },
+                "screen": {
+                    "horizontalOrigin": "CENTER",
+                    "verticalOrigin": "CENTER"
+                },
+                "fill": true,
+                "outline": false,
+                "outlineColor": [0.0, 0.0, 0.0, 1.0],
+                "outlineWidth": 1.0,
+                "color": [1.0, 1.0, 1.0, 1.0]
+            },
+            {
+                "id": "bb-relative",
+                "positionDegrees": [-79.366258, 38.834614, 1000.0],
+                "shape": {
+                    "type": "billboard",
+                    "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+                    "width": 64.0,
+                    "height": 64.0,
+                    "scale": 0.7,
+                    "pixelOffset": [0.0, 0.0],
+                    "heightReference": "RELATIVE_TO_GROUND"
+                },
+                "screen": {
+                    "horizontalOrigin": "CENTER",
+                    "verticalOrigin": "CENTER"
+                },
+                "fill": true,
+                "outline": false,
+                "outlineColor": [0.0, 0.0, 0.0, 1.0],
+                "outlineWidth": 1.0,
+                "color": [1.0, 1.0, 1.0, 1.0]
+            }
+        ]);
+        let bb_entities = decode(&serde_json::to_vec(&bb_json).unwrap()).unwrap();
+        assert_eq!(bb_entities.len(), 2);
+        if let Shape::Billboard {
+            height_reference, ..
+        } = &bb_entities[0].shape
+        {
+            assert_eq!(*height_reference, Some(HeightReference::ClampToGround));
+        } else {
+            panic!("expected Shape::Billboard");
+        }
+        if let Shape::Billboard {
+            height_reference, ..
+        } = &bb_entities[1].shape
+        {
+            assert_eq!(*height_reference, Some(HeightReference::RelativeToGround));
+        } else {
+            panic!("expected Shape::Billboard");
+        }
+
+        // 2. CZML Rectangles with zIndex ordering
+        let czml_ordering = serde_json::json!([
+            { "id": "document", "name": "CZML Rectangles", "version": "1.0" },
+            {
+                "id": "rect-red",
+                "rectangle": {
+                    "coordinates": { "wsenDegrees": [-120.0, 40.0, -110.0, 50.0] },
+                    "fill": true,
+                    "material": { "solidColor": { "color": { "rgba": [255, 0, 0, 255] } } },
+                    "zIndex": 0
+                }
+            },
+            {
+                "id": "rect-yellow",
+                "rectangle": {
+                    "coordinates": { "wsenDegrees": [-120.0, 45.0, -110.0, 55.0] },
+                    "fill": true,
+                    "material": { "solidColor": { "color": { "rgba": [255, 255, 0, 255] } } },
+                    "zIndex": 1
+                }
+            }
+        ]);
+        let (rects, _) = czml(&serde_json::to_vec(&czml_ordering).unwrap()).unwrap();
+        assert_eq!(rects.len(), 2);
+        assert_eq!(rects[0].z_index, 0);
+        assert_eq!(rects[1].z_index, 1);
+
+        // 3. Distance Display Condition on Billboard and Rectangle
+        let ddc_json = serde_json::json!([
+            {
+                "id": "billboard-ddc",
+                "positionDegrees": [-77.0, 40.5, 0.0],
+                "shape": {
+                    "type": "billboard",
+                    "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==",
+                    "width": 32.0,
+                    "height": 32.0,
+                    "scale": 1.0,
+                    "pixelOffset": [0.0, 0.0]
+                },
+                "screen": {
+                    "horizontalOrigin": "CENTER",
+                    "verticalOrigin": "CENTER",
+                    "distanceDisplayCondition": [5500000.0, 20000000.0]
+                },
+                "fill": true,
+                "outline": false,
+                "outlineColor": [0.0, 0.0, 0.0, 1.0],
+                "outlineWidth": 1.0,
+                "color": [1.0, 1.0, 1.0, 1.0]
+            },
+            {
+                "id": "rect-ddc",
+                "positionDegrees": null,
+                "shape": {
+                    "type": "rectangle",
+                    "coordinates": [-80.5, 39.7, -75.1, 42.0]
+                },
+                "distanceDisplayCondition": [0.0, 5500000.0],
+                "fill": true,
+                "outline": false,
+                "outlineColor": [0.0, 0.0, 0.0, 1.0],
+                "outlineWidth": 1.0,
+                "color": [1.0, 0.0, 0.0, 0.5]
+            }
+        ]);
+        let ddc_entities = decode(&serde_json::to_vec(&ddc_json).unwrap()).unwrap();
+        assert_eq!(ddc_entities.len(), 2);
+        assert_eq!(
+            ddc_entities[0].screen.distance_display_condition,
+            Some([5500000.0, 20000000.0])
+        );
+        assert_eq!(
+            ddc_entities[1].distance_display_condition,
+            Some([0.0, 5500000.0])
+        );
     }
 }

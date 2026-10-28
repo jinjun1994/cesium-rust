@@ -4,11 +4,28 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.38（已通过 99 / 309 个完整案例，剩余 210 个）
+- **当前版本**：v0.0.39（已通过 103 / 309 个完整案例，剩余 206 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-29] v0.0.39 突破百例里程碑：贴地广告牌阵列、时钟光照驱动、数据源图层层叠与视距裁剪
+- **完成配方**（突破百例大关，累计推进至 **103 / 309**）：
+  1. `billboardclamptoground-dev`（底层 BillboardCollection 广告牌基元 CLAMP_TO_GROUND / RELATIVE_TO_GROUND 贴地基准与地表深度测试、Seneca Rocks 设施阵列与 Cesium 标识广告牌）
+  2. `clock`（2013 圣诞节太阳直射点时钟驱动、LOOP_STOP 边界、SYSTEM_CLOCK_MULTIPLIER、4000x 速率与 Globe 次太阳光照跟踪）
+  3. `datasource-ordering`（CZML 多数据源图层 raise / lower 动态重排与 zIndex 深度层叠排序，彻底解决重叠图元 Z-Fighting 穿透）
+  4. `display-conditions-dev`（底层 Primitive 与 Entity 的 DistanceDisplayCondition 近远距 [0, 5.5e6] 与 [0, 250.5] 视距条件控制）
+- **核心研发突破**：
+  1. **Shape::Billboard 扩展 `heightReference` 属性**：在实体定义与 CZML 解码中完善了广告牌贴地高程基准支持。
+  2. **时钟状态统一管理与动态时间评估**：在沙盒 `runFull` 中打通 `entry.clock` 全字段透传并在案例重置中恢复默认时钟；在取景测试中依据 `availability` 动态评估采样位置。
+  3. **矩形经纬度序列化规范**：统一底层 `Shape::Rectangle` 的 `coordinatesDegrees` 字段契约。
+- **验证结果**：
+  - **普通 Rust 单元测试**：99 项通过（`cesium_viewer` 102 项单元测试）。
+  - **真实 GPU 离屏渲染测试**：104 / 104 项全数通过（`104 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：103 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
 
 ### [2026-10-26] v0.0.28 验收与 GitHub 链接完成
 - **完成内容**：
