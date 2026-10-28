@@ -1,0 +1,72 @@
+[
+  {
+    "id": "test model",
+    "show": true,
+    "name": "Cesium Air",
+    "positionDegrees": [
+      -77,
+      37,
+      10000
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "https://cesium.com/public/SandcastleSampleData/launchvehicle.glb",
+      "scale": 2,
+      "minimumPixelSize": 128,
+      "runAnimations": false,
+      "articulations": {
+        "Fairing Open": {
+          "epoch": "2019-06-01T16:00:00Z",
+          "number": [
+            0,
+            0,
+            600,
+            120
+          ]
+        },
+        "Fairing Separate": {
+          "epoch": "2019-06-01T16:00:00Z",
+          "number": [
+            0,
+            0,
+            400,
+            -50
+          ]
+        },
+        "Fairing Drop": {
+          "epoch": "2019-06-01T16:00:00Z",
+          "interpolationAlgorithm": "LAGRANGE",
+          "interpolationDegree": 2,
+          "number": [
+            0,
+            0,
+            80,
+            0,
+            100,
+            0,
+            120,
+            -1,
+            600,
+            -120
+          ]
+        }
+      }
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  }
+]

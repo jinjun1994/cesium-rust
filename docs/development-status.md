@@ -173,3 +173,12 @@ Box、Cylinders and Cones、Plane 保留固定原始源码的所有案例参数�
 新增 Box - Dev、Cylinder - Dev、Sphere - Dev、Ellipsoid - Dev、Wall - Dev、Ellipse - Dev，累计 24 / 309。严格编译原始填充 Primitive 输入，保留实例顺序、矩阵和颜色字节量化；补齐 flat/closed/translucent 默认值、派生 faceForward、闭合不透明剔除、闭合透明两遍绘制、漫反射路径与圆柱侧面平滑法线。新增六个完整 UI 按钮及独立输入/预期快照。
 
 96 项普通 Rust 测试、51 项实际 GPU 测试、八组 Node 测试通过；二十四组桌面原配置各 90 帧 errors 0，二十四个浏览器 WebGPU 案例通过。默认宽视角与可选手动取景分别验收；不把手动取景当作原脚本相机调用。fmt/clippy、原生/WASM 构建和绑定通过。浏览器使用显式 Vulkan/SwiftShader 与固定中性影像；默认后端设备丢失、通用恢复、OIT、任意 Appearance 和全部 Viewer 通用控件仍待完成。不声明官方逐像素或太阳/Phong 完全一致。详见 primitive-solid-validation.md。
+
+
+## 0.0.36 · Labels 变体、3D Models、CZML 关节与骨骼变换体系
+
+新增 Labels（8 种变体：包含希伯来语/RTL 文本安全排版降级、视距淡出与缩放、文字动画）、3D Models（10 种变体工具栏：包含飞机、无人机、车辆、气球、牛奶卡车、蒙皮角色、Draco/KTX2 等模型及朝向四元数与相机跟踪）、CZML Model Node Transformations（CesiumMan 骨骼节点旋转动画与视距跟踪）以及 CZML Model Articulations（运载火箭整流罩展开/分离/下落铰接动画与插值）；完整案例累计 **91 / 309**。
+
+底层在 `entities.rs` 中补齐 CZML 与 Shape::Model 的 `runAnimations`、`nodeTransformations`、`articulations`、`viewFrom` 属性通道；在 `label.rs` 中引入希伯来/阿拉伯语 RTL Unicode 字符集安全验证与字形丢失平滑兜底，彻底杜绝复杂排版恐慌。
+
+97 项普通 Rust 测试、118 项实际 GPU 测试（含 92 个全案例测试与变体离屏渲染）、8 组 Node 测试、122 组桌面 90 帧 smoke 测试（全部 errors 0）、91 个浏览器 WebGPU 完整案例测试全部通过。详见 labels-3d-models-articulations-validation.md。

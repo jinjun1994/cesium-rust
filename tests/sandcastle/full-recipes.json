@@ -2457,6 +2457,121 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "labels",
+      "title": "Labels",
+      "sourceSha256": "4c90da685d6de8936befe193fd9d49aa87b4d66e5b657da86d7012f2a2c0a2ce",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=labels",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/labels.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/labels.json",
+      "entityCount": 1,
+      "variantCount": 8,
+      "framing": "viewer-default",
+      "shouldAnimate": false,
+      "requirements": [
+        "Sandcastle toolbar menu with 8 label styling and distance variations",
+        "font, style (FILL_AND_OUTLINE), outline width and color tinting",
+        "scaleByDistance, translucencyByDistance, pixelOffsetScaleByDistance curves",
+        "Hebrew / right-to-left multilingual text rendering and background styling"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-models",
+      "title": "glTF Models",
+      "sourceSha256": "f210da342742935daafb7b3c8aed7ed4d44112bc33f3d2dc1d942594c05c82dd",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-models",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-models.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-models.json",
+      "entityCount": 1,
+      "variantCount": 10,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "trackedEntity": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "requirements": [
+        "Sandcastle toolbar menu with 10 glTF 3D model entity variations",
+        "headingPitchRollQuaternion orientation computed from heading 135 deg at ground/altitude positions",
+        "minimumPixelSize: 128 and maximumScale: 20000 dimensions",
+        "viewer.trackedEntity tracking the active 3D model entity"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-model-node-transformations",
+      "title": "CZML Model - Node Transformations",
+      "sourceSha256": "848cf0c1f10ca7c04e3c95273bb50a0f1f2323997ab8601512ca5352afdec4dc",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-model-node-transformations",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-model-node-transformations.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-model-node-transformations.json",
+      "entityCount": 1,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "trackedEntity": "model",
+      "requirements": [
+        "CZML model packet decoding with CesiumMan glTF URI and viewFrom offset",
+        "time-dynamic quaternion rotation tracks in nodeTransformations",
+        "viewer.trackedEntity tracking the model"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "czml-model-articulations",
+      "title": "CZML Model Articulations",
+      "sourceSha256": "d705a00540eae61cbf6333fa43c6a1ef3d49cbdc0abcf8aa15bc7c0f32191a32",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-model-articulations",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-model-articulations.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-model-articulations.json",
+      "entityCount": 1,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "trackedEntity": "test model",
+      "requirements": [
+        "CZML model packet decoding with launch vehicle glTF and LOOP_STOP clock",
+        "Lagrange interpolated degree-2 articulation tracks in model.articulations",
+        "viewer.trackedEntity tracking test model"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

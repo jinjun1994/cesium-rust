@@ -1,10 +1,10 @@
 {
-  "version": "0.0.35",
+  "version": "0.0.36",
   "newCompleteFunctionalCases": [
-    "billboards",
-    "czml-model",
-    "czml-model-data-url",
-    "callback-position-property"
+    "labels",
+    "3d-models",
+    "czml-model-node-transformations",
+    "czml-model-articulations"
   ],
   "completeFunctionalCases": [
     "box",
@@ -93,16 +93,20 @@
     "billboards",
     "czml-model",
     "czml-model-data-url",
-    "callback-position-property"
+    "callback-position-property",
+    "labels",
+    "3d-models",
+    "czml-model-node-transformations",
+    "czml-model-articulations"
   ],
-  "fullCasePassed": 87,
+  "fullCasePassed": 91,
   "catalogCases": 309,
-  "remainingFullCaseAcceptance": 222,
+  "remainingFullCaseAcceptance": 218,
   "ordinaryRustPassed": 97,
-  "realGpuPassed": 114,
+  "realGpuPassed": 118,
   "nodeSuitesPassed": 8,
-  "browserFullCasePassed": 87,
-  "native90FrameCasesPassed": 87,
+  "browserFullCasePassed": 91,
+  "native90FrameCasesPassed": 91,
   "nativeBuild": "passed",
   "wasmBuildAndBindings": "passed",
   "fmt": "passed",
@@ -111,8 +115,8 @@
   "browserImagery": "local deterministic 256x256 neutral raster",
   "pixelExactCesiumComparison": "not-claimed",
   "defaultBrowserBackendDeviceLoss": "unresolved",
-  "evidence": "docs/czml-interpolating-polygon-distance-pins-validation.md",
-  "wasmSha256": "d72f46006408e65654de676313e13542e121abd2ad7e0ca24552b17f819a0c92",
+  "evidence": "docs/labels-3d-models-articulations-validation.md",
+  "wasmSha256": "ba58b9cde90e4096aef7c4bee2e11f0242298d037216000c943a78de518fa67d",
   "webSceneNativeScope": "For HTML Overlays, Resolution Scaling and Hello World native smoke exercises shared globe/projection; HTML DOM and browser resolution controls verified in Chromium, not implemented as native HTML widgets.",
   "browserVersion": "155.0.8059.39",
   "dpr2FramebufferValidation": {
@@ -136,7 +140,7 @@
     },
     "globePixels": 822
   },
-  "native90FrameConfigurationsPassed": 102,
+  "native90FrameConfigurationsPassed": 122,
   "independentCoplanarReference": "20 source vertices: world position <0.1m, ST <1e-5; exact pinned core source hashes",
   "offlineValidation": {
     "localTileRequests": 34,

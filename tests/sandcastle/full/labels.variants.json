@@ -1,0 +1,675 @@
+{
+  "variants": [
+    {
+      "label": "Add label",
+      "entities": [
+        {
+          "id": "label-add",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.1641667,
+            39.9522222,
+            0
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL",
+              "showBackground": false,
+              "backgroundColor": [
+                0.165,
+                0.165,
+                0.165,
+                0.8
+              ],
+              "backgroundPadding": [
+                7,
+                5
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "Philadelphia",
+            "fontSize": 30,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Set font",
+      "entities": [
+        {
+          "id": "label-font",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.1641667,
+            39.9522222,
+            0
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL_AND_OUTLINE",
+              "showBackground": false,
+              "backgroundColor": [
+                0.165,
+                0.165,
+                0.165,
+                0.8
+              ],
+              "backgroundPadding": [
+                7,
+                5
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 2
+            },
+            "text": "Philadelphia",
+            "fontSize": 24,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.5294117647058824,
+            0.807843137254902,
+            0.9215686274509803,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Set properties",
+      "entities": [
+        {
+          "id": "label-properties",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.1641667,
+            39.9522222,
+            300000
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL",
+              "showBackground": true,
+              "backgroundColor": [
+                0.165,
+                0.165,
+                0.165,
+                0.8
+              ],
+              "backgroundPadding": [
+                7,
+                5
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "Philadelphia",
+            "fontSize": 30,
+            "scale": 2,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Offset label by distance",
+      "entities": [
+        {
+          "id": "label-offset-billboard",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.1641667,
+            39.9522222,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEVAQEDAwMDAoAD///+gYADAgACgoKSAYADgwAD///8AAAAAAAAAAAAAAAAAAAAAAAC6opgsAAAACnRSTlP///////////8AsswszwAAAH1JREFUeJw9xiEOwjAYhuF33/6KyQVPlh6AjOwWqBoOgMKScJo6LI5rIAg3IE0WFIK5CpIVQ3jUU0XygQgiH4d2D8R6WKx3TTRI3eoClnvSwxWMxPL5CRjdnHAgZt5TAKG7LydQc/O4zZkKD2N4XaV621MMIWACQUsBxM8/X+GkICjYO7GLAAAAAElFTkSuQmCC",
+            "width": 16,
+            "height": 16,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0,
+            "scaleByDistance": [
+              150,
+              5,
+              15000000,
+              0.5
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        },
+        {
+          "id": "label-offset-label",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.1641667,
+            39.9522222,
+            0
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL",
+              "showBackground": true,
+              "backgroundColor": [
+                0.165,
+                0.165,
+                0.165,
+                0.8
+              ],
+              "backgroundPadding": [
+                7,
+                5
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "Label on top of scaling billboard",
+            "fontSize": 20,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              -16
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0,
+            "pixelOffsetScaleByDistance": [
+              150,
+              3,
+              15000000,
+              0.5
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Fade label by distance",
+      "entities": [
+        {
+          "id": "label-fade-ny",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -73.94,
+            40.67,
+            0
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL",
+              "showBackground": false,
+              "backgroundColor": [
+                0.165,
+                0.165,
+                0.165,
+                0.8
+              ],
+              "backgroundPadding": [
+                7,
+                5
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "New York",
+            "fontSize": 30,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0,
+            "translucencyByDistance": [
+              150,
+              1,
+              150000000,
+              0
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        },
+        {
+          "id": "label-fade-atlanta",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -84.39,
+            33.75,
+            0
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL",
+              "showBackground": false,
+              "backgroundColor": [
+                0.165,
+                0.165,
+                0.165,
+                0.8
+              ],
+              "backgroundPadding": [
+                7,
+                5
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "Atlanta",
+            "fontSize": 30,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0,
+            "translucencyByDistance": [
+              150000,
+              1,
+              15000000,
+              0
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Scale label by distance",
+      "entities": [
+        {
+          "id": "label-scale-by-distance",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.1641667,
+            39.9522222,
+            0
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL",
+              "showBackground": false,
+              "backgroundColor": [
+                0.165,
+                0.165,
+                0.165,
+                0.8
+              ],
+              "backgroundPadding": [
+                7,
+                5
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "Philadelphia",
+            "fontSize": 30,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0,
+            "scaleByDistance": [
+              150,
+              2,
+              15000000,
+              0.5
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Set label with right-to-left language",
+      "entities": [
+        {
+          "id": "label-rtl",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.1641667,
+            39.9522222,
+            0
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL",
+              "showBackground": false,
+              "backgroundColor": [
+                0.165,
+                0.165,
+                0.165,
+                0.8
+              ],
+              "backgroundPadding": [
+                7,
+                5
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "Master (אדון): Hello\nתלמיד (student): שלום",
+            "fontSize": 30,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Animate Label",
+      "entities": [
+        {
+          "id": "label-animate",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.1641667,
+            39.9522222,
+            0
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL_AND_OUTLINE",
+              "showBackground": false,
+              "backgroundColor": [
+                0.165,
+                0.165,
+                0.165,
+                0.8
+              ],
+              "backgroundPadding": [
+                7,
+                5
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "Philadelphia",
+            "fontSize": 20,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    }
+  ],
+  "initial": 0
+}

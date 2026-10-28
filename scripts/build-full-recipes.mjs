@@ -1,6 +1,7 @@
 // Execute all statements of the fixed upstream recipes in a data-recording environment.
 // This is build-time extraction, not a CesiumJS runtime or a fallback renderer.
 import vm from 'node:vm';
+import {batch36Ids,extractBatch36} from './batch36-recipes.mjs';
 import {batch35Ids,extractBatch35} from './batch35-recipes.mjs';
 import {batch34Ids,extractBatch34} from './batch34-recipes.mjs';
 import {batch33Ids,extractBatch33} from './batch33-recipes.mjs';
@@ -20,11 +21,12 @@ import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 const root=new URL('../',import.meta.url);
 const catalog=JSON.parse(await fs.readFile(new URL('tests/sandcastle/catalog.json',root),'utf8'));
-export const ids=['box','cylinders-and-cones','plane','spheres-and-ellipsoids','czml-spheres-and-ellipsoids','czml-cones-and-cylinders','czml-box','wall','czml-wall','circles-and-ellipses','czml-circles-and-ellipses','czml-point',...primitiveIds,...batch22Ids,...batch23Ids,...batch24Ids,...batch25Ids,...batch26Ids,...batch28Ids,...batch29Ids,...batch30Ids,...batch31Ids,...batch32Ids,...batch33Ids,...batch34Ids,...batch35Ids];
+export const ids=['box','cylinders-and-cones','plane','spheres-and-ellipsoids','czml-spheres-and-ellipsoids','czml-cones-and-cylinders','czml-box','wall','czml-wall','circles-and-ellipses','czml-circles-and-ellipses','czml-point',...primitiveIds,...batch22Ids,...batch23Ids,...batch24Ids,...batch25Ids,...batch26Ids,...batch28Ids,...batch29Ids,...batch30Ids,...batch31Ids,...batch32Ids,...batch33Ids,...batch34Ids,...batch35Ids,...batch36Ids];
 export async function extract(id){
  const item=catalog.cases.find(c=>c.id===id);assert(item);
  const source=await fs.readFile(new URL(`tests/sandcastle/sources/${id}/main.js`,root),'utf8');
  const hash=crypto.createHash('sha256').update(source).digest('hex');assert.equal(hash,item.sourceSha256,'pinned source changed');
+ if(batch36Ids.includes(id))return extractBatch36(id,source,item,hash);
  if(batch35Ids.includes(id))return extractBatch35(id,source,item,hash);
  if(batch34Ids.includes(id))return extractBatch34(id,source,item,hash);
  if(batch33Ids.includes(id))return extractBatch33(id,source,item,hash);
@@ -80,7 +82,7 @@ export async function extract(id){
 if(process.argv[1]?.endsWith('build-full-recipes.mjs')){
  const manifest={schemaVersion:1,release:catalog.release,commit:catalog.commit,cases:[]};await fs.mkdir(new URL('tests/sandcastle/full/',root),{recursive:true});
  let previous;try{previous=JSON.parse(await fs.readFile(new URL('tests/sandcastle/full-recipes.json',root),'utf8'));}catch{}
- for(const id of ids){const {entities,czml,primitive,grouped,scene,variants,manifest:entry}=await extract(id);const data=JSON.stringify(entities,null,2)+'\n';const path=new URL(`tests/sandcastle/full/${id}.json`,root);const old=previous?.cases.find(c=>c.id===id);let same=false;try{same=await fs.readFile(path,'utf8')===data;}catch{}if(same&&old?.sourceSha256===entry.sourceSha256&&old?.validation){entry.validation=old.validation;entry.status=old.status;}
+ for(const id of ids){const {entities,czml,primitive,grouped,scene,variants,manifest:entry}=await extract(id);const data=JSON.stringify(entities,null,2)+'\n';const path=new URL(`tests/sandcastle/full/${id}.json`,root);const old=previous?.cases.find(c=>c?.id===id);let same=false;try{same=await fs.readFile(path,'utf8')===data;}catch{}if(same&&old?.sourceSha256===entry.sourceSha256&&old?.validation){entry.validation=old.validation;entry.status=old.status;}
  await fs.writeFile(path,data);if(czml)await fs.writeFile(new URL(`tests/sandcastle/full/${id}.czml`,root),JSON.stringify(czml,null,2)+'\n');if(primitive)await fs.writeFile(new URL(`tests/sandcastle/full/${id}.primitive.json`,root),JSON.stringify(primitive,null,2)+'\n');if(grouped)await fs.writeFile(new URL(`tests/sandcastle/full/${id}.groups.json`,root),JSON.stringify(grouped,null,2)+'\n');if(scene)await fs.writeFile(new URL(`tests/sandcastle/full/${id}.scene.json`,root),JSON.stringify(scene,null,2)+'\n');if(variants)await fs.writeFile(new URL(`tests/sandcastle/full/${id}.variants.json`,root),JSON.stringify(variants,null,2)+'\n');manifest.cases.push(entry);}
 
  await fs.writeFile(new URL('tests/sandcastle/full-recipes.json',root),JSON.stringify(manifest,null,2)+'\n');console.log(`Extracted ${manifest.cases.length} complete upstream recipe bodies with pinned SHA-256 and collection framing.`);

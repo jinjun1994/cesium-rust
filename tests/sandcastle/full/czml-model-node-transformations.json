@@ -1,0 +1,74 @@
+[
+  {
+    "id": "model",
+    "show": true,
+    "name": "",
+    "positionDegrees": [
+      -77,
+      37,
+      100000
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+      "scale": 1,
+      "minimumPixelSize": 0,
+      "runAnimations": false,
+      "nodeTransformations": {
+        "Skeleton_arm_joint_L__3_": {
+          "rotation": {
+            "epoch": "2015-01-01T12:00:00Z",
+            "unitQuaternion": [
+              0,
+              -0.23381920887303329,
+              -0.6909886782144156,
+              -0.0938384854833712,
+              0.6775378681547408,
+              10,
+              -0.4924076887347565,
+              -0.6304934596091216,
+              0.20657864059632378,
+              0.563327551886459,
+              20,
+              -0.23381920887303329,
+              -0.6909886782144156,
+              -0.0938384854833712,
+              0.6775378681547408
+            ]
+          }
+        },
+        "Skeleton_arm_joint_R__2_": {
+          "rotation": {
+            "unitQuaternion": [
+              -0.2840422631464792,
+              -0.40211904424847345,
+              0.25175867757399084,
+              0.7063888981321548
+            ]
+          }
+        }
+      }
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "viewFrom": [
+      4.3,
+      0.1,
+      2.6
+    ],
+    "properties": null
+  }
+]

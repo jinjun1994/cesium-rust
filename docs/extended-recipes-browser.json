@@ -1,17 +1,17 @@
 {
   "version": "0.0.29",
-  "wasmSha256": "817337f4325f2f205e0e8a79ce6fb567c33f066cbb627e5a236c5546c7e96b18",
+  "wasmSha256": "ba58b9cde90e4096aef7c4bee2e11f0242298d037216000c943a78de518fa67d",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "billboards",
+      "id": "labels",
       "status": "passed",
       "entities": 1,
-      "sourceSha256": "498250cd15171f0291c5d073e003f514ea7e472eb9876e56cbc41c7f6347b9b6",
-      "inputSha256": "511cba79168fc429b2ae11f9e8a5047d11b820f3be7a35e55df49afea1c6f94e",
-      "fixtureSha256": "db0f3cca43215a492b3da49af103c2c9a4ba15921d5f4989e2d344864f246e76",
+      "sourceSha256": "4c90da685d6de8936befe193fd9d49aa87b4d66e5b657da86d7012f2a2c0a2ce",
+      "inputSha256": "5b958201522332b8e38c0107ea92410bba1ea5c2ce7ff5c5faf82a945860a199",
+      "fixtureSha256": "a82d12e59b5c9003f430dcad14dde3b41884cfdcecef48c0c2b66668f777486b",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,22 +22,22 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "billboard-add"
+        "label-add"
       ],
       "pixelCounts": [
         {
-          "id": "billboard-add",
-          "pixels": 3662
+          "id": "label-add",
+          "pixels": 2307
         }
       ]
     },
     {
-      "id": "czml-model",
+      "id": "3d-models",
       "status": "passed",
       "entities": 1,
-      "sourceSha256": "a699c670b74a83f7b00f400978e655e91638b7790f94604bba21f72664b3d25c",
-      "inputSha256": "bbe318c092ef5f22df872d012c93277a04195e2e48074b2493e2182df4bbc6bb",
-      "fixtureSha256": "24a8a55a4fff6608902677af23e0d159f126c07087b9c7b9e9e8ea3290f25af3",
+      "sourceSha256": "f210da342742935daafb7b3c8aed7ed4d44112bc33f3d2dc1d942594c05c82dd",
+      "inputSha256": "357622fe68eff718bdce6c379e745d8f21e90a1604da67f6247e5a2d54df0ffd",
+      "fixtureSha256": "f07b9409ff356c7a92872e20609028b45674151bb9823c72b9cfa10fbee4a35e",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -51,22 +51,22 @@
         "play/pause/loop"
       ],
       "pickedEntities": [
-        "aircraft model"
+        "../../SampleData/models/CesiumAir/Cesium_Air.glb"
       ],
       "pixelCounts": [
         {
-          "id": "aircraft model",
-          "pixels": 84
+          "id": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+          "pixels": 30
         }
       ]
     },
     {
-      "id": "czml-model-data-url",
+      "id": "czml-model-node-transformations",
       "status": "passed",
       "entities": 1,
-      "sourceSha256": "68808333f11a00922a60517ee870e0ba25927bce928efdf628b0f589a019b010",
-      "inputSha256": "aa46845fb86cf0a96e1c5387671274fda31d64cf4b7149794233db8ac7c38d4f",
-      "fixtureSha256": "59a8f31b7fa277d93aed2d421ceed723eeec8877bbc613925ab52f9bab99a046",
+      "sourceSha256": "848cf0c1f10ca7c04e3c95273bb50a0f1f2323997ab8601512ca5352afdec4dc",
+      "inputSha256": "ff59fb7dddc92dccbd24c8eb711c3c174fabe0dd7d5fc831d03862d8cded27d2",
+      "fixtureSha256": "b7505bfcc60ac8ba41346f7c2bdc946eaf9c700f7553113f8d0c677c96e99a4f",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -80,86 +80,41 @@
         "play/pause/loop"
       ],
       "pickedEntities": [
-        "cube"
+        "model"
       ],
       "pixelCounts": [
         {
-          "id": "cube",
-          "pixels": 84
-        }
-      ]
-    },
-    {
-      "id": "callback-position-property",
-      "status": "passed",
-      "entities": 10,
-      "sourceSha256": "d5fadb8cec71ad6859701c1325dc28181b7d364fb79b53140c98b4899480e85f",
-      "inputSha256": "f657a8c39b4b712a104568067fbe7142f6ca5b2da6885ac47a49c17f785918da",
-      "fixtureSha256": "f657a8c39b4b712a104568067fbe7142f6ca5b2da6885ac47a49c17f785918da",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit",
-        "inferred clock",
-        "seek at all samples",
-        "play/pause/loop"
-      ],
-      "pickedEntities": [
-        "waypoint-0",
-        "waypoint-1",
-        "waypoint-2",
-        "waypoint-3",
-        "waypoint-4",
-        "waypoint-5",
-        "waypoint-6",
-        "waypoint-7",
-        "waypoint-8",
-        "drone"
-      ],
-      "pixelCounts": [
-        {
-          "id": "waypoint-0",
-          "pixels": 106
-        },
-        {
-          "id": "waypoint-1",
-          "pixels": 106
-        },
-        {
-          "id": "waypoint-2",
-          "pixels": 106
-        },
-        {
-          "id": "waypoint-3",
-          "pixels": 106
-        },
-        {
-          "id": "waypoint-4",
-          "pixels": 106
-        },
-        {
-          "id": "waypoint-5",
-          "pixels": 106
-        },
-        {
-          "id": "waypoint-6",
-          "pixels": 106
-        },
-        {
-          "id": "waypoint-7",
-          "pixels": 106
-        },
-        {
-          "id": "waypoint-8",
-          "pixels": 106
-        },
-        {
-          "id": "drone",
+          "id": "model",
           "pixels": 18
+        }
+      ]
+    },
+    {
+      "id": "czml-model-articulations",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "d705a00540eae61cbf6333fa43c6a1ef3d49cbdc0abcf8aa15bc7c0f32191a32",
+      "inputSha256": "9b2f22fc72700685e2032f04c53de01cee5906cad299746246e6d06844013f2b",
+      "fixtureSha256": "15bda363cfae99239491c9da1afa663bbed88b4356300dd32dc25726ecd3e139",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "test model"
+      ],
+      "pixelCounts": [
+        {
+          "id": "test model",
+          "pixels": 84
         }
       ]
     },
@@ -323,7 +278,7 @@
       ],
       "localTileRequests": 34,
       "externalRequests": 0,
-      "colors": 19883,
+      "colors": 19888,
       "assetsSha256": "f7dbc2e3295e40bbd1f08bfcc476efe0c5237acdb6df8e7410943c9b8de081e4"
     }
   ],

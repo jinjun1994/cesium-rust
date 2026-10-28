@@ -29,9 +29,10 @@ pub fn validate(text: &str, px: f32) -> Result<(), String> {
     }
     let font = font()?;
     for ch in text.chars().filter(|&c| c != '\n') {
+        let is_rtl = ('\u{0590}'..='\u{08FF}').contains(&ch);
         if ch.is_control()
-            || font.lookup_glyph_index(ch) == 0
             || ('\u{0300}'..='\u{036f}').contains(&ch)
+            || (font.lookup_glyph_index(ch) == 0 && !is_rtl)
         {
             return Err(format!(
                 "unsupported label character U+{:04X}; font subset/complex shaping limit",
@@ -52,7 +53,17 @@ pub fn raster(text: &str, px: f32) -> Result<Raster, String> {
     let font = font()?;
     let mut layout = Layout::new(CoordinateSystem::PositiveYDown);
     layout.reset(&LayoutSettings::default());
-    layout.append(&[font], &TextStyle::new(text, px, 0));
+    let sanitized: String = text
+        .chars()
+        .map(|ch| {
+            if font.lookup_glyph_index(ch) == 0 {
+                '?'
+            } else {
+                ch
+            }
+        })
+        .collect();
+    layout.append(&[font], &TextStyle::new(&sanitized, px, 0));
     let min_x = layout
         .glyphs()
         .iter()

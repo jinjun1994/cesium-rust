@@ -1,0 +1,445 @@
+{
+  "variants": [
+    {
+      "label": "Aircraft",
+      "entities": [
+        {
+          "id": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+          "show": true,
+          "name": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            5000
+          ],
+          "orientation": [
+            -0.24583746499641562,
+            -0.3031809562358025,
+            0.915695296185518,
+            -0.09564190046102714
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "maximumScale": 20000
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Drone",
+      "entities": [
+        {
+          "id": "../../SampleData/models/CesiumDrone/CesiumDrone.glb",
+          "show": true,
+          "name": "../../SampleData/models/CesiumDrone/CesiumDrone.glb",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            150
+          ],
+          "orientation": [
+            -0.24583746499641562,
+            -0.3031809562358025,
+            0.915695296185518,
+            -0.09564190046102714
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumDrone/CesiumDrone.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "maximumScale": 20000
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Ground Vehicle",
+      "entities": [
+        {
+          "id": "../../SampleData/models/GroundVehicle/GroundVehicle.glb",
+          "show": true,
+          "name": "../../SampleData/models/GroundVehicle/GroundVehicle.glb",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            0
+          ],
+          "orientation": [
+            -0.24583746499641562,
+            -0.3031809562358025,
+            0.915695296185518,
+            -0.09564190046102714
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/GroundVehicle/GroundVehicle.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "maximumScale": 20000
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Hot Air Balloon",
+      "entities": [
+        {
+          "id": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+          "show": true,
+          "name": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            1000
+          ],
+          "orientation": [
+            -0.24583746499641562,
+            -0.3031809562358025,
+            0.915695296185518,
+            -0.09564190046102714
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "maximumScale": 20000
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Milk Truck",
+      "entities": [
+        {
+          "id": "../../SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+          "show": true,
+          "name": "../../SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            0
+          ],
+          "orientation": [
+            -0.24583746499641562,
+            -0.3031809562358025,
+            0.915695296185518,
+            -0.09564190046102714
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "maximumScale": 20000
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Skinned Character",
+      "entities": [
+        {
+          "id": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+          "show": true,
+          "name": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            0
+          ],
+          "orientation": [
+            -0.24583746499641562,
+            -0.3031809562358025,
+            0.915695296185518,
+            -0.09564190046102714
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "maximumScale": 20000
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Unlit Box",
+      "entities": [
+        {
+          "id": "../../SampleData/models/BoxUnlit/BoxUnlit.gltf",
+          "show": true,
+          "name": "../../SampleData/models/BoxUnlit/BoxUnlit.gltf",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            10
+          ],
+          "orientation": [
+            -0.24583746499641562,
+            -0.3031809562358025,
+            0.915695296185518,
+            -0.09564190046102714
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/BoxUnlit/BoxUnlit.gltf",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "maximumScale": 20000
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Draco Compressed Model",
+      "entities": [
+        {
+          "id": "../../SampleData/models/DracoCompressed/CesiumMilkTruck.gltf",
+          "show": true,
+          "name": "../../SampleData/models/DracoCompressed/CesiumMilkTruck.gltf",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            0
+          ],
+          "orientation": [
+            -0.24583746499641562,
+            -0.3031809562358025,
+            0.915695296185518,
+            -0.09564190046102714
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/DracoCompressed/CesiumMilkTruck.gltf",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "maximumScale": 20000
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "KTX2 Compressed Balloon",
+      "entities": [
+        {
+          "id": "../../SampleData/models/CesiumBalloonKTX2/CesiumBalloonKTX2.glb",
+          "show": true,
+          "name": "../../SampleData/models/CesiumBalloonKTX2/CesiumBalloonKTX2.glb",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            1000
+          ],
+          "orientation": [
+            -0.24583746499641562,
+            -0.3031809562358025,
+            0.915695296185518,
+            -0.09564190046102714
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumBalloonKTX2/CesiumBalloonKTX2.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "maximumScale": 20000
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Instanced Box",
+      "entities": [
+        {
+          "id": "../../SampleData/models/BoxInstanced/BoxInstanced.gltf",
+          "show": true,
+          "name": "../../SampleData/models/BoxInstanced/BoxInstanced.gltf",
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            15
+          ],
+          "orientation": [
+            -0.24583746499641562,
+            -0.3031809562358025,
+            0.915695296185518,
+            -0.09564190046102714
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/BoxInstanced/BoxInstanced.gltf",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "maximumScale": 20000
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    }
+  ],
+  "initial": 0
+}

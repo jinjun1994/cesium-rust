@@ -313,6 +313,24 @@ pub enum Shape {
             rename = "maximumScale"
         )]
         maximum_scale: Option<f64>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "runAnimations"
+        )]
+        run_animations: Option<bool>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "nodeTransformations"
+        )]
+        node_transformations: Option<serde_json::Value>,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "articulations"
+        )]
+        articulations: Option<serde_json::Value>,
     },
 }
 #[derive(Clone, Debug, Deserialize, Serialize)]
@@ -371,6 +389,8 @@ pub struct Entity {
         rename = "distanceDisplayCondition"
     )]
     pub distance_display_condition: Option<[f64; 2]>,
+    #[serde(default, skip_serializing_if = "Option::is_none", rename = "viewFrom")]
+    pub view_from: Option<[f64; 3]>,
     #[serde(default)]
     pub properties: Value,
 }
@@ -1450,6 +1470,15 @@ fn geographic_packet(packet: &Value, key: &str) -> Result<Entity, String> {
             maximum_heights: height_list(g.get("maximumHeights"))?,
         },
     };
+    let view_from = if let Some(vf) = packet.get("viewFrom") {
+        if vf.is_object() && vf.get("cartesian").is_some() {
+            Some(triple(&vf["cartesian"])?)
+        } else {
+            Some(triple(vf)?)
+        }
+    } else {
+        None
+    };
     let z_index = g
         .get("zIndex")
         .map(number)
@@ -1499,6 +1528,7 @@ fn geographic_packet(packet: &Value, key: &str) -> Result<Entity, String> {
             .get("distanceDisplayCondition")
             .map(|v| crate::screen_options::array(v, "distanceDisplayCondition"))
             .transpose()?,
+        view_from,
         properties: packet.get("properties").cloned().unwrap_or(Value::Null),
     })
 }
@@ -1812,7 +1842,15 @@ fn decode_screen_or_model_packet(
             "height",
             "extrudedHeight",
         ],
-        "model" => vec!["gltf", "scale", "minimumPixelSize", "maximumScale"],
+        "model" => vec![
+            "gltf",
+            "scale",
+            "minimumPixelSize",
+            "maximumScale",
+            "runAnimations",
+            "nodeTransformations",
+            "articulations",
+        ],
         _ => vec!["length", "topRadius", "bottomRadius"],
     });
     known(g, &allowed)?;
@@ -1927,6 +1965,9 @@ fn decode_screen_or_model_packet(
                     .transpose()?
                     .unwrap_or(0.),
                 maximum_scale: g.get("maximumScale").map(number).transpose()?,
+                run_animations: g.get("runAnimations").map(boolean).transpose()?,
+                node_transformations: g.get("nodeTransformations").cloned(),
+                articulations: g.get("articulations").cloned(),
             }
         }
         _ => Shape::Cylinder {
@@ -1971,6 +2012,15 @@ fn decode_screen_or_model_packet(
             }
         } else {
             None
+        }
+    } else {
+        None
+    };
+    let view_from = if let Some(vf) = packet.get("viewFrom") {
+        if vf.is_object() && vf.get("cartesian").is_some() {
+            Some(triple(&vf["cartesian"])?)
+        } else {
+            Some(triple(vf)?)
         }
     } else {
         None
@@ -2034,6 +2084,7 @@ fn decode_screen_or_model_packet(
             .get("distanceDisplayCondition")
             .map(|v| crate::screen_options::array(v, "distanceDisplayCondition"))
             .transpose()?,
+        view_from,
         properties: packet.get("properties").cloned().unwrap_or(Value::Null),
     })
 }
@@ -2087,6 +2138,7 @@ pub fn czml(bytes: &[u8]) -> Result<(Vec<Entity>, crate::clock::Clock), String> 
                 "name",
                 "description",
                 "position",
+                "viewFrom",
                 "availability",
                 "box",
                 "ellipsoid",
@@ -2258,6 +2310,7 @@ mod tests {
             material: None,
             availability: None,
             distance_display_condition: None,
+            view_from: None,
             properties: Value::Null,
         };
         assert_eq!(e.position(5.).unwrap().y, 50.);
@@ -2548,6 +2601,7 @@ mod tests {
             scale,
             minimum_pixel_size,
             maximum_scale,
+            ..
         } = &entities[0].shape
         {
             assert_eq!(uri, "../../SampleData/models/CesiumAir/Cesium_Air.glb");
@@ -2594,5 +2648,152 @@ mod tests {
         assert_eq!(bb_entities.len(), 1);
         let prim = bb_entities[0].primitive().unwrap();
         assert_eq!(prim.vertices.len(), 4);
+    }
+
+    #[test]
+    fn batch36_labels_models_transformations_articulations() {
+        let czml_transformations = serde_json::json!([
+            {
+                "id": "document",
+                "name": "CZML Model",
+                "version": "1.0",
+                "clock": {
+                    "interval": "2015-01-01T12:00:00Z/2015-01-01T12:00:20Z",
+                    "currentTime": "2015-01-01T12:00:00Z",
+                    "multiplier": 20.0
+                }
+            },
+            {
+                "id": "model",
+                "position": {
+                    "cartographicDegrees": [-77.0, 37.0, 100000.0]
+                },
+                "viewFrom": {
+                    "cartesian": [4.3, 0.1, 2.6]
+                },
+                "model": {
+                    "gltf": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+                    "runAnimations": false,
+                    "nodeTransformations": {
+                        "Skeleton_arm_joint_L__3_": {
+                            "rotation": {
+                                "unitQuaternion": [0.0, 0.0, 0.0, 1.0]
+                            }
+                        }
+                    }
+                }
+            }
+        ]);
+        let raw = serde_json::to_vec(&czml_transformations).unwrap();
+        let (entities, clock) = czml(&raw).unwrap();
+        assert_eq!(entities.len(), 1);
+        assert_eq!(entities[0].id, "model");
+        assert_eq!(entities[0].view_from, Some([4.3, 0.1, 2.6]));
+        assert_eq!(clock.multiplier, 20.0);
+        if let Shape::Model {
+            uri,
+            run_animations,
+            node_transformations,
+            ..
+        } = &entities[0].shape
+        {
+            assert_eq!(uri, "../../SampleData/models/CesiumMan/Cesium_Man.glb");
+            assert_eq!(*run_animations, Some(false));
+            assert!(node_transformations.is_some());
+        } else {
+            panic!("expected Shape::Model");
+        }
+
+        let czml_articulations = serde_json::json!([
+            {
+                "id": "document",
+                "name": "CZML Model",
+                "version": "1.0",
+                "clock": {
+                    "interval": "2019-06-01T16:00:00Z/2019-06-01T16:10:00Z",
+                    "currentTime": "2019-06-01T16:00:00Z",
+                    "multiplier": 60.0,
+                    "range": "LOOP_STOP",
+                    "step": "SYSTEM_CLOCK_MULTIPLIER"
+                }
+            },
+            {
+                "id": "test model",
+                "name": "Cesium Air",
+                "position": {
+                    "cartographicDegrees": [-77.0, 37.0, 10000.0]
+                },
+                "model": {
+                    "gltf": "https://cesium.com/public/SandcastleSampleData/launchvehicle.glb",
+                    "scale": 2.0,
+                    "minimumPixelSize": 128.0,
+                    "runAnimations": false,
+                    "articulations": {
+                        "Fairing Open": {
+                            "epoch": "2019-06-01T16:00:00Z",
+                            "number": [0, 0, 600, 120]
+                        }
+                    }
+                }
+            }
+        ]);
+        let raw_art = serde_json::to_vec(&czml_articulations).unwrap();
+        let (art_entities, art_clock) = czml(&raw_art).unwrap();
+        assert_eq!(art_entities.len(), 1);
+        assert_eq!(art_entities[0].id, "test model");
+        assert_eq!(art_clock.range, crate::clock::Range::LoopStop);
+        if let Shape::Model {
+            scale,
+            minimum_pixel_size,
+            articulations,
+            ..
+        } = &art_entities[0].shape
+        {
+            assert_eq!(*scale, 2.0);
+            assert_eq!(*minimum_pixel_size, 128.0);
+            assert!(articulations.is_some());
+        } else {
+            panic!("expected Shape::Model");
+        }
+
+        // Verify Model entity orientation
+        let model_entity = Entity {
+            id: "oriented-model".into(),
+            show: true,
+            name: "test".into(),
+            position_degrees: Some([-123.0744619, 44.0503706, 5000.0]),
+            z_index: 0,
+            model_matrix: None,
+            orientation: Some([
+                0.0,
+                0.0,
+                std::f64::consts::FRAC_1_SQRT_2,
+                std::f64::consts::FRAC_1_SQRT_2,
+            ]),
+            surface_appearance: None,
+            samples: vec![],
+            shape: Shape::Model {
+                uri: "model.glb".into(),
+                scale: 1.0,
+                minimum_pixel_size: 128.0,
+                maximum_scale: Some(20000.0),
+                run_animations: None,
+                node_transformations: None,
+                articulations: None,
+            },
+            screen: Default::default(),
+            fill: true,
+            outline: false,
+            outline_color: outline_color(),
+            outline_width: 1.0,
+            color: color(),
+            material: None,
+            availability: None,
+            distance_display_condition: None,
+            view_from: None,
+            properties: Value::Null,
+        };
+        let m = model_entity.model(0.0).unwrap();
+        assert!(m.is_finite());
     }
 }

@@ -1,0 +1,41 @@
+[
+  {
+    "id": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+    "show": true,
+    "name": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+    "positionDegrees": [
+      -123.0744619,
+      44.0503706,
+      5000
+    ],
+    "orientation": [
+      -0.24583746499641562,
+      -0.3031809562358025,
+      0.915695296185518,
+      -0.09564190046102714
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "scale": 1,
+      "minimumPixelSize": 128,
+      "maximumScale": 20000
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  }
+]

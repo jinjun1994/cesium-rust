@@ -1,6 +1,6 @@
 {
   "version": "0.0.29",
-  "wasmSha256": "817337f4325f2f205e0e8a79ce6fb567c33f066cbb627e5a236c5546c7e96b18",
+  "wasmSha256": "ba58b9cde90e4096aef7c4bee2e11f0242298d037216000c943a78de518fa67d",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
   "externalImagery": "local deterministic 256x256 neutral raster",
@@ -741,6 +741,119 @@
         "primitive-0-instance-0",
         "primitive-0-instance-1",
         "primitive-0-instance-2"
+      ]
+    },
+    {
+      "id": "labels",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "4c90da685d6de8936befe193fd9d49aa87b4d66e5b657da86d7012f2a2c0a2ce",
+      "inputSha256": "5b958201522332b8e38c0107ea92410bba1ea5c2ce7ff5c5faf82a945860a199",
+      "fixtureSha256": "a82d12e59b5c9003f430dcad14dde3b41884cfdcecef48c0c2b66668f777486b",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "label-add"
+      ],
+      "pixelCounts": [
+        {
+          "id": "label-add",
+          "pixels": 2307
+        }
+      ]
+    },
+    {
+      "id": "3d-models",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "f210da342742935daafb7b3c8aed7ed4d44112bc33f3d2dc1d942594c05c82dd",
+      "inputSha256": "357622fe68eff718bdce6c379e745d8f21e90a1604da67f6247e5a2d54df0ffd",
+      "fixtureSha256": "f07b9409ff356c7a92872e20609028b45674151bb9823c72b9cfa10fbee4a35e",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "../../SampleData/models/CesiumAir/Cesium_Air.glb"
+      ],
+      "pixelCounts": [
+        {
+          "id": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+          "pixels": 30
+        }
+      ]
+    },
+    {
+      "id": "czml-model-node-transformations",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "848cf0c1f10ca7c04e3c95273bb50a0f1f2323997ab8601512ca5352afdec4dc",
+      "inputSha256": "ff59fb7dddc92dccbd24c8eb711c3c174fabe0dd7d5fc831d03862d8cded27d2",
+      "fixtureSha256": "b7505bfcc60ac8ba41346f7c2bdc946eaf9c700f7553113f8d0c677c96e99a4f",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "model"
+      ],
+      "pixelCounts": [
+        {
+          "id": "model",
+          "pixels": 18
+        }
+      ]
+    },
+    {
+      "id": "czml-model-articulations",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "d705a00540eae61cbf6333fa43c6a1ef3d49cbdc0abcf8aa15bc7c0f32191a32",
+      "inputSha256": "9b2f22fc72700685e2032f04c53de01cee5906cad299746246e6d06844013f2b",
+      "fixtureSha256": "15bda363cfae99239491c9da1afa663bbed88b4356300dd32dc25726ecd3e139",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "test model"
+      ],
+      "pixelCounts": [
+        {
+          "id": "test model",
+          "pixels": 84
+        }
       ]
     },
     {

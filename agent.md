@@ -4,7 +4,7 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.35（已通过 87 / 309 个完整案例，剩余 222 个）
+- **当前版本**：v0.0.36（已通过 91 / 309 个完整案例，剩余 218 个）
 
 ---
 
@@ -243,6 +243,36 @@
   - **代码规范**：`cargo fmt --check` 与 `cargo clippy -p cesium-viewer --all-targets` 零告警、零报错。
 - **文档晋升**：
   - 产出 [Billboards 样式变体、CZML 飞机与立方体模型、无人机样条轨迹回调验证文档](docs/billboards-czml-model-drone-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
+---
+
+### [2026-10-29] v0.0.36 验收完成：Labels 变体、3D Models 模型全集、CZML 骨骼节点变换与整流罩铰接动画体系全面打通
+- **完成配方**（累计推进至 **91 / 309**，剩余 218 个）：
+  1. `labels`（文字图元样式全集：8 种工具栏变体，涵盖基础文字、字体字号、多行属性、结合 Billboard 视距像素偏移、视距半透明淡出、视距缩放、希伯来语/RTL 双向多语言混排、文字实时动画）
+  2. `3d-models`（3D glTF 模型全集：10 种工具栏变体，涵盖 Aircraft 飞机、Drone 无人机、Ground Vehicle 地面车、Hot Air Balloon 热气球、Milk Truck 牛奶卡车、Skinned Character 蒙皮角色、Unlit Box 无光照盒子、Draco 压缩模型、KTX2 压缩气球、Instanced Box 实例化盒子，局部 ENU 朝向四元数及 `viewer.trackedEntity` 相机追踪）
+  3. `czml-model-node-transformations`（CZML 模型骨骼节点变换动画：CesiumMan 蒙皮角色、`viewFrom: [4.3, 0.1, 2.6]` 局部相机锁定、`nodeTransformations` 驱动 `Skeleton_arm_joint_L__3_` 与 `Skeleton_arm_joint_R__2_` 左右臂摆动时间四元数采样序列）
+  4. `czml-model-articulations`（CZML 运载火箭铰接动画：launchvehicle 火箭模型、`articulations` 驱动 `Fairing Open` 展开、`Fairing Separate` 分离与 `Fairing Drop` 下落 Lagrange 二次插值多阶段动画、时钟倍速 60x 循环）
+- **核心研发突破**：
+  1. **CZML 与 Model 图元动画/骨骼变换/铰接管道**（`crates/cesium-viewer/src/entities.rs`）：
+     - 为 `Shape::Model` 扩展可选字段 `run_animations: Option<bool>`、`node_transformations: Option<serde_json::Value>` 与 `articulations: Option<serde_json::Value>`。
+     - 为 `Entity` 引入 `view_from: Option<[f64; 3]>`，支持局部偏置视距锁定相机。
+     - 在 `decode_screen_or_model_packet` 与 CZML 数据包白名单中开放 `"runAnimations"`、`"nodeTransformations"`、`"articulations"` 与 `"viewFrom"`。
+  2. **RTL / 多语言文本 Unicode 安全与字形兜底机制**（`crates/cesium-viewer/src/label.rs`）：
+     - 扩展 `Label::validate()`，引入希伯来/阿拉伯 RTL 字符段放行规则（`\u{0590}..\u{08FF}`），在拦截危险 emoji 的同时安全放行官方 Sandcastle 希伯来语/英语双向混合标注文案。
+     - 扩展 `Label::raster()`，对内置精简矢量字体未映射的字符实施字形兜底置换（'?'），保证文本排版布局与图元度量安全稳定，杜绝恐慌崩溃。
+  3. **自动化测试与双端渲染验证**：
+     - 原生 GPU 测试集成 8 种 Labels 变体与 10 种 3D Models 变体循环渲染，输出全部 `docs/full-labels-variant-{1..7}-smoke.log` 与 `docs/full-3d-models-variant-{1..9}-smoke.log`。
+     - WebGPU 端到端沙盒集成 `fullNew64` ~ `fullNew67` 测试按钮，支持 `EXTENDED_ONLY=1 BATCH36_ONLY=1` 快速回归。
+- **验证结果**：
+  - **普通 Rust 单元测试**：97 / 97 项全部通过（新增 `batch36_labels_models_transformations_articulations`）。
+  - **真实 GPU 离屏渲染测试**：92 / 92 项全部通过（全套 118 项离屏像素反读与实体 ID 拾取）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 91 个固定案例哈希与实体结构精准契合）。
+  - **桌面 90 帧冒烟测试**：122 个配置（91 案例 + 31 变体）全部 90 帧 errors 0 稳定运行。
+  - **浏览器真实 WebGPU 端到端**：91 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`），包含实体像素反读、ID 拾取、显隐交互、鼠标滚轮缩放与窗口自适应验证。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy -p cesium-viewer --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Labels 变体、3D Models 模型全集、CZML 骨骼节点变换与整流罩铰接动画验证文档](docs/labels-3d-models-articulations-validation.md)。
   - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
 
 
