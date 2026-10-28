@@ -288,6 +288,35 @@ pub fn primitive(e: &Entity) -> Result<Option<Primitive>, String> {
                 line(v[a], v[b])?;
             }
         }
+        Shape::Model { scale, .. } => {
+            let d = DVec3::new(2.5, 4.5, 1.8) * (scale.max(0.1) * 0.5);
+            let v = [
+                DVec3::new(-d.x, -d.y, -d.z),
+                DVec3::new(d.x, -d.y, -d.z),
+                DVec3::new(d.x, d.y, -d.z),
+                DVec3::new(-d.x, d.y, -d.z),
+                DVec3::new(-d.x, -d.y, d.z),
+                DVec3::new(d.x, -d.y, d.z),
+                DVec3::new(d.x, d.y, d.z),
+                DVec3::new(-d.x, d.y, d.z),
+            ];
+            for [a, b] in [
+                [0, 1],
+                [1, 2],
+                [2, 3],
+                [3, 0],
+                [4, 5],
+                [5, 6],
+                [6, 7],
+                [7, 4],
+                [0, 4],
+                [1, 5],
+                [2, 6],
+                [3, 7],
+            ] {
+                line(v[a], v[b])?;
+            }
+        }
         Shape::Frustum {
             fov,
             aspect_ratio,

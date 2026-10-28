@@ -1,10 +1,10 @@
 {
-  "version": "0.0.32",
+  "version": "0.0.34",
   "newCompleteFunctionalCases": [
-    "polylines-dev",
-    "frustum-dev",
-    "parallels-and-meridians",
-    "polygon-texture-coordinates-dev"
+    "czml-polygon-interpolating-references",
+    "distance-display-conditions",
+    "callback-property",
+    "map-pins"
   ],
   "completeFunctionalCases": [
     "box",
@@ -81,16 +81,24 @@
     "polylines-dev",
     "frustum-dev",
     "parallels-and-meridians",
-    "polygon-texture-coordinates-dev"
+    "polygon-texture-coordinates-dev",
+    "czml-billboard-and-label",
+    "geometry-height-reference",
+    "czml-path",
+    "czml-reference-properties",
+    "czml-polygon-interpolating-references",
+    "distance-display-conditions",
+    "callback-property",
+    "map-pins"
   ],
-  "fullCasePassed": 75,
+  "fullCasePassed": 83,
   "catalogCases": 309,
-  "remainingFullCaseAcceptance": 234,
-  "ordinaryRustPassed": 126,
-  "realGpuPassed": 106,
+  "remainingFullCaseAcceptance": 226,
+  "ordinaryRustPassed": 97,
+  "realGpuPassed": 114,
   "nodeSuitesPassed": 8,
-  "browserFullCasePassed": 75,
-  "native90FrameCasesPassed": 75,
+  "browserFullCasePassed": 83,
+  "native90FrameCasesPassed": 83,
   "nativeBuild": "passed",
   "wasmBuildAndBindings": "passed",
   "fmt": "passed",
@@ -99,7 +107,7 @@
   "browserImagery": "local deterministic 256x256 neutral raster",
   "pixelExactCesiumComparison": "not-claimed",
   "defaultBrowserBackendDeviceLoss": "unresolved",
-  "evidence": "docs/polylines-frustum-polygon-validation.md",
+  "evidence": "docs/czml-interpolating-polygon-distance-pins-validation.md",
   "wasmSha256": "d72f46006408e65654de676313e13542e121abd2ad7e0ca24552b17f819a0c92",
   "webSceneNativeScope": "For HTML Overlays, Resolution Scaling and Hello World native smoke exercises shared globe/projection; HTML DOM and browser resolution controls verified in Chromium, not implemented as native HTML widgets.",
   "browserVersion": "155.0.8059.39",
@@ -124,7 +132,7 @@
     },
     "globePixels": 822
   },
-  "native90FrameConfigurationsPassed": 80,
+  "native90FrameConfigurationsPassed": 88,
   "independentCoplanarReference": "20 source vertices: world position <0.1m, ST <1e-5; exact pinned core source hashes",
   "offlineValidation": {
     "localTileRequests": 34,

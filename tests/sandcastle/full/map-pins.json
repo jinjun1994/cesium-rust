@@ -1,0 +1,170 @@
+[
+  {
+    "id": "bluePin",
+    "show": true,
+    "name": "Blank blue pin",
+    "positionDegrees": [
+      -75.170726,
+      39.9208667,
+      0
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABSElEQVR4nO1ZyxXCMAwrPOaAMTjDNjAQbAPnjgGLwLUvr/5F8gst0bWNI1lu4qTD0NEWm4ygp8vrIz173g/UOWnBNNISGGLgADXESyBCtsjEDPJonCrlLOJziLoRdiCTfE38XQaJx20/Ss/O1/eROVfILis7GvESlhBvKblLiEne8763lKBVyEuGPW4KlwAtGygJbbzHBcgBRgbROJQSaglTgGQjK/tWPKuM1u/Ar6MLaI0uoDVMAVJTxe4qpXhWU7d+BzSwXEDiuARoNqIitPGeMwGlhGpFMBx0C7CyESXDOpGFbyU8PTp6Jo7cTKQc6tlLrIbwN8C+20TjQ2SYd0S1iYFWIZYbze5G0ckZ4yn7QC0JhoP/3QtNEc0m6/vpDkzhzSpzL+kOlLCyy97JuwNzkLKc0Ud1BySU2c7qYhfvQDqyf8suHl+fcpEZxMNAjwAAAABJRU5ErkJggg==",
+      "width": 48,
+      "height": 48,
+      "scale": 1,
+      "pixelOffset": [
+        0,
+        0
+      ]
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "BOTTOM",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  },
+  {
+    "id": "questionPin",
+    "show": true,
+    "name": "Question mark",
+    "positionDegrees": [
+      -75.1698529,
+      39.9220071,
+      0
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABS0lEQVR4nO1ZQRKDIAyETt+hz+j/j32GfoReHWpIwm4GbdmrGja7AQKmNDEWOSLosixFerbvO3VMWrAWaQmMZOAAPcRrIIk8kIEZ5NE4XZmziJ/B64bbgUjyPfGfESS2bXtLz9Z1fTHHctmlqdMiXkNLxFpK5hJikre8by0laBWykmF/d4TJppYaEomc81eJlFJO322Vk1ZKkAMMBdE4lBIaCTUBqXxY6mvxtMn8+w5cHTOB0ZgJjIaagLQTsrtKKV7oTnwFQAmwXEDimM8DPQ2dBUgjlxKphHoVZDhoTkBTw0uGdSJz30pYTkromdhzMxFyqGcvsS245wD7bhOND5Fh3hH1CgOtQiw3ht2NooMzvqfsA70kGA7+dy90hFdN1vyZDhxhVZW5l0wHamjqsnfy6cAZJJUj+qjpgIRa7agu9vYOhCP6t+zt8QGr5KNjVrhvRwAAAABJRU5ErkJggg==",
+      "width": 48,
+      "height": 48,
+      "scale": 1,
+      "pixelOffset": [
+        0,
+        0
+      ]
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "BOTTOM",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  },
+  {
+    "id": "groceryPin",
+    "show": true,
+    "name": "Grocery store",
+    "positionDegrees": [
+      -75.1705217,
+      39.921786,
+      0
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABT0lEQVR4nO1Z0RXCIAwEn5O0Q7iYTqGLOUS7Cv72YUMScnm0mvttGy53AQJNKTAW2SPo9JwK9Wx9rNAxYcFapCkgkjEH6CFew5LIxTIwgrw1TlfmKOJ70LqhdsCTfE/8qweJ5b68qWfza74hx1LZxanTIl6DS0RaSuISQpKXvC8tJdMqJCWD/m4LkU0tNSgSOeevEiml7L7bKieulEwOIBS0xoGU0EiwCVDlg1Kfi8dN5t934OiIBEYjEhgNNgFqJ0R3lVQ81534CDAlgHLBEkd8Huhp6CSwNHIpgUqoV0GEg+IEODW0ZFAnMvWthOSkZD0Ta24mXA716CW2BfUcQN9tWuObyCDviHqFMa1CKDeG3Y1aB0d8D9kHekkgHPzvXmgLrZqo+RMObCFVFbmXhAM1OHXRO3k4sAdKZY8+KhygUKvt1cWe3gF3eP+WPT0++Eyd566XbqYAAAAASUVORK5CYII=",
+      "width": 48,
+      "height": 48,
+      "scale": 1,
+      "pixelOffset": [
+        0,
+        0
+      ]
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "BOTTOM",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  },
+  {
+    "id": "hospitalPin",
+    "show": true,
+    "name": "Hospital",
+    "positionDegrees": [
+      -75.1698606,
+      39.9211275,
+      0
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABU0lEQVR4nO1ZyxXCIBAEnyVoBdqDF61eL/agFWgPeM3DLPubfSTKXJMsszMLLCSlgb7IEUEfu3Ohnh3fN+iYsGAt0hQQybgDWIjX8CSy8QyMIO+NY8ocRXwOWjfUDkSSt8TfRpA4vK536tlzfzkhx1LZxanTIl6DS0RaSuISQpKXvC8tJdcqJCWD/m4KkU0tNSgSOeevEimlzL7bKieulFwOIBT0xoGUUE+wCVDlg1Kfi8dN5t93YOkYCfTGSKA32ASonRDdVVLxQnfiJcCVAMoFTxzxecDS0EngaeRSApWQVUGEg+IEODW0ZFAnMvWthOSk5D0Ta24mQg716CW2BfUcQN9teuO7yCDviKzCuFYhlBvd7ka9gyO+h+wDVhIIB/+7F5pCqyZq/gwHppCqitxLhgM1OHXRO/lwYA6UyhF91HCAQq12VBe7egfCEf1bdvX4AHxXmYtHRCGaAAAAAElFTkSuQmCC",
+      "width": 48,
+      "height": 48,
+      "scale": 1,
+      "pixelOffset": [
+        0,
+        0
+      ]
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "BOTTOM",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  }
+]

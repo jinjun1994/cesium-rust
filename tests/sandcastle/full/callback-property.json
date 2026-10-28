@@ -1,0 +1,109 @@
+[
+  {
+    "id": "redLine",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -120,
+            35,
+            0
+          ],
+          [
+            -119.9,
+            35,
+            0
+          ]
+        ],
+        "width": 5,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      0,
+      0,
+      1
+    ],
+    "properties": null
+  },
+  {
+    "id": "lengthLabel",
+    "show": true,
+    "name": "",
+    "positionDegrees": [
+      -119.95,
+      35,
+      0
+    ],
+    "shape": {
+      "type": "label",
+      "appearance": {
+        "style": "FILL",
+        "showBackground": false,
+        "backgroundColor": [
+          0.165,
+          0.165,
+          0.165,
+          0.8
+        ],
+        "backgroundPadding": [
+          7,
+          5
+        ],
+        "outlineColor": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "outlineWidth": 1
+      },
+      "text": "9.1 km",
+      "fontSize": 20,
+      "scale": 1,
+      "pixelOffset": [
+        0,
+        20
+      ]
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": null
+  }
+]

@@ -1,0 +1,129 @@
+[
+  {
+    "id": "dynamicPolygon",
+    "show": true,
+    "name": "Dynamic Polygon with Reference Properties",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygonSurface",
+      "data": {
+        "hierarchy": {
+          "positions": [
+            [
+              -60,
+              35,
+              30000
+            ],
+            [
+              -45,
+              20,
+              4000000
+            ],
+            [
+              -45,
+              60,
+              4000
+            ]
+          ],
+          "holes": []
+        },
+        "textureCoordinates": null,
+        "height": 0,
+        "perPositionHeight": true,
+        "extrudedHeight": null,
+        "closeTop": true,
+        "closeBottom": true,
+        "coplanar": false,
+        "arcType": "GEODESIC",
+        "stRotation": 0
+      }
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      0,
+      1,
+      1
+    ],
+    "availability": [
+      1344096000,
+      1344099600
+    ],
+    "properties": null
+  },
+  {
+    "id": "Polygon with Dynamic Holes",
+    "show": true,
+    "name": "",
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          -110,
+          43,
+          0
+        ],
+        [
+          -90,
+          43,
+          0
+        ],
+        [
+          -90,
+          30,
+          0
+        ],
+        [
+          -110,
+          30,
+          0
+        ]
+      ],
+      "holes": [
+        [
+          [
+            -100,
+            41,
+            0
+          ],
+          [
+            -92,
+            42,
+            0
+          ],
+          [
+            -95,
+            37,
+            0
+          ]
+        ]
+      ],
+      "extrudedHeight": null
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      0.5882352941176471,
+      0,
+      1
+    ],
+    "properties": null
+  }
+]

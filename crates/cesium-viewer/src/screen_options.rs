@@ -54,24 +54,24 @@ impl ScreenOptions {
         self.distance().validate().map_err(|e| e.to_string())
     }
 }
-pub fn czml(g: &Value) -> Result<ScreenOptions, String> {
-    fn array<const N: usize>(v: &Value, key: &str) -> Result<[f64; N], String> {
-        let a = if v.is_object() {
-            super::entities::known(v, &[key])?;
-            v[key].as_array()
-        } else {
-            v.as_array()
-        }
-        .ok_or("constant distance array required")?;
-        if a.len() != N {
-            return Err("distance array length".into());
-        }
-        let mut out = [0.; N];
-        for (i, x) in a.iter().enumerate() {
-            out[i] = super::entities::number(x)?;
-        }
-        Ok(out)
+pub(crate) fn array<const N: usize>(v: &Value, key: &str) -> Result<[f64; N], String> {
+    let a = if v.is_object() {
+        super::entities::known(v, &[key])?;
+        v[key].as_array()
+    } else {
+        v.as_array()
     }
+    .ok_or("constant distance array required")?;
+    if a.len() != N {
+        return Err("distance array length".into());
+    }
+    let mut out = [0.; N];
+    for (i, x) in a.iter().enumerate() {
+        out[i] = super::entities::number(x)?;
+    }
+    Ok(out)
+}
+pub fn czml(g: &Value) -> Result<ScreenOptions, String> {
     let enum_value = |v: &Value, key: &str| -> Result<Value, String> {
         if v.is_object() {
             super::entities::known(v, &[key])?;

@@ -301,6 +301,19 @@ pub enum Shape {
         #[serde(default, rename = "cornerType")]
         corner_type: CornerType,
     },
+    Model {
+        uri: String,
+        #[serde(default = "unit_scale")]
+        scale: f64,
+        #[serde(default, rename = "minimumPixelSize")]
+        minimum_pixel_size: f64,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            rename = "maximumScale"
+        )]
+        maximum_scale: Option<f64>,
+    },
 }
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(deny_unknown_fields, rename_all = "camelCase")]
@@ -352,6 +365,12 @@ pub struct Entity {
     pub material: Option<crate::entity_material::SurfaceMaterial>,
     #[serde(default)]
     pub availability: Option<[f64; 2]>,
+    #[serde(
+        default,
+        skip_serializing_if = "Option::is_none",
+        rename = "distanceDisplayCondition"
+    )]
+    pub distance_display_condition: Option<[f64; 2]>,
     #[serde(default)]
     pub properties: Value,
 }
@@ -558,6 +577,13 @@ impl Entity {
         {
             return Err("availability interval".into());
         }
+        if let Some(ddc) = self.distance_display_condition {
+            if !ddc[0].is_finite() || !ddc[1].is_finite() || ddc[0] < 0. || ddc[0] > ddc[1] {
+                return Err(
+                    "valid distanceDisplayCondition [near, far] with near <= far required".into(),
+                );
+            }
+        }
         let positive = |x: f64| x.is_finite() && (0.0..=1e6).contains(&x) && x > 0.;
         let valid = match self.shape {
             Shape::Box { dimensions, .. } => dimensions.into_iter().all(positive),
@@ -650,6 +676,16 @@ impl Entity {
                         p.iter().all(|v| v.is_finite()) && p[0].abs() <= 1e7 && p[1].abs() <= 1e7
                     })
             }
+            Shape::Model {
+                scale,
+                minimum_pixel_size,
+                ..
+            } => {
+                scale.is_finite()
+                    && scale > 0.
+                    && minimum_pixel_size.is_finite()
+                    && minimum_pixel_size >= 0.
+            }
             _ => true,
         };
         if !valid {
@@ -722,6 +758,30 @@ impl Entity {
         match self.shape {
             Shape::Box { dimensions, .. } => {
                 let d = DVec3::from_array(dimensions) * 0.5;
+                let v = [
+                    DVec3::new(-d.x, -d.y, -d.z),
+                    DVec3::new(d.x, -d.y, -d.z),
+                    DVec3::new(d.x, d.y, -d.z),
+                    DVec3::new(-d.x, d.y, -d.z),
+                    DVec3::new(-d.x, -d.y, d.z),
+                    DVec3::new(d.x, -d.y, d.z),
+                    DVec3::new(d.x, d.y, d.z),
+                    DVec3::new(-d.x, d.y, d.z),
+                ];
+                for [a, b, c, d] in [
+                    [0, 3, 2, 1],
+                    [4, 5, 6, 7],
+                    [0, 1, 5, 4],
+                    [1, 2, 6, 5],
+                    [2, 3, 7, 6],
+                    [3, 0, 4, 7],
+                ] {
+                    triangle(v[a], v[b], v[c]);
+                    triangle(v[a], v[c], v[d]);
+                }
+            }
+            Shape::Model { scale, .. } => {
+                let d = DVec3::new(2.5, 4.5, 1.8) * (scale.max(0.1) * 0.5);
                 let v = [
                     DVec3::new(-d.x, -d.y, -d.z),
                     DVec3::new(d.x, -d.y, -d.z),
@@ -1433,6 +1493,10 @@ fn geographic_packet(packet: &Value, key: &str) -> Result<Entity, String> {
             .get("availability")
             .map(|v| interval(v.as_str().ok_or("availability ISO interval")?))
             .transpose()?,
+        distance_display_condition: g
+            .get("distanceDisplayCondition")
+            .map(|v| crate::screen_options::array(v, "distanceDisplayCondition"))
+            .transpose()?,
         properties: packet.get("properties").cloned().unwrap_or(Value::Null),
     })
 }
@@ -1455,6 +1519,52 @@ fn dereference_czml_packets(packets: &mut [Value]) -> Result<(), String> {
         if let Some(id) = p.get("id").and_then(|v| v.as_str()) {
             lookup.insert(id.to_string(), p.clone());
         }
+    }
+
+    fn extract_cartographic_from_prop(prop: &Value) -> Result<[f64; 3], String> {
+        let prop = if let Some(arr) = prop.as_array() {
+            arr.first()
+                .ok_or("empty reference property interval array")?
+        } else {
+            prop
+        };
+        if let Some(deg) = prop.get("cartographicDegrees") {
+            let deg = if let Some(arr) = deg
+                .as_array()
+                .and_then(|a| a.first())
+                .and_then(|f| f.get("cartographicDegrees"))
+            {
+                arr.as_array().ok_or("nested degrees array")?
+            } else {
+                deg.as_array().ok_or("degrees array")?
+            };
+            if deg.len() == 3 {
+                return Ok([number(&deg[0])?, number(&deg[1])?, number(&deg[2])?]);
+            } else if deg.len() >= 4 && deg.len().is_multiple_of(4) {
+                return Ok([number(&deg[1])?, number(&deg[2])?, number(&deg[3])?]);
+            }
+        }
+        if let Some(cart) = prop.get("cartesian") {
+            let cart = if let Some(arr) = cart
+                .as_array()
+                .and_then(|a| a.first())
+                .and_then(|f| f.get("cartesian"))
+            {
+                arr.as_array().ok_or("nested cartesian array")?
+            } else {
+                cart.as_array().ok_or("cartesian array")?
+            };
+            if cart.len() == 3 {
+                let p = [number(&cart[0])?, number(&cart[1])?, number(&cart[2])?];
+                let c = Cartographic::from_ecef(DVec3::from_array(p)).map_err(|e| e.to_string())?;
+                return Ok([c.longitude.to_degrees(), c.latitude.to_degrees(), c.height]);
+            } else if cart.len() >= 4 && cart.len().is_multiple_of(4) {
+                let p = [number(&cart[1])?, number(&cart[2])?, number(&cart[3])?];
+                let c = Cartographic::from_ecef(DVec3::from_array(p)).map_err(|e| e.to_string())?;
+                return Ok([c.longitude.to_degrees(), c.latitude.to_degrees(), c.height]);
+            }
+        }
+        Err("unsupported position reference format".into())
     }
 
     fn resolve_node(
@@ -1483,6 +1593,58 @@ fn dereference_czml_packets(packets: &mut [Value]) -> Result<(), String> {
                 resolve_node(&mut resolved, lookup, depth + 1)?;
                 *v = resolved;
                 return Ok(());
+            } else if let Some(refs) = map.get("references").and_then(|r| r.as_array()) {
+                if !refs.is_empty() && refs.iter().all(|r| r.is_string()) {
+                    let mut coords = Vec::new();
+                    for r in refs {
+                        let ref_str = r.as_str().unwrap();
+                        let (target_id, prop_path) = ref_str
+                            .split_once('#')
+                            .ok_or_else(|| format!("invalid CZML reference syntax '{ref_str}'"))?;
+                        let target = lookup.get(target_id).ok_or_else(|| {
+                            format!("CZML reference target '{target_id}' not found")
+                        })?;
+                        let mut current = target;
+                        for part in prop_path.split('.') {
+                            current = current.get(part).ok_or_else(|| {
+                                format!("CZML reference property '{part}' in '{ref_str}' not found")
+                            })?;
+                        }
+                        let pt = extract_cartographic_from_prop(current)?;
+                        coords.extend_from_slice(&pt);
+                    }
+                    *v = serde_json::json!({ "cartographicDegrees": coords });
+                    return Ok(());
+                } else if !refs.is_empty() && refs.iter().all(|r| r.is_array()) {
+                    let mut hole_coords = Vec::new();
+                    for hole in refs {
+                        let hole_arr = hole.as_array().unwrap();
+                        let mut coords = Vec::new();
+                        for r in hole_arr {
+                            let ref_str = r.as_str().ok_or("reference string in hole required")?;
+                            let (target_id, prop_path) =
+                                ref_str.split_once('#').ok_or_else(|| {
+                                    format!("invalid CZML reference syntax '{ref_str}'")
+                                })?;
+                            let target = lookup.get(target_id).ok_or_else(|| {
+                                format!("CZML reference target '{target_id}' not found")
+                            })?;
+                            let mut current = target;
+                            for part in prop_path.split('.') {
+                                current = current.get(part).ok_or_else(|| {
+                                    format!(
+                                        "CZML reference property '{part}' in '{ref_str}' not found"
+                                    )
+                                })?;
+                            }
+                            let pt = extract_cartographic_from_prop(current)?;
+                            coords.extend_from_slice(&pt);
+                        }
+                        hole_coords.push(coords);
+                    }
+                    *v = serde_json::json!({ "cartographicDegrees": hole_coords });
+                    return Ok(());
+                }
             }
             for val in map.values_mut() {
                 resolve_node(val, lookup, depth)?;
@@ -1844,6 +2006,10 @@ fn decode_screen_or_model_packet(
             .get("availability")
             .map(|v| interval(v.as_str().ok_or("availability ISO interval")?))
             .transpose()?,
+        distance_display_condition: g
+            .get("distanceDisplayCondition")
+            .map(|v| crate::screen_options::array(v, "distanceDisplayCondition"))
+            .transpose()?,
         properties: packet.get("properties").cloned().unwrap_or(Value::Null),
     })
 }
@@ -2065,6 +2231,7 @@ mod tests {
             color: color(),
             material: None,
             availability: None,
+            distance_display_condition: None,
             properties: Value::Null,
         };
         assert_eq!(e.position(5.).unwrap().y, 50.);

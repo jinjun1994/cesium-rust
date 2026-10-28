@@ -1,0 +1,196 @@
+{
+  "variants": [
+    {
+      "label": "Billboard and Primitive",
+      "entities": [
+        {
+          "id": "distance-billboard",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -77,
+            40.5,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEVAQEDAwMDAoAD///+gYADAgACgoKSAYADgwAD///8AAAAAAAAAAAAAAAAAAAAAAAC6opgsAAAACnRSTlP///////////8AsswszwAAAH1JREFUeJw9xiEOwjAYhuF33/6KyQVPlh6AjOwWqBoOgMKScJo6LI5rIAg3IE0WFIK5CpIVQ3jUU0XygQgiH4d2D8R6WKx3TTRI3eoClnvSwxWMxPL5CRjdnHAgZt5TAKG7LydQc/O4zZkKD2N4XaV621MMIWACQUsBxM8/X+GkICjYO7GLAAAAAElFTkSuQmCC",
+            "width": 64,
+            "height": 64,
+            "scale": 1,
+            "pixelOffset": [
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "distanceDisplayCondition": [
+              0,
+              5500000
+            ],
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "distanceDisplayCondition": [
+            0,
+            5500000
+          ],
+          "properties": null
+        },
+        {
+          "id": "distance-rectangle",
+          "show": true,
+          "name": "",
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -80.5,
+              39.7,
+              -75.1,
+              42
+            ],
+            "height": 0,
+            "extrudedHeight": null,
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            0,
+            0,
+            0.5
+          ],
+          "distanceDisplayCondition": [
+            0,
+            5500000
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Point and Model",
+      "entities": [
+        {
+          "id": "distance-point",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "distanceDisplayCondition": [
+              0,
+              250.5
+            ],
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "distanceDisplayCondition": [
+            0,
+            250.5
+          ],
+          "properties": null
+        },
+        {
+          "id": "distance-model",
+          "show": true,
+          "name": "",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "orientation": [
+            0,
+            0,
+            0.9238795325112867,
+            0.38268343236508984
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/GroundVehicle/GroundVehicle.glb",
+            "scale": 1,
+            "minimumPixelSize": 0,
+            "maximumScale": null
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "distanceDisplayCondition": [
+            0,
+            250.5
+          ],
+          "properties": null
+        }
+      ]
+    }
+  ],
+  "initial": 0
+}

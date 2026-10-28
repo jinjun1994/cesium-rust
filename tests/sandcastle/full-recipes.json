@@ -2229,6 +2229,120 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "czml-polygon-interpolating-references",
+      "title": "CZML Polygon - Interpolating References",
+      "sourceSha256": "312b5fdd41a41e69756777df285079f8b461c92c7f8223872458c17de7e13dac",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml-polygon-interpolating-references",
+      "format": "czml",
+      "path": "../../tests/sandcastle/full/czml-polygon-interpolating-references.czml",
+      "expectedPath": "../../tests/sandcastle/full/czml-polygon-interpolating-references.json",
+      "entityCount": 2,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "requirements": [
+        "CZML positions references array resolving vertex coordinates",
+        "nested holes references array resolving dynamic inner boundary",
+        "perPositionHeight true on dynamic polygon surface",
+        "interval-based rgbaf material color transitions"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "distance-display-conditions",
+      "title": "Distance Display Conditions",
+      "sourceSha256": "ba831085ce17cf35e442c2a61d1bf3189079ac7a811b06ded0595816194b7c8b",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=distance-display-conditions",
+      "format": "variants",
+      "variantCount": 2,
+      "path": "../../tests/sandcastle/full/distance-display-conditions.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/distance-display-conditions.json",
+      "entityCount": 2,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "Sandcastle toolbar menu with Billboard and Primitive and Point and Model variants",
+        "distanceDisplayCondition near/far distance clipping range on billboard and rectangle",
+        "distanceDisplayCondition near/far distance clipping range on point and 3D model",
+        "Transforms.headingPitchRollQuaternion orientation on GroundVehicle entity"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "callback-property",
+      "title": "Callback Property",
+      "sourceSha256": "376f06c58cfa68cb493f96791796c0d010da5e9de9ee490cd5263ea07d050414",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=callback-property",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/callback-property.json",
+      "expectedPath": "../../tests/sandcastle/full/callback-property.json",
+      "entityCount": 2,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "trackedEntity": "lengthLabel",
+      "requirements": [
+        "CallbackProperty dynamic positions on wide polyline",
+        "EllipsoidGeodesic surfaceDistance length calculation in km",
+        "CallbackProperty midpoint position and dynamic text on label",
+        "viewer.trackedEntity tracking the moving length label"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "map-pins",
+      "title": "Map Pins",
+      "sourceSha256": "f0bdd92952c8b10e816010c31734927a33ca13ebd8268b033182f4712d6f89e4",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=map-pins",
+      "format": "entities",
+      "path": "../../tests/sandcastle/full/map-pins.json",
+      "expectedPath": "../../tests/sandcastle/full/map-pins.json",
+      "entityCount": 4,
+      "framing": "zoomToEntities",
+      "requirements": [
+        "PinBuilder.fromColor royal blue 48px pin",
+        "PinBuilder.fromText question mark 48px pin",
+        "PinBuilder.fromUrl grocery icon 48px pin",
+        "PinBuilder.fromMakiIconId hospital icon 48px pin",
+        "VerticalOrigin.BOTTOM bottom-anchored pin tips",
+        "Promise.all asynchronous pin loading and viewer.zoomTo framing"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

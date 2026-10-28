@@ -585,6 +585,9 @@ async fn verify_extended(id: &str, data: &[u8]) {
         "z-indexing-geometry",
         "parallels-and-meridians",
         "geometry-height-reference",
+        "distance-display-conditions",
+        "callback-property",
+        "map-pins",
     ]
     .contains(&id)
     {
@@ -1480,5 +1483,77 @@ fn complete_czml_reference_properties() {
     pollster::block_on(verify_extended(
         "czml-reference-properties",
         include_bytes!("../../../tests/sandcastle/full/czml-reference-properties.czml"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_czml_polygon_interpolating_references() {
+    pollster::block_on(verify_extended(
+        "czml-polygon-interpolating-references",
+        include_bytes!("../../../tests/sandcastle/full/czml-polygon-interpolating-references.czml"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_distance_display_conditions() {
+    pollster::block_on(async {
+        verify_extended(
+            "distance-display-conditions",
+            include_bytes!("../../../tests/sandcastle/full/distance-display-conditions.json"),
+        )
+        .await;
+        let raw = include_bytes!(
+            "../../../tests/sandcastle/full/distance-display-conditions.variants.json"
+        );
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-distance-display-conditions-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_callback_property() {
+    pollster::block_on(verify_extended(
+        "callback-property",
+        include_bytes!("../../../tests/sandcastle/full/callback-property.json"),
+    ));
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_map_pins() {
+    pollster::block_on(verify_extended(
+        "map-pins",
+        include_bytes!("../../../tests/sandcastle/full/map-pins.json"),
     ));
 }

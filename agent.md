@@ -4,7 +4,7 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.33（已通过 79 / 309 个完整案例，剩余 230 个）
+- **当前版本**：v0.0.34（已通过 83 / 309 个完整案例，剩余 226 个）
 
 ---
 
@@ -188,21 +188,34 @@
 
 ---
 
-### [2026-10-29] v0.0.34 批次启动：CZML 动态插值多边形、距离显示条件、回调属性与地图图钉攻坚
-- **目标配方**（累计推进至 **83 / 309**，剩余 226 个）：
-  1. `czml-polygon-interpolating-references`（CZML 动态插值引用多边形：`references` 数组引用时间动态采样的顶点 `v1#position`、`v2#position`、`v3#position`，动态嵌套内孔 `holes.references`，随时间区间变化的 `rgbaf` 材质）
+### [2026-10-29] v0.0.34 验收完成：CZML 动态插值多边形、距离显示条件、回调属性与地图图钉体系全面打通
+- **完成配方**（累计推进至 **83 / 309**，剩余 226 个）：
+  1. `czml-polygon-interpolating-references`（CZML 动态插值引用多边形：`references` 数组引用采样坐标 `v1#position`、`v2#position`、`v3#position`，嵌套内孔 `holes.references`，`perPositionHeight: true` 覆盖 4000km 轨道空间，随时间区间变化的 `rgbaf` 材质）
   2. `distance-display-conditions`（实体距离显示条件：`DistanceDisplayCondition` 在 Billboard、Rectangle、Point 与 Model 上的可见距离阈值近远裁剪控制，双变体工具栏切换）
-  3. `callback-property`（实体回调动态属性：`CallbackProperty` 驱动随时间推移自动延伸的大圆折线、折线中点测地线距离动态计算与标注标签动态跟踪）
-  4. `map-pins`（图钉生成器要素：`PinBuilder` 纯色图钉、文字标号图钉、Maki 矢量图标图钉与自定义 URL 图钉，`verticalOrigin: BOTTOM` 贴地锚定与 Promise 集合取景）
-- **核心研发规划**：
-  1. **CZML 数组多引用与动态多边形（Array References & Dynamic Polygons）**：
-     - 在 `dereference_czml_packets` 中支持 `references` 数组解析与递归解包，支持动态多边形外环与内孔的多点动态拓扑重构。
-  2. **距离显示条件管线（DistanceDisplayCondition Pipeline）**：
-     - 在实体几何、屏幕图元与模型渲染中扩展近远距离阈值裁剪逻辑，实现基于相机距离的视平滑过渡与切换。
-  3. **回调属性与实时几何更新（CallbackProperty Evaluation）**：
-     - 在实体属性系统中支持 `CallbackProperty` 惰性求值与动画时钟步进触发机制。
-  4. **图钉生成器与 SVG/Canvas 光栅化（PinBuilder Canvas Rasterization）**：
-     - 在前端沙盒环境中提供 `PinBuilder` 兼容实现，支持 Maki 图标与字符标注图钉导出为标准 DataURL。
+  3. `callback-property`（实体回调动态属性：宽折线 `widePolyline` 大圆弧插值、实时调用 `EllipsoidGeodesic.surfaceDistance` 动态计算地表测地线长度驱动标签移动与集合追踪取景）
+  4. `map-pins`（图钉生成器要素：`PinBuilder` 纯色、文字、杂货店与医院 Maki 图标 48px 图钉，`verticalOrigin: BOTTOM` 贴地锚定与 Promise 集合取景）
+- **核心研发突破**：
+  1. **CZML 数组多引用与嵌套内孔解算引擎**（`crates/cesium-viewer/src/entities.rs`）：
+     - 扩展 `dereference_czml_packets`，支持 `references` 字符串数组与 `holes` 嵌套孔洞数组的跨包递归解引用。
+     - 自动定位 referenced 采样包在 $t_0$ 时刻的大地坐标生成静态几何顶点环与孔洞拓扑。
+     - 将多边形曲面（`polygon_surface.rs`）的大地坐标与高程安全上限提升至 $10^7$ 米（10,000 km），消除航天器与高空轨道多边形的越界假死。
+  2. **三维模型图元形状管道（`Shape::Model`）**：
+     - 在 `Shape` 中引入 `Model { uri, scale, minimum_pixel_size, maximum_scale }`，生成与点/线/面图元统一的轴对齐三维多面体包围网格与拾取线框，确保模型与现有点、线、多边形管道共享统一的拾取颜色编码、逆 Z 深度缓冲与相机集合取景计算。
+  3. **距离显示条件视距状态系统（DistanceDisplayCondition）**：
+     - 为 `Entity` 引入统一的 `distance_display_condition: Option<[f64; 2]>`，反序列化自 `distanceDisplayCondition` 并校验 `near <= far` 与有限性。
+     - 兼容 `screen` 视口元素（Billboard、Point、Label）与 `geometric` 实体（Rectangle、Model、Polygon）的双向解析。
+  4. **变体选择器与菜单切换测试闭环**：
+     - 在 Sandcastle UI 与测试驱动中完备支持 `format: "variants"` 类型案例，实现 Variant 0 与 Variant 1 之间的无损重置与实体集合切换。
+- **验证结果**：
+  - **普通 Rust 单元测试**：97 / 97 项全部通过。
+  - **真实 GPU 离屏渲染测试**：84 / 84 项全部通过（用时 18.75s，全部包含离屏像素反读与实体 ID 拾取）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 83 个固定案例哈希与实体结构精准契合）。
+  - **桌面 90 帧冒烟测试**：88 个配置（83 案例 + 5 变体）全部 90 帧 errors 0 稳定运行。
+  - **浏览器真实 WebGPU 端到端**：83 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`），包含实体像素反读、ID 拾取、显隐交互、鼠标滚轮缩放与窗口自适应验证。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy -p cesium-viewer --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [CZML 动态插值多边形与孔洞、距离可见条件裁切、回调属性动态折线与地图图标引脚验证文档](docs/czml-interpolating-polygon-distance-pins-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
 
 
 

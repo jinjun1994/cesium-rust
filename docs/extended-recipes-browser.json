@@ -1,149 +1,17 @@
 {
   "version": "0.0.29",
-  "wasmSha256": "e8023db9f2369c5a94bd3c84a7080fdace671b0b7deaff5f76e8ad81067ef723",
+  "wasmSha256": "86c924489b07f72d398a9c755b3d9686ce3a3d3b80bce0a5ab3862b2d693d41c",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "czml-billboard-and-label",
+      "id": "czml-polygon-interpolating-references",
       "status": "passed",
       "entities": 2,
-      "sourceSha256": "1c6208234a3353aac8b33ec549341d0c50641598eca857075f774ab82dc3c874",
-      "inputSha256": "c6272440006485b6a1cc20d7a9ac745cb48ba214297f727a1d23fdabfce4b95a",
-      "fixtureSha256": "8d4018c1d1e3753717afa7c252115775596c5cce49e4ebef4b2719400da1118e",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "some-unique-id",
-        "some-unique-id-label"
-      ],
-      "pixelCounts": [
-        {
-          "id": "some-unique-id",
-          "pixels": 8246
-        },
-        {
-          "id": "some-unique-id-label",
-          "pixels": 1344
-        }
-      ]
-    },
-    {
-      "id": "geometry-height-reference",
-      "status": "passed",
-      "entities": 16,
-      "sourceSha256": "fb6d9a15546ea8c41efe497af30861d89738df0cb911aebeb4e64c072d9f2be3",
-      "inputSha256": "238c8fe1660a89fa5aa7a0bd8d5a7ad43667f99644b41d8d0ccff55694fe318c",
-      "fixtureSha256": "238c8fe1660a89fa5aa7a0bd8d5a7ad43667f99644b41d8d0ccff55694fe318c",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "polygon-0",
-        "polygon-1",
-        "polygon-2",
-        "polygon-3",
-        "polygon-4",
-        "polygon-5",
-        "polygon-6",
-        "polygon-7",
-        "polygon-8",
-        "polygon-9",
-        "polygon-10",
-        "polygon-11",
-        "polygon-12",
-        "polygon-13",
-        "polygon-14",
-        "polygon-15"
-      ],
-      "pixelCounts": [
-        {
-          "id": "polygon-0",
-          "pixels": 1761
-        },
-        {
-          "id": "polygon-1",
-          "pixels": 1761
-        },
-        {
-          "id": "polygon-2",
-          "pixels": 1761
-        },
-        {
-          "id": "polygon-3",
-          "pixels": 1761
-        },
-        {
-          "id": "polygon-4",
-          "pixels": 1761
-        },
-        {
-          "id": "polygon-5",
-          "pixels": 1761
-        },
-        {
-          "id": "polygon-6",
-          "pixels": 1761
-        },
-        {
-          "id": "polygon-7",
-          "pixels": 1761
-        },
-        {
-          "id": "polygon-8",
-          "pixels": 1761
-        },
-        {
-          "id": "polygon-9",
-          "pixels": 1761
-        },
-        {
-          "id": "polygon-10",
-          "pixels": 1761
-        },
-        {
-          "id": "polygon-11",
-          "pixels": 1761
-        },
-        {
-          "id": "polygon-12",
-          "pixels": 1761
-        },
-        {
-          "id": "polygon-13",
-          "pixels": 1761
-        },
-        {
-          "id": "polygon-14",
-          "pixels": 1761
-        },
-        {
-          "id": "polygon-15",
-          "pixels": 1761
-        }
-      ]
-    },
-    {
-      "id": "czml-path",
-      "status": "passed",
-      "entities": 2,
-      "sourceSha256": "56b125c019b8e935fb33c0af77a61208172f7e4f6890e9c4454269f8f627b2e9",
-      "inputSha256": "474ec8e9e7a3e9f2c219becd79cfbfe8694b658fadadbd02889ab1545cbbd78c",
-      "fixtureSha256": "dd407b43b7c3ba35ac172c0be20d608ffb1c472b6f524543540304bf61867bf3",
+      "sourceSha256": "312b5fdd41a41e69756777df285079f8b461c92c7f8223872458c17de7e13dac",
+      "inputSha256": "d31a4f2ac94a47e8c2a97afc46b34997cb5a3a4ae7b491ebd7b8b1b6933b0a38",
+      "fixtureSha256": "75e6cc2f69354884494b37b4a2dd68e33e3fa1a1f59da0b5a139d42a71b624ae",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -157,27 +25,27 @@
         "play/pause/loop"
       ],
       "pickedEntities": [
-        "path",
-        "path-lead-trail"
+        "dynamicPolygon",
+        "Polygon with Dynamic Holes"
       ],
       "pixelCounts": [
         {
-          "id": "path",
-          "pixels": 4170
+          "id": "dynamicPolygon",
+          "pixels": 2034
         },
         {
-          "id": "path-lead-trail",
-          "pixels": 4880
+          "id": "Polygon with Dynamic Holes",
+          "pixels": 51575
         }
       ]
     },
     {
-      "id": "czml-reference-properties",
+      "id": "distance-display-conditions",
       "status": "passed",
-      "entities": 4,
-      "sourceSha256": "145f4fe8f96213a36b84ec0ee87a6d4d92439544c789754035a4fbd691962370",
-      "inputSha256": "f3ed75b47017eb8bcc278ae3a49e86ccf12837eb3694271516c803d2e2cb333b",
-      "fixtureSha256": "8adce2f132f96b7806c1a3c221bbd60c2314736df0722701605a0557c0558935",
+      "entities": 2,
+      "sourceSha256": "ba831085ce17cf35e442c2a61d1bf3189079ac7a811b06ded0595816194b7c8b",
+      "inputSha256": "95231cb4d50c7a599140932465c029063bf8d85f5028fed8ca9813d4bddcb48a",
+      "fixtureSha256": "8cee26317f134ce6971846e9b2bfa6d1d30dfc7fbacb82e023c132438562dc73",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -188,27 +56,92 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "fillColor-reference",
-        "fillColor-reference-label",
-        "polygon",
-        "polygon-label"
+        "distance-billboard",
+        "distance-rectangle"
       ],
       "pixelCounts": [
         {
-          "id": "fillColor-reference",
-          "pixels": 8252
+          "id": "distance-billboard",
+          "pixels": 3616
         },
         {
-          "id": "fillColor-reference-label",
-          "pixels": 3279
+          "id": "distance-rectangle",
+          "pixels": 51506
+        }
+      ]
+    },
+    {
+      "id": "callback-property",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "376f06c58cfa68cb493f96791796c0d010da5e9de9ee490cd5263ea07d050414",
+      "inputSha256": "b2fec36c9a9112e0c9bcf345144f3bd31c439da61e546f1ecde27f8d960904d2",
+      "fixtureSha256": "b2fec36c9a9112e0c9bcf345144f3bd31c439da61e546f1ecde27f8d960904d2",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "redLine",
+        "lengthLabel"
+      ],
+      "pixelCounts": [
+        {
+          "id": "redLine",
+          "pixels": 2045
         },
         {
-          "id": "polygon",
-          "pixels": 28061
+          "id": "lengthLabel",
+          "pixels": 461
+        }
+      ]
+    },
+    {
+      "id": "map-pins",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "f0bdd92952c8b10e816010c31734927a33ca13ebd8268b033182f4712d6f89e4",
+      "inputSha256": "041cc488a43bfbcee48e1d7c5784619e6761c524298bdca1bbe873526d40bc0a",
+      "fixtureSha256": "041cc488a43bfbcee48e1d7c5784619e6761c524298bdca1bbe873526d40bc0a",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "bluePin",
+        "questionPin",
+        "groceryPin",
+        "hospitalPin"
+      ],
+      "pixelCounts": [
+        {
+          "id": "bluePin",
+          "pixels": 982
         },
         {
-          "id": "polygon-label",
-          "pixels": 1825
+          "id": "questionPin",
+          "pixels": 696
+        },
+        {
+          "id": "groceryPin",
+          "pixels": 982
+        },
+        {
+          "id": "hospitalPin",
+          "pixels": 982
         }
       ]
     },
@@ -372,7 +305,7 @@
       ],
       "localTileRequests": 34,
       "externalRequests": 0,
-      "colors": 20297,
+      "colors": 19883,
       "assetsSha256": "f7dbc2e3295e40bbd1f08bfcc476efe0c5237acdb6df8e7410943c9b8de081e4"
     }
   ],

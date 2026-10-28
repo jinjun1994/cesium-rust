@@ -48,7 +48,7 @@ pub struct PolygonSurface {
     pub st_rotation: f64,
 }
 fn ecef(p: [f64; 3]) -> Result<DVec3, String> {
-    if p.iter().any(|n| !n.is_finite()) || p[0].abs() > 180. || p[1].abs() > 85. || p[2].abs() > 1e6
+    if p.iter().any(|n| !n.is_finite()) || p[0].abs() > 180. || p[1].abs() > 85. || p[2].abs() > 1e7
     {
         return Err("polygon position bounds".into());
     }
@@ -547,9 +547,9 @@ fn group(
 pub fn primitive(e: &Entity, s: &PolygonSurface) -> Result<Primitive, String> {
     validate(&s.hierarchy, s.texture_coordinates.as_ref(), 0, &mut 0)?;
     if !s.height.is_finite()
-        || s.height.abs() > 1e6
+        || s.height.abs() > 1e7
         || s.extruded_height
-            .is_some_and(|h| !h.is_finite() || h.abs() > 1e6)
+            .is_some_and(|h| !h.is_finite() || h.abs() > 1e7)
         || !s.st_rotation.is_finite()
         || s.st_rotation.abs() > 10000.
         || !matches!(s.arc_type.as_str(), "GEODESIC" | "RHUMB")
