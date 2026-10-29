@@ -1,0 +1,777 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Grand Canyon Trails and Ground Rectangle",
+      "entities": [
+        {
+          "id": "terrain-poly-hairpin",
+          "name": "Grand Canyon Hairpin Trail",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -112.134,
+                  36.055,
+                  0
+                ],
+                [
+                  -112.088,
+                  36.098,
+                  0
+                ],
+                [
+                  -112.133,
+                  36.169,
+                  0
+                ],
+                [
+                  -112.108,
+                  36.2,
+                  0
+                ],
+                [
+                  -112.139,
+                  36.169,
+                  0
+                ],
+                [
+                  -112.115,
+                  36.201,
+                  0
+                ],
+                [
+                  -112.159,
+                  36.179,
+                  0
+                ],
+                [
+                  -112.147,
+                  36.217,
+                  0
+                ],
+                [
+                  -112.209,
+                  36.195,
+                  0
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            0.3,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "trail": "Hairpin Trail",
+            "lengthKm": 18.5
+          }
+        },
+        {
+          "id": "terrain-poly-loop",
+          "name": "Grand Canyon Eastern Loop",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -111.945,
+                  36.276,
+                  0
+                ],
+                [
+                  -111.91,
+                  36.08,
+                  0
+                ],
+                [
+                  -111.804,
+                  36.137,
+                  0
+                ],
+                [
+                  -111.855,
+                  36.26,
+                  0
+                ],
+                [
+                  -111.691,
+                  36.051,
+                  0
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "glow",
+                "glowPower": 0.25,
+                "taperPower": 1
+              }
+            }
+          },
+          "color": [
+            0,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "trail": "Eastern Loop",
+            "lengthKm": 24
+          }
+        },
+        {
+          "id": "terrain-ground-rect",
+          "name": "Grand Canyon Floor Zone",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -112.134,
+              36.055,
+              -112.084,
+              36.105
+            ],
+            "height": 0,
+            "extrudedHeight": null,
+            "rotation": 0
+          },
+          "color": [
+            0.1,
+            0.9,
+            0.4,
+            0.4
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.1,
+            1,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "zone": "Classification Area"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Main Hairpin Trail Focus",
+      "entities": [
+        {
+          "id": "terrain-poly-hairpin",
+          "name": "Grand Canyon Hairpin Trail",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -112.134,
+                  36.055,
+                  0
+                ],
+                [
+                  -112.088,
+                  36.098,
+                  0
+                ],
+                [
+                  -112.133,
+                  36.169,
+                  0
+                ],
+                [
+                  -112.108,
+                  36.2,
+                  0
+                ],
+                [
+                  -112.139,
+                  36.169,
+                  0
+                ],
+                [
+                  -112.115,
+                  36.201,
+                  0
+                ],
+                [
+                  -112.159,
+                  36.179,
+                  0
+                ],
+                [
+                  -112.147,
+                  36.217,
+                  0
+                ],
+                [
+                  -112.209,
+                  36.195,
+                  0
+                ]
+              ],
+              "width": 8,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            0.8,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "trail": "Hairpin Trail",
+            "lengthKm": 18.5
+          }
+        },
+        {
+          "id": "terrain-poly-loop",
+          "name": "Grand Canyon Eastern Loop",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -111.945,
+                  36.276,
+                  0
+                ],
+                [
+                  -111.91,
+                  36.08,
+                  0
+                ],
+                [
+                  -111.804,
+                  36.137,
+                  0
+                ],
+                [
+                  -111.855,
+                  36.26,
+                  0
+                ],
+                [
+                  -111.691,
+                  36.051,
+                  0
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "glow",
+                "glowPower": 0.25,
+                "taperPower": 1
+              }
+            }
+          },
+          "color": [
+            0,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "trail": "Eastern Loop",
+            "lengthKm": 24
+          }
+        },
+        {
+          "id": "terrain-ground-rect",
+          "name": "Grand Canyon Floor Zone",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -112.134,
+              36.055,
+              -112.084,
+              36.105
+            ],
+            "height": 0,
+            "extrudedHeight": null,
+            "rotation": 0
+          },
+          "color": [
+            0.1,
+            0.9,
+            0.4,
+            0.4
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.1,
+            1,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "zone": "Classification Area"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Eastern Loop Trail Focus",
+      "entities": [
+        {
+          "id": "terrain-poly-hairpin",
+          "name": "Grand Canyon Hairpin Trail",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -112.134,
+                  36.055,
+                  0
+                ],
+                [
+                  -112.088,
+                  36.098,
+                  0
+                ],
+                [
+                  -112.133,
+                  36.169,
+                  0
+                ],
+                [
+                  -112.108,
+                  36.2,
+                  0
+                ],
+                [
+                  -112.139,
+                  36.169,
+                  0
+                ],
+                [
+                  -112.115,
+                  36.201,
+                  0
+                ],
+                [
+                  -112.159,
+                  36.179,
+                  0
+                ],
+                [
+                  -112.147,
+                  36.217,
+                  0
+                ],
+                [
+                  -112.209,
+                  36.195,
+                  0
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            0.3,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "trail": "Hairpin Trail",
+            "lengthKm": 18.5
+          }
+        },
+        {
+          "id": "terrain-poly-loop",
+          "name": "Grand Canyon Eastern Loop",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -111.945,
+                  36.276,
+                  0
+                ],
+                [
+                  -111.91,
+                  36.08,
+                  0
+                ],
+                [
+                  -111.804,
+                  36.137,
+                  0
+                ],
+                [
+                  -111.855,
+                  36.26,
+                  0
+                ],
+                [
+                  -111.691,
+                  36.051,
+                  0
+                ]
+              ],
+              "width": 8,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "glow",
+                "glowPower": 0.25,
+                "taperPower": 1
+              }
+            }
+          },
+          "color": [
+            0.1,
+            0.9,
+            0.5,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "trail": "Eastern Loop",
+            "lengthKm": 24
+          }
+        },
+        {
+          "id": "terrain-ground-rect",
+          "name": "Grand Canyon Floor Zone",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -112.134,
+              36.055,
+              -112.084,
+              36.105
+            ],
+            "height": 0,
+            "extrudedHeight": null,
+            "rotation": 0
+          },
+          "color": [
+            0.1,
+            0.9,
+            0.4,
+            0.4
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.1,
+            1,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "zone": "Classification Area"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Composite Terrain Classification",
+      "entities": [
+        {
+          "id": "terrain-poly-hairpin",
+          "name": "Grand Canyon Hairpin Trail",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -112.134,
+                  36.055,
+                  0
+                ],
+                [
+                  -112.088,
+                  36.098,
+                  0
+                ],
+                [
+                  -112.133,
+                  36.169,
+                  0
+                ],
+                [
+                  -112.108,
+                  36.2,
+                  0
+                ],
+                [
+                  -112.139,
+                  36.169,
+                  0
+                ],
+                [
+                  -112.115,
+                  36.201,
+                  0
+                ],
+                [
+                  -112.159,
+                  36.179,
+                  0
+                ],
+                [
+                  -112.147,
+                  36.217,
+                  0
+                ],
+                [
+                  -112.209,
+                  36.195,
+                  0
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            0.3,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "trail": "Hairpin Trail",
+            "lengthKm": 18.5
+          }
+        },
+        {
+          "id": "terrain-poly-loop",
+          "name": "Grand Canyon Eastern Loop",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -111.945,
+                  36.276,
+                  0
+                ],
+                [
+                  -111.91,
+                  36.08,
+                  0
+                ],
+                [
+                  -111.804,
+                  36.137,
+                  0
+                ],
+                [
+                  -111.855,
+                  36.26,
+                  0
+                ],
+                [
+                  -111.691,
+                  36.051,
+                  0
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "glow",
+                "glowPower": 0.25,
+                "taperPower": 1
+              }
+            }
+          },
+          "color": [
+            0,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "trail": "Eastern Loop",
+            "lengthKm": 24
+          }
+        },
+        {
+          "id": "terrain-ground-rect",
+          "name": "Grand Canyon Floor Zone",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -112.134,
+              36.055,
+              -112.084,
+              36.105
+            ],
+            "height": 0,
+            "extrudedHeight": null,
+            "rotation": 0
+          },
+          "color": [
+            0.8,
+            0.2,
+            0.9,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.4,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "zone": "Classification Area"
+          }
+        }
+      ]
+    }
+  ]
+}

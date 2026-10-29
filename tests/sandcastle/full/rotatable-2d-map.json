@@ -1,0 +1,138 @@
+[
+  {
+    "id": "rotatable-2d-pin",
+    "name": "Boston Regional Landmark",
+    "show": true,
+    "positionDegrees": [
+      -73,
+      42,
+      0
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+      "scale": 1.2,
+      "width": 32,
+      "height": 32
+    },
+    "color": [
+      1,
+      0.2,
+      0.2,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "landmark": "Boston Region",
+      "mode": "SCENE2D"
+    }
+  },
+  {
+    "id": "rotatable-2d-rect",
+    "name": "New England Inspection Zone",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -76,
+        40,
+        -70,
+        44
+      ],
+      "height": 0,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      0.1,
+      0.6,
+      1,
+      0.35
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0.8,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "region": "New England",
+      "bounds": "[-76, 40, -70, 44]"
+    }
+  },
+  {
+    "id": "rotatable-2d-parallel",
+    "name": "42N Reference Parallel",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -78,
+            42,
+            0
+          ],
+          [
+            -73,
+            42,
+            0
+          ],
+          [
+            -68,
+            42,
+            0
+          ]
+        ],
+        "width": 3,
+        "arcType": "RHUMB",
+        "clampToGround": true,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "dash",
+          "gapColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "dashLength": 16,
+          "dashPattern": 255
+        }
+      }
+    },
+    "color": [
+      1,
+      0.85,
+      0.1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "type": "parallel",
+      "latitude": 42
+    }
+  }
+]

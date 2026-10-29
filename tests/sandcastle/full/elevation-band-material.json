@@ -1,0 +1,150 @@
+[
+  {
+    "id": "elevation-band-base",
+    "name": "Himalayan Base Zone (4200m - 7000m)",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        86.85,
+        27.92,
+        87,
+        28.05
+      ],
+      "height": 4200,
+      "extrudedHeight": 7000,
+      "rotation": 0
+    },
+    "color": [
+      0,
+      0.2,
+      0.5,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.1,
+      0.4,
+      0.8,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "elevationStart": 4200,
+      "elevationEnd": 7000
+    }
+  },
+  {
+    "id": "elevation-band-mid",
+    "name": "Himalayan Mid Band (7000m - 7500m)",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        86.88,
+        27.95,
+        86.97,
+        28.02
+      ],
+      "height": 7000,
+      "extrudedHeight": 7500,
+      "rotation": 0
+    },
+    "color": [
+      0.1,
+      0.8,
+      0.3,
+      0.6
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.2,
+      1,
+      0.4,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "elevationStart": 7000,
+      "elevationEnd": 7500
+    }
+  },
+  {
+    "id": "elevation-band-high",
+    "name": "Himalayan High Band (7500m - 8000m)",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        86.9,
+        27.97,
+        86.95,
+        28
+      ],
+      "height": 7500,
+      "extrudedHeight": 8000,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      0.8,
+      0,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.9,
+      0.1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "elevationStart": 7500,
+      "elevationEnd": 8000
+    }
+  },
+  {
+    "id": "elevation-band-summit",
+    "name": "Everest Summit Zone (8000m+)",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        86.92,
+        27.985,
+        86.935,
+        27.995
+      ],
+      "height": 8000,
+      "extrudedHeight": 8848,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      0.2,
+      0.1,
+      0.8
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "elevationStart": 8000,
+      "elevationEnd": 8848
+    }
+  }
+]

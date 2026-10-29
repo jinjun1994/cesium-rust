@@ -3,6 +3,7 @@
 import vm from 'node:vm';
 import {batch45Ids,extractBatch45} from './batch45-recipes.mjs';
 import {batch46Ids,extractBatch46} from './batch46-recipes.mjs';
+import {batch47Ids,extractBatch47} from './batch47-recipes.mjs';
 import {batch44Ids,extractBatch44} from './batch44-recipes.mjs';
 import {batch43Ids,extractBatch43} from './batch43-recipes.mjs';
 import {batch42Ids,extractBatch42} from './batch42-recipes.mjs';
@@ -31,11 +32,12 @@ import crypto from 'node:crypto';
 import assert from 'node:assert/strict';
 const root=new URL('../',import.meta.url);
 const catalog=JSON.parse(await fs.readFile(new URL('tests/sandcastle/catalog.json',root),'utf8'));
-export const ids=['box','cylinders-and-cones','plane','spheres-and-ellipsoids','czml-spheres-and-ellipsoids','czml-cones-and-cylinders','czml-box','wall','czml-wall','circles-and-ellipses','czml-circles-and-ellipses','czml-point',...primitiveIds,...batch22Ids,...batch23Ids,...batch24Ids,...batch25Ids,...batch26Ids,...batch28Ids,...batch29Ids,...batch30Ids,...batch31Ids,...batch32Ids,...batch33Ids,...batch34Ids,...batch35Ids,...batch36Ids,...batch37Ids,...batch38Ids,...batch39Ids,...batch40Ids,...batch41Ids,...batch42Ids,...batch43Ids,...batch44Ids,...batch45Ids,...batch46Ids];
+export const ids=['box','cylinders-and-cones','plane','spheres-and-ellipsoids','czml-spheres-and-ellipsoids','czml-cones-and-cylinders','czml-box','wall','czml-wall','circles-and-ellipses','czml-circles-and-ellipses','czml-point',...primitiveIds,...batch22Ids,...batch23Ids,...batch24Ids,...batch25Ids,...batch26Ids,...batch28Ids,...batch29Ids,...batch30Ids,...batch31Ids,...batch32Ids,...batch33Ids,...batch34Ids,...batch35Ids,...batch36Ids,...batch37Ids,...batch38Ids,...batch39Ids,...batch40Ids,...batch41Ids,...batch42Ids,...batch43Ids,...batch44Ids,...batch45Ids,...batch46Ids,...batch47Ids];
 export async function extract(id){
  const item=catalog.cases.find(c=>c.id===id);assert(item);
  const source=await fs.readFile(new URL(`tests/sandcastle/sources/${id}/main.js`,root),'utf8');
  const hash=crypto.createHash('sha256').update(source).digest('hex');assert.equal(hash,item.sourceSha256,'pinned source changed');
+ if(batch47Ids.includes(id))return extractBatch47(id,source,item,hash);
  if(batch46Ids.includes(id))return extractBatch46(id,source,item,hash);
  if(batch45Ids.includes(id))return extractBatch45(id,source,item,hash);
  if(batch44Ids.includes(id))return extractBatch44(id,source,item,hash);

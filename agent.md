@@ -4,11 +4,31 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.46（已通过 131 / 309 个完整案例，剩余 178 个）
+- **当前版本**：v0.0.47（已通过 135 / 309 个完整案例，剩余 174 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.47 验收完成：地形交互线面标绘 (Drawing on Terrain)、二维平面旋转地图 (Rotatable 2D Map)、大峡谷贴地折线分类 (Polylines On Terrain) 与珠峰高程分级带谱 (Elevation Band Material)
+- **完成配方**（累计推进至 **135 / 309**，剩余 174 个）：
+  1. `drawing-on-terrain`（地表交互绘制线面几何与顶点吸附系统：地表贴地纯白宽折线、青蓝半透明多边形填充面与 2 具红色顶点图元 4 种变体）
+  2. `rotatable-2d-map`（二维平面投影全向自由旋转与航向倾角姿态控制：SCENE2D 模式下 Heading -45°~180° 旋转、覆盖矩形与 42°N 恒向线 4 种变体）
+  3. `polylines-on-terrain-dev`（大峡谷崎岖山谷地面折线与地形地物分类基元：发卡弯主航迹、东部环线发光轨迹与峡谷底地表矩形 4 种变体）
+  4. `elevation-band-material`（喜马拉雅珠峰多阶海拔高程等高分级材质带：4200m 基底、7000m 中高带、7500m 高海拔带与 8848m 珠峰冲顶面 4 种变体）
+- **核心研发突破**：
+  1. **`Shape::Rectangle` 与 `Shape::Point` Serde 契约严密规范化**：统一确立了矩形图元采用 `coordinatesDegrees: [west, south, east, north]` 坐标数组规范；严格确立了点图元内置 `outlineWidth` 与 `outlineColor` 属性与端到端反序列化完全同构。
+  2. **2D 旋转地图（`SCENE2D + ROTATE`）全景渲染管线闭环**：验证了在二维哥伦布展开与平面坐标系下相机航向偏航（Heading -45° ~ 180°）时，点标、矩形与折线的齐次变换与离屏像素拾取无缝匹配。
+  3. **超高海拔垂直多阶分层（4200m ~ 8848m）立体光栅化**：验证了四个梯级高度分层立体面在极限高程差下的无缝拼装与法线朝向，离屏光栅化后各层分别贡献 70,000 ~ 100,000+ 像素的高质量立体视觉表现。
+- **验证结果**：
+  - **普通 Rust 单元测试**：108 项全部通过（含 `batch47_drawing_rotatable_polylines_elevation`）。
+  - **真实 GPU 离屏渲染测试**：136 / 136 项全数通过（`136 passed; 0 failed; finished in 40.92s`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：135 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Drawing on Terrain、Rotatable 2D Map、Polylines On Terrain - Dev 与 Elevation Band Material 验证文档](docs/drawing-rotatable-polylines-elevation-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
 
 ### [2026-10-30] v0.0.46 验收完成：全球定位系统通用数据流 (GPX)、三维导览时序巡检 (KML Tours)、全场景资产导出 (Export KML) 与地表贴地材质库 (Ground Polyline Material)
 - **完成配方**（累计推进至 **131 / 309**，剩余 178 个）：

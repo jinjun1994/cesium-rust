@@ -3818,4 +3818,56 @@ mod tests {
         let ground_variants = crate::entity_variants::decode(&ground_variants_raw).unwrap();
         assert_eq!(ground_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch47_drawing_rotatable_polylines_elevation() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Drawing on Terrain
+        let draw_data = std::fs::read(base.join("drawing-on-terrain.json")).unwrap();
+        let draw_entities = decode(&draw_data).unwrap();
+        assert_eq!(draw_entities.len(), 4);
+        assert!(matches!(draw_entities[0].shape, Shape::WidePolyline { .. }));
+        assert!(matches!(draw_entities[1].shape, Shape::Polygon { .. }));
+        assert!(matches!(draw_entities[2].shape, Shape::Point { .. }));
+        let draw_variants_raw =
+            std::fs::read(base.join("drawing-on-terrain.variants.json")).unwrap();
+        let draw_variants = crate::entity_variants::decode(&draw_variants_raw).unwrap();
+        assert_eq!(draw_variants.variants.len(), 4);
+
+        // 2. Rotatable 2D Map
+        let rot_data = std::fs::read(base.join("rotatable-2d-map.json")).unwrap();
+        let rot_entities = decode(&rot_data).unwrap();
+        assert_eq!(rot_entities.len(), 3);
+        assert!(matches!(rot_entities[0].shape, Shape::Billboard { .. }));
+        assert!(matches!(rot_entities[1].shape, Shape::Rectangle { .. }));
+        assert!(matches!(rot_entities[2].shape, Shape::WidePolyline { .. }));
+        let rot_variants_raw = std::fs::read(base.join("rotatable-2d-map.variants.json")).unwrap();
+        let rot_variants = crate::entity_variants::decode(&rot_variants_raw).unwrap();
+        assert_eq!(rot_variants.variants.len(), 4);
+
+        // 3. Polylines on Terrain - Dev
+        let poly_data = std::fs::read(base.join("polylines-on-terrain-dev.json")).unwrap();
+        let poly_entities = decode(&poly_data).unwrap();
+        assert_eq!(poly_entities.len(), 3);
+        assert!(matches!(poly_entities[0].shape, Shape::WidePolyline { .. }));
+        assert!(matches!(poly_entities[1].shape, Shape::WidePolyline { .. }));
+        assert!(matches!(poly_entities[2].shape, Shape::Rectangle { .. }));
+        let poly_variants_raw =
+            std::fs::read(base.join("polylines-on-terrain-dev.variants.json")).unwrap();
+        let poly_variants = crate::entity_variants::decode(&poly_variants_raw).unwrap();
+        assert_eq!(poly_variants.variants.len(), 4);
+
+        // 4. Elevation Band Material
+        let elev_data = std::fs::read(base.join("elevation-band-material.json")).unwrap();
+        let elev_entities = decode(&elev_data).unwrap();
+        assert_eq!(elev_entities.len(), 4);
+        assert!(matches!(elev_entities[0].shape, Shape::Rectangle { .. }));
+        assert!(matches!(elev_entities[3].shape, Shape::Rectangle { .. }));
+        let elev_variants_raw =
+            std::fs::read(base.join("elevation-band-material.variants.json")).unwrap();
+        let elev_variants = crate::entity_variants::decode(&elev_variants_raw).unwrap();
+        assert_eq!(elev_variants.variants.len(), 4);
+    }
 }

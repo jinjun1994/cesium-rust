@@ -142,6 +142,10 @@ $('fullNew104').onclick=guarded(()=>runFull('gpx'));
 $('fullNew105').onclick=guarded(()=>runFull('kml-tours'));
 $('fullNew106').onclick=guarded(()=>runFull('export-kml'));
 $('fullNew107').onclick=guarded(()=>runFull('ground-polyline-material-dev'));
+$('fullNew108').onclick=guarded(()=>runFull('drawing-on-terrain'));
+$('fullNew109').onclick=guarded(()=>runFull('rotatable-2d-map'));
+$('fullNew110').onclick=guarded(()=>runFull('polylines-on-terrain-dev'));
+$('fullNew111').onclick=guarded(()=>runFull('elevation-band-material'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

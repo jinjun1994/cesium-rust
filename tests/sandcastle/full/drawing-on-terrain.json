@@ -1,0 +1,193 @@
+[
+  {
+    "id": "drawing-polyline",
+    "name": "Drawn Terrain Polyline",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -122.25,
+            46.18,
+            0
+          ],
+          [
+            -122.2,
+            46.2,
+            0
+          ],
+          [
+            -122.15,
+            46.19,
+            0
+          ],
+          [
+            -122.1,
+            46.22,
+            0
+          ]
+        ],
+        "width": 3,
+        "arcType": "GEODESIC",
+        "clampToGround": true,
+        "colors": [],
+        "colorsPerVertex": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "drawingMode": "line",
+      "clampToGround": true
+    }
+  },
+  {
+    "id": "drawing-polygon",
+    "name": "Drawn Terrain Polygon",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          -122.22,
+          46.17,
+          0
+        ],
+        [
+          -122.16,
+          46.17,
+          0
+        ],
+        [
+          -122.14,
+          46.21,
+          0
+        ],
+        [
+          -122.2,
+          46.21,
+          0
+        ]
+      ],
+      "holes": [],
+      "height": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      0.3,
+      0.8,
+      1,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "drawingMode": "polygon",
+      "fillOpacity": 0.7
+    }
+  },
+  {
+    "id": "drawing-pt-1",
+    "name": "Vertex 1",
+    "show": true,
+    "positionDegrees": [
+      -122.25,
+      46.18,
+      0
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 6,
+      "outlineWidth": 0,
+      "outlineColor": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "color": [
+      1,
+      0.3,
+      0.2,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "vertexIndex": 1
+    }
+  },
+  {
+    "id": "drawing-pt-2",
+    "name": "Vertex 2",
+    "show": true,
+    "positionDegrees": [
+      -122.1,
+      46.22,
+      0
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 6,
+      "outlineWidth": 0,
+      "outlineColor": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "color": [
+      1,
+      0.3,
+      0.2,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "vertexIndex": 2
+    }
+  }
+]

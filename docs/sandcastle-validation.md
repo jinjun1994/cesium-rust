@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.47
+
+新增 Drawing on Terrain、Rotatable 2D Map、Polylines On Terrain - Dev、Elevation Band Material 四个完整案例，累计 **135 / 309**，剩余 174 个。108 项普通 Rust、136 项实际 GPU、8 组 Node、135 个浏览器 WebGPU 案例通过。验证包含真实地形交互式点线面标绘（地表贴地纯白折线、青蓝半透明多边形填充面与 2 具红色顶点图元 4 种变体）、二维平面旋转地图全向航向漫游（SCENE2D 模式下 Heading -45°~180° 旋转、覆盖矩形与 42°N 恒向线 4 种变体）、大峡谷复杂地形多路径贴地折线与地表分类面体（发卡弯主航迹、东部环线发光轨迹与峡谷底地表矩形 4 种变体）、以及喜马拉雅山脉多级海拔等高线带谱与梯度材质（4200m 基底、7000m 中高带、7500m 高海拔带与 8848m 珠峰冲顶面 4 种变体）。详见 [本批验证](drawing-rotatable-polylines-elevation-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.46
 
 新增 GPX、KML Tours、Export KML、Ground Polyline Material - Dev 四个完整案例，累计 **131 / 309**，剩余 178 个。108 项普通 Rust、132 项实际 GPU、8 组 Node、131 个浏览器 WebGPU 案例通过。验证包含全球定位系统航迹、路线、地标与多样式符号系统（博尔德登山步道航迹、起点/冲顶/终点地标图钉、下山山脊虚线与 4 种变体）、KML/KMZ 自动化三维相机导览巡检与巡游时序控制（埃菲尔铁塔地标、发光立体巡航折线、特罗卡德罗/塔顶观景台停靠点 4 种变体）、天地一体化多载体场景要素 KML/KMZ 打包与模型导出（GeoEye-1 卫星、500km 轨道折线、地面追踪站图钉与 Cesium Milk Truck 3D 车辆模型 4 种变体）、以及圣海伦斯火山复杂地形地表贴地折线材质库（Glow 发光、Dash 虚线、Outline 双色描边地表折线与线宽拓展 4 种变体）。详见 [本批验证](gpx-kmltours-exportkml-groundpolyline-validation.md)。以下保留历史记录。

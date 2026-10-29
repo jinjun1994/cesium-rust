@@ -6,58 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "gpx",
-      "status": "passed",
-      "entities": 5,
-      "sourceSha256": "b027d1ee8c274174931f94a4fac0cddf5e966409c0a8faf19610a587f599987f",
-      "inputSha256": "dac4ee70c38d54ea3a603a3a262e40e95de69251529f2aec7b751d30c48aa68c",
-      "fixtureSha256": "dc8f615377396b766c0697a5f615ee032c3030d499053f42cb99053209e41366",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "gpx-track-main",
-        "gpx-wpt-start",
-        "gpx-wpt-summit",
-        "gpx-wpt-end",
-        "gpx-track-descent"
-      ],
-      "pixelCounts": [
-        {
-          "id": "gpx-track-main",
-          "pixels": 1550
-        },
-        {
-          "id": "gpx-wpt-start",
-          "pixels": 710
-        },
-        {
-          "id": "gpx-wpt-summit",
-          "pixels": 708
-        },
-        {
-          "id": "gpx-wpt-end",
-          "pixels": 708
-        },
-        {
-          "id": "gpx-track-descent",
-          "pixels": 670
-        }
-      ]
-    },
-    {
-      "id": "kml-tours",
+      "id": "drawing-on-terrain",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "9e2cd48faa8db7c2f437310d41ecd7184b4aed7c27b69dd8fa3cb527d722c9e9",
-      "inputSha256": "9b49b2d7c6f453b8ddb3628e57423ecd3adf7ead1e2aa71103fdd148e9f20fa6",
-      "fixtureSha256": "c556e3383f661ce42e4e387cdbf7d1411af111f55885f3420d561de7d429c5fb",
+      "sourceSha256": "c44045b527fed862bdaa58681990a27fadbe0f57378114ad53aae08a9dda7977",
+      "inputSha256": "1193bbcbabe5bf74f7f52d069dbfe0db7255789a22900b18c1bedb30d2029105",
+      "fixtureSha256": "5d074faea72120480bb3aabb7f5978405154dd3f37f3073cff2bc4700fba0fe3",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -68,78 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "kml-tour-eiffel",
-        "kml-tour-path",
-        "kml-tour-stop-trocadero",
-        "kml-tour-stop-summit"
+        "drawing-polyline",
+        "drawing-polygon",
+        "drawing-pt-1",
+        "drawing-pt-2"
       ],
       "pixelCounts": [
         {
-          "id": "kml-tour-eiffel",
-          "pixels": 1298
+          "id": "drawing-polyline",
+          "pixels": 1277
         },
         {
-          "id": "kml-tour-path",
-          "pixels": 1433
+          "id": "drawing-polygon",
+          "pixels": 45924
         },
         {
-          "id": "kml-tour-stop-trocadero",
-          "pixels": 692
+          "id": "drawing-pt-1",
+          "pixels": 26
         },
         {
-          "id": "kml-tour-stop-summit",
-          "pixels": 692
+          "id": "drawing-pt-2",
+          "pixels": 26
         }
       ]
     },
     {
-      "id": "export-kml",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "371f7a9f84e3920af659106a734f4ed90548e9d24eaff84966615a29bc092ebb",
-      "inputSha256": "258c8f0a5ecdd798843d48a61d5beb967c3fe9a62dc21a4a05cc1e90f68e792f",
-      "fixtureSha256": "5d777ff413f1cb1632b0e661ee9b0dd0eea779a571ed5e06ad840894fb239859",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "export-kml-sat-geoeye1",
-        "export-kml-sat-orbit",
-        "export-kml-ground-station",
-        "export-kml-milktruck"
-      ],
-      "pixelCounts": [
-        {
-          "id": "export-kml-sat-geoeye1",
-          "pixels": 692
-        },
-        {
-          "id": "export-kml-sat-orbit",
-          "pixels": 1194
-        },
-        {
-          "id": "export-kml-ground-station",
-          "pixels": 692
-        },
-        {
-          "id": "export-kml-milktruck",
-          "pixels": 84
-        }
-      ]
-    },
-    {
-      "id": "ground-polyline-material-dev",
+      "id": "rotatable-2d-map",
       "status": "passed",
       "entities": 3,
-      "sourceSha256": "6a1a017d5bfc655bd7d20715c25334b993c12693e179162c39a38db2806a031e",
-      "inputSha256": "256e492e831cc266060cea72bf7680d58a531c0fbd5d37682ae53b1b574dcb88",
-      "fixtureSha256": "ab4a98b3a765a96e4b7e74685dbcfac7a56a2b4f3505377c35af0a5f81296403",
+      "sourceSha256": "bbb3b492095ce22b44e635b11f08bcf69c9a2d5cd4032fab0431abb705753c97",
+      "inputSha256": "3968023215c12543b7c3e05dc966f8ab4675fe5bf11a40b1f0e999efe591315a",
+      "fixtureSha256": "072a55911a044637bac220869f0f6af8542054f7999e7f63604f3c64fc731608",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -150,22 +63,99 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "ground-poly-glow",
-        "ground-poly-dash",
-        "ground-poly-outline"
+        "rotatable-2d-pin",
+        "rotatable-2d-rect",
+        "rotatable-2d-parallel"
       ],
       "pixelCounts": [
         {
-          "id": "ground-poly-glow",
-          "pixels": 4090
+          "id": "rotatable-2d-pin",
+          "pixels": 1300
         },
         {
-          "id": "ground-poly-dash",
-          "pixels": 2060
+          "id": "rotatable-2d-rect",
+          "pixels": 62004
         },
         {
-          "id": "ground-poly-outline",
-          "pixels": 4090
+          "id": "rotatable-2d-parallel",
+          "pixels": 414
+        }
+      ]
+    },
+    {
+      "id": "polylines-on-terrain-dev",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "95cbb154a596464966f962db323569747cd89738744508875d728ca4ce1d0d3e",
+      "inputSha256": "e2170bab9a149194762af8b207bd4dd326992d4584637306c14f72090c130985",
+      "fixtureSha256": "c9db3bea5a37d5bd9aa2a17cb461c97c3a9f7358a39abaa737ff6494d352fc35",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "terrain-poly-hairpin",
+        "terrain-poly-loop",
+        "terrain-ground-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "terrain-poly-hairpin",
+          "pixels": 2609
+        },
+        {
+          "id": "terrain-poly-loop",
+          "pixels": 2804
+        },
+        {
+          "id": "terrain-ground-rect",
+          "pixels": 66290
+        }
+      ]
+    },
+    {
+      "id": "elevation-band-material",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "9a2b824fa37a767c0adfca5d8bbb8ecfab6caca16806b6f055b5422478ac9a93",
+      "inputSha256": "bbe177cce927ff1708e868d698c0506c50b0f002b525aef985e4a67ae2fe92f1",
+      "fixtureSha256": "ec37327e35958ae294029d865d531e28eb9729a3ac14d3d2171a23f3e2dc3133",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "elevation-band-base",
+        "elevation-band-mid",
+        "elevation-band-high",
+        "elevation-band-summit"
+      ],
+      "pixelCounts": [
+        {
+          "id": "elevation-band-base",
+          "pixels": 81639
+        },
+        {
+          "id": "elevation-band-mid",
+          "pixels": 70242
+        },
+        {
+          "id": "elevation-band-high",
+          "pixels": 70078
+        },
+        {
+          "id": "elevation-band-summit",
+          "pixels": 102059
         }
       ]
     },

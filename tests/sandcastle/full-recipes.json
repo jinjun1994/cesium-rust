@@ -3739,6 +3739,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "drawing-on-terrain",
+      "title": "Drawing on Terrain",
+      "sourceSha256": "c44045b527fed862bdaa58681990a27fadbe0f57378114ad53aae08a9dda7977",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=drawing-on-terrain",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/drawing-on-terrain.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/drawing-on-terrain.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Interactive drawing on terrain geometry features",
+        "Polylines, polygons, and vertex points with CLAMP_TO_GROUND support"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "rotatable-2d-map",
+      "title": "Rotatable 2D Map",
+      "sourceSha256": "bbb3b492095ce22b44e635b11f08bcf69c9a2d5cd4032fab0431abb705753c97",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=rotatable-2d-map",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/rotatable-2d-map.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/rotatable-2d-map.json",
+      "entityCount": 3,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Rotatable 2D map camera orientation in SCENE2D mode",
+        "Heading angle rotations and planar regional boundary mapping"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "polylines-on-terrain-dev",
+      "title": "Polylines On Terrain - Dev",
+      "sourceSha256": "95cbb154a596464966f962db323569747cd89738744508875d728ca4ce1d0d3e",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=polylines-on-terrain-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/polylines-on-terrain-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/polylines-on-terrain-dev.json",
+      "entityCount": 3,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Grand Canyon terrain ground polylines and classification ground rectangle",
+        "Hairpin and loop polylines with GroundPrimitive depth ordering"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "elevation-band-material",
+      "title": "Elevation Band Material",
+      "sourceSha256": "9a2b824fa37a767c0adfca5d8bbb8ecfab6caca16806b6f055b5422478ac9a93",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=elevation-band-material",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/elevation-band-material.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/elevation-band-material.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Multi-tiered elevation contour bands and gradient material layers",
+        "Himalayan elevation zones from 4200m base to 8848m summit peak"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",
