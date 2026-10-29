@@ -162,6 +162,10 @@ $('fullNew124').onclick=guarded(()=>runFull('earth-at-night'));
 $('fullNew125').onclick=guarded(()=>runFull('natural-earth-ii'));
 $('fullNew126').onclick=guarded(()=>runFull('sentinel-2'));
 $('fullNew127').onclick=guarded(()=>runFull('arcgis-mapserver'));
+$('fullNew128').onclick=guarded(()=>runFull('bathymetry'));
+$('fullNew129').onclick=guarded(()=>runFull('bing-maps-labels-only'));
+$('fullNew130').onclick=guarded(()=>runFull('azure-2d-tiles'));
+$('fullNew131').onclick=guarded(()=>runFull('imagery-adjustment'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

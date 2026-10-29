@@ -4081,4 +4081,59 @@ mod tests {
         let ag_variants = crate::entity_variants::decode(&ag_variants_raw).unwrap();
         assert_eq!(ag_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch52_bathymetry_bing_labels_azure_adjustment() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Bathymetry
+        let bm_data = std::fs::read(base.join("bathymetry.json")).unwrap();
+        let bm_entities = decode(&bm_data).unwrap();
+        assert_eq!(bm_entities.len(), 4);
+        assert!(matches!(bm_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(bm_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(bm_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(bm_entities[3].shape, Shape::Rectangle { .. }));
+        let bm_variants_raw = std::fs::read(base.join("bathymetry.variants.json")).unwrap();
+        let bm_variants = crate::entity_variants::decode(&bm_variants_raw).unwrap();
+        assert_eq!(bm_variants.variants.len(), 4);
+
+        // 2. Bing Maps Labels Only
+        let bl_data = std::fs::read(base.join("bing-maps-labels-only.json")).unwrap();
+        let bl_entities = decode(&bl_data).unwrap();
+        assert_eq!(bl_entities.len(), 4);
+        assert!(matches!(bl_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(bl_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(bl_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(bl_entities[3].shape, Shape::Rectangle { .. }));
+        let bl_variants_raw =
+            std::fs::read(base.join("bing-maps-labels-only.variants.json")).unwrap();
+        let bl_variants = crate::entity_variants::decode(&bl_variants_raw).unwrap();
+        assert_eq!(bl_variants.variants.len(), 4);
+
+        // 3. Azure 2D Tiles
+        let az_data = std::fs::read(base.join("azure-2d-tiles.json")).unwrap();
+        let az_entities = decode(&az_data).unwrap();
+        assert_eq!(az_entities.len(), 4);
+        assert!(matches!(az_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(az_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(az_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(az_entities[3].shape, Shape::Rectangle { .. }));
+        let az_variants_raw = std::fs::read(base.join("azure-2d-tiles.variants.json")).unwrap();
+        let az_variants = crate::entity_variants::decode(&az_variants_raw).unwrap();
+        assert_eq!(az_variants.variants.len(), 4);
+
+        // 4. Imagery Adjustment
+        let ia_data = std::fs::read(base.join("imagery-adjustment.json")).unwrap();
+        let ia_entities = decode(&ia_data).unwrap();
+        assert_eq!(ia_entities.len(), 4);
+        assert!(matches!(ia_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ia_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(ia_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ia_entities[3].shape, Shape::Rectangle { .. }));
+        let ia_variants_raw = std::fs::read(base.join("imagery-adjustment.variants.json")).unwrap();
+        let ia_variants = crate::entity_variants::decode(&ia_variants_raw).unwrap();
+        assert_eq!(ia_variants.variants.len(), 4);
+    }
 }

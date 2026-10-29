@@ -1,0 +1,629 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Composite Elevation Color Contour (CMOCEAN Deep Bathymetry & Dynamic Hillshade)",
+      "entities": [
+        {
+          "id": "bathymetry-mariana-trench",
+          "name": "Mariana Trench Challenger Deep Bathymetric Benchmark",
+          "show": true,
+          "positionDegrees": [
+            142.2,
+            11.35,
+            15000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 30000,
+            "topRadius": 10000,
+            "bottomRadius": 10000
+          },
+          "color": [
+            0.16,
+            0.11,
+            0.18,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.3,
+            0.2,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "maxDepthMeters": -10984,
+            "oceanFeature": "Abyssal Trench",
+            "cmoceanBand": "#291C2F"
+          }
+        },
+        {
+          "id": "bathymetry-mid-atlantic-ridge",
+          "name": "Mid-Atlantic Spreading Ridge Geomorphology Box",
+          "show": true,
+          "positionDegrees": [
+            -28.5,
+            25,
+            10000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              25000,
+              25000,
+              15000
+            ]
+          },
+          "color": [
+            0.26,
+            0.49,
+            0.6,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "tectonicBoundary": "Divergent Plate",
+            "depthMeters": -2500,
+            "cmoceanBand": "#437D9A"
+          }
+        },
+        {
+          "id": "bathymetry-hawaiian-seamounts",
+          "name": "Hawaiian-Emperor Seamount Chain Volcanic Peak",
+          "show": true,
+          "positionDegrees": [
+            -165,
+            28,
+            12000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              15000,
+              15000,
+              15000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.72,
+            0.64,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "volcanicOrigin": "Mantle Plume Hotspot",
+            "summitDepthMeters": -1500,
+            "cmoceanBand": "#5AB7A4"
+          }
+        },
+        {
+          "id": "bathymetry-puerto-rico-trench",
+          "name": "Puerto Rico Trench Deep Atlantic Basin Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -67.5,
+              18.5,
+              -65.5,
+              20.5
+            ],
+            "height": 2000,
+            "extrudedHeight": 8000,
+            "rotation": 0
+          },
+          "color": [
+            0.24,
+            0.26,
+            0.5,
+            0.75
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.5,
+            0.8,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "trenchClassification": "Subduction Zone",
+            "contourSpacingMeters": 500
+          }
+        }
+      ]
+    },
+    {
+      "label": "Elevation Ramp Only (CMOCEAN Deep Seafloor Topography Gradient)",
+      "entities": [
+        {
+          "id": "bathymetry-mariana-trench",
+          "name": "Mariana Trench Challenger Deep Bathymetric Benchmark",
+          "show": true,
+          "positionDegrees": [
+            142.2,
+            11.35,
+            15000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 30000,
+            "topRadius": 10000,
+            "bottomRadius": 10000
+          },
+          "color": [
+            0.12,
+            0.08,
+            0.16,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.3,
+            0.2,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "maxDepthMeters": -10984,
+            "oceanFeature": "Abyssal Trench",
+            "cmoceanBand": "#291C2F"
+          }
+        },
+        {
+          "id": "bathymetry-mid-atlantic-ridge",
+          "name": "Mid-Atlantic Spreading Ridge Geomorphology Box",
+          "show": true,
+          "positionDegrees": [
+            -28.5,
+            25,
+            10000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              25000,
+              25000,
+              15000
+            ]
+          },
+          "color": [
+            0.26,
+            0.49,
+            0.6,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "tectonicBoundary": "Divergent Plate",
+            "depthMeters": -2500,
+            "cmoceanBand": "#437D9A"
+          }
+        },
+        {
+          "id": "bathymetry-hawaiian-seamounts",
+          "name": "Hawaiian-Emperor Seamount Chain Volcanic Peak",
+          "show": true,
+          "positionDegrees": [
+            -165,
+            28,
+            12000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              15000,
+              15000,
+              15000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.72,
+            0.64,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "volcanicOrigin": "Mantle Plume Hotspot",
+            "summitDepthMeters": -1500,
+            "cmoceanBand": "#5AB7A4"
+          }
+        },
+        {
+          "id": "bathymetry-puerto-rico-trench",
+          "name": "Puerto Rico Trench Deep Atlantic Basin Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -67.5,
+              18.5,
+              -65.5,
+              20.5
+            ],
+            "height": 2000,
+            "extrudedHeight": 8000,
+            "rotation": 0
+          },
+          "color": [
+            0.24,
+            0.26,
+            0.5,
+            0.75
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.5,
+            0.8,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "trenchClassification": "Subduction Zone",
+            "contourSpacingMeters": 500
+          }
+        }
+      ]
+    },
+    {
+      "label": "Contour Lines Only (500m Iso-depth Seafloor Contours)",
+      "entities": [
+        {
+          "id": "bathymetry-mariana-trench",
+          "name": "Mariana Trench Challenger Deep Bathymetric Benchmark",
+          "show": true,
+          "positionDegrees": [
+            142.2,
+            11.35,
+            15000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 30000,
+            "topRadius": 10000,
+            "bottomRadius": 10000
+          },
+          "color": [
+            0.16,
+            0.11,
+            0.18,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.3,
+            0.2,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "maxDepthMeters": -10984,
+            "oceanFeature": "Abyssal Trench",
+            "cmoceanBand": "#291C2F"
+          }
+        },
+        {
+          "id": "bathymetry-mid-atlantic-ridge",
+          "name": "Mid-Atlantic Spreading Ridge Geomorphology Box",
+          "show": true,
+          "positionDegrees": [
+            -28.5,
+            25,
+            10000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              25000,
+              25000,
+              15000
+            ]
+          },
+          "color": [
+            0.8,
+            0.9,
+            1,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "tectonicBoundary": "Divergent Plate",
+            "depthMeters": -2500,
+            "cmoceanBand": "#437D9A"
+          }
+        },
+        {
+          "id": "bathymetry-hawaiian-seamounts",
+          "name": "Hawaiian-Emperor Seamount Chain Volcanic Peak",
+          "show": true,
+          "positionDegrees": [
+            -165,
+            28,
+            12000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              15000,
+              15000,
+              15000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.72,
+            0.64,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "volcanicOrigin": "Mantle Plume Hotspot",
+            "summitDepthMeters": -1500,
+            "cmoceanBand": "#5AB7A4"
+          }
+        },
+        {
+          "id": "bathymetry-puerto-rico-trench",
+          "name": "Puerto Rico Trench Deep Atlantic Basin Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -67.5,
+              18.5,
+              -65.5,
+              20.5
+            ],
+            "height": 2000,
+            "extrudedHeight": 8000,
+            "rotation": 0
+          },
+          "color": [
+            0.24,
+            0.26,
+            0.5,
+            0.75
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.5,
+            0.8,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "trenchClassification": "Subduction Zone",
+            "contourSpacingMeters": 500
+          }
+        }
+      ]
+    },
+    {
+      "label": "Lighting & Hillshade Suppressed (Flat Bathymetry Base Reference)",
+      "entities": [
+        {
+          "id": "bathymetry-mariana-trench",
+          "name": "Mariana Trench Challenger Deep Bathymetric Benchmark",
+          "show": true,
+          "positionDegrees": [
+            142.2,
+            11.35,
+            15000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 30000,
+            "topRadius": 10000,
+            "bottomRadius": 10000
+          },
+          "color": [
+            0.16,
+            0.11,
+            0.18,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.3,
+            0.2,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "maxDepthMeters": -10984,
+            "oceanFeature": "Abyssal Trench",
+            "cmoceanBand": "#291C2F"
+          }
+        },
+        {
+          "id": "bathymetry-mid-atlantic-ridge",
+          "name": "Mid-Atlantic Spreading Ridge Geomorphology Box",
+          "show": true,
+          "positionDegrees": [
+            -28.5,
+            25,
+            10000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              25000,
+              25000,
+              15000
+            ]
+          },
+          "color": [
+            0.26,
+            0.49,
+            0.6,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "tectonicBoundary": "Divergent Plate",
+            "depthMeters": -2500,
+            "cmoceanBand": "#437D9A"
+          }
+        },
+        {
+          "id": "bathymetry-hawaiian-seamounts",
+          "name": "Hawaiian-Emperor Seamount Chain Volcanic Peak",
+          "show": true,
+          "positionDegrees": [
+            -165,
+            28,
+            12000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              15000,
+              15000,
+              15000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.72,
+            0.64,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "volcanicOrigin": "Mantle Plume Hotspot",
+            "summitDepthMeters": -1500,
+            "cmoceanBand": "#5AB7A4"
+          }
+        },
+        {
+          "id": "bathymetry-puerto-rico-trench",
+          "name": "Puerto Rico Trench Deep Atlantic Basin Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -67.5,
+              18.5,
+              -65.5,
+              20.5
+            ],
+            "height": 2000,
+            "extrudedHeight": 8000,
+            "rotation": 0
+          },
+          "color": [
+            0.3,
+            0.4,
+            0.6,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.5,
+            0.8,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "trenchClassification": "Subduction Zone",
+            "contourSpacingMeters": 500
+          }
+        }
+      ]
+    }
+  ]
+}

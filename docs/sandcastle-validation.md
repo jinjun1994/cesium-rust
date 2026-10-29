@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.52
+
+新增 Bathymetry、Bing Maps Labels Only、Azure 2D Tiles、Imagery Adjustment 四个完整案例，累计 **155 / 309**，剩余 154 个。112 项普通 Rust、156 项实际 GPU、8 组 Node、155 个浏览器 WebGPU 案例通过。验证包含全球深海海底地形拓扑、CMOCEAN 深度色谱与动态山体晕渲（-10000m 至 2000m 复合高程等深线带谱、纯深度色带渐变、500m 间隔等深线与关闭光照阴影平面基准 4 种变体）、分屏双视口 Bing Maps 影像与独立注记图层（对称分屏基准、隐藏右侧注记图层、左窄右宽注记聚焦与左宽右窄一体化航拍 4 种变体）、微软 Azure Maps 2D 瓦片地图服务与全球地形集成（费城都市核心区宏观概览、高反差山地真实地形起伏、中心城摩天楼微观特写与特拉华河航运走廊 4 种变体）、以及影像图层多通道实时色彩、明度与伽马参数调节（高饱和度鲜艳模式、单色高对比黑白胶片、暖金色夕阳滤镜与月球冷色调辐射衰减 4 种变体）。详见 [本批验证](bathymetry-binglabels-azure-adjustment-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.51
 
 新增 Earth at Night、Natural Earth II、Sentinel-2、ArcGIS MapServer 四个完整案例，累计 **151 / 309**，剩余 158 个。110 项普通 Rust、152 项实际 GPU、8 组 Node、151 个浏览器 WebGPU 案例通过。验证包含 NASA Black Marble 2017 全球夜间灯光、晨昏线与时序动态光照（全球陆地夜光、晨昏蒙影分界线过渡、4000x 自转倍速漫游与背阳抑制模式 4 种变体）、Natural Earth II 全球地貌阴影晕渲、水体与水系汇水网络（地貌晕渲基准、水体汇水加重高亮、高反差山地晕渲与陆海掩膜岸线过渡 4 种变体）、欧空局 Sentinel-2 全球 10 米多光谱无云高分辨率影像（10 米真彩色合成基准、农业近红外假彩色、苏伊士/迪拜沿海高精工程形态与荒漠风成地貌 4 种变体）、以及 ArcGIS MapServer 瓦片服务多底图标准套件（Satellite 卫星影像、Hillshade 地貌晕渲、Oceans 海洋海床水深与 Topographic 地形综合 4 种底图变体）。详见 [本批验证](earthatnight-naturalearth-sentinel-arcgis-validation.md)。以下保留历史记录。

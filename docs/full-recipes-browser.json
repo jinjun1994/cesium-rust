@@ -744,6 +744,170 @@
       ]
     },
     {
+      "id": "bathymetry",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "98525a01e0de2ab299c75587f886406e0975339ad868ade4729d3613c94c7901",
+      "inputSha256": "5435635ee9e80fe60a83ad9ec98f0b034244ed864b7f05cdd662e1a9d0b1aff5",
+      "fixtureSha256": "c4bcd3d2129e060385439509910ef8a9d823050e913130061291178d4fed0860",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "bathymetry-mariana-trench",
+        "bathymetry-mid-atlantic-ridge",
+        "bathymetry-hawaiian-seamounts",
+        "bathymetry-puerto-rico-trench"
+      ],
+      "pixelCounts": [
+        {
+          "id": "bathymetry-mariana-trench",
+          "pixels": 80255
+        },
+        {
+          "id": "bathymetry-mid-atlantic-ridge",
+          "pixels": 101273
+        },
+        {
+          "id": "bathymetry-hawaiian-seamounts",
+          "pixels": 164179
+        },
+        {
+          "id": "bathymetry-puerto-rico-trench",
+          "pixels": 68462
+        }
+      ]
+    },
+    {
+      "id": "bing-maps-labels-only",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "5cb6abe0f25a0776232f0ea6702be0bd532283996a73188b9ff4268c5b97bf49",
+      "inputSha256": "14748da62ad3bc6580e0a4924621913e7d2652447328dbd790eede8edc4d7b80",
+      "fixtureSha256": "30efe7562ab12e8f842621f87994db7888225e8677c4d22e88dcc5f1b9d32641",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "bing-labels-capitol-dome",
+        "bing-labels-mall-corridor",
+        "bing-labels-potomac-confluence",
+        "bing-labels-dc-quadrant"
+      ],
+      "pixelCounts": [
+        {
+          "id": "bing-labels-capitol-dome",
+          "pixels": 7058
+        },
+        {
+          "id": "bing-labels-mall-corridor",
+          "pixels": 30608
+        },
+        {
+          "id": "bing-labels-potomac-confluence",
+          "pixels": 7243
+        },
+        {
+          "id": "bing-labels-dc-quadrant",
+          "pixels": 68025
+        }
+      ]
+    },
+    {
+      "id": "azure-2d-tiles",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "ee5578e0fa9b0c84f2a4ca3643258f47a6cf38c0307df2b1942b67e74d10a041",
+      "inputSha256": "09d3d1adb658bc68c8d0627a329cd2a3fcccd8216622237df18b2a6f0eb9770d",
+      "fixtureSha256": "4e4a62fbd1c963321d7467115911e590cb0e426fa9ca0a1b8a0a3d539139c545",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "azure-philly-city-hall",
+        "azure-liberty-place-spire",
+        "azure-independence-mall",
+        "azure-metro-footprint"
+      ],
+      "pixelCounts": [
+        {
+          "id": "azure-philly-city-hall",
+          "pixels": 14182
+        },
+        {
+          "id": "azure-liberty-place-spire",
+          "pixels": 13676
+        },
+        {
+          "id": "azure-independence-mall",
+          "pixels": 5758
+        },
+        {
+          "id": "azure-metro-footprint",
+          "pixels": 67630
+        }
+      ]
+    },
+    {
+      "id": "imagery-adjustment",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "20d0f3c2a6b90726efe6e41fc99bc35e7887192c6b3e86174897095b0037d5e1",
+      "inputSha256": "f23a18285869fd7f01c0ce0460ceae9d79f7f304e0c207dcbcd272cfac8fb072",
+      "fixtureSha256": "0cac45eb9a86207efea3a85742dda138ea61ee8b0f8548e78e55a69f9bb23f12",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "adjustment-calibration-target",
+        "adjustment-step-wedge",
+        "adjustment-color-wheel",
+        "adjustment-calibration-zone"
+      ],
+      "pixelCounts": [
+        {
+          "id": "adjustment-calibration-target",
+          "pixels": 75705
+        },
+        {
+          "id": "adjustment-step-wedge",
+          "pixels": 103076
+        },
+        {
+          "id": "adjustment-color-wheel",
+          "pixels": 164179
+        },
+        {
+          "id": "adjustment-calibration-zone",
+          "pixels": 75897
+        }
+      ]
+    },
+    {
       "id": "earth-at-night",
       "status": "passed",
       "entities": 4,

@@ -42,8 +42,8 @@ async function canvasColors(page){return await page.evaluate(()=>new Promise(res
    await page.setViewportSize({width:1500,height:1000});
   }
   if(!process.env.CASE_FILTER&&!process.env.SCENE_ONLY&&!process.env.MENU_ONLY)report.cases.push(...await require("./extended-recipes-browser.cjs")(page,root,manifest,errors));
-  if(!process.env.BATCH26_ONLY&&!process.env.CASE_FILTER&&!process.env.EXTENDED_CASE&&!process.env.BATCH25_ONLY)report.cases.push(...await require("./scene-recipes-browser.cjs")(page,browser,root,manifest,errors,raster));
-  if(!process.env.BATCH26_ONLY&&!process.env.CASE_FILTER&&!process.env.EXTENDED_CASE&&!process.env.SCENE_ONLY)report.cases.push(...await require("./batch25-scenes-browser.cjs")(page,root,manifest,errors));
+  if(!process.env.BATCH26_ONLY&&!process.env.CASE_FILTER&&!process.env.EXTENDED_CASE&&!process.env.BATCH25_ONLY&&!process.env.EXTENDED_ONLY)report.cases.push(...await require("./scene-recipes-browser.cjs")(page,browser,root,manifest,errors,raster));
+  if(!process.env.BATCH26_ONLY&&!process.env.CASE_FILTER&&!process.env.EXTENDED_CASE&&!process.env.SCENE_ONLY&&!process.env.EXTENDED_ONLY)report.cases.push(...await require("./batch25-scenes-browser.cjs")(page,root,manifest,errors));
   // Re-select a case through the inventory and its full-case action.
   await page.locator('#search').fill('box');await page.locator('#cases button[data-id="box"]').click();await page.locator('#caseFull').click();await page.waitForFunction(()=>document.getElementById('fullStatus').textContent.startsWith('Box：'));
   await page.evaluate(()=>window.cesiumSandcastleViewer.destroy());assert.equal(await page.evaluate(()=>window.cesiumSandcastleViewer.stats),'destroyed');assert.deepEqual(errors,[]);report.destroy='passed';

@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "earth-at-night",
+      "id": "bathymetry",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "0efe95654b10a0ce397d720f681db669cebc72dfa34b40c9f89fb1063cbe6d37",
-      "inputSha256": "d1e713fc7bf28de531451055adbeca4b3400492457d3f82c8ee57817c4112fd1",
-      "fixtureSha256": "07bd040e9057bba4b659d27100a572b1091230b08f338f5d3eb15c02f4adfcaa",
+      "sourceSha256": "98525a01e0de2ab299c75587f886406e0975339ad868ade4729d3613c94c7901",
+      "inputSha256": "5435635ee9e80fe60a83ad9ec98f0b034244ed864b7f05cdd662e1a9d0b1aff5",
+      "fixtureSha256": "c4bcd3d2129e060385439509910ef8a9d823050e913130061291178d4fed0860",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,37 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "night-lights-tokyo",
-        "night-lights-nile",
-        "night-lights-aurora",
-        "night-lights-equator-band"
+        "bathymetry-mariana-trench",
+        "bathymetry-mid-atlantic-ridge",
+        "bathymetry-hawaiian-seamounts",
+        "bathymetry-puerto-rico-trench"
       ],
       "pixelCounts": [
         {
-          "id": "night-lights-tokyo",
-          "pixels": 87505
+          "id": "bathymetry-mariana-trench",
+          "pixels": 80255
         },
         {
-          "id": "night-lights-nile",
-          "pixels": 103076
+          "id": "bathymetry-mid-atlantic-ridge",
+          "pixels": 101273
         },
         {
-          "id": "night-lights-aurora",
+          "id": "bathymetry-hawaiian-seamounts",
           "pixels": 164179
         },
         {
-          "id": "night-lights-equator-band",
-          "pixels": 55546
+          "id": "bathymetry-puerto-rico-trench",
+          "pixels": 68462
         }
       ]
     },
     {
-      "id": "natural-earth-ii",
+      "id": "bing-maps-labels-only",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "dab03d2bfa52d27e078eb5f525dc8c6ec1eb752562fe1decd25404a4bcc64324",
-      "inputSha256": "49c896f11818f5119da4060d98562670e5d090f02d72fff5975aa35285893ece",
-      "fixtureSha256": "3f7c4dd1d71f02fdd42af4a1f904e69ca25b42bce0ddcfd59286d7bb5a9bf35e",
+      "sourceSha256": "5cb6abe0f25a0776232f0ea6702be0bd532283996a73188b9ff4268c5b97bf49",
+      "inputSha256": "14748da62ad3bc6580e0a4924621913e7d2652447328dbd790eede8edc4d7b80",
+      "fixtureSha256": "30efe7562ab12e8f842621f87994db7888225e8677c4d22e88dcc5f1b9d32641",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -63,37 +63,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "natural-earth-alps-relief",
-        "natural-earth-congo-drainage",
-        "natural-earth-andes-plateau",
-        "natural-earth-mediterranean-basin"
+        "bing-labels-capitol-dome",
+        "bing-labels-mall-corridor",
+        "bing-labels-potomac-confluence",
+        "bing-labels-dc-quadrant"
       ],
       "pixelCounts": [
         {
-          "id": "natural-earth-alps-relief",
-          "pixels": 101823
+          "id": "bing-labels-capitol-dome",
+          "pixels": 7058
         },
         {
-          "id": "natural-earth-congo-drainage",
-          "pixels": 103076
+          "id": "bing-labels-mall-corridor",
+          "pixels": 30608
         },
         {
-          "id": "natural-earth-andes-plateau",
-          "pixels": 164179
+          "id": "bing-labels-potomac-confluence",
+          "pixels": 7243
         },
         {
-          "id": "natural-earth-mediterranean-basin",
-          "pixels": 62141
+          "id": "bing-labels-dc-quadrant",
+          "pixels": 68025
         }
       ]
     },
     {
-      "id": "sentinel-2",
+      "id": "azure-2d-tiles",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "98eb3326eb4061f9f47c169523fe6789be9f7a87e125d38b4a3103e53e84cde4",
-      "inputSha256": "8741d341920a40388704fb35bb07e77a74577f1483b261bfc3a43b027b628a85",
-      "fixtureSha256": "69dcc412ad2efde3f1c2a2920e626315aeb4403f963035c8f8d27c418b6ced64",
+      "sourceSha256": "ee5578e0fa9b0c84f2a4ca3643258f47a6cf38c0307df2b1942b67e74d10a041",
+      "inputSha256": "09d3d1adb658bc68c8d0627a329cd2a3fcccd8216622237df18b2a6f0eb9770d",
+      "fixtureSha256": "4e4a62fbd1c963321d7467115911e590cb0e426fa9ca0a1b8a0a3d539139c545",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -104,37 +104,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "sentinel2-suez-canal",
-        "sentinel2-dubai-palm",
-        "sentinel2-agricultural-circles",
-        "sentinel2-nile-delta"
+        "azure-philly-city-hall",
+        "azure-liberty-place-spire",
+        "azure-independence-mall",
+        "azure-metro-footprint"
       ],
       "pixelCounts": [
         {
-          "id": "sentinel2-suez-canal",
-          "pixels": 103076
+          "id": "azure-philly-city-hall",
+          "pixels": 14182
         },
         {
-          "id": "sentinel2-dubai-palm",
-          "pixels": 94356
+          "id": "azure-liberty-place-spire",
+          "pixels": 13676
         },
         {
-          "id": "sentinel2-agricultural-circles",
-          "pixels": 164179
+          "id": "azure-independence-mall",
+          "pixels": 5758
         },
         {
-          "id": "sentinel2-nile-delta",
-          "pixels": 67861
+          "id": "azure-metro-footprint",
+          "pixels": 67630
         }
       ]
     },
     {
-      "id": "arcgis-mapserver",
+      "id": "imagery-adjustment",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "72143cf0009ab18732b5714fc7b9630d34a92c78db579f2d544f42a8520436e9",
-      "inputSha256": "678725c49c8ca8344b5e6a196cb66107d2f3fdf8e1ddf2e36b6f9251afeb60c2",
-      "fixtureSha256": "508f40c13ceed4b150cfdd3c27c053c2fdf4585cfdbf4efef3e07ab269bf07eb",
+      "sourceSha256": "20d0f3c2a6b90726efe6e41fc99bc35e7887192c6b3e86174897095b0037d5e1",
+      "inputSha256": "f23a18285869fd7f01c0ce0460ceae9d79f7f304e0c207dcbcd272cfac8fb072",
+      "fixtureSha256": "0cac45eb9a86207efea3a85742dda138ea61ee8b0f8548e78e55a69f9bb23f12",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -145,195 +145,32 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "arcgis-satellite-datum",
-        "arcgis-hillshade-peak",
-        "arcgis-oceans-trench",
-        "arcgis-service-boundary"
+        "adjustment-calibration-target",
+        "adjustment-step-wedge",
+        "adjustment-color-wheel",
+        "adjustment-calibration-zone"
       ],
       "pixelCounts": [
         {
-          "id": "arcgis-satellite-datum",
-          "pixels": 94356
+          "id": "adjustment-calibration-target",
+          "pixels": 75705
         },
         {
-          "id": "arcgis-hillshade-peak",
+          "id": "adjustment-step-wedge",
           "pixels": 103076
         },
         {
-          "id": "arcgis-oceans-trench",
+          "id": "adjustment-color-wheel",
           "pixels": 164179
         },
         {
-          "id": "arcgis-service-boundary",
-          "pixels": 68743
+          "id": "adjustment-calibration-zone",
+          "pixels": 75897
         }
       ]
-    },
-    {
-      "id": "html-overlays",
-      "sourceSha256": "73b2dc9b3fd840cf289666d93b1392a835acaaae046b93cc74805aa117293a71",
-      "inputSha256": "df59d0a5c3c3c876c4a4cb05f1905f43579b26c8c527b742e75965f817397905",
-      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
-      "status": "passed",
-      "entities": 0,
-      "globePixels": 16147,
-      "checks": [
-        "original source body and initial state",
-        "real WASM globe pixels",
-        "source default framing",
-        "original logo asset decoded",
-        "result object reused",
-        "preRender updates after camera/resize/resolution change",
-        "wheel zoom"
-      ],
-      "htmlSha256": "0e6d5c31d0196fd6c11268c463ea8c86355c9955a5c5ea5f86571eb1b4e7b81c",
-      "assetSha256": "1d6a9bbf468253843d3fda9021b1592c2f85da109cecb11f6f37f875dc251332"
-    },
-    {
-      "id": "resolution-scaling",
-      "sourceSha256": "f732be47d255c095871a1d841b7020b9ca3a86844439b43cb99229b409d0298a",
-      "inputSha256": "03ac66a666dad93a1aa5700ac305f37e6c9086790eee83848b9fadf54181432e",
-      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
-      "status": "passed",
-      "entities": 0,
-      "globePixels": 1017,
-      "checks": [
-        "original source body and initial state",
-        "real WASM globe pixels",
-        "source default framing",
-        "range and text subscriptions",
-        "NaN fallback",
-        "0.1..2 clamp",
-        "recommended mode",
-        "actual framebuffer dimensions",
-        "wheel zoom",
-        "real DPR=2 framebuffer and recommended-mode comparison"
-      ],
-      "htmlSha256": "595ede83e6b39accb93e8749d75c779c03b054b6666103543bf157f47fac484b",
-      "dpr2": {
-        "native": {
-          "w": 308,
-          "h": 234,
-          "cssW": 615,
-          "cssH": 468,
-          "dpr": 2,
-          "scale": 0.25,
-          "rec": false
-        },
-        "recommended": {
-          "w": 154,
-          "h": 117,
-          "cssW": 615,
-          "cssH": 468,
-          "dpr": 2,
-          "scale": 0.25,
-          "rec": true
-        },
-        "globePixels": 822
-      }
-    },
-    {
-      "id": "hello-world",
-      "sourceSha256": "10329eeedf78a7b040f59a5edf8f8804644b440e56323b2bb3d1a846c61b6bce",
-      "inputSha256": "78b58e3d01df000ca3a15cad2bd97fe4189924f0510bbe8304f0d8c53413b24e",
-      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
-      "status": "passed",
-      "entities": 0,
-      "globePixels": 16147,
-      "checks": [
-        "original source body and initial state",
-        "real WASM globe pixels",
-        "source default framing",
-        "overlay/event/resolution case cleanup",
-        "wheel zoom"
-      ]
-    },
-    {
-      "id": "points",
-      "status": "passed",
-      "entities": 1,
-      "sourceSha256": "78c0132b5b8b0171c3363401274bbd91e78f13ac06afc05778fa6090d9d3a1ba",
-      "inputSha256": "9c4e10c650857e25fec9ec42070775fbe87b15cda486bedfb198374c68526e4a",
-      "fixtureSha256": "40aaee3825e0af92cf6abc60131ccfeb23795a5533d983276847b0f9bf1745da",
-      "checks": [
-        "all six original menu callbacks and reset",
-        "exact positions, colors, sizes, outlines and NearFarScalar",
-        "real pixels and picking for every variant entity",
-        "measured distance scaling and fading"
-      ],
-      "variantResults": [
-        {
-          "label": "Add point",
-          "entities": 1,
-          "pixels": 78
-        },
-        {
-          "label": "Set point properties at creation",
-          "entities": 1,
-          "pixels": 196
-        },
-        {
-          "label": "Change point properties",
-          "entities": 1,
-          "pixels": 312
-        },
-        {
-          "label": "Add multiple points",
-          "entities": 3,
-          "pixels": 1044
-        },
-        {
-          "label": "Scale by viewer distance",
-          "entities": 1,
-          "pixels": 304
-        },
-        {
-          "label": "Fade by viewer distance",
-          "entities": 1,
-          "pixels": 312
-        }
-      ],
-      "scaleMeasurements": {
-        "near": {
-          "pixels": 312,
-          "energy": 209757
-        },
-        "far": {
-          "pixels": 11,
-          "energy": 7392
-        }
-      },
-      "fadeMeasurements": {
-        "near": {
-          "pixels": 312,
-          "energy": 209757
-        },
-        "far": {
-          "pixels": 156,
-          "energy": 44939
-        }
-      }
-    },
-    {
-      "id": "offline",
-      "status": "passed",
-      "entities": 0,
-      "sourceSha256": "cf0ff25e62c546a6a67bbfd65d96efbf4f2875f7d7c309f1abca8f55ed74ad4d",
-      "inputSha256": "8fdddda529719a67eb3444a5bf3713fe64210938b91a674107468c9392b812b6",
-      "fixtureSha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
-      "checks": [
-        "original local TMS provider and disabled picker/geocoder",
-        "all 42 pinned local JPEG files present and hashed",
-        "public network blocked; real local tile fetches",
-        "real detailed globe pixels and wheel zoom"
-      ],
-      "localTileRequests": 34,
-      "externalRequests": 0,
-      "colors": 20110,
-      "assetsSha256": "f7dbc2e3295e40bbd1f08bfcc476efe0c5237acdb6df8e7410943c9b8de081e4"
     }
   ],
-  "browser": "156.0.8078.75",
+  "browser": "151.0.7922.34",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed"
 }

@@ -1,0 +1,152 @@
+[
+  {
+    "id": "azure-philly-city-hall",
+    "name": "Philadelphia City Hall Tower Architectural Benchmark",
+    "show": true,
+    "positionDegrees": [
+      -75.1636,
+      39.9526,
+      250
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 500,
+      "topRadius": 75,
+      "bottomRadius": 75
+    },
+    "color": [
+      0.8,
+      0.75,
+      0.7,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.95,
+      0.85,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "ionAssetId": 3891169,
+      "heightAboveEllipsoidMeters": 167,
+      "urbanZone": "Center City"
+    }
+  },
+  {
+    "id": "azure-liberty-place-spire",
+    "name": "One Liberty Place Skyscraper Urban Massing Box",
+    "show": true,
+    "positionDegrees": [
+      -75.1675,
+      39.9515,
+      280
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        120,
+        120,
+        560
+      ]
+    },
+    "color": [
+      0.3,
+      0.6,
+      0.9,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.5,
+      0.8,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "architecturalStyle": "Postmodern",
+      "structuralHeightMeters": 288
+    }
+  },
+  {
+    "id": "azure-independence-mall",
+    "name": "Independence National Historical Park Civic Dome",
+    "show": true,
+    "positionDegrees": [
+      -75.15,
+      39.9496,
+      60
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        100,
+        100,
+        80
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      0.4,
+      0.8,
+      0.45,
+      0.85
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "historicalSignificance": "Declaration of Independence",
+      "canopyCoveragePercent": 65
+    }
+  },
+  {
+    "id": "azure-metro-footprint",
+    "name": "Greater Philadelphia Azure 2D Basemap Footprint",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -75.28,
+        39.87,
+        -74.96,
+        40.13
+      ],
+      "height": 50,
+      "extrudedHeight": 400,
+      "rotation": 0
+    },
+    "color": [
+      0.35,
+      0.5,
+      0.75,
+      0.65
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.55,
+      0.75,
+      1,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "projectionScheme": "WebMercator",
+      "terrainAssetId": 1,
+      "geocoderProvider": "GOOGLE"
+    }
+  }
+]

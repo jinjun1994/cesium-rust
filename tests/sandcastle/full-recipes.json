@@ -4279,6 +4279,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "bathymetry",
+      "title": "Global Bathymetry",
+      "sourceSha256": "98525a01e0de2ab299c75587f886406e0975339ad868ade4729d3613c94c7901",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=bathymetry",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/bathymetry.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/bathymetry.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Cesium World Bathymetry seafloor topography and marine elevation color ramp",
+        "Dynamic sun hillshade light direction, elevation ramp and contour line materials"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "bing-maps-labels-only",
+      "title": "Bing Maps Labels Only",
+      "sourceSha256": "5cb6abe0f25a0776232f0ea6702be0bd532283996a73188b9ff4268c5b97bf49",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=bing-maps-labels-only",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/bing-maps-labels-only.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/bing-maps-labels-only.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Bing Maps Aerial with Labels vs Bing Maps Aerial plus Bing Maps Labels Only split view",
+        "Split direction panel assignment and interactive slider screen space event positioning"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "azure-2d-tiles",
+      "title": "Azure 2D Tiles",
+      "sourceSha256": "ee5578e0fa9b0c84f2a4ca3643258f47a6cf38c0307df2b1942b67e74d10a041",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=azure-2d-tiles",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/azure-2d-tiles.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/azure-2d-tiles.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Azure Maps 2D tile imagery provider layer integrated with Cesium World Terrain",
+        "Philadelphia metropolitan geographic framing and Google geocoder configuration"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "imagery-adjustment",
+      "title": "Imagery Adjustment",
+      "sourceSha256": "20d0f3c2a6b90726efe6e41fc99bc35e7887192c6b3e86174897095b0037d5e1",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=imagery-adjustment",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/imagery-adjustment.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/imagery-adjustment.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Interactive imagery adjustment controls: brightness, contrast, hue, saturation, and gamma",
+        "Real-time Knockout observable parameter tracking and layer shader uniform updates"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

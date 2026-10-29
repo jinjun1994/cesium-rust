@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.51（已通过 151 / 309 个完整案例，剩余 158 个）
+- **当前版本**：v0.0.52（已通过 155 / 309 个完整案例，剩余 154 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.52 验收完成：深海水深色带 (Bathymetry)、分屏独立注记 (Bing Maps Labels Only)、微软云瓦片地图 (Azure 2D Tiles) 与影像色彩多参调节 (Imagery Adjustment)
+- **完成配方**（累计推进至 **155 / 309**，剩余 154 个）：
+  1. `bathymetry`（全球深海海底地形拓扑、CMOCEAN 深度色谱与动态山体晕渲：-10000m 至 2000m 复合高程等深线带谱、纯深度色带渐变、500m 间隔等深线与关闭光照阴影平面基准 4 种变体）
+  2. `bing-maps-labels-only`（分屏双视口 Bing Maps 影像与独立注记图层：对称分屏基准、隐藏右侧注记图层、左窄右宽注记聚焦与左宽右窄一体化航拍 4 种变体）
+  3. `azure-2d-tiles`（微软 Azure Maps 2D 瓦片地图服务与全球地形集成：费城都市核心区宏观概览、高反差山地真实地形起伏、中心城摩天楼微观特写与特拉华河航运走廊 4 种变体）
+  4. `imagery-adjustment`（影像图层多通道实时色彩、明度与伽马参数调节：高饱和度鲜艳模式、单色高对比黑白胶片、暖金色夕阳滤镜与月球冷色调辐射衰减 4 种变体）
+- **核心研发突破**：
+  1. **深海负高程域到陆地正高程域连续水深晕渲**：确立了跨越 -10000m 至 +2000m 的 CMOCEAN 材质模型映射规范，统一了太阳定向山体晕渲与等深线着色算法，离屏着色产生 68,000 ~ 164,000 像素的高精度海底地貌。
+  2. **双视口分屏（SplitDirection）图层遮罩与交互拾取闭环**：验证了左右分屏在屏幕空间鼠标拖拽下的实时几何裁剪，保证了独立置顶注记图层与底图影像的无缝层叠与精准点选。
+  3. **商业云瓦片底图（Azure Maps 2D Tiles）与高程地形无缝拼合**：对齐了 WebMercator 投影与 Cesium World Terrain 地表法线，费城市区微观建筑群与区域走廊坐标无漂移。
+  4. **影像后期多参数（Color & Gamma Uniforms）零延迟重绘**：通过着色器 Uniforms 实时更新 brightness, contrast, hue, saturation, gamma 五大遥感增强通道，消除 CPU 侧纹理重复解码开销。
+- **验证结果**：
+  - **普通 Rust 单元测试**：112 项全部通过（含 `batch52_bathymetry_bing_labels_azure_adjustment`）。
+  - **真实 GPU 离屏渲染测试**：156 / 156 项全数通过（`156 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：155 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Bathymetry、Bing Maps Labels Only、Azure 2D Tiles 与 Imagery Adjustment 验证文档](docs/bathymetry-binglabels-azure-adjustment-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.51 验收完成：全球夜间灯光 (Earth at Night)、地貌晕渲水网 (Natural Earth II)、10米多光谱遥感 (Sentinel-2) 与行业地图服务 (ArcGIS MapServer)
 - **完成配方**（累计推进至 **151 / 309**，剩余 158 个）：
