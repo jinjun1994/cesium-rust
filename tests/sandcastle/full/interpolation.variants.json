@@ -1,0 +1,2415 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Interpolation: Linear Approximation (Degree 1)",
+      "entities": [
+        {
+          "id": "waypoint-0",
+          "show": true,
+          "name": "Waypoint 0°",
+          "positionDegrees": [
+            -112.065693,
+            36.0994841,
+            2020.8
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 0
+          }
+        },
+        {
+          "id": "waypoint-1",
+          "show": true,
+          "name": "Waypoint 45°",
+          "positionDegrees": [
+            -112.07887319484661,
+            36.12069730343559,
+            1858.5
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 45
+          }
+        },
+        {
+          "id": "waypoint-2",
+          "show": true,
+          "name": "Waypoint 90°",
+          "positionDegrees": [
+            -112.110693,
+            36.1294841,
+            2150.3
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 90
+          }
+        },
+        {
+          "id": "waypoint-3",
+          "show": true,
+          "name": "Waypoint 135°",
+          "positionDegrees": [
+            -112.14251280515339,
+            36.12069730343559,
+            2156.2
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 135
+          }
+        },
+        {
+          "id": "waypoint-4",
+          "show": true,
+          "name": "Waypoint 180°",
+          "positionDegrees": [
+            -112.155693,
+            36.0994841,
+            1934.2
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 180
+          }
+        },
+        {
+          "id": "waypoint-5",
+          "show": true,
+          "name": "Waypoint 225°",
+          "positionDegrees": [
+            -112.14251280515339,
+            36.078270896564405,
+            1878.6
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 225
+          }
+        },
+        {
+          "id": "waypoint-6",
+          "show": true,
+          "name": "Waypoint 270°",
+          "positionDegrees": [
+            -112.110693,
+            36.0694841,
+            1958.7
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 270
+          }
+        },
+        {
+          "id": "waypoint-7",
+          "show": true,
+          "name": "Waypoint 315°",
+          "positionDegrees": [
+            -112.07887319484661,
+            36.078270896564405,
+            2093
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 315
+          }
+        },
+        {
+          "id": "waypoint-8",
+          "show": true,
+          "name": "Waypoint 360°",
+          "positionDegrees": [
+            -112.065693,
+            36.0994841,
+            2000.3
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 360
+          }
+        },
+        {
+          "id": "aircraft",
+          "show": true,
+          "name": "Interpolated Aircraft",
+          "positionDegrees": null,
+          "samples": [
+            {
+              "time": 1427299200,
+              "cartesian": [
+                -1938880.7364742446,
+                -4783101.52723345,
+                3738307.2064294512
+              ]
+            },
+            {
+              "time": 1427299245,
+              "cartesian": [
+                -1939410.1070307165,
+                -4781248.007463272,
+                3740113.770891043
+              ]
+            },
+            {
+              "time": 1427299290,
+              "cartesian": [
+                -1941937.4144397236,
+                -4779855.857592946,
+                3741073.584004907
+              ]
+            },
+            {
+              "time": 1427299335,
+              "cartesian": [
+                -1944810.178816413,
+                -4779313.65555036,
+                3740289.2615264
+              ]
+            },
+            {
+              "time": 1427299380,
+              "cartesian": [
+                -1946365.2313826948,
+                -4779985.235036125,
+                3738256.1826549447
+              ]
+            },
+            {
+              "time": 1427299425,
+              "cartesian": [
+                -1945771.4121860003,
+                -4781675.858206166,
+                3736320.7210073615
+              ]
+            },
+            {
+              "time": 1427299470,
+              "cartesian": [
+                -1943356.082006016,
+                -4783347.744832101,
+                3735579.6074833144
+              ]
+            },
+            {
+              "time": 1427299515,
+              "cartesian": [
+                -1940524.23979146,
+                -4783994.690603183,
+                3736446.978999639
+              ]
+            },
+            {
+              "time": 1427299560,
+              "cartesian": [
+                -1938874.5139230536,
+                -4783086.176575957,
+                3738295.128053269
+              ]
+            }
+          ],
+          "availability": [
+            1427299200,
+            1427299560
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+            "minimumPixelSize": 64
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "trackingReferenceFrame": "ENU",
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": {
+            "model": "CesiumAir"
+          }
+        },
+        {
+          "id": "flight-path",
+          "show": true,
+          "name": "Glowing Flight Path",
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -112.065693,
+                  36.0994841,
+                  2020.8
+                ],
+                [
+                  -112.07887319484661,
+                  36.12069730343559,
+                  1858.5
+                ],
+                [
+                  -112.110693,
+                  36.1294841,
+                  2150.3
+                ],
+                [
+                  -112.14251280515339,
+                  36.12069730343559,
+                  2156.2
+                ],
+                [
+                  -112.155693,
+                  36.0994841,
+                  1934.2
+                ],
+                [
+                  -112.14251280515339,
+                  36.078270896564405,
+                  1878.6
+                ],
+                [
+                  -112.110693,
+                  36.0694841,
+                  1958.7
+                ],
+                [
+                  -112.07887319484661,
+                  36.078270896564405,
+                  2093
+                ],
+                [
+                  -112.065693,
+                  36.0994841,
+                  2000.3
+                ]
+              ],
+              "width": 10,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "glow",
+                "glowPower": 0.1,
+                "taperPower": 0.1,
+                "color": [
+                  1,
+                  1,
+                  0,
+                  1
+                ]
+              }
+            }
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Interpolation: Lagrange Polynomial (Degree 5)",
+      "entities": [
+        {
+          "id": "waypoint-0",
+          "show": true,
+          "name": "Waypoint 0°",
+          "positionDegrees": [
+            -112.065693,
+            36.0994841,
+            2020.8
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 0
+          }
+        },
+        {
+          "id": "waypoint-1",
+          "show": true,
+          "name": "Waypoint 45°",
+          "positionDegrees": [
+            -112.07887319484661,
+            36.12069730343559,
+            1858.5
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 45
+          }
+        },
+        {
+          "id": "waypoint-2",
+          "show": true,
+          "name": "Waypoint 90°",
+          "positionDegrees": [
+            -112.110693,
+            36.1294841,
+            2150.3
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 90
+          }
+        },
+        {
+          "id": "waypoint-3",
+          "show": true,
+          "name": "Waypoint 135°",
+          "positionDegrees": [
+            -112.14251280515339,
+            36.12069730343559,
+            2156.2
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 135
+          }
+        },
+        {
+          "id": "waypoint-4",
+          "show": true,
+          "name": "Waypoint 180°",
+          "positionDegrees": [
+            -112.155693,
+            36.0994841,
+            1934.2
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 180
+          }
+        },
+        {
+          "id": "waypoint-5",
+          "show": true,
+          "name": "Waypoint 225°",
+          "positionDegrees": [
+            -112.14251280515339,
+            36.078270896564405,
+            1878.6
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 225
+          }
+        },
+        {
+          "id": "waypoint-6",
+          "show": true,
+          "name": "Waypoint 270°",
+          "positionDegrees": [
+            -112.110693,
+            36.0694841,
+            1958.7
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 270
+          }
+        },
+        {
+          "id": "waypoint-7",
+          "show": true,
+          "name": "Waypoint 315°",
+          "positionDegrees": [
+            -112.07887319484661,
+            36.078270896564405,
+            2093
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 315
+          }
+        },
+        {
+          "id": "waypoint-8",
+          "show": true,
+          "name": "Waypoint 360°",
+          "positionDegrees": [
+            -112.065693,
+            36.0994841,
+            2000.3
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 360
+          }
+        },
+        {
+          "id": "aircraft",
+          "show": true,
+          "name": "Interpolated Aircraft",
+          "positionDegrees": null,
+          "samples": [
+            {
+              "time": 1427299200,
+              "cartesian": [
+                -1938880.7364742446,
+                -4783101.52723345,
+                3738307.2064294512
+              ]
+            },
+            {
+              "time": 1427299245,
+              "cartesian": [
+                -1939410.1070307165,
+                -4781248.007463272,
+                3740113.770891043
+              ]
+            },
+            {
+              "time": 1427299290,
+              "cartesian": [
+                -1941937.4144397236,
+                -4779855.857592946,
+                3741073.584004907
+              ]
+            },
+            {
+              "time": 1427299335,
+              "cartesian": [
+                -1944810.178816413,
+                -4779313.65555036,
+                3740289.2615264
+              ]
+            },
+            {
+              "time": 1427299380,
+              "cartesian": [
+                -1946365.2313826948,
+                -4779985.235036125,
+                3738256.1826549447
+              ]
+            },
+            {
+              "time": 1427299425,
+              "cartesian": [
+                -1945771.4121860003,
+                -4781675.858206166,
+                3736320.7210073615
+              ]
+            },
+            {
+              "time": 1427299470,
+              "cartesian": [
+                -1943356.082006016,
+                -4783347.744832101,
+                3735579.6074833144
+              ]
+            },
+            {
+              "time": 1427299515,
+              "cartesian": [
+                -1940524.23979146,
+                -4783994.690603183,
+                3736446.978999639
+              ]
+            },
+            {
+              "time": 1427299560,
+              "cartesian": [
+                -1938874.5139230536,
+                -4783086.176575957,
+                3738295.128053269
+              ]
+            }
+          ],
+          "availability": [
+            1427299200,
+            1427299560
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+            "minimumPixelSize": 64
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "trackingReferenceFrame": "ENU",
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": {
+            "interpolation": "Lagrange",
+            "degree": 5
+          }
+        },
+        {
+          "id": "flight-path",
+          "show": true,
+          "name": "Glowing Flight Path",
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -112.065693,
+                  36.0994841,
+                  2020.8
+                ],
+                [
+                  -112.07887319484661,
+                  36.12069730343559,
+                  1858.5
+                ],
+                [
+                  -112.110693,
+                  36.1294841,
+                  2150.3
+                ],
+                [
+                  -112.14251280515339,
+                  36.12069730343559,
+                  2156.2
+                ],
+                [
+                  -112.155693,
+                  36.0994841,
+                  1934.2
+                ],
+                [
+                  -112.14251280515339,
+                  36.078270896564405,
+                  1878.6
+                ],
+                [
+                  -112.110693,
+                  36.0694841,
+                  1958.7
+                ],
+                [
+                  -112.07887319484661,
+                  36.078270896564405,
+                  2093
+                ],
+                [
+                  -112.065693,
+                  36.0994841,
+                  2000.3
+                ]
+              ],
+              "width": 10,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "glow",
+                "glowPower": 0.1,
+                "taperPower": 0.1,
+                "color": [
+                  1,
+                  1,
+                  0,
+                  1
+                ]
+              }
+            }
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Interpolation: Hermite Polynomial (Degree 3)",
+      "entities": [
+        {
+          "id": "waypoint-0",
+          "show": true,
+          "name": "Waypoint 0°",
+          "positionDegrees": [
+            -112.065693,
+            36.0994841,
+            2020.8
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 0
+          }
+        },
+        {
+          "id": "waypoint-1",
+          "show": true,
+          "name": "Waypoint 45°",
+          "positionDegrees": [
+            -112.07887319484661,
+            36.12069730343559,
+            1858.5
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 45
+          }
+        },
+        {
+          "id": "waypoint-2",
+          "show": true,
+          "name": "Waypoint 90°",
+          "positionDegrees": [
+            -112.110693,
+            36.1294841,
+            2150.3
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 90
+          }
+        },
+        {
+          "id": "waypoint-3",
+          "show": true,
+          "name": "Waypoint 135°",
+          "positionDegrees": [
+            -112.14251280515339,
+            36.12069730343559,
+            2156.2
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 135
+          }
+        },
+        {
+          "id": "waypoint-4",
+          "show": true,
+          "name": "Waypoint 180°",
+          "positionDegrees": [
+            -112.155693,
+            36.0994841,
+            1934.2
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 180
+          }
+        },
+        {
+          "id": "waypoint-5",
+          "show": true,
+          "name": "Waypoint 225°",
+          "positionDegrees": [
+            -112.14251280515339,
+            36.078270896564405,
+            1878.6
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 225
+          }
+        },
+        {
+          "id": "waypoint-6",
+          "show": true,
+          "name": "Waypoint 270°",
+          "positionDegrees": [
+            -112.110693,
+            36.0694841,
+            1958.7
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 270
+          }
+        },
+        {
+          "id": "waypoint-7",
+          "show": true,
+          "name": "Waypoint 315°",
+          "positionDegrees": [
+            -112.07887319484661,
+            36.078270896564405,
+            2093
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 315
+          }
+        },
+        {
+          "id": "waypoint-8",
+          "show": true,
+          "name": "Waypoint 360°",
+          "positionDegrees": [
+            -112.065693,
+            36.0994841,
+            2000.3
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 360
+          }
+        },
+        {
+          "id": "aircraft",
+          "show": true,
+          "name": "Interpolated Aircraft",
+          "positionDegrees": null,
+          "samples": [
+            {
+              "time": 1427299200,
+              "cartesian": [
+                -1938880.7364742446,
+                -4783101.52723345,
+                3738307.2064294512
+              ]
+            },
+            {
+              "time": 1427299245,
+              "cartesian": [
+                -1939410.1070307165,
+                -4781248.007463272,
+                3740113.770891043
+              ]
+            },
+            {
+              "time": 1427299290,
+              "cartesian": [
+                -1941937.4144397236,
+                -4779855.857592946,
+                3741073.584004907
+              ]
+            },
+            {
+              "time": 1427299335,
+              "cartesian": [
+                -1944810.178816413,
+                -4779313.65555036,
+                3740289.2615264
+              ]
+            },
+            {
+              "time": 1427299380,
+              "cartesian": [
+                -1946365.2313826948,
+                -4779985.235036125,
+                3738256.1826549447
+              ]
+            },
+            {
+              "time": 1427299425,
+              "cartesian": [
+                -1945771.4121860003,
+                -4781675.858206166,
+                3736320.7210073615
+              ]
+            },
+            {
+              "time": 1427299470,
+              "cartesian": [
+                -1943356.082006016,
+                -4783347.744832101,
+                3735579.6074833144
+              ]
+            },
+            {
+              "time": 1427299515,
+              "cartesian": [
+                -1940524.23979146,
+                -4783994.690603183,
+                3736446.978999639
+              ]
+            },
+            {
+              "time": 1427299560,
+              "cartesian": [
+                -1938874.5139230536,
+                -4783086.176575957,
+                3738295.128053269
+              ]
+            }
+          ],
+          "availability": [
+            1427299200,
+            1427299560
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+            "minimumPixelSize": 64
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "trackingReferenceFrame": "ENU",
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": {
+            "interpolation": "Hermite",
+            "degree": 3
+          }
+        },
+        {
+          "id": "flight-path",
+          "show": true,
+          "name": "Glowing Flight Path",
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -112.065693,
+                  36.0994841,
+                  2020.8
+                ],
+                [
+                  -112.07887319484661,
+                  36.12069730343559,
+                  1858.5
+                ],
+                [
+                  -112.110693,
+                  36.1294841,
+                  2150.3
+                ],
+                [
+                  -112.14251280515339,
+                  36.12069730343559,
+                  2156.2
+                ],
+                [
+                  -112.155693,
+                  36.0994841,
+                  1934.2
+                ],
+                [
+                  -112.14251280515339,
+                  36.078270896564405,
+                  1878.6
+                ],
+                [
+                  -112.110693,
+                  36.0694841,
+                  1958.7
+                ],
+                [
+                  -112.07887319484661,
+                  36.078270896564405,
+                  2093
+                ],
+                [
+                  -112.065693,
+                  36.0994841,
+                  2000.3
+                ]
+              ],
+              "width": 10,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "glow",
+                "glowPower": 0.1,
+                "taperPower": 0.1,
+                "color": [
+                  1,
+                  1,
+                  0,
+                  1
+                ]
+              }
+            }
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    },
+    {
+      "label": "Tracking reference frame: Inertial",
+      "entities": [
+        {
+          "id": "waypoint-0",
+          "show": true,
+          "name": "Waypoint 0°",
+          "positionDegrees": [
+            -112.065693,
+            36.0994841,
+            2020.8
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 0
+          }
+        },
+        {
+          "id": "waypoint-1",
+          "show": true,
+          "name": "Waypoint 45°",
+          "positionDegrees": [
+            -112.07887319484661,
+            36.12069730343559,
+            1858.5
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 45
+          }
+        },
+        {
+          "id": "waypoint-2",
+          "show": true,
+          "name": "Waypoint 90°",
+          "positionDegrees": [
+            -112.110693,
+            36.1294841,
+            2150.3
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 90
+          }
+        },
+        {
+          "id": "waypoint-3",
+          "show": true,
+          "name": "Waypoint 135°",
+          "positionDegrees": [
+            -112.14251280515339,
+            36.12069730343559,
+            2156.2
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 135
+          }
+        },
+        {
+          "id": "waypoint-4",
+          "show": true,
+          "name": "Waypoint 180°",
+          "positionDegrees": [
+            -112.155693,
+            36.0994841,
+            1934.2
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 180
+          }
+        },
+        {
+          "id": "waypoint-5",
+          "show": true,
+          "name": "Waypoint 225°",
+          "positionDegrees": [
+            -112.14251280515339,
+            36.078270896564405,
+            1878.6
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 225
+          }
+        },
+        {
+          "id": "waypoint-6",
+          "show": true,
+          "name": "Waypoint 270°",
+          "positionDegrees": [
+            -112.110693,
+            36.0694841,
+            1958.7
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 270
+          }
+        },
+        {
+          "id": "waypoint-7",
+          "show": true,
+          "name": "Waypoint 315°",
+          "positionDegrees": [
+            -112.07887319484661,
+            36.078270896564405,
+            2093
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 315
+          }
+        },
+        {
+          "id": "waypoint-8",
+          "show": true,
+          "name": "Waypoint 360°",
+          "positionDegrees": [
+            -112.065693,
+            36.0994841,
+            2000.3
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 8,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "properties": {
+            "angleDeg": 360
+          }
+        },
+        {
+          "id": "aircraft",
+          "show": true,
+          "name": "Interpolated Aircraft",
+          "positionDegrees": null,
+          "samples": [
+            {
+              "time": 1427299200,
+              "cartesian": [
+                -1938880.7364742446,
+                -4783101.52723345,
+                3738307.2064294512
+              ]
+            },
+            {
+              "time": 1427299245,
+              "cartesian": [
+                -1939410.1070307165,
+                -4781248.007463272,
+                3740113.770891043
+              ]
+            },
+            {
+              "time": 1427299290,
+              "cartesian": [
+                -1941937.4144397236,
+                -4779855.857592946,
+                3741073.584004907
+              ]
+            },
+            {
+              "time": 1427299335,
+              "cartesian": [
+                -1944810.178816413,
+                -4779313.65555036,
+                3740289.2615264
+              ]
+            },
+            {
+              "time": 1427299380,
+              "cartesian": [
+                -1946365.2313826948,
+                -4779985.235036125,
+                3738256.1826549447
+              ]
+            },
+            {
+              "time": 1427299425,
+              "cartesian": [
+                -1945771.4121860003,
+                -4781675.858206166,
+                3736320.7210073615
+              ]
+            },
+            {
+              "time": 1427299470,
+              "cartesian": [
+                -1943356.082006016,
+                -4783347.744832101,
+                3735579.6074833144
+              ]
+            },
+            {
+              "time": 1427299515,
+              "cartesian": [
+                -1940524.23979146,
+                -4783994.690603183,
+                3736446.978999639
+              ]
+            },
+            {
+              "time": 1427299560,
+              "cartesian": [
+                -1938874.5139230536,
+                -4783086.176575957,
+                3738295.128053269
+              ]
+            }
+          ],
+          "availability": [
+            1427299200,
+            1427299560
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+            "minimumPixelSize": 64
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "trackingReferenceFrame": "INERTIAL",
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": {
+            "model": "CesiumAir"
+          }
+        },
+        {
+          "id": "flight-path",
+          "show": true,
+          "name": "Glowing Flight Path",
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -112.065693,
+                  36.0994841,
+                  2020.8
+                ],
+                [
+                  -112.07887319484661,
+                  36.12069730343559,
+                  1858.5
+                ],
+                [
+                  -112.110693,
+                  36.1294841,
+                  2150.3
+                ],
+                [
+                  -112.14251280515339,
+                  36.12069730343559,
+                  2156.2
+                ],
+                [
+                  -112.155693,
+                  36.0994841,
+                  1934.2
+                ],
+                [
+                  -112.14251280515339,
+                  36.078270896564405,
+                  1878.6
+                ],
+                [
+                  -112.110693,
+                  36.0694841,
+                  1958.7
+                ],
+                [
+                  -112.07887319484661,
+                  36.078270896564405,
+                  2093
+                ],
+                [
+                  -112.065693,
+                  36.0994841,
+                  2000.3
+                ]
+              ],
+              "width": 10,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "glow",
+                "glowPower": 0.1,
+                "taperPower": 0.1,
+                "color": [
+                  1,
+                  1,
+                  0,
+                  1
+                ]
+              }
+            }
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "properties": null
+        }
+      ]
+    }
+  ]
+}

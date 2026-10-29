@@ -1,0 +1,1114 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Add point",
+      "entities": [
+        {
+          "id": "point-yellow",
+          "show": true,
+          "name": "Yellow Point",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "properties": {
+            "color": "yellow"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Set point properties at creation",
+      "entities": [
+        {
+          "id": "point-skyblue",
+          "show": true,
+          "name": "Skyblue Point with Yellow Outline",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineWidth": 3,
+            "outlineColor": [
+              1,
+              1,
+              0,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.53,
+            0.81,
+            0.92,
+            1
+          ],
+          "properties": {
+            "color": "skyblue",
+            "pixelSize": 10
+          }
+        }
+      ]
+    },
+    {
+      "label": "Change point properties",
+      "entities": [
+        {
+          "id": "point-high",
+          "show": true,
+          "name": "High Translucent Point",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            300000
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 20,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            0.25
+          ],
+          "properties": {
+            "altitude": 300000
+          }
+        }
+      ]
+    },
+    {
+      "label": "Add multiple points",
+      "entities": [
+        {
+          "id": "point-red",
+          "show": true,
+          "name": "Red Point",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 5,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "properties": {
+            "color": "red"
+          }
+        },
+        {
+          "id": "point-blue",
+          "show": true,
+          "name": "Blue Point",
+          "positionDegrees": [
+            -80.5,
+            35.14,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "properties": {
+            "color": "blue"
+          }
+        },
+        {
+          "id": "point-lime",
+          "show": true,
+          "name": "Lime Point",
+          "positionDegrees": [
+            -80.12,
+            25.46,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 20,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "properties": {
+            "color": "lime"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Scale by viewer distance",
+      "entities": [
+        {
+          "id": "point-scale",
+          "show": true,
+          "name": "Point Scaled by Distance",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0,
+            "scaleByDistance": [
+              150,
+              2,
+              15000000,
+              0.5
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "properties": {
+            "scaleByDistance": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Fade by viewer distance",
+      "entities": [
+        {
+          "id": "point-fade",
+          "show": true,
+          "name": "Point Faded by Distance",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 20,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0,
+            "translucencyByDistance": [
+              150,
+              1,
+              15000000,
+              0.2
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "properties": {
+            "translucencyByDistance": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Add points in reference frame",
+      "entities": [
+        {
+          "id": "ref-center",
+          "show": true,
+          "name": "Center Reference Point (0,0,0)",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 20,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "properties": {
+            "axis": "center"
+          }
+        },
+        {
+          "id": "ref-east",
+          "show": true,
+          "name": "East Reference Point (+1000km)",
+          "positionDegrees": [
+            -64.040046,
+            39.459532,
+            77811.5
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "properties": {
+            "axis": "east"
+          }
+        },
+        {
+          "id": "ref-north",
+          "show": true,
+          "name": "North Reference Point (+1000km)",
+          "positionDegrees": [
+            -75.59777,
+            48.965002,
+            78073.7
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "properties": {
+            "axis": "north"
+          }
+        },
+        {
+          "id": "ref-up",
+          "show": true,
+          "name": "Up Reference Point (+1000km)",
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            1000000
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "properties": {
+            "axis": "up"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Add point cluster",
+      "entities": [
+        {
+          "id": "cluster-point-0",
+          "show": true,
+          "name": "Cluster Point 0",
+          "positionDegrees": [
+            -78.59777,
+            37.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 5,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.53,
+            0.81,
+            0.98,
+            1
+          ],
+          "properties": {
+            "clusterIndex": 0
+          }
+        },
+        {
+          "id": "cluster-point-1",
+          "show": true,
+          "name": "Cluster Point 1",
+          "positionDegrees": [
+            -76.59777,
+            37.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 5,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.53,
+            0.81,
+            0.98,
+            1
+          ],
+          "properties": {
+            "clusterIndex": 1
+          }
+        },
+        {
+          "id": "cluster-point-2",
+          "show": true,
+          "name": "Cluster Point 2",
+          "positionDegrees": [
+            -74.59777,
+            37.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 5,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.53,
+            0.81,
+            0.98,
+            1
+          ],
+          "properties": {
+            "clusterIndex": 2
+          }
+        },
+        {
+          "id": "cluster-point-3",
+          "show": true,
+          "name": "Cluster Point 3",
+          "positionDegrees": [
+            -72.59777,
+            37.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 5,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.53,
+            0.81,
+            0.98,
+            1
+          ],
+          "properties": {
+            "clusterIndex": 3
+          }
+        },
+        {
+          "id": "cluster-point-4",
+          "show": true,
+          "name": "Cluster Point 4",
+          "positionDegrees": [
+            -78.59777,
+            39.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 5,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.53,
+            0.81,
+            0.98,
+            1
+          ],
+          "properties": {
+            "clusterIndex": 4
+          }
+        },
+        {
+          "id": "cluster-point-5",
+          "show": true,
+          "name": "Cluster Point 5",
+          "positionDegrees": [
+            -76.59777,
+            39.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 5,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.53,
+            0.81,
+            0.98,
+            1
+          ],
+          "properties": {
+            "clusterIndex": 5
+          }
+        },
+        {
+          "id": "cluster-point-6",
+          "show": true,
+          "name": "Cluster Point 6",
+          "positionDegrees": [
+            -74.59777,
+            39.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 5,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.53,
+            0.81,
+            0.98,
+            1
+          ],
+          "properties": {
+            "clusterIndex": 6
+          }
+        },
+        {
+          "id": "cluster-point-7",
+          "show": true,
+          "name": "Cluster Point 7",
+          "positionDegrees": [
+            -72.59777,
+            39.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 5,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.53,
+            0.81,
+            0.98,
+            1
+          ],
+          "properties": {
+            "clusterIndex": 7
+          }
+        },
+        {
+          "id": "cluster-point-8",
+          "show": true,
+          "name": "Cluster Point 8",
+          "positionDegrees": [
+            -78.59777,
+            41.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 5,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.53,
+            0.81,
+            0.98,
+            1
+          ],
+          "properties": {
+            "clusterIndex": 8
+          }
+        },
+        {
+          "id": "cluster-point-9",
+          "show": true,
+          "name": "Cluster Point 9",
+          "positionDegrees": [
+            -76.59777,
+            41.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 5,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.53,
+            0.81,
+            0.98,
+            1
+          ],
+          "properties": {
+            "clusterIndex": 9
+          }
+        },
+        {
+          "id": "cluster-point-10",
+          "show": true,
+          "name": "Cluster Point 10",
+          "positionDegrees": [
+            -74.59777,
+            41.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 5,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.53,
+            0.81,
+            0.98,
+            1
+          ],
+          "properties": {
+            "clusterIndex": 10
+          }
+        },
+        {
+          "id": "cluster-point-11",
+          "show": true,
+          "name": "Cluster Point 11",
+          "positionDegrees": [
+            -72.59777,
+            41.03883,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 5,
+            "outlineWidth": 0,
+            "outlineColor": [
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.53,
+            0.81,
+            0.98,
+            1
+          ],
+          "properties": {
+            "clusterIndex": 11
+          }
+        }
+      ]
+    }
+  ]
+}

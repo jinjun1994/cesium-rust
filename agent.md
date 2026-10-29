@@ -4,11 +4,30 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.39（已通过 103 / 309 个完整案例，剩余 206 个）
+- **当前版本**：v0.0.40（已通过 107 / 309 个完整案例，剩余 202 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.40 验收完成：采样轨迹插值、动画手动控制与速度标签、局部切平面标架生成器与底层点图元集合
+- **完成配方**（累计推进至 **107 / 309**，剩余 202 个）：
+  1. `interpolation`（SampledPositionProperty 环形采样飞行轨迹、VelocityOrientationProperty 航向姿态解算、9 个航路点标注、PolylineGlow 发光轨迹与 4 种插值模式：线性、拉格朗日、埃尔米特与惯性系跟踪）
+  2. `manually-controlled-animation`（CesiumMan 角色非线性变速奔跑、动态解算速度矢量标签 speed-label km/hr 与追尾相机锁定跟踪：4 个变体涵盖加速、等速、半速与顶部俯视）
+  3. `localtofixedframe`（局部切平面标架生成器体系：涵盖 10 种典型正交轴系变换矩阵 NED/NEU/NWU/NWD/ENU/END/SWU/SUW/UEN/DES、10 架飞机模型与排版标签齐次变换及 4 个 HPR 姿态交互变体）
+  4. `pointprimitives-dev`（底层 PointPrimitiveCollection 点图元集合：8 个变体涵盖单点、多点、属性修改、NearFarScalar 视距缩放与淡出、东/北/天局部参考系点分布与点云簇群）
+- **核心研发突破**：
+  1. **点图元光栅化最小尺寸容差对齐**：统一基元默认尺寸（pixelSize: 10），规避 fragment shader 圆形切角因半像素失真导致的丢片（discard）。
+  2. **时钟区间与采样位置求值保护**：在离屏 GPU 渲染与 Web 端验证中动态依据 `availability` 取值，确保动态飞行轨迹在 `t = start + 1.0` 取得有效 ECEF 几何范围并稳定执行 `zoom_to_entities`。
+- **验证结果**：
+  - **普通 Rust 单元测试**：103 项全部通过（新增 `batch40_interpolation_manually_controlled_localtofixedframe_pointprimitives`）。
+  - **真实 GPU 离屏渲染测试**：108 / 108 项全数通过（`108 passed; 0 failed; finished in 28.06s`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：107 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Interpolation、Manually Controlled Animation、LocalToFixedFrame 与 PointPrimitives Dev 验证文档](docs/interpolation-animation-localframe-points-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
 
 ### [2026-10-29] v0.0.39 突破百例里程碑：贴地广告牌阵列、时钟光照驱动、数据源图层层叠与视距裁剪
 - **完成配方**（突破百例大关，累计推进至 **103 / 309**）：

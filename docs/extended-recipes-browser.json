@@ -6,83 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "billboardclamptoground-dev",
+      "id": "interpolation",
       "status": "passed",
-      "entities": 10,
-      "sourceSha256": "9fbd57cfaf181505a5822956a7064812b325922d7c65134e71af8a1e373dd45a",
-      "inputSha256": "cceba7332e5f5ec0ee05eb9af346e56880195c8ee79f8808e27d7bb78bf624a9",
-      "fixtureSha256": "edb3b68001eee546ce716c44fc6a599a2992f8c03d3f6f0ad75fc1416f246686",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "facility-0-0",
-        "facility-0-1",
-        "facility-0-2",
-        "facility-1-0",
-        "facility-1-1",
-        "facility-1-2",
-        "facility-2-0",
-        "facility-2-1",
-        "facility-2-2",
-        "billboard-logo"
-      ],
-      "pixelCounts": [
-        {
-          "id": "facility-0-0",
-          "pixels": 888
-        },
-        {
-          "id": "facility-0-1",
-          "pixels": 888
-        },
-        {
-          "id": "facility-0-2",
-          "pixels": 888
-        },
-        {
-          "id": "facility-1-0",
-          "pixels": 888
-        },
-        {
-          "id": "facility-1-1",
-          "pixels": 888
-        },
-        {
-          "id": "facility-1-2",
-          "pixels": 888
-        },
-        {
-          "id": "facility-2-0",
-          "pixels": 888
-        },
-        {
-          "id": "facility-2-1",
-          "pixels": 888
-        },
-        {
-          "id": "facility-2-2",
-          "pixels": 888
-        },
-        {
-          "id": "billboard-logo",
-          "pixels": 1764
-        }
-      ]
-    },
-    {
-      "id": "clock",
-      "status": "passed",
-      "entities": 2,
-      "sourceSha256": "e25090de4c8a25a1ee8163a380f0018998d0369e60338bfe223c5c847bfa8d5c",
-      "inputSha256": "f1c0a2e75f41538b644c0ce1b9d91618b140beb4b4cfcc136a09796b9fd0326a",
-      "fixtureSha256": "ad34c886ae5920d111ae52be46214ce0705b5a1d62d33e02c22b7bc7c8f3133a",
+      "entities": 11,
+      "sourceSha256": "cdc0f2bce8044075d216edd36921772bea30a069187fea6b9aaa93bc064bec2d",
+      "inputSha256": "d052b5894a1e3a23dcbeacf743b8459437247a5f1c363eb0db59c82631502527",
+      "fixtureSha256": "dfe42d30d0a064c38f62e8e7276b964a6d68041ff4cacdc981c727823e781d92",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -96,68 +25,106 @@
         "play/pause/loop"
       ],
       "pickedEntities": [
-        "christmas-sun-marker",
-        "christmas-clock-label"
+        "waypoint-0",
+        "waypoint-1",
+        "waypoint-2",
+        "waypoint-3",
+        "waypoint-4",
+        "waypoint-5",
+        "waypoint-6",
+        "waypoint-7",
+        "waypoint-8",
+        "aircraft",
+        "flight-path"
       ],
       "pixelCounts": [
         {
-          "id": "christmas-sun-marker",
-          "pixels": 312
+          "id": "waypoint-0",
+          "pixels": 106
         },
         {
-          "id": "christmas-clock-label",
-          "pixels": 13804
+          "id": "waypoint-1",
+          "pixels": 106
+        },
+        {
+          "id": "waypoint-2",
+          "pixels": 106
+        },
+        {
+          "id": "waypoint-3",
+          "pixels": 106
+        },
+        {
+          "id": "waypoint-4",
+          "pixels": 106
+        },
+        {
+          "id": "waypoint-5",
+          "pixels": 106
+        },
+        {
+          "id": "waypoint-6",
+          "pixels": 106
+        },
+        {
+          "id": "waypoint-7",
+          "pixels": 106
+        },
+        {
+          "id": "waypoint-8",
+          "pixels": 106
+        },
+        {
+          "id": "aircraft",
+          "pixels": 18
+        },
+        {
+          "id": "flight-path",
+          "pixels": 8714
         }
       ]
     },
     {
-      "id": "datasource-ordering",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "158fbf09f6e339c8dd70db8713b028f0464f5bce7c43fd04f1d2ab58bd464051",
-      "inputSha256": "6b0ccf978675a2c289cc13a58ae942fafdc9f1110cb57ab35e679d0a7981e73a",
-      "fixtureSha256": "67013c8028d0a48350c2ff9cb17b62b99022eb5d297025d6554cc4e68ff33179",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "rect-red",
-        "rect-blue",
-        "rect-yellow",
-        "rect-cyan"
-      ],
-      "pixelCounts": [
-        {
-          "id": "rect-red",
-          "pixels": 61039
-        },
-        {
-          "id": "rect-blue",
-          "pixels": 59930
-        },
-        {
-          "id": "rect-yellow",
-          "pixels": 59644
-        },
-        {
-          "id": "rect-cyan",
-          "pixels": 58476
-        }
-      ]
-    },
-    {
-      "id": "display-conditions-dev",
+      "id": "manually-controlled-animation",
       "status": "passed",
       "entities": 2,
-      "sourceSha256": "0e0ffa94413475e893d5512efe8151dc6411fb336d890ca51dd440814792a6e0",
-      "inputSha256": "7edfa414465b44acad73feddd94da678321ca5fca1b3f108de3d5388b8aa1ff4",
-      "fixtureSha256": "fbebb013d4dc9a8da9433d8f69520b72a12afeb7951d9cbc017001de7a97fa5f",
+      "sourceSha256": "062d4c2418a67c46376adc44dabb519d4669a06c846415f8abf0a1d844c39bfe",
+      "inputSha256": "6291081dd23f6292da980635b176cf35da12dade3b248b38e8086cdf44afcaa2",
+      "fixtureSha256": "14c9146d013bcdfb0fdbe708a1ee3b91d0540ceaf22372bdd55d7aabdbe73c9f",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "cesium-man",
+        "speed-label"
+      ],
+      "pixelCounts": [
+        {
+          "id": "cesium-man",
+          "pixels": 198
+        },
+        {
+          "id": "speed-label",
+          "pixels": 3780
+        }
+      ]
+    },
+    {
+      "id": "localtofixedframe",
+      "status": "passed",
+      "entities": 20,
+      "sourceSha256": "baf38fbf0ff21fe432c7a97d13e30043405bf066507cd504ae515a680a0cdf95",
+      "inputSha256": "f381eb2a6288db7fec9ef6eb1feb05241ec5a797480d4b6573efd634987a584e",
+      "fixtureSha256": "1ae2f4e543a0542f77299cd3a9947f8da0d79d4a212f65a4d73e4f4dbd85bc4f",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -168,17 +135,133 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "billboard-primitive",
-        "rectangle-primitive"
+        "plane-0",
+        "label-0",
+        "plane-1",
+        "label-1",
+        "plane-2",
+        "label-2",
+        "plane-3",
+        "label-3",
+        "plane-4",
+        "label-4",
+        "plane-5",
+        "label-5",
+        "plane-6",
+        "label-6",
+        "plane-7",
+        "label-7",
+        "plane-8",
+        "label-8",
+        "plane-9",
+        "label-9"
       ],
       "pixelCounts": [
         {
-          "id": "billboard-primitive",
-          "pixels": 888
+          "id": "plane-0",
+          "pixels": 28
         },
         {
-          "id": "rectangle-primitive",
-          "pixels": 50938
+          "id": "label-0",
+          "pixels": 1942
+        },
+        {
+          "id": "plane-1",
+          "pixels": 21
+        },
+        {
+          "id": "label-1",
+          "pixels": 1768
+        },
+        {
+          "id": "plane-2",
+          "pixels": 28
+        },
+        {
+          "id": "label-2",
+          "pixels": 1834
+        },
+        {
+          "id": "plane-3",
+          "pixels": 21
+        },
+        {
+          "id": "label-3",
+          "pixels": 2005
+        },
+        {
+          "id": "plane-4",
+          "pixels": 18
+        },
+        {
+          "id": "label-4",
+          "pixels": 1767
+        },
+        {
+          "id": "plane-5",
+          "pixels": 18
+        },
+        {
+          "id": "label-5",
+          "pixels": 1942
+        },
+        {
+          "id": "plane-6",
+          "pixels": 28
+        },
+        {
+          "id": "label-6",
+          "pixels": 1836
+        },
+        {
+          "id": "plane-7",
+          "pixels": 21
+        },
+        {
+          "id": "label-7",
+          "pixels": 1836
+        },
+        {
+          "id": "plane-8",
+          "pixels": 28
+        },
+        {
+          "id": "label-8",
+          "pixels": 1767
+        },
+        {
+          "id": "plane-9",
+          "pixels": 28
+        },
+        {
+          "id": "label-9",
+          "pixels": 1935
+        }
+      ]
+    },
+    {
+      "id": "pointprimitives-dev",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "20140af7259eca2f7b8070d9e4e9a757401f55523ca74aebc91c33ead1e435e1",
+      "inputSha256": "d4d824908766fee7b4ea79166f585665e332b5e05c7ab786f8303e8f7fb044dc",
+      "fixtureSha256": "0390d7acbc5884884feebf8ab746a112299fa0a4d20dd57393248c51f0bf8b02",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "point-yellow"
+      ],
+      "pixelCounts": [
+        {
+          "id": "point-yellow",
+          "pixels": 78
         }
       ]
     },

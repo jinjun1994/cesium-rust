@@ -3375,4 +3375,65 @@ mod tests {
             Some([0.0, 5500000.0])
         );
     }
+
+    #[test]
+    fn batch40_interpolation_manually_controlled_localtofixedframe_pointprimitives() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Interpolation entities
+        let interp_data = std::fs::read(base.join("interpolation.json")).unwrap();
+        let interp_entities = decode(&interp_data).unwrap();
+        assert_eq!(interp_entities.len(), 11);
+        assert!(matches!(interp_entities[9].shape, Shape::Model { .. }));
+        assert!(matches!(
+            interp_entities[10].shape,
+            Shape::WidePolyline { .. }
+        ));
+
+        // 2. Manually controlled animation entities
+        let manual_data = std::fs::read(base.join("manually-controlled-animation.json")).unwrap();
+        let manual_entities = decode(&manual_data).unwrap();
+        assert_eq!(manual_entities.len(), 2);
+        assert!(matches!(manual_entities[0].shape, Shape::Model { .. }));
+        assert!(matches!(manual_entities[1].shape, Shape::Label { .. }));
+
+        // 3. LocalToFixedFrame entities
+        let local_data = std::fs::read(base.join("localtofixedframe.json")).unwrap();
+        let local_entities = decode(&local_data).unwrap();
+        assert_eq!(local_entities.len(), 20);
+        let models = local_entities
+            .iter()
+            .filter(|e| matches!(e.shape, Shape::Model { .. }))
+            .count();
+        let labels = local_entities
+            .iter()
+            .filter(|e| matches!(e.shape, Shape::Label { .. }))
+            .count();
+        assert_eq!(models, 10);
+        assert_eq!(labels, 10);
+
+        // 4. PointPrimitives Dev entities
+        let point_data = std::fs::read(base.join("pointprimitives-dev.json")).unwrap();
+        let point_entities = decode(&point_data).unwrap();
+        assert_eq!(point_entities.len(), 1);
+        assert!(matches!(point_entities[0].shape, Shape::Point { .. }));
+
+        let point_variants_raw =
+            std::fs::read(base.join("pointprimitives-dev.variants.json")).unwrap();
+        let point_variants = crate::entity_variants::decode(&point_variants_raw).unwrap();
+        assert_eq!(point_variants.variants.len(), 8);
+        assert_eq!(
+            point_variants.variants[4].entities[0]
+                .screen
+                .scale_by_distance,
+            Some([150.0, 2.0, 15000000.0, 0.5])
+        );
+        assert_eq!(
+            point_variants.variants[5].entities[0]
+                .screen
+                .translucency_by_distance,
+            Some([150.0, 1.0, 15000000.0, 0.2])
+        );
+    }
 }

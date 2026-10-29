@@ -2934,6 +2934,138 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "interpolation",
+      "title": "Interpolation",
+      "sourceSha256": "cdc0f2bce8044075d216edd36921772bea30a069187fea6b9aaa93bc064bec2d",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=interpolation",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/interpolation.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/interpolation.json",
+      "entityCount": 11,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "clock": {
+        "startTime": 1427299200,
+        "stopTime": 1427299560,
+        "currentTime": 1427299200,
+        "multiplier": 10,
+        "range": "LOOP_STOP"
+      },
+      "requirements": [
+        "SampledPositionProperty with circular waypoints at 45 degree increments",
+        "Yellow point entities marking each flight waypoint with transparent fill and outline",
+        "Cesium_Air 3D model with VelocityOrientationProperty and minimumPixelSize: 64",
+        "PolylineGlowMaterialProperty flight path with glowPower: 0.1 and yellow glow",
+        "Simulation clock bounds (2015-03-25 16:00 UTC, 360s duration, 10x multiplier)"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "manually-controlled-animation",
+      "title": "Manually Controlled Animation",
+      "sourceSha256": "062d4c2418a67c46376adc44dabb519d4669a06c846415f8abf0a1d844c39bfe",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=manually-controlled-animation",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/manually-controlled-animation.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/manually-controlled-animation.json",
+      "entityCount": 2,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "clock": {
+        "startTime": 1544626800,
+        "stopTime": 1544626830,
+        "currentTime": 1544626800,
+        "multiplier": 1,
+        "range": "LOOP_STOP"
+      },
+      "requirements": [
+        "CesiumMan glTF model moving along non-linear accelerated sampled path",
+        "Dynamic speed label updated in real-time in km/hr with background box",
+        "Camera trackedEntity orientation following position and velocity vector",
+        "viewFrom offset: [-30.0, -10.0, 10.0] for close behind tracking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "localtofixedframe",
+      "title": "LocalToFixedFrame",
+      "sourceSha256": "baf38fbf0ff21fe432c7a97d13e30043405bf066507cd504ae515a680a0cdf95",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=localtofixedframe",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/localtofixedframe.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/localtofixedframe.json",
+      "entityCount": 20,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "10 Cesium_Air 3D models with 10 local frame converters (NED, NEU, NWU, NWD, ENU, END, SWU, SUW, UEN, DES)",
+        "headingPitchRollToFixedFrame matrix computation per model instance",
+        "10 orientation labels with Helvetica 18px text and outline",
+        "HeadingPitchRoll arrow key controls for pitch, roll, and heading adjustment"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "pointprimitives-dev",
+      "title": "PointPrimitives - Dev",
+      "sourceSha256": "20140af7259eca2f7b8070d9e4e9a757401f55523ca74aebc91c33ead1e435e1",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=pointprimitives-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/pointprimitives-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/pointprimitives-dev.json",
+      "entityCount": 1,
+      "variantCount": 8,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "PointPrimitiveCollection supporting single, multiple, and clustered point primitives",
+        "Custom properties (pixelSize, color, outlineWidth, outlineColor)",
+        "scaleByDistance curve using NearFarScalar(150, 2.0, 15000000, 0.5)",
+        "translucencyByDistance curve using NearFarScalar(150, 1.0, 15000000, 0.2)",
+        "eastNorthUpToFixedFrame reference frame with center, east, north, and up points"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

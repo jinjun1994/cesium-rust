@@ -1,0 +1,1032 @@
+[
+  {
+    "id": "plane-0",
+    "show": true,
+    "name": "Plane [North East Down]",
+    "positionDegrees": null,
+    "modelMatrix": [
+      0.3794085548343105,
+      0.5825670271241936,
+      0.718793995123929,
+      0,
+      0.837956918799751,
+      -0.5457363852957099,
+      0,
+      0,
+      0.39227203667119515,
+      0.6023184014058108,
+      -0.695223124308866,
+      0,
+      -2506414.627905934,
+      -3848501.8324307636,
+      4412382.22105051,
+      1
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "minimumPixelSize": 128
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "North East Down"
+    }
+  },
+  {
+    "id": "label-0",
+    "show": true,
+    "name": "Label [North East Down]",
+    "positionDegrees": [
+      -123.075,
+      44.045,
+      1300
+    ],
+    "shape": {
+      "type": "label",
+      "text": "North East Down\nlocal Frame",
+      "fontSize": 18,
+      "fillColor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "outlineColor": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "outlineWidth": 2
+    },
+    "screen": {
+      "horizontalOrigin": "RIGHT",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "North East Down"
+    }
+  },
+  {
+    "id": "plane-1",
+    "show": true,
+    "name": "Plane [North East Up]",
+    "positionDegrees": null,
+    "modelMatrix": [
+      0.3794427855826034,
+      0.5826195871021255,
+      0.7187333227242655,
+      0,
+      -0.3922389255351156,
+      -0.6022675605487325,
+      0.6952858482708653,
+      0,
+      0.8379569187997509,
+      -0.5457363852957098,
+      2.7755575615628914e-17,
+      0,
+      -2506203.798850632,
+      -3848178.112645287,
+      4412781.604316042,
+      1
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "minimumPixelSize": 128
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "North East Up"
+    }
+  },
+  {
+    "id": "label-1",
+    "show": true,
+    "name": "Label [North East Up]",
+    "positionDegrees": [
+      -123.075,
+      44.05,
+      1300
+    ],
+    "shape": {
+      "type": "label",
+      "text": "North East Up\nlocal Frame",
+      "fontSize": 18,
+      "fillColor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "outlineColor": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "outlineWidth": 2
+    },
+    "screen": {
+      "horizontalOrigin": "RIGHT",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "North East Up"
+    }
+  },
+  {
+    "id": "plane-2",
+    "show": true,
+    "name": "Plane [North West Up]",
+    "positionDegrees": null,
+    "modelMatrix": [
+      0.3794770134412744,
+      0.5826721426431556,
+      0.7186726448511346,
+      0,
+      -0.837956918799751,
+      0.5457363852957099,
+      0,
+      0,
+      -0.39220581141196564,
+      -0.6022167151051244,
+      0.6953485669379602,
+      0,
+      -2505992.950590477,
+      -3847854.3633715096,
+      4413180.954218082,
+      1
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "minimumPixelSize": 128
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "North West Up"
+    }
+  },
+  {
+    "id": "label-2",
+    "show": true,
+    "name": "Label [North West Up]",
+    "positionDegrees": [
+      -123.075,
+      44.055,
+      1300
+    ],
+    "shape": {
+      "type": "label",
+      "text": "North West Up\nlocal Frame",
+      "fontSize": 18,
+      "fillColor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "outlineColor": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "outlineWidth": 2
+    },
+    "screen": {
+      "horizontalOrigin": "RIGHT",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "North West Up"
+    }
+  },
+  {
+    "id": "plane-3",
+    "show": true,
+    "name": "Plane [North West Down]",
+    "positionDegrees": null,
+    "modelMatrix": [
+      0.37951123841006257,
+      0.5827246937468834,
+      0.7186119615049986,
+      0,
+      0.39217269430199775,
+      0.602165865075374,
+      -0.6954112803096729,
+      0,
+      -0.8379569187997511,
+      0.54573638529571,
+      5.551115123125783e-17,
+      0,
+      -2505782.0831270404,
+      -3847530.584611842,
+      4413580.27075353,
+      1
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "minimumPixelSize": 128
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "North West Down"
+    }
+  },
+  {
+    "id": "label-3",
+    "show": true,
+    "name": "Label [North West Down]",
+    "positionDegrees": [
+      -123.075,
+      44.06,
+      1300
+    ],
+    "shape": {
+      "type": "label",
+      "text": "North West Down\nlocal Frame",
+      "fontSize": 18,
+      "fillColor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "outlineColor": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "outlineWidth": 2
+    },
+    "screen": {
+      "horizontalOrigin": "RIGHT",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "North West Down"
+    }
+  },
+  {
+    "id": "plane-4",
+    "show": true,
+    "name": "Plane [East North Up]",
+    "positionDegrees": null,
+    "modelMatrix": [
+      0.837956918799751,
+      -0.5457363852957099,
+      0,
+      0,
+      0.3794085548343105,
+      0.5825670271241936,
+      0.718793995123929,
+      0,
+      -0.39227203667119515,
+      -0.6023184014058108,
+      0.695223124308866,
+      0,
+      -2507003.0359609406,
+      -3849405.3100328725,
+      4413425.055736973,
+      1
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "minimumPixelSize": 128
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "East North Up"
+    }
+  },
+  {
+    "id": "label-4",
+    "show": true,
+    "name": "Label [East North Up]",
+    "positionDegrees": [
+      -123.075,
+      44.045,
+      2800
+    ],
+    "shape": {
+      "type": "label",
+      "text": "East North Up\nlocal Frame",
+      "fontSize": 18,
+      "fillColor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "outlineColor": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "outlineWidth": 2
+    },
+    "screen": {
+      "horizontalOrigin": "RIGHT",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "East North Up"
+    }
+  },
+  {
+    "id": "plane-5",
+    "show": true,
+    "name": "Plane [East North Down]",
+    "positionDegrees": null,
+    "modelMatrix": [
+      0.837956918799751,
+      -0.5457363852957099,
+      0,
+      0,
+      0.3922389255351156,
+      0.6022675605487325,
+      -0.6952858482708653,
+      0,
+      0.3794427855826034,
+      0.5826195871021255,
+      0.7187333227242654,
+      0,
+      -2506792.1572389347,
+      -3849081.5139861107,
+      4413824.5330884475,
+      1
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "minimumPixelSize": 128
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "East North Down"
+    }
+  },
+  {
+    "id": "label-5",
+    "show": true,
+    "name": "Label [East North Down]",
+    "positionDegrees": [
+      -123.075,
+      44.05,
+      2800
+    ],
+    "shape": {
+      "type": "label",
+      "text": "East North Down\nlocal Frame",
+      "fontSize": 18,
+      "fillColor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "outlineColor": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "outlineWidth": 2
+    },
+    "screen": {
+      "horizontalOrigin": "RIGHT",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "East North Down"
+    }
+  },
+  {
+    "id": "plane-6",
+    "show": true,
+    "name": "Plane [South West Up]",
+    "positionDegrees": null,
+    "modelMatrix": [
+      -0.3794770134412744,
+      -0.5826721426431556,
+      -0.7186726448511346,
+      0,
+      -0.837956918799751,
+      0.5457363852957099,
+      0,
+      0,
+      0.39220581141196564,
+      0.6022167151051244,
+      -0.6953485669379602,
+      0,
+      -2506581.259307595,
+      -3848757.688444167,
+      4414223.9770684885,
+      1
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "minimumPixelSize": 128
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "South West Up"
+    }
+  },
+  {
+    "id": "label-6",
+    "show": true,
+    "name": "Label [South West Up]",
+    "positionDegrees": [
+      -123.075,
+      44.055,
+      2800
+    ],
+    "shape": {
+      "type": "label",
+      "text": "South West Up\nlocal Frame",
+      "fontSize": 18,
+      "fillColor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "outlineColor": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "outlineWidth": 2
+    },
+    "screen": {
+      "horizontalOrigin": "RIGHT",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "South West Up"
+    }
+  },
+  {
+    "id": "plane-7",
+    "show": true,
+    "name": "Plane [South Up West]",
+    "positionDegrees": null,
+    "modelMatrix": [
+      -0.37937432119665615,
+      -0.58251446270976,
+      -0.7188546620496634,
+      0,
+      -0.39230514481995243,
+      -0.6023692376759723,
+      0.6951603950524398,
+      0,
+      -0.8379569187997509,
+      0.5457363852957098,
+      2.7755575615628914e-17,
+      0,
+      -2507998.5057616835,
+      -3850933.815057393,
+      4414415.865807266,
+      1
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "minimumPixelSize": 128
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "South Up West"
+    }
+  },
+  {
+    "id": "label-7",
+    "show": true,
+    "name": "Label [South Up West]",
+    "positionDegrees": [
+      -123.075,
+      44.04,
+      4800
+    ],
+    "shape": {
+      "type": "label",
+      "text": "South Up West\nlocal Frame",
+      "fontSize": 18,
+      "fillColor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "outlineColor": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "outlineWidth": 2
+    },
+    "screen": {
+      "horizontalOrigin": "RIGHT",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "South Up West"
+    }
+  },
+  {
+    "id": "plane-8",
+    "show": true,
+    "name": "Plane [Up East North]",
+    "positionDegrees": null,
+    "modelMatrix": [
+      -0.3922389255351156,
+      -0.6022675605487325,
+      0.6952858482708653,
+      0,
+      0.837956918799751,
+      -0.5457363852957099,
+      0,
+      0,
+      0.3794427855826034,
+      0.5826195871021255,
+      0.7187333227242654,
+      0,
+      -2507576.6350900047,
+      -3850286.0491072084,
+      4415215.10478499,
+      1
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "minimumPixelSize": 128
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "Up East North"
+    }
+  },
+  {
+    "id": "label-8",
+    "show": true,
+    "name": "Label [Up East North]",
+    "positionDegrees": [
+      -123.075,
+      44.05,
+      4800
+    ],
+    "shape": {
+      "type": "label",
+      "text": "Up East North\nlocal Frame",
+      "fontSize": 18,
+      "fillColor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "outlineColor": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "outlineWidth": 2
+    },
+    "screen": {
+      "horizontalOrigin": "RIGHT",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "Up East North"
+    }
+  },
+  {
+    "id": "plane-9",
+    "show": true,
+    "name": "Plane [Down East South]",
+    "positionDegrees": null,
+    "modelMatrix": [
+      0.39230514481995243,
+      0.6023692376759723,
+      -0.6951603950524398,
+      0,
+      0.837956918799751,
+      -0.5457363852957099,
+      0,
+      0,
+      -0.37937432119665615,
+      -0.58251446270976,
+      -0.7188546620496634,
+      0,
+      -2508390.8109065033,
+      -3851536.184295069,
+      4415111.026202318,
+      1
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+      "minimumPixelSize": 128
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "Down East South"
+    }
+  },
+  {
+    "id": "label-9",
+    "show": true,
+    "name": "Label [Down East South]",
+    "positionDegrees": [
+      -123.075,
+      44.04,
+      5800
+    ],
+    "shape": {
+      "type": "label",
+      "text": "Down East South\nlocal Frame",
+      "fontSize": 18,
+      "fillColor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "outlineColor": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "outlineWidth": 2
+    },
+    "screen": {
+      "horizontalOrigin": "RIGHT",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "outlineWidth": 1,
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "properties": {
+      "frame": "Down East South"
+    }
+  }
+]
