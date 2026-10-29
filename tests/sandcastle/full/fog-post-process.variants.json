@@ -1,0 +1,617 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Dense Near Fog (10m - 200m, Black)",
+      "entities": [
+        {
+          "id": "fog-depth-near",
+          "name": "Fog Near Boundary Probe (10m)",
+          "show": true,
+          "positionDegrees": [
+            -75.597,
+            39.86,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              8,
+              8,
+              8
+            ]
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 10,
+            "fogAmount": 0.05
+          }
+        },
+        {
+          "id": "fog-depth-mid",
+          "name": "Fog Mid-Range Sensor (60m)",
+          "show": true,
+          "positionDegrees": [
+            -75.5964,
+            39.8603,
+            50
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 12,
+            "topRadius": 4,
+            "bottomRadius": 4
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.3,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 60,
+            "fogAmount": 0.3
+          }
+        },
+        {
+          "id": "fog-depth-far",
+          "name": "Fog Far-Range Beacon (140m)",
+          "show": true,
+          "positionDegrees": [
+            -75.5958,
+            39.8607,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              16,
+              16,
+              16
+            ]
+          },
+          "color": [
+            0.2,
+            0.5,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 140,
+            "fogAmount": 0.7
+          }
+        },
+        {
+          "id": "fog-depth-limit",
+          "name": "Fog Distance Extent Marker (200m)",
+          "show": true,
+          "positionDegrees": [
+            -75.5952,
+            39.8611,
+            50
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              18,
+              18,
+              18
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.7,
+            0.7,
+            0.8,
+            0.7
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 200,
+            "fogAmount": 1
+          }
+        }
+      ]
+    },
+    {
+      "label": "Morning Mountain Mist (30m - 500m, Pale Gray)",
+      "entities": [
+        {
+          "id": "fog-depth-near",
+          "name": "Fog Near Boundary Probe (10m)",
+          "show": true,
+          "positionDegrees": [
+            -75.597,
+            39.86,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              8,
+              8,
+              8
+            ]
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 10,
+            "fogAmount": 0.05
+          }
+        },
+        {
+          "id": "fog-depth-mid",
+          "name": "Fog Mid-Range Sensor (60m)",
+          "show": true,
+          "positionDegrees": [
+            -75.5964,
+            39.8603,
+            50
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 12,
+            "topRadius": 4,
+            "bottomRadius": 4
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.3,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 60,
+            "fogAmount": 0.3
+          }
+        },
+        {
+          "id": "fog-depth-far",
+          "name": "Fog Far-Range Beacon (140m)",
+          "show": true,
+          "positionDegrees": [
+            -75.5958,
+            39.8607,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              16,
+              16,
+              16
+            ]
+          },
+          "color": [
+            0.2,
+            0.5,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 140,
+            "fogAmount": 0.7
+          }
+        },
+        {
+          "id": "fog-depth-limit",
+          "name": "Fog Distance Extent Marker (200m)",
+          "show": true,
+          "positionDegrees": [
+            -75.5952,
+            39.8611,
+            50
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              18,
+              18,
+              18
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.9,
+            0.9,
+            0.95,
+            0.8
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 200,
+            "fogAmount": 1
+          }
+        }
+      ]
+    },
+    {
+      "label": "Hazardous Industrial Smog (15m - 300m, Amber Yellow)",
+      "entities": [
+        {
+          "id": "fog-depth-near",
+          "name": "Fog Near Boundary Probe (10m)",
+          "show": true,
+          "positionDegrees": [
+            -75.597,
+            39.86,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              8,
+              8,
+              8
+            ]
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 10,
+            "fogAmount": 0.05
+          }
+        },
+        {
+          "id": "fog-depth-mid",
+          "name": "Fog Mid-Range Sensor (60m)",
+          "show": true,
+          "positionDegrees": [
+            -75.5964,
+            39.8603,
+            50
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 12,
+            "topRadius": 4,
+            "bottomRadius": 4
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.3,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 60,
+            "fogAmount": 0.3
+          }
+        },
+        {
+          "id": "fog-depth-far",
+          "name": "Fog Far-Range Beacon (140m)",
+          "show": true,
+          "positionDegrees": [
+            -75.5958,
+            39.8607,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              16,
+              16,
+              16
+            ]
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 140,
+            "fogAmount": 0.7
+          }
+        },
+        {
+          "id": "fog-depth-limit",
+          "name": "Fog Distance Extent Marker (200m)",
+          "show": true,
+          "positionDegrees": [
+            -75.5952,
+            39.8611,
+            50
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              18,
+              18,
+              18
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.7,
+            0.7,
+            0.8,
+            0.7
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 200,
+            "fogAmount": 1
+          }
+        }
+      ]
+    },
+    {
+      "label": "Night Coastal Fog (20m - 250m, Deep Navy)",
+      "entities": [
+        {
+          "id": "fog-depth-near",
+          "name": "Fog Near Boundary Probe (10m)",
+          "show": true,
+          "positionDegrees": [
+            -75.597,
+            39.86,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              8,
+              8,
+              8
+            ]
+          },
+          "color": [
+            0.1,
+            0.2,
+            0.5,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 10,
+            "fogAmount": 0.05
+          }
+        },
+        {
+          "id": "fog-depth-mid",
+          "name": "Fog Mid-Range Sensor (60m)",
+          "show": true,
+          "positionDegrees": [
+            -75.5964,
+            39.8603,
+            50
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 12,
+            "topRadius": 4,
+            "bottomRadius": 4
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.3,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 60,
+            "fogAmount": 0.3
+          }
+        },
+        {
+          "id": "fog-depth-far",
+          "name": "Fog Far-Range Beacon (140m)",
+          "show": true,
+          "positionDegrees": [
+            -75.5958,
+            39.8607,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              16,
+              16,
+              16
+            ]
+          },
+          "color": [
+            0.2,
+            0.5,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 140,
+            "fogAmount": 0.7
+          }
+        },
+        {
+          "id": "fog-depth-limit",
+          "name": "Fog Distance Extent Marker (200m)",
+          "show": true,
+          "positionDegrees": [
+            -75.5952,
+            39.8611,
+            50
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              18,
+              18,
+              18
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.7,
+            0.7,
+            0.8,
+            0.7
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthMeters": 200,
+            "fogAmount": 1
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -3847,6 +3847,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "shadows",
+      "title": "Shadows",
+      "sourceSha256": "fe0340e054fa7a39deaad779525c89c3be21a0a804a68effc9e379a7949897e4",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=shadows",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/shadows.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/shadows.json",
+      "entityCount": 8,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Dynamic shadow casting and receiving on terrain, 3D models and geometric shapes",
+        "Sun position, location presets, and shadow map coverage"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "atmosphere",
+      "title": "Atmosphere",
+      "sourceSha256": "e704e1d1ca7b3f8479b22df42b0b0234bc4f75813505227061558920b05c8acb",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=atmosphere",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/atmosphere.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/atmosphere.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Earth ground and sky atmosphere lighting with Rayleigh and Mie scattering",
+        "Dynamic scattering parameters, scale heights, and high dynamic range lighting"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "fog-post-process",
+      "title": "Fog Post Process",
+      "sourceSha256": "c6f0c484b8374321773a25f27d6dd5c8384d02a04684f1eba4daa3ec0d27b4e1",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=fog-post-process",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/fog-post-process.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/fog-post-process.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Depth-based distance fog post-process stage",
+        "Camera depth unpacking and linear fog blending with nearFarScalar"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "globe-materials",
+      "title": "Globe Materials",
+      "sourceSha256": "c3baa6a36b8b119bdb3ee6b6d66a56e3e16428b6c94025ac870b9d6dcebdb60a",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=globe-materials",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/globe-materials.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/globe-materials.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Elevation contour lines, slope angle shading, and aspect shading globe materials",
+        "Composite material fabrics and interactive topographic color ramps"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

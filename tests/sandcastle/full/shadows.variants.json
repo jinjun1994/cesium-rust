@@ -1,0 +1,1197 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Exton Location (Ground & Terrain Shadows)",
+      "entities": [
+        {
+          "id": "cesium-air",
+          "name": "Cesium Air",
+          "show": true,
+          "positionDegrees": [
+            -75.61208,
+            40.04252,
+            94.142
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "air",
+            "heightOffset": 20
+          }
+        },
+        {
+          "id": "ground-vehicle",
+          "name": "Ground Vehicle",
+          "show": true,
+          "positionDegrees": [
+            -75.61178,
+            40.04252,
+            74.142
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/GroundVehicle/GroundVehicle.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "vehicle",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "cesium-man",
+          "name": "Cesium Man",
+          "show": true,
+          "positionDegrees": [
+            -75.61148,
+            40.04252,
+            74.142
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "character",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "wood-tower",
+          "name": "Wood Tower",
+          "show": true,
+          "positionDegrees": [
+            -75.61208,
+            40.04222,
+            74.142
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/WoodTower/Wood_Tower.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "structure",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "simple-city",
+          "name": "Simple City",
+          "show": true,
+          "positionDegrees": [
+            -75.61178,
+            40.04222,
+            74.142
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/ShadowTester/Shadow_Tester_4.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "city",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "shadow-box",
+          "name": "Red Shadow Box",
+          "show": true,
+          "positionDegrees": [
+            -75.61148,
+            40.04222,
+            84.142
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10,
+              10,
+              10
+            ]
+          },
+          "color": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "material": "Color.RED"
+          }
+        },
+        {
+          "id": "shadow-checkered-box",
+          "name": "Checkered Box",
+          "show": true,
+          "positionDegrees": [
+            -75.61238,
+            40.04252,
+            84.142
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10,
+              10,
+              10
+            ]
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            0.8
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "material": "Checkerboard"
+          }
+        },
+        {
+          "id": "shadow-sphere",
+          "name": "Translucent Shadow Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.61238,
+            40.04222,
+            94.142
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              15,
+              15,
+              15
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 36
+          },
+          "color": [
+            0,
+            0.4,
+            1,
+            0.6
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "material": "Color.BLUE.withAlpha(0.5)"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Half Dome Location (High Altitude Terrain)",
+      "entities": [
+        {
+          "id": "cesium-air",
+          "name": "Cesium Air",
+          "show": true,
+          "positionDegrees": [
+            -119.5333,
+            37.7436,
+            2660.7
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "air",
+            "heightOffset": 20
+          }
+        },
+        {
+          "id": "ground-vehicle",
+          "name": "Ground Vehicle",
+          "show": true,
+          "positionDegrees": [
+            -119.53299999999999,
+            37.7436,
+            2640.7
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/GroundVehicle/GroundVehicle.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "vehicle",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "cesium-man",
+          "name": "Cesium Man",
+          "show": true,
+          "positionDegrees": [
+            -119.53269999999999,
+            37.7436,
+            2640.7
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "character",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "wood-tower",
+          "name": "Wood Tower",
+          "show": true,
+          "positionDegrees": [
+            -119.5333,
+            37.7433,
+            2640.7
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/WoodTower/Wood_Tower.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "structure",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "simple-city",
+          "name": "Simple City",
+          "show": true,
+          "positionDegrees": [
+            -119.53299999999999,
+            37.7433,
+            2640.7
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/ShadowTester/Shadow_Tester_4.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "city",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "shadow-box",
+          "name": "Red Shadow Box",
+          "show": true,
+          "positionDegrees": [
+            -119.53269999999999,
+            37.7433,
+            2650.7
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10,
+              10,
+              10
+            ]
+          },
+          "color": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "material": "Color.RED"
+          }
+        },
+        {
+          "id": "shadow-checkered-box",
+          "name": "Checkered Box",
+          "show": true,
+          "positionDegrees": [
+            -119.53359999999999,
+            37.7436,
+            2650.7
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10,
+              10,
+              10
+            ]
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            0.8
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "material": "Checkerboard"
+          }
+        },
+        {
+          "id": "shadow-sphere",
+          "name": "Translucent Shadow Sphere",
+          "show": true,
+          "positionDegrees": [
+            -119.53359999999999,
+            37.7433,
+            2660.7
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              15,
+              15,
+              15
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 36
+          },
+          "color": [
+            0,
+            0.4,
+            1,
+            0.6
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "material": "Color.BLUE.withAlpha(0.5)"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Mount Everest Location (Extreme Mountain Ridge)",
+      "entities": [
+        {
+          "id": "cesium-air",
+          "name": "Cesium Air",
+          "show": true,
+          "positionDegrees": [
+            86.9248,
+            27.9882,
+            8793.18
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "air",
+            "heightOffset": 20
+          }
+        },
+        {
+          "id": "ground-vehicle",
+          "name": "Ground Vehicle",
+          "show": true,
+          "positionDegrees": [
+            86.92510000000001,
+            27.9882,
+            8773.18
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/GroundVehicle/GroundVehicle.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "vehicle",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "cesium-man",
+          "name": "Cesium Man",
+          "show": true,
+          "positionDegrees": [
+            86.92540000000001,
+            27.9882,
+            8773.18
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "character",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "wood-tower",
+          "name": "Wood Tower",
+          "show": true,
+          "positionDegrees": [
+            86.9248,
+            27.987899999999996,
+            8773.18
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/WoodTower/Wood_Tower.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "structure",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "simple-city",
+          "name": "Simple City",
+          "show": true,
+          "positionDegrees": [
+            86.92510000000001,
+            27.987899999999996,
+            8773.18
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/ShadowTester/Shadow_Tester_4.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "city",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "shadow-box",
+          "name": "Red Shadow Box",
+          "show": true,
+          "positionDegrees": [
+            86.92540000000001,
+            27.987899999999996,
+            8783.18
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10,
+              10,
+              10
+            ]
+          },
+          "color": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "material": "Color.RED"
+          }
+        },
+        {
+          "id": "shadow-checkered-box",
+          "name": "Checkered Box",
+          "show": true,
+          "positionDegrees": [
+            86.92450000000001,
+            27.9882,
+            8783.18
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10,
+              10,
+              10
+            ]
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            0.8
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "material": "Checkerboard"
+          }
+        },
+        {
+          "id": "shadow-sphere",
+          "name": "Translucent Shadow Sphere",
+          "show": true,
+          "positionDegrees": [
+            86.92450000000001,
+            27.987899999999996,
+            8793.18
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              15,
+              15,
+              15
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 36
+          },
+          "color": [
+            0,
+            0.4,
+            1,
+            0.6
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "material": "Color.BLUE.withAlpha(0.5)"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Space Orbital Location (2000km Low Earth Orbit)",
+      "entities": [
+        {
+          "id": "cesium-air",
+          "name": "Cesium Air",
+          "show": true,
+          "positionDegrees": [
+            -75.61208,
+            40.04252,
+            2000020
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "air",
+            "heightOffset": 20
+          }
+        },
+        {
+          "id": "ground-vehicle",
+          "name": "Ground Vehicle",
+          "show": true,
+          "positionDegrees": [
+            -75.61178,
+            40.04252,
+            2000000
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/GroundVehicle/GroundVehicle.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "vehicle",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "cesium-man",
+          "name": "Cesium Man",
+          "show": true,
+          "positionDegrees": [
+            -75.61148,
+            40.04252,
+            2000000
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMan/Cesium_Man.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "character",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "wood-tower",
+          "name": "Wood Tower",
+          "show": true,
+          "positionDegrees": [
+            -75.61208,
+            40.04222,
+            2000000
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/WoodTower/Wood_Tower.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "structure",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "simple-city",
+          "name": "Simple City",
+          "show": true,
+          "positionDegrees": [
+            -75.61178,
+            40.04222,
+            2000000
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/ShadowTester/Shadow_Tester_4.glb",
+            "scale": 1,
+            "minimumPixelSize": 64
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "category": "city",
+            "heightOffset": 0
+          }
+        },
+        {
+          "id": "shadow-box",
+          "name": "Red Shadow Box",
+          "show": true,
+          "positionDegrees": [
+            -75.61148,
+            40.04222,
+            2000010
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10,
+              10,
+              10
+            ]
+          },
+          "color": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "material": "Color.RED"
+          }
+        },
+        {
+          "id": "shadow-checkered-box",
+          "name": "Checkered Box",
+          "show": true,
+          "positionDegrees": [
+            -75.61238,
+            40.04252,
+            2000010
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10,
+              10,
+              10
+            ]
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            0.8
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "material": "Checkerboard"
+          }
+        },
+        {
+          "id": "shadow-sphere",
+          "name": "Translucent Shadow Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.61238,
+            40.04222,
+            2000020
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              15,
+              15,
+              15
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 36
+          },
+          "color": [
+            0,
+            0.4,
+            1,
+            0.6
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shadows": "ENABLED",
+            "material": "Color.BLUE.withAlpha(0.5)"
+          }
+        }
+      ]
+    }
+  ]
+}

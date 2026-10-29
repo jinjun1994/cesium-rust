@@ -744,12 +744,196 @@
       ]
     },
     {
+      "id": "shadows",
+      "status": "passed",
+      "entities": 8,
+      "sourceSha256": "fe0340e054fa7a39deaad779525c89c3be21a0a804a68effc9e379a7949897e4",
+      "inputSha256": "f35984fe598b97bf9ddb76f2fdf7be351f611e609a8016e2809765d3aba95165",
+      "fixtureSha256": "6fbc01c15d89dc28e0e8175676fa948367ea949595498c78a343a304986bde8f",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "cesium-air",
+        "ground-vehicle",
+        "cesium-man",
+        "wood-tower",
+        "simple-city",
+        "shadow-box",
+        "shadow-checkered-box",
+        "shadow-sphere"
+      ],
+      "pixelCounts": [
+        {
+          "id": "cesium-air",
+          "pixels": 18
+        },
+        {
+          "id": "ground-vehicle",
+          "pixels": 18
+        },
+        {
+          "id": "cesium-man",
+          "pixels": 18
+        },
+        {
+          "id": "wood-tower",
+          "pixels": 18
+        },
+        {
+          "id": "simple-city",
+          "pixels": 18
+        },
+        {
+          "id": "shadow-box",
+          "pixels": 30
+        },
+        {
+          "id": "shadow-checkered-box",
+          "pixels": 40
+        },
+        {
+          "id": "shadow-sphere",
+          "pixels": 140
+        }
+      ]
+    },
+    {
+      "id": "atmosphere",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "e704e1d1ca7b3f8479b22df42b0b0234bc4f75813505227061558920b05c8acb",
+      "inputSha256": "47cc4911f5edbd3ec7d2581e50e18f0ce3c9c2e55595218eb64f51a2df4d11e6",
+      "fixtureSha256": "91f95c2f959964a43da9adfc9f9789ba988d8a1b682a82e2aeee8f42bcfcb3c6",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "atmosphere-rayleigh-sensor",
+        "atmosphere-mie-profiler",
+        "atmosphere-twilight-beacon",
+        "atmosphere-ozone-sphere"
+      ],
+      "pixelCounts": [
+        {
+          "id": "atmosphere-rayleigh-sensor",
+          "pixels": 95552
+        },
+        {
+          "id": "atmosphere-mie-profiler",
+          "pixels": 102024
+        },
+        {
+          "id": "atmosphere-twilight-beacon",
+          "pixels": 69389
+        },
+        {
+          "id": "atmosphere-ozone-sphere",
+          "pixels": 164179
+        }
+      ]
+    },
+    {
+      "id": "fog-post-process",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "c6f0c484b8374321773a25f27d6dd5c8384d02a04684f1eba4daa3ec0d27b4e1",
+      "inputSha256": "96dd826b0d076d83c28b37d856303b6e9059e630204ad895f478aff88b143158",
+      "fixtureSha256": "c26a7be0e9579604a731dcec1e8c7fe4b6b41835d379099ef387500da033db7a",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "fog-depth-near",
+        "fog-depth-mid",
+        "fog-depth-far",
+        "fog-depth-limit"
+      ],
+      "pixelCounts": [
+        {
+          "id": "fog-depth-near",
+          "pixels": 30
+        },
+        {
+          "id": "fog-depth-mid",
+          "pixels": 32
+        },
+        {
+          "id": "fog-depth-far",
+          "pixels": 104
+        },
+        {
+          "id": "fog-depth-limit",
+          "pixels": 204
+        }
+      ]
+    },
+    {
+      "id": "globe-materials",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "c3baa6a36b8b119bdb3ee6b6d66a56e3e16428b6c94025ac870b9d6dcebdb60a",
+      "inputSha256": "9da466efe132da4149fa5473044226f4229f5e6317fe33d35bd7ca4faa3dd0ea",
+      "fixtureSha256": "8a6d1f5360515736d3f33b89e805de164b02674dfa936ecfc65a08b3e8b390b3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "globe-mat-himalayas",
+        "globe-mat-halfdome",
+        "globe-mat-vancouver",
+        "globe-mat-contour-band"
+      ],
+      "pixelCounts": [
+        {
+          "id": "globe-mat-himalayas",
+          "pixels": 90522
+        },
+        {
+          "id": "globe-mat-halfdome",
+          "pixels": 41308
+        },
+        {
+          "id": "globe-mat-vancouver",
+          "pixels": 42754
+        },
+        {
+          "id": "globe-mat-contour-band",
+          "pixels": 67802
+        }
+      ]
+    },
+    {
       "id": "drawing-on-terrain",
       "status": "passed",
       "entities": 4,
       "sourceSha256": "c44045b527fed862bdaa58681990a27fadbe0f57378114ad53aae08a9dda7977",
-      "inputSha256": "1193bbcbabe5bf74f7f52d069dbfe0db7255789a22900b18c1bedb30d2029105",
-      "fixtureSha256": "5d074faea72120480bb3aabb7f5978405154dd3f37f3073cff2bc4700fba0fe3",
+      "inputSha256": "f0261ae89439a42e5fa60296dd6f0ae8e97827fca966619eb51dbff9ba12b8bf",
+      "fixtureSha256": "87e410534d8d0cd23542d1e4f3df63b6f0489b4658732c6790e6d657f71df890",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -789,8 +973,8 @@
       "status": "passed",
       "entities": 3,
       "sourceSha256": "bbb3b492095ce22b44e635b11f08bcf69c9a2d5cd4032fab0431abb705753c97",
-      "inputSha256": "3968023215c12543b7c3e05dc966f8ab4675fe5bf11a40b1f0e999efe591315a",
-      "fixtureSha256": "072a55911a044637bac220869f0f6af8542054f7999e7f63604f3c64fc731608",
+      "inputSha256": "66dc7791be0c0276188c95b20dc98a2a12645973fc3895b03f2882da06d694c3",
+      "fixtureSha256": "c458d7fdb9caffaeb8a467fca6be07c02ff3f0744bc461c9773acd62f620d2fd",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -825,8 +1009,8 @@
       "status": "passed",
       "entities": 3,
       "sourceSha256": "95cbb154a596464966f962db323569747cd89738744508875d728ca4ce1d0d3e",
-      "inputSha256": "e2170bab9a149194762af8b207bd4dd326992d4584637306c14f72090c130985",
-      "fixtureSha256": "c9db3bea5a37d5bd9aa2a17cb461c97c3a9f7358a39abaa737ff6494d352fc35",
+      "inputSha256": "e719a2a6245db7edff1ee3f7d2bbcdf87a425e51b99a75a15567ccd5cdf7ed3f",
+      "fixtureSha256": "b9cec4bafd9e4e0f06dc6ef1949e5b8a91ff1d57d215f984422331ce4343c441",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -861,8 +1045,8 @@
       "status": "passed",
       "entities": 4,
       "sourceSha256": "9a2b824fa37a767c0adfca5d8bbb8ecfab6caca16806b6f055b5422478ac9a93",
-      "inputSha256": "bbe177cce927ff1708e868d698c0506c50b0f002b525aef985e4a67ae2fe92f1",
-      "fixtureSha256": "ec37327e35958ae294029d865d531e28eb9729a3ac14d3d2171a23f3e2dc3133",
+      "inputSha256": "94b4d9a9e644f362917c0a237004fbde4478b98e72238330d2e9cdd61b9dda7b",
+      "fixtureSha256": "8c6239e30a3ba92c807d7675a5952166276069189d57ad38b55a63a8e6eafc00",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",

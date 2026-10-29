@@ -1,0 +1,621 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Elevation Ramp & Contours (150m Spacing, 2px Width)",
+      "entities": [
+        {
+          "id": "globe-mat-himalayas",
+          "name": "Himalayas Peak Elevation Marker",
+          "show": true,
+          "positionDegrees": [
+            86.925,
+            27.988,
+            8848
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 800,
+            "topRadius": 250,
+            "bottomRadius": 400
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 8848,
+            "region": "Himalayas"
+          }
+        },
+        {
+          "id": "globe-mat-halfdome",
+          "name": "Half Dome Steep Slope Marker",
+          "show": true,
+          "positionDegrees": [
+            -119.533,
+            37.746,
+            2694
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              350,
+              350,
+              350
+            ]
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.35,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "slopeDegrees": 65,
+            "region": "Half Dome"
+          }
+        },
+        {
+          "id": "globe-mat-vancouver",
+          "name": "Vancouver Coastal Datum Marker",
+          "show": true,
+          "positionDegrees": [
+            -123.12,
+            49.28,
+            50
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              250,
+              250,
+              250
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.2,
+            0.55,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 50,
+            "region": "Vancouver"
+          }
+        },
+        {
+          "id": "globe-mat-contour-band",
+          "name": "Himalayan Elevation Contour Band",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              86.85,
+              27.9,
+              87,
+              28.05
+            ],
+            "height": 5000,
+            "extrudedHeight": 5200,
+            "rotation": 0
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.1,
+            0.75
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "contourSpacing": 150,
+            "contourWidth": 2,
+            "shading": "elevation"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Slope Angle Shading (Steep Terrain Visualization)",
+      "entities": [
+        {
+          "id": "globe-mat-himalayas",
+          "name": "Himalayas Peak Elevation Marker",
+          "show": true,
+          "positionDegrees": [
+            86.925,
+            27.988,
+            8848
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 800,
+            "topRadius": 250,
+            "bottomRadius": 400
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 8848,
+            "region": "Himalayas"
+          }
+        },
+        {
+          "id": "globe-mat-halfdome",
+          "name": "Half Dome Steep Slope Marker",
+          "show": true,
+          "positionDegrees": [
+            -119.533,
+            37.746,
+            2694
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              350,
+              350,
+              350
+            ]
+          },
+          "color": [
+            0.1,
+            0.95,
+            0.5,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.2,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "slopeDegrees": 65,
+            "region": "Half Dome"
+          }
+        },
+        {
+          "id": "globe-mat-vancouver",
+          "name": "Vancouver Coastal Datum Marker",
+          "show": true,
+          "positionDegrees": [
+            -123.12,
+            49.28,
+            50
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              250,
+              250,
+              250
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.2,
+            0.55,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 50,
+            "region": "Vancouver"
+          }
+        },
+        {
+          "id": "globe-mat-contour-band",
+          "name": "Himalayan Elevation Contour Band",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              86.85,
+              27.9,
+              87,
+              28.05
+            ],
+            "height": 5000,
+            "extrudedHeight": 5200,
+            "rotation": 0
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.1,
+            0.75
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "contourSpacing": 150,
+            "contourWidth": 2,
+            "shading": "elevation"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Aspect Orientation Shading (Compass Direction Ramp)",
+      "entities": [
+        {
+          "id": "globe-mat-himalayas",
+          "name": "Himalayas Peak Elevation Marker",
+          "show": true,
+          "positionDegrees": [
+            86.925,
+            27.988,
+            8848
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 800,
+            "topRadius": 250,
+            "bottomRadius": 400
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 8848,
+            "region": "Himalayas"
+          }
+        },
+        {
+          "id": "globe-mat-halfdome",
+          "name": "Half Dome Steep Slope Marker",
+          "show": true,
+          "positionDegrees": [
+            -119.533,
+            37.746,
+            2694
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              350,
+              350,
+              350
+            ]
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.35,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "slopeDegrees": 65,
+            "region": "Half Dome"
+          }
+        },
+        {
+          "id": "globe-mat-vancouver",
+          "name": "Vancouver Coastal Datum Marker",
+          "show": true,
+          "positionDegrees": [
+            -123.12,
+            49.28,
+            50
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              250,
+              250,
+              250
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.2,
+            0.55,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 50,
+            "region": "Vancouver"
+          }
+        },
+        {
+          "id": "globe-mat-contour-band",
+          "name": "Himalayan Elevation Contour Band",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              86.85,
+              27.9,
+              87,
+              28.05
+            ],
+            "height": 5000,
+            "extrudedHeight": 5200,
+            "rotation": 0
+          },
+          "color": [
+            0.3,
+            0.7,
+            0.9,
+            0.75
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "contourSpacing": 150,
+            "contourWidth": 2,
+            "shading": "elevation"
+          }
+        }
+      ]
+    },
+    {
+      "label": "High-Density Elevation Contours (50m Spacing, Red Contours)",
+      "entities": [
+        {
+          "id": "globe-mat-himalayas",
+          "name": "Himalayas Peak Elevation Marker",
+          "show": true,
+          "positionDegrees": [
+            86.925,
+            27.988,
+            8848
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 800,
+            "topRadius": 250,
+            "bottomRadius": 400
+          },
+          "color": [
+            1,
+            0.1,
+            0.1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 8848,
+            "region": "Himalayas"
+          }
+        },
+        {
+          "id": "globe-mat-halfdome",
+          "name": "Half Dome Steep Slope Marker",
+          "show": true,
+          "positionDegrees": [
+            -119.533,
+            37.746,
+            2694
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              350,
+              350,
+              350
+            ]
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.35,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "slopeDegrees": 65,
+            "region": "Half Dome"
+          }
+        },
+        {
+          "id": "globe-mat-vancouver",
+          "name": "Vancouver Coastal Datum Marker",
+          "show": true,
+          "positionDegrees": [
+            -123.12,
+            49.28,
+            50
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              250,
+              250,
+              250
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.2,
+            0.55,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 50,
+            "region": "Vancouver"
+          }
+        },
+        {
+          "id": "globe-mat-contour-band",
+          "name": "Himalayan Elevation Contour Band",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              86.85,
+              27.9,
+              87,
+              28.05
+            ],
+            "height": 5000,
+            "extrudedHeight": 5200,
+            "rotation": 0
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.1,
+            0.75
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "contourSpacing": 150,
+            "contourWidth": 2,
+            "shading": "elevation"
+          }
+        }
+      ]
+    }
+  ]
+}

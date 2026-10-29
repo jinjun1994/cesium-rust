@@ -146,6 +146,10 @@ $('fullNew108').onclick=guarded(()=>runFull('drawing-on-terrain'));
 $('fullNew109').onclick=guarded(()=>runFull('rotatable-2d-map'));
 $('fullNew110').onclick=guarded(()=>runFull('polylines-on-terrain-dev'));
 $('fullNew111').onclick=guarded(()=>runFull('elevation-band-material'));
+$('fullNew112').onclick=guarded(()=>runFull('shadows'));
+$('fullNew113').onclick=guarded(()=>runFull('atmosphere'));
+$('fullNew114').onclick=guarded(()=>runFull('fog-post-process'));
+$('fullNew115').onclick=guarded(()=>runFull('globe-materials'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.48
+
+新增 Shadows、Atmosphere、Fog Post Process、Globe Materials 四个完整案例，累计 **139 / 309**，剩余 170 个。108 项普通 Rust、140 项实际 GPU、8 组 Node、139 个浏览器 WebGPU 案例通过。验证包含地表、建筑、3D 模型与几何体动态阴影投射（Cesium Air、地面特种车辆、Cesium Man、了望塔、阴影测试建筑群、阴影立方体与球体在 Exton、半圆顶、珠峰与近地轨道 4 种变体）、地球高动态范围地面与天空大气散射系统（标准晴空、黄昏日落红移、火星稀薄扬尘与高动态 HDR 4 种变体）、基于深度缓冲的距离雾效后期处理管线（暗黑浓雾、晨间薄雾、工业烟雾与深海夜雾 4 种变体）、以及地形高程等高线/坡度/坡向复合材质库（高程等高线复合、坡度陡崖着色、坡向方位色谱与高密等高线 4 种变体）。详见 [本批验证](shadows-atmosphere-fog-globematerials-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.47
 
 新增 Drawing on Terrain、Rotatable 2D Map、Polylines On Terrain - Dev、Elevation Band Material 四个完整案例，累计 **135 / 309**，剩余 174 个。108 项普通 Rust、136 项实际 GPU、8 组 Node、135 个浏览器 WebGPU 案例通过。验证包含真实地形交互式点线面标绘（地表贴地纯白折线、青蓝半透明多边形填充面与 2 具红色顶点图元 4 种变体）、二维平面旋转地图全向航向漫游（SCENE2D 模式下 Heading -45°~180° 旋转、覆盖矩形与 42°N 恒向线 4 种变体）、大峡谷复杂地形多路径贴地折线与地表分类面体（发卡弯主航迹、东部环线发光轨迹与峡谷底地表矩形 4 种变体）、以及喜马拉雅山脉多级海拔等高线带谱与梯度材质（4200m 基底、7000m 中高带、7500m 高海拔带与 8848m 珠峰冲顶面 4 种变体）。详见 [本批验证](drawing-rotatable-polylines-elevation-validation.md)。以下保留历史记录。

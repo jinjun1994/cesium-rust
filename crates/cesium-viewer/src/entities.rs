@@ -3870,4 +3870,54 @@ mod tests {
         let elev_variants = crate::entity_variants::decode(&elev_variants_raw).unwrap();
         assert_eq!(elev_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch48_shadows_atmosphere_fog_globematerials() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Shadows
+        let shadow_data = std::fs::read(base.join("shadows.json")).unwrap();
+        let shadow_entities = decode(&shadow_data).unwrap();
+        assert_eq!(shadow_entities.len(), 8);
+        assert!(matches!(shadow_entities[0].shape, Shape::Model { .. }));
+        assert!(matches!(shadow_entities[5].shape, Shape::Box { .. }));
+        assert!(matches!(shadow_entities[7].shape, Shape::Ellipsoid { .. }));
+        let shadow_variants_raw = std::fs::read(base.join("shadows.variants.json")).unwrap();
+        let shadow_variants = crate::entity_variants::decode(&shadow_variants_raw).unwrap();
+        assert_eq!(shadow_variants.variants.len(), 4);
+
+        // 2. Atmosphere
+        let atmos_data = std::fs::read(base.join("atmosphere.json")).unwrap();
+        let atmos_entities = decode(&atmos_data).unwrap();
+        assert_eq!(atmos_entities.len(), 4);
+        assert!(matches!(atmos_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(atmos_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(atmos_entities[3].shape, Shape::Ellipsoid { .. }));
+        let atmos_variants_raw = std::fs::read(base.join("atmosphere.variants.json")).unwrap();
+        let atmos_variants = crate::entity_variants::decode(&atmos_variants_raw).unwrap();
+        assert_eq!(atmos_variants.variants.len(), 4);
+
+        // 3. Fog Post Process
+        let fog_data = std::fs::read(base.join("fog-post-process.json")).unwrap();
+        let fog_entities = decode(&fog_data).unwrap();
+        assert_eq!(fog_entities.len(), 4);
+        assert!(matches!(fog_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(fog_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(fog_entities[3].shape, Shape::Ellipsoid { .. }));
+        let fog_variants_raw = std::fs::read(base.join("fog-post-process.variants.json")).unwrap();
+        let fog_variants = crate::entity_variants::decode(&fog_variants_raw).unwrap();
+        assert_eq!(fog_variants.variants.len(), 4);
+
+        // 4. Globe Materials
+        let globe_data = std::fs::read(base.join("globe-materials.json")).unwrap();
+        let globe_entities = decode(&globe_data).unwrap();
+        assert_eq!(globe_entities.len(), 4);
+        assert!(matches!(globe_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(globe_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(globe_entities[3].shape, Shape::Rectangle { .. }));
+        let globe_variants_raw = std::fs::read(base.join("globe-materials.variants.json")).unwrap();
+        let globe_variants = crate::entity_variants::decode(&globe_variants_raw).unwrap();
+        assert_eq!(globe_variants.variants.len(), 4);
+    }
 }

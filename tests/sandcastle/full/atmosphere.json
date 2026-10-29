@@ -1,0 +1,159 @@
+[
+  {
+    "id": "atmosphere-rayleigh-sensor",
+    "name": "Rayleigh Scattering Observation Station",
+    "show": true,
+    "positionDegrees": [
+      0,
+      0,
+      1000
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 4000,
+      "topRadius": 1500,
+      "bottomRadius": 1500
+    },
+    "color": [
+      0.2,
+      0.6,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.8,
+      0.9,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "rayleigh": [
+        0.0000055,
+        0.000013,
+        0.0000284
+      ],
+      "scaleHeight": 8000,
+      "lightIntensity": 20
+    }
+  },
+  {
+    "id": "atmosphere-mie-profiler",
+    "name": "Mie Aerosol Profiler Station",
+    "show": true,
+    "positionDegrees": [
+      -30,
+      65,
+      1000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        3000,
+        3000,
+        3000
+      ]
+    },
+    "color": [
+      0.85,
+      0.9,
+      0.95,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.5,
+      0.7,
+      0.9,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "mie": [
+        0.00002,
+        0.00002,
+        0.00002
+      ],
+      "anisotropy": 0.9,
+      "scaleHeight": 1200
+    }
+  },
+  {
+    "id": "atmosphere-twilight-beacon",
+    "name": "Twilight Horizon Terminus Beacon",
+    "show": true,
+    "positionDegrees": [
+      85,
+      25,
+      1000
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 5000,
+      "topRadius": 1200,
+      "bottomRadius": 1800
+    },
+    "color": [
+      1,
+      0.55,
+      0.15,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.9,
+      0.4,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "hueShift": 0.1,
+      "saturationShift": 0.2,
+      "brightnessShift": -0.1
+    }
+  },
+  {
+    "id": "atmosphere-ozone-sphere",
+    "name": "Stratospheric Ozone Layer Probe",
+    "show": true,
+    "positionDegrees": [
+      -105,
+      40,
+      20000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        4000,
+        4000,
+        4000
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      0.4,
+      0.1,
+      0.85,
+      0.85
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "altitudeMeters": 20000,
+      "layer": "Stratosphere"
+    }
+  }
+]

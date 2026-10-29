@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.47（已通过 135 / 309 个完整案例，剩余 174 个）
+- **当前版本**：v0.0.48（已通过 139 / 309 个完整案例，剩余 170 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.48 验收完成：动态阴影投射 (Shadows)、大气瑞利/米氏散射 (Atmosphere)、深度距离雾效 (Fog Post Process) 与地形复合材质 (Globe Materials)
+- **完成配方**（累计推进至 **139 / 309**，剩余 170 个）：
+  1. `shadows`（地表、建筑、3D 模型与几何体动态阴影投射：Cesium Air、地面特种车辆、Cesium Man、了望塔、阴影测试建筑群、阴影立方体与球体在 Exton、半圆顶、珠峰与近地轨道 4 种变体）
+  2. `atmosphere`（地球高动态范围地面与天空大气散射系统：标准晴空、黄昏日落红移、火星稀薄扬尘与高动态 HDR 4 种变体）
+  3. `fog-post-process`（基于深度缓冲的距离雾效后期处理管线：暗黑浓雾、晨间薄雾、工业烟雾与深海夜雾 4 种变体）
+  4. `globe-materials`（地形高程等高线/坡度/坡向复合材质库：高程等高线复合、坡度陡崖着色、坡向方位色谱与高密等高线 4 种变体）
+- **核心研发突破**：
+  1. **多模型、几何体与阴影模式协同渲染**：统一了 glTF 模型与几何体（Box、Ellipsoid）在阴影投射和接收下的着色表现，离屏光栅化验证像素级变化与拾取一致性。
+  2. **多波长物理大气与高动态范围（HDR）管线闭环**：确立了大气层散射参数与三维传感器探测阵列的空间对齐，离屏渲染产生 69,000 ~ 164,000 像素的高饱和度光学效果。
+  3. **深度缓冲后期处理距离雾效（Depth-based Fog Post-Process）**：基于深度纹理重构视点空间距离，通过 10m ~ 200m 阶梯探针精准验证了线性雾效插值。
+  4. **地形分析与复合地表材质库（Composite Globe Materials）**：规范了高程、坡度、坡向等高线复合材质在极端地形落差下的着色表现，各区域实体像素贡献达 41,000 ~ 90,000+ 像素。
+- **验证结果**：
+  - **普通 Rust 单元测试**：108 项全部通过（含 `batch48_shadows_atmosphere_fog_globematerials`）。
+  - **真实 GPU 离屏渲染测试**：140 / 140 项全数通过（`140 passed; 0 failed; finished in 44.29s`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：139 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Shadows、Atmosphere、Fog Post Process 与 Globe Materials 验证文档](docs/shadows-atmosphere-fog-globematerials-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
 
 ### [2026-10-30] v0.0.47 验收完成：地形交互线面标绘 (Drawing on Terrain)、二维平面旋转地图 (Rotatable 2D Map)、大峡谷贴地折线分类 (Polylines On Terrain) 与珠峰高程分级带谱 (Elevation Band Material)
 - **完成配方**（累计推进至 **135 / 309**，剩余 174 个）：
