@@ -3955,6 +3955,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "lighting",
+      "title": "Lighting",
+      "sourceSha256": "6d67877c8907ee93b30f3ec1e7aa984b7fba93375b7859a58e23a14d3e658e96",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=lighting",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/lighting.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/lighting.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Dynamic sunlight, moonlight, flashlight, and custom directional lights",
+        "Light directions, colors, and shadows on balloon model, cylinder, and ellipsoid"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "fog",
+      "title": "Fog",
+      "sourceSha256": "4c2f2c1cd422c02176dc45646929e1494a3ac1024b16c6a2bcc4e9872c365d5f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=fog",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/fog.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/fog.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Scene fog density, minimumBrightness, height falloff, and visual density scalar",
+        "Camera observation positions and elevation inversion layer boundaries"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "cloud-parameters",
+      "title": "Cloud Parameters",
+      "sourceSha256": "0c48f2b37a2c3ff240c328550d24528c97d1a364a4c58adbe2b9302850b3cb7c",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=cloud-parameters",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/cloud-parameters.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/cloud-parameters.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Procedural Cumulus cloud parameters, slice, scale, maximum size, color, brightness",
+        "Dynamic cloud billows, domes, and ground shadow footprint"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "clouds",
+      "title": "Clouds",
+      "sourceSha256": "245f90ecdcff541ea74ffa8d58873d3e7825af28c0dee653f71d2ddc1fdc94ec",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=clouds",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/clouds.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/clouds.json",
+      "entityCount": 5,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Volumetric CloudCollection mountain cloud cover and atmospheric weather layers",
+        "Multi-tiered stratus layers over terrain and low ceiling boundary coverage"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

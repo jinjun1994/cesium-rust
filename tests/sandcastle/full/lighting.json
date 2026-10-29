@@ -1,0 +1,148 @@
+[
+  {
+    "id": "lighting-balloon",
+    "name": "Cesium Balloon",
+    "show": true,
+    "positionDegrees": [
+      -122.9754,
+      38.2618,
+      60
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+      "scale": 7,
+      "minimumPixelSize": 64
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "lightingMode": "sunLight",
+      "modelScale": 7
+    }
+  },
+  {
+    "id": "lighting-pedestal",
+    "name": "Lighting Observation Pedestal",
+    "show": true,
+    "positionDegrees": [
+      -122.9754,
+      38.2618,
+      20
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 40,
+      "topRadius": 12,
+      "bottomRadius": 12
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.8,
+      0.8,
+      0.8,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "lightingMode": "sunLight",
+      "material": "WHITE"
+    }
+  },
+  {
+    "id": "lighting-orb",
+    "name": "Translucent Lighting Sphere",
+    "show": true,
+    "positionDegrees": [
+      -122.9754,
+      38.2618,
+      45
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        16,
+        16,
+        16
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      1,
+      1,
+      1,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "lightingMode": "sunLight",
+      "material": "WHITE.withAlpha(0.5)"
+    }
+  },
+  {
+    "id": "lighting-beacon",
+    "name": "Photometric Reference Beacon",
+    "show": true,
+    "positionDegrees": [
+      -122.9746,
+      38.2618,
+      20
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        20,
+        20,
+        20
+      ]
+    },
+    "color": [
+      1,
+      0.8,
+      0.2,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "lightingMode": "sunLight",
+      "material": "GOLD"
+    }
+  }
+]

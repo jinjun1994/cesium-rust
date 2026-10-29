@@ -3920,4 +3920,57 @@ mod tests {
         let globe_variants = crate::entity_variants::decode(&globe_variants_raw).unwrap();
         assert_eq!(globe_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch49_lighting_fog_cloudparameters_clouds() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Lighting
+        let lighting_data = std::fs::read(base.join("lighting.json")).unwrap();
+        let lighting_entities = decode(&lighting_data).unwrap();
+        assert_eq!(lighting_entities.len(), 4);
+        assert!(matches!(lighting_entities[0].shape, Shape::Model { .. }));
+        assert!(matches!(lighting_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(
+            lighting_entities[2].shape,
+            Shape::Ellipsoid { .. }
+        ));
+        assert!(matches!(lighting_entities[3].shape, Shape::Box { .. }));
+        let lighting_variants_raw = std::fs::read(base.join("lighting.variants.json")).unwrap();
+        let lighting_variants = crate::entity_variants::decode(&lighting_variants_raw).unwrap();
+        assert_eq!(lighting_variants.variants.len(), 4);
+
+        // 2. Fog
+        let fog_data = std::fs::read(base.join("fog.json")).unwrap();
+        let fog_entities = decode(&fog_data).unwrap();
+        assert_eq!(fog_entities.len(), 4);
+        assert!(matches!(fog_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(fog_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(fog_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(fog_entities[3].shape, Shape::Rectangle { .. }));
+        let fog_variants_raw = std::fs::read(base.join("fog.variants.json")).unwrap();
+        let fog_variants = crate::entity_variants::decode(&fog_variants_raw).unwrap();
+        assert_eq!(fog_variants.variants.len(), 4);
+
+        // 3. Cloud Parameters
+        let cp_data = std::fs::read(base.join("cloud-parameters.json")).unwrap();
+        let cp_entities = decode(&cp_data).unwrap();
+        assert_eq!(cp_entities.len(), 4);
+        assert!(matches!(cp_entities[0].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(cp_entities[3].shape, Shape::Box { .. }));
+        let cp_variants_raw = std::fs::read(base.join("cloud-parameters.variants.json")).unwrap();
+        let cp_variants = crate::entity_variants::decode(&cp_variants_raw).unwrap();
+        assert_eq!(cp_variants.variants.len(), 4);
+
+        // 4. Clouds
+        let clouds_data = std::fs::read(base.join("clouds.json")).unwrap();
+        let clouds_entities = decode(&clouds_data).unwrap();
+        assert_eq!(clouds_entities.len(), 5);
+        assert!(matches!(clouds_entities[0].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(clouds_entities[4].shape, Shape::Rectangle { .. }));
+        let clouds_variants_raw = std::fs::read(base.join("clouds.variants.json")).unwrap();
+        let clouds_variants = crate::entity_variants::decode(&clouds_variants_raw).unwrap();
+        assert_eq!(clouds_variants.variants.len(), 4);
+    }
 }

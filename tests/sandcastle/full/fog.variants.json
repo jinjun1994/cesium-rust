@@ -1,0 +1,617 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Standard Atmospheric Fog (Density 0.0002, Balanced Falloff)",
+      "entities": [
+        {
+          "id": "fog-alps-station",
+          "name": "Gotthard Pass Fog Monitoring Post",
+          "show": true,
+          "positionDegrees": [
+            8.54,
+            46.55,
+            3000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              500,
+              500,
+              500
+            ]
+          },
+          "color": [
+            1,
+            0.3,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogDensity": 0.0002,
+            "altitudeMeters": 3000
+          }
+        },
+        {
+          "id": "fog-valley-station",
+          "name": "Alpine Valley Density Station",
+          "show": true,
+          "positionDegrees": [
+            8.58,
+            46.52,
+            1500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 800,
+            "topRadius": 200,
+            "bottomRadius": 200
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.4,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            1,
+            0.9,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogDensity": 0.0002,
+            "altitudeMeters": 1500
+          }
+        },
+        {
+          "id": "fog-horizon-beacon",
+          "name": "High Peak Transmittance Beacon",
+          "show": true,
+          "positionDegrees": [
+            8.5,
+            46.6,
+            4000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              300,
+              300,
+              300
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.3,
+            0.6,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogDensity": 0.0002,
+            "altitudeMeters": 4000
+          }
+        },
+        {
+          "id": "fog-boundary-contour",
+          "name": "Alpine Fog Inversion Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              8.48,
+              46.48,
+              8.62,
+              46.62
+            ],
+            "height": 1000,
+            "extrudedHeight": 1200,
+            "rotation": 0
+          },
+          "color": [
+            0.8,
+            0.85,
+            0.95,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogMaxHeight": 4000,
+            "heightFalloff": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "label": "High Altitude Alpine Fog (Max Height 4000m, Snow Peak Shroud)",
+      "entities": [
+        {
+          "id": "fog-alps-station",
+          "name": "Gotthard Pass Fog Monitoring Post",
+          "show": true,
+          "positionDegrees": [
+            8.54,
+            46.55,
+            3000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              500,
+              500,
+              500
+            ]
+          },
+          "color": [
+            1,
+            0.3,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogDensity": 0.0002,
+            "altitudeMeters": 3000
+          }
+        },
+        {
+          "id": "fog-valley-station",
+          "name": "Alpine Valley Density Station",
+          "show": true,
+          "positionDegrees": [
+            8.58,
+            46.52,
+            1500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 800,
+            "topRadius": 200,
+            "bottomRadius": 200
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.4,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            1,
+            0.9,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogDensity": 0.0002,
+            "altitudeMeters": 1500
+          }
+        },
+        {
+          "id": "fog-horizon-beacon",
+          "name": "High Peak Transmittance Beacon",
+          "show": true,
+          "positionDegrees": [
+            8.5,
+            46.6,
+            4000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              300,
+              300,
+              300
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.6,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogDensity": 0.0002,
+            "altitudeMeters": 4000
+          }
+        },
+        {
+          "id": "fog-boundary-contour",
+          "name": "Alpine Fog Inversion Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              8.48,
+              46.48,
+              8.62,
+              46.62
+            ],
+            "height": 1000,
+            "extrudedHeight": 1200,
+            "rotation": 0
+          },
+          "color": [
+            0.8,
+            0.85,
+            0.95,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogMaxHeight": 4000,
+            "heightFalloff": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "label": "Valley Dense Ground Fog (Height Falloff 0.8, Dense Base)",
+      "entities": [
+        {
+          "id": "fog-alps-station",
+          "name": "Gotthard Pass Fog Monitoring Post",
+          "show": true,
+          "positionDegrees": [
+            8.54,
+            46.55,
+            3000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              500,
+              500,
+              500
+            ]
+          },
+          "color": [
+            1,
+            0.3,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogDensity": 0.0002,
+            "altitudeMeters": 3000
+          }
+        },
+        {
+          "id": "fog-valley-station",
+          "name": "Alpine Valley Density Station",
+          "show": true,
+          "positionDegrees": [
+            8.58,
+            46.52,
+            1500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 800,
+            "topRadius": 200,
+            "bottomRadius": 200
+          },
+          "color": [
+            0.1,
+            0.95,
+            0.5,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            1,
+            0.9,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogDensity": 0.0002,
+            "altitudeMeters": 1500
+          }
+        },
+        {
+          "id": "fog-horizon-beacon",
+          "name": "High Peak Transmittance Beacon",
+          "show": true,
+          "positionDegrees": [
+            8.5,
+            46.6,
+            4000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              300,
+              300,
+              300
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.3,
+            0.6,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogDensity": 0.0002,
+            "altitudeMeters": 4000
+          }
+        },
+        {
+          "id": "fog-boundary-contour",
+          "name": "Alpine Fog Inversion Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              8.48,
+              46.48,
+              8.62,
+              46.62
+            ],
+            "height": 1000,
+            "extrudedHeight": 1200,
+            "rotation": 0
+          },
+          "color": [
+            0.8,
+            0.85,
+            0.95,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogMaxHeight": 4000,
+            "heightFalloff": 0.5
+          }
+        }
+      ]
+    },
+    {
+      "label": "Clear Sky Minimal Fog (Density 0.00002, Crisp Alpine Vista)",
+      "entities": [
+        {
+          "id": "fog-alps-station",
+          "name": "Gotthard Pass Fog Monitoring Post",
+          "show": true,
+          "positionDegrees": [
+            8.54,
+            46.55,
+            3000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              500,
+              500,
+              500
+            ]
+          },
+          "color": [
+            1,
+            0.5,
+            0.3,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogDensity": 0.0002,
+            "altitudeMeters": 3000
+          }
+        },
+        {
+          "id": "fog-valley-station",
+          "name": "Alpine Valley Density Station",
+          "show": true,
+          "positionDegrees": [
+            8.58,
+            46.52,
+            1500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 800,
+            "topRadius": 200,
+            "bottomRadius": 200
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.4,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            1,
+            0.9,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogDensity": 0.0002,
+            "altitudeMeters": 1500
+          }
+        },
+        {
+          "id": "fog-horizon-beacon",
+          "name": "High Peak Transmittance Beacon",
+          "show": true,
+          "positionDegrees": [
+            8.5,
+            46.6,
+            4000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              300,
+              300,
+              300
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.3,
+            0.6,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogDensity": 0.0002,
+            "altitudeMeters": 4000
+          }
+        },
+        {
+          "id": "fog-boundary-contour",
+          "name": "Alpine Fog Inversion Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              8.48,
+              46.48,
+              8.62,
+              46.62
+            ],
+            "height": 1000,
+            "extrudedHeight": 1200,
+            "rotation": 0
+          },
+          "color": [
+            0.8,
+            0.85,
+            0.95,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fogMaxHeight": 4000,
+            "heightFalloff": 0.5
+          }
+        }
+      ]
+    }
+  ]
+}

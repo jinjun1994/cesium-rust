@@ -744,12 +744,181 @@
       ]
     },
     {
+      "id": "lighting",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "6d67877c8907ee93b30f3ec1e7aa984b7fba93375b7859a58e23a14d3e658e96",
+      "inputSha256": "21d047e498947e5927ddd29ef90095f1e67821dcccc29f2c4f6d4659272109ac",
+      "fixtureSha256": "fe6c83b2c1b8b9f983b77fa0e5e8788aa08063eb4b4634af39caf67a48987b7b",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "lighting-balloon",
+        "lighting-pedestal",
+        "lighting-orb",
+        "lighting-beacon"
+      ],
+      "pixelCounts": [
+        {
+          "id": "lighting-balloon",
+          "pixels": 1161
+        },
+        {
+          "id": "lighting-pedestal",
+          "pixels": 221
+        },
+        {
+          "id": "lighting-orb",
+          "pixels": 164
+        },
+        {
+          "id": "lighting-beacon",
+          "pixels": 150
+        }
+      ]
+    },
+    {
+      "id": "fog",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "4c2f2c1cd422c02176dc45646929e1494a3ac1024b16c6a2bcc4e9872c365d5f",
+      "inputSha256": "dc03b7421091083cc4655ac71722102302ff234e7795754c43419a87d66566da",
+      "fixtureSha256": "9613244f3b582c7d504747c531d899656a2fa71bac545c596a657cee44d823da",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "fog-alps-station",
+        "fog-valley-station",
+        "fog-horizon-beacon",
+        "fog-boundary-contour"
+      ],
+      "pixelCounts": [
+        {
+          "id": "fog-alps-station",
+          "pixels": 92004
+        },
+        {
+          "id": "fog-valley-station",
+          "pixels": 72979
+        },
+        {
+          "id": "fog-horizon-beacon",
+          "pixels": 62402
+        },
+        {
+          "id": "fog-boundary-contour",
+          "pixels": 65693
+        }
+      ]
+    },
+    {
+      "id": "cloud-parameters",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "0c48f2b37a2c3ff240c328550d24528c97d1a364a4c58adbe2b9302850b3cb7c",
+      "inputSha256": "0850ad675ad2678a5f76af588541232b895b67f051df5ce9cbda2a3369d11726",
+      "fixtureSha256": "b3225ca2015a11166982f5b3b05c830108dd7a0a3b556739741f368ec41a98d1",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "cloud-cumulus-core",
+        "cloud-base-fluff",
+        "cloud-top-dome",
+        "cloud-shadow-marker"
+      ],
+      "pixelCounts": [
+        {
+          "id": "cloud-cumulus-core",
+          "pixels": 216
+        },
+        {
+          "id": "cloud-base-fluff",
+          "pixels": 110
+        },
+        {
+          "id": "cloud-top-dome",
+          "pixels": 102
+        },
+        {
+          "id": "cloud-shadow-marker",
+          "pixels": 276
+        }
+      ]
+    },
+    {
+      "id": "clouds",
+      "status": "passed",
+      "entities": 5,
+      "sourceSha256": "245f90ecdcff541ea74ffa8d58873d3e7825af28c0dee653f71d2ddc1fdc94ec",
+      "inputSha256": "66c0555a1312fb49fa50ee45528eec06e72bb6aa373dff75e8d2be6127fb9773",
+      "fixtureSha256": "8c36044938bedbbf8257cbce055d5ec80703260141d1acd34b0d2db511e9f789",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "clouds-mtn-stratus-1",
+        "clouds-mtn-stratus-2",
+        "clouds-mtn-stratus-3",
+        "clouds-mtn-cumulus-low",
+        "clouds-valley-coverage"
+      ],
+      "pixelCounts": [
+        {
+          "id": "clouds-mtn-stratus-1",
+          "pixels": 23097
+        },
+        {
+          "id": "clouds-mtn-stratus-2",
+          "pixels": 32099
+        },
+        {
+          "id": "clouds-mtn-stratus-3",
+          "pixels": 41008
+        },
+        {
+          "id": "clouds-mtn-cumulus-low",
+          "pixels": 11269
+        },
+        {
+          "id": "clouds-valley-coverage",
+          "pixels": 66808
+        }
+      ]
+    },
+    {
       "id": "shadows",
       "status": "passed",
       "entities": 8,
       "sourceSha256": "fe0340e054fa7a39deaad779525c89c3be21a0a804a68effc9e379a7949897e4",
-      "inputSha256": "f35984fe598b97bf9ddb76f2fdf7be351f611e609a8016e2809765d3aba95165",
-      "fixtureSha256": "6fbc01c15d89dc28e0e8175676fa948367ea949595498c78a343a304986bde8f",
+      "inputSha256": "06fa6d335a8020aca553154a0ff48831eccf6b8ba413259bbc2ff700153de0b0",
+      "fixtureSha256": "08c4032bd39fa79fb04ebfc2c2059509c857873fd7af89cb36b3714957603c17",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -809,8 +978,8 @@
       "status": "passed",
       "entities": 4,
       "sourceSha256": "e704e1d1ca7b3f8479b22df42b0b0234bc4f75813505227061558920b05c8acb",
-      "inputSha256": "47cc4911f5edbd3ec7d2581e50e18f0ce3c9c2e55595218eb64f51a2df4d11e6",
-      "fixtureSha256": "91f95c2f959964a43da9adfc9f9789ba988d8a1b682a82e2aeee8f42bcfcb3c6",
+      "inputSha256": "9c3d9e92b9a92b310ec9e5cc2e6c2f4939079bb173887c3b1c859920edff9c66",
+      "fixtureSha256": "793f9beefa0da259788ae8e4f3d5a290bdc56103ffe15433c9bf15f914e807d4",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -850,8 +1019,8 @@
       "status": "passed",
       "entities": 4,
       "sourceSha256": "c6f0c484b8374321773a25f27d6dd5c8384d02a04684f1eba4daa3ec0d27b4e1",
-      "inputSha256": "96dd826b0d076d83c28b37d856303b6e9059e630204ad895f478aff88b143158",
-      "fixtureSha256": "c26a7be0e9579604a731dcec1e8c7fe4b6b41835d379099ef387500da033db7a",
+      "inputSha256": "3eb4d792bc6a2a65254fcc6176c2a63d9171294def4aa100007186a84666651b",
+      "fixtureSha256": "c0403cdd5244c85e10f1886c56e62a85225a405221d8856b5f7989cda2cf544b",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -891,8 +1060,8 @@
       "status": "passed",
       "entities": 4,
       "sourceSha256": "c3baa6a36b8b119bdb3ee6b6d66a56e3e16428b6c94025ac870b9d6dcebdb60a",
-      "inputSha256": "9da466efe132da4149fa5473044226f4229f5e6317fe33d35bd7ca4faa3dd0ea",
-      "fixtureSha256": "8a6d1f5360515736d3f33b89e805de164b02674dfa936ecfc65a08b3e8b390b3",
+      "inputSha256": "19f53b045b108e161a4dc098e82ff7b0319027ed448cf21e5fbd4047d2a9ee93",
+      "fixtureSha256": "147c8044ba81a887c7761cd90c72876ac236135ca29f184b59fe42ef64098343",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",

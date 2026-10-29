@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.48（已通过 139 / 309 个完整案例，剩余 170 个）
+- **当前版本**：v0.0.49（已通过 143 / 309 个完整案例，剩余 166 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.49 验收完成：动态多光源系统 (Lighting)、地表气象多层雾效 (Fog)、程序化积云微观形态 (Cloud Parameters) 与宏观山地层云 (Clouds)
+- **完成配方**（累计推进至 **143 / 309**，剩余 166 个）：
+  1. `lighting`（动态多光源照明系统：太阳光、月光、相机手电筒、定制暖琥珀色平行光在 CesiumBalloon 航空气球、基座圆柱、半透明球与方块 4 种变体）
+  2. `fog`（地表气象多高度层大气雾效与视距衰减：标准山地雾、极高海拔雪峰雾、山谷逆温浓雾与清朗晴空 4 种变体）
+  3. `cloud-parameters`（程序化积云三维形态参数化调谐系统：标准白积云、金橙日落云、风暴深灰雨云与高空扁平卷云 4 种变体）
+  4. `clouds`（宏观山地层云与低空天幕天气系统：喀斯喀特山脉低空云、高海拔翻腾云海、晴好疏散积云与阴霾风暴 4 种变体）
+- **核心研发突破**：
+  1. **多光源动态着色与天体轨道解算无缝衔接**：统一了太阳光、月球光、相机探照灯与平行光在 glTF 3D 模型、圆柱体与球体上的漫反射与环境光响应，离屏渲染与 WebGPU 均稳定贡献数百至数千像素。
+  2. **多海拔层级山地大气雾（Elevation-Aware Fog）**：验证了场景雾在山口（3000m）、谷底（1500m）与峰顶（4000m）不同地形海拔下的像素级过渡，离屏光栅化贡献 62,000 ~ 92,000 像素的高精度几何着色。
+  3. **程序化积云微观形态与切片几何（Cloud Slice & Modulation）**：实现了基于半球切片（slice）的非完整椭球云团模型，验证了多重云核在不同亮度与色温变体下的精确光栅化与鼠标拾取。
+  4. **大尺度山地气象云层群（Volumetric Mountain Cloud Collection）**：在 1500m ~ 2000m 尺度下排布多层层云与低空天幕，产生 11,000 ~ 66,000 像素的高密度气象渲染效果。
+- **验证结果**：
+  - **普通 Rust 单元测试**：108 项全部通过（含 `batch49_lighting_fog_cloudparameters_clouds`）。
+  - **真实 GPU 离屏渲染测试**：144 / 144 项全数通过（`144 passed; 0 failed; finished in 52.00s`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：143 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Lighting、Fog、Cloud Parameters 与 Clouds 验证文档](docs/lighting-fog-cloudparameters-clouds-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
 
 ### [2026-10-30] v0.0.48 验收完成：动态阴影投射 (Shadows)、大气瑞利/米氏散射 (Atmosphere)、深度距离雾效 (Fog Post Process) 与地形复合材质 (Globe Materials)
 - **完成配方**（累计推进至 **139 / 309**，剩余 170 个）：
