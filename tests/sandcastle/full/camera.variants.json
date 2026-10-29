@@ -1,0 +1,493 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Fly to San Diego (Default)",
+      "entities": [
+        {
+          "id": "san-diego-landmark",
+          "name": "San Diego Destination",
+          "show": true,
+          "positionDegrees": [
+            -117.16,
+            32.71,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 12,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 2
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "flyToSanDiego",
+            "targetAltitude": 15000
+          }
+        },
+        {
+          "id": "st-helens-landmark",
+          "name": "Mount St. Helens Landmark",
+          "show": false,
+          "positionDegrees": [
+            -122.22,
+            46.12,
+            2549
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 12,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 2
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "flyToHeadingPitchRoll",
+            "heading": 20,
+            "pitch": -35
+          }
+        },
+        {
+          "id": "camera-rectangle",
+          "name": "View Rectangle",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -77,
+              38,
+              -72,
+              42
+            ],
+            "height": 0,
+            "extrudedHeight": null,
+            "rotation": 0
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            0.5
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "viewRectangle"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Fly to HeadingPitchRoll",
+      "entities": [
+        {
+          "id": "san-diego-landmark",
+          "name": "San Diego Destination",
+          "show": false,
+          "positionDegrees": [
+            -117.16,
+            32.71,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 12,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 2
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "flyToSanDiego",
+            "targetAltitude": 15000
+          }
+        },
+        {
+          "id": "st-helens-landmark",
+          "name": "Mount St. Helens Landmark",
+          "show": true,
+          "positionDegrees": [
+            -122.22,
+            46.12,
+            2549
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 12,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 2
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "flyToHeadingPitchRoll",
+            "heading": 20,
+            "pitch": -35
+          }
+        },
+        {
+          "id": "camera-rectangle",
+          "name": "View Rectangle",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -77,
+              38,
+              -72,
+              42
+            ],
+            "height": 0,
+            "extrudedHeight": null,
+            "rotation": 0
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            0.5
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "viewRectangle"
+          }
+        }
+      ]
+    },
+    {
+      "label": "View Rectangle",
+      "entities": [
+        {
+          "id": "san-diego-landmark",
+          "name": "San Diego Destination",
+          "show": false,
+          "positionDegrees": [
+            -117.16,
+            32.71,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 12,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 2
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "flyToSanDiego",
+            "targetAltitude": 15000
+          }
+        },
+        {
+          "id": "st-helens-landmark",
+          "name": "Mount St. Helens Landmark",
+          "show": false,
+          "positionDegrees": [
+            -122.22,
+            46.12,
+            2549
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 12,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 2
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "flyToHeadingPitchRoll",
+            "heading": 20,
+            "pitch": -35
+          }
+        },
+        {
+          "id": "camera-rectangle",
+          "name": "View Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -77,
+              38,
+              -72,
+              42
+            ],
+            "height": 0,
+            "extrudedHeight": null,
+            "rotation": 0
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            0.5
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "viewRectangle"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Camera LookAt (San Diego)",
+      "entities": [
+        {
+          "id": "san-diego-landmark",
+          "name": "San Diego Destination",
+          "show": true,
+          "positionDegrees": [
+            -117.16,
+            32.71,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 12,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 2
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "flyToSanDiego",
+            "targetAltitude": 15000
+          }
+        },
+        {
+          "id": "st-helens-landmark",
+          "name": "Mount St. Helens Landmark",
+          "show": true,
+          "positionDegrees": [
+            -122.22,
+            46.12,
+            2549
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 12,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 2
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "flyToHeadingPitchRoll",
+            "heading": 20,
+            "pitch": -35
+          }
+        },
+        {
+          "id": "camera-rectangle",
+          "name": "View Rectangle",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -77,
+              38,
+              -72,
+              42
+            ],
+            "height": 0,
+            "extrudedHeight": null,
+            "rotation": 0
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            0.5
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "viewRectangle"
+          }
+        }
+      ]
+    }
+  ]
+}

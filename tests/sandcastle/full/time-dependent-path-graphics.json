@@ -1,0 +1,143 @@
+[
+  {
+    "id": "flight-aircraft-point",
+    "name": "Flight Trajectory Aircraft",
+    "show": true,
+    "positionDegrees": null,
+    "availability": [
+      0,
+      180
+    ],
+    "samples": [
+      {
+        "time": 0,
+        "cartesian": [
+          2098905.8901039786,
+          -5766696.538620984,
+          2218999.8093276075
+        ]
+      },
+      {
+        "time": 60,
+        "cartesian": [
+          1634891.8955072556,
+          -6101499.618915667,
+          1681511.1874122948
+        ]
+      },
+      {
+        "time": 120,
+        "cartesian": [
+          1238705.3418869553,
+          -5827650.448213169,
+          2635226.552105865
+        ]
+      },
+      {
+        "time": 180,
+        "cartesian": [
+          785970.7557191912,
+          -6401218.116834086,
+          1129768.7379387396
+        ]
+      }
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 10,
+      "outlineColor": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "outlineWidth": 2
+    },
+    "color": [
+      1,
+      0.84,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "model": "flight",
+      "materialMode": "PORTIONS",
+      "leadTime": 60,
+      "trailTime": 60
+    }
+  },
+  {
+    "id": "flight-path-polyline",
+    "name": "Flight Path Corridor",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -70,
+            20,
+            150000
+          ],
+          [
+            -75,
+            15,
+            160000
+          ],
+          [
+            -78,
+            24,
+            140000
+          ],
+          [
+            -83,
+            10,
+            170000
+          ]
+        ],
+        "width": 8,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "material": {
+          "type": "glow",
+          "color": [
+            0,
+            0.8,
+            1,
+            1
+          ],
+          "glowPower": 0.25,
+          "taperPower": 1
+        }
+      }
+    },
+    "color": [
+      0,
+      0.8,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "materialMode": "PORTIONS"
+    }
+  }
+]

@@ -126,6 +126,10 @@ $('fullNew88').onclick=guarded(()=>runFull('materials'));
 $('fullNew89').onclick=guarded(()=>runFull('bloom'));
 $('fullNew90').onclick=guarded(()=>runFull('cesium-widget'));
 $('fullNew91').onclick=guarded(()=>runFull('cardboard'));
+$('fullNew92').onclick=guarded(()=>runFull('picking'));
+$('fullNew93').onclick=guarded(()=>runFull('clamp-model-to-ground'));
+$('fullNew94').onclick=guarded(()=>runFull('camera'));
+$('fullNew95').onclick=guarded(()=>runFull('time-dependent-path-graphics'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

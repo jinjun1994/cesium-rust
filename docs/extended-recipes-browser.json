@@ -6,12 +6,69 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "materials",
+      "id": "picking",
+      "status": "passed",
+      "entities": 5,
+      "sourceSha256": "5d33a60a7664b564d7cf3003410b57a133fc4f78bcaa23cece5e99525187c200",
+      "inputSha256": "2b30ca796f3bd98132c608b3507302fc1241826d86f1cbbe95e3d9724d6b4ba3",
+      "fixtureSha256": "f65dfd9a995908308425ed41d8eead713692cb06a1baf931c68d0ce0c63980f3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "picking-label"
+      ],
+      "pixelCounts": [
+        {
+          "id": "picking-label",
+          "pixels": 4447
+        }
+      ]
+    },
+    {
+      "id": "clamp-model-to-ground",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "afdace0f7cb13289465f147d8c297f76da5f51f2b6e013cbb9fa4104cc5dbbb9",
+      "inputSha256": "708979563ad2331b1ec64fe20fce0509d5fff71a67cac2fc97cceb78b1e87b2a",
+      "fixtureSha256": "cd9aacd74c13305955a3b7024ad6c8ee9f58e178337296d4488299dd66cc96ae",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "clamped-milk-truck",
+        "truck-reference-pin"
+      ],
+      "pixelCounts": [
+        {
+          "id": "clamped-milk-truck",
+          "pixels": 154
+        },
+        {
+          "id": "truck-reference-pin",
+          "pixels": 154
+        }
+      ]
+    },
+    {
+      "id": "camera",
       "status": "passed",
       "entities": 3,
-      "sourceSha256": "8116934e79112a1572c76788ebc122e43ebabce0c0c78c1c142cab471fdca939",
-      "inputSha256": "1e95f9b6eb2a7fe1b5dcdfe730fc877093d0175ccbd8ea55bd43991ff6d4a410",
-      "fixtureSha256": "e7bb0385221d474b3c162cbec40561969edc8377959ff5a3ede68e8edcd4fafd",
+      "sourceSha256": "0edee71ce5774aeec7fa8ef64727ad5a86dfa70eef03cb8a24841fdba833c386",
+      "inputSha256": "e50939126a2ef679cc273501e579baccc3cb4fce82bcc5cbd03898dbe527fb8e",
+      "fixtureSha256": "2d10c7c4fc6c83b73974cbb082dde88d5e1da7061f1b510cbf840516adfa704f",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,58 +79,22 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "mat-rectangle"
+        "san-diego-landmark"
       ],
       "pixelCounts": [
         {
-          "id": "mat-rectangle",
-          "pixels": 56202
+          "id": "san-diego-landmark",
+          "pixels": 196
         }
       ]
     },
     {
-      "id": "bloom",
+      "id": "time-dependent-path-graphics",
       "status": "passed",
-      "entities": 13,
-      "sourceSha256": "250a93eeaacac1ea10d008ba2d410fb489d8e1e3f4bdabe7af939046ff3f14bd",
-      "inputSha256": "468c9ff498c245177533daaf24dfc898293c71a240ce23cfdb3c0f3e2595522e",
-      "fixtureSha256": "d679aaf747e75c0104ad0569edb5b20b024f3eb155fa7679bc78825ee2e08f18",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "balloon-0",
-        "balloon-1",
-        "balloon-12"
-      ],
-      "pixelCounts": [
-        {
-          "id": "balloon-0",
-          "pixels": 18
-        },
-        {
-          "id": "balloon-1",
-          "pixels": 18
-        },
-        {
-          "id": "balloon-12",
-          "pixels": 18
-        }
-      ]
-    },
-    {
-      "id": "cesium-widget",
-      "status": "passed",
-      "entities": 1,
-      "sourceSha256": "11660575959f0ef0a3202b30e16e3cf9d26dc50efb845e166015f19b03b4a0cc",
-      "inputSha256": "9eff75965402c3539d9b7b12034d4eef0d83c83ac6150d61f375c33cc5064360",
-      "fixtureSha256": "88fa15d52aa06cb94b803ad4ecc5e97daa68858c12b288980e2fe4f74ca3fc62",
+      "entities": 2,
+      "sourceSha256": "981f0c992c61043c616b03330ab4cd2287d9ebcdbb6395336c32c63a28e7de65",
+      "inputSha256": "ece5de923a46c65f72431860217ab34d8e9f23ab2c66aa47c9aee8326bb31239",
+      "fixtureSha256": "a65d744af49a88d57ae09f06ccdae1b53907a7dbb58c1d4ecc536c444948c399",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -87,51 +108,17 @@
         "play/pause/loop"
       ],
       "pickedEntities": [
-        "widget-airplane"
+        "flight-aircraft-point",
+        "flight-path-polyline"
       ],
       "pixelCounts": [
         {
-          "id": "widget-airplane",
-          "pixels": 18
-        }
-      ]
-    },
-    {
-      "id": "cardboard",
-      "status": "passed",
-      "entities": 13,
-      "sourceSha256": "e1cb2c1cf74a86ed0cc9465102f7f1e482fe1b61586cc40c71dd87a2ae3838ec",
-      "inputSha256": "64040a4bbaad05389e828e1f0536822610eb951ef46ad26fe7c21cb8a6f798f5",
-      "fixtureSha256": "eecc95bd55b7e14968d6628d15157b1cfb61caa02659662c1d571bcd7807682d",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit",
-        "inferred clock",
-        "seek at all samples",
-        "play/pause/loop"
-      ],
-      "pickedEntities": [
-        "vr-balloon-0",
-        "vr-balloon-1",
-        "vr-balloon-12"
-      ],
-      "pixelCounts": [
-        {
-          "id": "vr-balloon-0",
-          "pixels": 18
+          "id": "flight-aircraft-point",
+          "pixels": 154
         },
         {
-          "id": "vr-balloon-1",
-          "pixels": 18
-        },
-        {
-          "id": "vr-balloon-12",
-          "pixels": 18
+          "id": "flight-path-polyline",
+          "pixels": 4062
         }
       ]
     },
@@ -295,7 +282,7 @@
       ],
       "localTileRequests": 34,
       "externalRequests": 0,
-      "colors": 19883,
+      "colors": 19858,
       "assetsSha256": "f7dbc2e3295e40bbd1f08bfcc476efe0c5237acdb6df8e7410943c9b8de081e4"
     }
   ],

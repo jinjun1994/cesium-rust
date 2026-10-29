@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.42（已通过 115 / 309 个完整案例，剩余 194 个）
+- **当前版本**：v0.0.43（已通过 119 / 309 个完整案例，剩余 190 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.43 验收完成：鼠标交互拾取画廊、模型贴地与高度基准、相机导航姿态漫游与四维时空飞行轨迹
+- **完成配方**（累计推进至 **119 / 309**，剩余 190 个）：
+  1. `picking`（鼠标交互拾取画廊与 4 种交互变体：经纬度悬停标签、广告牌设施拾取、红蓝绿三层重叠多边形穿透拾取与拾取属性动态修改）
+  2. `clamp-model-to-ground`（CesiumMilkTruck 3D 模型贴地与高度基准控制：Clamp to Ground、Clamp to 3D Tiles、Relative to Ground 与 No Clamping 4 种模式及参考针脚）
+  3. `camera`（相机导航控制、姿态角与视口包围盒漫游：圣迭戈地标飞行、圣海伦斯火山 HeadingPitchRoll 飞行、美东矩形自适应取景与 LookAt 目标锁定）
+  4. `time-dependent-path-graphics`（基于时间采样的动态飞行轨迹与前后导引线渲染：180 秒闭环航路、Portions/Whole 导引区段模式、Cyan Glow 与 Polyline Outline 材质）
+- **核心研发突破**：
+  1. **多边形图元序列化与反序列化字段统一（`positionsDegrees` 规范）**：统一 Rust Serde 输出键名为 `positionsDegrees`，兼容反序列化别名 `positions`，确保端到端测试与原生序列化契约完全一致。
+  2. **多重图元穿透拾取与层叠渲染测试矩阵**：在 3 个大面积半透明重叠多边形场景下，验证了深度缓冲区与混合状态管线，保证光线穿透多重图元时遍历所有命中目标。
+  3. **模型贴地高度基准与参考定位针一体化锚定**：在 glTF 模型上支持 `HeightReference`，结合定位针实体保证地表平稳锚定。
+  4. **四维时空采样折线的高效批处理**：时钟驱动下 180 秒多航段循环与飞机实体平滑插值，静态航线走廊与动态引导线无抖动实时渲染。
+- **验证结果**：
+  - **普通 Rust 单元测试**：106 项全部通过（新增 `batch43_picking_clamp_model_camera_time_dependent_path`）。
+  - **真实 GPU 离屏渲染测试**：120 / 120 项全数通过（`120 passed; 0 failed; finished in 36.73s`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：119 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Picking、Clamp Model to Ground、Camera 与 Time-Dependent Path Graphics 验证文档](docs/picking-clamp-camera-timedependentpath-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
 
 ### [2026-10-30] v0.0.42 验收完成：材质画廊、泛光特效、轻量微件视口与 VR 纸盒大峡谷飞行编队
 - **完成配方**（累计推进至 **115 / 309**，剩余 194 个）：

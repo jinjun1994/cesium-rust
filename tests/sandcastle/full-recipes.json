@@ -3298,6 +3298,123 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "picking",
+      "title": "Picking",
+      "sourceSha256": "5d33a60a7664b564d7cf3003410b57a133fc4f78bcaa23cece5e99525187c200",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=picking",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/picking.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/picking.json",
+      "entityCount": 5,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Mouse picking gallery with cartographic position label, billboard hover, drill-down 3 polygons, and pick & modify",
+        "Screen-space event handling and depth-aware feature picking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "clamp-model-to-ground",
+      "title": "Clamp Model to Ground",
+      "sourceSha256": "afdace0f7cb13289465f147d8c297f76da5f51f2b6e013cbb9fa4104cc5dbbb9",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=clamp-model-to-ground",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/clamp-model-to-ground.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/clamp-model-to-ground.json",
+      "entityCount": 2,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "CesiumMilkTruck 3D model clamped to ground and terrain",
+        "HeightReference (CLAMP_TO_GROUND, RELATIVE_TO_GROUND, NONE)",
+        "Ground anchor reference pin alignment"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "camera",
+      "title": "Camera",
+      "sourceSha256": "0edee71ce5774aeec7fa8ef64727ad5a86dfa70eef03cb8a24841fdba833c386",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=camera",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/camera.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/camera.json",
+      "entityCount": 3,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Camera navigation gallery with San Diego flyTo, Mount St. Helens heading/pitch/roll, view rectangle, and lookAt",
+        "Orientation quat/euler angles and altitude positioning"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "time-dependent-path-graphics",
+      "title": "Time Dependent Path Graphics",
+      "sourceSha256": "981f0c992c61043c616b03330ab4cd2287d9ebcdbb6395336c32c63a28e7de65",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=time-dependent-path-graphics",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/time-dependent-path-graphics.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/time-dependent-path-graphics.json",
+      "entityCount": 2,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "clock": {
+        "startTime": 0,
+        "stopTime": 180,
+        "currentTime": 0,
+        "multiplier": 1,
+        "range": "LOOP_STOP"
+      },
+      "requirements": [
+        "Dynamic flight trajectory with 4 waypoints across 180s",
+        "leadTime and trailTime path portions with glow and outline materials",
+        "Sampled position interpolation and time-dependent corridor path"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

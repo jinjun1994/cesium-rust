@@ -3594,4 +3594,61 @@ mod tests {
         assert_eq!(cardboard_variants.variants[1].entities.len(), 1);
         assert_eq!(cardboard_variants.variants[2].entities.len(), 5);
     }
+
+    #[test]
+    fn batch43_picking_clamp_model_camera_time_dependent_path() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Picking
+        let picking_data = std::fs::read(base.join("picking.json")).unwrap();
+        let picking_entities = decode(&picking_data).unwrap();
+        assert_eq!(picking_entities.len(), 5);
+        assert!(matches!(picking_entities[0].shape, Shape::Label { .. }));
+        assert!(matches!(picking_entities[1].shape, Shape::Billboard { .. }));
+        assert!(matches!(picking_entities[2].shape, Shape::Polygon { .. }));
+        let picking_variants_raw = std::fs::read(base.join("picking.variants.json")).unwrap();
+        let picking_variants = crate::entity_variants::decode(&picking_variants_raw).unwrap();
+        assert_eq!(picking_variants.variants.len(), 4);
+
+        // 2. Clamp Model to Ground
+        let clamp_data = std::fs::read(base.join("clamp-model-to-ground.json")).unwrap();
+        let clamp_entities = decode(&clamp_data).unwrap();
+        assert_eq!(clamp_entities.len(), 2);
+        assert!(matches!(clamp_entities[0].shape, Shape::Model { .. }));
+        assert_eq!(
+            clamp_entities[0].height_reference,
+            Some(super::HeightReference::ClampToGround)
+        );
+        let clamp_variants_raw =
+            std::fs::read(base.join("clamp-model-to-ground.variants.json")).unwrap();
+        let clamp_variants = crate::entity_variants::decode(&clamp_variants_raw).unwrap();
+        assert_eq!(clamp_variants.variants.len(), 4);
+        assert_eq!(
+            clamp_variants.variants[2].entities[0].height_reference,
+            Some(super::HeightReference::RelativeToGround)
+        );
+
+        // 3. Camera
+        let camera_data = std::fs::read(base.join("camera.json")).unwrap();
+        let camera_entities = decode(&camera_data).unwrap();
+        assert_eq!(camera_entities.len(), 3);
+        assert!(matches!(camera_entities[0].shape, Shape::Point { .. }));
+        assert!(matches!(camera_entities[2].shape, Shape::Rectangle { .. }));
+        let camera_variants_raw = std::fs::read(base.join("camera.variants.json")).unwrap();
+        let camera_variants = crate::entity_variants::decode(&camera_variants_raw).unwrap();
+        assert_eq!(camera_variants.variants.len(), 4);
+
+        // 4. Time Dependent Path Graphics
+        let path_data = std::fs::read(base.join("time-dependent-path-graphics.json")).unwrap();
+        let path_entities = decode(&path_data).unwrap();
+        assert_eq!(path_entities.len(), 2);
+        assert_eq!(path_entities[0].availability, Some([0.0, 180.0]));
+        assert_eq!(path_entities[0].samples.len(), 4);
+        assert!(matches!(path_entities[1].shape, Shape::WidePolyline { .. }));
+        let path_variants_raw =
+            std::fs::read(base.join("time-dependent-path-graphics.variants.json")).unwrap();
+        let path_variants = crate::entity_variants::decode(&path_variants_raw).unwrap();
+        assert_eq!(path_variants.variants.len(), 4);
+    }
 }

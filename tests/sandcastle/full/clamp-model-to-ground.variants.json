@@ -1,0 +1,357 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Clamp to Ground (Default)",
+      "entities": [
+        {
+          "id": "clamped-milk-truck",
+          "name": "Cesium Milk Truck",
+          "show": true,
+          "positionDegrees": [
+            -75.5941,
+            40.0389,
+            0
+          ],
+          "orientation": [
+            -0.048,
+            0.035,
+            0.587,
+            0.807
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+            "scale": 2.5,
+            "minimumPixelSize": 64,
+            "maximumScale": 2000
+          },
+          "heightReference": "CLAMP_TO_GROUND",
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clampingMode": "Clamp to Ground",
+            "heightReference": "CLAMP_TO_GROUND",
+            "scale": 2.5
+          }
+        },
+        {
+          "id": "truck-reference-pin",
+          "name": "Ground Anchor Point",
+          "show": true,
+          "positionDegrees": [
+            -75.5941,
+            40.0389,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 2
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "target": "clamped-milk-truck"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Clamp to 3D Tiles",
+      "entities": [
+        {
+          "id": "clamped-milk-truck",
+          "name": "Cesium Milk Truck",
+          "show": true,
+          "positionDegrees": [
+            -75.5941,
+            40.0389,
+            0
+          ],
+          "orientation": [
+            -0.048,
+            0.035,
+            0.587,
+            0.807
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+            "scale": 3,
+            "minimumPixelSize": 64,
+            "maximumScale": 2000
+          },
+          "heightReference": "CLAMP_TO_GROUND",
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clampingMode": "Clamp to 3D Tiles",
+            "heightReference": "CLAMP_TO_GROUND",
+            "scale": 3
+          }
+        },
+        {
+          "id": "truck-reference-pin",
+          "name": "Ground Anchor Point",
+          "show": true,
+          "positionDegrees": [
+            -75.5941,
+            40.0389,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 2
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "target": "clamped-milk-truck"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Relative to Ground (+50m)",
+      "entities": [
+        {
+          "id": "clamped-milk-truck",
+          "name": "Cesium Milk Truck",
+          "show": true,
+          "positionDegrees": [
+            -75.5941,
+            40.0389,
+            50
+          ],
+          "orientation": [
+            -0.048,
+            0.035,
+            0.587,
+            0.807
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+            "scale": 2.5,
+            "minimumPixelSize": 64,
+            "maximumScale": 2000
+          },
+          "heightReference": "RELATIVE_TO_GROUND",
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clampingMode": "Relative to Ground",
+            "heightReference": "RELATIVE_TO_GROUND",
+            "scale": 2.5
+          }
+        },
+        {
+          "id": "truck-reference-pin",
+          "name": "Ground Anchor Point",
+          "show": true,
+          "positionDegrees": [
+            -75.5941,
+            40.0389,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 2
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "target": "clamped-milk-truck"
+          }
+        }
+      ]
+    },
+    {
+      "label": "No Clamping (Absolute Height 220m)",
+      "entities": [
+        {
+          "id": "clamped-milk-truck",
+          "name": "Cesium Milk Truck",
+          "show": true,
+          "positionDegrees": [
+            -75.5941,
+            40.0389,
+            220
+          ],
+          "orientation": [
+            -0.048,
+            0.035,
+            0.587,
+            0.807
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+            "scale": 2.5,
+            "minimumPixelSize": 64,
+            "maximumScale": 2000
+          },
+          "heightReference": "NONE",
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clampingMode": "No Clamping",
+            "heightReference": "NONE",
+            "scale": 2.5
+          }
+        },
+        {
+          "id": "truck-reference-pin",
+          "name": "Ground Anchor Point",
+          "show": true,
+          "positionDegrees": [
+            -75.5941,
+            40.0389,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 2
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "target": "clamped-milk-truck"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -744,6 +744,123 @@
       ]
     },
     {
+      "id": "picking",
+      "status": "passed",
+      "entities": 5,
+      "sourceSha256": "5d33a60a7664b564d7cf3003410b57a133fc4f78bcaa23cece5e99525187c200",
+      "inputSha256": "2b30ca796f3bd98132c608b3507302fc1241826d86f1cbbe95e3d9724d6b4ba3",
+      "fixtureSha256": "f65dfd9a995908308425ed41d8eead713692cb06a1baf931c68d0ce0c63980f3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "picking-label"
+      ],
+      "pixelCounts": [
+        {
+          "id": "picking-label",
+          "pixels": 4447
+        }
+      ]
+    },
+    {
+      "id": "clamp-model-to-ground",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "afdace0f7cb13289465f147d8c297f76da5f51f2b6e013cbb9fa4104cc5dbbb9",
+      "inputSha256": "708979563ad2331b1ec64fe20fce0509d5fff71a67cac2fc97cceb78b1e87b2a",
+      "fixtureSha256": "cd9aacd74c13305955a3b7024ad6c8ee9f58e178337296d4488299dd66cc96ae",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "clamped-milk-truck",
+        "truck-reference-pin"
+      ],
+      "pixelCounts": [
+        {
+          "id": "clamped-milk-truck",
+          "pixels": 154
+        },
+        {
+          "id": "truck-reference-pin",
+          "pixels": 154
+        }
+      ]
+    },
+    {
+      "id": "camera",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "0edee71ce5774aeec7fa8ef64727ad5a86dfa70eef03cb8a24841fdba833c386",
+      "inputSha256": "e50939126a2ef679cc273501e579baccc3cb4fce82bcc5cbd03898dbe527fb8e",
+      "fixtureSha256": "2d10c7c4fc6c83b73974cbb082dde88d5e1da7061f1b510cbf840516adfa704f",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "san-diego-landmark"
+      ],
+      "pixelCounts": [
+        {
+          "id": "san-diego-landmark",
+          "pixels": 196
+        }
+      ]
+    },
+    {
+      "id": "time-dependent-path-graphics",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "981f0c992c61043c616b03330ab4cd2287d9ebcdbb6395336c32c63a28e7de65",
+      "inputSha256": "ece5de923a46c65f72431860217ab34d8e9f23ab2c66aa47c9aee8326bb31239",
+      "fixtureSha256": "a65d744af49a88d57ae09f06ccdae1b53907a7dbb58c1d4ecc536c444948c399",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "flight-aircraft-point",
+        "flight-path-polyline"
+      ],
+      "pixelCounts": [
+        {
+          "id": "flight-aircraft-point",
+          "pixels": 154
+        },
+        {
+          "id": "flight-path-polyline",
+          "pixels": 4062
+        }
+      ]
+    },
+    {
       "id": "materials",
       "status": "passed",
       "entities": 3,
