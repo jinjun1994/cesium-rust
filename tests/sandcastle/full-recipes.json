@@ -3066,6 +3066,119 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "cartographic-limit-rectangle",
+      "title": "Cartographic Limit Rectangle",
+      "sourceSha256": "43825ff6755773e46542b70582f71ee5f3ed9e5b37212bc600f408f69760047d",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=cartographic-limit-rectangle",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/cartographic-limit-rectangle.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/cartographic-limit-rectangle.json",
+      "entityCount": 10,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Coffee Belt cartographic limit rectangle [-180, -23.43687, 180, 23.43687]",
+        "10 outline bounding rectangle entities from 0m to 45000m altitude",
+        "Toggle controls for limitEnabled and showBounds"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "clamp-entities-to-ground",
+      "title": "Clamp Entities to Ground",
+      "sourceSha256": "643e5ae1a98bb492141c65b48e699dd5bb442640ef8f2fa82cd6d6aab64bca7e",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=clamp-entities-to-ground",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/clamp-entities-to-ground.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/clamp-entities-to-ground.json",
+      "entityCount": 2,
+      "variantCount": 8,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Clamping entities to ground with HeightReference.CLAMP_TO_GROUND",
+        "8 toolbar entity types: Point with Label, Billboard, Corridor, Polygon, Textured Polygon, Rectangle, Model, Polyline",
+        "depthTestAgainstTerrain enabled and camera tracking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "billboards-instancing-dev",
+      "title": "Billboards Instancing - Dev",
+      "sourceSha256": "d2787bb8fed553fc8153edd5095263961f73a387e53864915339884edcbd4860",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=billboards-instancing-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/billboards-instancing-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/billboards-instancing-dev.json",
+      "entityCount": 100,
+      "variantCount": 8,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "BillboardCollection grid across Seneca area with instancing",
+        "Configurable counts from 4 up to 100489 billboards",
+        "Static vs animated billboards and scale variations"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "geometry-and-appearances",
+      "title": "Geometry and Appearances",
+      "sourceSha256": "08c89d91968266c8dd28aa27b8a1fe758ac82ceac4b1f009db22f6194924975b",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=geometry-and-appearances",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/geometry-and-appearances.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/geometry-and-appearances.json",
+      "entityCount": 58,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "58 diverse geometric entities including Stripe and Checkerboard materials",
+        "Extruded polygons, rectangles, ellipses, cylinders, and polyline volumes",
+        "Stacked transparent and opaque boxes, ellipsoids, and spheres",
+        "Deep sky blue polyline glow and varying height walls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

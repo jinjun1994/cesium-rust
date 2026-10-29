@@ -118,6 +118,10 @@ $('fullNew80').onclick=guarded(()=>runFull('interpolation'));
 $('fullNew81').onclick=guarded(()=>runFull('manually-controlled-animation'));
 $('fullNew82').onclick=guarded(()=>runFull('localtofixedframe'));
 $('fullNew83').onclick=guarded(()=>runFull('pointprimitives-dev'));
+$('fullNew84').onclick=guarded(()=>runFull('cartographic-limit-rectangle'));
+$('fullNew85').onclick=guarded(()=>runFull('clamp-entities-to-ground'));
+$('fullNew86').onclick=guarded(()=>runFull('billboards-instancing-dev'));
+$('fullNew87').onclick=guarded(()=>runFull('geometry-and-appearances'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

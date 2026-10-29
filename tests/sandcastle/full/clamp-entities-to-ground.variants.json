@@ -1,0 +1,461 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Draw Point with Label",
+      "entities": [
+        {
+          "id": "clamped-point",
+          "name": "Clamped Point",
+          "show": true,
+          "positionDegrees": [
+            -122.1965,
+            46.1915,
+            0
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 18,
+            "outlineWidth": 3,
+            "outlineColor": [
+              0.184,
+              0.31,
+              0.31,
+              1
+            ]
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.392,
+            0.584,
+            0.929,
+            1
+          ],
+          "heightReference": "ClampToGround",
+          "properties": {
+            "clamping": "CLAMP_TO_GROUND"
+          }
+        },
+        {
+          "id": "clamped-label",
+          "name": "Clamped Label",
+          "show": true,
+          "positionDegrees": [
+            -122.1965,
+            46.1915,
+            0
+          ],
+          "shape": {
+            "type": "label",
+            "text": "Clamped to ground",
+            "font": "14pt sans-serif",
+            "style": "FILL",
+            "fillColor": [
+              0.973,
+              0.973,
+              1,
+              1
+            ],
+            "showBackground": true,
+            "backgroundColor": [
+              0.184,
+              0.31,
+              0.31,
+              0.8
+            ],
+            "pixelOffset": [
+              15,
+              6
+            ]
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            0.973,
+            0.973,
+            1,
+            1
+          ],
+          "heightReference": "ClampToGround",
+          "properties": {
+            "clamping": "CLAMP_TO_GROUND"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Draw Billboard",
+      "entities": [
+        {
+          "id": "clamped-billboard",
+          "name": "Clamped Billboard",
+          "show": true,
+          "positionDegrees": [
+            -122.1958,
+            46.1915,
+            0
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAMFBMVEVAQEDAwMDAoAD///+gYADAgACgoKSAYADgwAD///8AAAAAAAAAAAAAAAAAAAAAAAC6opgsAAAACnRSTlP///////////8AsswszwAAAH1JREFUeJw9xiEOwjAYhuF33/6KyQVPlh6AjOwWqBoOgMKScJo6LI5rIAg3IE0WFIK5CpIVQ3jUU0XygQgiH4d2D8R6WKx3TTRI3eoClnvSwxWMxPL5CRjdnHAgZt5TAKG7LydQc/O4zZkKD2N4XaV621MMIWACQUsBxM8/X+GkICjYO7GLAAAAAElFTkSuQmCC",
+            "width": 32,
+            "height": 32
+          },
+          "screen": {
+            "horizontalOrigin": "CENTER",
+            "verticalOrigin": "CENTER",
+            "rotation": 0
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "heightReference": "ClampToGround",
+          "properties": {
+            "clamping": "CLAMP_TO_GROUND"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Draw Corridor",
+      "entities": [
+        {
+          "id": "clamped-corridor",
+          "name": "Clamped Corridor",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "corridor",
+            "positionsDegrees": [
+              [
+                -122.19,
+                46.1914,
+                0
+              ],
+              [
+                -122.21,
+                46.21,
+                0
+              ],
+              [
+                -122.23,
+                46.21,
+                0
+              ]
+            ],
+            "width": 2000
+          },
+          "color": [
+            0,
+            0.502,
+            0,
+            0.5
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "heightReference": "ClampToGround",
+          "properties": {
+            "clamping": "CLAMP_TO_GROUND"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Draw Polygon",
+      "entities": [
+        {
+          "id": "clamped-polygon",
+          "name": "Clamped Polygon",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "polygon",
+            "positionsDegrees": [
+              [
+                -122.1958,
+                46.1915,
+                0
+              ],
+              [
+                -122.2058,
+                46.1915,
+                0
+              ],
+              [
+                -122.2058,
+                46.2015,
+                0
+              ],
+              [
+                -122.1958,
+                46.2015,
+                0
+              ]
+            ]
+          },
+          "color": [
+            0,
+            0,
+            1,
+            0.5
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "heightReference": "ClampToGround",
+          "properties": {
+            "clamping": "CLAMP_TO_GROUND"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Draw Textured Polygon",
+      "entities": [
+        {
+          "id": "clamped-textured-polygon",
+          "name": "Clamped Textured Polygon",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "polygon",
+            "positionsDegrees": [
+              [
+                -122.1958,
+                46.1915,
+                0
+              ],
+              [
+                -122.2058,
+                46.1915,
+                0
+              ],
+              [
+                -122.2058,
+                46.2015,
+                0
+              ],
+              [
+                -122.1958,
+                46.2015,
+                0
+              ]
+            ]
+          },
+          "color": [
+            0,
+            0.8,
+            1,
+            0.8
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "heightReference": "ClampToGround",
+          "properties": {
+            "clamping": "CLAMP_TO_GROUND",
+            "stRotation": 0.785398
+          }
+        }
+      ]
+    },
+    {
+      "label": "Draw Rectangle",
+      "entities": [
+        {
+          "id": "clamped-rectangle",
+          "name": "Clamped Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.3,
+              46,
+              -122,
+              46.3
+            ],
+            "height": 0,
+            "rotation": 0
+          },
+          "color": [
+            1,
+            0,
+            0,
+            0.5
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "heightReference": "ClampToGround",
+          "properties": {
+            "clamping": "CLAMP_TO_GROUND"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Draw Model",
+      "entities": [
+        {
+          "id": "clamped-model",
+          "name": "Clamped Model CesiumMan",
+          "show": true,
+          "positionDegrees": [
+            -122.1958,
+            46.1915,
+            0
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "SampleData/models/CesiumMan/Cesium_Man.glb",
+            "scale": 1,
+            "minimumPixelSize": 128,
+            "maximumScale": 100
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "heightReference": "ClampToGround",
+          "properties": {
+            "clamping": "CLAMP_TO_GROUND"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Draw Polyline",
+      "entities": [
+        {
+          "id": "clamped-polyline",
+          "name": "Clamped Polyline",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  86.953793,
+                  27.928257,
+                  0
+                ],
+                [
+                  86.953793,
+                  27.988257,
+                  0
+                ],
+                [
+                  86.896497,
+                  27.988257,
+                  0
+                ]
+              ],
+              "width": 5,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "material": {
+                "type": "outline",
+                "outlineColor": [
+                  0,
+                  0,
+                  0,
+                  1
+                ],
+                "outlineWidth": 2
+              }
+            }
+          },
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "color": [
+            1,
+            0.647,
+            0,
+            1
+          ],
+          "heightReference": "ClampToGround",
+          "properties": {
+            "clamping": "CLAMP_TO_GROUND"
+          }
+        }
+      ]
+    }
+  ]
+}

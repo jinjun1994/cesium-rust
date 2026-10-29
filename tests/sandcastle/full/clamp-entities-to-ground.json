@@ -1,0 +1,99 @@
+[
+  {
+    "id": "clamped-point",
+    "name": "Clamped Point",
+    "show": true,
+    "positionDegrees": [
+      -122.1965,
+      46.1915,
+      0
+    ],
+    "shape": {
+      "type": "point",
+      "pixelSize": 18,
+      "outlineWidth": 3,
+      "outlineColor": [
+        0.184,
+        0.31,
+        0.31,
+        1
+      ]
+    },
+    "screen": {
+      "horizontalOrigin": "CENTER",
+      "verticalOrigin": "CENTER",
+      "rotation": 0
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0.392,
+      0.584,
+      0.929,
+      1
+    ],
+    "heightReference": "ClampToGround",
+    "properties": {
+      "clamping": "CLAMP_TO_GROUND"
+    }
+  },
+  {
+    "id": "clamped-label",
+    "name": "Clamped Label",
+    "show": true,
+    "positionDegrees": [
+      -122.1965,
+      46.1915,
+      0
+    ],
+    "shape": {
+      "type": "label",
+      "text": "Clamped to ground",
+      "font": "14pt sans-serif",
+      "style": "FILL",
+      "fillColor": [
+        0.973,
+        0.973,
+        1,
+        1
+      ],
+      "showBackground": true,
+      "backgroundColor": [
+        0.184,
+        0.31,
+        0.31,
+        0.8
+      ],
+      "pixelOffset": [
+        15,
+        6
+      ]
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0.973,
+      0.973,
+      1,
+      1
+    ],
+    "heightReference": "ClampToGround",
+    "properties": {
+      "clamping": "CLAMP_TO_GROUND"
+    }
+  }
+]

@@ -1,6 +1,6 @@
 {
   "version": "0.0.29",
-  "wasmSha256": "0cebc595e3b25bfd8bcad2c16a60c3eb3dcd03499484095f0ab286cfef7f51b8",
+  "wasmSha256": "b4d1155af48fd6d79acc169376859ae3c1a5286191cf7f0257f2051b617ea708",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
   "externalImagery": "local deterministic 256x256 neutral raster",
@@ -501,7 +501,7 @@
         "blue": 0,
         "yellow": 0,
         "green": 0,
-        "white": 801
+        "white": 795
       },
       "pickedEntities": [
         "primitive-0-instance-0"
@@ -741,6 +741,145 @@
         "primitive-0-instance-0",
         "primitive-0-instance-1",
         "primitive-0-instance-2"
+      ]
+    },
+    {
+      "id": "cartographic-limit-rectangle",
+      "status": "passed",
+      "entities": 10,
+      "sourceSha256": "43825ff6755773e46542b70582f71ee5f3ed9e5b37212bc600f408f69760047d",
+      "inputSha256": "cff5f123bc906c8c6674df989c50c354d3a0c44f485b8664bd284a5c71f6954d",
+      "fixtureSha256": "07bf3d032caf2849245388ef28a0c13712540cc46fef08a63141474f3eb3cc9f",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "bound-0",
+        "bound-1",
+        "bound-9"
+      ],
+      "pixelCounts": [
+        {
+          "id": "bound-0",
+          "pixels": 1159
+        },
+        {
+          "id": "bound-1",
+          "pixels": 1540
+        },
+        {
+          "id": "bound-9",
+          "pixels": 1649
+        }
+      ]
+    },
+    {
+      "id": "clamp-entities-to-ground",
+      "status": "passed",
+      "entities": 2,
+      "sourceSha256": "643e5ae1a98bb492141c65b48e699dd5bb442640ef8f2fa82cd6d6aab64bca7e",
+      "inputSha256": "6cde6e3bb93b1884d63f9568b53c3bdccc51ef54c4d9b91fb673cec81b616615",
+      "fixtureSha256": "0e0ffc6f2a9ae60fbb12142e8cc1837b25eb28bb2d24076d98458dde8e93d153",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "clamped-point",
+        "clamped-label"
+      ],
+      "pixelCounts": [
+        {
+          "id": "clamped-point",
+          "pixels": 452
+        },
+        {
+          "id": "clamped-label",
+          "pixels": 6948
+        }
+      ]
+    },
+    {
+      "id": "billboards-instancing-dev",
+      "status": "passed",
+      "entities": 100,
+      "sourceSha256": "d2787bb8fed553fc8153edd5095263961f73a387e53864915339884edcbd4860",
+      "inputSha256": "4fa8f15f93b0bd639a4dc70c377b34f51edc7b8e2ca0d7dd956f165da3b9570a",
+      "fixtureSha256": "65a6f637549fe25def66398863c6b1c1c2ffa4fc36ff9e4d999484fa995556be",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "instanced-billboard-0-0",
+        "instanced-billboard-0-1",
+        "instanced-billboard-9-9"
+      ],
+      "pixelCounts": [
+        {
+          "id": "instanced-billboard-0-0",
+          "pixels": 888
+        },
+        {
+          "id": "instanced-billboard-0-1",
+          "pixels": 888
+        },
+        {
+          "id": "instanced-billboard-9-9",
+          "pixels": 888
+        }
+      ]
+    },
+    {
+      "id": "geometry-and-appearances",
+      "status": "passed",
+      "entities": 58,
+      "sourceSha256": "08c89d91968266c8dd28aa27b8a1fe758ac82ceac4b1f009db22f6194924975b",
+      "inputSha256": "bfea3bce4e41bc97149cd58dba20bc730175ca64e58d506c586238fd47888dda",
+      "fixtureSha256": "6286357c6858daeb840661b8f5840df01ab345dce96041b25f74750d965ae961",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "geo-striped-rectangle",
+        "geo-striped-polygon",
+        "geo-volume-circle"
+      ],
+      "pixelCounts": [
+        {
+          "id": "geo-striped-rectangle",
+          "pixels": 65546
+        },
+        {
+          "id": "geo-striped-polygon",
+          "pixels": 32594
+        },
+        {
+          "id": "geo-volume-circle",
+          "pixels": 8206
+        }
       ]
     },
     {
@@ -2241,15 +2380,15 @@
         },
         {
           "id": "primitive-1-instance-0",
-          "pixels": 2354
+          "pixels": 2236
         },
         {
           "id": "primitive-1-instance-1",
-          "pixels": 2223
+          "pixels": 2179
         },
         {
           "id": "primitive-1-instance-2",
-          "pixels": 2230
+          "pixels": 2182
         }
       ]
     },
@@ -2703,7 +2842,7 @@
         },
         {
           "id": "yellowRectangle",
-          "pixels": 1821
+          "pixels": 1904
         },
         {
           "id": "textureRectangle",
@@ -4063,7 +4202,7 @@
         "public network blocked; real local tile fetches",
         "real detailed globe pixels and wheel zoom"
       ],
-      "localTileRequests": 34,
+      "localTileRequests": 33,
       "externalRequests": 0,
       "colors": 19883,
       "assetsSha256": "f7dbc2e3295e40bbd1f08bfcc476efe0c5237acdb6df8e7410943c9b8de081e4"

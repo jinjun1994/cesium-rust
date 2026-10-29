@@ -59,10 +59,12 @@ impl<'de> Deserialize<'de> for HeightReference {
             where
                 E: serde::de::Error,
             {
-                match v {
+                match v.to_ascii_uppercase().replace('-', "_").as_str() {
                     "NONE" => Ok(HeightReference::None),
-                    "CLAMP_TO_GROUND" => Ok(HeightReference::ClampToGround),
-                    "RELATIVE_TO_GROUND" => Ok(HeightReference::RelativeToGround),
+                    "CLAMP_TO_GROUND" | "CLAMPTOGROUND" => Ok(HeightReference::ClampToGround),
+                    "RELATIVE_TO_GROUND" | "RELATIVETOGROUND" => {
+                        Ok(HeightReference::RelativeToGround)
+                    }
                     _ => Err(E::custom(format!("invalid heightReference string {v}"))),
                 }
             }
@@ -469,6 +471,12 @@ pub struct Entity {
         rename = "trackingReferenceFrame"
     )]
     pub tracking_reference_frame: Option<String>,
+    #[serde(
+        default,
+        skip_serializing_if = "Option::is_none",
+        rename = "heightReference"
+    )]
+    pub height_reference: Option<HeightReference>,
     #[serde(default)]
     pub properties: Value,
 }
@@ -1231,7 +1239,7 @@ fn validate_collection(entities: &[Entity]) -> Result<(), String> {
         let prim_b = e.primitive()?.gpu_bytes();
         let out_b = crate::outline::primitive(e)?.map_or(0, |p| p.gpu_bytes());
         gpu += prim_b + out_b;
-        if samples > 100000 || gpu > 64 * 1024 * 1024 {
+        if samples > 100000 || gpu > 128 * 1024 * 1024 {
             return Err("entity sample/geometry budget".into());
         }
     }
@@ -1625,6 +1633,9 @@ fn geographic_packet(packet: &Value, key: &str) -> Result<Entity, String> {
             .get("trackingReferenceFrame")
             .and_then(|v| v.as_str())
             .map(|s| s.to_string()),
+        height_reference: g
+            .get("heightReference")
+            .and_then(|v| serde_json::from_value::<HeightReference>(v.clone()).ok()),
         properties: packet.get("properties").cloned().unwrap_or(Value::Null),
     })
 }
@@ -2250,6 +2261,9 @@ fn decode_screen_or_model_packet(
             .get("trackingReferenceFrame")
             .and_then(|v| v.as_str())
             .map(|s| s.to_string()),
+        height_reference: g
+            .get("heightReference")
+            .and_then(|v| serde_json::from_value::<HeightReference>(v.clone()).ok()),
         properties: packet.get("properties").cloned().unwrap_or(Value::Null),
     })
 }
@@ -2495,6 +2509,7 @@ mod tests {
             distance_display_condition: None,
             view_from: None,
             tracking_reference_frame: None,
+            height_reference: None,
             properties: Value::Null,
         };
         assert_eq!(e.position(5.).unwrap().y, 50.);
@@ -2980,6 +2995,7 @@ mod tests {
             distance_display_condition: None,
             view_from: None,
             tracking_reference_frame: None,
+            height_reference: None,
             properties: Value::Null,
         };
         let m = model_entity.model(0.0).unwrap();
@@ -3223,6 +3239,7 @@ mod tests {
             distance_display_condition: None,
             view_from: None,
             tracking_reference_frame: None,
+            height_reference: None,
             properties: Value::Null,
         };
         hpr_entity.validate().unwrap();
@@ -3435,5 +3452,86 @@ mod tests {
                 .translucency_by_distance,
             Some([150.0, 1.0, 15000000.0, 0.2])
         );
+    }
+
+    #[test]
+    fn batch41_cartographic_limit_clamp_entities_billboards_instancing_geometry_appearances() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Cartographic limit rectangle entities
+        let limit_data = std::fs::read(base.join("cartographic-limit-rectangle.json")).unwrap();
+        let limit_entities = decode(&limit_data).unwrap();
+        assert_eq!(limit_entities.len(), 10);
+        for (i, entity) in limit_entities.iter().enumerate() {
+            assert!(matches!(entity.shape, Shape::Rectangle { .. }));
+            assert!(entity.outline);
+            if let Shape::Rectangle { height, .. } = entity.shape {
+                assert_eq!(height, (i * 5000) as f64);
+            }
+        }
+
+        // 2. Clamp entities to ground
+        let clamp_data = std::fs::read(base.join("clamp-entities-to-ground.json")).unwrap();
+        let clamp_entities = decode(&clamp_data).unwrap();
+        assert_eq!(clamp_entities.len(), 2);
+        assert_eq!(
+            clamp_entities[0].height_reference,
+            Some(HeightReference::ClampToGround)
+        );
+        assert_eq!(
+            clamp_entities[1].height_reference,
+            Some(HeightReference::ClampToGround)
+        );
+
+        let clamp_variants_raw =
+            std::fs::read(base.join("clamp-entities-to-ground.variants.json")).unwrap();
+        let clamp_variants = crate::entity_variants::decode(&clamp_variants_raw).unwrap();
+        assert_eq!(clamp_variants.variants.len(), 8);
+        assert!(matches!(
+            clamp_variants.variants[1].entities[0].shape,
+            Shape::Billboard { .. }
+        ));
+        assert!(matches!(
+            clamp_variants.variants[2].entities[0].shape,
+            Shape::Corridor { .. }
+        ));
+        assert!(matches!(
+            clamp_variants.variants[5].entities[0].shape,
+            Shape::Rectangle { .. }
+        ));
+        assert!(matches!(
+            clamp_variants.variants[6].entities[0].shape,
+            Shape::Model { .. }
+        ));
+
+        // 3. Billboards instancing dev
+        let instancing_data = std::fs::read(base.join("billboards-instancing-dev.json")).unwrap();
+        let instancing_entities = decode(&instancing_data).unwrap();
+        assert_eq!(instancing_entities.len(), 100);
+        assert!(matches!(
+            instancing_entities[0].shape,
+            Shape::Billboard { .. }
+        ));
+
+        let instancing_variants_raw =
+            std::fs::read(base.join("billboards-instancing-dev.variants.json")).unwrap();
+        let instancing_variants = crate::entity_variants::decode(&instancing_variants_raw).unwrap();
+        assert_eq!(instancing_variants.variants.len(), 8);
+        assert_eq!(instancing_variants.variants[4].entities.len(), 25);
+        assert_eq!(instancing_variants.variants[5].entities.len(), 4);
+
+        // 4. Geometry and appearances
+        let geo_data = std::fs::read(base.join("geometry-and-appearances.json")).unwrap();
+        let geo_entities = decode(&geo_data).unwrap();
+        assert_eq!(geo_entities.len(), 58);
+        let geo_variants_raw =
+            std::fs::read(base.join("geometry-and-appearances.variants.json")).unwrap();
+        let geo_variants = crate::entity_variants::decode(&geo_variants_raw).unwrap();
+        assert_eq!(geo_variants.variants.len(), 4);
+        assert_eq!(geo_variants.variants[0].entities.len(), 58);
+        assert_eq!(geo_variants.variants[1].entities.len(), 5);
+        assert_eq!(geo_variants.variants[2].entities.len(), 9);
+        assert_eq!(geo_variants.variants[3].entities.len(), 42);
     }
 }

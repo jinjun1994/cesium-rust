@@ -57,17 +57,22 @@ pub fn rectangle(
             return Err("finite rectangle coordinates".into());
         }
     }
-    let width = (e - w).rem_euclid(360.);
+    let is_full = (w == -180. && e == 180.) || (e - w).abs() >= 359.999;
+    let width = if is_full {
+        360.
+    } else {
+        (e - w).rem_euclid(360.)
+    };
     if w.abs() > 180.
         || e.abs() > 180.
         || s >= n
         || s.abs() > 85.
         || n.abs() > 85.
         || width <= 0.
-        || width > 180.
+        || width > 360.
     {
         return Err(
-            "rectangle must be ordered, nonempty, <=180° wide and within ±85° latitude".into(),
+            "rectangle must be ordered, nonempty, <=360° wide and within ±85° latitude".into(),
         );
     }
     if !rotation.is_finite() || rotation.abs() > 1000. {
@@ -75,23 +80,42 @@ pub fn rectangle(
     }
     let center_lon = unwrap(w + width / 2., 0.);
     let center_lat = (s + n) / 2.;
-    let mut corners = vec![
-        [w, s, height],
-        [e, s, height],
-        [e, n, height],
-        [w, n, height],
-        [w, s, height],
-    ];
+    let mut corners = Vec::new();
+    if is_full || width > 180. {
+        let steps = 36;
+        for i in 0..=steps {
+            let lon = w + (width * i as f64) / steps as f64;
+            corners.push([lon, s, height]);
+        }
+        for i in 0..=steps {
+            let lon = e - (width * i as f64) / steps as f64;
+            corners.push([lon, n, height]);
+        }
+        corners.push([w, s, height]);
+    } else {
+        corners = vec![
+            [w, s, height],
+            [e, s, height],
+            [e, n, height],
+            [w, n, height],
+            [w, s, height],
+        ];
+    }
     if rotation.abs() > 1e-8 {
         let cos_r = rotation.cos();
         let sin_r = rotation.sin();
-        for pt in &mut corners[0..4] {
+        let end = if is_full || width > 180. {
+            corners.len() - 1
+        } else {
+            4
+        };
+        for pt in &mut corners[0..end] {
             let d_lon = pt[0] - center_lon;
             let d_lat = pt[1] - center_lat;
             pt[0] = center_lon + d_lon * cos_r - d_lat * sin_r;
             pt[1] = center_lat + d_lon * sin_r + d_lat * cos_r;
         }
-        corners[4] = corners[0];
+        corners[end] = corners[0];
     }
     Ok(corners)
 }
@@ -126,11 +150,13 @@ pub fn anchor(shape: &Shape) -> Result<DVec3, String> {
         } => {
             rectangle(*coordinates, *height, *rotation)?;
             let [w, s, e, n] = *coordinates;
-            coordinate([
-                unwrap(w + (e - w).rem_euclid(360.) / 2., 0.),
-                (s + n) / 2.,
-                *height,
-            ])
+            let is_full = (w == -180. && e == 180.) || (e - w).abs() >= 359.999;
+            let width = if is_full {
+                360.
+            } else {
+                (e - w).rem_euclid(360.)
+            };
+            coordinate([unwrap(w + width / 2., 0.), (s + n) / 2., *height])
         }
         _ => Err("geometry has an explicit entity center".into()),
     }
@@ -528,13 +554,23 @@ pub fn primitive(e: &Entity) -> Result<Primitive, String> {
             extruded_height,
             rotation,
             ..
-        } => surface(
-            &mut out,
-            vec![rectangle(*coordinates, *height, *rotation)?],
-            *extruded_height,
-            origin,
-            e.color,
-        )?,
+        } => {
+            if !e.fill {
+                let [w, s, e_lon, n] = *coordinates;
+                let p0 = coordinate([w, s, *height])? - origin;
+                let p1 = coordinate([e_lon, s, *height])? - origin;
+                let p2 = coordinate([e_lon, n, *height])? - origin;
+                triangle(&mut out, p0, p1, p2)?;
+            } else {
+                surface(
+                    &mut out,
+                    vec![rectangle(*coordinates, *height, *rotation)?],
+                    *extruded_height,
+                    origin,
+                    e.color,
+                )?;
+            }
+        }
         Shape::Ellipse {
             semi_major,
             semi_minor,

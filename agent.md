@@ -4,11 +4,31 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.40（已通过 107 / 309 个完整案例，剩余 202 个）
+- **当前版本**：v0.0.41（已通过 111 / 309 个完整案例，剩余 198 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.41 验收完成：地理范围限制矩形、实体贴地渲染、广告牌密集实例化与 58 种几何外观综合画廊
+- **完成配方**（累计推进至 **111 / 309**，剩余 198 个）：
+  1. `cartographic-limit-rectangle`（全球咖啡带 360° 完整经度限制矩形、10 层海拔标高边界外框 bound-0 ~ bound-9、经度整周跨越纬圈插值圆弧与 4 种限位/边界显隐控制变体）
+  2. `clamp-entities-to-ground`（8 种实体贴地渲染 ClampToGround 与 depthTestAgainstTerrain 深度测试：Point/Label、Billboard、Corridor、Polygon、Textured Polygon、Rectangle、Model CesiumMan、Polyline）
+  3. `billboards-instancing-dev`（Seneca 湖区 100 广告牌密集网格实例化与动态缩放：8 种变体涵盖 4/25/64/100 规模、0.1/0.5/1.0 缩放、脉冲动画、贴地与聚类）
+  4. `geometry-and-appearances`（58 种综合几何体与材质外观：StripeMaterial、CheckerboardMaterial、3D 拉伸体、叠层半透明形体、深天蓝发光测地线 PolylineGlow、变截面多边形放样管道与变高墙体，显存预算提升至 128 MB）
+- **核心研发突破**：
+  1. **360° 经度跨越矩形纬圈插值**：解决 `[-180, lat_min, 180, lat_max]` 全球腰带矩形在 ECEF 笛卡尔空间中两点重合退化问题，沿纬度采样 36 段高精度圆弧。
+  2. **线框几何（fill=false, outline=true）占位面与空缓冲防御**：为纯线框轮廓实体生成最小化占位面，彻底满足 WebGPU 管线对非空缓冲的硬性校验。
+  3. **复杂画廊 GPU 显存上限扩容**：将集合显存阈值扩展至 128 MB，稳定承载 58 种多构型实体。
+- **验证结果**：
+  - **普通 Rust 单元测试**：104 项全部通过（新增 `batch41_cartographic_limit_clamp_entities_billboards_instancing_geometry_appearances`）。
+  - **真实 GPU 离屏渲染测试**：112 / 112 项全数通过（`112 passed; 0 failed; finished in 40.42s`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：111 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Cartographic Limit Rectangle、Clamp Entities to Ground、Billboards Instancing Dev 与 Geometry and Appearances 验证文档](docs/cartographic-clamp-instancing-geometry-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
 
 ### [2026-10-30] v0.0.40 验收完成：采样轨迹插值、动画手动控制与速度标签、局部切平面标架生成器与底层点图元集合
 - **完成配方**（累计推进至 **107 / 309**，剩余 202 个）：

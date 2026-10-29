@@ -157,15 +157,33 @@ pub fn primitive(e: &Entity) -> Result<Option<Primitive>, String> {
             rotation,
             ..
         } => {
-            let width = (e - w).rem_euclid(360.);
+            let is_full = (*w == -180. && *e == 180.) || (*e - *w).abs() >= 359.999;
+            let width = if is_full {
+                360.
+            } else {
+                (e - w).rem_euclid(360.)
+            };
             let center_lon = crate::geographic::unwrap(w + width / 2., 0.);
             let center_lat = (s + n) / 2.;
-            let mut ring = [
-                [*w, *s, *height],
-                [*e, *s, *height],
-                [*e, *n, *height],
-                [*w, *n, *height],
-            ];
+            let mut ring = Vec::new();
+            if is_full || width > 180. {
+                let steps = 36;
+                for i in 0..steps {
+                    let lon = *w + (width * i as f64) / steps as f64;
+                    ring.push([lon, *s, *height]);
+                }
+                for i in 0..steps {
+                    let lon = *e - (width * i as f64) / steps as f64;
+                    ring.push([lon, *n, *height]);
+                }
+            } else {
+                ring = vec![
+                    [*w, *s, *height],
+                    [*e, *s, *height],
+                    [*e, *n, *height],
+                    [*w, *n, *height],
+                ];
+            }
             if rotation.abs() > 1e-8 {
                 let cos_r = rotation.cos();
                 let sin_r = rotation.sin();
@@ -178,7 +196,7 @@ pub fn primitive(e: &Entity) -> Result<Option<Primitive>, String> {
             }
             path(&ring, true)?;
             if let Some(h) = extruded_height {
-                let bottom = ring.map(|c| [c[0], c[1], *h]);
+                let bottom: Vec<[f64; 3]> = ring.iter().map(|c| [c[0], c[1], *h]).collect();
                 path(&bottom, true)?;
                 for (a, b) in ring.iter().zip(&bottom) {
                     path(&[*a, *b], false)?;

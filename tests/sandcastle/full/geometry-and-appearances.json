@@ -1,0 +1,2248 @@
+[
+  {
+    "id": "geo-striped-rectangle",
+    "name": "Striped Rectangle",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -92,
+        20,
+        -86,
+        27
+      ],
+      "height": 0,
+      "stRotation": 0.785398
+    },
+    "color": [
+      0.2,
+      0.4,
+      0.8,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "material": "StripeMaterial"
+    }
+  },
+  {
+    "id": "geo-striped-polygon",
+    "name": "Striped Polygon",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          -107,
+          27,
+          0
+        ],
+        [
+          -107,
+          22,
+          0
+        ],
+        [
+          -102,
+          23,
+          0
+        ],
+        [
+          -97,
+          21,
+          0
+        ],
+        [
+          -97,
+          25,
+          0
+        ]
+      ]
+    },
+    "color": [
+      0.2,
+      0.4,
+      0.8,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "material": "StripeMaterial"
+    }
+  },
+  {
+    "id": "geo-striped-ellipse-1",
+    "name": "Striped Ellipse",
+    "show": true,
+    "positionDegrees": [
+      -80,
+      25,
+      0
+    ],
+    "shape": {
+      "type": "ellipse",
+      "semiMinorAxis": 300000,
+      "semiMajorAxis": 500000,
+      "rotation": -0.698132,
+      "stRotation": 0.383972
+    },
+    "color": [
+      0.2,
+      0.4,
+      0.8,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "material": "StripeMaterial"
+    }
+  },
+  {
+    "id": "geo-striped-circle-2",
+    "name": "Striped Circle",
+    "show": true,
+    "positionDegrees": [
+      -72,
+      25,
+      0
+    ],
+    "shape": {
+      "type": "ellipse",
+      "semiMinorAxis": 250000,
+      "semiMajorAxis": 250000,
+      "rotation": -0.698132,
+      "stRotation": 1.570796
+    },
+    "color": [
+      0.2,
+      0.4,
+      0.8,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "material": "StripeMaterial"
+    }
+  },
+  {
+    "id": "geo-extruded-rectangle",
+    "name": "Extruded Rectangle",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -118,
+        38,
+        -116,
+        40
+      ],
+      "height": 0,
+      "extrudedHeight": 500000,
+      "stRotation": 0.785398
+    },
+    "color": [
+      0.85,
+      0.35,
+      0.25,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-extruded-ellipse",
+    "name": "Extruded Ellipse",
+    "show": true,
+    "positionDegrees": [
+      -117,
+      35,
+      0
+    ],
+    "shape": {
+      "type": "ellipse",
+      "semiMinorAxis": 100000,
+      "semiMajorAxis": 200000,
+      "height": 100000,
+      "extrudedHeight": 200000,
+      "rotation": 1.570796
+    },
+    "color": [
+      0.45,
+      0.75,
+      0.2,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-extruded-polygon",
+    "name": "Extruded Polygon",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          -118,
+          30,
+          0
+        ],
+        [
+          -115,
+          30,
+          0
+        ],
+        [
+          -117.1,
+          31.1,
+          0
+        ],
+        [
+          -118,
+          33,
+          0
+        ]
+      ],
+      "height": 300000,
+      "extrudedHeight": 700000
+    },
+    "color": [
+      0.25,
+      0.55,
+      0.85,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-cylinder-1",
+    "name": "Cylinder 1",
+    "show": true,
+    "positionDegrees": [
+      -70,
+      45,
+      100000
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 200000,
+      "topRadius": 150000,
+      "bottomRadius": 150000
+    },
+    "color": [
+      0.9,
+      0.65,
+      0.15,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-box-trans-0",
+    "name": "Stacked Box Translucent 0",
+    "show": true,
+    "positionDegrees": [
+      -106,
+      45,
+      100000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        90000,
+        90000,
+        90000
+      ]
+    },
+    "color": [
+      0.6,
+      0.8,
+      0.3,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-ellipsoid-trans-0",
+    "name": "Stacked Ellipsoid Translucent 0",
+    "show": true,
+    "positionDegrees": [
+      -102,
+      45,
+      100000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        45000,
+        45000,
+        90000
+      ]
+    },
+    "color": [
+      0.3,
+      0.6,
+      0.9,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-sphere-trans-0",
+    "name": "Stacked Sphere Translucent 0",
+    "show": true,
+    "positionDegrees": [
+      -98,
+      45,
+      100000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        67500,
+        67500,
+        67500
+      ]
+    },
+    "color": [
+      0.9,
+      0.3,
+      0.5,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-box-trans-1",
+    "name": "Stacked Box Translucent 1",
+    "show": true,
+    "positionDegrees": [
+      -106,
+      45,
+      300000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        90000,
+        90000,
+        90000
+      ]
+    },
+    "color": [
+      0.6,
+      0.8,
+      0.3,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-ellipsoid-trans-1",
+    "name": "Stacked Ellipsoid Translucent 1",
+    "show": true,
+    "positionDegrees": [
+      -102,
+      45,
+      300000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        45000,
+        45000,
+        90000
+      ]
+    },
+    "color": [
+      0.3,
+      0.6,
+      0.9,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-sphere-trans-1",
+    "name": "Stacked Sphere Translucent 1",
+    "show": true,
+    "positionDegrees": [
+      -98,
+      45,
+      300000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        67500,
+        67500,
+        67500
+      ]
+    },
+    "color": [
+      0.9,
+      0.3,
+      0.5,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-box-trans-2",
+    "name": "Stacked Box Translucent 2",
+    "show": true,
+    "positionDegrees": [
+      -106,
+      45,
+      500000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        90000,
+        90000,
+        90000
+      ]
+    },
+    "color": [
+      0.6,
+      0.8,
+      0.3,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-ellipsoid-trans-2",
+    "name": "Stacked Ellipsoid Translucent 2",
+    "show": true,
+    "positionDegrees": [
+      -102,
+      45,
+      500000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        45000,
+        45000,
+        90000
+      ]
+    },
+    "color": [
+      0.3,
+      0.6,
+      0.9,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-sphere-trans-2",
+    "name": "Stacked Sphere Translucent 2",
+    "show": true,
+    "positionDegrees": [
+      -98,
+      45,
+      500000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        67500,
+        67500,
+        67500
+      ]
+    },
+    "color": [
+      0.9,
+      0.3,
+      0.5,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-box-trans-3",
+    "name": "Stacked Box Translucent 3",
+    "show": true,
+    "positionDegrees": [
+      -106,
+      45,
+      700000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        90000,
+        90000,
+        90000
+      ]
+    },
+    "color": [
+      0.6,
+      0.8,
+      0.3,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-ellipsoid-trans-3",
+    "name": "Stacked Ellipsoid Translucent 3",
+    "show": true,
+    "positionDegrees": [
+      -102,
+      45,
+      700000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        45000,
+        45000,
+        90000
+      ]
+    },
+    "color": [
+      0.3,
+      0.6,
+      0.9,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-sphere-trans-3",
+    "name": "Stacked Sphere Translucent 3",
+    "show": true,
+    "positionDegrees": [
+      -98,
+      45,
+      700000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        67500,
+        67500,
+        67500
+      ]
+    },
+    "color": [
+      0.9,
+      0.3,
+      0.5,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-box-trans-4",
+    "name": "Stacked Box Translucent 4",
+    "show": true,
+    "positionDegrees": [
+      -106,
+      45,
+      900000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        90000,
+        90000,
+        90000
+      ]
+    },
+    "color": [
+      0.6,
+      0.8,
+      0.3,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-ellipsoid-trans-4",
+    "name": "Stacked Ellipsoid Translucent 4",
+    "show": true,
+    "positionDegrees": [
+      -102,
+      45,
+      900000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        45000,
+        45000,
+        90000
+      ]
+    },
+    "color": [
+      0.3,
+      0.6,
+      0.9,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-sphere-trans-4",
+    "name": "Stacked Sphere Translucent 4",
+    "show": true,
+    "positionDegrees": [
+      -98,
+      45,
+      900000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        67500,
+        67500,
+        67500
+      ]
+    },
+    "color": [
+      0.9,
+      0.3,
+      0.5,
+      0.5
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-wall-varying",
+    "name": "Varying Height Wall",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "wall",
+      "positionsDegrees": [
+        [
+          -95,
+          50,
+          0
+        ],
+        [
+          -85,
+          50,
+          0
+        ],
+        [
+          -75,
+          50,
+          0
+        ]
+      ],
+      "maximumHeights": [
+        500000,
+        1000000,
+        500000
+      ],
+      "minimumHeights": [
+        0,
+        500000,
+        0
+      ]
+    },
+    "color": [
+      0.75,
+      0.45,
+      0.7,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.827,
+      0.827,
+      0.827,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-conical-cylinder",
+    "name": "Conical Cylinder",
+    "show": true,
+    "positionDegrees": [
+      -70,
+      40,
+      200000
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 400000,
+      "topRadius": 0,
+      "bottomRadius": 200000
+    },
+    "color": [
+      0.35,
+      0.85,
+      0.65,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-layered-ellipse-0",
+    "name": "Layered Ellipse 0",
+    "show": true,
+    "positionDegrees": [
+      -65,
+      35,
+      0
+    ],
+    "shape": {
+      "type": "ellipse",
+      "semiMinorAxis": 200000,
+      "semiMajorAxis": 200000,
+      "height": 0
+    },
+    "color": [
+      0.25,
+      0.65,
+      0.75,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-layered-rectangle-0",
+    "name": "Layered Rectangle 0",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -67,
+        27,
+        -63,
+        32
+      ],
+      "height": 0
+    },
+    "color": [
+      0.75,
+      0.55,
+      0.25,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-layered-ellipse-1",
+    "name": "Layered Ellipse 1",
+    "show": true,
+    "positionDegrees": [
+      -65,
+      35,
+      0
+    ],
+    "shape": {
+      "type": "ellipse",
+      "semiMinorAxis": 200000,
+      "semiMajorAxis": 200000,
+      "height": 200000
+    },
+    "color": [
+      0.25,
+      0.65,
+      0.75,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-layered-rectangle-1",
+    "name": "Layered Rectangle 1",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -67,
+        27,
+        -63,
+        32
+      ],
+      "height": 200000
+    },
+    "color": [
+      0.75,
+      0.55,
+      0.25,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-layered-ellipse-2",
+    "name": "Layered Ellipse 2",
+    "show": true,
+    "positionDegrees": [
+      -65,
+      35,
+      0
+    ],
+    "shape": {
+      "type": "ellipse",
+      "semiMinorAxis": 200000,
+      "semiMajorAxis": 200000,
+      "height": 400000
+    },
+    "color": [
+      0.25,
+      0.65,
+      0.75,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-layered-rectangle-2",
+    "name": "Layered Rectangle 2",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -67,
+        27,
+        -63,
+        32
+      ],
+      "height": 400000
+    },
+    "color": [
+      0.75,
+      0.55,
+      0.25,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-layered-ellipse-3",
+    "name": "Layered Ellipse 3",
+    "show": true,
+    "positionDegrees": [
+      -65,
+      35,
+      0
+    ],
+    "shape": {
+      "type": "ellipse",
+      "semiMinorAxis": 200000,
+      "semiMajorAxis": 200000,
+      "height": 600000
+    },
+    "color": [
+      0.25,
+      0.65,
+      0.75,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-layered-rectangle-3",
+    "name": "Layered Rectangle 3",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -67,
+        27,
+        -63,
+        32
+      ],
+      "height": 600000
+    },
+    "color": [
+      0.75,
+      0.55,
+      0.25,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-layered-ellipse-4",
+    "name": "Layered Ellipse 4",
+    "show": true,
+    "positionDegrees": [
+      -65,
+      35,
+      0
+    ],
+    "shape": {
+      "type": "ellipse",
+      "semiMinorAxis": 200000,
+      "semiMajorAxis": 200000,
+      "height": 800000
+    },
+    "color": [
+      0.25,
+      0.65,
+      0.75,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-layered-rectangle-4",
+    "name": "Layered Rectangle 4",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -67,
+        27,
+        -63,
+        32
+      ],
+      "height": 800000
+    },
+    "color": [
+      0.75,
+      0.55,
+      0.25,
+      0.5
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-box-opaque-0",
+    "name": "Stacked Box Opaque 0",
+    "show": true,
+    "positionDegrees": [
+      -108,
+      45,
+      100000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        90000,
+        90000,
+        90000
+      ]
+    },
+    "color": [
+      0.65,
+      0.25,
+      0.85,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-ellipsoid-opaque-0",
+    "name": "Stacked Ellipsoid Opaque 0",
+    "show": true,
+    "positionDegrees": [
+      -104,
+      45,
+      100000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        45000,
+        45000,
+        90000
+      ]
+    },
+    "color": [
+      0.85,
+      0.45,
+      0.15,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-sphere-opaque-0",
+    "name": "Stacked Sphere Opaque 0",
+    "show": true,
+    "positionDegrees": [
+      -100,
+      45,
+      100000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        67500,
+        67500,
+        67500
+      ]
+    },
+    "color": [
+      0.15,
+      0.75,
+      0.55,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-box-opaque-1",
+    "name": "Stacked Box Opaque 1",
+    "show": true,
+    "positionDegrees": [
+      -108,
+      45,
+      300000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        90000,
+        90000,
+        90000
+      ]
+    },
+    "color": [
+      0.65,
+      0.25,
+      0.85,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-ellipsoid-opaque-1",
+    "name": "Stacked Ellipsoid Opaque 1",
+    "show": true,
+    "positionDegrees": [
+      -104,
+      45,
+      300000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        45000,
+        45000,
+        90000
+      ]
+    },
+    "color": [
+      0.85,
+      0.45,
+      0.15,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-sphere-opaque-1",
+    "name": "Stacked Sphere Opaque 1",
+    "show": true,
+    "positionDegrees": [
+      -100,
+      45,
+      300000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        67500,
+        67500,
+        67500
+      ]
+    },
+    "color": [
+      0.15,
+      0.75,
+      0.55,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-box-opaque-2",
+    "name": "Stacked Box Opaque 2",
+    "show": true,
+    "positionDegrees": [
+      -108,
+      45,
+      500000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        90000,
+        90000,
+        90000
+      ]
+    },
+    "color": [
+      0.65,
+      0.25,
+      0.85,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-ellipsoid-opaque-2",
+    "name": "Stacked Ellipsoid Opaque 2",
+    "show": true,
+    "positionDegrees": [
+      -104,
+      45,
+      500000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        45000,
+        45000,
+        90000
+      ]
+    },
+    "color": [
+      0.85,
+      0.45,
+      0.15,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-sphere-opaque-2",
+    "name": "Stacked Sphere Opaque 2",
+    "show": true,
+    "positionDegrees": [
+      -100,
+      45,
+      500000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        67500,
+        67500,
+        67500
+      ]
+    },
+    "color": [
+      0.15,
+      0.75,
+      0.55,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-box-opaque-3",
+    "name": "Stacked Box Opaque 3",
+    "show": true,
+    "positionDegrees": [
+      -108,
+      45,
+      700000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        90000,
+        90000,
+        90000
+      ]
+    },
+    "color": [
+      0.65,
+      0.25,
+      0.85,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-ellipsoid-opaque-3",
+    "name": "Stacked Ellipsoid Opaque 3",
+    "show": true,
+    "positionDegrees": [
+      -104,
+      45,
+      700000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        45000,
+        45000,
+        90000
+      ]
+    },
+    "color": [
+      0.85,
+      0.45,
+      0.15,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-sphere-opaque-3",
+    "name": "Stacked Sphere Opaque 3",
+    "show": true,
+    "positionDegrees": [
+      -100,
+      45,
+      700000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        67500,
+        67500,
+        67500
+      ]
+    },
+    "color": [
+      0.15,
+      0.75,
+      0.55,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-box-opaque-4",
+    "name": "Stacked Box Opaque 4",
+    "show": true,
+    "positionDegrees": [
+      -108,
+      45,
+      900000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        90000,
+        90000,
+        90000
+      ]
+    },
+    "color": [
+      0.65,
+      0.25,
+      0.85,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-ellipsoid-opaque-4",
+    "name": "Stacked Ellipsoid Opaque 4",
+    "show": true,
+    "positionDegrees": [
+      -104,
+      45,
+      900000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        45000,
+        45000,
+        90000
+      ]
+    },
+    "color": [
+      0.85,
+      0.45,
+      0.15,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-stacked-sphere-opaque-4",
+    "name": "Stacked Sphere Opaque 4",
+    "show": true,
+    "positionDegrees": [
+      -100,
+      45,
+      900000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        67500,
+        67500,
+        67500
+      ]
+    },
+    "color": [
+      0.15,
+      0.75,
+      0.55,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-polyline-glow",
+    "name": "Polyline Glow",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -100,
+            15,
+            0
+          ],
+          [
+            -99,
+            15,
+            0
+          ],
+          [
+            -98,
+            15,
+            0
+          ],
+          [
+            -97,
+            15,
+            0
+          ],
+          [
+            -96,
+            15,
+            0
+          ],
+          [
+            -95,
+            15,
+            0
+          ],
+          [
+            -94,
+            15,
+            0
+          ],
+          [
+            -93,
+            15,
+            0
+          ],
+          [
+            -92,
+            15,
+            0
+          ],
+          [
+            -91,
+            15,
+            0
+          ],
+          [
+            -90,
+            15,
+            0
+          ],
+          [
+            -89,
+            15,
+            0
+          ],
+          [
+            -88,
+            15,
+            0
+          ],
+          [
+            -87,
+            15,
+            0
+          ],
+          [
+            -86,
+            15,
+            0
+          ],
+          [
+            -85,
+            15,
+            0
+          ],
+          [
+            -84,
+            15,
+            0
+          ],
+          [
+            -83,
+            15,
+            0
+          ],
+          [
+            -82,
+            15,
+            0
+          ],
+          [
+            -81,
+            15,
+            0
+          ],
+          [
+            -80,
+            15,
+            0
+          ],
+          [
+            -79,
+            15,
+            0
+          ],
+          [
+            -78,
+            15,
+            0
+          ],
+          [
+            -77,
+            15,
+            0
+          ],
+          [
+            -76,
+            15,
+            0
+          ],
+          [
+            -75,
+            15,
+            0
+          ],
+          [
+            -74,
+            15,
+            0
+          ],
+          [
+            -73,
+            15,
+            0
+          ],
+          [
+            -72,
+            15,
+            0
+          ],
+          [
+            -71,
+            15,
+            0
+          ],
+          [
+            -70,
+            15,
+            0
+          ],
+          [
+            -69,
+            15,
+            0
+          ],
+          [
+            -68,
+            15,
+            0
+          ],
+          [
+            -67,
+            15,
+            0
+          ],
+          [
+            -66,
+            15,
+            0
+          ],
+          [
+            -65,
+            15,
+            0
+          ],
+          [
+            -64,
+            15,
+            0
+          ],
+          [
+            -63,
+            15,
+            0
+          ],
+          [
+            -62,
+            15,
+            0
+          ],
+          [
+            -61,
+            15,
+            0
+          ]
+        ],
+        "width": 10,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "material": {
+          "type": "glow",
+          "color": [
+            0,
+            0.749,
+            1,
+            1
+          ],
+          "glowPower": 0.25,
+          "taperPower": 0.1
+        }
+      }
+    },
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "color": [
+      0,
+      0.749,
+      1,
+      1
+    ],
+    "properties": {
+      "glowPower": 0.25
+    }
+  },
+  {
+    "id": "geo-wall-checkerboard",
+    "name": "Checkerboard Wall",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "wall",
+      "positionsDegrees": [
+        [
+          -90,
+          43,
+          100000
+        ],
+        [
+          -87.5,
+          45,
+          100000
+        ],
+        [
+          -85,
+          43,
+          100000
+        ],
+        [
+          -87.5,
+          41,
+          100000
+        ],
+        [
+          -90,
+          43,
+          100000
+        ]
+      ]
+    },
+    "color": [
+      0.95,
+      0.95,
+      0.95,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "material": "CheckerboardMaterial",
+      "repeat": [
+        20,
+        6
+      ]
+    }
+  },
+  {
+    "id": "geo-corridor-flat",
+    "name": "Corridor Flat",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "corridor",
+      "positionsDegrees": [
+        [
+          -120,
+          45,
+          0
+        ],
+        [
+          -125,
+          50,
+          0
+        ],
+        [
+          -125,
+          55,
+          0
+        ]
+      ],
+      "width": 100000
+    },
+    "color": [
+      0.9,
+      0.45,
+      0.25,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-corridor-extruded",
+    "name": "Corridor Extruded",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "corridor",
+      "positionsDegrees": [
+        [
+          -120,
+          45,
+          0
+        ],
+        [
+          -125,
+          50,
+          0
+        ],
+        [
+          -125,
+          55,
+          0
+        ]
+      ],
+      "width": 100000,
+      "height": 300000,
+      "extrudedHeight": 400000
+    },
+    "color": [
+      0.35,
+      0.65,
+      0.95,
+      0.7
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-corridor-outlined",
+    "name": "Corridor Outlined",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "corridor",
+      "positionsDegrees": [
+        [
+          -120,
+          45,
+          0
+        ],
+        [
+          -125,
+          50,
+          0
+        ],
+        [
+          -125,
+          55,
+          0
+        ]
+      ],
+      "width": 100000,
+      "height": 700000
+    },
+    "color": [
+      0.55,
+      0.85,
+      0.25,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-volume-star-outlined",
+    "name": "Polyline Volume Star Outlined",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "corridor",
+      "positionsDegrees": [
+        [
+          -102,
+          15,
+          100000
+        ],
+        [
+          -105,
+          20,
+          200000
+        ],
+        [
+          -110,
+          20,
+          100000
+        ]
+      ],
+      "width": 60000,
+      "height": 100000,
+      "extrudedHeight": 200000
+    },
+    "color": [
+      0.75,
+      0.35,
+      0.95,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-volume-star-flat",
+    "name": "Polyline Volume Star Flat",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "corridor",
+      "positionsDegrees": [
+        [
+          -102,
+          15,
+          0
+        ],
+        [
+          -105,
+          20,
+          0
+        ],
+        [
+          -110,
+          20,
+          0
+        ]
+      ],
+      "width": 60000
+    },
+    "color": [
+      0.25,
+      0.85,
+      0.45,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  },
+  {
+    "id": "geo-volume-circle",
+    "name": "Polyline Volume Circle",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "corridor",
+      "positionsDegrees": [
+        [
+          -104,
+          13,
+          0
+        ],
+        [
+          -107,
+          18,
+          0
+        ],
+        [
+          -112,
+          18,
+          0
+        ]
+      ],
+      "width": 80000
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1
+  }
+]

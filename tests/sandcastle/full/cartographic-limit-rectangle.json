@@ -1,0 +1,372 @@
+[
+  {
+    "id": "bound-0",
+    "name": "Bound 0m",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -180,
+        -23.43687,
+        180,
+        23.43687
+      ],
+      "height": 0,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "height": 0,
+      "isBound": true
+    }
+  },
+  {
+    "id": "bound-1",
+    "name": "Bound 5000m",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -180,
+        -23.43687,
+        180,
+        23.43687
+      ],
+      "height": 5000,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "height": 5000,
+      "isBound": true
+    }
+  },
+  {
+    "id": "bound-2",
+    "name": "Bound 10000m",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -180,
+        -23.43687,
+        180,
+        23.43687
+      ],
+      "height": 10000,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "height": 10000,
+      "isBound": true
+    }
+  },
+  {
+    "id": "bound-3",
+    "name": "Bound 15000m",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -180,
+        -23.43687,
+        180,
+        23.43687
+      ],
+      "height": 15000,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "height": 15000,
+      "isBound": true
+    }
+  },
+  {
+    "id": "bound-4",
+    "name": "Bound 20000m",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -180,
+        -23.43687,
+        180,
+        23.43687
+      ],
+      "height": 20000,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "height": 20000,
+      "isBound": true
+    }
+  },
+  {
+    "id": "bound-5",
+    "name": "Bound 25000m",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -180,
+        -23.43687,
+        180,
+        23.43687
+      ],
+      "height": 25000,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "height": 25000,
+      "isBound": true
+    }
+  },
+  {
+    "id": "bound-6",
+    "name": "Bound 30000m",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -180,
+        -23.43687,
+        180,
+        23.43687
+      ],
+      "height": 30000,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "height": 30000,
+      "isBound": true
+    }
+  },
+  {
+    "id": "bound-7",
+    "name": "Bound 35000m",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -180,
+        -23.43687,
+        180,
+        23.43687
+      ],
+      "height": 35000,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "height": 35000,
+      "isBound": true
+    }
+  },
+  {
+    "id": "bound-8",
+    "name": "Bound 40000m",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -180,
+        -23.43687,
+        180,
+        23.43687
+      ],
+      "height": 40000,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "height": 40000,
+      "isBound": true
+    }
+  },
+  {
+    "id": "bound-9",
+    "name": "Bound 45000m",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -180,
+        -23.43687,
+        180,
+        23.43687
+      ],
+      "height": 45000,
+      "extrudedHeight": null,
+      "rotation": 0
+    },
+    "color": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "fill": false,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "height": 45000,
+      "isBound": true
+    }
+  }
+]
