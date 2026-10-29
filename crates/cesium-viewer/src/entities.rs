@@ -3973,4 +3973,58 @@ mod tests {
         let clouds_variants = crate::entity_variants::decode(&clouds_variants_raw).unwrap();
         assert_eq!(clouds_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch50_ao_bluemarble_controllers_tutorial() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Ambient Occlusion
+        let ao_data = std::fs::read(base.join("ambient-occlusion.json")).unwrap();
+        let ao_entities = decode(&ao_data).unwrap();
+        assert_eq!(ao_entities.len(), 4);
+        assert!(matches!(ao_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(ao_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ao_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ao_entities[3].shape, Shape::Rectangle { .. }));
+        let ao_variants_raw = std::fs::read(base.join("ambient-occlusion.variants.json")).unwrap();
+        let ao_variants = crate::entity_variants::decode(&ao_variants_raw).unwrap();
+        assert_eq!(ao_variants.variants.len(), 4);
+
+        // 2. Blue Marble
+        let bm_data = std::fs::read(base.join("blue-marble.json")).unwrap();
+        let bm_entities = decode(&bm_data).unwrap();
+        assert_eq!(bm_entities.len(), 4);
+        assert!(matches!(bm_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(bm_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(bm_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(bm_entities[3].shape, Shape::Rectangle { .. }));
+        let bm_variants_raw = std::fs::read(base.join("blue-marble.variants.json")).unwrap();
+        let bm_variants = crate::entity_variants::decode(&bm_variants_raw).unwrap();
+        assert_eq!(bm_variants.variants.len(), 4);
+
+        // 3. Camera Controllers
+        let cc_data = std::fs::read(base.join("camera-controllers.json")).unwrap();
+        let cc_entities = decode(&cc_data).unwrap();
+        assert_eq!(cc_entities.len(), 4);
+        assert!(matches!(cc_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(cc_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(cc_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(cc_entities[3].shape, Shape::Rectangle { .. }));
+        let cc_variants_raw = std::fs::read(base.join("camera-controllers.variants.json")).unwrap();
+        let cc_variants = crate::entity_variants::decode(&cc_variants_raw).unwrap();
+        assert_eq!(cc_variants.variants.len(), 4);
+
+        // 4. Camera Tutorial
+        let ct_data = std::fs::read(base.join("camera-tutorial.json")).unwrap();
+        let ct_entities = decode(&ct_data).unwrap();
+        assert_eq!(ct_entities.len(), 4);
+        assert!(matches!(ct_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ct_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(ct_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ct_entities[3].shape, Shape::Rectangle { .. }));
+        let ct_variants_raw = std::fs::read(base.join("camera-tutorial.variants.json")).unwrap();
+        let ct_variants = crate::entity_variants::decode(&ct_variants_raw).unwrap();
+        assert_eq!(ct_variants.variants.len(), 4);
+    }
 }

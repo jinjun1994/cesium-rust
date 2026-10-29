@@ -1,0 +1,150 @@
+[
+  {
+    "id": "tutorial-waypoint-alpha",
+    "name": "Navigational Beacon Alpha (Start)",
+    "show": true,
+    "positionDegrees": [
+      -105,
+      40,
+      25
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 50,
+      "topRadius": 10,
+      "bottomRadius": 10
+    },
+    "color": [
+      0.2,
+      0.8,
+      0.3,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.6,
+      1,
+      0.7,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "controlScheme": "WASD_QE",
+      "waypoint": "Alpha"
+    }
+  },
+  {
+    "id": "tutorial-waypoint-beta",
+    "name": "Orientation Checkpoint Beta",
+    "show": true,
+    "positionDegrees": [
+      -104.995,
+      40.005,
+      15
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        30,
+        30,
+        30
+      ]
+    },
+    "color": [
+      1,
+      0.4,
+      0.2,
+      1
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.8,
+      0.6,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "controlScheme": "WASD_QE",
+      "waypoint": "Beta"
+    }
+  },
+  {
+    "id": "tutorial-observation-dome",
+    "name": "Target Observation Radar Dome",
+    "show": true,
+    "positionDegrees": [
+      -104.99,
+      40,
+      25
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        25,
+        25,
+        25
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      0.3,
+      0.6,
+      1,
+      0.9
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "targetHeight": 50,
+      "targetRange": 200
+    }
+  },
+  {
+    "id": "tutorial-course-boundary",
+    "name": "First-Person Training Arena Perimeter",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -105.01,
+        39.99,
+        -104.98,
+        40.01
+      ],
+      "height": 5,
+      "extrudedHeight": 10,
+      "rotation": 0
+    },
+    "color": [
+      0.9,
+      0.8,
+      0.2,
+      0.6
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.95,
+      0.5,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "courseMeters": 1000,
+      "surfaceType": "gridded"
+    }
+  }
+]

@@ -1,0 +1,617 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Hybrid Screen Space Pan Controller (Free Planar Drag)",
+      "entities": [
+        {
+          "id": "ctrl-mine-headframe",
+          "name": "Parc Lead Mine Surface Headframe",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              80,
+              80,
+              120
+            ]
+          },
+          "color": [
+            0.8,
+            0.3,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "controller": "HybridPan",
+            "site": "ParcLeadMine"
+          }
+        },
+        {
+          "id": "ctrl-subsurface-shaft",
+          "name": "Vertical Drainage & Hoisting Shaft",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            -200
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 400,
+            "topRadius": 25,
+            "bottomRadius": 25
+          },
+          "color": [
+            0.2,
+            0.7,
+            0.9,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "controller": "TiltOrbit",
+            "depthMeters": 400
+          }
+        },
+        {
+          "id": "ctrl-ore-chamber",
+          "name": "Subterranean Stope Ore Chamber",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            -450
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              60,
+              45,
+              40
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.9,
+            0.7,
+            0.1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "controller": "Zoom",
+            "mineral": "Galena / Sphalerite"
+          }
+        },
+        {
+          "id": "ctrl-surface-lease",
+          "name": "Mining Concession Surface Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -3.83,
+              53.114,
+              -3.82,
+              53.12
+            ],
+            "height": 10,
+            "extrudedHeight": 20,
+            "rotation": 0
+          },
+          "color": [
+            0.3,
+            0.8,
+            0.4,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            0.8,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "leaseAreaKm2": 0.45,
+            "legalStatus": "heritage"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Tilt Orbit Camera Controller (Subsurface Pit Orbit)",
+      "entities": [
+        {
+          "id": "ctrl-mine-headframe",
+          "name": "Parc Lead Mine Surface Headframe",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              80,
+              80,
+              120
+            ]
+          },
+          "color": [
+            0.8,
+            0.3,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "controller": "HybridPan",
+            "site": "ParcLeadMine"
+          }
+        },
+        {
+          "id": "ctrl-subsurface-shaft",
+          "name": "Vertical Drainage & Hoisting Shaft",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            -200
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 400,
+            "topRadius": 25,
+            "bottomRadius": 25
+          },
+          "color": [
+            0.1,
+            0.9,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "controller": "TiltOrbit",
+            "depthMeters": 400
+          }
+        },
+        {
+          "id": "ctrl-ore-chamber",
+          "name": "Subterranean Stope Ore Chamber",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            -450
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              60,
+              45,
+              40
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.9,
+            0.7,
+            0.1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "controller": "Zoom",
+            "mineral": "Galena / Sphalerite"
+          }
+        },
+        {
+          "id": "ctrl-surface-lease",
+          "name": "Mining Concession Surface Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -3.83,
+              53.114,
+              -3.82,
+              53.12
+            ],
+            "height": 10,
+            "extrudedHeight": 20,
+            "rotation": 0
+          },
+          "color": [
+            0.3,
+            0.8,
+            0.4,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            0.8,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "leaseAreaKm2": 0.45,
+            "legalStatus": "heritage"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Screen Space Zoom Controller (Deep Shaft Inspection)",
+      "entities": [
+        {
+          "id": "ctrl-mine-headframe",
+          "name": "Parc Lead Mine Surface Headframe",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              80,
+              80,
+              120
+            ]
+          },
+          "color": [
+            0.8,
+            0.3,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "controller": "HybridPan",
+            "site": "ParcLeadMine"
+          }
+        },
+        {
+          "id": "ctrl-subsurface-shaft",
+          "name": "Vertical Drainage & Hoisting Shaft",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            -200
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 400,
+            "topRadius": 25,
+            "bottomRadius": 25
+          },
+          "color": [
+            0.2,
+            0.7,
+            0.9,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "controller": "TiltOrbit",
+            "depthMeters": 400
+          }
+        },
+        {
+          "id": "ctrl-ore-chamber",
+          "name": "Subterranean Stope Ore Chamber",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            -450
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              60,
+              45,
+              40
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            1,
+            0.85,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "controller": "Zoom",
+            "mineral": "Galena / Sphalerite"
+          }
+        },
+        {
+          "id": "ctrl-surface-lease",
+          "name": "Mining Concession Surface Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -3.83,
+              53.114,
+              -3.82,
+              53.12
+            ],
+            "height": 10,
+            "extrudedHeight": 20,
+            "rotation": 0
+          },
+          "color": [
+            0.3,
+            0.8,
+            0.4,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            0.8,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "leaseAreaKm2": 0.45,
+            "legalStatus": "heritage"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Composite Multi-Controller Mode (All Controllers Active)",
+      "entities": [
+        {
+          "id": "ctrl-mine-headframe",
+          "name": "Parc Lead Mine Surface Headframe",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              80,
+              80,
+              120
+            ]
+          },
+          "color": [
+            0.95,
+            0.4,
+            0.25,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "controller": "HybridPan",
+            "site": "ParcLeadMine"
+          }
+        },
+        {
+          "id": "ctrl-subsurface-shaft",
+          "name": "Vertical Drainage & Hoisting Shaft",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            -200
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 400,
+            "topRadius": 25,
+            "bottomRadius": 25
+          },
+          "color": [
+            0.2,
+            0.7,
+            0.9,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "controller": "TiltOrbit",
+            "depthMeters": 400
+          }
+        },
+        {
+          "id": "ctrl-ore-chamber",
+          "name": "Subterranean Stope Ore Chamber",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            -450
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              60,
+              45,
+              40
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.9,
+            0.7,
+            0.1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "controller": "Zoom",
+            "mineral": "Galena / Sphalerite"
+          }
+        },
+        {
+          "id": "ctrl-surface-lease",
+          "name": "Mining Concession Surface Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -3.83,
+              53.114,
+              -3.82,
+              53.12
+            ],
+            "height": 10,
+            "extrudedHeight": 20,
+            "rotation": 0
+          },
+          "color": [
+            0.3,
+            0.8,
+            0.4,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            0.8,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "leaseAreaKm2": 0.45,
+            "legalStatus": "heritage"
+          }
+        }
+      ]
+    }
+  ]
+}

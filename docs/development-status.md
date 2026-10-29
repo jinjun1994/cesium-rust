@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.50
+
+新增 Ambient Occlusion、Blue Marble、Camera Controllers、Camera Tutorial 四个完整案例，累计 **147 / 309**，剩余 162 个。110 项普通 Rust、148 项实际 GPU、8 组 Node、147 个浏览器 WebGPU 案例通过。验证包含屏幕空间环境光遮蔽 SSAO 后处理与裂缝自阴影渲染（高对比度 SSAO、柔和环境阴影、极深裂缝凹陷暗角与关闭后处理 4 种变体）、NASA Blue Marble Next Generation 全球卫星影像与地理生物圈基准（夏季植被、冬季积雪、赤道高分对焦与无云地形水深 4 种变体）、地表露天开采与地下井下工程模块化混合相机控制器（模块化平移、俯仰倾斜扫描、纵深穿透下潜与锁定枢轴环绕 4 种变体）、以及无人机第一人称视角走航与键盘鼠标飞行课程（WASD 前后平移、90度垂直俯视、信标塔战术环绕与低空加速走航 4 种变体）。详见 [本批验证](ambientocclusion-bluemarble-controllers-tutorial-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.49
 
 新增 Lighting、Fog、Cloud Parameters、Clouds 四个完整案例，累计 **143 / 309**，剩余 166 个。108 项普通 Rust、144 项实际 GPU、8 组 Node、143 个浏览器 WebGPU 案例通过。验证包含动态多光源照明系统（太阳光、月光、相机手电筒、定制暖琥珀色平行光在 CesiumBalloon 航空气球、基座圆柱、半透明球与方块 4 种变体）、地表气象多高度层大气雾效与视距衰减（标准山地雾、极高海拔雪峰雾、山谷逆温浓雾与清朗晴空 4 种变体）、程序化积云三维形态参数化调谐系统（标准白积云、金橙日落云、风暴深灰雨云与高空扁平卷云 4 种变体）、以及宏观山地层云与低空天幕天气系统（喀斯喀特山脉低空云、高海拔翻腾云海、晴好疏散积云与阴霾风暴 4 种变体）。详见 [本批验证](lighting-fog-cloudparameters-clouds-validation.md)。以下保留历史记录。

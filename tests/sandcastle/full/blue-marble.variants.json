@@ -1,0 +1,617 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "July 2004 Summer Foliage (Global Daylight Blue Marble)",
+      "entities": [
+        {
+          "id": "blue-marble-equator-datum",
+          "name": "Prime Meridian Equator Datum",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            25000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50000,
+            "topRadius": 15000,
+            "bottomRadius": 15000
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3845,
+            "imageryEpoch": "2004-07"
+          }
+        },
+        {
+          "id": "blue-marble-amazon-marker",
+          "name": "Amazon Tropical Biosphere Core",
+          "show": true,
+          "positionDegrees": [
+            -60,
+            -3,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40000,
+              40000,
+              40000
+            ]
+          },
+          "color": [
+            0.1,
+            0.8,
+            0.3,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            1,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "biome": "tropical_rainforest",
+            "region": "South America"
+          }
+        },
+        {
+          "id": "blue-marble-sahara-marker",
+          "name": "Sahara Arid Plateau Marker",
+          "show": true,
+          "positionDegrees": [
+            20,
+            25,
+            20000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              35000,
+              35000,
+              35000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            1,
+            0.75,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "biome": "desert",
+            "region": "North Africa"
+          }
+        },
+        {
+          "id": "blue-marble-arctic-boundary",
+          "name": "Arctic Circle Polar Ice Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -45,
+              65,
+              -43,
+              67
+            ],
+            "height": 10000,
+            "extrudedHeight": 15000,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.95,
+            1,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seaIceExtentMin": "summer_2004",
+            "polarCircleLat": 66.5
+          }
+        }
+      ]
+    },
+    {
+      "label": "Tropical Biosphere Focus (Amazon Rainforest Canopy)",
+      "entities": [
+        {
+          "id": "blue-marble-equator-datum",
+          "name": "Prime Meridian Equator Datum",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            25000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50000,
+            "topRadius": 15000,
+            "bottomRadius": 15000
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3845,
+            "imageryEpoch": "2004-07"
+          }
+        },
+        {
+          "id": "blue-marble-amazon-marker",
+          "name": "Amazon Tropical Biosphere Core",
+          "show": true,
+          "positionDegrees": [
+            -60,
+            -3,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40000,
+              40000,
+              40000
+            ]
+          },
+          "color": [
+            0.05,
+            0.95,
+            0.35,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            1,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "biome": "tropical_rainforest",
+            "region": "South America"
+          }
+        },
+        {
+          "id": "blue-marble-sahara-marker",
+          "name": "Sahara Arid Plateau Marker",
+          "show": true,
+          "positionDegrees": [
+            20,
+            25,
+            20000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              35000,
+              35000,
+              35000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            1,
+            0.75,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "biome": "desert",
+            "region": "North Africa"
+          }
+        },
+        {
+          "id": "blue-marble-arctic-boundary",
+          "name": "Arctic Circle Polar Ice Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -45,
+              65,
+              -43,
+              67
+            ],
+            "height": 10000,
+            "extrudedHeight": 15000,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.95,
+            1,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seaIceExtentMin": "summer_2004",
+            "polarCircleLat": 66.5
+          }
+        }
+      ]
+    },
+    {
+      "label": "Arid & Desert Zones (Sahara Golden Sand Albedo)",
+      "entities": [
+        {
+          "id": "blue-marble-equator-datum",
+          "name": "Prime Meridian Equator Datum",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            25000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50000,
+            "topRadius": 15000,
+            "bottomRadius": 15000
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3845,
+            "imageryEpoch": "2004-07"
+          }
+        },
+        {
+          "id": "blue-marble-amazon-marker",
+          "name": "Amazon Tropical Biosphere Core",
+          "show": true,
+          "positionDegrees": [
+            -60,
+            -3,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40000,
+              40000,
+              40000
+            ]
+          },
+          "color": [
+            0.1,
+            0.8,
+            0.3,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            1,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "biome": "tropical_rainforest",
+            "region": "South America"
+          }
+        },
+        {
+          "id": "blue-marble-sahara-marker",
+          "name": "Sahara Arid Plateau Marker",
+          "show": true,
+          "positionDegrees": [
+            20,
+            25,
+            20000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              35000,
+              35000,
+              35000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            1,
+            0.85,
+            0.3,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "biome": "desert",
+            "region": "North Africa"
+          }
+        },
+        {
+          "id": "blue-marble-arctic-boundary",
+          "name": "Arctic Circle Polar Ice Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -45,
+              65,
+              -43,
+              67
+            ],
+            "height": 10000,
+            "extrudedHeight": 15000,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.95,
+            1,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seaIceExtentMin": "summer_2004",
+            "polarCircleLat": 66.5
+          }
+        }
+      ]
+    },
+    {
+      "label": "Arctic Polar Ice Cap Extents (Summer Minimal Ice Shroud)",
+      "entities": [
+        {
+          "id": "blue-marble-equator-datum",
+          "name": "Prime Meridian Equator Datum",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            25000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50000,
+            "topRadius": 15000,
+            "bottomRadius": 15000
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3845,
+            "imageryEpoch": "2004-07"
+          }
+        },
+        {
+          "id": "blue-marble-amazon-marker",
+          "name": "Amazon Tropical Biosphere Core",
+          "show": true,
+          "positionDegrees": [
+            -60,
+            -3,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40000,
+              40000,
+              40000
+            ]
+          },
+          "color": [
+            0.1,
+            0.8,
+            0.3,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            1,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "biome": "tropical_rainforest",
+            "region": "South America"
+          }
+        },
+        {
+          "id": "blue-marble-sahara-marker",
+          "name": "Sahara Arid Plateau Marker",
+          "show": true,
+          "positionDegrees": [
+            20,
+            25,
+            20000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              35000,
+              35000,
+              35000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            1,
+            0.75,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "biome": "desert",
+            "region": "North Africa"
+          }
+        },
+        {
+          "id": "blue-marble-arctic-boundary",
+          "name": "Arctic Circle Polar Ice Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -45,
+              65,
+              -43,
+              67
+            ],
+            "height": 10000,
+            "extrudedHeight": 15000,
+            "rotation": 0
+          },
+          "color": [
+            0.9,
+            0.98,
+            1,
+            0.75
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seaIceExtentMin": "summer_2004",
+            "polarCircleLat": 66.5
+          }
+        }
+      ]
+    }
+  ]
+}

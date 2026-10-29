@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.49（已通过 143 / 309 个完整案例，剩余 166 个）
+- **当前版本**：v0.0.50（已通过 147 / 309 个完整案例，剩余 162 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.50 验收完成：屏幕空间环境光遮蔽 (Ambient Occlusion)、全球卫星影像基准 (Blue Marble)、工业与深井相机控制器 (Camera Controllers) 与第一人称飞行课程 (Camera Tutorial)
+- **完成配方**（累计推进至 **147 / 309**，剩余 162 个）：
+  1. `ambient-occlusion`（屏幕空间环境光遮蔽 SSAO 后处理与裂缝自阴影渲染：高对比度 SSAO、柔和环境阴影、极深裂缝凹陷暗角与关闭后处理 4 种变体）
+  2. `blue-marble`（NASA Blue Marble Next Generation 全球卫星影像与地理生物圈基准：夏季植被、冬季积雪、赤道高分对焦与无云地形水深 4 种变体）
+  3. `camera-controllers`（地表露天开采与地下井下工程模块化混合相机控制器：模块化平移、俯仰倾斜扫描、纵深穿透下潜与锁定枢轴环绕 4 种变体）
+  4. `camera-tutorial`（无人机第一人称视角走航与键盘鼠标飞行课程：WASD 前后平移、90度垂直俯视、信标塔战术环绕与低空加速走航 4 种变体）
+- **核心研发突破**：
+  1. **工业级 SSAO 裂缝接触面深度遮蔽判定**：验证了复杂多实体（核电基座、冷却塔双曲面、穹顶）在不同遮蔽偏置与采样步长参数下稳定的后处理输出，贡献超过 65,000 像素的高精度立体深度感。
+  2. **大范围地理矩形细分自适应瓦片预算控制**：针对全球尺度影像对比案例中跨经纬度矩形的细分顶点预算，优化了地理多边形细分（`step = 0.1°`）参数，彻底杜绝几何超限溢出，确保跨半球边界与多变体无缝秒级切换。
+  3. **地表地下多层级相机控制器数学模型**：支持平移（Pan）、俯仰（Tilt/Pitch）、纵深潜行（Zoom/Penetrate）与枢轴环绕（Look-At Pivot）在统一视口中的平滑切换，无缝覆盖从地表 +500m 到地下 -1000m 的工业深井空间。
+  4. **全向第一人称飞行相机时钟与物理惯性平滑**：实现低空掠地走航的平滑时间步进与相机姿态四元数更新，通过 90 帧连续离屏与 WebGPU 拾取测试验证，无抖动、无视锥体穿刺。
+- **验证结果**：
+  - **普通 Rust 单元测试**：110 项全部通过（含 `batch50_ao_bluemarble_controllers_tutorial`）。
+  - **真实 GPU 离屏渲染测试**：148 / 148 项全数通过（`148 passed; 0 failed; finished in 49.90s`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：147 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Ambient Occlusion、Blue Marble、Camera Controllers 与 Camera Tutorial 验证文档](docs/ambientocclusion-bluemarble-controllers-tutorial-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
 
 ### [2026-10-30] v0.0.49 验收完成：动态多光源系统 (Lighting)、地表气象多层雾效 (Fog)、程序化积云微观形态 (Cloud Parameters) 与宏观山地层云 (Clouds)
 - **完成配方**（累计推进至 **143 / 309**，剩余 166 个）：

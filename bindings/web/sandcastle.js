@@ -154,6 +154,10 @@ $('fullNew116').onclick=guarded(()=>runFull('lighting'));
 $('fullNew117').onclick=guarded(()=>runFull('fog'));
 $('fullNew118').onclick=guarded(()=>runFull('cloud-parameters'));
 $('fullNew119').onclick=guarded(()=>runFull('clouds'));
+$('fullNew120').onclick=guarded(()=>runFull('ambient-occlusion'));
+$('fullNew121').onclick=guarded(()=>runFull('blue-marble'));
+$('fullNew122').onclick=guarded(()=>runFull('camera-controllers'));
+$('fullNew123').onclick=guarded(()=>runFull('camera-tutorial'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

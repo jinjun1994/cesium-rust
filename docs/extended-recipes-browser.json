@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "lighting",
+      "id": "ambient-occlusion",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "6d67877c8907ee93b30f3ec1e7aa984b7fba93375b7859a58e23a14d3e658e96",
-      "inputSha256": "21d047e498947e5927ddd29ef90095f1e67821dcccc29f2c4f6d4659272109ac",
-      "fixtureSha256": "fe6c83b2c1b8b9f983b77fa0e5e8788aa08063eb4b4634af39caf67a48987b7b",
+      "sourceSha256": "491c9bded5057a6727c41c7c5152eeaa1df01de1cf7c3e335dad61712c532286",
+      "inputSha256": "822e80eaa341b042803ed38fb2d8d6bf80d7be4591bb04d24ef3900409b33dee",
+      "fixtureSha256": "017ed7bbdc0ea012ba25504c90799a60a26ca29e62e215dc540c59e11a3557ce",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,37 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "lighting-balloon",
-        "lighting-pedestal",
-        "lighting-orb",
-        "lighting-beacon"
+        "ao-structure-base",
+        "ao-cooling-tower",
+        "ao-containment-dome",
+        "ao-perimeter-boundary"
       ],
       "pixelCounts": [
         {
-          "id": "lighting-balloon",
-          "pixels": 1161
+          "id": "ao-structure-base",
+          "pixels": 2457
         },
         {
-          "id": "lighting-pedestal",
-          "pixels": 221
+          "id": "ao-cooling-tower",
+          "pixels": 2051
         },
         {
-          "id": "lighting-orb",
-          "pixels": 164
+          "id": "ao-containment-dome",
+          "pixels": 953
         },
         {
-          "id": "lighting-beacon",
-          "pixels": 150
+          "id": "ao-perimeter-boundary",
+          "pixels": 59937
         }
       ]
     },
     {
-      "id": "fog",
+      "id": "blue-marble",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "4c2f2c1cd422c02176dc45646929e1494a3ac1024b16c6a2bcc4e9872c365d5f",
-      "inputSha256": "dc03b7421091083cc4655ac71722102302ff234e7795754c43419a87d66566da",
-      "fixtureSha256": "9613244f3b582c7d504747c531d899656a2fa71bac545c596a657cee44d823da",
+      "sourceSha256": "8eb2a69eeb323e124ea73995a1738f44a9cd231e212134f34a88ea4bd0c073a1",
+      "inputSha256": "795259ff7bcc533d3196b019cd84ff2d44fbb94a8c37f264f9d9e31561dc76a5",
+      "fixtureSha256": "2fc86ece20d2d8ccfd3b570d736254aba0a9b8dfbb4965aae22ae3f967d8a33f",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -63,37 +63,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "fog-alps-station",
-        "fog-valley-station",
-        "fog-horizon-beacon",
-        "fog-boundary-contour"
+        "blue-marble-equator-datum",
+        "blue-marble-amazon-marker",
+        "blue-marble-sahara-marker",
+        "blue-marble-arctic-boundary"
       ],
       "pixelCounts": [
         {
-          "id": "fog-alps-station",
-          "pixels": 92004
+          "id": "blue-marble-equator-datum",
+          "pixels": 87505
         },
         {
-          "id": "fog-valley-station",
-          "pixels": 72979
+          "id": "blue-marble-amazon-marker",
+          "pixels": 103076
         },
         {
-          "id": "fog-horizon-beacon",
-          "pixels": 62402
+          "id": "blue-marble-sahara-marker",
+          "pixels": 164179
         },
         {
-          "id": "fog-boundary-contour",
-          "pixels": 65693
+          "id": "blue-marble-arctic-boundary",
+          "pixels": 50843
         }
       ]
     },
     {
-      "id": "cloud-parameters",
+      "id": "camera-controllers",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "0c48f2b37a2c3ff240c328550d24528c97d1a364a4c58adbe2b9302850b3cb7c",
-      "inputSha256": "0850ad675ad2678a5f76af588541232b895b67f051df5ce9cbda2a3369d11726",
-      "fixtureSha256": "b3225ca2015a11166982f5b3b05c830108dd7a0a3b556739741f368ec41a98d1",
+      "sourceSha256": "d26f4465df5bfab20e67a50b3d182aeaa2f145b3ab76356b042abaa47d3e9b81",
+      "inputSha256": "b42ff32534719c87ea8895499ae6064f26b9ee0707efe7bad3ecd5d3798568fb",
+      "fixtureSha256": "66734384a0d0f70d06411ddef0b895c56db7e15974110f01b5790950a2574c6b",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -104,37 +104,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "cloud-cumulus-core",
-        "cloud-base-fluff",
-        "cloud-top-dome",
-        "cloud-shadow-marker"
+        "ctrl-mine-headframe",
+        "ctrl-subsurface-shaft",
+        "ctrl-ore-chamber",
+        "ctrl-surface-lease"
       ],
       "pixelCounts": [
         {
-          "id": "cloud-cumulus-core",
-          "pixels": 216
+          "id": "ctrl-mine-headframe",
+          "pixels": 2485
         },
         {
-          "id": "cloud-base-fluff",
-          "pixels": 110
+          "id": "ctrl-subsurface-shaft",
+          "pixels": 1200
         },
         {
-          "id": "cloud-top-dome",
-          "pixels": 102
+          "id": "ctrl-ore-chamber",
+          "pixels": 382
         },
         {
-          "id": "cloud-shadow-marker",
-          "pixels": 276
+          "id": "ctrl-surface-lease",
+          "pixels": 67653
         }
       ]
     },
     {
-      "id": "clouds",
+      "id": "camera-tutorial",
       "status": "passed",
-      "entities": 5,
-      "sourceSha256": "245f90ecdcff541ea74ffa8d58873d3e7825af28c0dee653f71d2ddc1fdc94ec",
-      "inputSha256": "66c0555a1312fb49fa50ee45528eec06e72bb6aa373dff75e8d2be6127fb9773",
-      "fixtureSha256": "8c36044938bedbbf8257cbce055d5ec80703260141d1acd34b0d2db511e9f789",
+      "entities": 4,
+      "sourceSha256": "767c90c131e729bc47e08a33605b6f955cc1f6c029c924119a369ef90be047f7",
+      "inputSha256": "ad3f3cd02f238bde3b6771f1b036224bf466608609993c4a09ca11e3082d6d4b",
+      "fixtureSha256": "4e0cf35266e45874268d8a09af63b378a39078ce29de3393d485f402ecbbdeb7",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -145,32 +145,27 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "clouds-mtn-stratus-1",
-        "clouds-mtn-stratus-2",
-        "clouds-mtn-stratus-3",
-        "clouds-mtn-cumulus-low",
-        "clouds-valley-coverage"
+        "tutorial-waypoint-alpha",
+        "tutorial-waypoint-beta",
+        "tutorial-observation-dome",
+        "tutorial-course-boundary"
       ],
       "pixelCounts": [
         {
-          "id": "clouds-mtn-stratus-1",
-          "pixels": 23097
+          "id": "tutorial-waypoint-alpha",
+          "pixels": 215
         },
         {
-          "id": "clouds-mtn-stratus-2",
-          "pixels": 32099
+          "id": "tutorial-waypoint-beta",
+          "pixels": 300
         },
         {
-          "id": "clouds-mtn-stratus-3",
-          "pixels": 41008
+          "id": "tutorial-observation-dome",
+          "pixels": 396
         },
         {
-          "id": "clouds-mtn-cumulus-low",
-          "pixels": 11269
-        },
-        {
-          "id": "clouds-valley-coverage",
-          "pixels": 66808
+          "id": "tutorial-course-boundary",
+          "pixels": 65034
         }
       ]
     },

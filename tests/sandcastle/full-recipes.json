@@ -4063,6 +4063,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "ambient-occlusion",
+      "title": "Ambient Occlusion",
+      "sourceSha256": "491c9bded5057a6727c41c7c5152eeaa1df01de1cf7c3e335dad61712c532286",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=ambient-occlusion",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/ambient-occlusion.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/ambient-occlusion.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Screen Space Ambient Occlusion (SSAO) post process shading",
+        "Intensity, bias, lengthCap, directionCount, and stepCount depth crevice occlusion"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "blue-marble",
+      "title": "Blue Marble",
+      "sourceSha256": "8eb2a69eeb323e124ea73995a1738f44a9cd231e212134f34a88ea4bd0c073a1",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=blue-marble",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/blue-marble.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/blue-marble.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "NASA Blue Marble Next Generation global imagery provider layer",
+        "Seasonal global foliage, biosphere zones, and polar ice cap coverage"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "camera-controllers",
+      "title": "Camera Controllers for Asset Inspection",
+      "sourceSha256": "d26f4465df5bfab20e67a50b3d182aeaa2f145b3ab76356b042abaa47d3e9b81",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=camera-controllers",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/camera-controllers.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/camera-controllers.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Modular hybrid pan, tilt-orbit, and zoom camera controllers",
+        "Subsurface and above-ground inspection viewpoints and collision detection bypass"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "camera-tutorial",
+      "title": "Camera Tutorial",
+      "sourceSha256": "767c90c131e729bc47e08a33605b6f955cc1f6c029c924119a369ef90be047f7",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=camera-tutorial",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/camera-tutorial.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/camera-tutorial.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "First-person keyboard WASD / QE and mouse-looking screen space camera controller",
+        "Altitude-adaptive movement rates and multi-waypoint navigation course"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",
