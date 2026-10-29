@@ -744,6 +744,170 @@
       ]
     },
     {
+      "id": "earth-at-night",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "0efe95654b10a0ce397d720f681db669cebc72dfa34b40c9f89fb1063cbe6d37",
+      "inputSha256": "d1e713fc7bf28de531451055adbeca4b3400492457d3f82c8ee57817c4112fd1",
+      "fixtureSha256": "07bd040e9057bba4b659d27100a572b1091230b08f338f5d3eb15c02f4adfcaa",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "night-lights-tokyo",
+        "night-lights-nile",
+        "night-lights-aurora",
+        "night-lights-equator-band"
+      ],
+      "pixelCounts": [
+        {
+          "id": "night-lights-tokyo",
+          "pixels": 87505
+        },
+        {
+          "id": "night-lights-nile",
+          "pixels": 103076
+        },
+        {
+          "id": "night-lights-aurora",
+          "pixels": 164179
+        },
+        {
+          "id": "night-lights-equator-band",
+          "pixels": 55546
+        }
+      ]
+    },
+    {
+      "id": "natural-earth-ii",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "dab03d2bfa52d27e078eb5f525dc8c6ec1eb752562fe1decd25404a4bcc64324",
+      "inputSha256": "49c896f11818f5119da4060d98562670e5d090f02d72fff5975aa35285893ece",
+      "fixtureSha256": "3f7c4dd1d71f02fdd42af4a1f904e69ca25b42bce0ddcfd59286d7bb5a9bf35e",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "natural-earth-alps-relief",
+        "natural-earth-congo-drainage",
+        "natural-earth-andes-plateau",
+        "natural-earth-mediterranean-basin"
+      ],
+      "pixelCounts": [
+        {
+          "id": "natural-earth-alps-relief",
+          "pixels": 101823
+        },
+        {
+          "id": "natural-earth-congo-drainage",
+          "pixels": 103076
+        },
+        {
+          "id": "natural-earth-andes-plateau",
+          "pixels": 164179
+        },
+        {
+          "id": "natural-earth-mediterranean-basin",
+          "pixels": 62141
+        }
+      ]
+    },
+    {
+      "id": "sentinel-2",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "98eb3326eb4061f9f47c169523fe6789be9f7a87e125d38b4a3103e53e84cde4",
+      "inputSha256": "8741d341920a40388704fb35bb07e77a74577f1483b261bfc3a43b027b628a85",
+      "fixtureSha256": "69dcc412ad2efde3f1c2a2920e626315aeb4403f963035c8f8d27c418b6ced64",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "sentinel2-suez-canal",
+        "sentinel2-dubai-palm",
+        "sentinel2-agricultural-circles",
+        "sentinel2-nile-delta"
+      ],
+      "pixelCounts": [
+        {
+          "id": "sentinel2-suez-canal",
+          "pixels": 103076
+        },
+        {
+          "id": "sentinel2-dubai-palm",
+          "pixels": 94356
+        },
+        {
+          "id": "sentinel2-agricultural-circles",
+          "pixels": 164179
+        },
+        {
+          "id": "sentinel2-nile-delta",
+          "pixels": 67861
+        }
+      ]
+    },
+    {
+      "id": "arcgis-mapserver",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "72143cf0009ab18732b5714fc7b9630d34a92c78db579f2d544f42a8520436e9",
+      "inputSha256": "678725c49c8ca8344b5e6a196cb66107d2f3fdf8e1ddf2e36b6f9251afeb60c2",
+      "fixtureSha256": "508f40c13ceed4b150cfdd3c27c053c2fdf4585cfdbf4efef3e07ab269bf07eb",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "arcgis-satellite-datum",
+        "arcgis-hillshade-peak",
+        "arcgis-oceans-trench",
+        "arcgis-service-boundary"
+      ],
+      "pixelCounts": [
+        {
+          "id": "arcgis-satellite-datum",
+          "pixels": 94356
+        },
+        {
+          "id": "arcgis-hillshade-peak",
+          "pixels": 103076
+        },
+        {
+          "id": "arcgis-oceans-trench",
+          "pixels": 164179
+        },
+        {
+          "id": "arcgis-service-boundary",
+          "pixels": 68743
+        }
+      ]
+    },
+    {
       "id": "ambient-occlusion",
       "status": "passed",
       "entities": 4,

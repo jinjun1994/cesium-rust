@@ -158,6 +158,10 @@ $('fullNew120').onclick=guarded(()=>runFull('ambient-occlusion'));
 $('fullNew121').onclick=guarded(()=>runFull('blue-marble'));
 $('fullNew122').onclick=guarded(()=>runFull('camera-controllers'));
 $('fullNew123').onclick=guarded(()=>runFull('camera-tutorial'));
+$('fullNew124').onclick=guarded(()=>runFull('earth-at-night'));
+$('fullNew125').onclick=guarded(()=>runFull('natural-earth-ii'));
+$('fullNew126').onclick=guarded(()=>runFull('sentinel-2'));
+$('fullNew127').onclick=guarded(()=>runFull('arcgis-mapserver'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

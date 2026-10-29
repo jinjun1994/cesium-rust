@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.51
+
+新增 Earth at Night、Natural Earth II、Sentinel-2、ArcGIS MapServer 四个完整案例，累计 **151 / 309**，剩余 158 个。110 项普通 Rust、152 项实际 GPU、8 组 Node、151 个浏览器 WebGPU 案例通过。验证包含 NASA Black Marble 2017 全球夜间灯光、晨昏线与时序动态光照（全球陆地夜光、晨昏蒙影分界线过渡、4000x 自转倍速漫游与背阳抑制模式 4 种变体）、Natural Earth II 全球地貌阴影晕渲、水体与水系汇水网络（地貌晕渲基准、水体汇水加重高亮、高反差山地晕渲与陆海掩膜岸线过渡 4 种变体）、欧空局 Sentinel-2 全球 10 米多光谱无云高分辨率影像（10 米真彩色合成基准、农业近红外假彩色、苏伊士/迪拜沿海高精工程形态与荒漠风成地貌 4 种变体）、以及 ArcGIS MapServer 瓦片服务多底图标准套件（Satellite 卫星影像、Hillshade 地貌晕渲、Oceans 海洋海床水深与 Topographic 地形综合 4 种底图变体）。详见 [本批验证](earthatnight-naturalearth-sentinel-arcgis-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.50
 
 新增 Ambient Occlusion、Blue Marble、Camera Controllers、Camera Tutorial 四个完整案例，累计 **147 / 309**，剩余 162 个。110 项普通 Rust、148 项实际 GPU、8 组 Node、147 个浏览器 WebGPU 案例通过。验证包含屏幕空间环境光遮蔽 SSAO 后处理与裂缝自阴影渲染（高对比度 SSAO、柔和环境阴影、极深裂缝凹陷暗角与关闭后处理 4 种变体）、NASA Blue Marble Next Generation 全球卫星影像与地理生物圈基准（夏季植被、冬季积雪、赤道高分对焦与无云地形水深 4 种变体）、地表露天开采与地下井下工程模块化混合相机控制器（模块化平移、俯仰倾斜扫描、纵深穿透下潜与锁定枢轴环绕 4 种变体）、以及无人机第一人称视角走航与键盘鼠标飞行课程（WASD 前后平移、90度垂直俯视、信标塔战术环绕与低空加速走航 4 种变体）。详见 [本批验证](ambientocclusion-bluemarble-controllers-tutorial-validation.md)。以下保留历史记录。

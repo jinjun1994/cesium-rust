@@ -4027,4 +4027,58 @@ mod tests {
         let ct_variants = crate::entity_variants::decode(&ct_variants_raw).unwrap();
         assert_eq!(ct_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch51_earth_at_night_natural_earth_sentinel_arcgis() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Earth at Night
+        let en_data = std::fs::read(base.join("earth-at-night.json")).unwrap();
+        let en_entities = decode(&en_data).unwrap();
+        assert_eq!(en_entities.len(), 4);
+        assert!(matches!(en_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(en_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(en_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(en_entities[3].shape, Shape::Rectangle { .. }));
+        let en_variants_raw = std::fs::read(base.join("earth-at-night.variants.json")).unwrap();
+        let en_variants = crate::entity_variants::decode(&en_variants_raw).unwrap();
+        assert_eq!(en_variants.variants.len(), 4);
+
+        // 2. Natural Earth II
+        let ne_data = std::fs::read(base.join("natural-earth-ii.json")).unwrap();
+        let ne_entities = decode(&ne_data).unwrap();
+        assert_eq!(ne_entities.len(), 4);
+        assert!(matches!(ne_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ne_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(ne_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ne_entities[3].shape, Shape::Rectangle { .. }));
+        let ne_variants_raw = std::fs::read(base.join("natural-earth-ii.variants.json")).unwrap();
+        let ne_variants = crate::entity_variants::decode(&ne_variants_raw).unwrap();
+        assert_eq!(ne_variants.variants.len(), 4);
+
+        // 3. Sentinel-2
+        let s2_data = std::fs::read(base.join("sentinel-2.json")).unwrap();
+        let s2_entities = decode(&s2_data).unwrap();
+        assert_eq!(s2_entities.len(), 4);
+        assert!(matches!(s2_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(s2_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(s2_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(s2_entities[3].shape, Shape::Rectangle { .. }));
+        let s2_variants_raw = std::fs::read(base.join("sentinel-2.variants.json")).unwrap();
+        let s2_variants = crate::entity_variants::decode(&s2_variants_raw).unwrap();
+        assert_eq!(s2_variants.variants.len(), 4);
+
+        // 4. ArcGIS MapServer
+        let ag_data = std::fs::read(base.join("arcgis-mapserver.json")).unwrap();
+        let ag_entities = decode(&ag_data).unwrap();
+        assert_eq!(ag_entities.len(), 4);
+        assert!(matches!(ag_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ag_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(ag_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ag_entities[3].shape, Shape::Rectangle { .. }));
+        let ag_variants_raw = std::fs::read(base.join("arcgis-mapserver.variants.json")).unwrap();
+        let ag_variants = crate::entity_variants::decode(&ag_variants_raw).unwrap();
+        assert_eq!(ag_variants.variants.len(), 4);
+    }
 }

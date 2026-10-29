@@ -1,0 +1,625 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Black Marble 2017 Night Lights (Global Night Hemispheric Luminance)",
+      "entities": [
+        {
+          "id": "night-lights-tokyo",
+          "name": "Tokyo Greater Metropolitan Night Luminescence",
+          "show": true,
+          "positionDegrees": [
+            139.767,
+            35.681,
+            25000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50000,
+            "topRadius": 15000,
+            "bottomRadius": 15000
+          },
+          "color": [
+            1,
+            0.95,
+            0.4,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3812,
+            "metropolitanCluster": "Kanto Plain",
+            "nightLuminanceNadir": 98.5
+          }
+        },
+        {
+          "id": "night-lights-nile",
+          "name": "Nile Valley Illuminated Settlement Corridor",
+          "show": true,
+          "positionDegrees": [
+            31.235,
+            30.044,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30000,
+              30000,
+              30000
+            ]
+          },
+          "color": [
+            1,
+            0.8,
+            0.3,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geographicCorridor": "Lower Nile",
+            "populationDensityKm2": 1500
+          }
+        },
+        {
+          "id": "night-lights-aurora",
+          "name": "Sub-Arctic Aurora Belt Sky Observation Point",
+          "show": true,
+          "positionDegrees": [
+            15,
+            68,
+            35000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25000,
+              25000,
+              25000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.2,
+            1,
+            0.6,
+            0.8
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geomagneticLatitude": 65.2,
+            "auroraProbability": 0.88
+          }
+        },
+        {
+          "id": "night-lights-equator-band",
+          "name": "Gulf of Guinea Tropical Night Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -5,
+              -3,
+              5,
+              3
+            ],
+            "height": 5000,
+            "extrudedHeight": 10000,
+            "rotation": 0
+          },
+          "color": [
+            0.3,
+            0.5,
+            0.9,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.8,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "equatorialSector": "Atlantic Transition",
+            "dayAlpha": 0,
+            "nightAlpha": 1
+          }
+        }
+      ]
+    },
+    {
+      "label": "Dynamic Lighting On (Solar Twilight Day/Night Terminator Transition)",
+      "entities": [
+        {
+          "id": "night-lights-tokyo",
+          "name": "Tokyo Greater Metropolitan Night Luminescence",
+          "show": true,
+          "positionDegrees": [
+            139.767,
+            35.681,
+            25000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50000,
+            "topRadius": 15000,
+            "bottomRadius": 15000
+          },
+          "color": [
+            1,
+            0.7,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3812,
+            "metropolitanCluster": "Kanto Plain",
+            "nightLuminanceNadir": 98.5
+          }
+        },
+        {
+          "id": "night-lights-nile",
+          "name": "Nile Valley Illuminated Settlement Corridor",
+          "show": true,
+          "positionDegrees": [
+            31.235,
+            30.044,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30000,
+              30000,
+              30000
+            ]
+          },
+          "color": [
+            1,
+            0.5,
+            0.2,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geographicCorridor": "Lower Nile",
+            "populationDensityKm2": 1500
+          }
+        },
+        {
+          "id": "night-lights-aurora",
+          "name": "Sub-Arctic Aurora Belt Sky Observation Point",
+          "show": true,
+          "positionDegrees": [
+            15,
+            68,
+            35000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25000,
+              25000,
+              25000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.2,
+            1,
+            0.6,
+            0.8
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geomagneticLatitude": 65.2,
+            "auroraProbability": 0.88
+          }
+        },
+        {
+          "id": "night-lights-equator-band",
+          "name": "Gulf of Guinea Tropical Night Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -5,
+              -3,
+              5,
+              3
+            ],
+            "height": 5000,
+            "extrudedHeight": 10000,
+            "rotation": 0
+          },
+          "color": [
+            0.3,
+            0.5,
+            0.9,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.8,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "equatorialSector": "Atlantic Transition",
+            "dayAlpha": 0,
+            "nightAlpha": 1
+          }
+        }
+      ]
+    },
+    {
+      "label": "High Clock Speed Rotation (Multiplier 4000x Planetary Spin)",
+      "entities": [
+        {
+          "id": "night-lights-tokyo",
+          "name": "Tokyo Greater Metropolitan Night Luminescence",
+          "show": true,
+          "positionDegrees": [
+            139.767,
+            35.681,
+            25000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50000,
+            "topRadius": 15000,
+            "bottomRadius": 15000
+          },
+          "color": [
+            1,
+            0.95,
+            0.4,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3812,
+            "metropolitanCluster": "Kanto Plain",
+            "nightLuminanceNadir": 98.5
+          }
+        },
+        {
+          "id": "night-lights-nile",
+          "name": "Nile Valley Illuminated Settlement Corridor",
+          "show": true,
+          "positionDegrees": [
+            31.235,
+            30.044,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30000,
+              30000,
+              30000
+            ]
+          },
+          "color": [
+            1,
+            0.8,
+            0.3,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geographicCorridor": "Lower Nile",
+            "populationDensityKm2": 1500
+          }
+        },
+        {
+          "id": "night-lights-aurora",
+          "name": "Sub-Arctic Aurora Belt Sky Observation Point",
+          "show": true,
+          "positionDegrees": [
+            15,
+            68,
+            35000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25000,
+              25000,
+              25000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.1,
+            1,
+            0.8,
+            0.9
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geomagneticLatitude": 65.2,
+            "auroraProbability": 0.88
+          }
+        },
+        {
+          "id": "night-lights-equator-band",
+          "name": "Gulf of Guinea Tropical Night Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -5,
+              -3,
+              5,
+              3
+            ],
+            "height": 5000,
+            "extrudedHeight": 10000,
+            "rotation": 0
+          },
+          "color": [
+            0.3,
+            0.5,
+            0.9,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.8,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "equatorialSector": "Atlantic Transition",
+            "dayAlpha": 0,
+            "nightAlpha": 1
+          }
+        }
+      ]
+    },
+    {
+      "label": "Lit Hemisphere Daylight Suppressed (Night Alpha 1.0 Day Alpha 0.0)",
+      "entities": [
+        {
+          "id": "night-lights-tokyo",
+          "name": "Tokyo Greater Metropolitan Night Luminescence",
+          "show": true,
+          "positionDegrees": [
+            139.767,
+            35.681,
+            25000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50000,
+            "topRadius": 15000,
+            "bottomRadius": 15000
+          },
+          "color": [
+            1,
+            0.95,
+            0.4,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3812,
+            "metropolitanCluster": "Kanto Plain",
+            "nightLuminanceNadir": 98.5
+          }
+        },
+        {
+          "id": "night-lights-nile",
+          "name": "Nile Valley Illuminated Settlement Corridor",
+          "show": true,
+          "positionDegrees": [
+            31.235,
+            30.044,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30000,
+              30000,
+              30000
+            ]
+          },
+          "color": [
+            1,
+            0.8,
+            0.3,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geographicCorridor": "Lower Nile",
+            "populationDensityKm2": 1500
+          }
+        },
+        {
+          "id": "night-lights-aurora",
+          "name": "Sub-Arctic Aurora Belt Sky Observation Point",
+          "show": true,
+          "positionDegrees": [
+            15,
+            68,
+            35000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25000,
+              25000,
+              25000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.2,
+            1,
+            0.6,
+            0.8
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geomagneticLatitude": 65.2,
+            "auroraProbability": 0.88
+          }
+        },
+        {
+          "id": "night-lights-equator-band",
+          "name": "Gulf of Guinea Tropical Night Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -5,
+              -3,
+              5,
+              3
+            ],
+            "height": 5000,
+            "extrudedHeight": 10000,
+            "rotation": 0
+          },
+          "color": [
+            0.1,
+            0.3,
+            0.7,
+            0.8
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.8,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "equatorialSector": "Atlantic Transition",
+            "dayAlpha": 0,
+            "nightAlpha": 1
+          }
+        }
+      ]
+    }
+  ]
+}

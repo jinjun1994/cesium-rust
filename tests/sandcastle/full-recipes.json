@@ -4171,6 +4171,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "earth-at-night",
+      "title": "Earth at Night",
+      "sourceSha256": "0efe95654b10a0ce397d720f681db669cebc72dfa34b40c9f89fb1063cbe6d37",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=earth-at-night",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/earth-at-night.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/earth-at-night.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "NASA Black Marble 2017 Night Lights global Earth imagery layer",
+        "Dynamic solar day/night terminator lighting transition and night illumination"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "natural-earth-ii",
+      "title": "Natural Earth II",
+      "sourceSha256": "dab03d2bfa52d27e078eb5f525dc8c6ec1eb752562fe1decd25404a4bcc64324",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=natural-earth-ii",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/natural-earth-ii.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/natural-earth-ii.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Natural Earth II with Shaded Relief global landform cartography",
+        "Hydrographic drainage networks, continental relief shading, and marine bathymetry"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "sentinel-2",
+      "title": "Sentinel-2",
+      "sourceSha256": "98eb3326eb4061f9f47c169523fe6789be9f7a87e125d38b4a3103e53e84cde4",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=sentinel-2",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/sentinel-2.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/sentinel-2.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "ESA Sentinel-2 cloudless global multispectral 10m-60m resolution imagery layer",
+        "High-resolution agricultural, coastal morphology, and arid landform verification"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "arcgis-mapserver",
+      "title": "ArcGIS MapServer",
+      "sourceSha256": "72143cf0009ab18732b5714fc7b9630d34a92c78db579f2d544f42a8520436e9",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=arcgis-mapserver",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/arcgis-mapserver.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/arcgis-mapserver.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "ArcGIS MapServer imagery provider supporting Satellite, Hillshade, Oceans, and Topographic styles",
+        "Token authentication and REST endpoint tile fetching structure"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

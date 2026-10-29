@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.50（已通过 147 / 309 个完整案例，剩余 162 个）
+- **当前版本**：v0.0.51（已通过 151 / 309 个完整案例，剩余 158 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.51 验收完成：全球夜间灯光 (Earth at Night)、地貌晕渲水网 (Natural Earth II)、10米多光谱遥感 (Sentinel-2) 与行业地图服务 (ArcGIS MapServer)
+- **完成配方**（累计推进至 **151 / 309**，剩余 158 个）：
+  1. `earth-at-night`（NASA Black Marble 2017 全球夜间灯光、晨昏线与时序动态光照：全球陆地夜光、晨昏蒙影分界线过渡、4000x 自转倍速漫游与背阳抑制模式 4 种变体）
+  2. `natural-earth-ii`（Natural Earth II 全球地貌阴影晕渲、水体与水系汇水网络：地貌晕渲基准、水体汇水加重高亮、高反差山地晕渲与陆海掩膜岸线过渡 4 种变体）
+  3. `sentinel-2`（欧空局 Sentinel-2 全球 10 米多光谱无云高分辨率影像：10 米真彩色合成基准、农业近红外假彩色、苏伊士/迪拜沿海高精工程形态与荒漠风成地貌 4 种变体）
+  4. `arcgis-mapserver`（ArcGIS MapServer 瓦片服务多底图标准套件：Satellite 卫星影像、Hillshade 地貌晕渲、Oceans 海洋海床水深与 Topographic 地形综合 4 种底图变体）
+- **核心研发突破**：
+  1. **昼夜晨昏蒙影与双图层动态混合着色模型**：实现了基于太阳天顶角的次太阳点光照与夜间城市灯光（Black Marble 2017）/日间蓝理石（Blue Marble）图层动态 Alpha 调和，验证了 4000 倍自转速率下的稳定光栅化与 60,000+ 像素贡献。
+  2. **全球地貌晕渲与复杂汇水网络图层渲染管线**：验证了高反差断块山地地形阴影与陆海掩膜岸线过渡在大尺度地理坐标下的无缝绘制，离屏渲染与鼠标拾取高度精准。
+  3. **超高分辨率多光谱 10m 遥感切片对齐与自适应几何**：成功对齐欧空局 Sentinel-2 全球真彩色/农业红外假彩色多光谱影像，通过沿海高精工程实体（苏伊士运河、朱美拉棕榈岛）与微观几何体，验证了多级 LOD 投影与无裂缝拼接。
+  4. **标准 GIS Web 瓦片服务（ArcGIS MapServer）多底图协议支持**：规范了 WebMercator 切片坐标转换、REST 影像元数据解析与 4 大标准风格（Satellite, Hillshade, Oceans, Topographic）无缝热切换。
+- **验证结果**：
+  - **普通 Rust 单元测试**：110 项全部通过（含 `batch51_earth_at_night_natural_earth_sentinel_arcgis`）。
+  - **真实 GPU 离屏渲染测试**：152 / 152 项全数通过（`152 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：151 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Earth at Night、Natural Earth II、Sentinel-2 与 ArcGIS MapServer 验证文档](docs/earthatnight-naturalearth-sentinel-arcgis-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.50 验收完成：屏幕空间环境光遮蔽 (Ambient Occlusion)、全球卫星影像基准 (Blue Marble)、工业与深井相机控制器 (Camera Controllers) 与第一人称飞行课程 (Camera Tutorial)
 - **完成配方**（累计推进至 **147 / 309**，剩余 162 个）：

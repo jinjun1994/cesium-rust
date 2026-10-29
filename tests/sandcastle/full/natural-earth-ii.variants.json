@@ -1,0 +1,621 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Natural Earth II with Shaded Relief (Continental Landforms & Drainages)",
+      "entities": [
+        {
+          "id": "natural-earth-alps-relief",
+          "name": "Alps Mountain Range Shaded Relief Crest Marker",
+          "show": true,
+          "positionDegrees": [
+            10,
+            46.5,
+            20000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 40000,
+            "topRadius": 15000,
+            "bottomRadius": 15000
+          },
+          "color": [
+            0.85,
+            0.75,
+            0.55,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3813,
+            "orography": "Alps Orographic Spine",
+            "reliefElevationM": 4808
+          }
+        },
+        {
+          "id": "natural-earth-congo-drainage",
+          "name": "Congo River Drainage Basin Hydrological Core",
+          "show": true,
+          "positionDegrees": [
+            22,
+            0,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              35000,
+              35000,
+              35000
+            ]
+          },
+          "color": [
+            0.2,
+            0.7,
+            0.4,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.9,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hydrography": "Congo Basin Drainage",
+            "dischargeM3s": 41000
+          }
+        },
+        {
+          "id": "natural-earth-andes-plateau",
+          "name": "Andes Altiplano Shaded Relief High Plateau Marker",
+          "show": true,
+          "positionDegrees": [
+            -68,
+            -18,
+            25000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              30000,
+              30000,
+              30000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.9,
+            0.6,
+            0.3,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "morphometry": "Central Andes Plateau",
+            "altitudeM": 3750
+          }
+        },
+        {
+          "id": "natural-earth-mediterranean-basin",
+          "name": "Mediterranean Marine Basin Drainage Perimeter",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              12,
+              36,
+              18,
+              40
+            ],
+            "height": 5000,
+            "extrudedHeight": 10000,
+            "rotation": 0
+          },
+          "color": [
+            0.2,
+            0.5,
+            0.8,
+            0.65
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "bathymetrySubdivision": "Ionian Sea Deep",
+            "maxDepthM": 5267
+          }
+        }
+      ]
+    },
+    {
+      "label": "Water Bodies & Drainage Emphasized (Hydrographic Drainage Network)",
+      "entities": [
+        {
+          "id": "natural-earth-alps-relief",
+          "name": "Alps Mountain Range Shaded Relief Crest Marker",
+          "show": true,
+          "positionDegrees": [
+            10,
+            46.5,
+            20000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 40000,
+            "topRadius": 15000,
+            "bottomRadius": 15000
+          },
+          "color": [
+            0.85,
+            0.75,
+            0.55,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3813,
+            "orography": "Alps Orographic Spine",
+            "reliefElevationM": 4808
+          }
+        },
+        {
+          "id": "natural-earth-congo-drainage",
+          "name": "Congo River Drainage Basin Hydrological Core",
+          "show": true,
+          "positionDegrees": [
+            22,
+            0,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              35000,
+              35000,
+              35000
+            ]
+          },
+          "color": [
+            0.1,
+            0.85,
+            0.5,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.9,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hydrography": "Congo Basin Drainage",
+            "dischargeM3s": 41000
+          }
+        },
+        {
+          "id": "natural-earth-andes-plateau",
+          "name": "Andes Altiplano Shaded Relief High Plateau Marker",
+          "show": true,
+          "positionDegrees": [
+            -68,
+            -18,
+            25000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              30000,
+              30000,
+              30000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.9,
+            0.6,
+            0.3,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "morphometry": "Central Andes Plateau",
+            "altitudeM": 3750
+          }
+        },
+        {
+          "id": "natural-earth-mediterranean-basin",
+          "name": "Mediterranean Marine Basin Drainage Perimeter",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              12,
+              36,
+              18,
+              40
+            ],
+            "height": 5000,
+            "extrudedHeight": 10000,
+            "rotation": 0
+          },
+          "color": [
+            0.1,
+            0.6,
+            0.9,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "bathymetrySubdivision": "Ionian Sea Deep",
+            "maxDepthM": 5267
+          }
+        }
+      ]
+    },
+    {
+      "label": "High Relief Contrast (Alps & Himalayas Geomorphology Highlight)",
+      "entities": [
+        {
+          "id": "natural-earth-alps-relief",
+          "name": "Alps Mountain Range Shaded Relief Crest Marker",
+          "show": true,
+          "positionDegrees": [
+            10,
+            46.5,
+            20000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 40000,
+            "topRadius": 15000,
+            "bottomRadius": 15000
+          },
+          "color": [
+            1,
+            0.85,
+            0.6,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3813,
+            "orography": "Alps Orographic Spine",
+            "reliefElevationM": 4808
+          }
+        },
+        {
+          "id": "natural-earth-congo-drainage",
+          "name": "Congo River Drainage Basin Hydrological Core",
+          "show": true,
+          "positionDegrees": [
+            22,
+            0,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              35000,
+              35000,
+              35000
+            ]
+          },
+          "color": [
+            0.2,
+            0.7,
+            0.4,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.9,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hydrography": "Congo Basin Drainage",
+            "dischargeM3s": 41000
+          }
+        },
+        {
+          "id": "natural-earth-andes-plateau",
+          "name": "Andes Altiplano Shaded Relief High Plateau Marker",
+          "show": true,
+          "positionDegrees": [
+            -68,
+            -18,
+            25000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              30000,
+              30000,
+              30000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.9,
+            0.6,
+            0.3,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "morphometry": "Central Andes Plateau",
+            "altitudeM": 3750
+          }
+        },
+        {
+          "id": "natural-earth-mediterranean-basin",
+          "name": "Mediterranean Marine Basin Drainage Perimeter",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              12,
+              36,
+              18,
+              40
+            ],
+            "height": 5000,
+            "extrudedHeight": 10000,
+            "rotation": 0
+          },
+          "color": [
+            0.2,
+            0.5,
+            0.8,
+            0.65
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "bathymetrySubdivision": "Ionian Sea Deep",
+            "maxDepthM": 5267
+          }
+        }
+      ]
+    },
+    {
+      "label": "Global Coastal Transition (Land-Water Mask Boundary)",
+      "entities": [
+        {
+          "id": "natural-earth-alps-relief",
+          "name": "Alps Mountain Range Shaded Relief Crest Marker",
+          "show": true,
+          "positionDegrees": [
+            10,
+            46.5,
+            20000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 40000,
+            "topRadius": 15000,
+            "bottomRadius": 15000
+          },
+          "color": [
+            0.85,
+            0.75,
+            0.55,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3813,
+            "orography": "Alps Orographic Spine",
+            "reliefElevationM": 4808
+          }
+        },
+        {
+          "id": "natural-earth-congo-drainage",
+          "name": "Congo River Drainage Basin Hydrological Core",
+          "show": true,
+          "positionDegrees": [
+            22,
+            0,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              35000,
+              35000,
+              35000
+            ]
+          },
+          "color": [
+            0.2,
+            0.7,
+            0.4,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.9,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hydrography": "Congo Basin Drainage",
+            "dischargeM3s": 41000
+          }
+        },
+        {
+          "id": "natural-earth-andes-plateau",
+          "name": "Andes Altiplano Shaded Relief High Plateau Marker",
+          "show": true,
+          "positionDegrees": [
+            -68,
+            -18,
+            25000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              30000,
+              30000,
+              30000
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.95,
+            0.7,
+            0.4,
+            0.9
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "morphometry": "Central Andes Plateau",
+            "altitudeM": 3750
+          }
+        },
+        {
+          "id": "natural-earth-mediterranean-basin",
+          "name": "Mediterranean Marine Basin Drainage Perimeter",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              12,
+              36,
+              18,
+              40
+            ],
+            "height": 5000,
+            "extrudedHeight": 10000,
+            "rotation": 0
+          },
+          "color": [
+            0.2,
+            0.5,
+            0.8,
+            0.65
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "bathymetrySubdivision": "Ionian Sea Deep",
+            "maxDepthM": 5267
+          }
+        }
+      ]
+    }
+  ]
+}
