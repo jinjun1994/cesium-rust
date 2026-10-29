@@ -1,0 +1,470 @@
+[
+  {
+    "id": "balloon-0",
+    "name": "Balloon 0",
+    "show": true,
+    "positionDegrees": [
+      -122.99875,
+      44.0503706,
+      100
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+      "scale": 1,
+      "minimumPixelSize": 64,
+      "maximumScale": 200
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "balloonIndex": 0,
+      "modelUri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb"
+    }
+  },
+  {
+    "id": "balloon-1",
+    "name": "Balloon 1",
+    "show": true,
+    "positionDegrees": [
+      -122.9985,
+      44.0503706,
+      100
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+      "scale": 1,
+      "minimumPixelSize": 64,
+      "maximumScale": 200
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "balloonIndex": 1,
+      "modelUri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb"
+    }
+  },
+  {
+    "id": "balloon-2",
+    "name": "Balloon 2",
+    "show": true,
+    "positionDegrees": [
+      -122.99825,
+      44.0503706,
+      100
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+      "scale": 1,
+      "minimumPixelSize": 64,
+      "maximumScale": 200
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "balloonIndex": 2,
+      "modelUri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb"
+    }
+  },
+  {
+    "id": "balloon-3",
+    "name": "Balloon 3",
+    "show": true,
+    "positionDegrees": [
+      -122.998,
+      44.0503706,
+      100
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+      "scale": 1,
+      "minimumPixelSize": 64,
+      "maximumScale": 200
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "balloonIndex": 3,
+      "modelUri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb"
+    }
+  },
+  {
+    "id": "balloon-4",
+    "name": "Balloon 4",
+    "show": true,
+    "positionDegrees": [
+      -122.99775,
+      44.0503706,
+      100
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+      "scale": 1,
+      "minimumPixelSize": 64,
+      "maximumScale": 200
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "balloonIndex": 4,
+      "modelUri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb"
+    }
+  },
+  {
+    "id": "balloon-5",
+    "name": "Balloon 5",
+    "show": true,
+    "positionDegrees": [
+      -122.9975,
+      44.0503706,
+      100
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+      "scale": 1,
+      "minimumPixelSize": 64,
+      "maximumScale": 200
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "balloonIndex": 5,
+      "modelUri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb"
+    }
+  },
+  {
+    "id": "balloon-6",
+    "name": "Balloon 6",
+    "show": true,
+    "positionDegrees": [
+      -122.99725000000001,
+      44.0503706,
+      100
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+      "scale": 1,
+      "minimumPixelSize": 64,
+      "maximumScale": 200
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "balloonIndex": 6,
+      "modelUri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb"
+    }
+  },
+  {
+    "id": "balloon-7",
+    "name": "Balloon 7",
+    "show": true,
+    "positionDegrees": [
+      -122.997,
+      44.0503706,
+      100
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+      "scale": 1,
+      "minimumPixelSize": 64,
+      "maximumScale": 200
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "balloonIndex": 7,
+      "modelUri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb"
+    }
+  },
+  {
+    "id": "balloon-8",
+    "name": "Balloon 8",
+    "show": true,
+    "positionDegrees": [
+      -122.99675,
+      44.0503706,
+      100
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+      "scale": 1,
+      "minimumPixelSize": 64,
+      "maximumScale": 200
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "balloonIndex": 8,
+      "modelUri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb"
+    }
+  },
+  {
+    "id": "balloon-9",
+    "name": "Balloon 9",
+    "show": true,
+    "positionDegrees": [
+      -122.9965,
+      44.0503706,
+      100
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+      "scale": 1,
+      "minimumPixelSize": 64,
+      "maximumScale": 200
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "balloonIndex": 9,
+      "modelUri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb"
+    }
+  },
+  {
+    "id": "balloon-10",
+    "name": "Balloon 10",
+    "show": true,
+    "positionDegrees": [
+      -122.99625,
+      44.0503706,
+      100
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+      "scale": 1,
+      "minimumPixelSize": 64,
+      "maximumScale": 200
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "balloonIndex": 10,
+      "modelUri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb"
+    }
+  },
+  {
+    "id": "balloon-11",
+    "name": "Balloon 11",
+    "show": true,
+    "positionDegrees": [
+      -122.996,
+      44.0503706,
+      100
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+      "scale": 1,
+      "minimumPixelSize": 64,
+      "maximumScale": 200
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "balloonIndex": 11,
+      "modelUri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb"
+    }
+  },
+  {
+    "id": "balloon-12",
+    "name": "Balloon 12",
+    "show": true,
+    "positionDegrees": [
+      -122.99575,
+      44.0503706,
+      100
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+      "scale": 1,
+      "minimumPixelSize": 64,
+      "maximumScale": 200
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "balloonIndex": 12,
+      "modelUri": "../../SampleData/models/CesiumBalloon/CesiumBalloon.glb"
+    }
+  }
+]

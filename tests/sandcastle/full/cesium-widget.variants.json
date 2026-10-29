@@ -1,0 +1,181 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Tracked Aircraft (Heading 135°)",
+      "entities": [
+        {
+          "id": "widget-airplane",
+          "name": "Cesium Air (Widget)",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            500
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+            "minimumPixelSize": 128,
+            "maximumScale": 20000,
+            "scale": 1
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "widgetMode": true,
+            "trackedEntity": true,
+            "headingDegrees": 135,
+            "pitchDegrees": 0,
+            "rollDegrees": 0
+          }
+        }
+      ]
+    },
+    {
+      "label": "North Heading (Heading 0°)",
+      "entities": [
+        {
+          "id": "widget-airplane",
+          "name": "Cesium Air (Widget)",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            500
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+            "minimumPixelSize": 128,
+            "maximumScale": 20000,
+            "scale": 1
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "widgetMode": true,
+            "trackedEntity": true,
+            "headingDegrees": 0,
+            "pitchDegrees": 0,
+            "rollDegrees": 0
+          }
+        }
+      ]
+    },
+    {
+      "label": "East Heading (Heading 90°)",
+      "entities": [
+        {
+          "id": "widget-airplane",
+          "name": "Cesium Air (Widget)",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            500
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+            "minimumPixelSize": 128,
+            "maximumScale": 20000,
+            "scale": 1
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "widgetMode": true,
+            "trackedEntity": true,
+            "headingDegrees": 90,
+            "pitchDegrees": 0,
+            "rollDegrees": 0
+          }
+        }
+      ]
+    },
+    {
+      "label": "Climbing Attitude (Pitch +20°)",
+      "entities": [
+        {
+          "id": "widget-airplane",
+          "name": "Cesium Air (Widget)",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            500
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "../../SampleData/models/CesiumAir/Cesium_Air.glb",
+            "minimumPixelSize": 128,
+            "maximumScale": 20000,
+            "scale": 1
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "widgetMode": true,
+            "trackedEntity": true,
+            "headingDegrees": 135,
+            "pitchDegrees": 20,
+            "rollDegrees": 0
+          }
+        }
+      ]
+    }
+  ]
+}

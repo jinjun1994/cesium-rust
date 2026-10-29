@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.41（已通过 111 / 309 个完整案例，剩余 198 个）
+- **当前版本**：v0.0.42（已通过 115 / 309 个完整案例，剩余 194 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.42 验收完成：材质画廊、泛光特效、轻量微件视口与 VR 纸盒大峡谷飞行编队
+- **完成配方**（累计推进至 **115 / 309**，剩余 194 个）：
+  1. `materials`（常用程序化外观材质库与 8 种材质切换变体：Image、Grid、Stripe、Checkerboard、Dot、RimLighting、PolylineGlow、PolylineOutline，矩形/全球矩形/宽折线多几何载体及互斥显示控制）
+  2. `bloom`（13 具热气球阵列排布与后期泛光光效调节：contrast、brightness、delta、sigma、stepSize 及 4 种泛光预设变体）
+  3. `cesium-widget`（独立极简微件视图、无人机模型与目标追踪：Cesium_Air.glb 模型、HeadingPitchRoll 姿态角、minimumPixelSize 128、maximumScale 20000 与 shouldAnimate 相机锁定追踪）
+  4. `cardboard`（VR 纸盒双目模式与大峡谷环形飞行编队：13 具 CesiumBalloon.glb 模型、360 秒 Hermite 三次多项式采样封闭航线、LOOP_STOP 时钟模式与模型局部参考系锁定）
+- **核心研发突破**：
+  1. **大跨度程序化矩形自适应细分预算**：将经纬度跨度超过 30° 的矩形顶点数量控制在 300,000 预算内，消除几何预算溢出风险。
+  2. **多材质架构模式严格解析**：统一 Serde 反序列化中 `SurfaceMaterial` 与 `LineMaterial::Outline`（outlineColor, outlineWidth）的映射，确保着色器 Uniform 与几何属性严密对应。
+  3. **变体数据中内嵌 Base64 Data URI 支持**：使材质图像纹理在 Rust 原生与浏览器 WASM 环境中均能无延迟原子生效。
+  4. **大峡谷 13 具热气球动态时钟采样与姿态同步**：Hermite 三次多项式采样航线在 360 秒封闭循环中无抖动平滑推进。
+- **验证结果**：
+  - **普通 Rust 单元测试**：105 项全部通过（新增 `batch42_materials_bloom_widget_cardboard`）。
+  - **真实 GPU 离屏渲染测试**：116 / 116 项全数通过（`116 passed; 0 failed; finished in 37.08s`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：115 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Materials、Bloom、Cesium Widget 与 Cardboard 验证文档](docs/materials-bloom-widget-cardboard-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
 
 ### [2026-10-30] v0.0.41 验收完成：地理范围限制矩形、实体贴地渲染、广告牌密集实例化与 58 种几何外观综合画廊
 - **完成配方**（累计推进至 **111 / 309**，剩余 198 个）：

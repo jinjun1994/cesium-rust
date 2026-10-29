@@ -3179,6 +3179,125 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "materials",
+      "title": "Materials",
+      "sourceSha256": "8116934e79112a1572c76788ebc122e43ebabce0c0c78c1c142cab471fdca939",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=materials",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/materials.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/materials.json",
+      "entityCount": 3,
+      "variantCount": 8,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Material appearance gallery on rectangle, world rectangle, and polyline",
+        "AlphaMap, Grid, Stripe, Checkerboard, Dot, RimLighting, PolylineGlow, and PolylineOutline",
+        "Toolbar material switching with visibility toggles"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "bloom",
+      "title": "Bloom",
+      "sourceSha256": "250a93eeaacac1ea10d008ba2d410fb489d8e1e3f4bdabe7af939046ff3f14bd",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=bloom",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/bloom.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/bloom.json",
+      "entityCount": 13,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "13 CesiumBalloon entities in formation along latitude 44.05°",
+        "Post-process bloom configuration (contrast, brightness, delta, sigma, stepSize)",
+        "LookAt target offset perspective and bloom preset controls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "cesium-widget",
+      "title": "Cesium Widget",
+      "sourceSha256": "11660575959f0ef0a3202b30e16e3cf9d26dc50efb845e166015f19b03b4a0cc",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=cesium-widget",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/cesium-widget.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/cesium-widget.json",
+      "entityCount": 1,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "requirements": [
+        "Standalone minimalist CesiumWidget mode",
+        "Cesium_Air model with HeadingPitchRoll orientation and minimumPixelSize 128",
+        "widget.trackedEntity camera locking and heading adjustments"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "cardboard",
+      "title": "Cardboard",
+      "sourceSha256": "e1cb2c1cf74a86ed0cc9465102f7f1e482fe1b61586cc40c71dd87a2ae3838ec",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=cardboard",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/cardboard.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/cardboard.json",
+      "entityCount": 13,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "clock": {
+        "startTime": 0,
+        "stopTime": 360,
+        "currentTime": 0,
+        "multiplier": 1,
+        "range": "LOOP_STOP"
+      },
+      "requirements": [
+        "VR cardboard flight mode with 13 CesiumBalloon models",
+        "Hermite polynomial sampled position circular flight paths around Grand Canyon",
+        "360s simulation time loop and model reference frame camera synchronization"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

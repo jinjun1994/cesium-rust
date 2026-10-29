@@ -1,6 +1,6 @@
 {
   "version": "0.0.29",
-  "wasmSha256": "b4d1155af48fd6d79acc169376859ae3c1a5286191cf7f0257f2051b617ea708",
+  "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
   "externalImagery": "local deterministic 256x256 neutral raster",
@@ -741,6 +741,136 @@
         "primitive-0-instance-0",
         "primitive-0-instance-1",
         "primitive-0-instance-2"
+      ]
+    },
+    {
+      "id": "materials",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "8116934e79112a1572c76788ebc122e43ebabce0c0c78c1c142cab471fdca939",
+      "inputSha256": "1e95f9b6eb2a7fe1b5dcdfe730fc877093d0175ccbd8ea55bd43991ff6d4a410",
+      "fixtureSha256": "e7bb0385221d474b3c162cbec40561969edc8377959ff5a3ede68e8edcd4fafd",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "mat-rectangle"
+      ],
+      "pixelCounts": [
+        {
+          "id": "mat-rectangle",
+          "pixels": 56202
+        }
+      ]
+    },
+    {
+      "id": "bloom",
+      "status": "passed",
+      "entities": 13,
+      "sourceSha256": "250a93eeaacac1ea10d008ba2d410fb489d8e1e3f4bdabe7af939046ff3f14bd",
+      "inputSha256": "468c9ff498c245177533daaf24dfc898293c71a240ce23cfdb3c0f3e2595522e",
+      "fixtureSha256": "d679aaf747e75c0104ad0569edb5b20b024f3eb155fa7679bc78825ee2e08f18",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "balloon-0",
+        "balloon-1",
+        "balloon-12"
+      ],
+      "pixelCounts": [
+        {
+          "id": "balloon-0",
+          "pixels": 18
+        },
+        {
+          "id": "balloon-1",
+          "pixels": 18
+        },
+        {
+          "id": "balloon-12",
+          "pixels": 18
+        }
+      ]
+    },
+    {
+      "id": "cesium-widget",
+      "status": "passed",
+      "entities": 1,
+      "sourceSha256": "11660575959f0ef0a3202b30e16e3cf9d26dc50efb845e166015f19b03b4a0cc",
+      "inputSha256": "9eff75965402c3539d9b7b12034d4eef0d83c83ac6150d61f375c33cc5064360",
+      "fixtureSha256": "88fa15d52aa06cb94b803ad4ecc5e97daa68858c12b288980e2fe4f74ca3fc62",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "widget-airplane"
+      ],
+      "pixelCounts": [
+        {
+          "id": "widget-airplane",
+          "pixels": 18
+        }
+      ]
+    },
+    {
+      "id": "cardboard",
+      "status": "passed",
+      "entities": 13,
+      "sourceSha256": "e1cb2c1cf74a86ed0cc9465102f7f1e482fe1b61586cc40c71dd87a2ae3838ec",
+      "inputSha256": "64040a4bbaad05389e828e1f0536822610eb951ef46ad26fe7c21cb8a6f798f5",
+      "fixtureSha256": "eecc95bd55b7e14968d6628d15157b1cfb61caa02659662c1d571bcd7807682d",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "vr-balloon-0",
+        "vr-balloon-1",
+        "vr-balloon-12"
+      ],
+      "pixelCounts": [
+        {
+          "id": "vr-balloon-0",
+          "pixels": 18
+        },
+        {
+          "id": "vr-balloon-1",
+          "pixels": 18
+        },
+        {
+          "id": "vr-balloon-12",
+          "pixels": 18
+        }
       ]
     },
     {
@@ -4202,7 +4332,7 @@
         "public network blocked; real local tile fetches",
         "real detailed globe pixels and wheel zoom"
       ],
-      "localTileRequests": 33,
+      "localTileRequests": 34,
       "externalRequests": 0,
       "colors": 19883,
       "assetsSha256": "f7dbc2e3295e40bbd1f08bfcc476efe0c5237acdb6df8e7410943c9b8de081e4"

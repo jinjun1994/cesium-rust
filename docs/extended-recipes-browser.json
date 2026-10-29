@@ -1,17 +1,17 @@
 {
   "version": "0.0.29",
-  "wasmSha256": "b4d1155af48fd6d79acc169376859ae3c1a5286191cf7f0257f2051b617ea708",
+  "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "cartographic-limit-rectangle",
+      "id": "materials",
       "status": "passed",
-      "entities": 10,
-      "sourceSha256": "43825ff6755773e46542b70582f71ee5f3ed9e5b37212bc600f408f69760047d",
-      "inputSha256": "cff5f123bc906c8c6674df989c50c354d3a0c44f485b8664bd284a5c71f6954d",
-      "fixtureSha256": "07bf3d032caf2849245388ef28a0c13712540cc46fef08a63141474f3eb3cc9f",
+      "entities": 3,
+      "sourceSha256": "8116934e79112a1572c76788ebc122e43ebabce0c0c78c1c142cab471fdca939",
+      "inputSha256": "1e95f9b6eb2a7fe1b5dcdfe730fc877093d0175ccbd8ea55bd43991ff6d4a410",
+      "fixtureSha256": "e7bb0385221d474b3c162cbec40561969edc8377959ff5a3ede68e8edcd4fafd",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,32 +22,22 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "bound-0",
-        "bound-1",
-        "bound-9"
+        "mat-rectangle"
       ],
       "pixelCounts": [
         {
-          "id": "bound-0",
-          "pixels": 1159
-        },
-        {
-          "id": "bound-1",
-          "pixels": 1540
-        },
-        {
-          "id": "bound-9",
-          "pixels": 1649
+          "id": "mat-rectangle",
+          "pixels": 56202
         }
       ]
     },
     {
-      "id": "clamp-entities-to-ground",
+      "id": "bloom",
       "status": "passed",
-      "entities": 2,
-      "sourceSha256": "643e5ae1a98bb492141c65b48e699dd5bb442640ef8f2fa82cd6d6aab64bca7e",
-      "inputSha256": "6cde6e3bb93b1884d63f9568b53c3bdccc51ef54c4d9b91fb673cec81b616615",
-      "fixtureSha256": "0e0ffc6f2a9ae60fbb12142e8cc1837b25eb28bb2d24076d98458dde8e93d153",
+      "entities": 13,
+      "sourceSha256": "250a93eeaacac1ea10d008ba2d410fb489d8e1e3f4bdabe7af939046ff3f14bd",
+      "inputSha256": "468c9ff498c245177533daaf24dfc898293c71a240ce23cfdb3c0f3e2595522e",
+      "fixtureSha256": "d679aaf747e75c0104ad0569edb5b20b024f3eb155fa7679bc78825ee2e08f18",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -58,27 +48,32 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "clamped-point",
-        "clamped-label"
+        "balloon-0",
+        "balloon-1",
+        "balloon-12"
       ],
       "pixelCounts": [
         {
-          "id": "clamped-point",
-          "pixels": 452
+          "id": "balloon-0",
+          "pixels": 18
         },
         {
-          "id": "clamped-label",
-          "pixels": 6948
+          "id": "balloon-1",
+          "pixels": 18
+        },
+        {
+          "id": "balloon-12",
+          "pixels": 18
         }
       ]
     },
     {
-      "id": "billboards-instancing-dev",
+      "id": "cesium-widget",
       "status": "passed",
-      "entities": 100,
-      "sourceSha256": "d2787bb8fed553fc8153edd5095263961f73a387e53864915339884edcbd4860",
-      "inputSha256": "4fa8f15f93b0bd639a4dc70c377b34f51edc7b8e2ca0d7dd956f165da3b9570a",
-      "fixtureSha256": "65a6f637549fe25def66398863c6b1c1c2ffa4fc36ff9e4d999484fa995556be",
+      "entities": 1,
+      "sourceSha256": "11660575959f0ef0a3202b30e16e3cf9d26dc50efb845e166015f19b03b4a0cc",
+      "inputSha256": "9eff75965402c3539d9b7b12034d4eef0d83c83ac6150d61f375c33cc5064360",
+      "fixtureSha256": "88fa15d52aa06cb94b803ad4ecc5e97daa68858c12b288980e2fe4f74ca3fc62",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -86,35 +81,28 @@
         "every instance ID picking",
         "hide/show",
         "wheel zoom",
-        "resize and manual fit"
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
       ],
       "pickedEntities": [
-        "instanced-billboard-0-0",
-        "instanced-billboard-0-1",
-        "instanced-billboard-9-9"
+        "widget-airplane"
       ],
       "pixelCounts": [
         {
-          "id": "instanced-billboard-0-0",
-          "pixels": 888
-        },
-        {
-          "id": "instanced-billboard-0-1",
-          "pixels": 888
-        },
-        {
-          "id": "instanced-billboard-9-9",
-          "pixels": 888
+          "id": "widget-airplane",
+          "pixels": 18
         }
       ]
     },
     {
-      "id": "geometry-and-appearances",
+      "id": "cardboard",
       "status": "passed",
-      "entities": 58,
-      "sourceSha256": "08c89d91968266c8dd28aa27b8a1fe758ac82ceac4b1f009db22f6194924975b",
-      "inputSha256": "bfea3bce4e41bc97149cd58dba20bc730175ca64e58d506c586238fd47888dda",
-      "fixtureSha256": "6286357c6858daeb840661b8f5840df01ab345dce96041b25f74750d965ae961",
+      "entities": 13,
+      "sourceSha256": "e1cb2c1cf74a86ed0cc9465102f7f1e482fe1b61586cc40c71dd87a2ae3838ec",
+      "inputSha256": "64040a4bbaad05389e828e1f0536822610eb951ef46ad26fe7c21cb8a6f798f5",
+      "fixtureSha256": "eecc95bd55b7e14968d6628d15157b1cfb61caa02659662c1d571bcd7807682d",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -122,25 +110,28 @@
         "every instance ID picking",
         "hide/show",
         "wheel zoom",
-        "resize and manual fit"
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
       ],
       "pickedEntities": [
-        "geo-striped-rectangle",
-        "geo-striped-polygon",
-        "geo-volume-circle"
+        "vr-balloon-0",
+        "vr-balloon-1",
+        "vr-balloon-12"
       ],
       "pixelCounts": [
         {
-          "id": "geo-striped-rectangle",
-          "pixels": 65546
+          "id": "vr-balloon-0",
+          "pixels": 18
         },
         {
-          "id": "geo-striped-polygon",
-          "pixels": 32594
+          "id": "vr-balloon-1",
+          "pixels": 18
         },
         {
-          "id": "geo-volume-circle",
-          "pixels": 8206
+          "id": "vr-balloon-12",
+          "pixels": 18
         }
       ]
     },

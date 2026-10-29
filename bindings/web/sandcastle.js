@@ -122,6 +122,10 @@ $('fullNew84').onclick=guarded(()=>runFull('cartographic-limit-rectangle'));
 $('fullNew85').onclick=guarded(()=>runFull('clamp-entities-to-ground'));
 $('fullNew86').onclick=guarded(()=>runFull('billboards-instancing-dev'));
 $('fullNew87').onclick=guarded(()=>runFull('geometry-and-appearances'));
+$('fullNew88').onclick=guarded(()=>runFull('materials'));
+$('fullNew89').onclick=guarded(()=>runFull('bloom'));
+$('fullNew90').onclick=guarded(()=>runFull('cesium-widget'));
+$('fullNew91').onclick=guarded(()=>runFull('cardboard'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

@@ -3534,4 +3534,64 @@ mod tests {
         assert_eq!(geo_variants.variants[2].entities.len(), 9);
         assert_eq!(geo_variants.variants[3].entities.len(), 42);
     }
+
+    #[test]
+    fn batch42_materials_bloom_widget_cardboard() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Materials
+        let mat_data = std::fs::read(base.join("materials.json")).unwrap();
+        let mat_base = url::Url::from_file_path(base.join("materials.json")).unwrap();
+        let mat_hydrated = crate::entity_resources::hydrate(&mat_data, &mat_base, |u, _| {
+            std::fs::read(u.to_file_path().unwrap()).map_err(|e| e.to_string())
+        })
+        .unwrap();
+        let mat_entities = decode(&mat_hydrated).unwrap();
+        assert_eq!(mat_entities.len(), 3);
+        assert!(mat_entities[0].show);
+        assert!(!mat_entities[1].show);
+        assert!(!mat_entities[2].show);
+        for e in &mat_entities {
+            let prim = e.primitive().unwrap();
+            assert!(!prim.vertices.is_empty());
+        }
+        let mat_variants_raw = std::fs::read(base.join("materials.variants.json")).unwrap();
+        let mat_variants = crate::entity_variants::decode(&mat_variants_raw).unwrap();
+        assert_eq!(mat_variants.variants.len(), 8);
+
+        // 2. Bloom
+        let bloom_data = std::fs::read(base.join("bloom.json")).unwrap();
+        let bloom_entities = decode(&bloom_data).unwrap();
+        assert_eq!(bloom_entities.len(), 13);
+        if let Shape::Model { scale, .. } = bloom_entities[0].shape {
+            assert_eq!(scale, 1.0);
+        } else {
+            panic!("expected model shape");
+        }
+        let bloom_variants_raw = std::fs::read(base.join("bloom.variants.json")).unwrap();
+        let bloom_variants = crate::entity_variants::decode(&bloom_variants_raw).unwrap();
+        assert_eq!(bloom_variants.variants.len(), 4);
+
+        // 3. Cesium Widget
+        let widget_data = std::fs::read(base.join("cesium-widget.json")).unwrap();
+        let widget_entities = decode(&widget_data).unwrap();
+        assert_eq!(widget_entities.len(), 1);
+        assert!(matches!(widget_entities[0].shape, Shape::Model { .. }));
+        let widget_variants_raw = std::fs::read(base.join("cesium-widget.variants.json")).unwrap();
+        let widget_variants = crate::entity_variants::decode(&widget_variants_raw).unwrap();
+        assert_eq!(widget_variants.variants.len(), 4);
+
+        // 4. Cardboard
+        let cardboard_data = std::fs::read(base.join("cardboard.json")).unwrap();
+        let cardboard_entities = decode(&cardboard_data).unwrap();
+        assert_eq!(cardboard_entities.len(), 13);
+        assert_eq!(cardboard_entities[0].availability, Some([0.0, 360.0]));
+        assert!(!cardboard_entities[0].samples.is_empty());
+        let cardboard_variants_raw = std::fs::read(base.join("cardboard.variants.json")).unwrap();
+        let cardboard_variants = crate::entity_variants::decode(&cardboard_variants_raw).unwrap();
+        assert_eq!(cardboard_variants.variants.len(), 4);
+        assert_eq!(cardboard_variants.variants[1].entities.len(), 1);
+        assert_eq!(cardboard_variants.variants[2].entities.len(), 5);
+    }
 }
