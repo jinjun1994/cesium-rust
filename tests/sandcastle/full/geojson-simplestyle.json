@@ -1,0 +1,149 @@
+[
+  {
+    "id": "simplestyle-marker-sf",
+    "name": "San Francisco Public Library",
+    "show": true,
+    "positionDegrees": [
+      -122.416,
+      37.779,
+      10
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+      "scale": 1,
+      "width": 32,
+      "height": 32
+    },
+    "color": [
+      0.2,
+      0.6,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "marker-symbol": "library",
+      "marker-color": "#3399ff"
+    }
+  },
+  {
+    "id": "simplestyle-corridor-route",
+    "name": "Market Street Transit Corridor",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -122.42,
+            37.773,
+            5
+          ],
+          [
+            -122.415,
+            37.778,
+            5
+          ],
+          [
+            -122.408,
+            37.785,
+            5
+          ],
+          [
+            -122.398,
+            37.794,
+            5
+          ]
+        ],
+        "width": 4,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.4,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "stroke": "#ff6600",
+      "stroke-width": 4
+    }
+  },
+  {
+    "id": "simplestyle-civic-center-poly",
+    "name": "Civic Center District",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "polygon",
+      "positionsDegrees": [
+        [
+          -122.422,
+          37.776,
+          0
+        ],
+        [
+          -122.414,
+          37.776,
+          0
+        ],
+        [
+          -122.414,
+          37.782,
+          0
+        ],
+        [
+          -122.422,
+          37.782,
+          0
+        ]
+      ],
+      "height": 0,
+      "extrudedHeight": null
+    },
+    "color": [
+      0.1,
+      0.8,
+      0.4,
+      0.45
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0,
+      0.5,
+      0.2,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "fill": "#19cc66",
+      "fill-opacity": 0.45,
+      "stroke": "#008033"
+    }
+  }
+]

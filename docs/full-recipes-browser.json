@@ -744,6 +744,170 @@
       ]
     },
     {
+      "id": "clustering",
+      "status": "passed",
+      "entities": 5,
+      "sourceSha256": "8c8f258f1767261c654756112c2e53863cbcdd971416776bd873f4ebcd780764",
+      "inputSha256": "123bdc694cd0c92300d9402f49ce442930681a30d7452d135176a802b73f3d98",
+      "fixtureSha256": "2ac57ae82042b7f49df29c5509bdaefad18cd9a96a02423206d897514686b1c3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "cluster-cern",
+        "cluster-fermilab",
+        "cluster-kek",
+        "cluster-desy",
+        "cluster-badge-eu"
+      ],
+      "pixelCounts": [
+        {
+          "id": "cluster-cern",
+          "pixels": 692
+        },
+        {
+          "id": "cluster-fermilab",
+          "pixels": 706
+        },
+        {
+          "id": "cluster-kek",
+          "pixels": 692
+        },
+        {
+          "id": "cluster-desy",
+          "pixels": 692
+        },
+        {
+          "id": "cluster-badge-eu",
+          "pixels": 2945
+        }
+      ]
+    },
+    {
+      "id": "geojson-simplestyle",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "0361037fd7250ae2f1f2cd7a32916f2f2177dba64f8a528f5b354d7b87adbb8f",
+      "inputSha256": "8f77970adeae0f16cd3147d811d50e80a3eb1b47300282a280d88d3740fd2e4e",
+      "fixtureSha256": "15510b708e146ffc16166d984dd2ad252c9a69c4d71f72fdbebf13d0785468fd",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "simplestyle-marker-sf",
+        "simplestyle-corridor-route",
+        "simplestyle-civic-center-poly"
+      ],
+      "pixelCounts": [
+        {
+          "id": "simplestyle-marker-sf",
+          "pixels": 908
+        },
+        {
+          "id": "simplestyle-corridor-route",
+          "pixels": 1459
+        },
+        {
+          "id": "simplestyle-civic-center-poly",
+          "pixels": 65949
+        }
+      ]
+    },
+    {
+      "id": "geojson-and-topojson",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "0aa9ecbcb160b48332d546cb11369276ad6593b0ca2ec3bdad10a10fff70b4e8",
+      "inputSha256": "528b5c38906527e02f8b39535d55a230c3aa913da15c9b371c6b032a19f00be1",
+      "fixtureSha256": "dc4e377626739ee6e6e94ed9e353795dc922f4b005969552acd36c35247c062d",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "state-california",
+        "state-texas",
+        "state-new-york",
+        "state-florida"
+      ],
+      "pixelCounts": [
+        {
+          "id": "state-california",
+          "pixels": 28959
+        },
+        {
+          "id": "state-texas",
+          "pixels": 55251
+        },
+        {
+          "id": "state-new-york",
+          "pixels": 34000
+        },
+        {
+          "id": "state-florida",
+          "pixels": 11071
+        }
+      ]
+    },
+    {
+      "id": "kml",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "40508f521ec1b796d252c44c66d88a6c264dddebf05a3bc6b749a58456078661",
+      "inputSha256": "02df896d44f7e6effd36da1dab4d7623a74ec11aa4d2508a522d905c009aa1dc",
+      "fixtureSha256": "61a0b2daf05d300b17a5c43f09cd86f5470e753418801700acf6376f40dbd26a",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "kml-facility-pin",
+        "kml-gdp-polygon",
+        "kml-bike-rider",
+        "kml-bike-track"
+      ],
+      "pixelCounts": [
+        {
+          "id": "kml-facility-pin",
+          "pixels": 908
+        },
+        {
+          "id": "kml-gdp-polygon",
+          "pixels": 65844
+        },
+        {
+          "id": "kml-bike-rider",
+          "pixels": 108
+        },
+        {
+          "id": "kml-bike-track",
+          "pixels": 1454
+        }
+      ]
+    },
+    {
       "id": "czml",
       "status": "passed",
       "entities": 8,
@@ -4630,7 +4794,7 @@
       ],
       "localTileRequests": 34,
       "externalRequests": 0,
-      "colors": 20324,
+      "colors": 19821,
       "assetsSha256": "f7dbc2e3295e40bbd1f08bfcc476efe0c5237acdb6df8e7410943c9b8de081e4"
     }
   ],

@@ -134,6 +134,10 @@ $('fullNew96').onclick=guarded(()=>runFull('czml'));
 $('fullNew97').onclick=guarded(()=>runFull('multi-part-czml'));
 $('fullNew98').onclick=guarded(()=>runFull('relative-paths'));
 $('fullNew99').onclick=guarded(()=>runFull('time-dynamic-wheels'));
+$('fullNew100').onclick=guarded(()=>runFull('clustering'));
+$('fullNew101').onclick=guarded(()=>runFull('geojson-simplestyle'));
+$('fullNew102').onclick=guarded(()=>runFull('geojson-and-topojson'));
+$('fullNew103').onclick=guarded(()=>runFull('kml'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

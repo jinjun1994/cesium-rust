@@ -1,0 +1,753 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "KML - Global Science Facilities",
+      "entities": [
+        {
+          "id": "kml-facility-pin",
+          "name": "Global Facility Placemark",
+          "show": true,
+          "positionDegrees": [
+            6.05,
+            46.23,
+            200
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 32,
+            "height": 32
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "placemark"
+          }
+        },
+        {
+          "id": "kml-gdp-polygon",
+          "name": "GDP per capita 2008",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "polygon",
+            "positionsDegrees": [
+              [
+                -5,
+                42,
+                0
+              ],
+              [
+                8,
+                42,
+                0
+              ],
+              [
+                8,
+                51,
+                0
+              ],
+              [
+                -5,
+                51,
+                0
+              ]
+            ],
+            "height": 0,
+            "extrudedHeight": 45000
+          },
+          "color": [
+            0.2,
+            0.6,
+            0.9,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.1,
+            0.3,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "gdp"
+          }
+        },
+        {
+          "id": "kml-bike-rider",
+          "name": "Tour Rider",
+          "show": false,
+          "positionDegrees": [
+            -122.42,
+            37.77,
+            50
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 1
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "tour"
+          }
+        },
+        {
+          "id": "kml-bike-track",
+          "name": "Bike Ride Track",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.43,
+                  37.76,
+                  30
+                ],
+                [
+                  -122.42,
+                  37.77,
+                  50
+                ],
+                [
+                  -122.41,
+                  37.78,
+                  40
+                ],
+                [
+                  -122.4,
+                  37.79,
+                  20
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            0.9,
+            0.3,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "tour"
+          }
+        }
+      ]
+    },
+    {
+      "label": "KMZ with embedded data - GDP per capita",
+      "entities": [
+        {
+          "id": "kml-facility-pin",
+          "name": "Global Facility Placemark",
+          "show": false,
+          "positionDegrees": [
+            6.05,
+            46.23,
+            200
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 32,
+            "height": 32
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "placemark"
+          }
+        },
+        {
+          "id": "kml-gdp-polygon",
+          "name": "GDP per capita 2008",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "polygon",
+            "positionsDegrees": [
+              [
+                -5,
+                42,
+                0
+              ],
+              [
+                8,
+                42,
+                0
+              ],
+              [
+                8,
+                51,
+                0
+              ],
+              [
+                -5,
+                51,
+                0
+              ]
+            ],
+            "height": 0,
+            "extrudedHeight": 45000
+          },
+          "color": [
+            0.2,
+            0.6,
+            0.9,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.1,
+            0.3,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "gdp"
+          }
+        },
+        {
+          "id": "kml-bike-rider",
+          "name": "Tour Rider",
+          "show": false,
+          "positionDegrees": [
+            -122.42,
+            37.77,
+            50
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 1
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "tour"
+          }
+        },
+        {
+          "id": "kml-bike-track",
+          "name": "Bike Ride Track",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.43,
+                  37.76,
+                  30
+                ],
+                [
+                  -122.42,
+                  37.77,
+                  50
+                ],
+                [
+                  -122.41,
+                  37.78,
+                  40
+                ],
+                [
+                  -122.4,
+                  37.79,
+                  20
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            0.9,
+            0.3,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "tour"
+          }
+        }
+      ]
+    },
+    {
+      "label": "gx KML extensions - Bike Ride",
+      "entities": [
+        {
+          "id": "kml-facility-pin",
+          "name": "Global Facility Placemark",
+          "show": false,
+          "positionDegrees": [
+            6.05,
+            46.23,
+            200
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 32,
+            "height": 32
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "placemark"
+          }
+        },
+        {
+          "id": "kml-gdp-polygon",
+          "name": "GDP per capita 2008",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "polygon",
+            "positionsDegrees": [
+              [
+                -5,
+                42,
+                0
+              ],
+              [
+                8,
+                42,
+                0
+              ],
+              [
+                8,
+                51,
+                0
+              ],
+              [
+                -5,
+                51,
+                0
+              ]
+            ],
+            "height": 0,
+            "extrudedHeight": 45000
+          },
+          "color": [
+            0.2,
+            0.6,
+            0.9,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.1,
+            0.3,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "gdp"
+          }
+        },
+        {
+          "id": "kml-bike-rider",
+          "name": "Tour Rider",
+          "show": true,
+          "positionDegrees": [
+            -122.42,
+            37.77,
+            50
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 1
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "tour"
+          }
+        },
+        {
+          "id": "kml-bike-track",
+          "name": "Bike Ride Track",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.43,
+                  37.76,
+                  30
+                ],
+                [
+                  -122.42,
+                  37.77,
+                  50
+                ],
+                [
+                  -122.41,
+                  37.78,
+                  40
+                ],
+                [
+                  -122.4,
+                  37.79,
+                  20
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            0.9,
+            0.3,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "tour"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Simple Placemarks and Paths",
+      "entities": [
+        {
+          "id": "kml-facility-pin",
+          "name": "Global Facility Placemark",
+          "show": true,
+          "positionDegrees": [
+            6.05,
+            46.23,
+            200
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 32,
+            "height": 32
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "placemark"
+          }
+        },
+        {
+          "id": "kml-gdp-polygon",
+          "name": "GDP per capita 2008",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "polygon",
+            "positionsDegrees": [
+              [
+                -5,
+                42,
+                0
+              ],
+              [
+                8,
+                42,
+                0
+              ],
+              [
+                8,
+                51,
+                0
+              ],
+              [
+                -5,
+                51,
+                0
+              ]
+            ],
+            "height": 0,
+            "extrudedHeight": 45000
+          },
+          "color": [
+            0.2,
+            0.6,
+            0.9,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.1,
+            0.3,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "gdp"
+          }
+        },
+        {
+          "id": "kml-bike-rider",
+          "name": "Tour Rider",
+          "show": true,
+          "positionDegrees": [
+            -122.42,
+            37.77,
+            50
+          ],
+          "shape": {
+            "type": "point",
+            "pixelSize": 10,
+            "outlineColor": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "outlineWidth": 1
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "tour"
+          }
+        },
+        {
+          "id": "kml-bike-track",
+          "name": "Bike Ride Track",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.43,
+                  37.76,
+                  30
+                ],
+                [
+                  -122.42,
+                  37.77,
+                  50
+                ],
+                [
+                  -122.41,
+                  37.78,
+                  40
+                ],
+                [
+                  -122.4,
+                  37.79,
+                  20
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            0.9,
+            0.3,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "kmlType": "tour"
+          }
+        }
+      ]
+    }
+  ]
+}

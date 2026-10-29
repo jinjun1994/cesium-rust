@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.44（已通过 123 / 309 个完整案例，剩余 186 个）
+- **当前版本**：v0.0.45（已通过 127 / 309 个完整案例，剩余 182 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.45 验收完成：科研重器空间聚类与动态徽标、GeoJSON Simplestyle 多视态、TopoJSON 拓扑面人口挤出与 KML/KMZ 空间数据源
+- **完成配方**（累计推进至 **127 / 309**，剩余 182 个）：
+  1. `clustering`（全球科研重器空间位置聚类与动态徽标标记：CERN、Fermilab、KEK、DESY 科学台站图钉与 40px/80px/自定义聚类徽章 4 种变体）
+  2. `geojson-simplestyle`（Simplestyle 规范点线面样式体系与 2D/3D 多视态投影：旧金山地标图钉、红色交通走廊折线、青蓝市政多边形、2D/Columbus View/定制配色 4 种变体）
+  3. `geojson-and-topojson`（美国行政州界拓扑多边形、人口高度挤出模型与属性驱动着色：加利福尼亚、德克萨斯、纽约、佛罗里达州界、55km~100km 人口挤出三维柱体与伪随机配色 4 种变体）
+  4. `kml`（全球科学设施地标、GDP 挤出面体与 GX Bike 骑行时序轨迹：Placemark 点标、GDP 挤出立体面、自行车动目标与高亮轨迹 4 种变体）
+- **核心研发突破**：
+  1. **WidePolyline 与 Polygon 几何数据约束对齐**：规范 Cartographic 经纬度三元组（`[lon, lat, alt]`）在宽折线与多边形外环中的严格数值约束，杜绝 ECEF 笛卡尔坐标混淆引起的越界。
+  2. **多变体测试管线针对初始隐藏实体（`e.show: false`）的自动兼容**：GPU 离屏渲染测试框架自适应过滤非可见实体的单体隔离渲染，彻底消除 `RenderError("no visible entity bounds")` 误报。
+  3. **空间点标聚类与徽标渲染管线**：验证大规模实体在不同视距和屏幕间距阈值下的自适应聚集表现，聚类徽章（`cluster-badge`）在原生与 WebGPU 离屏中均精准输出数千像素的有效着色。
+  4. **TopoJSON/GeoJSON 属性挤出（Extrusion）高度稳定渲染**：代表性大州人口挤出柱体在 55km ~ 100km 垂直延伸时光栅化呈现立体柱体，顶盖与侧壁法线计算完整。
+- **验证结果**：
+  - **普通 Rust 单元测试**：107 项全部通过（含 `batch45_clustering_geojson_topojson_kml`）。
+  - **真实 GPU 离屏渲染测试**：128 / 128 项全数通过（`128 passed; 0 failed; finished in 42.31s`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：127 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Clustering、GeoJSON Simplestyle、GeoJSON and TopoJSON 与 KML 验证文档](docs/clustering-geojson-kml-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
 
 ### [2026-10-30] v0.0.44 验收完成：多数据包 CZML 空间地面画廊、4500s 分段流式油量监控、动参考系相对航线与车轮铰接加速测速
 - **完成配方**（累计推进至 **123 / 309**，剩余 186 个）：

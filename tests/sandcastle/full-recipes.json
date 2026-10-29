@@ -3523,6 +3523,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "clustering",
+      "title": "Clustering",
+      "sourceSha256": "8c8f258f1767261c654756112c2e53863cbcdd971416776bd873f4ebcd780764",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=clustering",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/clustering.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/clustering.json",
+      "entityCount": 5,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Global facilities placemark clustering with dynamic count badge and distance threshold",
+        "EntityCluster support with billboard and label clustering modes"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "geojson-simplestyle",
+      "title": "GeoJSON simplestyle",
+      "sourceSha256": "0361037fd7250ae2f1f2cd7a32916f2f2177dba64f8a528f5b354d7b87adbb8f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=geojson-simplestyle",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/geojson-simplestyle.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/geojson-simplestyle.json",
+      "entityCount": 3,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "GeoJSON simplestyle standard specification feature loading",
+        "Marker symbols, route stroke/strokeWidth, and district fill/fillOpacity"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "geojson-and-topojson",
+      "title": "GeoJSON and TopoJSON",
+      "sourceSha256": "0aa9ecbcb160b48332d546cb11369276ad6593b0ca2ec3bdad10a10fff70b4e8",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=geojson-and-topojson",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/geojson-and-topojson.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/geojson-and-topojson.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "TopoJSON / GeoJSON US states polygon vector boundaries",
+        "Default styling, basic styling (hotpink stroke/pink fill), population extrusion, and random coloring"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "kml",
+      "title": "KML",
+      "sourceSha256": "40508f521ec1b796d252c44c66d88a6c264dddebf05a3bc6b749a58456078661",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=kml",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/kml.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/kml.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "KML / KMZ data source features across multiple geographic datasets",
+        "Global facilities, GDP per capita extruded polygons, and gx bike tour track"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

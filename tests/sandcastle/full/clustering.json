@@ -1,0 +1,206 @@
+[
+  {
+    "id": "cluster-cern",
+    "name": "CERN LHC",
+    "show": true,
+    "positionDegrees": [
+      6.05,
+      46.23,
+      100
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+      "scale": 1,
+      "width": 28,
+      "height": 28
+    },
+    "color": [
+      0,
+      0.8,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "facility": "CERN",
+      "country": "CH"
+    }
+  },
+  {
+    "id": "cluster-fermilab",
+    "name": "Fermilab",
+    "show": true,
+    "positionDegrees": [
+      -88.25,
+      41.84,
+      100
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+      "scale": 1,
+      "width": 28,
+      "height": 28
+    },
+    "color": [
+      1,
+      0.6,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "facility": "Fermilab",
+      "country": "US"
+    }
+  },
+  {
+    "id": "cluster-kek",
+    "name": "KEK Tsukuba",
+    "show": true,
+    "positionDegrees": [
+      140.07,
+      36.15,
+      100
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+      "scale": 1,
+      "width": 28,
+      "height": 28
+    },
+    "color": [
+      0.2,
+      0.9,
+      0.2,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "facility": "KEK",
+      "country": "JP"
+    }
+  },
+  {
+    "id": "cluster-desy",
+    "name": "DESY Hamburg",
+    "show": true,
+    "positionDegrees": [
+      9.88,
+      53.58,
+      100
+    ],
+    "shape": {
+      "type": "billboard",
+      "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+      "scale": 1,
+      "width": 28,
+      "height": 28
+    },
+    "color": [
+      0.9,
+      0.3,
+      0.8,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "facility": "DESY",
+      "country": "DE"
+    }
+  },
+  {
+    "id": "cluster-badge-eu",
+    "name": "Europe Cluster Badge (2)",
+    "show": true,
+    "positionDegrees": [
+      7.96,
+      49.9,
+      500
+    ],
+    "shape": {
+      "type": "label",
+      "appearance": {
+        "style": "FILL",
+        "showBackground": true,
+        "backgroundColor": [
+          0.1,
+          0.5,
+          0.9,
+          0.85
+        ],
+        "backgroundPadding": [
+          10,
+          6
+        ],
+        "outlineColor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "outlineWidth": 1
+      },
+      "text": "2 Facilities",
+      "fontSize": 14,
+      "scale": 1,
+      "pixelOffset": [
+        0,
+        -10
+      ]
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "clusterCount": 2,
+      "region": "Europe"
+    }
+  }
+]

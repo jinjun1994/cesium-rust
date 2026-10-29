@@ -3709,4 +3709,57 @@ mod tests {
         let wheels_variants = crate::entity_variants::decode(&wheels_variants_raw).unwrap();
         assert_eq!(wheels_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch45_clustering_geojson_topojson_kml() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Clustering
+        let cluster_data = std::fs::read(base.join("clustering.json")).unwrap();
+        let cluster_entities = decode(&cluster_data).unwrap();
+        assert_eq!(cluster_entities.len(), 5);
+        assert!(matches!(cluster_entities[0].shape, Shape::Billboard { .. }));
+        assert!(matches!(cluster_entities[4].shape, Shape::Label { .. }));
+        let cluster_variants_raw = std::fs::read(base.join("clustering.variants.json")).unwrap();
+        let cluster_variants = crate::entity_variants::decode(&cluster_variants_raw).unwrap();
+        assert_eq!(cluster_variants.variants.len(), 4);
+
+        // 2. GeoJSON simplestyle
+        let simple_data = std::fs::read(base.join("geojson-simplestyle.json")).unwrap();
+        let simple_entities = decode(&simple_data).unwrap();
+        assert_eq!(simple_entities.len(), 3);
+        assert!(matches!(simple_entities[0].shape, Shape::Billboard { .. }));
+        assert!(matches!(
+            simple_entities[1].shape,
+            Shape::WidePolyline { .. }
+        ));
+        assert!(matches!(simple_entities[2].shape, Shape::Polygon { .. }));
+        let simple_variants_raw =
+            std::fs::read(base.join("geojson-simplestyle.variants.json")).unwrap();
+        let simple_variants = crate::entity_variants::decode(&simple_variants_raw).unwrap();
+        assert_eq!(simple_variants.variants.len(), 4);
+
+        // 3. GeoJSON and TopoJSON
+        let topo_data = std::fs::read(base.join("geojson-and-topojson.json")).unwrap();
+        let topo_entities = decode(&topo_data).unwrap();
+        assert_eq!(topo_entities.len(), 4);
+        assert!(matches!(topo_entities[0].shape, Shape::Polygon { .. }));
+        let topo_variants_raw =
+            std::fs::read(base.join("geojson-and-topojson.variants.json")).unwrap();
+        let topo_variants = crate::entity_variants::decode(&topo_variants_raw).unwrap();
+        assert_eq!(topo_variants.variants.len(), 4);
+
+        // 4. KML
+        let kml_data = std::fs::read(base.join("kml.json")).unwrap();
+        let kml_entities = decode(&kml_data).unwrap();
+        assert_eq!(kml_entities.len(), 4);
+        assert!(matches!(kml_entities[0].shape, Shape::Billboard { .. }));
+        assert!(matches!(kml_entities[1].shape, Shape::Polygon { .. }));
+        assert!(matches!(kml_entities[2].shape, Shape::Point { .. }));
+        assert!(matches!(kml_entities[3].shape, Shape::WidePolyline { .. }));
+        let kml_variants_raw = std::fs::read(base.join("kml.variants.json")).unwrap();
+        let kml_variants = crate::entity_variants::decode(&kml_variants_raw).unwrap();
+        assert_eq!(kml_variants.variants.len(), 4);
+    }
 }
