@@ -1,0 +1,1569 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Satellites (simple.czml)",
+      "entities": [
+        {
+          "id": "czml-geoeye1",
+          "name": "GeoEye-1",
+          "show": true,
+          "positionDegrees": [
+            -45,
+            30,
+            700000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-geoeye1-path",
+          "name": "GeoEye-1 Orbit Path",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -50,
+                  20,
+                  680000
+                ],
+                [
+                  -45,
+                  30,
+                  700000
+                ],
+                [
+                  -40,
+                  40,
+                  690000
+                ],
+                [
+                  -35,
+                  50,
+                  680000
+                ]
+              ],
+              "width": 3,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-iss",
+          "name": "ISS",
+          "show": true,
+          "positionDegrees": [
+            15,
+            -20,
+            415000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1.2,
+            "width": 32,
+            "height": 32
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-iss-path",
+          "name": "ISS Orbit Path",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  10,
+                  -10,
+                  410000
+                ],
+                [
+                  15,
+                  -20,
+                  415000
+                ],
+                [
+                  20,
+                  -30,
+                  410000
+                ],
+                [
+                  25,
+                  -40,
+                  405000
+                ]
+              ],
+              "width": 3,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-agi-facility",
+          "name": "AGI Facility",
+          "show": true,
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            100
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL",
+              "showBackground": true,
+              "backgroundColor": [
+                0.1,
+                0.1,
+                0.1,
+                0.7
+              ],
+              "backgroundPadding": [
+                6,
+                4
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "AGI Facility",
+            "fontSize": 13,
+            "scale": 1,
+            "pixelOffset": [
+              12,
+              -4
+            ]
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "facility"
+          }
+        },
+        {
+          "id": "czml-pa-polygon",
+          "name": "Pennsylvania Territory",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "polygon",
+            "positionsDegrees": [
+              [
+                -80.5,
+                39.7,
+                0
+              ],
+              [
+                -74.7,
+                39.7,
+                0
+              ],
+              [
+                -74.7,
+                42,
+                0
+              ],
+              [
+                -80.5,
+                42,
+                0
+              ]
+            ],
+            "height": 0,
+            "extrudedHeight": null
+          },
+          "color": [
+            0.6,
+            0.1,
+            0.6,
+            0.4
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "region"
+          }
+        },
+        {
+          "id": "czml-ground-vehicle",
+          "name": "Ground Vehicle",
+          "show": false,
+          "positionDegrees": [
+            -116.52,
+            35.02,
+            10
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "vehicle"
+          }
+        },
+        {
+          "id": "czml-vehicle-path",
+          "name": "Vehicle Route",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -116.52,
+                  35.02,
+                  10
+                ],
+                [
+                  -116.48,
+                  35.05,
+                  10
+                ],
+                [
+                  -116.42,
+                  35.1,
+                  10
+                ],
+                [
+                  -116.35,
+                  35.15,
+                  10
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            0.7,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "vehicle"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Vehicle (Vehicle.czml)",
+      "entities": [
+        {
+          "id": "czml-geoeye1",
+          "name": "GeoEye-1",
+          "show": false,
+          "positionDegrees": [
+            -45,
+            30,
+            700000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-geoeye1-path",
+          "name": "GeoEye-1 Orbit Path",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -50,
+                  20,
+                  680000
+                ],
+                [
+                  -45,
+                  30,
+                  700000
+                ],
+                [
+                  -40,
+                  40,
+                  690000
+                ],
+                [
+                  -35,
+                  50,
+                  680000
+                ]
+              ],
+              "width": 3,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-iss",
+          "name": "ISS",
+          "show": false,
+          "positionDegrees": [
+            15,
+            -20,
+            415000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1.2,
+            "width": 32,
+            "height": 32
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-iss-path",
+          "name": "ISS Orbit Path",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  10,
+                  -10,
+                  410000
+                ],
+                [
+                  15,
+                  -20,
+                  415000
+                ],
+                [
+                  20,
+                  -30,
+                  410000
+                ],
+                [
+                  25,
+                  -40,
+                  405000
+                ]
+              ],
+              "width": 3,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-agi-facility",
+          "name": "AGI Facility",
+          "show": false,
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            100
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL",
+              "showBackground": true,
+              "backgroundColor": [
+                0.1,
+                0.1,
+                0.1,
+                0.7
+              ],
+              "backgroundPadding": [
+                6,
+                4
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "AGI Facility",
+            "fontSize": 13,
+            "scale": 1,
+            "pixelOffset": [
+              12,
+              -4
+            ]
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "facility"
+          }
+        },
+        {
+          "id": "czml-pa-polygon",
+          "name": "Pennsylvania Territory",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "polygon",
+            "positionsDegrees": [
+              [
+                -80.5,
+                39.7,
+                0
+              ],
+              [
+                -74.7,
+                39.7,
+                0
+              ],
+              [
+                -74.7,
+                42,
+                0
+              ],
+              [
+                -80.5,
+                42,
+                0
+              ]
+            ],
+            "height": 0,
+            "extrudedHeight": null
+          },
+          "color": [
+            0.6,
+            0.1,
+            0.6,
+            0.4
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "region"
+          }
+        },
+        {
+          "id": "czml-ground-vehicle",
+          "name": "Ground Vehicle",
+          "show": true,
+          "positionDegrees": [
+            -116.52,
+            35.02,
+            10
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "vehicle"
+          }
+        },
+        {
+          "id": "czml-vehicle-path",
+          "name": "Vehicle Route",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -116.52,
+                  35.02,
+                  10
+                ],
+                [
+                  -116.48,
+                  35.05,
+                  10
+                ],
+                [
+                  -116.42,
+                  35.1,
+                  10
+                ],
+                [
+                  -116.35,
+                  35.15,
+                  10
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            0.7,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "vehicle"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Both (Satellites and Vehicle)",
+      "entities": [
+        {
+          "id": "czml-geoeye1",
+          "name": "GeoEye-1",
+          "show": true,
+          "positionDegrees": [
+            -45,
+            30,
+            700000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-geoeye1-path",
+          "name": "GeoEye-1 Orbit Path",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -50,
+                  20,
+                  680000
+                ],
+                [
+                  -45,
+                  30,
+                  700000
+                ],
+                [
+                  -40,
+                  40,
+                  690000
+                ],
+                [
+                  -35,
+                  50,
+                  680000
+                ]
+              ],
+              "width": 3,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-iss",
+          "name": "ISS",
+          "show": true,
+          "positionDegrees": [
+            15,
+            -20,
+            415000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1.2,
+            "width": 32,
+            "height": 32
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-iss-path",
+          "name": "ISS Orbit Path",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  10,
+                  -10,
+                  410000
+                ],
+                [
+                  15,
+                  -20,
+                  415000
+                ],
+                [
+                  20,
+                  -30,
+                  410000
+                ],
+                [
+                  25,
+                  -40,
+                  405000
+                ]
+              ],
+              "width": 3,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-agi-facility",
+          "name": "AGI Facility",
+          "show": true,
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            100
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL",
+              "showBackground": true,
+              "backgroundColor": [
+                0.1,
+                0.1,
+                0.1,
+                0.7
+              ],
+              "backgroundPadding": [
+                6,
+                4
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "AGI Facility",
+            "fontSize": 13,
+            "scale": 1,
+            "pixelOffset": [
+              12,
+              -4
+            ]
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "facility"
+          }
+        },
+        {
+          "id": "czml-pa-polygon",
+          "name": "Pennsylvania Territory",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "polygon",
+            "positionsDegrees": [
+              [
+                -80.5,
+                39.7,
+                0
+              ],
+              [
+                -74.7,
+                39.7,
+                0
+              ],
+              [
+                -74.7,
+                42,
+                0
+              ],
+              [
+                -80.5,
+                42,
+                0
+              ]
+            ],
+            "height": 0,
+            "extrudedHeight": null
+          },
+          "color": [
+            0.6,
+            0.1,
+            0.6,
+            0.4
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "region"
+          }
+        },
+        {
+          "id": "czml-ground-vehicle",
+          "name": "Ground Vehicle",
+          "show": true,
+          "positionDegrees": [
+            -116.52,
+            35.02,
+            10
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "vehicle"
+          }
+        },
+        {
+          "id": "czml-vehicle-path",
+          "name": "Vehicle Route",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -116.52,
+                  35.02,
+                  10
+                ],
+                [
+                  -116.48,
+                  35.05,
+                  10
+                ],
+                [
+                  -116.42,
+                  35.1,
+                  10
+                ],
+                [
+                  -116.35,
+                  35.15,
+                  10
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            0.7,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "vehicle"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Vehicle Close-Up",
+      "entities": [
+        {
+          "id": "czml-geoeye1",
+          "name": "GeoEye-1",
+          "show": false,
+          "positionDegrees": [
+            -45,
+            30,
+            700000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-geoeye1-path",
+          "name": "GeoEye-1 Orbit Path",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -50,
+                  20,
+                  680000
+                ],
+                [
+                  -45,
+                  30,
+                  700000
+                ],
+                [
+                  -40,
+                  40,
+                  690000
+                ],
+                [
+                  -35,
+                  50,
+                  680000
+                ]
+              ],
+              "width": 3,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-iss",
+          "name": "ISS",
+          "show": false,
+          "positionDegrees": [
+            15,
+            -20,
+            415000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1.2,
+            "width": 32,
+            "height": 32
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-iss-path",
+          "name": "ISS Orbit Path",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  10,
+                  -10,
+                  410000
+                ],
+                [
+                  15,
+                  -20,
+                  415000
+                ],
+                [
+                  20,
+                  -30,
+                  410000
+                ],
+                [
+                  25,
+                  -40,
+                  405000
+                ]
+              ],
+              "width": 3,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "satellite"
+          }
+        },
+        {
+          "id": "czml-agi-facility",
+          "name": "AGI Facility",
+          "show": false,
+          "positionDegrees": [
+            -75.59777,
+            40.03883,
+            100
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL",
+              "showBackground": true,
+              "backgroundColor": [
+                0.1,
+                0.1,
+                0.1,
+                0.7
+              ],
+              "backgroundPadding": [
+                6,
+                4
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "AGI Facility",
+            "fontSize": 13,
+            "scale": 1,
+            "pixelOffset": [
+              12,
+              -4
+            ]
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "facility"
+          }
+        },
+        {
+          "id": "czml-pa-polygon",
+          "name": "Pennsylvania Territory",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "polygon",
+            "positionsDegrees": [
+              [
+                -80.5,
+                39.7,
+                0
+              ],
+              [
+                -74.7,
+                39.7,
+                0
+              ],
+              [
+                -74.7,
+                42,
+                0
+              ],
+              [
+                -80.5,
+                42,
+                0
+              ]
+            ],
+            "height": 0,
+            "extrudedHeight": null
+          },
+          "color": [
+            0.6,
+            0.1,
+            0.6,
+            0.4
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "region"
+          }
+        },
+        {
+          "id": "czml-ground-vehicle",
+          "name": "Ground Vehicle",
+          "show": true,
+          "positionDegrees": [
+            -116.52,
+            35.02,
+            10
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "vehicle"
+          }
+        },
+        {
+          "id": "czml-vehicle-path",
+          "name": "Vehicle Route",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -116.52,
+                  35.02,
+                  10
+                ],
+                [
+                  -116.48,
+                  35.05,
+                  10
+                ],
+                [
+                  -116.42,
+                  35.1,
+                  10
+                ],
+                [
+                  -116.35,
+                  35.15,
+                  10
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            0.7,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "category": "vehicle"
+          }
+        }
+      ]
+    }
+  ]
+}

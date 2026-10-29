@@ -1,0 +1,154 @@
+[
+  {
+    "id": "dynamic-ground-vehicle",
+    "name": "Articulated Ground Vehicle",
+    "show": true,
+    "positionDegrees": [
+      -117.02292,
+      34.89164,
+      0
+    ],
+    "shape": {
+      "type": "model",
+      "uri": "SampleData/models/GroundVehicle/GroundVehicle.glb",
+      "scale": 1,
+      "minimumPixelSize": 64,
+      "maximumScale": 2000
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "speedKmHr": 45,
+      "mode": "accelerating"
+    }
+  },
+  {
+    "id": "dynamic-speed-readout",
+    "name": "Speed Readout",
+    "show": true,
+    "positionDegrees": [
+      -117.02292,
+      34.89164,
+      4
+    ],
+    "shape": {
+      "type": "label",
+      "appearance": {
+        "style": "FILL",
+        "showBackground": true,
+        "backgroundColor": [
+          0.1,
+          0.1,
+          0.1,
+          0.8
+        ],
+        "backgroundPadding": [
+          7,
+          5
+        ],
+        "outlineColor": [
+          0,
+          0,
+          0,
+          1
+        ],
+        "outlineWidth": 1
+      },
+      "text": "45 km/hr",
+      "fontSize": 16,
+      "scale": 1,
+      "pixelOffset": [
+        0,
+        -20
+      ]
+    },
+    "color": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "speedKmHr": 45
+    }
+  },
+  {
+    "id": "vehicle-corridor-path",
+    "name": "Runway Path",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "widePolyline",
+      "data": {
+        "positions": [
+          [
+            -117.02292,
+            34.89164,
+            1
+          ],
+          [
+            -117.02291340000001,
+            34.8910889,
+            1
+          ],
+          [
+            -117.0229066,
+            34.8905211,
+            1
+          ],
+          [
+            -117.0229,
+            34.88997,
+            1
+          ]
+        ],
+        "width": 4,
+        "arcType": "GEODESIC",
+        "clampToGround": false,
+        "material": {
+          "type": "solid"
+        }
+      }
+    },
+    "color": [
+      1,
+      0.6,
+      0,
+      1
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "mode": "accelerating"
+    }
+  }
+]

@@ -3651,4 +3651,62 @@ mod tests {
         let path_variants = crate::entity_variants::decode(&path_variants_raw).unwrap();
         assert_eq!(path_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch44_czml_multipart_relativepaths_timedynamicwheels() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. CZML
+        let czml_data = std::fs::read(base.join("czml.json")).unwrap();
+        let czml_entities = decode(&czml_data).unwrap();
+        assert_eq!(czml_entities.len(), 8);
+        assert!(matches!(czml_entities[0].shape, Shape::Billboard { .. }));
+        assert!(matches!(czml_entities[1].shape, Shape::WidePolyline { .. }));
+        assert!(matches!(czml_entities[4].shape, Shape::Label { .. }));
+        assert!(matches!(czml_entities[5].shape, Shape::Polygon { .. }));
+        let czml_variants_raw = std::fs::read(base.join("czml.variants.json")).unwrap();
+        let czml_variants = crate::entity_variants::decode(&czml_variants_raw).unwrap();
+        assert_eq!(czml_variants.variants.len(), 4);
+
+        // 2. Multi-part CZML
+        let multipart_data = std::fs::read(base.join("multi-part-czml.json")).unwrap();
+        let multipart_entities = decode(&multipart_data).unwrap();
+        assert_eq!(multipart_entities.len(), 3);
+        assert!(matches!(multipart_entities[0].shape, Shape::Model { .. }));
+        assert!(matches!(multipart_entities[1].shape, Shape::Label { .. }));
+        assert!(matches!(
+            multipart_entities[2].shape,
+            Shape::WidePolyline { .. }
+        ));
+        let multipart_variants_raw =
+            std::fs::read(base.join("multi-part-czml.variants.json")).unwrap();
+        let multipart_variants = crate::entity_variants::decode(&multipart_variants_raw).unwrap();
+        assert_eq!(multipart_variants.variants.len(), 4);
+
+        // 3. Relative Paths
+        let rel_data = std::fs::read(base.join("relative-paths.json")).unwrap();
+        let rel_entities = decode(&rel_data).unwrap();
+        assert_eq!(rel_entities.len(), 5);
+        assert!(matches!(rel_entities[0].shape, Shape::Billboard { .. }));
+        assert!(matches!(rel_entities[4].shape, Shape::WidePolyline { .. }));
+        let rel_variants_raw = std::fs::read(base.join("relative-paths.variants.json")).unwrap();
+        let rel_variants = crate::entity_variants::decode(&rel_variants_raw).unwrap();
+        assert_eq!(rel_variants.variants.len(), 4);
+
+        // 4. Time Dynamic Wheels
+        let wheels_data = std::fs::read(base.join("time-dynamic-wheels.json")).unwrap();
+        let wheels_entities = decode(&wheels_data).unwrap();
+        assert_eq!(wheels_entities.len(), 3);
+        assert!(matches!(wheels_entities[0].shape, Shape::Model { .. }));
+        assert!(matches!(wheels_entities[1].shape, Shape::Label { .. }));
+        assert!(matches!(
+            wheels_entities[2].shape,
+            Shape::WidePolyline { .. }
+        ));
+        let wheels_variants_raw =
+            std::fs::read(base.join("time-dynamic-wheels.variants.json")).unwrap();
+        let wheels_variants = crate::entity_variants::decode(&wheels_variants_raw).unwrap();
+        assert_eq!(wheels_variants.variants.len(), 4);
+    }
 }

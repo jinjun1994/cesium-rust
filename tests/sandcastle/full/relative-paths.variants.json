@@ -1,0 +1,813 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Two Satellites Relative to Earth",
+      "entities": [
+        {
+          "id": "rel-satellite-1",
+          "name": "Satellite 1",
+          "show": true,
+          "positionDegrees": [
+            -60,
+            20,
+            500000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "satellite"
+          }
+        },
+        {
+          "id": "rel-satellite-2",
+          "name": "Satellite 2",
+          "show": true,
+          "positionDegrees": [
+            -58,
+            22,
+            520000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            0.8,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "satellite"
+          }
+        },
+        {
+          "id": "rel-ground-vehicle",
+          "name": "Ground Truck",
+          "show": false,
+          "positionDegrees": [
+            -116.52,
+            35.02,
+            10
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            0.5,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "vehicle"
+          }
+        },
+        {
+          "id": "rel-helicopter",
+          "name": "Helicopter",
+          "show": false,
+          "positionDegrees": [
+            -116.5,
+            35.04,
+            300
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            0.9,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "vehicle"
+          }
+        },
+        {
+          "id": "rel-trajectory-path",
+          "name": "Relative Trajectory Corridor",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -70,
+                  15,
+                  500000
+                ],
+                [
+                  -60,
+                  20,
+                  500000
+                ],
+                [
+                  -50,
+                  25,
+                  500000
+                ],
+                [
+                  -40,
+                  30,
+                  500000
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "sat-earth"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Satellite 1 Relative to Satellite 2",
+      "entities": [
+        {
+          "id": "rel-satellite-1",
+          "name": "Satellite 1",
+          "show": true,
+          "positionDegrees": [
+            -60,
+            20,
+            500000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "satellite"
+          }
+        },
+        {
+          "id": "rel-satellite-2",
+          "name": "Satellite 2",
+          "show": true,
+          "positionDegrees": [
+            -58,
+            22,
+            520000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            0.8,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "satellite"
+          }
+        },
+        {
+          "id": "rel-ground-vehicle",
+          "name": "Ground Truck",
+          "show": false,
+          "positionDegrees": [
+            -116.52,
+            35.02,
+            10
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            0.5,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "vehicle"
+          }
+        },
+        {
+          "id": "rel-helicopter",
+          "name": "Helicopter",
+          "show": false,
+          "positionDegrees": [
+            -116.5,
+            35.04,
+            300
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            0.9,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "vehicle"
+          }
+        },
+        {
+          "id": "rel-trajectory-path",
+          "name": "Relative Trajectory Corridor",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -62,
+                  18,
+                  500000
+                ],
+                [
+                  -60,
+                  20,
+                  500000
+                ],
+                [
+                  -58,
+                  22,
+                  500000
+                ],
+                [
+                  -56,
+                  24,
+                  500000
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            0.8,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "sat-relative"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Vehicle and Helicopter Relative to Earth",
+      "entities": [
+        {
+          "id": "rel-satellite-1",
+          "name": "Satellite 1",
+          "show": false,
+          "positionDegrees": [
+            -60,
+            20,
+            500000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "satellite"
+          }
+        },
+        {
+          "id": "rel-satellite-2",
+          "name": "Satellite 2",
+          "show": false,
+          "positionDegrees": [
+            -58,
+            22,
+            520000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            0.8,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "satellite"
+          }
+        },
+        {
+          "id": "rel-ground-vehicle",
+          "name": "Ground Truck",
+          "show": true,
+          "positionDegrees": [
+            -116.52,
+            35.02,
+            10
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            0.5,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "vehicle"
+          }
+        },
+        {
+          "id": "rel-helicopter",
+          "name": "Helicopter",
+          "show": true,
+          "positionDegrees": [
+            -116.5,
+            35.04,
+            300
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            0.9,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "vehicle"
+          }
+        },
+        {
+          "id": "rel-trajectory-path",
+          "name": "Relative Trajectory Corridor",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -116.55,
+                  35,
+                  10
+                ],
+                [
+                  -116.52,
+                  35.02,
+                  10
+                ],
+                [
+                  -116.48,
+                  35.05,
+                  10
+                ],
+                [
+                  -116.45,
+                  35.08,
+                  10
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            0.5,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "veh-earth"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Helicopter Relative to Vehicle",
+      "entities": [
+        {
+          "id": "rel-satellite-1",
+          "name": "Satellite 1",
+          "show": false,
+          "positionDegrees": [
+            -60,
+            20,
+            500000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "satellite"
+          }
+        },
+        {
+          "id": "rel-satellite-2",
+          "name": "Satellite 2",
+          "show": false,
+          "positionDegrees": [
+            -58,
+            22,
+            520000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            0.8,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "satellite"
+          }
+        },
+        {
+          "id": "rel-ground-vehicle",
+          "name": "Ground Truck",
+          "show": true,
+          "positionDegrees": [
+            -116.52,
+            35.02,
+            10
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            0.5,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "vehicle"
+          }
+        },
+        {
+          "id": "rel-helicopter",
+          "name": "Helicopter",
+          "show": true,
+          "positionDegrees": [
+            -116.5,
+            35.04,
+            300
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            0.9,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "system": "vehicle"
+          }
+        },
+        {
+          "id": "rel-trajectory-path",
+          "name": "Relative Trajectory Corridor",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -116.51,
+                  35.03,
+                  300
+                ],
+                [
+                  -116.5,
+                  35.04,
+                  300
+                ],
+                [
+                  -116.49,
+                  35.05,
+                  300
+                ],
+                [
+                  -116.48,
+                  35.06,
+                  300
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0.2,
+            0.9,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mode": "veh-relative"
+          }
+        }
+      ]
+    }
+  ]
+}

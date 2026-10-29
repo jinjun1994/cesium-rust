@@ -1,0 +1,591 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Part 1 (0 - 1500s)",
+      "entities": [
+        {
+          "id": "multipart-vehicle",
+          "name": "Transcontinental Vehicle",
+          "show": true,
+          "positionDegrees": [
+            -116.52,
+            35.02,
+            0
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+            "scale": 2,
+            "minimumPixelSize": 64,
+            "maximumScale": 2000
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fuel": 200
+          }
+        },
+        {
+          "id": "multipart-fuel-display",
+          "name": "Fuel Remaining",
+          "show": true,
+          "positionDegrees": [
+            -116.52,
+            35.02,
+            15
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL",
+              "showBackground": true,
+              "backgroundColor": [
+                0.15,
+                0.15,
+                0.15,
+                0.8
+              ],
+              "backgroundPadding": [
+                8,
+                5
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "Fuel: 200.00 gal",
+            "fontSize": 14,
+            "scale": 2,
+            "pixelOffset": [
+              0,
+              -25
+            ]
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fuel": 200
+          }
+        },
+        {
+          "id": "multipart-route-path",
+          "name": "Streamed Corridor",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -116.52,
+                  35.02,
+                  2
+                ],
+                [
+                  -116.35,
+                  35.15,
+                  2
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {}
+        }
+      ]
+    },
+    {
+      "label": "Part 2 (1500 - 3000s)",
+      "entities": [
+        {
+          "id": "multipart-vehicle",
+          "name": "Transcontinental Vehicle",
+          "show": true,
+          "positionDegrees": [
+            -116.35,
+            35.15,
+            0
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+            "scale": 2,
+            "minimumPixelSize": 64,
+            "maximumScale": 2000
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fuel": 133.3
+          }
+        },
+        {
+          "id": "multipart-fuel-display",
+          "name": "Fuel Remaining",
+          "show": true,
+          "positionDegrees": [
+            -116.35,
+            35.15,
+            15
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL",
+              "showBackground": true,
+              "backgroundColor": [
+                0.15,
+                0.15,
+                0.15,
+                0.8
+              ],
+              "backgroundPadding": [
+                8,
+                5
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "Fuel: 133.30 gal",
+            "fontSize": 14,
+            "scale": 2,
+            "pixelOffset": [
+              0,
+              -25
+            ]
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fuel": 133.3
+          }
+        },
+        {
+          "id": "multipart-route-path",
+          "name": "Streamed Corridor",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -116.35,
+                  35.15,
+                  2
+                ],
+                [
+                  -116.15,
+                  35.3,
+                  2
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {}
+        }
+      ]
+    },
+    {
+      "label": "Part 3 (3000 - 4500s)",
+      "entities": [
+        {
+          "id": "multipart-vehicle",
+          "name": "Transcontinental Vehicle",
+          "show": true,
+          "positionDegrees": [
+            -116.15,
+            35.3,
+            0
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+            "scale": 2,
+            "minimumPixelSize": 64,
+            "maximumScale": 2000
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fuel": 66.7
+          }
+        },
+        {
+          "id": "multipart-fuel-display",
+          "name": "Fuel Remaining",
+          "show": true,
+          "positionDegrees": [
+            -116.15,
+            35.3,
+            15
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL",
+              "showBackground": true,
+              "backgroundColor": [
+                0.15,
+                0.15,
+                0.15,
+                0.8
+              ],
+              "backgroundPadding": [
+                8,
+                5
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "Fuel: 66.70 gal",
+            "fontSize": 14,
+            "scale": 2,
+            "pixelOffset": [
+              0,
+              -25
+            ]
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fuel": 66.7
+          }
+        },
+        {
+          "id": "multipart-route-path",
+          "name": "Streamed Corridor",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -116.15,
+                  35.3,
+                  2
+                ],
+                [
+                  -115.9,
+                  35.45,
+                  2
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {}
+        }
+      ]
+    },
+    {
+      "label": "Combined Stream (0 - 4500s)",
+      "entities": [
+        {
+          "id": "multipart-vehicle",
+          "name": "Transcontinental Vehicle",
+          "show": true,
+          "positionDegrees": [
+            -115.9,
+            35.45,
+            0
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+            "scale": 2,
+            "minimumPixelSize": 64,
+            "maximumScale": 2000
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fuel": 20
+          }
+        },
+        {
+          "id": "multipart-fuel-display",
+          "name": "Fuel Remaining",
+          "show": true,
+          "positionDegrees": [
+            -115.9,
+            35.45,
+            15
+          ],
+          "shape": {
+            "type": "label",
+            "appearance": {
+              "style": "FILL",
+              "showBackground": true,
+              "backgroundColor": [
+                0.15,
+                0.15,
+                0.15,
+                0.8
+              ],
+              "backgroundPadding": [
+                8,
+                5
+              ],
+              "outlineColor": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "outlineWidth": 1
+            },
+            "text": "Fuel: 20.00 gal",
+            "fontSize": 14,
+            "scale": 2,
+            "pixelOffset": [
+              0,
+              -25
+            ]
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "fuel": 20
+          }
+        },
+        {
+          "id": "multipart-route-path",
+          "name": "Streamed Corridor",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -116.52,
+                  35.02,
+                  2
+                ],
+                [
+                  -116.35,
+                  35.15,
+                  2
+                ],
+                [
+                  -116.15,
+                  35.3,
+                  2
+                ],
+                [
+                  -115.9,
+                  35.45,
+                  2
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {}
+        }
+      ]
+    }
+  ]
+}

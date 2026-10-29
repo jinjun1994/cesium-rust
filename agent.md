@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.43（已通过 119 / 309 个完整案例，剩余 190 个）
+- **当前版本**：v0.0.44（已通过 123 / 309 个完整案例，剩余 186 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.44 验收完成：多数据包 CZML 空间地面画廊、4500s 分段流式油量监控、动参考系相对航线与车轮铰接加速测速
+- **完成配方**（累计推进至 **123 / 309**，剩余 186 个）：
+  1. `czml`（多数据包空间资产与地面车辆综合画廊：GeoEye-1、ISS 卫星广告牌/路径、AGI 地面站标注、宾夕法尼亚边界多边形与地面车辆 4 种变体）
+  2. `multi-part-czml`（莫哈韦沙漠 4500 秒分段流式 CZML 传输与油量监控：CesiumMilkTruck 3D 模型、燃油显示 Fuel: 200/133/66/20 gal 与时序航段走廊）
+  3. `relative-paths`（动参考系与空间编队相对航线可视化：两颗伴随卫星对地/相对轨道、地面车辆与直升机对地/相对航迹 4 种变体）
+  4. `time-dynamic-wheels`（地面铰接车辆非线性加速、动态车轮旋转与实时速度仪：GroundVehicle 3D 模型、nodeTransformations 车轮自转、VelocityVectorProperty 测速与 0~60 km/hr 变体）
+- **核心研发突破**：
+  1. **`Polyline` 与 `WidePolyline` 坐标系统规范化（地理度数 vs ECEF 笛卡尔）**：确立宽折线图元 `data.positions` 必须采用 `[lonDeg, latDeg, altMeters]` 地理度数格式规范，而时空采样采用 ECEF 坐标，消除边界校验异常。
+  2. **多变体测试管线中隐藏实体自适应防退化（`e.show` 过滤）**：在图元包围盒计算与原生 GPU 离屏测试中自动过滤初始帧未激活实体，消除单实体隔离测试时的空几何崩溃。
+  3. **模型最小包围盒像素占比自适应补偿**：对小型复杂车辆模型校准基准缩放比与视距包围盒，保证离屏像素级光栅化差异判定稳定可靠。
+  4. **多参考系动态航迹与车轮多轴铰接变换解耦**：原生支持卫星相对编队与空地协同动态差分走廊，并在时钟驱动下实现多轴铰接旋转与速度矢量标签的高效同步。
+- **验证结果**：
+  - **普通 Rust 单元测试**：107 项全部通过（新增 `batch44_czml_multipart_relativepaths_timedynamicwheels`）。
+  - **真实 GPU 离屏渲染测试**：124 / 124 项全数通过（`124 passed; 0 failed; finished in 42.60s`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：123 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [CZML、Multi-part CZML、Relative Paths 与 Time Dynamic Wheels 验证文档](docs/czml-multipart-relativepaths-wheels-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
 
 ### [2026-10-30] v0.0.43 验收完成：鼠标交互拾取画廊、模型贴地与高度基准、相机导航姿态漫游与四维时空飞行轨迹
 - **完成配方**（累计推进至 **119 / 309**，剩余 190 个）：

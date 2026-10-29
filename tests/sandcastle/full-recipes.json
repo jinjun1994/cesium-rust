@@ -3415,6 +3415,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "czml",
+      "title": "CZML",
+      "sourceSha256": "89f2e335296f2132524d65fa8b784fd9f809c88c488dac1d3d0bbfc8aa865aa7",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=czml",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/czml.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/czml.json",
+      "entityCount": 8,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "CZML multi-packet space assets and terrestrial vehicles gallery",
+        "Satellites (Geoeye1, ISS), facility, territory polygon, and ground vehicle routes"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "multi-part-czml",
+      "title": "Multi-part CZML",
+      "sourceSha256": "4e8ee23b5bdaefd609dc77411d603588a6a745aa1bc1699b5a11fd7a01844ecb",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=multi-part-czml",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/multi-part-czml.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/multi-part-czml.json",
+      "entityCount": 3,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Streamed multi-part CZML dataset across 4500s Mojave desert corridor",
+        "3D MilkTruck model, dynamic fuel readout label, and progressive route corridor"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "relative-paths",
+      "title": "Relative Paths",
+      "sourceSha256": "83a1f73398b4e36ef3413de531dc0426dbf59ba1f579b26bc7f5b7e0aa0d160e",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=relative-paths",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/relative-paths.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/relative-paths.json",
+      "entityCount": 5,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Relative reference frame path visualization",
+        "Two satellites relative to Earth and each other, ground vehicle and helicopter relative trajectories"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "time-dynamic-wheels",
+      "title": "Time Dynamic Wheels",
+      "sourceSha256": "7ebcd7ba2288b97fe72b4a7d2257254349458565d33506a99c254a8315b7e522",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=time-dynamic-wheels",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/time-dynamic-wheels.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/time-dynamic-wheels.json",
+      "entityCount": 3,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Non-linear accelerating GroundVehicle model with dynamic wheel rotation",
+        "Speedometer readout label in km/hr and runway flight path corridor"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

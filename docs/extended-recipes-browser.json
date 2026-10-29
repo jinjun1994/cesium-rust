@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "picking",
+      "id": "czml",
       "status": "passed",
-      "entities": 5,
-      "sourceSha256": "5d33a60a7664b564d7cf3003410b57a133fc4f78bcaa23cece5e99525187c200",
-      "inputSha256": "2b30ca796f3bd98132c608b3507302fc1241826d86f1cbbe95e3d9724d6b4ba3",
-      "fixtureSha256": "f65dfd9a995908308425ed41d8eead713692cb06a1baf931c68d0ce0c63980f3",
+      "entities": 8,
+      "sourceSha256": "89f2e335296f2132524d65fa8b784fd9f809c88c488dac1d3d0bbfc8aa865aa7",
+      "inputSha256": "0dc36b2287bef982861d8d646cad7a77b7b166ea6aa885ab57b8b347fdcecac0",
+      "fixtureSha256": "fe34c39297959e648c0885a67da86395dfcb31ad61ab2f0b1c5bb05e3d6906be",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,53 +22,57 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "picking-label"
+        "czml-geoeye1",
+        "czml-geoeye1-path",
+        "czml-iss",
+        "czml-iss-path",
+        "czml-agi-facility",
+        "czml-pa-polygon",
+        "czml-ground-vehicle",
+        "czml-vehicle-path"
       ],
       "pixelCounts": [
         {
-          "id": "picking-label",
-          "pixels": 4447
-        }
-      ]
-    },
-    {
-      "id": "clamp-model-to-ground",
-      "status": "passed",
-      "entities": 2,
-      "sourceSha256": "afdace0f7cb13289465f147d8c297f76da5f51f2b6e013cbb9fa4104cc5dbbb9",
-      "inputSha256": "708979563ad2331b1ec64fe20fce0509d5fff71a67cac2fc97cceb78b1e87b2a",
-      "fixtureSha256": "cd9aacd74c13305955a3b7024ad6c8ee9f58e178337296d4488299dd66cc96ae",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "clamped-milk-truck",
-        "truck-reference-pin"
-      ],
-      "pixelCounts": [
-        {
-          "id": "clamped-milk-truck",
-          "pixels": 154
+          "id": "czml-geoeye1",
+          "pixels": 706
         },
         {
-          "id": "truck-reference-pin",
-          "pixels": 154
+          "id": "czml-geoeye1-path",
+          "pixels": 1004
+        },
+        {
+          "id": "czml-iss",
+          "pixels": 1300
+        },
+        {
+          "id": "czml-iss-path",
+          "pixels": 1037
+        },
+        {
+          "id": "czml-agi-facility",
+          "pixels": 2280
+        },
+        {
+          "id": "czml-pa-polygon",
+          "pixels": 49049
+        },
+        {
+          "id": "czml-ground-vehicle",
+          "pixels": 712
+        },
+        {
+          "id": "czml-vehicle-path",
+          "pixels": 1499
         }
       ]
     },
     {
-      "id": "camera",
+      "id": "multi-part-czml",
       "status": "passed",
       "entities": 3,
-      "sourceSha256": "0edee71ce5774aeec7fa8ef64727ad5a86dfa70eef03cb8a24841fdba833c386",
-      "inputSha256": "e50939126a2ef679cc273501e579baccc3cb4fce82bcc5cbd03898dbe527fb8e",
-      "fixtureSha256": "2d10c7c4fc6c83b73974cbb082dde88d5e1da7061f1b510cbf840516adfa704f",
+      "sourceSha256": "4e8ee23b5bdaefd609dc77411d603588a6a745aa1bc1699b5a11fd7a01844ecb",
+      "inputSha256": "c0e5e6782fbbf111048a4474a2fb95193213e012b2293d863d658b99809b0283",
+      "fixtureSha256": "96bc2ab85a5ec4728eee5f656099e907db5af099568f24a5f206b30956b44f8d",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -79,22 +83,32 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "san-diego-landmark"
+        "multipart-vehicle",
+        "multipart-fuel-display",
+        "multipart-route-path"
       ],
       "pixelCounts": [
         {
-          "id": "san-diego-landmark",
-          "pixels": 196
+          "id": "multipart-vehicle",
+          "pixels": 45
+        },
+        {
+          "id": "multipart-fuel-display",
+          "pixels": 14760
+        },
+        {
+          "id": "multipart-route-path",
+          "pixels": 1518
         }
       ]
     },
     {
-      "id": "time-dependent-path-graphics",
+      "id": "relative-paths",
       "status": "passed",
-      "entities": 2,
-      "sourceSha256": "981f0c992c61043c616b03330ab4cd2287d9ebcdbb6395336c32c63a28e7de65",
-      "inputSha256": "ece5de923a46c65f72431860217ab34d8e9f23ab2c66aa47c9aee8326bb31239",
-      "fixtureSha256": "a65d744af49a88d57ae09f06ccdae1b53907a7dbb58c1d4ecc536c444948c399",
+      "entities": 5,
+      "sourceSha256": "83a1f73398b4e36ef3413de531dc0426dbf59ba1f579b26bc7f5b7e0aa0d160e",
+      "inputSha256": "30297c4409a0070088e19d0dc7331c19443e501838dba251845d557492406abd",
+      "fixtureSha256": "fad2b121b78fcbffa751b8190edbff4133155b843cfe256aed73f025f95ab797",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -102,23 +116,71 @@
         "every instance ID picking",
         "hide/show",
         "wheel zoom",
-        "resize and manual fit",
-        "inferred clock",
-        "seek at all samples",
-        "play/pause/loop"
+        "resize and manual fit"
       ],
       "pickedEntities": [
-        "flight-aircraft-point",
-        "flight-path-polyline"
+        "rel-satellite-1",
+        "rel-satellite-2",
+        "rel-ground-vehicle",
+        "rel-helicopter",
+        "rel-trajectory-path"
       ],
       "pixelCounts": [
         {
-          "id": "flight-aircraft-point",
-          "pixels": 154
+          "id": "rel-satellite-1",
+          "pixels": 706
         },
         {
-          "id": "flight-path-polyline",
-          "pixels": 4062
+          "id": "rel-satellite-2",
+          "pixels": 706
+        },
+        {
+          "id": "rel-ground-vehicle",
+          "pixels": 712
+        },
+        {
+          "id": "rel-helicopter",
+          "pixels": 706
+        },
+        {
+          "id": "rel-trajectory-path",
+          "pixels": 1586
+        }
+      ]
+    },
+    {
+      "id": "time-dynamic-wheels",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "7ebcd7ba2288b97fe72b4a7d2257254349458565d33506a99c254a8315b7e522",
+      "inputSha256": "2f2c6801272a88f1cb2373a3f15efd56859aec4b3934fc86b6eca348696865b6",
+      "fixtureSha256": "4ff9fa272870e32b3922a878454e32a11a10ca87d37327518523f99afcf6efb2",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "dynamic-ground-vehicle",
+        "dynamic-speed-readout",
+        "vehicle-corridor-path"
+      ],
+      "pixelCounts": [
+        {
+          "id": "dynamic-ground-vehicle",
+          "pixels": 18
+        },
+        {
+          "id": "dynamic-speed-readout",
+          "pixels": 2752
+        },
+        {
+          "id": "vehicle-corridor-path",
+          "pixels": 240
         }
       ]
     },
@@ -282,7 +344,7 @@
       ],
       "localTileRequests": 34,
       "externalRequests": 0,
-      "colors": 19858,
+      "colors": 19883,
       "assetsSha256": "f7dbc2e3295e40bbd1f08bfcc476efe0c5237acdb6df8e7410943c9b8de081e4"
     }
   ],
