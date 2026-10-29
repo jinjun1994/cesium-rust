@@ -1,0 +1,949 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Track with Waypoints",
+      "entities": [
+        {
+          "id": "gpx-track-main",
+          "name": "Boulder Mountain Trail",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -105.28,
+                  40.01,
+                  1600
+                ],
+                [
+                  -105.27,
+                  40.02,
+                  1750
+                ],
+                [
+                  -105.25,
+                  40.03,
+                  1950
+                ],
+                [
+                  -105.23,
+                  40.04,
+                  2100
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            0.9,
+            0.4,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "track",
+            "name": "Boulder Trail"
+          }
+        },
+        {
+          "id": "gpx-wpt-start",
+          "name": "Trailhead Waypoint",
+          "show": true,
+          "positionDegrees": [
+            -105.28,
+            40.01,
+            1600
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "waypoint",
+            "desc": "Trailhead"
+          }
+        },
+        {
+          "id": "gpx-wpt-summit",
+          "name": "Summit Waypoint",
+          "show": true,
+          "positionDegrees": [
+            -105.25,
+            40.03,
+            1950
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            0.3,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "waypoint",
+            "desc": "Summit"
+          }
+        },
+        {
+          "id": "gpx-wpt-end",
+          "name": "Overlook Waypoint",
+          "show": true,
+          "positionDegrees": [
+            -105.23,
+            40.04,
+            2100
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            1,
+            0.4,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "waypoint",
+            "desc": "Overlook"
+          }
+        },
+        {
+          "id": "gpx-track-descent",
+          "name": "Descent Ridge Trail",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -105.23,
+                  40.04,
+                  2100
+                ],
+                [
+                  -105.22,
+                  40.02,
+                  1800
+                ],
+                [
+                  -105.21,
+                  40,
+                  1600
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "dash",
+                "gapColor": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "dashLength": 16,
+                "dashPattern": 255
+              }
+            }
+          },
+          "color": [
+            1,
+            0.8,
+            0.1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "track",
+            "name": "Descent Ridge"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Route Navigation",
+      "entities": [
+        {
+          "id": "gpx-track-main",
+          "name": "Boulder Mountain Trail",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -105.28,
+                  40.01,
+                  1600
+                ],
+                [
+                  -105.27,
+                  40.02,
+                  1750
+                ],
+                [
+                  -105.25,
+                  40.03,
+                  1950
+                ],
+                [
+                  -105.23,
+                  40.04,
+                  2100
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            0.9,
+            0.4,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "track",
+            "name": "Boulder Trail"
+          }
+        },
+        {
+          "id": "gpx-wpt-start",
+          "name": "Trailhead Waypoint",
+          "show": true,
+          "positionDegrees": [
+            -105.28,
+            40.01,
+            1600
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "waypoint",
+            "desc": "Trailhead"
+          }
+        },
+        {
+          "id": "gpx-wpt-summit",
+          "name": "Summit Waypoint",
+          "show": false,
+          "positionDegrees": [
+            -105.25,
+            40.03,
+            1950
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            0.3,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "waypoint",
+            "desc": "Summit"
+          }
+        },
+        {
+          "id": "gpx-wpt-end",
+          "name": "Overlook Waypoint",
+          "show": true,
+          "positionDegrees": [
+            -105.23,
+            40.04,
+            2100
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            1,
+            0.4,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "waypoint",
+            "desc": "Overlook"
+          }
+        },
+        {
+          "id": "gpx-track-descent",
+          "name": "Descent Ridge Trail",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -105.23,
+                  40.04,
+                  2100
+                ],
+                [
+                  -105.22,
+                  40.02,
+                  1800
+                ],
+                [
+                  -105.21,
+                  40,
+                  1600
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "dash",
+                "gapColor": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "dashLength": 16,
+                "dashPattern": 255
+              }
+            }
+          },
+          "color": [
+            1,
+            0.8,
+            0.1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "track",
+            "name": "Descent Ridge"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Waypoints Only",
+      "entities": [
+        {
+          "id": "gpx-track-main",
+          "name": "Boulder Mountain Trail",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -105.28,
+                  40.01,
+                  1600
+                ],
+                [
+                  -105.27,
+                  40.02,
+                  1750
+                ],
+                [
+                  -105.25,
+                  40.03,
+                  1950
+                ],
+                [
+                  -105.23,
+                  40.04,
+                  2100
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0,
+            0.9,
+            0.4,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "track",
+            "name": "Boulder Trail"
+          }
+        },
+        {
+          "id": "gpx-wpt-start",
+          "name": "Trailhead Waypoint",
+          "show": true,
+          "positionDegrees": [
+            -105.28,
+            40.01,
+            1600
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "waypoint",
+            "desc": "Trailhead"
+          }
+        },
+        {
+          "id": "gpx-wpt-summit",
+          "name": "Summit Waypoint",
+          "show": true,
+          "positionDegrees": [
+            -105.25,
+            40.03,
+            1950
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            0.3,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "waypoint",
+            "desc": "Summit"
+          }
+        },
+        {
+          "id": "gpx-wpt-end",
+          "name": "Overlook Waypoint",
+          "show": true,
+          "positionDegrees": [
+            -105.23,
+            40.04,
+            2100
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            1,
+            0.4,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "waypoint",
+            "desc": "Overlook"
+          }
+        },
+        {
+          "id": "gpx-track-descent",
+          "name": "Descent Ridge Trail",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -105.23,
+                  40.04,
+                  2100
+                ],
+                [
+                  -105.22,
+                  40.02,
+                  1800
+                ],
+                [
+                  -105.21,
+                  40,
+                  1600
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "dash",
+                "gapColor": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "dashLength": 16,
+                "dashPattern": 255
+              }
+            }
+          },
+          "color": [
+            1,
+            0.8,
+            0.1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "track",
+            "name": "Descent Ridge"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Multiple Tracks & Symbology",
+      "entities": [
+        {
+          "id": "gpx-track-main",
+          "name": "Boulder Mountain Trail",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -105.28,
+                  40.01,
+                  1600
+                ],
+                [
+                  -105.27,
+                  40.02,
+                  1750
+                ],
+                [
+                  -105.25,
+                  40.03,
+                  1950
+                ],
+                [
+                  -105.23,
+                  40.04,
+                  2100
+                ]
+              ],
+              "width": 5,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.05,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "track",
+            "name": "Boulder Trail"
+          }
+        },
+        {
+          "id": "gpx-wpt-start",
+          "name": "Trailhead Waypoint",
+          "show": true,
+          "positionDegrees": [
+            -105.28,
+            40.01,
+            1600
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            0.6,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "waypoint",
+            "desc": "Trailhead"
+          }
+        },
+        {
+          "id": "gpx-wpt-summit",
+          "name": "Summit Waypoint",
+          "show": true,
+          "positionDegrees": [
+            -105.25,
+            40.03,
+            1950
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            1,
+            0.3,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "waypoint",
+            "desc": "Summit"
+          }
+        },
+        {
+          "id": "gpx-wpt-end",
+          "name": "Overlook Waypoint",
+          "show": true,
+          "positionDegrees": [
+            -105.23,
+            40.04,
+            2100
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            1,
+            0.4,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "waypoint",
+            "desc": "Overlook"
+          }
+        },
+        {
+          "id": "gpx-track-descent",
+          "name": "Descent Ridge Trail",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -105.23,
+                  40.04,
+                  2100
+                ],
+                [
+                  -105.22,
+                  40.02,
+                  1800
+                ],
+                [
+                  -105.21,
+                  40,
+                  1600
+                ]
+              ],
+              "width": 4,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "dash",
+                "gapColor": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "dashLength": 16,
+                "dashPattern": 255
+              }
+            }
+          },
+          "color": [
+            1,
+            0.8,
+            0.1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "type": "track",
+            "name": "Descent Ridge"
+          }
+        }
+      ]
+    }
+  ]
+}

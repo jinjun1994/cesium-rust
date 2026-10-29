@@ -138,6 +138,10 @@ $('fullNew100').onclick=guarded(()=>runFull('clustering'));
 $('fullNew101').onclick=guarded(()=>runFull('geojson-simplestyle'));
 $('fullNew102').onclick=guarded(()=>runFull('geojson-and-topojson'));
 $('fullNew103').onclick=guarded(()=>runFull('kml'));
+$('fullNew104').onclick=guarded(()=>runFull('gpx'));
+$('fullNew105').onclick=guarded(()=>runFull('kml-tours'));
+$('fullNew106').onclick=guarded(()=>runFull('export-kml'));
+$('fullNew107').onclick=guarded(()=>runFull('ground-polyline-material-dev'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

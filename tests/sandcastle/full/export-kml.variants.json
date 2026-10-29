@@ -1,0 +1,669 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Satellites and Ground Assets",
+      "entities": [
+        {
+          "id": "export-kml-sat-geoeye1",
+          "name": "GeoEye-1 Satellite",
+          "show": true,
+          "positionDegrees": [
+            -77,
+            38.9,
+            500000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "platform": "GeoEye-1",
+            "orbitType": "LEO"
+          }
+        },
+        {
+          "id": "export-kml-sat-orbit",
+          "name": "GeoEye-1 Orbital Track",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -85,
+                  35,
+                  500000
+                ],
+                [
+                  -77,
+                  38.9,
+                  500000
+                ],
+                [
+                  -68,
+                  42,
+                  500000
+                ]
+              ],
+              "width": 3,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            0.8,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "orbit": "LEO Trajectory"
+          }
+        },
+        {
+          "id": "export-kml-ground-station",
+          "name": "AGI Space Tracking Station",
+          "show": true,
+          "positionDegrees": [
+            -75.6,
+            40,
+            100
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            1,
+            0.4,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "facility": "AGI Tracking",
+            "type": "Earth Station"
+          }
+        },
+        {
+          "id": "export-kml-milktruck",
+          "name": "Cesium Milk Truck Model",
+          "show": true,
+          "positionDegrees": [
+            -77,
+            37,
+            10
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "models/CesiumMilkTruck/CesiumMilkTruck.glb",
+            "scale": 2,
+            "minimumPixelSize": 32
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "model": "CesiumMilkTruck",
+            "cargo": "Milk"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Model Asset (Cesium Milk Truck)",
+      "entities": [
+        {
+          "id": "export-kml-sat-geoeye1",
+          "name": "GeoEye-1 Satellite",
+          "show": false,
+          "positionDegrees": [
+            -77,
+            38.9,
+            500000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "platform": "GeoEye-1",
+            "orbitType": "LEO"
+          }
+        },
+        {
+          "id": "export-kml-sat-orbit",
+          "name": "GeoEye-1 Orbital Track",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -85,
+                  35,
+                  500000
+                ],
+                [
+                  -77,
+                  38.9,
+                  500000
+                ],
+                [
+                  -68,
+                  42,
+                  500000
+                ]
+              ],
+              "width": 3,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            0.8,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "orbit": "LEO Trajectory"
+          }
+        },
+        {
+          "id": "export-kml-ground-station",
+          "name": "AGI Space Tracking Station",
+          "show": true,
+          "positionDegrees": [
+            -75.6,
+            40,
+            100
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            1,
+            0.4,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "facility": "AGI Tracking",
+            "type": "Earth Station"
+          }
+        },
+        {
+          "id": "export-kml-milktruck",
+          "name": "Cesium Milk Truck Model",
+          "show": true,
+          "positionDegrees": [
+            -77,
+            37,
+            10
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "models/CesiumMilkTruck/CesiumMilkTruck.glb",
+            "scale": 2,
+            "minimumPixelSize": 32
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "model": "CesiumMilkTruck",
+            "cargo": "Milk"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Space Assets (Satellites & Orbits)",
+      "entities": [
+        {
+          "id": "export-kml-sat-geoeye1",
+          "name": "GeoEye-1 Satellite",
+          "show": true,
+          "positionDegrees": [
+            -77,
+            38.9,
+            500000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "platform": "GeoEye-1",
+            "orbitType": "LEO"
+          }
+        },
+        {
+          "id": "export-kml-sat-orbit",
+          "name": "GeoEye-1 Orbital Track",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -85,
+                  35,
+                  500000
+                ],
+                [
+                  -77,
+                  38.9,
+                  500000
+                ],
+                [
+                  -68,
+                  42,
+                  500000
+                ]
+              ],
+              "width": 3,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            1,
+            0.8,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "orbit": "LEO Trajectory"
+          }
+        },
+        {
+          "id": "export-kml-ground-station",
+          "name": "AGI Space Tracking Station",
+          "show": false,
+          "positionDegrees": [
+            -75.6,
+            40,
+            100
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            1,
+            0.4,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "facility": "AGI Tracking",
+            "type": "Earth Station"
+          }
+        },
+        {
+          "id": "export-kml-milktruck",
+          "name": "Cesium Milk Truck Model",
+          "show": false,
+          "positionDegrees": [
+            -77,
+            37,
+            10
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "models/CesiumMilkTruck/CesiumMilkTruck.glb",
+            "scale": 2,
+            "minimumPixelSize": 32
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "model": "CesiumMilkTruck",
+            "cargo": "Milk"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Full Combined KMZ Package",
+      "entities": [
+        {
+          "id": "export-kml-sat-geoeye1",
+          "name": "GeoEye-1 Satellite",
+          "show": true,
+          "positionDegrees": [
+            -77,
+            38.9,
+            500000
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "platform": "GeoEye-1",
+            "orbitType": "LEO"
+          }
+        },
+        {
+          "id": "export-kml-sat-orbit",
+          "name": "GeoEye-1 Orbital Track",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -85,
+                  35,
+                  500000
+                ],
+                [
+                  -77,
+                  38.9,
+                  500000
+                ],
+                [
+                  -68,
+                  42,
+                  500000
+                ]
+              ],
+              "width": 5,
+              "arcType": "GEODESIC",
+              "clampToGround": false,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "solid"
+              }
+            }
+          },
+          "color": [
+            0.1,
+            0.9,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "orbit": "LEO Trajectory"
+          }
+        },
+        {
+          "id": "export-kml-ground-station",
+          "name": "AGI Space Tracking Station",
+          "show": true,
+          "positionDegrees": [
+            -75.6,
+            40,
+            100
+          ],
+          "shape": {
+            "type": "billboard",
+            "image": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACvSURBVDhPrZDRDcMgDAU9GqN0lIzijw6SUbJJygUeNQgSqepJTyHG91LVVpwDdfxM3T9TSl1EXZvDwii471fivK73cBFFQNTT/d2KoGpfGOpSIkhUpgUMxq9DFEsWv4IXhlyCnhBFnZcFEEuYqbiUlNwWgMTdrZ3JbQFoEVG53rd8ztG9aPJMnBUQf/VFraBJeWnLS0RfjbKyLJA8FkT5seDYS1Qwyv8t0B/5C2ZmH2/eTGNNBgMmAAAAAElFTkSuQmCC",
+            "scale": 1,
+            "width": 28,
+            "height": 28
+          },
+          "color": [
+            0.2,
+            1,
+            0.4,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "facility": "AGI Tracking",
+            "type": "Earth Station"
+          }
+        },
+        {
+          "id": "export-kml-milktruck",
+          "name": "Cesium Milk Truck Model",
+          "show": true,
+          "positionDegrees": [
+            -77,
+            37,
+            10
+          ],
+          "shape": {
+            "type": "model",
+            "uri": "models/CesiumMilkTruck/CesiumMilkTruck.glb",
+            "scale": 2,
+            "minimumPixelSize": 32
+          },
+          "color": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "model": "CesiumMilkTruck",
+            "cargo": "Milk"
+          }
+        }
+      ]
+    }
+  ]
+}

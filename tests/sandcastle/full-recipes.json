@@ -3631,6 +3631,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "gpx",
+      "title": "GPX",
+      "sourceSha256": "b027d1ee8c274174931f94a4fac0cddf5e966409c0a8faf19610a587f599987f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=gpx",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/gpx.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/gpx.json",
+      "entityCount": 5,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "GPX GPS exchange data format parsing and rendering",
+        "Tracks, routes, waypoints with pins, and custom symbology options"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "kml-tours",
+      "title": "KML Tours",
+      "sourceSha256": "9e2cd48faa8db7c2f437310d41ecd7184b4aed7c27b69dd8fa3cb527d722c9e9",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=kml-tours",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/kml-tours.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/kml-tours.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "KML Tours camera trajectory animation and playback controls",
+        "Eiffel Tower flyTo camera path and viewpoint tour stops"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "export-kml",
+      "title": "Export KML",
+      "sourceSha256": "371f7a9f84e3920af659106a734f4ed90548e9d24eaff84966615a29bc092ebb",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=export-kml",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/export-kml.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/export-kml.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Scene export to KML/KMZ package with embedded models and CZML entities",
+        "Satellites, ground tracking stations, and Cesium Milk Truck 3D model"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "ground-polyline-material-dev",
+      "title": "Ground Polyline Material - Dev",
+      "sourceSha256": "6a1a017d5bfc655bd7d20715c25334b993c12693e179162c39a38db2806a031e",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=ground-polyline-material-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/ground-polyline-material-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/ground-polyline-material-dev.json",
+      "entityCount": 3,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Ground polylines draped on terrain with custom material appearances",
+        "PolylineGlow, PolylineDash, and PolylineOutline materials on terrain"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

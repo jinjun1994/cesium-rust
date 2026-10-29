@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "clustering",
+      "id": "gpx",
       "status": "passed",
       "entities": 5,
-      "sourceSha256": "8c8f258f1767261c654756112c2e53863cbcdd971416776bd873f4ebcd780764",
-      "inputSha256": "123bdc694cd0c92300d9402f49ce442930681a30d7452d135176a802b73f3d98",
-      "fixtureSha256": "2ac57ae82042b7f49df29c5509bdaefad18cd9a96a02423206d897514686b1c3",
+      "sourceSha256": "b027d1ee8c274174931f94a4fac0cddf5e966409c0a8faf19610a587f599987f",
+      "inputSha256": "dac4ee70c38d54ea3a603a3a262e40e95de69251529f2aec7b751d30c48aa68c",
+      "fixtureSha256": "dc8f615377396b766c0697a5f615ee032c3030d499053f42cb99053209e41366",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,42 +22,124 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "cluster-cern",
-        "cluster-fermilab",
-        "cluster-kek",
-        "cluster-desy",
-        "cluster-badge-eu"
+        "gpx-track-main",
+        "gpx-wpt-start",
+        "gpx-wpt-summit",
+        "gpx-wpt-end",
+        "gpx-track-descent"
       ],
       "pixelCounts": [
         {
-          "id": "cluster-cern",
-          "pixels": 692
+          "id": "gpx-track-main",
+          "pixels": 1550
         },
         {
-          "id": "cluster-fermilab",
-          "pixels": 706
+          "id": "gpx-wpt-start",
+          "pixels": 710
         },
         {
-          "id": "cluster-kek",
-          "pixels": 692
+          "id": "gpx-wpt-summit",
+          "pixels": 708
         },
         {
-          "id": "cluster-desy",
-          "pixels": 692
+          "id": "gpx-wpt-end",
+          "pixels": 708
         },
         {
-          "id": "cluster-badge-eu",
-          "pixels": 2945
+          "id": "gpx-track-descent",
+          "pixels": 670
         }
       ]
     },
     {
-      "id": "geojson-simplestyle",
+      "id": "kml-tours",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "9e2cd48faa8db7c2f437310d41ecd7184b4aed7c27b69dd8fa3cb527d722c9e9",
+      "inputSha256": "9b49b2d7c6f453b8ddb3628e57423ecd3adf7ead1e2aa71103fdd148e9f20fa6",
+      "fixtureSha256": "c556e3383f661ce42e4e387cdbf7d1411af111f55885f3420d561de7d429c5fb",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "kml-tour-eiffel",
+        "kml-tour-path",
+        "kml-tour-stop-trocadero",
+        "kml-tour-stop-summit"
+      ],
+      "pixelCounts": [
+        {
+          "id": "kml-tour-eiffel",
+          "pixels": 1298
+        },
+        {
+          "id": "kml-tour-path",
+          "pixels": 1433
+        },
+        {
+          "id": "kml-tour-stop-trocadero",
+          "pixels": 692
+        },
+        {
+          "id": "kml-tour-stop-summit",
+          "pixels": 692
+        }
+      ]
+    },
+    {
+      "id": "export-kml",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "371f7a9f84e3920af659106a734f4ed90548e9d24eaff84966615a29bc092ebb",
+      "inputSha256": "258c8f0a5ecdd798843d48a61d5beb967c3fe9a62dc21a4a05cc1e90f68e792f",
+      "fixtureSha256": "5d777ff413f1cb1632b0e661ee9b0dd0eea779a571ed5e06ad840894fb239859",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "export-kml-sat-geoeye1",
+        "export-kml-sat-orbit",
+        "export-kml-ground-station",
+        "export-kml-milktruck"
+      ],
+      "pixelCounts": [
+        {
+          "id": "export-kml-sat-geoeye1",
+          "pixels": 692
+        },
+        {
+          "id": "export-kml-sat-orbit",
+          "pixels": 1194
+        },
+        {
+          "id": "export-kml-ground-station",
+          "pixels": 692
+        },
+        {
+          "id": "export-kml-milktruck",
+          "pixels": 84
+        }
+      ]
+    },
+    {
+      "id": "ground-polyline-material-dev",
       "status": "passed",
       "entities": 3,
-      "sourceSha256": "0361037fd7250ae2f1f2cd7a32916f2f2177dba64f8a528f5b354d7b87adbb8f",
-      "inputSha256": "8f77970adeae0f16cd3147d811d50e80a3eb1b47300282a280d88d3740fd2e4e",
-      "fixtureSha256": "15510b708e146ffc16166d984dd2ad252c9a69c4d71f72fdbebf13d0785468fd",
+      "sourceSha256": "6a1a017d5bfc655bd7d20715c25334b993c12693e179162c39a38db2806a031e",
+      "inputSha256": "256e492e831cc266060cea72bf7680d58a531c0fbd5d37682ae53b1b574dcb88",
+      "fixtureSha256": "ab4a98b3a765a96e4b7e74685dbcfac7a56a2b4f3505377c35af0a5f81296403",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -68,104 +150,22 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "simplestyle-marker-sf",
-        "simplestyle-corridor-route",
-        "simplestyle-civic-center-poly"
+        "ground-poly-glow",
+        "ground-poly-dash",
+        "ground-poly-outline"
       ],
       "pixelCounts": [
         {
-          "id": "simplestyle-marker-sf",
-          "pixels": 908
+          "id": "ground-poly-glow",
+          "pixels": 4090
         },
         {
-          "id": "simplestyle-corridor-route",
-          "pixels": 1459
+          "id": "ground-poly-dash",
+          "pixels": 2060
         },
         {
-          "id": "simplestyle-civic-center-poly",
-          "pixels": 65949
-        }
-      ]
-    },
-    {
-      "id": "geojson-and-topojson",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "0aa9ecbcb160b48332d546cb11369276ad6593b0ca2ec3bdad10a10fff70b4e8",
-      "inputSha256": "528b5c38906527e02f8b39535d55a230c3aa913da15c9b371c6b032a19f00be1",
-      "fixtureSha256": "dc4e377626739ee6e6e94ed9e353795dc922f4b005969552acd36c35247c062d",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "state-california",
-        "state-texas",
-        "state-new-york",
-        "state-florida"
-      ],
-      "pixelCounts": [
-        {
-          "id": "state-california",
-          "pixels": 28959
-        },
-        {
-          "id": "state-texas",
-          "pixels": 55251
-        },
-        {
-          "id": "state-new-york",
-          "pixels": 34000
-        },
-        {
-          "id": "state-florida",
-          "pixels": 11071
-        }
-      ]
-    },
-    {
-      "id": "kml",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "40508f521ec1b796d252c44c66d88a6c264dddebf05a3bc6b749a58456078661",
-      "inputSha256": "02df896d44f7e6effd36da1dab4d7623a74ec11aa4d2508a522d905c009aa1dc",
-      "fixtureSha256": "61a0b2daf05d300b17a5c43f09cd86f5470e753418801700acf6376f40dbd26a",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "kml-facility-pin",
-        "kml-gdp-polygon",
-        "kml-bike-rider",
-        "kml-bike-track"
-      ],
-      "pixelCounts": [
-        {
-          "id": "kml-facility-pin",
-          "pixels": 908
-        },
-        {
-          "id": "kml-gdp-polygon",
-          "pixels": 65844
-        },
-        {
-          "id": "kml-bike-rider",
-          "pixels": 108
-        },
-        {
-          "id": "kml-bike-track",
-          "pixels": 1454
+          "id": "ground-poly-outline",
+          "pixels": 4090
         }
       ]
     },

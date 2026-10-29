@@ -744,6 +744,170 @@
       ]
     },
     {
+      "id": "gpx",
+      "status": "passed",
+      "entities": 5,
+      "sourceSha256": "b027d1ee8c274174931f94a4fac0cddf5e966409c0a8faf19610a587f599987f",
+      "inputSha256": "dac4ee70c38d54ea3a603a3a262e40e95de69251529f2aec7b751d30c48aa68c",
+      "fixtureSha256": "dc8f615377396b766c0697a5f615ee032c3030d499053f42cb99053209e41366",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "gpx-track-main",
+        "gpx-wpt-start",
+        "gpx-wpt-summit",
+        "gpx-wpt-end",
+        "gpx-track-descent"
+      ],
+      "pixelCounts": [
+        {
+          "id": "gpx-track-main",
+          "pixels": 1550
+        },
+        {
+          "id": "gpx-wpt-start",
+          "pixels": 710
+        },
+        {
+          "id": "gpx-wpt-summit",
+          "pixels": 708
+        },
+        {
+          "id": "gpx-wpt-end",
+          "pixels": 708
+        },
+        {
+          "id": "gpx-track-descent",
+          "pixels": 670
+        }
+      ]
+    },
+    {
+      "id": "kml-tours",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "9e2cd48faa8db7c2f437310d41ecd7184b4aed7c27b69dd8fa3cb527d722c9e9",
+      "inputSha256": "9b49b2d7c6f453b8ddb3628e57423ecd3adf7ead1e2aa71103fdd148e9f20fa6",
+      "fixtureSha256": "c556e3383f661ce42e4e387cdbf7d1411af111f55885f3420d561de7d429c5fb",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "kml-tour-eiffel",
+        "kml-tour-path",
+        "kml-tour-stop-trocadero",
+        "kml-tour-stop-summit"
+      ],
+      "pixelCounts": [
+        {
+          "id": "kml-tour-eiffel",
+          "pixels": 1298
+        },
+        {
+          "id": "kml-tour-path",
+          "pixels": 1433
+        },
+        {
+          "id": "kml-tour-stop-trocadero",
+          "pixels": 692
+        },
+        {
+          "id": "kml-tour-stop-summit",
+          "pixels": 692
+        }
+      ]
+    },
+    {
+      "id": "export-kml",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "371f7a9f84e3920af659106a734f4ed90548e9d24eaff84966615a29bc092ebb",
+      "inputSha256": "258c8f0a5ecdd798843d48a61d5beb967c3fe9a62dc21a4a05cc1e90f68e792f",
+      "fixtureSha256": "5d777ff413f1cb1632b0e661ee9b0dd0eea779a571ed5e06ad840894fb239859",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "export-kml-sat-geoeye1",
+        "export-kml-sat-orbit",
+        "export-kml-ground-station",
+        "export-kml-milktruck"
+      ],
+      "pixelCounts": [
+        {
+          "id": "export-kml-sat-geoeye1",
+          "pixels": 692
+        },
+        {
+          "id": "export-kml-sat-orbit",
+          "pixels": 1194
+        },
+        {
+          "id": "export-kml-ground-station",
+          "pixels": 692
+        },
+        {
+          "id": "export-kml-milktruck",
+          "pixels": 84
+        }
+      ]
+    },
+    {
+      "id": "ground-polyline-material-dev",
+      "status": "passed",
+      "entities": 3,
+      "sourceSha256": "6a1a017d5bfc655bd7d20715c25334b993c12693e179162c39a38db2806a031e",
+      "inputSha256": "256e492e831cc266060cea72bf7680d58a531c0fbd5d37682ae53b1b574dcb88",
+      "fixtureSha256": "ab4a98b3a765a96e4b7e74685dbcfac7a56a2b4f3505377c35af0a5f81296403",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "ground-poly-glow",
+        "ground-poly-dash",
+        "ground-poly-outline"
+      ],
+      "pixelCounts": [
+        {
+          "id": "ground-poly-glow",
+          "pixels": 4090
+        },
+        {
+          "id": "ground-poly-dash",
+          "pixels": 2060
+        },
+        {
+          "id": "ground-poly-outline",
+          "pixels": 4090
+        }
+      ]
+    },
+    {
       "id": "clustering",
       "status": "passed",
       "entities": 5,
@@ -4794,7 +4958,7 @@
       ],
       "localTileRequests": 34,
       "externalRequests": 0,
-      "colors": 19821,
+      "colors": 19883,
       "assetsSha256": "f7dbc2e3295e40bbd1f08bfcc476efe0c5237acdb6df8e7410943c9b8de081e4"
     }
   ],

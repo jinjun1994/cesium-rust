@@ -3762,4 +3762,60 @@ mod tests {
         let kml_variants = crate::entity_variants::decode(&kml_variants_raw).unwrap();
         assert_eq!(kml_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch46_gpx_kmltours_exportkml_groundpolyline() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. GPX
+        let gpx_data = std::fs::read(base.join("gpx.json")).unwrap();
+        let gpx_entities = decode(&gpx_data).unwrap();
+        assert_eq!(gpx_entities.len(), 5);
+        assert!(matches!(gpx_entities[0].shape, Shape::WidePolyline { .. }));
+        assert!(matches!(gpx_entities[1].shape, Shape::Billboard { .. }));
+        let gpx_variants_raw = std::fs::read(base.join("gpx.variants.json")).unwrap();
+        let gpx_variants = crate::entity_variants::decode(&gpx_variants_raw).unwrap();
+        assert_eq!(gpx_variants.variants.len(), 4);
+
+        // 2. KML Tours
+        let tours_data = std::fs::read(base.join("kml-tours.json")).unwrap();
+        let tours_entities = decode(&tours_data).unwrap();
+        assert_eq!(tours_entities.len(), 4);
+        assert!(matches!(tours_entities[0].shape, Shape::Billboard { .. }));
+        assert!(matches!(
+            tours_entities[1].shape,
+            Shape::WidePolyline { .. }
+        ));
+        let tours_variants_raw = std::fs::read(base.join("kml-tours.variants.json")).unwrap();
+        let tours_variants = crate::entity_variants::decode(&tours_variants_raw).unwrap();
+        assert_eq!(tours_variants.variants.len(), 4);
+
+        // 3. Export KML
+        let export_data = std::fs::read(base.join("export-kml.json")).unwrap();
+        let export_entities = decode(&export_data).unwrap();
+        assert_eq!(export_entities.len(), 4);
+        assert!(matches!(export_entities[0].shape, Shape::Billboard { .. }));
+        assert!(matches!(
+            export_entities[1].shape,
+            Shape::WidePolyline { .. }
+        ));
+        assert!(matches!(export_entities[3].shape, Shape::Model { .. }));
+        let export_variants_raw = std::fs::read(base.join("export-kml.variants.json")).unwrap();
+        let export_variants = crate::entity_variants::decode(&export_variants_raw).unwrap();
+        assert_eq!(export_variants.variants.len(), 4);
+
+        // 4. Ground Polyline Material - Dev
+        let ground_data = std::fs::read(base.join("ground-polyline-material-dev.json")).unwrap();
+        let ground_entities = decode(&ground_data).unwrap();
+        assert_eq!(ground_entities.len(), 3);
+        assert!(matches!(
+            ground_entities[0].shape,
+            Shape::WidePolyline { .. }
+        ));
+        let ground_variants_raw =
+            std::fs::read(base.join("ground-polyline-material-dev.variants.json")).unwrap();
+        let ground_variants = crate::entity_variants::decode(&ground_variants_raw).unwrap();
+        assert_eq!(ground_variants.variants.len(), 4);
+    }
 }

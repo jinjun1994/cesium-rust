@@ -4,11 +4,31 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.45（已通过 127 / 309 个完整案例，剩余 182 个）
+- **当前版本**：v0.0.46（已通过 131 / 309 个完整案例，剩余 178 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.46 验收完成：全球定位系统通用数据流 (GPX)、三维导览时序巡检 (KML Tours)、全场景资产导出 (Export KML) 与地表贴地材质库 (Ground Polyline Material)
+- **完成配方**（累计推进至 **131 / 309**，剩余 178 个）：
+  1. `gpx`（全球定位系统航迹、路线、地标与多样式符号系统：博尔德登山步道航迹、起点/冲顶/终点地标图钉、下山山脊虚线与 4 种变体）
+  2. `kml-tours`（KML/KMZ 自动化三维相机导览巡检与巡游时序控制：埃菲尔铁塔地标、发光立体巡航折线、特罗卡德罗/塔顶观景台停靠点 4 种变体）
+  3. `export-kml`（天地一体化多载体场景要素 KML/KMZ 打包与模型导出：GeoEye-1 卫星、500km 轨道折线、地面追踪站图钉与 Cesium Milk Truck 3D 车辆模型 4 种变体）
+  4. `ground-polyline-material-dev`（圣海伦斯火山复杂地形地表贴地折线材质库：Glow 发光、Dash 虚线、Outline 双色描边地表折线与线宽拓展 4 种变体）
+- **核心研发突破**：
+  1. **`Polyline` 与 `LineMaterial` 全功能材质体系落地验证**：验证了 `LineMaterial::Glow`、`LineMaterial::Dash` 与 `LineMaterial::Outline` 在地表贴地模式下的像素着色，光栅化后在 GPU 离屏与浏览器 WebGPU 中分别稳定输出 2,000 ~ 4,000 像素的高质量几何渲染。
+  2. **`EntityVariants` 反序列化契约健壮性强化**：统一确立并严格规范了多变体 JSON 配置必须包含 `initial: 0` 字段的硬性约束，避免变体切换索引溢出或解析阶段反序列化失败。
+  3. **复合动静态多载体（卫星 + 轨道 + 广告牌 + 3D 模型）综合场景验证**：`export-kml` 成功聚合了 500km 轨道空间资产与地面 Milk Truck 3D 车辆模型，验证了在极端跨尺度坐标系下，离屏取景与像素拾取的完全一致性。
+- **验证结果**：
+  - **普通 Rust 单元测试**：108 项全部通过（含 `batch46_gpx_kmltours_exportkml_groundpolyline`）。
+  - **真实 GPU 离屏渲染测试**：132 / 132 项全数通过（`132 passed; 0 failed; finished in 41.80s`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：131 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [GPX、KML Tours、Export KML 与 Ground Polyline Material - Dev 验证文档](docs/gpx-kmltours-exportkml-groundpolyline-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
 
 ### [2026-10-30] v0.0.45 验收完成：科研重器空间聚类与动态徽标、GeoJSON Simplestyle 多视态、TopoJSON 拓扑面人口挤出与 KML/KMZ 空间数据源
 - **完成配方**（累计推进至 **127 / 309**，剩余 182 个）：

@@ -1,0 +1,693 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "All Three Ground Polyline Materials",
+      "entities": [
+        {
+          "id": "ground-poly-glow",
+          "name": "Ground Polyline Glow Material",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.2558,
+                  46.1955,
+                  0
+                ],
+                [
+                  -122.1058,
+                  46.1955,
+                  0
+                ]
+              ],
+              "width": 10,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "glow",
+                "glowPower": 0.25,
+                "taperPower": 1
+              }
+            }
+          },
+          "color": [
+            0,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "materialType": "PolylineGlow",
+            "location": "Mount St. Helens"
+          }
+        },
+        {
+          "id": "ground-poly-dash",
+          "name": "Ground Polyline Dash Material",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.2558,
+                  46.1975,
+                  0
+                ],
+                [
+                  -122.1058,
+                  46.1975,
+                  0
+                ]
+              ],
+              "width": 10,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "dash",
+                "gapColor": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "dashLength": 16,
+                "dashPattern": 255
+              }
+            }
+          },
+          "color": [
+            1,
+            0.9,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "materialType": "PolylineDash",
+            "location": "Mount St. Helens"
+          }
+        },
+        {
+          "id": "ground-poly-outline",
+          "name": "Ground Polyline Outline Material",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.2558,
+                  46.1995,
+                  0
+                ],
+                [
+                  -122.1058,
+                  46.1995,
+                  0
+                ]
+              ],
+              "width": 10,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "outline",
+                "outlineColor": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "outlineWidth": 2
+              }
+            }
+          },
+          "color": [
+            1,
+            0.3,
+            0.1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "materialType": "PolylineOutline",
+            "location": "Mount St. Helens"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Polyline Glow Focus",
+      "entities": [
+        {
+          "id": "ground-poly-glow",
+          "name": "Ground Polyline Glow Material",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.2558,
+                  46.1955,
+                  0
+                ],
+                [
+                  -122.1058,
+                  46.1955,
+                  0
+                ]
+              ],
+              "width": 14,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "glow",
+                "glowPower": 0.25,
+                "taperPower": 1
+              }
+            }
+          },
+          "color": [
+            0,
+            1,
+            0.8,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "materialType": "PolylineGlow",
+            "location": "Mount St. Helens"
+          }
+        },
+        {
+          "id": "ground-poly-dash",
+          "name": "Ground Polyline Dash Material",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.2558,
+                  46.1975,
+                  0
+                ],
+                [
+                  -122.1058,
+                  46.1975,
+                  0
+                ]
+              ],
+              "width": 10,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "dash",
+                "gapColor": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "dashLength": 16,
+                "dashPattern": 255
+              }
+            }
+          },
+          "color": [
+            1,
+            0.9,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "materialType": "PolylineDash",
+            "location": "Mount St. Helens"
+          }
+        },
+        {
+          "id": "ground-poly-outline",
+          "name": "Ground Polyline Outline Material",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.2558,
+                  46.1995,
+                  0
+                ],
+                [
+                  -122.1058,
+                  46.1995,
+                  0
+                ]
+              ],
+              "width": 10,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "outline",
+                "outlineColor": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "outlineWidth": 2
+              }
+            }
+          },
+          "color": [
+            1,
+            0.3,
+            0.1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "materialType": "PolylineOutline",
+            "location": "Mount St. Helens"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Polyline Dash Focus",
+      "entities": [
+        {
+          "id": "ground-poly-glow",
+          "name": "Ground Polyline Glow Material",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.2558,
+                  46.1955,
+                  0
+                ],
+                [
+                  -122.1058,
+                  46.1955,
+                  0
+                ]
+              ],
+              "width": 10,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "glow",
+                "glowPower": 0.25,
+                "taperPower": 1
+              }
+            }
+          },
+          "color": [
+            0,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "materialType": "PolylineGlow",
+            "location": "Mount St. Helens"
+          }
+        },
+        {
+          "id": "ground-poly-dash",
+          "name": "Ground Polyline Dash Material",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.2558,
+                  46.1975,
+                  0
+                ],
+                [
+                  -122.1058,
+                  46.1975,
+                  0
+                ]
+              ],
+              "width": 14,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "dash",
+                "gapColor": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "dashLength": 16,
+                "dashPattern": 255
+              }
+            }
+          },
+          "color": [
+            1,
+            0.8,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "materialType": "PolylineDash",
+            "location": "Mount St. Helens"
+          }
+        },
+        {
+          "id": "ground-poly-outline",
+          "name": "Ground Polyline Outline Material",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.2558,
+                  46.1995,
+                  0
+                ],
+                [
+                  -122.1058,
+                  46.1995,
+                  0
+                ]
+              ],
+              "width": 10,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "outline",
+                "outlineColor": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "outlineWidth": 2
+              }
+            }
+          },
+          "color": [
+            1,
+            0.3,
+            0.1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "materialType": "PolylineOutline",
+            "location": "Mount St. Helens"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Polyline Outline Focus",
+      "entities": [
+        {
+          "id": "ground-poly-glow",
+          "name": "Ground Polyline Glow Material",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.2558,
+                  46.1955,
+                  0
+                ],
+                [
+                  -122.1058,
+                  46.1955,
+                  0
+                ]
+              ],
+              "width": 10,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "glow",
+                "glowPower": 0.25,
+                "taperPower": 1
+              }
+            }
+          },
+          "color": [
+            0,
+            0.8,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "materialType": "PolylineGlow",
+            "location": "Mount St. Helens"
+          }
+        },
+        {
+          "id": "ground-poly-dash",
+          "name": "Ground Polyline Dash Material",
+          "show": false,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.2558,
+                  46.1975,
+                  0
+                ],
+                [
+                  -122.1058,
+                  46.1975,
+                  0
+                ]
+              ],
+              "width": 10,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "dash",
+                "gapColor": [
+                  0,
+                  0,
+                  0,
+                  0
+                ],
+                "dashLength": 16,
+                "dashPattern": 255
+              }
+            }
+          },
+          "color": [
+            1,
+            0.9,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "materialType": "PolylineDash",
+            "location": "Mount St. Helens"
+          }
+        },
+        {
+          "id": "ground-poly-outline",
+          "name": "Ground Polyline Outline Material",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "widePolyline",
+            "data": {
+              "positions": [
+                [
+                  -122.2558,
+                  46.1995,
+                  0
+                ],
+                [
+                  -122.1058,
+                  46.1995,
+                  0
+                ]
+              ],
+              "width": 14,
+              "arcType": "GEODESIC",
+              "clampToGround": true,
+              "colors": [],
+              "colorsPerVertex": false,
+              "material": {
+                "type": "outline",
+                "outlineColor": [
+                  1,
+                  1,
+                  1,
+                  1
+                ],
+                "outlineWidth": 2
+              }
+            }
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "materialType": "PolylineOutline",
+            "location": "Mount St. Helens"
+          }
+        }
+      ]
+    }
+  ]
+}
