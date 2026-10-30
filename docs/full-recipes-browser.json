@@ -1,5 +1,5 @@
 {
-  "version": "0.0.81",
+  "version": "0.0.82",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -10760,10 +10760,174 @@
           "pixels": 66547
         }
       ]
+    },
+    {
+      "id": "particle-system-weather",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "00f31304c83948b8483ccea29333f1659809fc97fb308e20e0b05abf8fcf4b47",
+      "inputSha256": "2e7945dc762d7a65a085d477e4570a60fb9e637935737fcb054d2566e55d8051",
+      "fixtureSha256": "56e35f9540990e3db94e7ad8c6876f31a2942586cf9bb8b0a007b00bf82697e4",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "weather-snow-cloud-dome",
+        "weather-rain-curtain-box",
+        "weather-camera-mount-cylinder",
+        "weather-extent-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "weather-snow-cloud-dome",
+          "pixels": 1358
+        },
+        {
+          "id": "weather-rain-curtain-box",
+          "pixels": 1214
+        },
+        {
+          "id": "weather-camera-mount-cylinder",
+          "pixels": 121
+        },
+        {
+          "id": "weather-extent-rect",
+          "pixels": 66915
+        }
+      ]
+    },
+    {
+      "id": "pbr-lighting-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "8b4bbd018bba8ed36d746dd54bb40c79ff2a4f436913864c84ed45f1490e73aa",
+      "inputSha256": "94e6766d318f1a003a75d6284c7861f2a8861599ae6a6f3ce94e042c4f2d2f56",
+      "fixtureSha256": "d1aedb473415085a05ba6c67ea2de1c084fc72a95bac2315afb34782554db6b8",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "pbr-helmet-model-box",
+        "pbr-environment-specular-sphere",
+        "pbr-lighting-rig-cylinder",
+        "pbr-inspection-platform-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "pbr-helmet-model-box",
+          "pixels": 70
+        },
+        {
+          "id": "pbr-environment-specular-sphere",
+          "pixels": 77
+        },
+        {
+          "id": "pbr-lighting-rig-cylinder",
+          "pixels": 61
+        },
+        {
+          "id": "pbr-inspection-platform-rect",
+          "pixels": 66867
+        }
+      ]
+    },
+    {
+      "id": "per-feature-post-processing",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "759c85b24edf2afaeefac3dbf0cf59f6e82d090a5a5ac5c82e141500be7c733b",
+      "inputSha256": "d0e9210f4b4c13b838e22cedc5860a43661d3f13a315ca6934a90cfa2e22517d",
+      "fixtureSha256": "d562d4c9717316f127f721659db15670c8ca70d4c8ac7bd108b319fa71dcfeea",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "perfeature-model-character-box",
+        "perfeature-silhouette-halo-ellipsoid",
+        "perfeature-tonal-cylinder",
+        "perfeature-bounds-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "perfeature-model-character-box",
+          "pixels": 40
+        },
+        {
+          "id": "perfeature-silhouette-halo-ellipsoid",
+          "pixels": 120
+        },
+        {
+          "id": "perfeature-tonal-cylinder",
+          "pixels": 44
+        },
+        {
+          "id": "perfeature-bounds-rect",
+          "pixels": 66080
+        }
+      ]
+    },
+    {
+      "id": "physically-based-materials",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "48f7d144dfd3f51de193234dd7bb9092cab38d3e9d8cb8d54c7fdd221faa5c5c",
+      "inputSha256": "38479e73e45bc690ecb3a37957dcae586c98596fe20273eddb17ce924f4ee0c5",
+      "fixtureSha256": "e98b3dbdab47344854c822b8e667b4635da8229559f20b37b047d86311232758",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "pbm-ground-vehicle-box",
+        "pbm-sun-reflection-cylinder",
+        "pbm-roughness-probe-sphere",
+        "pbm-terrain-corridor-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "pbm-ground-vehicle-box",
+          "pixels": 54
+        },
+        {
+          "id": "pbm-sun-reflection-cylinder",
+          "pixels": 52
+        },
+        {
+          "id": "pbm-roughness-probe-sphere",
+          "pixels": 56
+        },
+        {
+          "id": "pbm-terrain-corridor-rect",
+          "pixels": 65151
+        }
+      ]
     }
   ],
   "browser": "151.0.7922.34",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed",
-  "totalCases": 271
+  "totalCases": 275
 }

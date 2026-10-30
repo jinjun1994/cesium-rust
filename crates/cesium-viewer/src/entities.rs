@@ -5889,4 +5889,65 @@ mod tests {
         let tails_variants = crate::entity_variants::decode(&tails_variants_raw).unwrap();
         assert_eq!(tails_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch82_weather_pbr_postprocess_materials() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Particle System Weather
+        let weather_data = std::fs::read(base.join("particle-system-weather.json")).unwrap();
+        let weather_entities = decode(&weather_data).unwrap();
+        assert_eq!(weather_entities.len(), 4);
+        assert!(matches!(weather_entities[0].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(weather_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(weather_entities[2].shape, Shape::Cylinder { .. }));
+        assert!(matches!(weather_entities[3].shape, Shape::Rectangle { .. }));
+        let weather_variants_raw =
+            std::fs::read(base.join("particle-system-weather.variants.json")).unwrap();
+        let weather_variants = crate::entity_variants::decode(&weather_variants_raw).unwrap();
+        assert_eq!(weather_variants.variants.len(), 4);
+
+        // 2. PBR Lighting - Dev
+        let pbr_data = std::fs::read(base.join("pbr-lighting-dev.json")).unwrap();
+        let pbr_entities = decode(&pbr_data).unwrap();
+        assert_eq!(pbr_entities.len(), 4);
+        assert!(matches!(pbr_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(pbr_entities[1].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(pbr_entities[2].shape, Shape::Cylinder { .. }));
+        assert!(matches!(pbr_entities[3].shape, Shape::Rectangle { .. }));
+        let pbr_variants_raw = std::fs::read(base.join("pbr-lighting-dev.variants.json")).unwrap();
+        let pbr_variants = crate::entity_variants::decode(&pbr_variants_raw).unwrap();
+        assert_eq!(pbr_variants.variants.len(), 4);
+
+        // 3. Per-Feature Post-Processing
+        let post_data = std::fs::read(base.join("per-feature-post-processing.json")).unwrap();
+        let post_entities = decode(&post_data).unwrap();
+        assert_eq!(post_entities.len(), 4);
+        assert!(matches!(post_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(post_entities[1].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(post_entities[2].shape, Shape::Cylinder { .. }));
+        assert!(matches!(post_entities[3].shape, Shape::Rectangle { .. }));
+        let post_variants_raw =
+            std::fs::read(base.join("per-feature-post-processing.variants.json")).unwrap();
+        let post_variants = crate::entity_variants::decode(&post_variants_raw).unwrap();
+        assert_eq!(post_variants.variants.len(), 4);
+
+        // 4. Physically-Based Materials
+        let pbm_data = std::fs::read(base.join("physically-based-materials.json")).unwrap();
+        let pbm_entities = decode(&pbm_data).unwrap();
+        assert_eq!(pbm_entities.len(), 4);
+        assert!(matches!(pbm_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(pbm_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(pbm_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(pbm_entities[3].shape, Shape::Rectangle { .. }));
+        let pbm_variants_raw =
+            std::fs::read(base.join("physically-based-materials.variants.json")).unwrap();
+        let pbm_variants = crate::entity_variants::decode(&pbm_variants_raw).unwrap();
+        assert_eq!(pbm_variants.variants.len(), 4);
+    }
 }

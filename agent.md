@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.81（已通过 271 / 309 个完整案例，剩余 38 个）
+- **当前版本**：v0.0.82（已通过 275 / 309 个完整案例，剩余 34 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.82 验收完成：Particle System Weather、PBR Lighting - Dev、Per-Feature Post Processing 与 Physically-Based Materials
+- **完成配方**（累计推进至 **275 / 309**，剩余 34 个）：
+  1. `particle-system-weather`（高山喜马拉雅大范围降雪/暴雨天气、SphereEmitter 半径 100km 粒子发射与雾气光学迁移：基准高山暴风雪模式、倾盆大雨暴雨模式、冰霰暴风雪混合模式、雪后初霁晴空模式 4 种变体）
+  2. `pbr-lighting-dev`（基于物理渲染 PBR 模型多因子光照、ImageBasedLighting 环境贴图与动态环境贴图管理器：基准完整 PBR 图像光照、纯漫反射环境光照模式、纯镜面反射高光模式、直射日光影棚模式 4 种变体）
+  3. `per-feature-post-processing`（逐要素交互式后处理阶段、鼠标悬停拾取与轮廓描边/黑白阶调阶化：基准鼠标悬停高亮石灰绿轮廓线阶段、鼠标悬停黑白灰度量化阶段、双阶段复合渲染模式、直通无过滤基础模型渲染 4 种变体）
+  4. `physically-based-materials`（工程运输卡车真实感物理材质、地形贴地与全天 24 小时动态光照漫游：基准正前方高光反射视角、45 度侧角日出掠射视角、正上方正午直射视角、仰角黄昏地平线边缘光视角 4 种变体）
+- **核心研发突破**：
+  1. **大范围气象粒子动力学与大气雾气协同（Wide-Area Weather Dynamics & Atmospheric Fog Coupling）**：支持半径 100km 超大发射半径随相机平移，实现基于视距的反比透明度渐变与雨雪重力加速度场，无缝驱动大气散射色移与雾气浓淡。
+  2. **高精物理环境光照与漫反射/镜面二元解耦（Dual-Factor Image-Based Lighting & Dynamic Ground Calibration）**：解耦 IBL 漫反射/镜面反射权重向量，实现 `DynamicEnvironmentMapManager` 对地面反照率、大气散射倍率与 Gamma 的闭环重置调控。
+  3. **逐要素屏幕空间后处理掩膜隔离（Per-Feature Post-Process Isolation & Selective Staging）**：结合 `PostProcessStageLibrary` 动态管理要素选择集 `stage.selected`，仅对特定图元实施石灰绿高光轮廓描边或多阶黑白片元着色。
+  4. **全天时太阳光照追踪与地形贴模 PBR 材质（Diurnal Solar Tracking & Terrain-Clamped PBR Shading）**：支持 `HeightReference.CLAMP_TO_GROUND` 地形贴模解算，通过时钟时间推移驱动太阳光照矢量连续变化，在微表面高光与阴影级联中呈现细腻金属质感。
+- **验证结果**：
+  - **普通 Rust 单元测试**：142 项全部通过（含 `batch82_weather_pbr_postprocess_materials`）。
+  - **真实 GPU 离屏渲染测试**：276 / 276 项全数通过（`276 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，275 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：275 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Particle System Weather、PBR Lighting - Dev、Per-Feature Post Processing 与 Physically-Based Materials 验证文档](docs/weather-pbr-postprocessing-pbm-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.81 验收完成：Panorama、Particle System、Particle System Fireworks 与 Particle System Tails
 - **完成配方**（累计推进至 **271 / 309**，剩余 38 个）：

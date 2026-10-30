@@ -282,6 +282,10 @@ $('fullNew244').onclick=guarded(()=>runFull('panorama'));
 $('fullNew245').onclick=guarded(()=>runFull('particle-system'));
 $('fullNew246').onclick=guarded(()=>runFull('particle-system-fireworks'));
 $('fullNew247').onclick=guarded(()=>runFull('particle-system-tails'));
+$('fullNew248').onclick=guarded(()=>runFull('particle-system-weather'));
+$('fullNew249').onclick=guarded(()=>runFull('pbr-lighting-dev'));
+$('fullNew250').onclick=guarded(()=>runFull('per-feature-post-processing'));
+$('fullNew251').onclick=guarded(()=>runFull('physically-based-materials'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

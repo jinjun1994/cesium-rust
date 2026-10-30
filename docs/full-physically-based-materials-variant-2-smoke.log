@@ -1,0 +1,2 @@
+native smoke: 90 frames; Earth yes | height 2926.8 m | resident 0 | GPU 7.5 MiB | draws 9 | errors 0 | GeoJSON 0 layers | Entities 4 | offline base | terrain off
+camera state: {"flightId":0,"flightProgress":0.0,"flightStatus":"idle","mode":"orbit","trackedEntity":null,"view":{"destinationDegrees":[-103.97700062709227,27.056328814682693,2079.782630354166],"heading":-1.649134585162647e-14,"pitch":-0.7857240409777995,"roll":-2.0930984575442164e-18}}

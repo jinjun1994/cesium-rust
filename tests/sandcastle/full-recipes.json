@@ -7547,6 +7547,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "particle-system-weather",
+      "title": "Particle System Weather",
+      "sourceSha256": "00f31304c83948b8483ccea29333f1659809fc97fb308e20e0b05abf8fcf4b47",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=particle-system-weather",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/particle-system-weather.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/particle-system-weather.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Cesium.ParticleSystem weather effects: SphereEmitter snow and rain precipitation simulations",
+        "Dynamic particle system replacement and camera distance alpha fading with snow/rain updateCallbacks",
+        "Scene skyAtmosphere and fog density/brightness optical shift adjustments"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "pbr-lighting-dev",
+      "title": "PBR Lighting - Dev",
+      "sourceSha256": "8b4bbd018bba8ed36d746dd54bb40c79ff2a4f436913864c84ed45f1490e73aa",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=pbr-lighting-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/pbr-lighting-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/pbr-lighting-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Physically-Based Rendering (PBR) lighting factor controls and ImageBasedLighting environment maps",
+        "DynamicEnvironmentMapManager ground albedo, atmospheric scattering, and gamma calibration",
+        "Multiple PBR test models with boundingSphere auto-framing and directional sunlight intensity"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "per-feature-post-processing",
+      "title": "Per-Feature Post Processing",
+      "sourceSha256": "759c85b24edf2afaeefac3dbf0cf59f6e82d090a5a5ac5c82e141500be7c733b",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=per-feature-post-processing",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/per-feature-post-processing.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/per-feature-post-processing.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "PostProcessStageLibrary per-feature silhouette and black-and-white post-process stages",
+        "ScreenSpaceEventHandler interactive mouse-over object picking and stage.selected assignment",
+        "Custom post-process stage uniforms: lime highlight color and multi-level gradations"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "physically-based-materials",
+      "title": "Physically-Based Materials",
+      "sourceSha256": "48f7d144dfd3f51de193234dd7bb9092cab38d3e9d8cb8d54c7fdd221faa5c5c",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=physically-based-materials",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/physically-based-materials.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/physically-based-materials.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Physically-based glTF materials with microfacet specular reflections and dynamic sunlight",
+        "Time-dynamic lighting progression synchronized with ClockViewModel and multi-viewpoint camera flyTos",
+        "WorldTerrain depth testing, shadow map casting, and ground vehicle clamp-to-ground placement"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

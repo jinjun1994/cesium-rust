@@ -772,6 +772,10 @@ async fn verify_extended(id: &str, data: &[u8]) {
         "particle-system",
         "particle-system-fireworks",
         "particle-system-tails",
+        "particle-system-weather",
+        "pbr-lighting-dev",
+        "per-feature-post-processing",
+        "physically-based-materials",
     ]
     .contains(&id)
     {
@@ -9974,6 +9978,187 @@ fn complete_particle_system_tails() {
             if i > 0 {
                 let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
                     format!("../../docs/full-particle-system-tails-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_particle_system_weather() {
+    pollster::block_on(async {
+        verify_extended(
+            "particle-system-weather",
+            include_bytes!("../../../tests/sandcastle/full/particle-system-weather.json"),
+        )
+        .await;
+        let raw =
+            include_bytes!("../../../tests/sandcastle/full/particle-system-weather.variants.json");
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-particle-system-weather-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_pbr_lighting_dev() {
+    pollster::block_on(async {
+        verify_extended(
+            "pbr-lighting-dev",
+            include_bytes!("../../../tests/sandcastle/full/pbr-lighting-dev.json"),
+        )
+        .await;
+        let raw = include_bytes!("../../../tests/sandcastle/full/pbr-lighting-dev.variants.json");
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-pbr-lighting-dev-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_per_feature_post_processing() {
+    pollster::block_on(async {
+        verify_extended(
+            "per-feature-post-processing",
+            include_bytes!("../../../tests/sandcastle/full/per-feature-post-processing.json"),
+        )
+        .await;
+        let raw = include_bytes!(
+            "../../../tests/sandcastle/full/per-feature-post-processing.variants.json"
+        );
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-per-feature-post-processing-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_physically_based_materials() {
+    pollster::block_on(async {
+        verify_extended(
+            "physically-based-materials",
+            include_bytes!("../../../tests/sandcastle/full/physically-based-materials.json"),
+        )
+        .await;
+        let raw = include_bytes!(
+            "../../../tests/sandcastle/full/physically-based-materials.variants.json"
+        );
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-physically-based-materials-variant-{i}-smoke.log"),
                 );
                 let _ = s.zoom_to_entities(&[], 768, 512);
                 let t = attachment(

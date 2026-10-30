@@ -1,0 +1,148 @@
+[
+  {
+    "id": "pbm-ground-vehicle-box",
+    "name": "GroundVehicle Heavy Heavy-Duty Model Bounding Hull",
+    "show": true,
+    "positionDegrees": [
+      -103.97688,
+      27.07507,
+      30
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        18,
+        8,
+        7
+      ]
+    },
+    "color": [
+      0.85,
+      0.45,
+      0.15,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.8,
+      0.3,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "modelUri": "GroundVehicle.glb",
+      "scale": 8,
+      "heightReference": "CLAMP_TO_GROUND"
+    }
+  },
+  {
+    "id": "pbm-sun-reflection-cylinder",
+    "name": "Solar Angle Specular Highlight Reflection Column",
+    "show": true,
+    "positionDegrees": [
+      -103.9772,
+      27.0753,
+      35
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 25,
+      "topRadius": 4,
+      "bottomRadius": 4
+    },
+    "color": [
+      1,
+      0.95,
+      0.7,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      0.9,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "lightAngleDeg": 80.5,
+      "timeUtc": "2017-07-11T20:00:00Z",
+      "dynamicLighting": "SUNLIGHT"
+    }
+  },
+  {
+    "id": "pbm-roughness-probe-sphere",
+    "name": "PBR Microfacet Roughness Scatter Test Sphere",
+    "show": true,
+    "positionDegrees": [
+      -103.9765,
+      27.0748,
+      28
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        8,
+        8,
+        8
+      ]
+    },
+    "color": [
+      0.35,
+      0.65,
+      0.85,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.7,
+      0.9,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "viewMode": "Front reflection",
+      "shadows": true,
+      "multiplier": 1000
+    }
+  },
+  {
+    "id": "pbm-terrain-corridor-rect",
+    "name": "Desert Terrain Test Track Inspection Cadastral Bounds",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -103.987,
+        27.067,
+        -103.967,
+        27.083
+      ]
+    },
+    "color": [
+      0.35,
+      0.25,
+      0.15,
+      0.25
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.8,
+      0.6,
+      0.4,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "enableLighting": true,
+      "depthTestAgainstTerrain": true
+    }
+  }
+]

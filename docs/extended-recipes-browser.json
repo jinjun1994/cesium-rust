@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "panorama",
+      "id": "particle-system-weather",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "9939c026ad9b327b4ec35ef4d8998effd224844739728c734bb400384f6a2358",
-      "inputSha256": "af4a4ae42aa59eb5d687fd3ccdf962bd22f8cf8596f4210b938542c097616679",
-      "fixtureSha256": "7f270985139a2914b21a72395c9adbff0992ca988fe674d99ef92d3d5041d486",
+      "sourceSha256": "00f31304c83948b8483ccea29333f1659809fc97fb308e20e0b05abf8fcf4b47",
+      "inputSha256": "2e7945dc762d7a65a085d477e4570a60fb9e637935737fcb054d2566e55d8051",
+      "fixtureSha256": "56e35f9540990e3db94e7ad8c6876f31a2942586cf9bb8b0a007b00bf82697e4",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,37 +22,78 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "panorama-equirectangular-dome",
-        "panorama-cubemap-box",
-        "panorama-camera-target-marker",
-        "panorama-extent-envelope-rect"
+        "weather-snow-cloud-dome",
+        "weather-rain-curtain-box",
+        "weather-camera-mount-cylinder",
+        "weather-extent-rect"
       ],
       "pixelCounts": [
         {
-          "id": "panorama-equirectangular-dome",
-          "pixels": 1061
+          "id": "weather-snow-cloud-dome",
+          "pixels": 1358
         },
         {
-          "id": "panorama-cubemap-box",
-          "pixels": 764
+          "id": "weather-rain-curtain-box",
+          "pixels": 1214
         },
         {
-          "id": "panorama-camera-target-marker",
+          "id": "weather-camera-mount-cylinder",
+          "pixels": 121
+        },
+        {
+          "id": "weather-extent-rect",
+          "pixels": 66915
+        }
+      ]
+    },
+    {
+      "id": "pbr-lighting-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "8b4bbd018bba8ed36d746dd54bb40c79ff2a4f436913864c84ed45f1490e73aa",
+      "inputSha256": "94e6766d318f1a003a75d6284c7861f2a8861599ae6a6f3ce94e042c4f2d2f56",
+      "fixtureSha256": "d1aedb473415085a05ba6c67ea2de1c084fc72a95bac2315afb34782554db6b8",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "pbr-helmet-model-box",
+        "pbr-environment-specular-sphere",
+        "pbr-lighting-rig-cylinder",
+        "pbr-inspection-platform-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "pbr-helmet-model-box",
+          "pixels": 70
+        },
+        {
+          "id": "pbr-environment-specular-sphere",
+          "pixels": 77
+        },
+        {
+          "id": "pbr-lighting-rig-cylinder",
           "pixels": 61
         },
         {
-          "id": "panorama-extent-envelope-rect",
-          "pixels": 66272
+          "id": "pbr-inspection-platform-rect",
+          "pixels": 66867
         }
       ]
     },
     {
-      "id": "particle-system",
+      "id": "per-feature-post-processing",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "7f3f056a8e42474b036cb6d6a07e906eb4c032fa07172048d63b2e87001fc979",
-      "inputSha256": "d40ccd0e0ffc00cc4bb5eb00f7725d97da45f58ea574f880c20e0338620b4660",
-      "fixtureSha256": "2b12ee96c8aeacdb730a83b6ea4d43b49c51ef3b8f4119e90d3ddc93eb87a16f",
+      "sourceSha256": "759c85b24edf2afaeefac3dbf0cf59f6e82d090a5a5ac5c82e141500be7c733b",
+      "inputSha256": "d0e9210f4b4c13b838e22cedc5860a43661d3f13a315ca6934a90cfa2e22517d",
+      "fixtureSha256": "d562d4c9717316f127f721659db15670c8ca70d4c8ac7bd108b319fa71dcfeea",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -63,37 +104,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "particle-milktruck-carrier-box",
-        "particle-emitter-circle-cylinder",
-        "particle-burst-plume-sphere",
-        "particle-truck-trajectory-rect"
+        "perfeature-model-character-box",
+        "perfeature-silhouette-halo-ellipsoid",
+        "perfeature-tonal-cylinder",
+        "perfeature-bounds-rect"
       ],
       "pixelCounts": [
         {
-          "id": "particle-milktruck-carrier-box",
-          "pixels": 38
+          "id": "perfeature-model-character-box",
+          "pixels": 40
         },
         {
-          "id": "particle-emitter-circle-cylinder",
-          "pixels": 26
+          "id": "perfeature-silhouette-halo-ellipsoid",
+          "pixels": 120
         },
         {
-          "id": "particle-burst-plume-sphere",
-          "pixels": 188
+          "id": "perfeature-tonal-cylinder",
+          "pixels": 44
         },
         {
-          "id": "particle-truck-trajectory-rect",
-          "pixels": 55654
+          "id": "perfeature-bounds-rect",
+          "pixels": 66080
         }
       ]
     },
     {
-      "id": "particle-system-fireworks",
+      "id": "physically-based-materials",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "58744a84f55cf32f12a3b68797aa7998ef6d84452a4e4d3e9943aee578086923",
-      "inputSha256": "4da515050714ec42e656a7d2d3ee18174b87f90e85a36a309b9171dd5276e42e",
-      "fixtureSha256": "7ca9d2998c8b3e4b0675e71a956ca60f9dfd38343d5269f0a922e7b0d134f8e5",
+      "sourceSha256": "48f7d144dfd3f51de193234dd7bb9092cab38d3e9d8cb8d54c7fdd221faa5c5c",
+      "inputSha256": "38479e73e45bc690ecb3a37957dcae586c98596fe20273eddb17ce924f4ee0c5",
+      "fixtureSha256": "e98b3dbdab47344854c822b8e667b4635da8229559f20b37b047d86311232758",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -104,68 +145,27 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "fireworks-core-explosion-sphere",
-        "fireworks-salvo-cluster-box",
-        "fireworks-launch-pad-cylinder",
-        "fireworks-firing-zone-rect"
+        "pbm-ground-vehicle-box",
+        "pbm-sun-reflection-cylinder",
+        "pbm-roughness-probe-sphere",
+        "pbm-terrain-corridor-rect"
       ],
       "pixelCounts": [
         {
-          "id": "fireworks-core-explosion-sphere",
-          "pixels": 610
+          "id": "pbm-ground-vehicle-box",
+          "pixels": 54
         },
         {
-          "id": "fireworks-salvo-cluster-box",
-          "pixels": 952
+          "id": "pbm-sun-reflection-cylinder",
+          "pixels": 52
         },
         {
-          "id": "fireworks-launch-pad-cylinder",
-          "pixels": 165
+          "id": "pbm-roughness-probe-sphere",
+          "pixels": 56
         },
         {
-          "id": "fireworks-firing-zone-rect",
-          "pixels": 66837
-        }
-      ]
-    },
-    {
-      "id": "particle-system-tails",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "0e36ea429e00a79828c092ef6e19fb6ae022dce6b690fb2453b489ddc80683cf",
-      "inputSha256": "3ea4bbbbcccdebced78dcfacd9eb37cce138f0b04d5688fbf2f7818ea3e9dbcd",
-      "fixtureSha256": "e779cc022a88f3a8cadfc3ffea3444d284a99037288d19efe4646cc1f684122a",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "tails-aircraft-model-box",
-        "tails-comet-stream-cylinder",
-        "tails-rocket-thruster-sphere",
-        "tails-flight-corridor-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "tails-aircraft-model-box",
-          "pixels": 110
-        },
-        {
-          "id": "tails-comet-stream-cylinder",
-          "pixels": 255
-        },
-        {
-          "id": "tails-rocket-thruster-sphere",
-          "pixels": 219
-        },
-        {
-          "id": "tails-flight-corridor-rect",
-          "pixels": 66547
+          "id": "pbm-terrain-corridor-rect",
+          "pixels": 65151
         }
       ]
     }

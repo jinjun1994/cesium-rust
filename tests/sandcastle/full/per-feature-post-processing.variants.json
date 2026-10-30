@@ -1,0 +1,597 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Mouse-Over Lime Silhouette Stage (Per-Feature Highlight Boundary Halo)",
+      "entities": [
+        {
+          "id": "perfeature-model-character-box",
+          "name": "Cesium_Man Articulated Character Model Hull",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            10
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              8,
+              6,
+              18
+            ]
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "Cesium_Man.glb",
+            "trackedEntity": true
+          }
+        },
+        {
+          "id": "perfeature-silhouette-halo-ellipsoid",
+          "name": "Per-Feature Lime Silhouette Glow Perimeter Shell",
+          "show": true,
+          "positionDegrees": [
+            -123.0741,
+            44.0506,
+            15
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              12,
+              15
+            ]
+          },
+          "color": [
+            0.2,
+            1,
+            0.2,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "stage": "Silhouette",
+            "silhouetteColor": "#00ff00",
+            "lineWidth": 2
+          }
+        },
+        {
+          "id": "perfeature-tonal-cylinder",
+          "name": "Quantized Black-and-White Shading Test Column",
+          "show": false,
+          "positionDegrees": [
+            -123.0748,
+            44.0501,
+            8
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 22,
+            "topRadius": 3.5,
+            "bottomRadius": 3.5
+          },
+          "color": [
+            0.6,
+            0.6,
+            0.6,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.9,
+            0.9,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "stage": "BlackAndWhite",
+            "gradations": 5
+          }
+        },
+        {
+          "id": "perfeature-bounds-rect",
+          "name": "Screen Space Mouse-Move Feature Picking Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.084,
+              44.043,
+              -123.064,
+              44.057
+            ]
+          },
+          "color": [
+            0.2,
+            0.3,
+            0.25,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.9,
+            0.5,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "interactiveMouseMove": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Mouse-Over Black and White Quantization Stage (5-Step Grayscale Shading)",
+      "entities": [
+        {
+          "id": "perfeature-model-character-box",
+          "name": "Cesium_Man Articulated Character Model Hull",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            10
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              8,
+              6,
+              18
+            ]
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "Cesium_Man.glb",
+            "trackedEntity": true
+          }
+        },
+        {
+          "id": "perfeature-silhouette-halo-ellipsoid",
+          "name": "Per-Feature Lime Silhouette Glow Perimeter Shell",
+          "show": false,
+          "positionDegrees": [
+            -123.0741,
+            44.0506,
+            15
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              12,
+              15
+            ]
+          },
+          "color": [
+            0.2,
+            1,
+            0.2,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "stage": "Silhouette",
+            "silhouetteColor": "#00ff00",
+            "lineWidth": 2
+          }
+        },
+        {
+          "id": "perfeature-tonal-cylinder",
+          "name": "Quantized Black-and-White Shading Test Column",
+          "show": true,
+          "positionDegrees": [
+            -123.0748,
+            44.0501,
+            8
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 22,
+            "topRadius": 3.5,
+            "bottomRadius": 3.5
+          },
+          "color": [
+            0.6,
+            0.6,
+            0.6,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.9,
+            0.9,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "stage": "BlackAndWhite",
+            "gradations": 5
+          }
+        },
+        {
+          "id": "perfeature-bounds-rect",
+          "name": "Screen Space Mouse-Move Feature Picking Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.084,
+              44.043,
+              -123.064,
+              44.057
+            ]
+          },
+          "color": [
+            0.2,
+            0.3,
+            0.25,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.9,
+            0.5,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "interactiveMouseMove": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Dual Stage Composite Mode (Simultaneous Silhouette Edge & Monochromatic Body)",
+      "entities": [
+        {
+          "id": "perfeature-model-character-box",
+          "name": "Cesium_Man Articulated Character Model Hull",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            10
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              8,
+              6,
+              18
+            ]
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "Cesium_Man.glb",
+            "trackedEntity": true
+          }
+        },
+        {
+          "id": "perfeature-silhouette-halo-ellipsoid",
+          "name": "Per-Feature Lime Silhouette Glow Perimeter Shell",
+          "show": true,
+          "positionDegrees": [
+            -123.0741,
+            44.0506,
+            15
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              12,
+              15
+            ]
+          },
+          "color": [
+            0.2,
+            1,
+            0.2,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "stage": "Silhouette",
+            "silhouetteColor": "#00ff00",
+            "lineWidth": 2
+          }
+        },
+        {
+          "id": "perfeature-tonal-cylinder",
+          "name": "Quantized Black-and-White Shading Test Column",
+          "show": true,
+          "positionDegrees": [
+            -123.0748,
+            44.0501,
+            8
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 22,
+            "topRadius": 3.5,
+            "bottomRadius": 3.5
+          },
+          "color": [
+            0.6,
+            0.6,
+            0.6,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.9,
+            0.9,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "stage": "BlackAndWhite",
+            "gradations": 5
+          }
+        },
+        {
+          "id": "perfeature-bounds-rect",
+          "name": "Screen Space Mouse-Move Feature Picking Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.084,
+              44.043,
+              -123.064,
+              44.057
+            ]
+          },
+          "color": [
+            0.2,
+            0.3,
+            0.25,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.9,
+            0.5,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "interactiveMouseMove": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Pass-Through Unfiltered Base Model Render (Direct PBR Character View)",
+      "entities": [
+        {
+          "id": "perfeature-model-character-box",
+          "name": "Cesium_Man Articulated Character Model Hull",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            10
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              8,
+              6,
+              18
+            ]
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "Cesium_Man.glb",
+            "trackedEntity": true
+          }
+        },
+        {
+          "id": "perfeature-silhouette-halo-ellipsoid",
+          "name": "Per-Feature Lime Silhouette Glow Perimeter Shell",
+          "show": false,
+          "positionDegrees": [
+            -123.0741,
+            44.0506,
+            15
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              12,
+              15
+            ]
+          },
+          "color": [
+            0.2,
+            1,
+            0.2,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "stage": "Silhouette",
+            "silhouetteColor": "#00ff00",
+            "lineWidth": 2
+          }
+        },
+        {
+          "id": "perfeature-tonal-cylinder",
+          "name": "Quantized Black-and-White Shading Test Column",
+          "show": false,
+          "positionDegrees": [
+            -123.0748,
+            44.0501,
+            8
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 22,
+            "topRadius": 3.5,
+            "bottomRadius": 3.5
+          },
+          "color": [
+            0.6,
+            0.6,
+            0.6,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.9,
+            0.9,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "stage": "BlackAndWhite",
+            "gradations": 5
+          }
+        },
+        {
+          "id": "perfeature-bounds-rect",
+          "name": "Screen Space Mouse-Move Feature Picking Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.084,
+              44.043,
+              -123.064,
+              44.057
+            ]
+          },
+          "color": [
+            0.2,
+            0.3,
+            0.25,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.9,
+            0.5,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "interactiveMouseMove": true
+          }
+        }
+      ]
+    }
+  ]
+}
