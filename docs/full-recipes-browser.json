@@ -1,5 +1,5 @@
 {
-  "version": "0.0.89",
+  "version": "0.0.90",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -12079,6 +12079,170 @@
         {
           "id": "voxel-subdivision-grid-rect",
           "pixels": 68497
+        }
+      ]
+    },
+    {
+      "id": "voxels",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "6e269579318261b07d5d0762faa517bf95e6795b3da607a5133da81c65bc4221",
+      "inputSha256": "86bcf7ec9b5a8adaba423a7d61f4eb3c6509986e5fee3dbb9179f1a2da09fb8e",
+      "fixtureSha256": "25e92591a2b2f1b7e358f50249966269750fedf4c7d2d0924b589304025168bb",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "voxels-procedural-volume-box",
+        "voxels-cylinder-shape-primitive",
+        "voxels-ellipsoid-kernel-sphere",
+        "voxels-bounding-footprint-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "voxels-procedural-volume-box",
+          "pixels": 98338
+        },
+        {
+          "id": "voxels-cylinder-shape-primitive",
+          "pixels": 79825
+        },
+        {
+          "id": "voxels-ellipsoid-kernel-sphere",
+          "pixels": 166025
+        },
+        {
+          "id": "voxels-bounding-footprint-rect",
+          "pixels": 61501
+        }
+      ]
+    },
+    {
+      "id": "voxels-in-3d-tiles",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "55c4376a3bc1f1334f7e7b008863e03db844908322aa04b62d9fc69fd319cfdc",
+      "inputSha256": "c653ff5e0f2fe00712716e45e9bee116185bccad1a836e4c35921b6ec5f1f90c",
+      "fixtureSha256": "99d0d132f78b6ace7280a49d6c979f421a6d9072a01c091d3fc04b1989fa9699",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "voxels3d-tileset-bounding-box",
+        "voxels3d-octree-node-cylinder",
+        "voxels3d-sample-point-sphere",
+        "voxels3d-dataset-coverage-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "voxels3d-tileset-bounding-box",
+          "pixels": 94047
+        },
+        {
+          "id": "voxels3d-octree-node-cylinder",
+          "pixels": 105751
+        },
+        {
+          "id": "voxels3d-sample-point-sphere",
+          "pixels": 166025
+        },
+        {
+          "id": "voxels3d-dataset-coverage-rect",
+          "pixels": 65641
+        }
+      ]
+    },
+    {
+      "id": "washington-dc-2017",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "943437e526cae93a9f459c43314c8426af3a6af17af42dfc1b6c639a5abdf668",
+      "inputSha256": "5c5b05e2fd604e5000eb5d3759fc05d36ba46d51fa410306f7b05732715c4c89",
+      "fixtureSha256": "9a7867b7f5e46e02d64d7dd8e30b666699791583b11b98f3e96bdadc735c0e96",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "dc2017-capitol-dome-cylinder",
+        "dc2017-washington-monument-box",
+        "dc2017-lincoln-memorial-sphere",
+        "dc2017-national-mall-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "dc2017-capitol-dome-cylinder",
+          "pixels": 1571
+        },
+        {
+          "id": "dc2017-washington-monument-box",
+          "pixels": 623
+        },
+        {
+          "id": "dc2017-lincoln-memorial-sphere",
+          "pixels": 427
+        },
+        {
+          "id": "dc2017-national-mall-rect",
+          "pixels": 38664
+        }
+      ]
+    },
+    {
+      "id": "web-map-service-wms",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "342ee46680526fefd5a6443fe56a4ad1fce80a36f61e7f2b2793e837b70ece7f",
+      "inputSha256": "c2bc592b27c79f59dfcf27ae54abb39f0e22b85ee352826aadd367b0e91e0979",
+      "fixtureSha256": "6b2ca3289ad7ae3babda8aa7337a4d2fd07eee7adb5aa9863fb5583e6d06f97c",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "wms-offshore-lease-block-box",
+        "wms-drilling-platform-cylinder",
+        "wms-survey-buoy-sphere",
+        "wms-australia-extent-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "wms-offshore-lease-block-box",
+          "pixels": 85005
+        },
+        {
+          "id": "wms-drilling-platform-cylinder",
+          "pixels": 90168
+        },
+        {
+          "id": "wms-survey-buoy-sphere",
+          "pixels": 166025
+        },
+        {
+          "id": "wms-australia-extent-rect",
+          "pixels": 61646
         }
       ]
     }

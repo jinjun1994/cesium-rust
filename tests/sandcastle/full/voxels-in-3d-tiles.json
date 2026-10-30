@@ -1,0 +1,127 @@
+[
+  {
+    "id": "voxels3d-tileset-bounding-box",
+    "name": "Voxel 3D Tileset Bounding Box",
+    "show": true,
+    "positionDegrees": [
+      -105,
+      39.5,
+      50000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        250000,
+        250000,
+        100000
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.15,
+      0.7,
+      0.9,
+      0.9
+    ],
+    "outlineColor": [
+      0.8,
+      0.95,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "voxels3d-octree-node-cylinder",
+    "name": "Octree Node Subdivision Cylinder",
+    "show": true,
+    "positionDegrees": [
+      -105,
+      41.5,
+      80000
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 150000,
+      "topRadius": 60000,
+      "bottomRadius": 60000
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.95,
+      0.65,
+      0.1,
+      0.85
+    ],
+    "outlineColor": [
+      1,
+      0.85,
+      0.5,
+      1
+    ]
+  },
+  {
+    "id": "voxels3d-sample-point-sphere",
+    "name": "Voxel Sample Evaluation Sphere",
+    "show": true,
+    "positionDegrees": [
+      -102.5,
+      39.5,
+      80000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        75000,
+        75000,
+        75000
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.85,
+      0.2,
+      0.7,
+      0.9
+    ],
+    "outlineColor": [
+      1,
+      0.6,
+      0.9,
+      1
+    ]
+  },
+  {
+    "id": "voxels3d-dataset-coverage-rect",
+    "name": "Voxel Dataset Coverage Boundary",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -107,
+        38,
+        -101,
+        42
+      ],
+      "height": 5000,
+      "extrudedHeight": 30000
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.2,
+      0.3,
+      0.6,
+      0.5
+    ],
+    "outlineColor": [
+      0.5,
+      0.7,
+      1,
+      1
+    ]
+  }
+]

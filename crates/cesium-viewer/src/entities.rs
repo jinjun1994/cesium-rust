@@ -6411,4 +6411,64 @@ mod tests {
         let vp_variants = crate::entity_variants::decode(&vp_variants_raw).unwrap();
         assert_eq!(vp_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch90_voxels_3dtiles_dc_wms() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Voxels
+        let voxels_data = std::fs::read(base.join("voxels.json")).unwrap();
+        let voxels_entities = decode(&voxels_data).unwrap();
+        assert_eq!(voxels_entities.len(), 4);
+        assert!(matches!(voxels_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(voxels_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(voxels_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(voxels_entities[3].shape, Shape::Rectangle { .. }));
+        let voxels_variants_raw = std::fs::read(base.join("voxels.variants.json")).unwrap();
+        let voxels_variants = crate::entity_variants::decode(&voxels_variants_raw).unwrap();
+        assert_eq!(voxels_variants.variants.len(), 4);
+
+        // 2. Voxels in 3D Tiles
+        let v3d_data = std::fs::read(base.join("voxels-in-3d-tiles.json")).unwrap();
+        let v3d_entities = decode(&v3d_data).unwrap();
+        assert_eq!(v3d_entities.len(), 4);
+        assert!(matches!(v3d_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(v3d_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(v3d_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(v3d_entities[3].shape, Shape::Rectangle { .. }));
+        let v3d_variants_raw =
+            std::fs::read(base.join("voxels-in-3d-tiles.variants.json")).unwrap();
+        let v3d_variants = crate::entity_variants::decode(&v3d_variants_raw).unwrap();
+        assert_eq!(v3d_variants.variants.len(), 4);
+
+        // 3. Washington DC 2017
+        let dc_data = std::fs::read(base.join("washington-dc-2017.json")).unwrap();
+        let dc_entities = decode(&dc_data).unwrap();
+        assert_eq!(dc_entities.len(), 4);
+        assert!(matches!(dc_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(dc_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(dc_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(dc_entities[3].shape, Shape::Rectangle { .. }));
+        let dc_variants_raw = std::fs::read(base.join("washington-dc-2017.variants.json")).unwrap();
+        let dc_variants = crate::entity_variants::decode(&dc_variants_raw).unwrap();
+        assert_eq!(dc_variants.variants.len(), 4);
+
+        // 4. Web Map Service (WMS)
+        let wms_data = std::fs::read(base.join("web-map-service-wms.json")).unwrap();
+        let wms_entities = decode(&wms_data).unwrap();
+        assert_eq!(wms_entities.len(), 4);
+        assert!(matches!(wms_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(wms_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(wms_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(wms_entities[3].shape, Shape::Rectangle { .. }));
+        let wms_variants_raw =
+            std::fs::read(base.join("web-map-service-wms.variants.json")).unwrap();
+        let wms_variants = crate::entity_variants::decode(&wms_variants_raw).unwrap();
+        assert_eq!(wms_variants.variants.len(), 4);
+    }
 }

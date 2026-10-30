@@ -1,0 +1,431 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Web Map Service (WMS) - Variant 1 (Default Focus)",
+      "entities": [
+        {
+          "id": "wms-offshore-lease-block-box",
+          "name": "Offshore Petroleum Lease Block Box",
+          "show": true,
+          "positionDegrees": [
+            125,
+            -20,
+            50000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              400000,
+              300000,
+              100000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.15,
+            0.65,
+            0.7,
+            0.85
+          ],
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ]
+        },
+        {
+          "id": "wms-drilling-platform-cylinder",
+          "name": "Offshore Production Platform Cylinder",
+          "show": true,
+          "positionDegrees": [
+            125,
+            -17,
+            80000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 160000,
+            "topRadius": 50000,
+            "bottomRadius": 50000
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.5,
+            0.1,
+            0.9
+          ],
+          "outlineColor": [
+            1,
+            0.75,
+            0.4,
+            1
+          ]
+        },
+        {
+          "id": "wms-survey-buoy-sphere",
+          "name": "Oceanographic Survey Buoy Sphere",
+          "show": true,
+          "positionDegrees": [
+            130,
+            -20,
+            60000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              70000,
+              70000,
+              70000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.8,
+            0.95,
+            0.9
+          ],
+          "outlineColor": [
+            0.6,
+            0.95,
+            1,
+            1
+          ]
+        },
+        {
+          "id": "wms-australia-extent-rect",
+          "name": "Australia Continental WMS Service Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              122,
+              -21,
+              128,
+              -17
+            ],
+            "height": 1000,
+            "extrudedHeight": 20000
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.4,
+            0.65,
+            0.5
+          ],
+          "outlineColor": [
+            0.5,
+            0.75,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Web Map Service (WMS) - Variant 2 (Alternative Parameters)",
+      "entities": [
+        {
+          "id": "wms-offshore-lease-block-box",
+          "name": "Offshore Petroleum Lease Block Box",
+          "show": true,
+          "positionDegrees": [
+            125,
+            -20,
+            50000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              400000,
+              300000,
+              100000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.15,
+            0.65,
+            0.7,
+            0.85
+          ],
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ]
+        },
+        {
+          "id": "wms-drilling-platform-cylinder",
+          "name": "Offshore Production Platform Cylinder",
+          "show": true,
+          "positionDegrees": [
+            125,
+            -17,
+            80000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 160000,
+            "topRadius": 50000,
+            "bottomRadius": 50000
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.5,
+            0.1,
+            0.9
+          ],
+          "outlineColor": [
+            1,
+            0.75,
+            0.4,
+            1
+          ]
+        },
+        {
+          "id": "wms-survey-buoy-sphere",
+          "name": "Oceanographic Survey Buoy Sphere",
+          "show": true,
+          "positionDegrees": [
+            130,
+            -20,
+            60000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              70000,
+              70000,
+              70000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.8,
+            0.95,
+            0.9
+          ],
+          "outlineColor": [
+            0.6,
+            0.95,
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Web Map Service (WMS) - Variant 3 (Minimal Subset)",
+      "entities": [
+        {
+          "id": "wms-offshore-lease-block-box",
+          "name": "Offshore Petroleum Lease Block Box",
+          "show": true,
+          "positionDegrees": [
+            125,
+            -20,
+            50000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              400000,
+              300000,
+              100000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.15,
+            0.65,
+            0.7,
+            0.85
+          ],
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ]
+        },
+        {
+          "id": "wms-drilling-platform-cylinder",
+          "name": "Offshore Production Platform Cylinder",
+          "show": true,
+          "positionDegrees": [
+            125,
+            -17,
+            80000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 160000,
+            "topRadius": 50000,
+            "bottomRadius": 50000
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.5,
+            0.1,
+            0.9
+          ],
+          "outlineColor": [
+            1,
+            0.75,
+            0.4,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Web Map Service (WMS) - Variant 4 (Full Inspection Overview)",
+      "entities": [
+        {
+          "id": "wms-offshore-lease-block-box",
+          "name": "Offshore Petroleum Lease Block Box",
+          "show": true,
+          "positionDegrees": [
+            125,
+            -20,
+            50000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              400000,
+              300000,
+              100000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.15,
+            0.65,
+            0.7,
+            0.85
+          ],
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ]
+        },
+        {
+          "id": "wms-drilling-platform-cylinder",
+          "name": "Offshore Production Platform Cylinder",
+          "show": true,
+          "positionDegrees": [
+            125,
+            -17,
+            80000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 160000,
+            "topRadius": 50000,
+            "bottomRadius": 50000
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.5,
+            0.1,
+            0.9
+          ],
+          "outlineColor": [
+            1,
+            0.75,
+            0.4,
+            1
+          ]
+        },
+        {
+          "id": "wms-survey-buoy-sphere",
+          "name": "Oceanographic Survey Buoy Sphere",
+          "show": true,
+          "positionDegrees": [
+            130,
+            -20,
+            60000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              70000,
+              70000,
+              70000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.8,
+            0.95,
+            0.9
+          ],
+          "outlineColor": [
+            0.6,
+            0.95,
+            1,
+            1
+          ]
+        },
+        {
+          "id": "wms-australia-extent-rect",
+          "name": "Australia Continental WMS Service Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              122,
+              -21,
+              128,
+              -17
+            ],
+            "height": 1000,
+            "extrudedHeight": 20000
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.4,
+            0.65,
+            0.5
+          ],
+          "outlineColor": [
+            0.5,
+            0.75,
+            1,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

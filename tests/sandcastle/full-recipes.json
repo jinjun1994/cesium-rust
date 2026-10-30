@@ -8443,6 +8443,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "voxels",
+      "title": "Voxel Rendering",
+      "sourceSha256": "6e269579318261b07d5d0762faa517bf95e6795b3da607a5133da81c65bc4221",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=voxels",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/voxels.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/voxels.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Procedural voxel volume generation with Box, Ellipsoid, Cylinder shapes",
+        "Custom shader color, transparency, step size, and normal lighting control",
+        "Voxel inspector mixin integration and volumetric bounds inspection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "voxels-in-3d-tiles",
+      "title": "Voxels in 3D Tiles",
+      "sourceSha256": "55c4376a3bc1f1334f7e7b008863e03db844908322aa04b62d9fc69fd319cfdc",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=voxels-in-3d-tiles",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/voxels-in-3d-tiles.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/voxels-in-3d-tiles.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Load voxel datasets formatted as 3D Tiles via Cesium3DTilesVoxelProvider",
+        "Nearest sampling and voxel bounding sphere camera framing",
+        "Octree tile hierarchy streaming and multi-shape voxel primitives"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "washington-dc-2017",
+      "title": "Washington DC 2017",
+      "sourceSha256": "943437e526cae93a9f459c43314c8426af3a6af17af42dfc1b6c639a5abdf668",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=washington-dc-2017",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/washington-dc-2017.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/washington-dc-2017.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Cesium ion Asset ID 3827 high-resolution aerial orthoimagery of DC",
+        "Sub-decimeter 0.08m pixel resolution photogrammetric texture streaming",
+        "National Mall landmark alignment and high-precision spatial framing"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "web-map-service-wms",
+      "title": "Web Map Service (WMS)",
+      "sourceSha256": "342ee46680526fefd5a6443fe56a4ad1fce80a36f61e7f2b2793e837b70ece7f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=web-map-service-wms",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/web-map-service-wms.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/web-map-service-wms.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "WebMapServiceImageryProvider integration with Geoscience Australia WMS service",
+        "OGC WMS GetMap transparent PNG image streaming and layer parameterization",
+        "Continental Australia spatial extent bounding rectangle framing"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

@@ -4,7 +4,7 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.89（已通过 303 / 309 个完整案例，剩余 6 个）
+- **当前版本**：v0.0.90（已通过 307 / 309 个完整案例，剩余最后 2 个）
 
 ---
 
@@ -1377,4 +1377,22 @@
   - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` 零告警、零报错。
 - **文档晋升**：
   - 产出 [Video、Viewerless Sandcastle、Volumetric Cloud 与 Voxel Picking 验证文档](docs/video-viewerless-volumecloud-voxelpick-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
+---
+
+### [2026-10-31] v0.0.90 验收完成：Voxel Rendering、Voxels in 3D Tiles、Washington DC 2017 与 Web Map Service (WMS) 体系全面打通
+- **完成配方**（累计推进至 **307 / 309**，剩余最后 2 个）：
+  1. `voxels`（多形状程序化体素图元生成、CustomShader 透明度与光照调节、VoxelInspector 诊断面板：4 个变体，涵盖基准长方体体素体积图元模式、圆柱体体素图元模式、椭球体密度核渐变模式与多形状全景综合检查模式）
+  2. `voxels-in-3d-tiles`（3D Tiles 八叉树流式体素数据集、Cesium3DTilesVoxelProvider、nearestSampling 滤波与包围球相机自动定位：4 个变体，涵盖基准 3D Tiles 体素长方体瓦片集模式、圆柱体体素瓦片提供者模式、椭球体 3D Tiles 体素体积模式与多层级 LOD 瓦片阶梯剖分模式）
+  3. `washington-dc-2017`（Cesium ion 托管华盛顿特区 3 英寸/0.08m 超高分辨率航测正射、国会大厦与国家广场重点地标对准：4 个变体，涵盖基准国家广场 0.08m 高分辨率航测正射模式、国会山庄穹顶建筑巡检模式、华盛顿纪念碑方尖碑定位模式与特区全域宏观视域巡礼模式）
+  4. `web-map-service-wms`（OGC WMS Web 地图服务影像图层集成、澳大利亚地球科学局离岸石油租借区块透明 PNG 瓦片流式加载：4 个变体，涵盖基准澳大利亚离岸石油租借区块 WMS 模式、西北大陆架油气勘探区块模式、大澳大利亚湾海洋环境勘查模式与全澳大陆 WMS 覆层宏观总览模式）
+- **验证结果**：
+  - **普通 Rust 单元测试**：150 / 150 项全部通过（新增 `batch90_voxels_3dtiles_dc_wms`）。
+  - **真实 GPU 离屏渲染测试**：308 / 308 项全部通过（包含 307 个完整案例 + 1 个材质拾取测试）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 307 个固定案例哈希与实体结构精准契合）。
+  - **浏览器真实 WebGPU 端到端**：307 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Voxel Rendering、Voxels in 3D Tiles、Washington DC 2017 与 Web Map Service (WMS) 验证文档](docs/voxels-3dtiles-dc-wms-validation.md)。
   - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。

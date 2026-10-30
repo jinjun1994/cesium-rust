@@ -6,56 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "video",
+      "id": "voxels",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "2c1db14dde0a29f998bbdcd6ed82cca6212ea0ef944c8ff57c07f763687bf1ed",
-      "inputSha256": "b40d32399874cd99325311cdd1aa60f6f37173f6df249e31dee5aefed06833e8",
-      "fixtureSha256": "61202da51ba39201733e2b3c89807ce138d58003decc8175a95e2d1323f99cf3",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit",
-        "inferred clock",
-        "seek at all samples",
-        "play/pause/loop"
-      ],
-      "pickedEntities": [
-        "video-textured-ellipsoid",
-        "video-playback-screen-box",
-        "video-synchronizer-pillar",
-        "video-viewing-platform-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "video-textured-ellipsoid",
-          "pixels": 166025
-        },
-        {
-          "id": "video-playback-screen-box",
-          "pixels": 98712
-        },
-        {
-          "id": "video-synchronizer-pillar",
-          "pixels": 72979
-        },
-        {
-          "id": "video-viewing-platform-rect",
-          "pixels": 67500
-        }
-      ]
-    },
-    {
-      "id": "viewerless",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "c969f4e865c9bc26340a0431d740accf1d95883c38a3475d39ccd09a79df9646",
-      "inputSha256": "8ab4d5a12a07d44571b283e8da4c224c0f36fc12c456dbfa09f497c0722a4e38",
-      "fixtureSha256": "4c7bea82624f36211d444c1ed0c68ef389c651fb6b448b60b5f87518df9a2799",
+      "sourceSha256": "6e269579318261b07d5d0762faa517bf95e6795b3da607a5133da81c65bc4221",
+      "inputSha256": "86bcf7ec9b5a8adaba423a7d61f4eb3c6509986e5fee3dbb9179f1a2da09fb8e",
+      "fixtureSha256": "25e92591a2b2f1b7e358f50249966269750fedf4c7d2d0924b589304025168bb",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -66,37 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "viewerless-canvas-backdrop-box",
-        "viewerless-ui-button-cylinder",
-        "viewerless-logo-mark-sphere",
-        "viewerless-viewport-rect"
+        "voxels-procedural-volume-box",
+        "voxels-cylinder-shape-primitive",
+        "voxels-ellipsoid-kernel-sphere",
+        "voxels-bounding-footprint-rect"
       ],
       "pixelCounts": [
         {
-          "id": "viewerless-canvas-backdrop-box",
-          "pixels": 75084
+          "id": "voxels-procedural-volume-box",
+          "pixels": 98338
         },
         {
-          "id": "viewerless-ui-button-cylinder",
-          "pixels": 134281
+          "id": "voxels-cylinder-shape-primitive",
+          "pixels": 79825
         },
         {
-          "id": "viewerless-logo-mark-sphere",
+          "id": "voxels-ellipsoid-kernel-sphere",
           "pixels": 166025
         },
         {
-          "id": "viewerless-viewport-rect",
-          "pixels": 67176
+          "id": "voxels-bounding-footprint-rect",
+          "pixels": 61501
         }
       ]
     },
     {
-      "id": "volumecloud",
+      "id": "voxels-in-3d-tiles",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "e7ed5f2dcb87001c8e5ecc757779dace62f6ccbd9081e5157139fa517bc2c447",
-      "inputSha256": "1030e459a8b633e7662605f9f754987c7ea8604e74c7ca2d0205d3831095706c",
-      "fixtureSha256": "5e5e191efa76239971d2a22d06403f869e68da17e19ac62f901a3e557b464e83",
+      "sourceSha256": "55c4376a3bc1f1334f7e7b008863e03db844908322aa04b62d9fc69fd319cfdc",
+      "inputSha256": "c653ff5e0f2fe00712716e45e9bee116185bccad1a836e4c35921b6ec5f1f90c",
+      "fixtureSha256": "99d0d132f78b6ace7280a49d6c979f421a6d9072a01c091d3fc04b1989fa9699",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -107,68 +63,109 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "volcloud-raymarching-bounding-box",
-        "volcloud-perlin-noise-core-sphere",
-        "volcloud-density-attenuation-cylinder",
-        "volcloud-ground-shadow-footprint-rect"
+        "voxels3d-tileset-bounding-box",
+        "voxels3d-octree-node-cylinder",
+        "voxels3d-sample-point-sphere",
+        "voxels3d-dataset-coverage-rect"
       ],
       "pixelCounts": [
         {
-          "id": "volcloud-raymarching-bounding-box",
-          "pixels": 103076
+          "id": "voxels3d-tileset-bounding-box",
+          "pixels": 94047
         },
         {
-          "id": "volcloud-perlin-noise-core-sphere",
-          "pixels": 151551
+          "id": "voxels3d-octree-node-cylinder",
+          "pixels": 105751
         },
         {
-          "id": "volcloud-density-attenuation-cylinder",
+          "id": "voxels3d-sample-point-sphere",
+          "pixels": 166025
+        },
+        {
+          "id": "voxels3d-dataset-coverage-rect",
+          "pixels": 65641
+        }
+      ]
+    },
+    {
+      "id": "washington-dc-2017",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "943437e526cae93a9f459c43314c8426af3a6af17af42dfc1b6c639a5abdf668",
+      "inputSha256": "5c5b05e2fd604e5000eb5d3759fc05d36ba46d51fa410306f7b05732715c4c89",
+      "fixtureSha256": "9a7867b7f5e46e02d64d7dd8e30b666699791583b11b98f3e96bdadc735c0e96",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "dc2017-capitol-dome-cylinder",
+        "dc2017-washington-monument-box",
+        "dc2017-lincoln-memorial-sphere",
+        "dc2017-national-mall-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "dc2017-capitol-dome-cylinder",
+          "pixels": 1571
+        },
+        {
+          "id": "dc2017-washington-monument-box",
+          "pixels": 623
+        },
+        {
+          "id": "dc2017-lincoln-memorial-sphere",
+          "pixels": 427
+        },
+        {
+          "id": "dc2017-national-mall-rect",
+          "pixels": 38664
+        }
+      ]
+    },
+    {
+      "id": "web-map-service-wms",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "342ee46680526fefd5a6443fe56a4ad1fce80a36f61e7f2b2793e837b70ece7f",
+      "inputSha256": "c2bc592b27c79f59dfcf27ae54abb39f0e22b85ee352826aadd367b0e91e0979",
+      "fixtureSha256": "6b2ca3289ad7ae3babda8aa7337a4d2fd07eee7adb5aa9863fb5583e6d06f97c",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "wms-offshore-lease-block-box",
+        "wms-drilling-platform-cylinder",
+        "wms-survey-buoy-sphere",
+        "wms-australia-extent-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "wms-offshore-lease-block-box",
+          "pixels": 85005
+        },
+        {
+          "id": "wms-drilling-platform-cylinder",
           "pixels": 90168
         },
         {
-          "id": "volcloud-ground-shadow-footprint-rect",
-          "pixels": 68558
-        }
-      ]
-    },
-    {
-      "id": "voxel-picking",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "44e42b439c6da0fdc91b37bb6d6833c295901b5f6424d50a0b0d9b59527ee44d",
-      "inputSha256": "198e1999449b8139ed9fdef2efd18bad4194bf1d61bcb6b8fce9cec5ffb4c05f",
-      "fixtureSha256": "d4478c65d10724819915cc92519247dd99de623dc340a0bcfe5254a6e3f487dc",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "voxel-selection-highlight-box",
-        "voxel-neighbor-cell-cylinder",
-        "voxel-multi-level-lod-sphere",
-        "voxel-subdivision-grid-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "voxel-selection-highlight-box",
-          "pixels": 103076
-        },
-        {
-          "id": "voxel-neighbor-cell-cylinder",
-          "pixels": 94356
-        },
-        {
-          "id": "voxel-multi-level-lod-sphere",
+          "id": "wms-survey-buoy-sphere",
           "pixels": 166025
         },
         {
-          "id": "voxel-subdivision-grid-rect",
-          "pixels": 68497
+          "id": "wms-australia-extent-rect",
+          "pixels": 61646
         }
       ]
     }

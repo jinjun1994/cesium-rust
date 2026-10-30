@@ -1,0 +1,431 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Washington DC 2017 - Variant 1 (Default Focus)",
+      "entities": [
+        {
+          "id": "dc2017-capitol-dome-cylinder",
+          "name": "US Capitol Dome Rotunda Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -77.009,
+            38.89,
+            80
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 80,
+            "topRadius": 35,
+            "bottomRadius": 40
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.95,
+            0.92,
+            0.95
+          ],
+          "outlineColor": [
+            0.8,
+            0.8,
+            0.75,
+            1
+          ]
+        },
+        {
+          "id": "dc2017-washington-monument-box",
+          "name": "Washington Monument Obelisk Box",
+          "show": true,
+          "positionDegrees": [
+            -77.035,
+            38.889,
+            85
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              20,
+              20,
+              170
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.92,
+            0.9,
+            0.85,
+            0.95
+          ],
+          "outlineColor": [
+            0.75,
+            0.7,
+            0.65,
+            1
+          ]
+        },
+        {
+          "id": "dc2017-lincoln-memorial-sphere",
+          "name": "Lincoln Memorial Landmark Sphere",
+          "show": true,
+          "positionDegrees": [
+            -77.05,
+            38.889,
+            40
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25,
+              25,
+              25
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.75,
+            0.2,
+            0.9
+          ],
+          "outlineColor": [
+            1,
+            0.9,
+            0.5,
+            1
+          ]
+        },
+        {
+          "id": "dc2017-national-mall-rect",
+          "name": "National Mall High-Res Imagery Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -77.06,
+              38.882,
+              -77,
+              38.898
+            ],
+            "height": 10,
+            "extrudedHeight": 50
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.25,
+            0.6,
+            0.3,
+            0.6
+          ],
+          "outlineColor": [
+            0.4,
+            0.85,
+            0.5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Washington DC 2017 - Variant 2 (Alternative Parameters)",
+      "entities": [
+        {
+          "id": "dc2017-capitol-dome-cylinder",
+          "name": "US Capitol Dome Rotunda Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -77.009,
+            38.89,
+            80
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 80,
+            "topRadius": 35,
+            "bottomRadius": 40
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.95,
+            0.92,
+            0.95
+          ],
+          "outlineColor": [
+            0.8,
+            0.8,
+            0.75,
+            1
+          ]
+        },
+        {
+          "id": "dc2017-washington-monument-box",
+          "name": "Washington Monument Obelisk Box",
+          "show": true,
+          "positionDegrees": [
+            -77.035,
+            38.889,
+            85
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              20,
+              20,
+              170
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.92,
+            0.9,
+            0.85,
+            0.95
+          ],
+          "outlineColor": [
+            0.75,
+            0.7,
+            0.65,
+            1
+          ]
+        },
+        {
+          "id": "dc2017-lincoln-memorial-sphere",
+          "name": "Lincoln Memorial Landmark Sphere",
+          "show": true,
+          "positionDegrees": [
+            -77.05,
+            38.889,
+            40
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25,
+              25,
+              25
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.75,
+            0.2,
+            0.9
+          ],
+          "outlineColor": [
+            1,
+            0.9,
+            0.5,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Washington DC 2017 - Variant 3 (Minimal Subset)",
+      "entities": [
+        {
+          "id": "dc2017-capitol-dome-cylinder",
+          "name": "US Capitol Dome Rotunda Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -77.009,
+            38.89,
+            80
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 80,
+            "topRadius": 35,
+            "bottomRadius": 40
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.95,
+            0.92,
+            0.95
+          ],
+          "outlineColor": [
+            0.8,
+            0.8,
+            0.75,
+            1
+          ]
+        },
+        {
+          "id": "dc2017-washington-monument-box",
+          "name": "Washington Monument Obelisk Box",
+          "show": true,
+          "positionDegrees": [
+            -77.035,
+            38.889,
+            85
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              20,
+              20,
+              170
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.92,
+            0.9,
+            0.85,
+            0.95
+          ],
+          "outlineColor": [
+            0.75,
+            0.7,
+            0.65,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Washington DC 2017 - Variant 4 (Full Inspection Overview)",
+      "entities": [
+        {
+          "id": "dc2017-capitol-dome-cylinder",
+          "name": "US Capitol Dome Rotunda Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -77.009,
+            38.89,
+            80
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 80,
+            "topRadius": 35,
+            "bottomRadius": 40
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.95,
+            0.92,
+            0.95
+          ],
+          "outlineColor": [
+            0.8,
+            0.8,
+            0.75,
+            1
+          ]
+        },
+        {
+          "id": "dc2017-washington-monument-box",
+          "name": "Washington Monument Obelisk Box",
+          "show": true,
+          "positionDegrees": [
+            -77.035,
+            38.889,
+            85
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              20,
+              20,
+              170
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.92,
+            0.9,
+            0.85,
+            0.95
+          ],
+          "outlineColor": [
+            0.75,
+            0.7,
+            0.65,
+            1
+          ]
+        },
+        {
+          "id": "dc2017-lincoln-memorial-sphere",
+          "name": "Lincoln Memorial Landmark Sphere",
+          "show": true,
+          "positionDegrees": [
+            -77.05,
+            38.889,
+            40
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25,
+              25,
+              25
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.75,
+            0.2,
+            0.9
+          ],
+          "outlineColor": [
+            1,
+            0.9,
+            0.5,
+            1
+          ]
+        },
+        {
+          "id": "dc2017-national-mall-rect",
+          "name": "National Mall High-Res Imagery Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -77.06,
+              38.882,
+              -77,
+              38.898
+            ],
+            "height": 10,
+            "extrudedHeight": 50
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.25,
+            0.6,
+            0.3,
+            0.6
+          ],
+          "outlineColor": [
+            0.4,
+            0.85,
+            0.5,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}
