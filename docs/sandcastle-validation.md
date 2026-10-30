@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.62
+
+新增 Vertical Exaggeration with 3D Tiles、Design Model – Layer Control and Metadata Picking、Design Model – Terrain Inset、Design Model – Elements API Query 四个完整案例，累计 **195 / 309**，剩余 114 个。122 项普通 Rust、196 项实际 GPU、8 组 Node、195 个浏览器 WebGPU 案例通过。验证包含谷歌实景三维高程垂直夸张参数调谐（3 倍地形垂直起伏夸张基准、5 倍极致高山峡谷夸张模式、1 倍真实物理尺度真实地形起伏基准与引入 1500 米非零相对高度基准面偏移 4 种变体）、Autodesk Revit 斯诺登大厦多专业协同 BIM 设计图层与属性拾取（建筑与幕墙图层基准激活、结构工程与暖通机电专业聚焦模式、七大专业全开与纯实景三维环境对比 4 种变体）、建筑基地 GeoJSON 多边形地形开挖与设计模型嵌合（设计方案嵌合基准、反向裁剪模式剔除全球瓦片仅保留基坑内部、仅保留地块贴地多边形模式与原始地表全貌 4 种变体）、以及 Cesium ion 资产构件级 Elements API 结构化检索与空间定位（所有墙体构件检索基准、承重主体结构检索模式、建筑门窗洞口构件过滤模式与空间规划过滤模式 4 种变体）。详见 [本批验证](3dtiles-verticalexag-aec-design-clipping-elements-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.61
 
 新增 3D Tiles Point Cloud Styling、Global Rivers Vector Tiles with Property-based LOD、3D Tiles Split - Dev、3D Tiles Terrain Classification 四个完整案例，累计 **191 / 309**，剩余 118 个。121 项普通 Rust、192 项实际 GPU、8 组 Node、191 个浏览器 WebGPU 案例通过。验证包含点云声明式样式语言、逐点温度条件色谱、三角/几何坐标函数与动态点图元尺寸（温度二值红蓝阶跃着色基准、10 级温度条件色带与透明度通道混合模式、空间归一化三维坐标位置色彩渐变模式与动态宏定义点尺寸缩放 4 种变体）、全球 HydroRIVERS 矢量水系流速层级与属性 LOD 地形贴地渲染（1-10 级对数水系流量彩虹色带基准、干流主江加粗高亮模式、末端细小支流强化模式与单色灰度线宽分级 4 种变体）、14 种多格式 3D Tileset 滑动分屏对比与阴影检视（基准 50% 居中无分割全景视图、左侧视口单侧遮罩剖切模式、右侧视口单侧遮罩剖切模式与实例化 I3DM 瓦片集分屏与实时阴影投射 4 种变体）、以及维也纳城市矢量 3D Tiles 全球地形覆层分类与交互高亮（维也纳半透明白色地块贴地分类基准、鼠标悬停动态黄色要素高亮模式、绿蓝规划功能分区覆层多边形模式与关闭分类维也纳纯地形 4 种变体）。详见 [本批验证](3dtiles-pointcloudstyling-river-splitdev-terrainclass-validation.md)。以下保留历史记录。

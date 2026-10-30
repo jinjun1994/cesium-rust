@@ -1245,7 +1245,7 @@
       "reason": "Upstream recipe is not executed by the Rust engine. API mentions do not establish compatibility.",
       "referenceUrl": "https://sandcastle.cesium.com/?id=aec-elements-api-query",
       "sourceUrl": "https://raw.githubusercontent.com/CesiumGS/cesium/b8d3a36fe98a3e432eb89253c95d5f20e605e0f1/packages/sandcastle/gallery/aec-elements-api-query/main.js",
-      "sourceSha256": "fb3b6204e06832b538c511bdcecd31b0f48f7cc84bcdfbb4241a2a28fc000168",
+      "sourceSha256": "247a278ec79fe678898c35833bafe48b668f56692e573157a4512ba43215dfda",
       "sourceRedacted": true
     },
     {

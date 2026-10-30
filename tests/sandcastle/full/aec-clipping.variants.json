@@ -1,0 +1,613 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Proposed Building Inset with Normal Clipping and Footprint Active",
+      "entities": [
+        {
+          "id": "aec-clip-design-cylinder",
+          "name": "Proposed Commercial Building Anchor Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -105.002,
+            39.754,
+            1600
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 150,
+            "topRadius": 40,
+            "bottomRadius": 40
+          },
+          "color": [
+            0.15,
+            0.85,
+            0.55,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "proposedDesignAssetId": 2533124,
+            "footprintAssetId": 2533131
+          }
+        },
+        {
+          "id": "aec-clip-volume-box",
+          "name": "Excavation Basement Inset Volume Box",
+          "show": true,
+          "positionDegrees": [
+            -105.0015,
+            39.7545,
+            1580
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              80,
+              80,
+              60
+            ]
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clippingTargetLocation": true,
+            "inverseClip": false
+          }
+        },
+        {
+          "id": "aec-clip-sensor-sphere",
+          "name": "Clipping Plane Normal Inspection Sphere",
+          "show": true,
+          "positionDegrees": [
+            -105.0025,
+            39.7535,
+            1620
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              35,
+              35,
+              35
+            ]
+          },
+          "color": [
+            0.35,
+            0.45,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cameraHeading": 95,
+            "cameraPitch": -75,
+            "cameraRange": 800
+          }
+        },
+        {
+          "id": "aec-clip-footprint-rect",
+          "name": "Project Site Boundary Footprint Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -105.004,
+              39.752,
+              -105,
+              39.756
+            ],
+            "height": 1550,
+            "extrudedHeight": 1720,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.85,
+            0.65
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clampToGround": true,
+            "homeButtonNavigation": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Inverse Clipping Mode (clippingPolygons.inverse = true: Cutout Rest of World)",
+      "entities": [
+        {
+          "id": "aec-clip-design-cylinder",
+          "name": "Proposed Commercial Building Anchor Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -105.002,
+            39.754,
+            1600
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 150,
+            "topRadius": 40,
+            "bottomRadius": 40
+          },
+          "color": [
+            0.15,
+            0.85,
+            0.55,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "proposedDesignAssetId": 2533124,
+            "footprintAssetId": 2533131
+          }
+        },
+        {
+          "id": "aec-clip-volume-box",
+          "name": "Excavation Basement Inset Volume Box",
+          "show": true,
+          "positionDegrees": [
+            -105.0015,
+            39.7545,
+            1580
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              80,
+              80,
+              60
+            ]
+          },
+          "color": [
+            0.95,
+            0.25,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clippingTargetLocation": true,
+            "inverseClip": true
+          }
+        },
+        {
+          "id": "aec-clip-sensor-sphere",
+          "name": "Clipping Plane Normal Inspection Sphere",
+          "show": true,
+          "positionDegrees": [
+            -105.0025,
+            39.7535,
+            1620
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              35,
+              35,
+              35
+            ]
+          },
+          "color": [
+            0.35,
+            0.45,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cameraHeading": 95,
+            "cameraPitch": -75,
+            "cameraRange": 800
+          }
+        },
+        {
+          "id": "aec-clip-footprint-rect",
+          "name": "Project Site Boundary Footprint Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -105.004,
+              39.752,
+              -105,
+              39.756
+            ],
+            "height": 1550,
+            "extrudedHeight": 1720,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.85,
+            0.65
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clampToGround": true,
+            "homeButtonNavigation": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Proposed Building Suppressed (Only Footprint Draped on Photorealistic Terrain)",
+      "entities": [
+        {
+          "id": "aec-clip-design-cylinder",
+          "name": "Proposed Commercial Building Anchor Cylinder",
+          "show": false,
+          "positionDegrees": [
+            -105.002,
+            39.754,
+            1600
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 150,
+            "topRadius": 40,
+            "bottomRadius": 40
+          },
+          "color": [
+            0.15,
+            0.85,
+            0.55,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "proposedDesignAssetId": 2533124,
+            "footprintAssetId": 2533131
+          }
+        },
+        {
+          "id": "aec-clip-volume-box",
+          "name": "Excavation Basement Inset Volume Box",
+          "show": true,
+          "positionDegrees": [
+            -105.0015,
+            39.7545,
+            1580
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              80,
+              80,
+              60
+            ]
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clippingTargetLocation": true,
+            "inverseClip": false
+          }
+        },
+        {
+          "id": "aec-clip-sensor-sphere",
+          "name": "Clipping Plane Normal Inspection Sphere",
+          "show": true,
+          "positionDegrees": [
+            -105.0025,
+            39.7535,
+            1620
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              35,
+              35,
+              35
+            ]
+          },
+          "color": [
+            0.35,
+            0.45,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cameraHeading": 95,
+            "cameraPitch": -75,
+            "cameraRange": 800
+          }
+        },
+        {
+          "id": "aec-clip-footprint-rect",
+          "name": "Project Site Boundary Footprint Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -105.004,
+              39.752,
+              -105,
+              39.756
+            ],
+            "height": 1550,
+            "extrudedHeight": 1720,
+            "rotation": 0
+          },
+          "color": [
+            0.25,
+            0.95,
+            0.45,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clampToGround": true,
+            "homeButtonNavigation": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Pure Photorealistic Terrain without Clipping or Design Inset",
+      "entities": [
+        {
+          "id": "aec-clip-design-cylinder",
+          "name": "Proposed Commercial Building Anchor Cylinder",
+          "show": false,
+          "positionDegrees": [
+            -105.002,
+            39.754,
+            1600
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 150,
+            "topRadius": 40,
+            "bottomRadius": 40
+          },
+          "color": [
+            0.15,
+            0.85,
+            0.55,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "proposedDesignAssetId": 2533124,
+            "footprintAssetId": 2533131
+          }
+        },
+        {
+          "id": "aec-clip-volume-box",
+          "name": "Excavation Basement Inset Volume Box",
+          "show": false,
+          "positionDegrees": [
+            -105.0015,
+            39.7545,
+            1580
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              80,
+              80,
+              60
+            ]
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clippingTargetLocation": true,
+            "inverseClip": false
+          }
+        },
+        {
+          "id": "aec-clip-sensor-sphere",
+          "name": "Clipping Plane Normal Inspection Sphere",
+          "show": false,
+          "positionDegrees": [
+            -105.0025,
+            39.7535,
+            1620
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              35,
+              35,
+              35
+            ]
+          },
+          "color": [
+            0.35,
+            0.45,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cameraHeading": 95,
+            "cameraPitch": -75,
+            "cameraRange": 800
+          }
+        },
+        {
+          "id": "aec-clip-footprint-rect",
+          "name": "Project Site Boundary Footprint Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -105.004,
+              39.752,
+              -105,
+              39.756
+            ],
+            "height": 1550,
+            "extrudedHeight": 1720,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.85,
+            0.65
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clampToGround": true,
+            "homeButtonNavigation": true
+          }
+        }
+      ]
+    }
+  ]
+}

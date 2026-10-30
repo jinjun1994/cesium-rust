@@ -7435,6 +7435,170 @@
           "pixels": 71548
         }
       ]
+    },
+    {
+      "id": "3d-tiles-vertical-exaggeration",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "a91c29a72c2de18e6377b6c22ed0f67407c9e776f8fb89fe0e236927332bebf5",
+      "inputSha256": "be00165366e29385cb2d8605776acedc089bb7374d7e311755afeaca75eb0619",
+      "fixtureSha256": "483d9531cf620c104eff04cad1a48c2a49f4e90c503d7efd58501a1af6d5f7d7",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "vert-exag-peak-cylinder",
+        "vert-exag-relief-box",
+        "vert-exag-alpine-sphere",
+        "vert-exag-terrain-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "vert-exag-peak-cylinder",
+          "pixels": 62061
+        },
+        {
+          "id": "vert-exag-relief-box",
+          "pixels": 103418
+        },
+        {
+          "id": "vert-exag-alpine-sphere",
+          "pixels": 166025
+        },
+        {
+          "id": "vert-exag-terrain-rect",
+          "pixels": 86081
+        }
+      ]
+    },
+    {
+      "id": "aec-architectural-design",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "10ee4bc54132e92d3cdcdbc40b83ad25728e104bcf8c9f194c08407d7097b5e8",
+      "inputSha256": "2562ebc84cd0bd837ccc3029ce96a219e01590208aae8840a5b0ee33c9699aa4",
+      "fixtureSha256": "fa78b1ee2dfb9e056e10c8f864fe2395855b8488011592fb113e7e562e23e5b8",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "aec-design-tower-cylinder",
+        "aec-design-facade-box",
+        "aec-design-mep-sphere",
+        "aec-design-site-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "aec-design-tower-cylinder",
+          "pixels": 1516
+        },
+        {
+          "id": "aec-design-facade-box",
+          "pixels": 1170
+        },
+        {
+          "id": "aec-design-mep-sphere",
+          "pixels": 427
+        },
+        {
+          "id": "aec-design-site-rect",
+          "pixels": 8794
+        }
+      ]
+    },
+    {
+      "id": "aec-clipping",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "eb8ce1d0678cd59a44a8b245d04a831bd2330f1d95d637ac193e115bf357ce61",
+      "inputSha256": "20f7cf1667f53c43d9950f191237065d66268736ed6d68ddfe397cdc39df519f",
+      "fixtureSha256": "b84fb4644f88067c22e7ee7eefd117c415df133d61fa36b783534abbae3331a3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "aec-clip-design-cylinder",
+        "aec-clip-volume-box",
+        "aec-clip-sensor-sphere",
+        "aec-clip-footprint-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "aec-clip-design-cylinder",
+          "pixels": 2548
+        },
+        {
+          "id": "aec-clip-volume-box",
+          "pixels": 1742
+        },
+        {
+          "id": "aec-clip-sensor-sphere",
+          "pixels": 826
+        },
+        {
+          "id": "aec-clip-footprint-rect",
+          "pixels": 34619
+        }
+      ]
+    },
+    {
+      "id": "aec-elements-api-query",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "247a278ec79fe678898c35833bafe48b668f56692e573157a4512ba43215dfda",
+      "inputSha256": "5062a5136295748cf0e92159721a2cb83598e50fd3014d0215c9dee87de1beea",
+      "fixtureSha256": "36a49aaa086c25071d326c808343c3ebf308fe8dd104fb3e69a8ceb2ac729ece",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "aec-elem-query-cylinder",
+        "aec-elem-wall-box",
+        "aec-elem-filter-sphere",
+        "aec-elem-bounds-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "aec-elem-query-cylinder",
+          "pixels": 1516
+        },
+        {
+          "id": "aec-elem-wall-box",
+          "pixels": 1120
+        },
+        {
+          "id": "aec-elem-filter-sphere",
+          "pixels": 427
+        },
+        {
+          "id": "aec-elem-bounds-rect",
+          "pixels": 8794
+        }
+      ]
     }
   ],
   "browser": "156.0.8078.75",

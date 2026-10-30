@@ -4659,4 +4659,61 @@ mod tests {
         let tc_variants = crate::entity_variants::decode(&tc_variants_raw).unwrap();
         assert_eq!(tc_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch62_3d_tiles_vertical_exag_aec_design_clipping_elements() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. 3D Tiles Vertical Exaggeration
+        let ve_data = std::fs::read(base.join("3d-tiles-vertical-exaggeration.json")).unwrap();
+        let ve_entities = decode(&ve_data).unwrap();
+        assert_eq!(ve_entities.len(), 4);
+        assert!(matches!(ve_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ve_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(ve_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ve_entities[3].shape, Shape::Rectangle { .. }));
+        let ve_variants_raw =
+            std::fs::read(base.join("3d-tiles-vertical-exaggeration.variants.json")).unwrap();
+        let ve_variants = crate::entity_variants::decode(&ve_variants_raw).unwrap();
+        assert_eq!(ve_variants.variants.len(), 4);
+
+        // 2. AEC Architectural Design
+        let ad_data = std::fs::read(base.join("aec-architectural-design.json")).unwrap();
+        let ad_entities = decode(&ad_data).unwrap();
+        assert_eq!(ad_entities.len(), 4);
+        assert!(matches!(ad_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ad_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(ad_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ad_entities[3].shape, Shape::Rectangle { .. }));
+        let ad_variants_raw =
+            std::fs::read(base.join("aec-architectural-design.variants.json")).unwrap();
+        let ad_variants = crate::entity_variants::decode(&ad_variants_raw).unwrap();
+        assert_eq!(ad_variants.variants.len(), 4);
+
+        // 3. AEC Clipping
+        let ac_data = std::fs::read(base.join("aec-clipping.json")).unwrap();
+        let ac_entities = decode(&ac_data).unwrap();
+        assert_eq!(ac_entities.len(), 4);
+        assert!(matches!(ac_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ac_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(ac_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ac_entities[3].shape, Shape::Rectangle { .. }));
+        let ac_variants_raw = std::fs::read(base.join("aec-clipping.variants.json")).unwrap();
+        let ac_variants = crate::entity_variants::decode(&ac_variants_raw).unwrap();
+        assert_eq!(ac_variants.variants.len(), 4);
+
+        // 4. AEC Elements API Query
+        let eq_data = std::fs::read(base.join("aec-elements-api-query.json")).unwrap();
+        let eq_entities = decode(&eq_data).unwrap();
+        assert_eq!(eq_entities.len(), 4);
+        assert!(matches!(eq_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(eq_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(eq_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(eq_entities[3].shape, Shape::Rectangle { .. }));
+        let eq_variants_raw =
+            std::fs::read(base.join("aec-elements-api-query.variants.json")).unwrap();
+        let eq_variants = crate::entity_variants::decode(&eq_variants_raw).unwrap();
+        assert_eq!(eq_variants.variants.len(), 4);
+    }
 }

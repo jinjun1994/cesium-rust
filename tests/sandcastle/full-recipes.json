@@ -5359,6 +5359,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "3d-tiles-vertical-exaggeration",
+      "title": "Vertical Exaggeration with 3D Tiles",
+      "sourceSha256": "a91c29a72c2de18e6377b6c22ed0f67407c9e776f8fb89fe0e236927332bebf5",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-vertical-exaggeration",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-vertical-exaggeration.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-vertical-exaggeration.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Vertical exaggeration on Google Photorealistic 3D Tiles without globe",
+        "Support for scene.verticalExaggeration, relative height offset, and camera perspective positioning"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "aec-architectural-design",
+      "title": "Design Model – Layer Control and Metadata Picking",
+      "sourceSha256": "10ee4bc54132e92d3cdcdbc40b83ad25728e104bcf8c9f194c08407d7097b5e8",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=aec-architectural-design",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/aec-architectural-design.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/aec-architectural-design.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Multi-discipline BIM architecture with site clipping, metadata picking, and layer visibility toggles",
+        "Snowdon Towers Revit dataset with ambient occlusion and sorted property table formatting"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "aec-clipping",
+      "title": "Design Model – Terrain Inset",
+      "sourceSha256": "eb8ce1d0678cd59a44a8b245d04a831bd2330f1d95d637ac193e115bf357ce61",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=aec-clipping",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/aec-clipping.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/aec-clipping.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Terrain inset with GeoJSON footprint clipping polygon on Google Photorealistic 3D Tiles",
+        "Proposed design tileset integration with normal/inverse clipping toggles and home view reset"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "aec-elements-api-query",
+      "title": "Design Model – Elements API Query",
+      "sourceSha256": "247a278ec79fe678898c35833bafe48b668f56692e573157a4512ba43215dfda",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=aec-elements-api-query",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/aec-elements-api-query.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/aec-elements-api-query.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Asset Elements API query engine with pre-built SQL and JSON filters across IFC classes",
+        "Click-to-pick metadata, hover highlighting, progressive results panel, and camera element navigation"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

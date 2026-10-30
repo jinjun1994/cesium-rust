@@ -202,6 +202,10 @@ $('fullNew164').onclick=guarded(()=>runFull('3d-tiles-point-cloud-styling'));
 $('fullNew165').onclick=guarded(()=>runFull('3d-tiles-property-lod-river'));
 $('fullNew166').onclick=guarded(()=>runFull('3d-tiles-split-dev'));
 $('fullNew167').onclick=guarded(()=>runFull('3d-tiles-terrain-classification'));
+$('fullNew168').onclick=guarded(()=>runFull('3d-tiles-vertical-exaggeration'));
+$('fullNew169').onclick=guarded(()=>runFull('aec-architectural-design'));
+$('fullNew170').onclick=guarded(()=>runFull('aec-clipping'));
+$('fullNew171').onclick=guarded(()=>runFull('aec-elements-api-query'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

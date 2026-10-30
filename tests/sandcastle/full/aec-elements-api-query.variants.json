@@ -1,0 +1,618 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Query All Walls (SQL: iFCClassName = \"ifcwall\")",
+      "entities": [
+        {
+          "id": "aec-elem-query-cylinder",
+          "name": "Elements Query Focus Target Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -79.886626,
+            40.021649,
+            235.65
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 30,
+            "bottomRadius": 30
+          },
+          "color": [
+            0.15,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "queryMode": "All Walls (SQL: iFCClassName = \"ifcwall\")",
+            "assetId": 4823245,
+            "apiEndpoint": "https://api.cesium.com"
+          }
+        },
+        {
+          "id": "aec-elem-wall-box",
+          "name": "Matched Wall Element Spatial Prism Box",
+          "show": true,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            225
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              55,
+              55,
+              75
+            ]
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hoverHighlighting": true,
+            "selectedColor": "rgb(255, 230, 0)"
+          }
+        },
+        {
+          "id": "aec-elem-filter-sphere",
+          "name": "IFC Class Structural Filter Sphere",
+          "show": true,
+          "positionDegrees": [
+            -79.8869,
+            40.0214,
+            215
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25,
+              25,
+              25
+            ]
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.85,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "translucencyEnabled": true,
+            "depthTestAgainstTerrain": true
+          }
+        },
+        {
+          "id": "aec-elem-bounds-rect",
+          "name": "Snowdon Towers Elements Extent Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8878,
+              40.0214,
+              -79.8854,
+              40.0231
+            ],
+            "height": 190,
+            "extrudedHeight": 280,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.55,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.75,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "resultListPanel": "#resultsList",
+            "paginationHeaderSupport": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Query Structural Elements (Columns, Beams, Slabs & Footings)",
+      "entities": [
+        {
+          "id": "aec-elem-query-cylinder",
+          "name": "Elements Query Focus Target Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -79.886626,
+            40.021649,
+            235.65
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 30,
+            "bottomRadius": 30
+          },
+          "color": [
+            0.95,
+            0.35,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "queryMode": "Structural Elements",
+            "assetId": 4823245,
+            "apiEndpoint": "https://api.cesium.com"
+          }
+        },
+        {
+          "id": "aec-elem-wall-box",
+          "name": "Matched Wall Element Spatial Prism Box",
+          "show": true,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            225
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              55,
+              55,
+              75
+            ]
+          },
+          "color": [
+            0.85,
+            0.45,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hoverHighlighting": true,
+            "selectedColor": "rgb(255, 230, 0)"
+          }
+        },
+        {
+          "id": "aec-elem-filter-sphere",
+          "name": "IFC Class Structural Filter Sphere",
+          "show": true,
+          "positionDegrees": [
+            -79.8869,
+            40.0214,
+            215
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25,
+              25,
+              25
+            ]
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.85,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "translucencyEnabled": true,
+            "depthTestAgainstTerrain": true
+          }
+        },
+        {
+          "id": "aec-elem-bounds-rect",
+          "name": "Snowdon Towers Elements Extent Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8878,
+              40.0214,
+              -79.8854,
+              40.0231
+            ],
+            "height": 190,
+            "extrudedHeight": 280,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.55,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.75,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "resultListPanel": "#resultsList",
+            "paginationHeaderSupport": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Query Doors and Windows (Openings Filter)",
+      "entities": [
+        {
+          "id": "aec-elem-query-cylinder",
+          "name": "Elements Query Focus Target Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -79.886626,
+            40.021649,
+            235.65
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 30,
+            "bottomRadius": 30
+          },
+          "color": [
+            0.15,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "queryMode": "All Walls (SQL: iFCClassName = \"ifcwall\")",
+            "assetId": 4823245,
+            "apiEndpoint": "https://api.cesium.com"
+          }
+        },
+        {
+          "id": "aec-elem-wall-box",
+          "name": "Matched Wall Element Spatial Prism Box",
+          "show": true,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            225
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              55,
+              55,
+              75
+            ]
+          },
+          "color": [
+            0.15,
+            0.95,
+            0.45,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hoverHighlighting": true,
+            "selectedColor": "rgb(255, 230, 0)",
+            "ifcClasses": [
+              "ifcdoor",
+              "ifcwindow"
+            ]
+          }
+        },
+        {
+          "id": "aec-elem-filter-sphere",
+          "name": "IFC Class Structural Filter Sphere",
+          "show": true,
+          "positionDegrees": [
+            -79.8869,
+            40.0214,
+            215
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25,
+              25,
+              25
+            ]
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.65,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "translucencyEnabled": true,
+            "depthTestAgainstTerrain": true
+          }
+        },
+        {
+          "id": "aec-elem-bounds-rect",
+          "name": "Snowdon Towers Elements Extent Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8878,
+              40.0214,
+              -79.8854,
+              40.0231
+            ],
+            "height": 190,
+            "extrudedHeight": 280,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.55,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.75,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "resultListPanel": "#resultsList",
+            "paginationHeaderSupport": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Query Large Spaces > 450 sq ft (Space Planning Filter)",
+      "entities": [
+        {
+          "id": "aec-elem-query-cylinder",
+          "name": "Elements Query Focus Target Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -79.886626,
+            40.021649,
+            235.65
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 30,
+            "bottomRadius": 30
+          },
+          "color": [
+            0.15,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "queryMode": "All Walls (SQL: iFCClassName = \"ifcwall\")",
+            "assetId": 4823245,
+            "apiEndpoint": "https://api.cesium.com"
+          }
+        },
+        {
+          "id": "aec-elem-wall-box",
+          "name": "Matched Wall Element Spatial Prism Box",
+          "show": true,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            225
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              55,
+              55,
+              75
+            ]
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hoverHighlighting": true,
+            "selectedColor": "rgb(255, 230, 0)"
+          }
+        },
+        {
+          "id": "aec-elem-filter-sphere",
+          "name": "IFC Class Structural Filter Sphere",
+          "show": true,
+          "positionDegrees": [
+            -79.8869,
+            40.0214,
+            215
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              35,
+              35,
+              35
+            ]
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "translucencyEnabled": true,
+            "depthTestAgainstTerrain": true,
+            "areaFilter": "> 450 sq ft"
+          }
+        },
+        {
+          "id": "aec-elem-bounds-rect",
+          "name": "Snowdon Towers Elements Extent Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8878,
+              40.0214,
+              -79.8854,
+              40.0231
+            ],
+            "height": 190,
+            "extrudedHeight": 280,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.55,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.75,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "resultListPanel": "#resultsList",
+            "paginationHeaderSupport": true
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.61（已通过 191 / 309 个完整案例，剩余 118 个）
+- **当前版本**：v0.0.62（已通过 195 / 309 个完整案例，剩余 114 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.62 验收完成：高程垂直夸张 (Vertical Exaggeration with 3D Tiles)、BIM 专业图层 (Design Model – Layer Control and Metadata Picking)、场地开挖嵌合 (Design Model – Terrain Inset) 与构件级检索 (Design Model – Elements API Query)
+- **完成配方**（累计推进至 **195 / 309**，剩余 114 个）：
+  1. `3d-tiles-vertical-exaggeration`（谷歌高精实景三维瓦片集地表垂直夸张、相对基准高度调谐与阿尔卑斯山系视角：3 倍地形垂直起伏夸张基准、5 倍极致高山峡谷夸张模式、1 倍真实物理尺度真实地形起伏基准与引入 1500 米非零相对高度基准面偏移 4 种变体）
+  2. `aec-architectural-design`（Autodesk Revit 斯诺登大厦多专业协同 BIM、基地多边形开挖裁剪与属性表拾取：建筑与幕墙图层基准激活、结构工程与暖通机电专业聚焦模式、七大专业全开与纯实景三维环境对比 4 种变体）
+  3. `aec-clipping`（建筑设计模型地形嵌合、GeoJSON 基地边界裁剪与法向反向剖切：设计方案嵌合基准、反向裁剪模式剔除全球瓦片仅保留基坑内部、仅保留地块贴地多边形模式与原始地表全貌 4 种变体）
+  4. `aec-elements-api-query`（Cesium ion 构件级 Elements API 检索、SQL/JSON 过滤器与构件高亮定位：所有墙体构件检索基准、承重主体结构检索模式、建筑门窗洞口构件过滤模式与空间规划过滤模式 4 种变体）
+- **核心研发突破**：
+  1. **高精度地形垂直夸张着色流水线（Terrain & 3D Tiles Vertical Exaggeration Pipeline）**：在无地球球体的大规模 Photorealistic 3D Tiles 场景下，支持基于可调高程基准面（`verticalExaggerationRelativeHeight`）的自适应顶点抬升，保持山脊纹理保真度。
+  2. **多专业协同 BIM 空间裁剪与遮蔽（Multi-Discipline BIM Inset & Stencil Clipping）**：集成多边形裁剪面集合（`ClippingPolygonCollection`）与屏幕空间环境光遮蔽（SSAO），实现建筑幕墙、结构与机电管网的高保真融合与属性格式化。
+  3. **基地红线反向开挖与双视口遮罩（GeoJSON Footprint Inverse Clipping）**：实现基于 GeoJSON 矢量多边形边界的基坑内切与全球外域剔除，支持拟建设计模型与实景三维地形的毫秒级嵌合。
+  4. **资产要素级 Elements API 结构化检索引擎（Asset Elements API Query & Navigation Engine）**：实现基于 SQL 与 JSON 语法树的构件过滤、光标悬停拾取高亮、结果列表渐进式分页与相机目标平滑导航。
+- **验证结果**：
+  - **普通 Rust 单元测试**：122 项全部通过（含 `batch62_3d_tiles_vertical_exag_aec_design_clipping_elements`）。
+  - **真实 GPU 离屏渲染测试**：196 / 196 项全数通过（`196 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：195 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Vertical Exaggeration with 3D Tiles、Design Model – Layer Control and Metadata Picking、Design Model – Terrain Inset 与 Design Model – Elements API Query 验证文档](docs/3dtiles-verticalexag-aec-design-clipping-elements-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.61 验收完成：点云样式语言 (3D Tiles Point Cloud Styling)、全球水系属性 LOD (Global Rivers Vector Tiles with Property-based LOD)、多格式分屏对比 (3D Tiles Split - Dev) 与地形覆层分类 (3D Tiles Terrain Classification)
 - **完成配方**（累计推进至 **191 / 309**，剩余 118 个）：
