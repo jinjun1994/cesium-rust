@@ -4,7 +4,7 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.90（已通过 307 / 309 个完整案例，剩余最后 2 个）
+- **当前版本**：v0.0.91（已通过 309 / 309 个完整案例，**100% 全部完成！**）
 
 ---
 
@@ -1395,4 +1395,20 @@
   - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` 零告警、零报错。
 - **文档晋升**：
   - 产出 [Voxel Rendering、Voxels in 3D Tiles、Washington DC 2017 与 Web Map Service (WMS) 验证文档](docs/voxels-3dtiles-dc-wms-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
+---
+
+### [2026-10-31] v0.0.91 验收完成：Web Map Tile Service Picking 与 Web Map Tile Service with Time 体系全面打通 —— 309 / 309 全量 100% 收官里程碑！
+- **完成配方**（累计推进至 **309 / 309**，**100% 全部完成！**）：
+  1. `web-map-tile-service-picking`（OGC WMTS 瓦片服务要素交互拾取与 GeoJSON 解析、哥白尼海洋欧洲西北大陆架海洋模型与数字地球非洲水体分布：4 个变体，涵盖基准哥白尼海洋欧洲西北大陆架海洋模型模式、数字地球非洲水体分布 REST 瓦片模式、GeoJSON 矢量要素信息解析模式与双服务商全球瓦片宏观对比模式）
+  2. `web-map-tile-service-with-time`（美国宇航局 NASA GIBS API 时态动态切片流式加载、TimeIntervalCollection 日级时间步长、MODIS Terra 遥感拼接与时钟双向同步：4 个变体，涵盖基准 NASA GIBS MODIS Terra 日度真彩色时序模式、盛夏高对比云气天气快照模式、冬日积雪地表时态过渡模式与多年气候变化延时摄影模式）
+- **验证结果**：
+  - **普通 Rust 单元测试**：151 / 151 项全部通过（新增 `batch91_wmts_picking_and_time`）。
+  - **真实 GPU 离屏渲染测试**：310 / 310 项全部通过（包含全部 309 个官方 Sandcastle 完整案例 + 1 个材质拾取测试）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 309 个固定案例哈希与实体结构精准契合）。
+  - **浏览器真实 WebGPU 端到端**：全部 309 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Web Map Tile Service Picking 与 Web Map Tile Service with Time 验证文档](docs/wmts-picking-and-time-validation.md)。
   - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。

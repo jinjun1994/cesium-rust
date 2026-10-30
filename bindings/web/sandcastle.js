@@ -318,6 +318,8 @@ $('fullNew280').onclick=guarded(()=>runFull('voxels'));
 $('fullNew281').onclick=guarded(()=>runFull('voxels-in-3d-tiles'));
 $('fullNew282').onclick=guarded(()=>runFull('washington-dc-2017'));
 $('fullNew283').onclick=guarded(()=>runFull('web-map-service-wms'));
+$('fullNew284').onclick=guarded(()=>runFull('web-map-tile-service-picking'));
+$('fullNew285').onclick=guarded(()=>runFull('web-map-tile-service-with-time'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

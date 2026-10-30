@@ -1,0 +1,127 @@
+[
+  {
+    "id": "wmts-time-earth-observation-box",
+    "name": "NASA GIBS Earth Observation Bounding Box",
+    "show": true,
+    "positionDegrees": [
+      -95,
+      38,
+      50000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        400000,
+        400000,
+        100000
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.95,
+      0.75,
+      0.15,
+      0.85
+    ],
+    "outlineColor": [
+      1,
+      0.9,
+      0.5,
+      1
+    ]
+  },
+  {
+    "id": "wmts-time-orbit-groundtrack-cylinder",
+    "name": "Terra Satellite Ground Track Column Cylinder",
+    "show": true,
+    "positionDegrees": [
+      -95,
+      41,
+      80000
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 160000,
+      "topRadius": 50000,
+      "bottomRadius": 50000
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.2,
+      0.6,
+      0.95,
+      0.9
+    ],
+    "outlineColor": [
+      0.65,
+      0.85,
+      1,
+      1
+    ]
+  },
+  {
+    "id": "wmts-time-daily-mosaic-sphere",
+    "name": "Daily MODIS Composite Centroid Sphere",
+    "show": true,
+    "positionDegrees": [
+      -91,
+      38,
+      75000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        60000,
+        60000,
+        60000
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.25,
+      0.85,
+      0.5,
+      0.9
+    ],
+    "outlineColor": [
+      0.7,
+      1,
+      0.8,
+      1
+    ]
+  },
+  {
+    "id": "wmts-time-continental-mosaic-rect",
+    "name": "MODIS Reflectance Tile Grid Extent Rectangle",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -98,
+        35,
+        -92,
+        41
+      ],
+      "height": 1000,
+      "extrudedHeight": 20000
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.85,
+      0.9,
+      0.95,
+      0.55
+    ],
+    "outlineColor": [
+      0.95,
+      0.98,
+      1,
+      1
+    ]
+  }
+]

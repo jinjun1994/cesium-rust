@@ -1,5 +1,5 @@
 {
-  "version": "0.0.90",
+  "version": "0.0.91",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -12243,6 +12243,94 @@
         {
           "id": "wms-australia-extent-rect",
           "pixels": 61646
+        }
+      ]
+    },
+    {
+      "id": "web-map-tile-service-picking",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "6834f1f126824ff2c019358d15952031773fb0657a089e4ac30fd3ae281ee66f",
+      "inputSha256": "6b416ae01356bacbe2b1933b92db3e6f793ec71b10e8ee640afdbec3e7767be5",
+      "fixtureSha256": "7833267cf969f3221d2ea44f68dbb1551880678f2c39fd792c78de9a716d5dd6",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "wmts-ocean-model-box",
+        "wmts-current-sensor-cylinder",
+        "wmts-feature-pick-point-sphere",
+        "wmts-shelf-coverage-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "wmts-ocean-model-box",
+          "pixels": 72310
+        },
+        {
+          "id": "wmts-current-sensor-cylinder",
+          "pixels": 135552
+        },
+        {
+          "id": "wmts-feature-pick-point-sphere",
+          "pixels": 166025
+        },
+        {
+          "id": "wmts-shelf-coverage-rect",
+          "pixels": 58929
+        }
+      ]
+    },
+    {
+      "id": "web-map-tile-service-with-time",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "6932368281ccc1e25051676f151a6a274bceae62443238de8229cc4ab51a9445",
+      "inputSha256": "7c48eb57000353b4fe2f15978ecb718baa059ed0f5f13d91247beca32a3bb92b",
+      "fixtureSha256": "e144547dc30379f1355a3363d1481ca589b6a25a5d7b45493ad72876ebf44eb1",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "wmts-time-earth-observation-box",
+        "wmts-time-orbit-groundtrack-cylinder",
+        "wmts-time-daily-mosaic-sphere",
+        "wmts-time-continental-mosaic-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "wmts-time-earth-observation-box",
+          "pixels": 85748
+        },
+        {
+          "id": "wmts-time-orbit-groundtrack-cylinder",
+          "pixels": 90168
+        },
+        {
+          "id": "wmts-time-daily-mosaic-sphere",
+          "pixels": 166025
+        },
+        {
+          "id": "wmts-time-continental-mosaic-rect",
+          "pixels": 65392
         }
       ]
     }

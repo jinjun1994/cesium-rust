@@ -6471,4 +6471,40 @@ mod tests {
         let wms_variants = crate::entity_variants::decode(&wms_variants_raw).unwrap();
         assert_eq!(wms_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch91_wmts_picking_and_time() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Web Map Tile Service Picking
+        let picking_data = std::fs::read(base.join("web-map-tile-service-picking.json")).unwrap();
+        let picking_entities = decode(&picking_data).unwrap();
+        assert_eq!(picking_entities.len(), 4);
+        assert!(matches!(picking_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(picking_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(picking_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(picking_entities[3].shape, Shape::Rectangle { .. }));
+        let picking_variants_raw =
+            std::fs::read(base.join("web-map-tile-service-picking.variants.json")).unwrap();
+        let picking_variants = crate::entity_variants::decode(&picking_variants_raw).unwrap();
+        assert_eq!(picking_variants.variants.len(), 4);
+
+        // 2. Web Map Tile Service with Time
+        let time_data = std::fs::read(base.join("web-map-tile-service-with-time.json")).unwrap();
+        let time_entities = decode(&time_data).unwrap();
+        assert_eq!(time_entities.len(), 4);
+        assert!(matches!(time_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(time_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(time_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(time_entities[3].shape, Shape::Rectangle { .. }));
+        let time_variants_raw =
+            std::fs::read(base.join("web-map-tile-service-with-time.variants.json")).unwrap();
+        let time_variants = crate::entity_variants::decode(&time_variants_raw).unwrap();
+        assert_eq!(time_variants.variants.len(), 4);
+    }
 }

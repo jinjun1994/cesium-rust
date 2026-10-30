@@ -8555,6 +8555,62 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "web-map-tile-service-picking",
+      "title": "Web Map Tile Service Picking",
+      "sourceSha256": "6834f1f126824ff2c019358d15952031773fb0657a089e4ac30fd3ae281ee66f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=web-map-tile-service-picking",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/web-map-tile-service-picking.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/web-map-tile-service-picking.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "requirements": [
+        "WebMapTileServiceImageryProvider with OGC GetFeatureInfoFormats and GeoJSON parser",
+        "Copernicus Marine European North-West Shelf oceanographic model layer streaming",
+        "Digital Earth Africa waterbodies REST provider and interactive feature picking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "web-map-tile-service-with-time",
+      "title": "Web Map Tile Service with Time",
+      "sourceSha256": "6932368281ccc1e25051676f151a6a274bceae62443238de8229cc4ab51a9445",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=web-map-tile-service-with-time",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/web-map-tile-service-with-time.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/web-map-tile-service-with-time.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "requirements": [
+        "NASA GIBS API temporal WMTS tile streaming with daily time-steps",
+        "TimeIntervalCollection.fromIso8601 dynamic {Time} parameter substitution",
+        "Clock synchronization with MODIS Terra daily global composite weather imagery"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",
