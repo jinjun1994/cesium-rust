@@ -1,0 +1,593 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: 360-Degree Street View Panorama Bubble (Equirectangular Projection)",
+      "entities": [
+        {
+          "id": "streetview-pano-camera-box",
+          "name": "Google Street View Camera Rig Base Node",
+          "show": true,
+          "positionDegrees": [
+            -122.4194,
+            37.7749,
+            40
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30,
+              30,
+              60
+            ]
+          },
+          "color": [
+            0.2,
+            0.6,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "viewType": "PanoView",
+            "provider": "GoogleStreetViewCubeMapPanoramaProvider"
+          }
+        },
+        {
+          "id": "streetview-pano-pod-cylinder",
+          "name": "Street View Sensor Array Mast Pillar",
+          "show": true,
+          "positionDegrees": [
+            -122.418,
+            37.776,
+            35
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 14,
+            "bottomRadius": 14
+          },
+          "color": [
+            0.95,
+            0.7,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "overlayLayerType": "layerStreetview",
+            "searchRadiusMeters": 5
+          }
+        },
+        {
+          "id": "streetview-pano-bubble-sphere",
+          "name": "360-Degree Panorama Equirectangular Bubble",
+          "show": true,
+          "positionDegrees": [
+            -122.421,
+            37.7735,
+            30
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              18,
+              18,
+              18
+            ]
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.4,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cubeMapFaces": 6,
+            "headingTolerance": 0.05
+          }
+        },
+        {
+          "id": "streetview-pano-footprint-rect",
+          "name": "Street View Urban Navigational Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.43,
+              37.765,
+              -122.408,
+              37.785
+            ]
+          },
+          "color": [
+            0.15,
+            0.25,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.6,
+            0.75,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "San Francisco Street View Coverage"
+          }
+        }
+      ]
+    },
+    {
+      "label": "CubeMap Panorama Multi-Face Perspective (Directional Street Facets)",
+      "entities": [
+        {
+          "id": "streetview-pano-camera-box",
+          "name": "Google Street View Camera Rig Base Node",
+          "show": true,
+          "positionDegrees": [
+            -122.4194,
+            37.7749,
+            40
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30,
+              30,
+              60
+            ]
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "viewType": "PanoView",
+            "provider": "GoogleStreetViewCubeMapPanoramaProvider"
+          }
+        },
+        {
+          "id": "streetview-pano-pod-cylinder",
+          "name": "Street View Sensor Array Mast Pillar",
+          "show": true,
+          "positionDegrees": [
+            -122.418,
+            37.776,
+            35
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 14,
+            "bottomRadius": 14
+          },
+          "color": [
+            0.95,
+            0.7,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "overlayLayerType": "layerStreetview",
+            "searchRadiusMeters": 5
+          }
+        },
+        {
+          "id": "streetview-pano-bubble-sphere",
+          "name": "360-Degree Panorama Equirectangular Bubble",
+          "show": true,
+          "positionDegrees": [
+            -122.421,
+            37.7735,
+            30
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              18,
+              18,
+              18
+            ]
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.4,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cubeMapFaces": 6,
+            "headingTolerance": 0.05
+          }
+        },
+        {
+          "id": "streetview-pano-footprint-rect",
+          "name": "Street View Urban Navigational Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.43,
+              37.765,
+              -122.408,
+              37.785
+            ]
+          },
+          "color": [
+            0.15,
+            0.25,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.6,
+            0.75,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "San Francisco Street View Coverage"
+          }
+        }
+      ]
+    },
+    {
+      "label": "High-Altitude Map and Panorama Seamless Transition (Azure Horizon Blend)",
+      "entities": [
+        {
+          "id": "streetview-pano-camera-box",
+          "name": "Google Street View Camera Rig Base Node",
+          "show": true,
+          "positionDegrees": [
+            -122.4194,
+            37.7749,
+            40
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30,
+              30,
+              60
+            ]
+          },
+          "color": [
+            0.2,
+            0.6,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "viewType": "PanoView",
+            "provider": "GoogleStreetViewCubeMapPanoramaProvider"
+          }
+        },
+        {
+          "id": "streetview-pano-pod-cylinder",
+          "name": "Street View Sensor Array Mast Pillar",
+          "show": true,
+          "positionDegrees": [
+            -122.418,
+            37.776,
+            35
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 14,
+            "bottomRadius": 14
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "overlayLayerType": "layerStreetview",
+            "searchRadiusMeters": 5
+          }
+        },
+        {
+          "id": "streetview-pano-bubble-sphere",
+          "name": "360-Degree Panorama Equirectangular Bubble",
+          "show": true,
+          "positionDegrees": [
+            -122.421,
+            37.7735,
+            30
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              18,
+              18,
+              18
+            ]
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.4,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cubeMapFaces": 6,
+            "headingTolerance": 0.05
+          }
+        },
+        {
+          "id": "streetview-pano-footprint-rect",
+          "name": "Street View Urban Navigational Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.43,
+              37.765,
+              -122.408,
+              37.785
+            ]
+          },
+          "color": [
+            0.15,
+            0.25,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.6,
+            0.75,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "San Francisco Street View Coverage"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Pedestrian Roadway Wayfinding Overlay (Amber Navigational Conduit)",
+      "entities": [
+        {
+          "id": "streetview-pano-camera-box",
+          "name": "Google Street View Camera Rig Base Node",
+          "show": true,
+          "positionDegrees": [
+            -122.4194,
+            37.7749,
+            40
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30,
+              30,
+              60
+            ]
+          },
+          "color": [
+            0.2,
+            0.6,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "viewType": "PanoView",
+            "provider": "GoogleStreetViewCubeMapPanoramaProvider"
+          }
+        },
+        {
+          "id": "streetview-pano-pod-cylinder",
+          "name": "Street View Sensor Array Mast Pillar",
+          "show": true,
+          "positionDegrees": [
+            -122.418,
+            37.776,
+            35
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 14,
+            "bottomRadius": 14
+          },
+          "color": [
+            0.95,
+            0.7,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "overlayLayerType": "layerStreetview",
+            "searchRadiusMeters": 5
+          }
+        },
+        {
+          "id": "streetview-pano-bubble-sphere",
+          "name": "360-Degree Panorama Equirectangular Bubble",
+          "show": true,
+          "positionDegrees": [
+            -122.421,
+            37.7735,
+            30
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              18,
+              18,
+              18
+            ]
+          },
+          "color": [
+            0.95,
+            0.45,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cubeMapFaces": 6,
+            "headingTolerance": 0.05
+          }
+        },
+        {
+          "id": "streetview-pano-footprint-rect",
+          "name": "Street View Urban Navigational Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.43,
+              37.765,
+              -122.408,
+              37.785
+            ]
+          },
+          "color": [
+            0.35,
+            0.2,
+            0.25,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.6,
+            0.75,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "San Francisco Street View Coverage"
+          }
+        }
+      ]
+    }
+  ]
+}

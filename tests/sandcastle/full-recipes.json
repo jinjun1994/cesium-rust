@@ -6547,6 +6547,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "google-photorealistic-3d-tiles",
+      "title": "Google Photorealistic 3D Tiles",
+      "sourceSha256": "d7aa09b4e0a6acc94a7ae5fb32fdb38eb16486aeb68f9e815f72c4bb0ba6af0a",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=google-photorealistic-3d-tiles",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/google-photorealistic-3d-tiles.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/google-photorealistic-3d-tiles.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "createGooglePhotorealistic3DTileset with onlyUsingWithGoogleGeocoder and globe false",
+        "Googleplex Mountain View geodetic destination and skyAtmosphere rendering pipeline"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "google-photorealistic-3d-tiles-with-building-insert",
+      "title": "Google Photorealistic 3D Tiles with Building Insert",
+      "sourceSha256": "d83488f6a5fd0c63df13ccf02af3779f6a82eed6b7043791a5c898503bafc9bb",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=google-photorealistic-3d-tiles-with-building-insert",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/google-photorealistic-3d-tiles-with-building-insert.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/google-photorealistic-3d-tiles-with-building-insert.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Google Photorealistic 3D Tiles contextual environment with proposed building tileset insert",
+        "Target lot polygon highlight with ClassificationType.CESIUM_3D_TILE and visibility toggling"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "google-streetview-panorama",
+      "title": "Google Street View Panorama",
+      "sourceSha256": "48f3f09dce4e7596311a3d21c53882e91d642f5e220607d469f5a4a60469686b",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=google-streetview-panorama",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/google-streetview-panorama.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/google-streetview-panorama.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Google Street View CubeMap Panorama provider with search radius and camera orientation tracking",
+        "Google2DImageryProvider streetview layer overlay and multi-altitude view transition"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "ground-primitive-dev",
+      "title": "Ground Primitive - Dev",
+      "sourceSha256": "978cd865495e03d66df98756b24f76fe6e8fc0e4259224110a1bf7b3e6e0e546",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=ground-primitive-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/ground-primitive-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/ground-primitive-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "GroundPrimitive with PolygonGeometry, CorridorGeometry, and CircleGeometry on WorldTerrain",
+        "ClassificationType.TERRAIN drape, overlapping alpha polygons, and ColorGeometryInstanceAttribute"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

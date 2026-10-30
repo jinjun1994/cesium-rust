@@ -5320,4 +5320,70 @@ mod tests {
         let ge_variants = crate::entity_variants::decode(&ge_variants_raw).unwrap();
         assert_eq!(ge_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch73_googlephotorealistic_insert_streetview_groundprim() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Google Photorealistic 3D Tiles
+        let gp_data = std::fs::read(base.join("google-photorealistic-3d-tiles.json")).unwrap();
+        let gp_entities = decode(&gp_data).unwrap();
+        assert_eq!(gp_entities.len(), 4);
+        assert!(matches!(gp_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(gp_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(gp_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(gp_entities[3].shape, Shape::Rectangle { .. }));
+        let gp_variants_raw =
+            std::fs::read(base.join("google-photorealistic-3d-tiles.variants.json")).unwrap();
+        let gp_variants = crate::entity_variants::decode(&gp_variants_raw).unwrap();
+        assert_eq!(gp_variants.variants.len(), 4);
+
+        // 2. Google Photorealistic 3D Tiles with Building Insert
+        let gi_data =
+            std::fs::read(base.join("google-photorealistic-3d-tiles-with-building-insert.json"))
+                .unwrap();
+        let gi_entities = decode(&gi_data).unwrap();
+        assert_eq!(gi_entities.len(), 4);
+        assert!(matches!(gi_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(gi_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(gi_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(gi_entities[3].shape, Shape::Rectangle { .. }));
+        let gi_variants_raw = std::fs::read(
+            base.join("google-photorealistic-3d-tiles-with-building-insert.variants.json"),
+        )
+        .unwrap();
+        let gi_variants = crate::entity_variants::decode(&gi_variants_raw).unwrap();
+        assert_eq!(gi_variants.variants.len(), 4);
+
+        // 3. Google Street View Panorama
+        let gs_data = std::fs::read(base.join("google-streetview-panorama.json")).unwrap();
+        let gs_entities = decode(&gs_data).unwrap();
+        assert_eq!(gs_entities.len(), 4);
+        assert!(matches!(gs_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(gs_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(gs_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(gs_entities[3].shape, Shape::Rectangle { .. }));
+        let gs_variants_raw =
+            std::fs::read(base.join("google-streetview-panorama.variants.json")).unwrap();
+        let gs_variants = crate::entity_variants::decode(&gs_variants_raw).unwrap();
+        assert_eq!(gs_variants.variants.len(), 4);
+
+        // 4. Ground Primitive - Dev
+        let gv_data = std::fs::read(base.join("ground-primitive-dev.json")).unwrap();
+        let gv_entities = decode(&gv_data).unwrap();
+        assert_eq!(gv_entities.len(), 4);
+        assert!(matches!(gv_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(gv_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(gv_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(gv_entities[3].shape, Shape::Rectangle { .. }));
+        let gv_variants_raw =
+            std::fs::read(base.join("ground-primitive-dev.variants.json")).unwrap();
+        let gv_variants = crate::entity_variants::decode(&gv_variants_raw).unwrap();
+        assert_eq!(gv_variants.variants.len(), 4);
+    }
 }

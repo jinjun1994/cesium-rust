@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.72（已通过 235 / 309 个完整案例，剩余 74 个）
+- **当前版本**：v0.0.73（已通过 239 / 309 个完整案例，剩余 70 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.73 验收完成：Google Photorealistic 3D Tiles、Google Photorealistic 3D Tiles with Building Insert、Google Street View Panorama 与 Ground Primitive - Dev
+- **完成配方**（累计推进至 **239 / 309**，剩余 70 个）：
+  1. `google-photorealistic-3d-tiles`（谷歌全球高保真真实感 3D 瓦片集、Googleplex 视角与天空大气渲染：基准谷歌总部高保真真实感实景三维、日照航拍巡检视角、硅谷都会区山麓微地形、高对比建筑边界模式 4 种变体）
+  2. `google-photorealistic-3d-tiles-with-building-insert`（真实感城市三维底座上拟建建筑插入与开发地块分类覆层：基准拟建高层大厦嵌合与分类地块、拟建建筑体量独立显隐模式、目标规划地块高亮模式、丹佛市中心城市天际线视角 4 种变体）
+  3. `google-streetview-panorama`（谷歌全景街景球体/立方体贴图流式呈现与视线姿态跟踪：基准 360 度街景全景气泡、六面体立方体全景透视、高空地图与微观街景无缝转换、人行道路网导航指引覆层 4 种变体）
+  4. `ground-primitive-dev`（底层 GroundPrimitive、地形贴地多边形/走廊/圆形图元与半透明颜色属性：基准重叠半透明贴地图元、纯贴地多边形几何模式、恒向线走廊与圆形贴地图元、高对比贴地图元轮廓模式 4 种变体）
+- **核心研发突破**：
+  1. **谷歌全球真实感 3D 瓦片与天空大气协同（Google Photorealistic 3D Tiles & Sky Atmosphere）**：实现基于 `createGooglePhotorealistic3DTileset` 的全球高精实景三维瓦片集流式加载，结合 `globe: false` 与 `skyAtmosphere` 完成物理大气光照与高精微地形呈现。
+  2. **城市空间规划建筑方案插入（BIM/Tileset Insert into Photorealistic City Context）**：支持在真实感城市三维底模上插入规划拟建建筑 `Cesium3DTileset`，并应用 `ClassificationType.CESIUM_3D_TILE` 动态高亮开发地块与交互显隐。
+  3. **谷歌街景全景球体与六面体立方体贴图（Street View Panorama Bubble & CubeMap Navigation）**：支持街景元数据 `GoogleStreetViewCubeMapPanoramaProvider` 动态解析、`layerStreetview` 矢量图层对齐与多级视角平滑切换。
+  4. **底层贴地图元与全球地形紧密贴合（Ground Primitive Drape & Color Geometry Instance Attributes）**：实现 `GroundPrimitive` 支持多边形、恒向线走廊与圆形几何的半透明重叠着色，验证 `ClassificationType.TERRAIN` 严格贴模。
+- **验证结果**：
+  - **普通 Rust 单元测试**：133 项全部通过（含 `batch73_googlephotorealistic_insert_streetview_groundprim`）。
+  - **真实 GPU 离屏渲染测试**：240 / 240 项全数通过（`240 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，239 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：239 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Google Photorealistic 3D Tiles、Google Photorealistic 3D Tiles with Building Insert、Google Street View Panorama 与 Ground Primitive - Dev 验证文档](docs/googlephotorealistic-insert-streetview-groundprim-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.72 验收完成：glTF Planar Fill - Dev、Google 2D Tiles、Google 2D Tiles with Custom Styles 与 Google Earth Enterprise
 - **完成配方**（累计推进至 **235 / 309**，剩余 74 个）：

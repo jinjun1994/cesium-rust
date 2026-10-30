@@ -1,0 +1,148 @@
+[
+  {
+    "id": "google-plex-hq-box",
+    "name": "Googleplex Headquarters Main Facility",
+    "show": true,
+    "positionDegrees": [
+      -122.084,
+      37.422,
+      30
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        40,
+        40,
+        60
+      ]
+    },
+    "color": [
+      0.95,
+      0.2,
+      0.2,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.6,
+      0.6,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "photorealistic": true,
+      "geocoder": "GOOGLE",
+      "globe": false
+    }
+  },
+  {
+    "id": "google-plex-tower-cylinder",
+    "name": "Googleplex Charleston Campus Atrium Column",
+    "show": true,
+    "positionDegrees": [
+      -122.0825,
+      37.423,
+      25
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 50,
+      "topRadius": 16,
+      "bottomRadius": 16
+    },
+    "color": [
+      0.2,
+      0.6,
+      0.95,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.65,
+      0.85,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "photorealisticTileset": "GooglePhotorealistic3DTileset",
+      "skyAtmosphere": true
+    }
+  },
+  {
+    "id": "google-plex-campus-sphere",
+    "name": "Mountain View Photorealistic Geodetic Target",
+    "show": true,
+    "positionDegrees": [
+      -122.0855,
+      37.421,
+      20
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        14,
+        14,
+        14
+      ]
+    },
+    "color": [
+      0.95,
+      0.75,
+      0.15,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.9,
+      0.55,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "ecefCoordinates": [
+        -2693797.55,
+        -4297135.52,
+        3854700.75
+      ]
+    }
+  },
+  {
+    "id": "google-plex-extent-rect",
+    "name": "Googleplex Campus Photorealistic Ground Footprint",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -122.095,
+        37.415,
+        -122.073,
+        37.43
+      ]
+    },
+    "color": [
+      0.2,
+      0.35,
+      0.25,
+      0.35
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.5,
+      0.75,
+      0.55,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "location": "Mountain View, CA"
+    }
+  }
+]

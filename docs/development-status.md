@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.73
+
+新增 Google Photorealistic 3D Tiles、Google Photorealistic 3D Tiles with Building Insert、Google Street View Panorama、Ground Primitive - Dev 四个完整案例，累计 **239 / 309**，剩余 70 个。133 项普通 Rust、240 项实际 GPU、8 组 Node、239 个浏览器 WebGPU 案例通过。验证包含谷歌全球高保真真实感 3D 瓦片集、Googleplex 视角与天空大气渲染（基准谷歌总部高保真真实感实景三维、日照航拍巡检视角、硅谷都会区山麓微地形、高对比建筑边界模式 4 种变体）、真实感城市三维底座上拟建建筑插入与开发地块分类覆层（基准拟建高层大厦嵌合与分类地块、拟建建筑体量独立显隐模式、目标规划地块高亮模式、丹佛市中心城市天际线视角 4 种变体）、谷歌全景街景球体/立方体贴图流式呈现与视线姿态跟踪（基准 360 度街景全景气泡、六面体立方体全景透视、高空地图与微观街景无缝转换、人行道路网导航指引覆层 4 种变体）、以及底层 GroundPrimitive、地形贴地多边形/走廊/圆形图元与半透明颜色属性（基准重叠半透明贴地图元、纯贴地多边形几何模式、恒向线走廊与圆形贴地图元、高对比贴地图元轮廓模式 4 种变体）。详见 [本批验证](googlephotorealistic-insert-streetview-groundprim-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.72
 
 新增 glTF Planar Fill - Dev、Google 2D Tiles、Google 2D Tiles with Custom Styles、Google Earth Enterprise 四个完整案例，累计 **235 / 309**，剩余 74 个。132 项普通 Rust、236 项实际 GPU、8 组 Node、235 个浏览器 WebGPU 案例通过。验证包含 BENTLEY_materials_planar_fill 扩展 CAD 平面填充与边缘特征显示（基准多配置 CAD 平面填充显示、纯线框填充诊断模式、背景填充遮罩模式、共面后置图层优先级模式 4 种变体）、谷歌全球 2D 实景航拍遥感图层、费城市中心自适应对齐与地形集成（基准谷歌全球 2D 正射遥感影像、高精城市核心区巡检模式、特拉华滨水区设色模式、三州都会区宏观全景模式 4 种变体）、谷歌 2D 瓦片多图层叠加、矢量路网定制色调饱和度与道路几何简化（基准卫星底图叠加青色路网、极简高亮道路几何模式、单色高对比制图填充模式、夜景暗色底图与血脉公路模式 4 种变体）、以及谷歌地球企业版 GEE 协议服务、三维地形流与黑大理石夜景全球覆层（基准 GEE 地形与黑大理石夜景影像服务、企业版高程三角网线框模式、夜景图层发光增强模式、高对比海岸企业服务边界模式 4 种变体）。详见 [本批验证](gltfplanarfill-google2dtiles-customstyles-gee-validation.md)。以下保留历史记录。
