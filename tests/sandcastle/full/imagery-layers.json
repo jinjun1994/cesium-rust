@@ -1,0 +1,155 @@
+[
+  {
+    "id": "layers-composite-datum",
+    "name": "Multi-layer Stack Origin Composite Benchmark",
+    "show": true,
+    "positionDegrees": [
+      -71,
+      29,
+      16000
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 32000,
+      "topRadius": 12000,
+      "bottomRadius": 12000
+    },
+    "color": [
+      0.2,
+      0.5,
+      0.9,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.5,
+      0.8,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "baseIonAssetId": 3830183,
+      "stackCount": 3
+    }
+  },
+  {
+    "id": "layers-black-marble-box",
+    "name": "Black Marble Night Luminescence Layer Massing Box",
+    "show": true,
+    "positionDegrees": [
+      -72.5,
+      28,
+      12000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        25000,
+        25000,
+        20000
+      ]
+    },
+    "color": [
+      0.95,
+      0.8,
+      0.3,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.9,
+      0.5,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "ionAssetId": 3812,
+      "alpha": 0.5,
+      "brightness": 2
+    }
+  },
+  {
+    "id": "layers-logo-overlay-sphere",
+    "name": "Single Tile Logo Overlay Spatial Anchor Sphere",
+    "show": true,
+    "positionDegrees": [
+      -69.5,
+      29.5,
+      14000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        14000,
+        14000,
+        14000
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      0.3,
+      0.85,
+      0.6,
+      0.85
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "singleTileRectangle": [
+        -75,
+        28,
+        -67,
+        29.75
+      ]
+    }
+  },
+  {
+    "id": "layers-atlantic-footprint",
+    "name": "Western Atlantic Layer Stacking Geographic Footprint",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -75,
+        27,
+        -70,
+        31
+      ],
+      "height": 2000,
+      "extrudedHeight": 8000,
+      "rotation": 0
+    },
+    "color": [
+      0.8,
+      0.45,
+      0.25,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.7,
+      0.5,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "baseLayerPicker": false,
+      "compositionMode": "Multi-layer Alpha Blend"
+    }
+  }
+]

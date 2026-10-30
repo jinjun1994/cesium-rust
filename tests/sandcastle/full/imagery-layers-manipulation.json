@@ -1,0 +1,160 @@
+[
+  {
+    "id": "manipulation-stack-pivot",
+    "name": "Layer Stack Manipulation Interactive Pivot Cylinder",
+    "show": true,
+    "positionDegrees": [
+      -93.5,
+      41.6,
+      18000
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 36000,
+      "topRadius": 12000,
+      "bottomRadius": 12000
+    },
+    "color": [
+      0.85,
+      0.25,
+      0.25,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.5,
+      0.5,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "operations": [
+        "raise",
+        "lower",
+        "raiseToTop",
+        "lowerToBottom"
+      ],
+      "selectedLayer": "Natural Earth II"
+    }
+  },
+  {
+    "id": "manipulation-radar-tower-box",
+    "name": "NEXRAD Weather Radar Sensor Station Box",
+    "show": true,
+    "positionDegrees": [
+      -92,
+      42.5,
+      14000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        25000,
+        25000,
+        22000
+      ]
+    },
+    "color": [
+      0.25,
+      0.8,
+      0.35,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.5,
+      1,
+      0.6,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "wmsLayer": "nexrad-n0r",
+      "defaultAlpha": 0.5,
+      "format": "image/png"
+    }
+  },
+  {
+    "id": "manipulation-goes-infrared-sphere",
+    "name": "GOES Geostationary Infrared Meteorological Sphere",
+    "show": true,
+    "positionDegrees": [
+      -94.5,
+      42,
+      16000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        15000,
+        15000,
+        15000
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      0.65,
+      0.3,
+      0.85,
+      0.85
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "wmsLayer": "goes_conus_ir",
+      "knockoutTracked": [
+        "alpha",
+        "show",
+        "name"
+      ]
+    }
+  },
+  {
+    "id": "manipulation-sensor-coverage-zone",
+    "name": "Midwest Meteorological Sensor Network Footprint",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -95,
+        40,
+        -90,
+        44
+      ],
+      "height": 2000,
+      "extrudedHeight": 8000,
+      "rotation": 0
+    },
+    "color": [
+      0.3,
+      0.55,
+      0.9,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.5,
+      0.8,
+      1,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "additionalLayersCount": 6,
+      "baseLayersCount": 4
+    }
+  }
+]

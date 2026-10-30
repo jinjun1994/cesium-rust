@@ -4136,4 +4136,60 @@ mod tests {
         let ia_variants = crate::entity_variants::decode(&ia_variants_raw).unwrap();
         assert_eq!(ia_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch53_imagery_color_alpha_cutout_layers_manipulation() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Imagery Color to Alpha
+        let ca_data = std::fs::read(base.join("imagery-color-to-alpha.json")).unwrap();
+        let ca_entities = decode(&ca_data).unwrap();
+        assert_eq!(ca_entities.len(), 4);
+        assert!(matches!(ca_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ca_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(ca_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ca_entities[3].shape, Shape::Rectangle { .. }));
+        let ca_variants_raw =
+            std::fs::read(base.join("imagery-color-to-alpha.variants.json")).unwrap();
+        let ca_variants = crate::entity_variants::decode(&ca_variants_raw).unwrap();
+        assert_eq!(ca_variants.variants.len(), 4);
+
+        // 2. Imagery Cutout
+        let co_data = std::fs::read(base.join("imagery-cutout.json")).unwrap();
+        let co_entities = decode(&co_data).unwrap();
+        assert_eq!(co_entities.len(), 4);
+        assert!(matches!(co_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(co_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(co_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(co_entities[3].shape, Shape::Rectangle { .. }));
+        let co_variants_raw = std::fs::read(base.join("imagery-cutout.variants.json")).unwrap();
+        let co_variants = crate::entity_variants::decode(&co_variants_raw).unwrap();
+        assert_eq!(co_variants.variants.len(), 4);
+
+        // 3. Imagery Layers
+        let il_data = std::fs::read(base.join("imagery-layers.json")).unwrap();
+        let il_entities = decode(&il_data).unwrap();
+        assert_eq!(il_entities.len(), 4);
+        assert!(matches!(il_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(il_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(il_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(il_entities[3].shape, Shape::Rectangle { .. }));
+        let il_variants_raw = std::fs::read(base.join("imagery-layers.variants.json")).unwrap();
+        let il_variants = crate::entity_variants::decode(&il_variants_raw).unwrap();
+        assert_eq!(il_variants.variants.len(), 4);
+
+        // 4. Imagery Layers Manipulation
+        let lm_data = std::fs::read(base.join("imagery-layers-manipulation.json")).unwrap();
+        let lm_entities = decode(&lm_data).unwrap();
+        assert_eq!(lm_entities.len(), 4);
+        assert!(matches!(lm_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(lm_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(lm_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(lm_entities[3].shape, Shape::Rectangle { .. }));
+        let lm_variants_raw =
+            std::fs::read(base.join("imagery-layers-manipulation.variants.json")).unwrap();
+        let lm_variants = crate::entity_variants::decode(&lm_variants_raw).unwrap();
+        assert_eq!(lm_variants.variants.len(), 4);
+    }
 }

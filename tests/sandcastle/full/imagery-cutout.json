@@ -1,0 +1,161 @@
+[
+  {
+    "id": "cutout-window-anchor",
+    "name": "Florida / Gulf Cutout Window Center Benchmark",
+    "show": true,
+    "positionDegrees": [
+      -80,
+      27.5,
+      15000
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 30000,
+      "topRadius": 10000,
+      "bottomRadius": 10000
+    },
+    "color": [
+      0.85,
+      0.35,
+      0.2,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.6,
+      0.4,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "defaultCutout": [
+        -90,
+        20,
+        -70,
+        40
+      ],
+      "baseProvider": "NaturalEarthII"
+    }
+  },
+  {
+    "id": "cutout-logo-inset-box",
+    "name": "Cesium Logo Single Tile Inset Massing Box",
+    "show": true,
+    "positionDegrees": [
+      -81,
+      28.5,
+      12000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        25000,
+        25000,
+        20000
+      ]
+    },
+    "color": [
+      0.25,
+      0.7,
+      0.9,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.5,
+      0.9,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "overlayAsset": "../images/Cesium_Logo_overlay.png",
+      "fitWithinCutout": true
+    }
+  },
+  {
+    "id": "cutout-night-traveling-dome",
+    "name": "Earth at Night Dynamic Traveling Cutout Point",
+    "show": true,
+    "positionDegrees": [
+      -79,
+      26.5,
+      14000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        14000,
+        14000,
+        14000
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      0.95,
+      0.85,
+      0.25,
+      0.85
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "ionAssetId": 3812,
+      "moveIncrement": 0.05,
+      "alpha": 0.9
+    }
+  },
+  {
+    "id": "cutout-window-boundary",
+    "name": "Florida Geographic Cutout Window Extent",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -82,
+        25,
+        -78,
+        30
+      ],
+      "height": 2000,
+      "extrudedHeight": 8000,
+      "rotation": 0
+    },
+    "color": [
+      0.3,
+      0.75,
+      0.45,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.6,
+      0.95,
+      0.7,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "cutoutActive": true,
+      "keyboardTravel": [
+        "moveNorth",
+        "moveSouth",
+        "moveEast",
+        "moveWest"
+      ]
+    }
+  }
+]

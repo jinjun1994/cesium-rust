@@ -1,0 +1,155 @@
+[
+  {
+    "id": "color-alpha-chroma-target",
+    "name": "Oceanic Chroma Keying Calibration Datum",
+    "show": true,
+    "positionDegrees": [
+      -140,
+      0,
+      20000
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 40000,
+      "topRadius": 15000,
+      "bottomRadius": 15000
+    },
+    "color": [
+      0,
+      0.016,
+      0.059,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.2,
+      0.6,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "colorToAlpha": [
+        0,
+        0.016,
+        0.059
+      ],
+      "threshold": 0.2,
+      "baseLayer": "Bing Maps"
+    }
+  },
+  {
+    "id": "color-alpha-bump-massing",
+    "name": "Single Tile Bump Map Topographic Massing Box",
+    "show": true,
+    "positionDegrees": [
+      -138,
+      2,
+      15000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        30000,
+        30000,
+        25000
+      ]
+    },
+    "color": [
+      0.75,
+      0.75,
+      0.75,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.95,
+      0.95,
+      0.95,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "singleTileUri": "../images/earthbump1k.jpg",
+      "bumpThreshold": 0.1
+    }
+  },
+  {
+    "id": "color-alpha-threshold-sphere",
+    "name": "Abyssal Keying Tolerance Threshold Sphere",
+    "show": true,
+    "positionDegrees": [
+      -142,
+      -2,
+      18000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        18000,
+        18000,
+        18000
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      0.1,
+      0.8,
+      0.7,
+      0.85
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "knockoutObservable": "threshold",
+      "dynamicThreshold": 0.2
+    }
+  },
+  {
+    "id": "color-alpha-calibration-zone",
+    "name": "Pacific Equatorial Keying Footprint Boundary",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -144,
+        -3,
+        -136,
+        3
+      ],
+      "height": 3000,
+      "extrudedHeight": 12000,
+      "rotation": 0
+    },
+    "color": [
+      0.2,
+      0.4,
+      0.8,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.4,
+      0.7,
+      1,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "geocoderProvider": "BING",
+      "transparencyChannel": "Alpha Mask"
+    }
+  }
+]

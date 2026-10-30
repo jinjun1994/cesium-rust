@@ -4387,6 +4387,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "imagery-color-to-alpha",
+      "title": "Imagery Color To Alpha",
+      "sourceSha256": "5643137cce3202b48bd65ee1b96667bd6199fa5473daedc3188c61a0ad73033f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=imagery-color-to-alpha",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/imagery-color-to-alpha.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/imagery-color-to-alpha.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Real-time imagery color-to-alpha transparency keying and threshold adjustment",
+        "Bing Maps ocean transparency keying and single-tile bump map overlay"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "imagery-cutout",
+      "title": "Imagery Cutout",
+      "sourceSha256": "2615710a99f971ed7f375061d915022468607ce6dd229757fe3dfe3975de021b",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=imagery-cutout",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/imagery-cutout.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/imagery-cutout.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Geographic rectangle cutout clipping on imagery layers with single-tile logo inset",
+        "Dynamic clock-driven traveling cutout window with directional movement control"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "imagery-layers",
+      "title": "Imagery Layers",
+      "sourceSha256": "da5522dffcd247010941960e01c41bc8e1a836d78f5fb979d742876f840f42ff",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=imagery-layers",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/imagery-layers.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/imagery-layers.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Multi-layer imagery composition with Ion Imagery base, Black Marble night layer, and single-tile logo",
+        "Per-layer alpha blending and brightness configuration"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "imagery-layers-manipulation",
+      "title": "Imagery Layers Manipulation",
+      "sourceSha256": "098866bb6e600aec9fe3b56b77aff834f24326f181b794fe1af3d2390041103b",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=imagery-layers-manipulation",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/imagery-layers-manipulation.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/imagery-layers-manipulation.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Dynamic imagery layer stack reordering: raise, lower, raiseToTop, and lowerToBottom",
+        "Reactive Knockout view model layer tracking, opacity modulation, and visibility toggling"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

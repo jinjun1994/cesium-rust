@@ -5959,6 +5959,170 @@
       "externalRequests": 0,
       "colors": 19883,
       "assetsSha256": "f7dbc2e3295e40bbd1f08bfcc476efe0c5237acdb6df8e7410943c9b8de081e4"
+    },
+    {
+      "id": "imagery-color-to-alpha",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "5643137cce3202b48bd65ee1b96667bd6199fa5473daedc3188c61a0ad73033f",
+      "inputSha256": "c6f38ea480f7d7aec8753a1c12114c8ddeb1229a501f0e03c05c9c28f5f8bbd6",
+      "fixtureSha256": "f4ba97e8df1db87d9f800089e8df6b3042ca1a9a6bed8f17b043fa5b7e74267a",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "color-alpha-chroma-target",
+        "color-alpha-bump-massing",
+        "color-alpha-threshold-sphere",
+        "color-alpha-calibration-zone"
+      ],
+      "pixelCounts": [
+        {
+          "id": "color-alpha-chroma-target",
+          "pixels": 101442
+        },
+        {
+          "id": "color-alpha-bump-massing",
+          "pixels": 103919
+        },
+        {
+          "id": "color-alpha-threshold-sphere",
+          "pixels": 164179
+        },
+        {
+          "id": "color-alpha-calibration-zone",
+          "pixels": 62705
+        }
+      ]
+    },
+    {
+      "id": "imagery-cutout",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "2615710a99f971ed7f375061d915022468607ce6dd229757fe3dfe3975de021b",
+      "inputSha256": "6c173dc6fa5978dbe5f542f3705732fa1d4b7858b7ba5a0cfa1f8103a133062e",
+      "fixtureSha256": "b4d3b7abf39bb9ec7f60dcc73ba20109dd0624cb67142e3d3b193577b1ab7267",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "cutout-window-anchor",
+        "cutout-logo-inset-box",
+        "cutout-night-traveling-dome",
+        "cutout-window-boundary"
+      ],
+      "pixelCounts": [
+        {
+          "id": "cutout-window-anchor",
+          "pixels": 94356
+        },
+        {
+          "id": "cutout-logo-inset-box",
+          "pixels": 103704
+        },
+        {
+          "id": "cutout-night-traveling-dome",
+          "pixels": 164179
+        },
+        {
+          "id": "cutout-window-boundary",
+          "pixels": 64644
+        }
+      ]
+    },
+    {
+      "id": "imagery-layers",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "da5522dffcd247010941960e01c41bc8e1a836d78f5fb979d742876f840f42ff",
+      "inputSha256": "2d78b4f1feae4ac75dff5e1006dae440a1d6ee644e3148e4c0b035b8664e2782",
+      "fixtureSha256": "68f33c758af2825d479e2ce15a837af0d093e5f83dc016601f00eebe19b2576f",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "layers-composite-datum",
+        "layers-black-marble-box",
+        "layers-logo-overlay-sphere",
+        "layers-atlantic-footprint"
+      ],
+      "pixelCounts": [
+        {
+          "id": "layers-composite-datum",
+          "pixels": 101823
+        },
+        {
+          "id": "layers-black-marble-box",
+          "pixels": 103704
+        },
+        {
+          "id": "layers-logo-overlay-sphere",
+          "pixels": 164179
+        },
+        {
+          "id": "layers-atlantic-footprint",
+          "pixels": 64389
+        }
+      ]
+    },
+    {
+      "id": "imagery-layers-manipulation",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "098866bb6e600aec9fe3b56b77aff834f24326f181b794fe1af3d2390041103b",
+      "inputSha256": "d17733a00aff1d490ef9f79439ddf72415294c81fb6328da84592928defb7a44",
+      "fixtureSha256": "5fdad443f2352a0c6866f64ad5e9c41e4e1cedec76333f0fd039cb1e844f370d",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "manipulation-stack-pivot",
+        "manipulation-radar-tower-box",
+        "manipulation-goes-infrared-sphere",
+        "manipulation-sensor-coverage-zone"
+      ],
+      "pixelCounts": [
+        {
+          "id": "manipulation-stack-pivot",
+          "pixels": 94356
+        },
+        {
+          "id": "manipulation-radar-tower-box",
+          "pixels": 103808
+        },
+        {
+          "id": "manipulation-goes-infrared-sphere",
+          "pixels": 164179
+        },
+        {
+          "id": "manipulation-sensor-coverage-zone",
+          "pixels": 64843
+        }
+      ]
     }
   ],
   "browser": "156.0.8078.75",

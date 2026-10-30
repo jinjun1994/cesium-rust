@@ -166,6 +166,10 @@ $('fullNew128').onclick=guarded(()=>runFull('bathymetry'));
 $('fullNew129').onclick=guarded(()=>runFull('bing-maps-labels-only'));
 $('fullNew130').onclick=guarded(()=>runFull('azure-2d-tiles'));
 $('fullNew131').onclick=guarded(()=>runFull('imagery-adjustment'));
+$('fullNew132').onclick=guarded(()=>runFull('imagery-color-to-alpha'));
+$('fullNew133').onclick=guarded(()=>runFull('imagery-cutout'));
+$('fullNew134').onclick=guarded(()=>runFull('imagery-layers'));
+$('fullNew135').onclick=guarded(()=>runFull('imagery-layers-manipulation'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

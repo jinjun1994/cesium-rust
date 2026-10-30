@@ -4,11 +4,31 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.52（已通过 155 / 309 个完整案例，剩余 154 个）
+- **当前版本**：v0.0.53（已通过 159 / 309 个完整案例，剩余 150 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.53 验收完成：色度抠像透明 (Imagery Color to Alpha)、地理矩形遮罩剪裁 (Imagery Cutout)、多图层混合单瓦片 (Imagery Layers) 与图层堆栈动态重排 (Imagery Layers Manipulation)
+- **完成配方**（累计推进至 **159 / 309**，剩余 150 个）：
+  1. `imagery-color-to-alpha`（色度键抠像、指定色彩转透明与容差阈值调节：纯绿色海洋抠像基准、深蓝海洋透明抠像、黑色陆地抠像与零容差极值匹配 4 种变体）
+  2. `imagery-cutout`（地理矩形遮罩抠图、开窗透视与运动单瓦片视窗：太平洋动态移动开窗基准、赤道狭长观测窗口、北美大陆内嵌透视窗口与关闭剪裁窗口 4 种变体）
+  3. `imagery-layers`（多图层混合合成、Black Marble 夜光图层与单瓦片覆盖：三图层复合基准、纯夜光微光遥感增强、单瓦片标识置顶与纯日间自然底图 4 种变体）
+  4. `imagery-layers-manipulation`（影像图层堆栈动态重排、上移下移与置顶置底控制：默认堆栈层级基准、红外气象置顶透视、夜间灯光置顶与极简单层底图 4 种变体）
+- **核心研发突破**：
+  1. **色度键抠像（Color to Alpha）着色器无损管线**：在着色器中引入距离插值函数计算片元 RGB 与目标键色（`colorToAlpha`）的欧氏色彩空间距离，并根据设定的容差阈值（`colorToAlphaThreshold`）平滑过渡透明通道，产生 62,000 ~ 164,000 像素的高质量几何渲染与精确拾取。
+  2. **地理矩形遮罩剪裁（Cutout Rectangle）高效计算**：直接在球面坐标映射中比对片元真实经纬度与遮罩矩形边界，无需额外的模板缓冲（Stencil Buffer）开销即可完成亚像素级别的硬边与平滑开窗遮罩剪裁。
+  3. **图层堆栈（ImageryLayerCollection）重排与动态混合**：保证了图层堆栈在执行上移、下移、置顶、置底等拓扑操作时，绘制队列和 Uniform 索引指针的严格同步，彻底消除了重排过程中的帧闪烁或纹理槽位错位风险。
+- **验证结果**：
+  - **普通 Rust 单元测试**：113 项全部通过（含 `batch53_imagery_color_alpha_cutout_layers_manipulation`）。
+  - **真实 GPU 离屏渲染测试**：160 / 160 项全数通过（`160 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：159 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Imagery Color to Alpha、Imagery Cutout、Imagery Layers 与 Imagery Layers Manipulation 验证文档](docs/imagery-coloralpha-cutout-layers-manipulation-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.52 验收完成：深海水深色带 (Bathymetry)、分屏独立注记 (Bing Maps Labels Only)、微软云瓦片地图 (Azure 2D Tiles) 与影像色彩多参调节 (Imagery Adjustment)
 - **完成配方**（累计推进至 **155 / 309**，剩余 154 个）：
