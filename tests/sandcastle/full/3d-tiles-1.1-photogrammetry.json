@@ -1,0 +1,151 @@
+[
+  {
+    "id": "photogrammetry-agi-beacon-tower",
+    "name": "AGI HQ Exton Photogrammetry Datum Tower",
+    "show": true,
+    "positionDegrees": [
+      -75.628,
+      40.038,
+      2500
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 5000,
+      "topRadius": 1500,
+      "bottomRadius": 1500
+    },
+    "color": [
+      0.2,
+      0.75,
+      0.95,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.4,
+      0.9,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "ionAssetId": 40866,
+      "realityAssetId": 2325106,
+      "splitDirection": "LEFT"
+    }
+  },
+  {
+    "id": "photogrammetry-reality-tiler-box",
+    "name": "Cesium ion Reality Tiler High-Detail Urban Block",
+    "show": true,
+    "positionDegrees": [
+      -75.615,
+      40.045,
+      2000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        2500,
+        2500,
+        2200
+      ]
+    },
+    "color": [
+      0.95,
+      0.45,
+      0.15,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.65,
+      0.35,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "tilerEngine": "Reality Tiler v1.1",
+      "ktx2TextureCompression": "ETC1S / UASTC"
+    }
+  },
+  {
+    "id": "photogrammetry-ktx2-texture-dome",
+    "name": "KTX2 GPU Texture Compression Diagnostic Hemisphere",
+    "show": true,
+    "positionDegrees": [
+      -75.638,
+      40.03,
+      2200
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        2000,
+        2000,
+        1800
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      0.35,
+      0.85,
+      0.45,
+      0.85
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "textureFormat": "KTX2_BASIS_UNIVERSAL",
+      "vramCompressionRatio": "4:1"
+    }
+  },
+  {
+    "id": "photogrammetry-exton-facility-rect",
+    "name": "Exton Photogrammetry Campus Geographic Footprint",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -75.66,
+        40.01,
+        -75.59,
+        40.07
+      ],
+      "height": 2000,
+      "extrudedHeight": 4000,
+      "rotation": 0
+    },
+    "color": [
+      0.55,
+      0.35,
+      0.85,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.75,
+      0.55,
+      1,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "terrainProvider": "Cesium World Terrain",
+      "splitPosition": 0.5
+    }
+  }
+]

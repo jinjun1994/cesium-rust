@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.54
+
+新增 CDB Metadata in 3D Tiles、3D Tiles Photogrammetry with KTX2、3D Tiles Photogrammetry Classification、S2 Globe with 3D Tiles 四个完整案例，累计 **163 / 309**，剩余 146 个。114 项普通 Rust、164 项实际 GPU、8 组 Node、163 个浏览器 WebGPU 案例通过。验证包含 3D Tiles 1.1 CDB 军规语义元数据、建筑高度分级着色与地貌基底分类（纯净 CDB 未着色基准、建筑高度梯度分段着色、地表基底材质分类着色与要素拾取元数据浮层 4 种变体）、3D Tiles 1.1 KTX2 压缩纹理实景三维倾斜摄影、双分屏比对与载入基准测速（AGI 宾州总部双视口对称分屏、墨尔本城市倾斜摄影、瓦片集重载耗时评测与单全屏视图 4 种变体）、旧金山渡轮大厦单体化分类、半透明窗体与 PBR 自定义材质覆写（构件要素分类着色、建筑玻璃半透明化、PBR 物理材质风格化与金光滤镜多要素集 4 种变体）、以及 Maxar One World Terrain 全球 S2 空间分区网格球体、包围盒调试与动态片元着色器（S2 全球基础网格地球基准、逐级调试 S2 包围盒、地表覆盖语义分类着色与程序化波纹着色器 4 种变体）。详见 [本批验证](3dtiles-cdbyemen-photogrammetry-classification-s2globe-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.53
 
 新增 Imagery Color to Alpha、Imagery Cutout、Imagery Layers、Imagery Layers Manipulation 四个完整案例，累计 **159 / 309**，剩余 150 个。113 项普通 Rust、160 项实际 GPU、8 组 Node、159 个浏览器 WebGPU 案例通过。验证包含色度键抠像、指定色彩转透明与容差阈值调节（纯绿色海洋抠像基准、深蓝海洋透明抠像、黑色陆地抠像与零容差极值匹配 4 种变体）、地理矩形遮罩抠图、开窗透视与运动单瓦片视窗（太平洋动态移动开窗基准、赤道狭长观测窗口、北美大陆内嵌透视窗口与关闭剪裁窗口 4 种变体）、多图层混合合成、Black Marble 夜光图层与单瓦片覆盖（三图层复合基准、纯夜光微光遥感增强、单瓦片标识置顶与纯日间自然底图 4 种变体）、以及影像图层堆栈动态重排、上移下移与置顶置底控制（默认堆栈层级基准、红外气象置顶透视、夜间灯光置顶与极简单层底图 4 种变体）。详见 [本批验证](imagery-coloralpha-cutout-layers-manipulation-validation.md)。以下保留历史记录。

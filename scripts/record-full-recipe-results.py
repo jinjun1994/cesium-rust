@@ -11,7 +11,8 @@ assert "test wide_line_pixel_width_materials_and_picking ... ok" in gpu
 assert len(browser['cases'])==len(manifest['cases'])
 assert browser['destroy']=='passed'
 for c in manifest['cases']:
-    assert f"test complete_{c['id'].replace('-','_')} ... ok" in gpu
+    test_name = c['id'].replace('-', '_').replace('.', '_')
+    assert f"test complete_{test_name} ... ok" in gpu
     b=next(b for b in browser['cases'] if b['id']==c['id'])
     source=(root/f"tests/sandcastle/sources/{c['id']}/main.js").read_bytes()
     data=(root/f"tests/sandcastle/full/{c['id']}.json").read_bytes()

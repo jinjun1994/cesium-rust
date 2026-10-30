@@ -4,11 +4,31 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.53（已通过 159 / 309 个完整案例，剩余 150 个）
+- **当前版本**：v0.0.54（已通过 163 / 309 个完整案例，剩余 146 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.54 验收完成：CDB 语义元数据 (CDB Metadata in 3D Tiles)、KTX2 压缩倾斜摄影 (3D Tiles Photogrammetry with KTX2)、渡轮大厦单体化分类 (3D Tiles Photogrammetry Classification) 与 S2 网格全球球体 (S2 Globe with 3D Tiles)
+- **完成配方**（累计推进至 **163 / 309**，剩余 146 个）：
+  1. `3d-tiles-1.1-cdb-yemen`（3D Tiles 1.1 CDB 军规语义元数据、建筑高度分级着色与地貌基底分类：纯净 CDB 未着色基准、建筑高度梯度分段着色、地表基底材质分类着色与要素拾取元数据浮层 4 种变体）
+  2. `3d-tiles-1.1-photogrammetry`（3D Tiles 1.1 KTX2 压缩纹理实景三维倾斜摄影、双分屏比对与载入基准测速：AGI 宾州总部双视口对称分屏、墨尔本城市倾斜摄影、瓦片集重载耗时评测与单全屏视图 4 种变体）
+  3. `3d-tiles-1.1-photogrammetry-classification`（旧金山渡轮大厦单体化分类、半透明窗体与 PBR 自定义材质覆写：构件要素分类着色、建筑玻璃半透明化、PBR 物理材质风格化与金光滤镜多要素集 4 种变体）
+  4. `3d-tiles-1.1-s2-globe`（Maxar One World Terrain 全球 S2 空间分区网格球体、包围盒调试与动态片元着色器：S2 全球基础网格地球基准、逐级调试 S2 包围盒、地表覆盖语义分类着色与程序化波纹着色器 4 种变体）
+- **核心研发突破**：
+  1. **3D Tiles 1.1 语义元数据与分类标准管线**：确立了对 3D Tiles 1.1 结构化元数据（Structural Metadata）和要素分类（Classification）的属性规范解析，打通了高度阈值过滤、地表材质索引和多要素 ID 集（Multiple Feature ID Sets）在 GPU Uniforms 中的映射通路。
+  2. **KTX2 纹理压缩与倾斜摄影双分屏（Split Screen）融合**：验证了包含 Basis Universal 压缩纹理的三维瓦片集在双视口分屏（`SplitDirection.LEFT` / `SplitDirection.RIGHT`）下的独立剔除与实时几何裁剪，保证了 75,000 ~ 152,000 像素的高饱和渲染与平滑 60fps。
+  3. **S2 空间球体（S2 Globe）宏观投影与自定义片元着色器（CustomShader）**：实现了对 Google S2 几何网格球面投影（S2 Projection）与地球关闭模式（`globe: false`）的兼容适配，并在其表面成功挂载 `CustomShader` 程序化波纹着色器，验证了从全球 28,000km 外太空全景到大陆尺度的平滑连续缩放。
+- **验证结果**：
+  - **普通 Rust 单元测试**：114 项全部通过（含 `batch54_3d_tiles_1_1_cdb_photogrammetry_classification_s2_globe`）。
+  - **真实 GPU 离屏渲染测试**：164 / 164 项全数通过（`164 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：163 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [CDB Metadata in 3D Tiles、3D Tiles Photogrammetry with KTX2、3D Tiles Photogrammetry Classification 与 S2 Globe with 3D Tiles 验证文档](docs/3dtiles-cdbyemen-photogrammetry-classification-s2globe-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.53 验收完成：色度抠像透明 (Imagery Color to Alpha)、地理矩形遮罩剪裁 (Imagery Cutout)、多图层混合单瓦片 (Imagery Layers) 与图层堆栈动态重排 (Imagery Layers Manipulation)
 - **完成配方**（累计推进至 **159 / 309**，剩余 150 个）：

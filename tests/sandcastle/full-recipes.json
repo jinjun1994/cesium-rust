@@ -4495,6 +4495,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "3d-tiles-1.1-cdb-yemen",
+      "title": "CDB Metadata in 3D Tiles",
+      "sourceSha256": "ab8fae9eaf92fbc873bb80b4eba25124477be72f21173a46f92c9d0cdd7da7b6",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-1.1-cdb-yemen",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-1.1-cdb-yemen.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-1.1-cdb-yemen.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "CDB (Common Database) metadata in 3D Tiles 1.1 for terrain and building classifications",
+        "Height-based building styling, substrate material styling, and feature picking metadata overlay"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-1.1-photogrammetry",
+      "title": "3D Tiles Photogrammetry with KTX2",
+      "sourceSha256": "9302ec2e5247b7b9d264ee8c7d7e3c30ac41e1c20775de1032a9bc7482a98299",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-1.1-photogrammetry",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-1.1-photogrammetry.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-1.1-photogrammetry.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Tiles 1.1 photogrammetry with KTX2 Basis Universal GPU texture compression",
+        "Split screen comparison between Cesium ion Reality Tiler and 3D Model Tiler, and reload benchmarking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-1.1-photogrammetry-classification",
+      "title": "3D Tiles Photogrammetry Classification",
+      "sourceSha256": "c7ce3414a7409e6e212994c82c162f042a00466e694a9e15d42b46def180257e",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-1.1-photogrammetry-classification",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-1.1-photogrammetry-classification.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-1.1-photogrammetry-classification.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Tiles 1.1 photogrammetry classification on San Francisco Ferry Building model",
+        "Translucent window styling, stylized PBR metallic/roughness overrides, and multiple feature ID sets"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-1.1-s2-globe",
+      "title": "S2 Globe with 3D Tiles",
+      "sourceSha256": "19f94e2bf58792aa20faeff8207ca1834d38affd2b4bc8968e0bcb489f002053",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-1.1-s2-globe",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-1.1-s2-globe.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-1.1-s2-globe.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "One World Terrain Maxar S2 base globe streaming with 3D Tiles 1.1 S2 cell hierarchy",
+        "S2 bounding volume debugging, semantic land cover styling, and procedural CustomShader waves"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

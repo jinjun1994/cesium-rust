@@ -4192,4 +4192,64 @@ mod tests {
         let lm_variants = crate::entity_variants::decode(&lm_variants_raw).unwrap();
         assert_eq!(lm_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch54_3d_tiles_1_1_cdb_photogrammetry_classification_s2_globe() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. 3D Tiles 1.1 CDB Yemen
+        let cdb_data = std::fs::read(base.join("3d-tiles-1.1-cdb-yemen.json")).unwrap();
+        let cdb_entities = decode(&cdb_data).unwrap();
+        assert_eq!(cdb_entities.len(), 4);
+        assert!(matches!(cdb_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(cdb_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(cdb_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(cdb_entities[3].shape, Shape::Rectangle { .. }));
+        let cdb_variants_raw =
+            std::fs::read(base.join("3d-tiles-1.1-cdb-yemen.variants.json")).unwrap();
+        let cdb_variants = crate::entity_variants::decode(&cdb_variants_raw).unwrap();
+        assert_eq!(cdb_variants.variants.len(), 4);
+
+        // 2. 3D Tiles 1.1 Photogrammetry with KTX2
+        let photo_data = std::fs::read(base.join("3d-tiles-1.1-photogrammetry.json")).unwrap();
+        let photo_entities = decode(&photo_data).unwrap();
+        assert_eq!(photo_entities.len(), 4);
+        assert!(matches!(photo_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(photo_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(photo_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(photo_entities[3].shape, Shape::Rectangle { .. }));
+        let photo_variants_raw =
+            std::fs::read(base.join("3d-tiles-1.1-photogrammetry.variants.json")).unwrap();
+        let photo_variants = crate::entity_variants::decode(&photo_variants_raw).unwrap();
+        assert_eq!(photo_variants.variants.len(), 4);
+
+        // 3. 3D Tiles 1.1 Photogrammetry Classification
+        let class_data =
+            std::fs::read(base.join("3d-tiles-1.1-photogrammetry-classification.json")).unwrap();
+        let class_entities = decode(&class_data).unwrap();
+        assert_eq!(class_entities.len(), 4);
+        assert!(matches!(class_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(class_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(class_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(class_entities[3].shape, Shape::Rectangle { .. }));
+        let class_variants_raw =
+            std::fs::read(base.join("3d-tiles-1.1-photogrammetry-classification.variants.json"))
+                .unwrap();
+        let class_variants = crate::entity_variants::decode(&class_variants_raw).unwrap();
+        assert_eq!(class_variants.variants.len(), 4);
+
+        // 4. 3D Tiles 1.1 S2 Globe
+        let s2_data = std::fs::read(base.join("3d-tiles-1.1-s2-globe.json")).unwrap();
+        let s2_entities = decode(&s2_data).unwrap();
+        assert_eq!(s2_entities.len(), 4);
+        assert!(matches!(s2_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(s2_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(s2_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(s2_entities[3].shape, Shape::Rectangle { .. }));
+        let s2_variants_raw =
+            std::fs::read(base.join("3d-tiles-1.1-s2-globe.variants.json")).unwrap();
+        let s2_variants = crate::entity_variants::decode(&s2_variants_raw).unwrap();
+        assert_eq!(s2_variants.variants.len(), 4);
+    }
 }

@@ -6123,6 +6123,170 @@
           "pixels": 64843
         }
       ]
+    },
+    {
+      "id": "3d-tiles-1.1-cdb-yemen",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "ab8fae9eaf92fbc873bb80b4eba25124477be72f21173a46f92c9d0cdd7da7b6",
+      "inputSha256": "edeae9e107d08af55a5660a83f2ddcc3a2314c751772da76f3fd3995fffe15da",
+      "fixtureSha256": "e6d2d4b18f023d5830357631ae0ae20f5321d4cd8c0405e4d87ac7032ca04f85",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "cdb-crater-benchmark-pillar",
+        "cdb-aden-airport-terminal-box",
+        "cdb-yemen-terrain-dome",
+        "cdb-aden-port-basin-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "cdb-crater-benchmark-pillar",
+          "pixels": 87505
+        },
+        {
+          "id": "cdb-aden-airport-terminal-box",
+          "pixels": 103919
+        },
+        {
+          "id": "cdb-yemen-terrain-dome",
+          "pixels": 152594
+        },
+        {
+          "id": "cdb-aden-port-basin-rect",
+          "pixels": 75321
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-1.1-photogrammetry",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "9302ec2e5247b7b9d264ee8c7d7e3c30ac41e1c20775de1032a9bc7482a98299",
+      "inputSha256": "32e4a767d7c4f49f706f5c461c3ce785e1b9e0ec7a12693c026831a6144bbfd3",
+      "fixtureSha256": "2a4130fe8b6b61d9237036a2205eb941e1f7e74fa64a562d35189ea0770e1f4c",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "photogrammetry-agi-beacon-tower",
+        "photogrammetry-reality-tiler-box",
+        "photogrammetry-ktx2-texture-dome",
+        "photogrammetry-exton-facility-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "photogrammetry-agi-beacon-tower",
+          "pixels": 87505
+        },
+        {
+          "id": "photogrammetry-reality-tiler-box",
+          "pixels": 103808
+        },
+        {
+          "id": "photogrammetry-ktx2-texture-dome",
+          "pixels": 152594
+        },
+        {
+          "id": "photogrammetry-exton-facility-rect",
+          "pixels": 89158
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-1.1-photogrammetry-classification",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "c7ce3414a7409e6e212994c82c162f042a00466e694a9e15d42b46def180257e",
+      "inputSha256": "66a594047abe2d2cb1a0b70ae0d04f0c93b133bbc57ccfa7067c45fe91c32ff2",
+      "fixtureSha256": "8ca09c5a89fe93ffd6e8b6113d2b8fd3c34b8ca4f072f3c6ec0b439093410735",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "ferry-building-clock-tower",
+        "embarcadero-classification-volume",
+        "ferry-plaza-translucent-sphere",
+        "san-francisco-waterfront-boundary"
+      ],
+      "pixelCounts": [
+        {
+          "id": "ferry-building-clock-tower",
+          "pixels": 87505
+        },
+        {
+          "id": "embarcadero-classification-volume",
+          "pixels": 103808
+        },
+        {
+          "id": "ferry-plaza-translucent-sphere",
+          "pixels": 152594
+        },
+        {
+          "id": "san-francisco-waterfront-boundary",
+          "pixels": 91121
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-1.1-s2-globe",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "19f94e2bf58792aa20faeff8207ca1834d38affd2b4bc8968e0bcb489f002053",
+      "inputSha256": "c18f01400cf39457b958a2662f2143685d0fe1094920e67538e8ceb8059afee5",
+      "fixtureSha256": "cd97e523c07de840ab917b05959df316cf96a8bb75eeeab17944a685b8533c5c",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "s2-hierarchical-cell-pillar",
+        "s2-bounding-projection-box",
+        "s2-maxar-terrain-globe-dome",
+        "s2-continental-coverage-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "s2-hierarchical-cell-pillar",
+          "pixels": 87505
+        },
+        {
+          "id": "s2-bounding-projection-box",
+          "pixels": 103704
+        },
+        {
+          "id": "s2-maxar-terrain-globe-dome",
+          "pixels": 151378
+        },
+        {
+          "id": "s2-continental-coverage-rect",
+          "pixels": 67252
+        }
+      ]
     }
   ],
   "browser": "156.0.8078.75",

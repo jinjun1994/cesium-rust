@@ -1,0 +1,621 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Show Classification (Component Feature Color Overlay)",
+      "entities": [
+        {
+          "id": "ferry-building-clock-tower",
+          "name": "San Francisco Ferry Building Clock Tower Spatial Anchor",
+          "show": true,
+          "positionDegrees": [
+            -122.394,
+            37.794,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 2333904,
+            "modelProvider": "Aerometrex",
+            "componentType": "Clock Tower"
+          }
+        },
+        {
+          "id": "embarcadero-classification-volume",
+          "name": "Embarcadero Arcade Classification Volume Massing Box",
+          "show": true,
+          "positionDegrees": [
+            -122.385,
+            37.802,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "featureIdSet": "architectural_substructures"
+          }
+        },
+        {
+          "id": "ferry-plaza-translucent-sphere",
+          "name": "Ferry Plaza Glass Canopy Translucent Material Sphere",
+          "show": true,
+          "positionDegrees": [
+            -122.402,
+            37.788,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.75,
+            0.8
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pbrAlphaMode": "BLEND",
+            "glassTranslucency": 0.7
+          }
+        },
+        {
+          "id": "san-francisco-waterfront-boundary",
+          "name": "San Francisco Embarcadero Waterfront Classification Zone",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.42,
+              37.77,
+              -122.37,
+              37.82
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.35,
+            0.55,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.55,
+            0.75,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "maximumScreenSpaceError": 8,
+            "pickTranslucentDepth": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Translucent Windows (Architectural Glass Stylization)",
+      "entities": [
+        {
+          "id": "ferry-building-clock-tower",
+          "name": "San Francisco Ferry Building Clock Tower Spatial Anchor",
+          "show": true,
+          "positionDegrees": [
+            -122.394,
+            37.794,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 2333904,
+            "modelProvider": "Aerometrex",
+            "componentType": "Clock Tower"
+          }
+        },
+        {
+          "id": "embarcadero-classification-volume",
+          "name": "Embarcadero Arcade Classification Volume Massing Box",
+          "show": true,
+          "positionDegrees": [
+            -122.385,
+            37.802,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "featureIdSet": "architectural_substructures"
+          }
+        },
+        {
+          "id": "ferry-plaza-translucent-sphere",
+          "name": "Ferry Plaza Glass Canopy Translucent Material Sphere",
+          "show": true,
+          "positionDegrees": [
+            -122.402,
+            37.788,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.2,
+            0.7,
+            0.95,
+            0.4
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pbrAlphaMode": "BLEND",
+            "glassTranslucency": 0.7
+          }
+        },
+        {
+          "id": "san-francisco-waterfront-boundary",
+          "name": "San Francisco Embarcadero Waterfront Classification Zone",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.42,
+              37.77,
+              -122.37,
+              37.82
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.35,
+            0.55,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.55,
+            0.75,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "maximumScreenSpaceError": 8,
+            "pickTranslucentDepth": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Stylized PBR Materials (Metallic & Roughness Shader Overrides)",
+      "entities": [
+        {
+          "id": "ferry-building-clock-tower",
+          "name": "San Francisco Ferry Building Clock Tower Spatial Anchor",
+          "show": true,
+          "positionDegrees": [
+            -122.394,
+            37.794,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 2333904,
+            "modelProvider": "Aerometrex",
+            "componentType": "Clock Tower"
+          }
+        },
+        {
+          "id": "embarcadero-classification-volume",
+          "name": "Embarcadero Arcade Classification Volume Massing Box",
+          "show": true,
+          "positionDegrees": [
+            -122.385,
+            37.802,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.8,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "featureIdSet": "architectural_substructures"
+          }
+        },
+        {
+          "id": "ferry-plaza-translucent-sphere",
+          "name": "Ferry Plaza Glass Canopy Translucent Material Sphere",
+          "show": true,
+          "positionDegrees": [
+            -122.402,
+            37.788,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.75,
+            0.8
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pbrAlphaMode": "BLEND",
+            "glassTranslucency": 0.7
+          }
+        },
+        {
+          "id": "san-francisco-waterfront-boundary",
+          "name": "San Francisco Embarcadero Waterfront Classification Zone",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.42,
+              37.77,
+              -122.37,
+              37.82
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.35,
+            0.55,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.55,
+            0.75,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "maximumScreenSpaceError": 8,
+            "pickTranslucentDepth": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Golden Touch & Multiple Feature ID Sets",
+      "entities": [
+        {
+          "id": "ferry-building-clock-tower",
+          "name": "San Francisco Ferry Building Clock Tower Spatial Anchor",
+          "show": true,
+          "positionDegrees": [
+            -122.394,
+            37.794,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            1,
+            0.84,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 2333904,
+            "modelProvider": "Aerometrex",
+            "componentType": "Clock Tower"
+          }
+        },
+        {
+          "id": "embarcadero-classification-volume",
+          "name": "Embarcadero Arcade Classification Volume Massing Box",
+          "show": true,
+          "positionDegrees": [
+            -122.385,
+            37.802,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "featureIdSet": "architectural_substructures"
+          }
+        },
+        {
+          "id": "ferry-plaza-translucent-sphere",
+          "name": "Ferry Plaza Glass Canopy Translucent Material Sphere",
+          "show": true,
+          "positionDegrees": [
+            -122.402,
+            37.788,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.75,
+            0.8
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pbrAlphaMode": "BLEND",
+            "glassTranslucency": 0.7
+          }
+        },
+        {
+          "id": "san-francisco-waterfront-boundary",
+          "name": "San Francisco Embarcadero Waterfront Classification Zone",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.42,
+              37.77,
+              -122.37,
+              37.82
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.35,
+            0.55,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.55,
+            0.75,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "maximumScreenSpaceError": 8,
+            "pickTranslucentDepth": true
+          }
+        }
+      ]
+    }
+  ]
+}
