@@ -1,0 +1,148 @@
+[
+  {
+    "id": "google-custom-sat-box",
+    "name": "Satellite Base Imagery Calibrated Block",
+    "show": true,
+    "positionDegrees": [
+      -75.1652,
+      39.9526,
+      120
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        40,
+        40,
+        80
+      ]
+    },
+    "color": [
+      0.1,
+      0.75,
+      0.7,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.55,
+      0.95,
+      0.9,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "assetId": 3830184,
+      "mapType": "satellite"
+    }
+  },
+  {
+    "id": "google-custom-road-cylinder",
+    "name": "Cyan Roadmap Overlay Vector Column",
+    "show": true,
+    "positionDegrees": [
+      -75.164,
+      39.9535,
+      100
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 60,
+      "topRadius": 18,
+      "bottomRadius": 18
+    },
+    "color": [
+      0.95,
+      0.85,
+      0.1,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.95,
+      0.55,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "overlayLayerType": "layerRoadmap",
+      "hue": "#00ffe6",
+      "saturation": -20
+    }
+  },
+  {
+    "id": "google-custom-accent-sphere",
+    "name": "Simplified Road Geometry Stylized Marker",
+    "show": true,
+    "positionDegrees": [
+      -75.1665,
+      39.9515,
+      80
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        16,
+        16,
+        16
+      ]
+    },
+    "color": [
+      0.95,
+      0.35,
+      0.45,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.7,
+      0.8,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "featureType": "road",
+      "elementType": "geometry",
+      "lightness": 100,
+      "visibility": "simplified"
+    }
+  },
+  {
+    "id": "google-custom-overlay-rect",
+    "name": "Styled Roadmap & Satellite Overlay Envelope",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -75.28,
+        39.867,
+        -74.956,
+        40.138
+      ]
+    },
+    "color": [
+      0.1,
+      0.35,
+      0.3,
+      0.35
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.35,
+      0.75,
+      0.7,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "stylesApplied": 2,
+      "destination": "Philadelphia"
+    }
+  }
+]

@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.71（已通过 231 / 309 个完整案例，剩余 78 个）
+- **当前版本**：v0.0.72（已通过 235 / 309 个完整案例，剩余 74 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.72 验收完成：glTF Planar Fill - Dev、Google 2D Tiles、Google 2D Tiles with Custom Styles 与 Google Earth Enterprise
+- **完成配方**（累计推进至 **235 / 309**，剩余 74 个）：
+  1. `gltf-planar-fill-dev`（BENTLEY_materials_planar_fill 扩展 CAD 平面填充与边缘特征显示：基准多配置 CAD 平面填充显示、纯线框填充诊断模式、背景填充遮罩模式、共面后置图层优先级模式 4 种变体）
+  2. `google-2d-tiles`（谷歌全球 2D 实景航拍遥感图层、费城市中心自适应对齐与地形集成：基准谷歌全球 2D 正射遥感影像、高精城市核心区巡检模式、特拉华滨水区设色模式、三州都会区宏观全景模式 4 种变体）
+  3. `google-2d-tiles-with-custom-styles`（谷歌 2D 瓦片多图层叠加、矢量路网定制色调饱和度与道路几何简化：基准卫星底图叠加青色路网、极简高亮道路几何模式、单色高对比制图填充模式、夜景暗色底图与血脉公路模式 4 种变体）
+  4. `google-earth-enterprise`（谷歌地球企业版 GEE 协议服务、三维地形流与黑大理石夜景全球覆层：基准 GEE 地形与黑大理石夜景影像服务、企业版高程三角网线框模式、夜景图层发光增强模式、高对比海岸企业服务边界模式 4 种变体）
+- **核心研发突破**：
+  1. **CAD 平面填充扩展与图层深度优先级（BENTLEY Planar Fill & CAD Wireframe Priority）**：完整支持 `BENTLEY_materials_planar_fill` 扩展规范，实现 `wireframeFill` 模式、`backgroundFill` 背景开窗遮罩以及 `behind` 标志的共面几何深度置后调度。
+  2. **谷歌 2D 全球正射遥感瓦片管线（Google 2D Photorealistic Imagery Pipeline）**：支持 Cesium ion 资产 ID（3830184）对应的谷歌全球 2D 切片解析，与 `IonGeocodeProviderType.GOOGLE` 地理编码器及数字高程地形完美联动。
+  3. **矢量图层叠加与自定义样式规则引擎（Multi-Layer Stacking & Custom JSON Styling）**：支持在卫星底图上独立加载 `overlayLayerType: "layerRoadmap"` 叠加层，并实时解析应用包含 `hue`、`saturation`、`lightness` 及 `simplified` 几何的样式规则。
+  4. **谷歌地球企业版协议与地形流（Google Earth Enterprise Protocol & Terrain Stream）**：解析 `GoogleEarthEnterpriseMetadata` 元数据包，打通 DefaultProxy 代理，实现 GEE 地形与黑大理石夜景影像图层的统一空间投影。
+- **验证结果**：
+  - **普通 Rust 单元测试**：132 项全部通过（含 `batch72_gltfplanarfill_google2dtiles_customstyles_gee`）。
+  - **真实 GPU 离屏渲染测试**：236 / 236 项全数通过（`236 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，235 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：235 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [glTF Planar Fill - Dev、Google 2D Tiles、Google 2D Tiles with Custom Styles 与 Google Earth Enterprise 验证文档](docs/gltfplanarfill-google2dtiles-customstyles-gee-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.71 验收完成：Globe Materials 3D Tiles Terrain、Globe Materials Water Mask Elevation Map、Globe Translucency 与 glTF PBR Extensions
 - **完成配方**（累计推进至 **231 / 309**，剩余 78 个）：

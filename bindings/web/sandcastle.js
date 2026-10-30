@@ -242,6 +242,10 @@ $('fullNew204').onclick=guarded(()=>runFull('globe-materials-3d-tiles-terrain'))
 $('fullNew205').onclick=guarded(()=>runFull('globe-materials-water-mask-elevation-map'));
 $('fullNew206').onclick=guarded(()=>runFull('globe-translucency'));
 $('fullNew207').onclick=guarded(()=>runFull('gltf-pbr-extensions'));
+$('fullNew208').onclick=guarded(()=>runFull('gltf-planar-fill-dev'));
+$('fullNew209').onclick=guarded(()=>runFull('google-2d-tiles'));
+$('fullNew210').onclick=guarded(()=>runFull('google-2d-tiles-with-custom-styles'));
+$('fullNew211').onclick=guarded(()=>runFull('google-earth-enterprise'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

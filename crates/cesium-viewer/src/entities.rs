@@ -5259,4 +5259,65 @@ mod tests {
         let gp_variants = crate::entity_variants::decode(&gp_variants_raw).unwrap();
         assert_eq!(gp_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch72_gltfplanarfill_google2dtiles_customstyles_gee() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. glTF Planar Fill - Dev
+        let pf_data = std::fs::read(base.join("gltf-planar-fill-dev.json")).unwrap();
+        let pf_entities = decode(&pf_data).unwrap();
+        assert_eq!(pf_entities.len(), 4);
+        assert!(matches!(pf_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(pf_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(pf_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(pf_entities[3].shape, Shape::Rectangle { .. }));
+        let pf_variants_raw =
+            std::fs::read(base.join("gltf-planar-fill-dev.variants.json")).unwrap();
+        let pf_variants = crate::entity_variants::decode(&pf_variants_raw).unwrap();
+        assert_eq!(pf_variants.variants.len(), 4);
+
+        // 2. Google 2D Tiles
+        let g2_data = std::fs::read(base.join("google-2d-tiles.json")).unwrap();
+        let g2_entities = decode(&g2_data).unwrap();
+        assert_eq!(g2_entities.len(), 4);
+        assert!(matches!(g2_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(g2_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(g2_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(g2_entities[3].shape, Shape::Rectangle { .. }));
+        let g2_variants_raw = std::fs::read(base.join("google-2d-tiles.variants.json")).unwrap();
+        let g2_variants = crate::entity_variants::decode(&g2_variants_raw).unwrap();
+        assert_eq!(g2_variants.variants.len(), 4);
+
+        // 3. Google 2D Tiles with Custom Styles
+        let gc_data = std::fs::read(base.join("google-2d-tiles-with-custom-styles.json")).unwrap();
+        let gc_entities = decode(&gc_data).unwrap();
+        assert_eq!(gc_entities.len(), 4);
+        assert!(matches!(gc_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(gc_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(gc_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(gc_entities[3].shape, Shape::Rectangle { .. }));
+        let gc_variants_raw =
+            std::fs::read(base.join("google-2d-tiles-with-custom-styles.variants.json")).unwrap();
+        let gc_variants = crate::entity_variants::decode(&gc_variants_raw).unwrap();
+        assert_eq!(gc_variants.variants.len(), 4);
+
+        // 4. Google Earth Enterprise
+        let ge_data = std::fs::read(base.join("google-earth-enterprise.json")).unwrap();
+        let ge_entities = decode(&ge_data).unwrap();
+        assert_eq!(ge_entities.len(), 4);
+        assert!(matches!(ge_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(ge_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ge_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ge_entities[3].shape, Shape::Rectangle { .. }));
+        let ge_variants_raw =
+            std::fs::read(base.join("google-earth-enterprise.variants.json")).unwrap();
+        let ge_variants = crate::entity_variants::decode(&ge_variants_raw).unwrap();
+        assert_eq!(ge_variants.variants.len(), 4);
+    }
 }

@@ -6439,6 +6439,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "gltf-planar-fill-dev",
+      "title": "glTF Planar Fill - Dev",
+      "sourceSha256": "fa42d3c6243aaae9215ee5aa3ec205a7f6fd9bd5451cba6775f3926d24ecf1c9",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=gltf-planar-fill-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/gltf-planar-fill-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/gltf-planar-fill-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "BENTLEY_materials_planar_fill extension support for wireframeFill, backgroundFill, and behind priority",
+        "EdgeDisplayMode surfaces and edges CAD visualization with background mask and feature IDs"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "google-2d-tiles",
+      "title": "Google 2D Tiles",
+      "sourceSha256": "1af79b265d6e9a0cfdd04b0fc0b3a7f880404625ac47295e10b4af1a4b89176f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=google-2d-tiles",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/google-2d-tiles.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/google-2d-tiles.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Google 2D Tiles global photorealistic imagery provider from Cesium ion asset 3830184",
+        "Philadelphia regional camera framing, IonGeocodeProviderType.GOOGLE geocoder, and terrain integration"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "google-2d-tiles-with-custom-styles",
+      "title": "Google 2D Tiles with Custom Styles",
+      "sourceSha256": "fe22198605b88d089bc3e3862ab5ed0cd30a708a287555c261e917368b77a008",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=google-2d-tiles-with-custom-styles",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/google-2d-tiles-with-custom-styles.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/google-2d-tiles-with-custom-styles.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Google2DImageryProvider with satellite base and roadmap overlay layers",
+        "Custom JSON styling with hue/saturation adjustments and simplified road vector geometries"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "google-earth-enterprise",
+      "title": "Google Earth Enterprise",
+      "sourceSha256": "f31551ffd8c3b87795bbaa41b19b8bea15cb1d437bacb60515d6b8a9b22bbe9f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=google-earth-enterprise",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/google-earth-enterprise.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/google-earth-enterprise.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "GoogleEarthEnterpriseMetadata fromUrl parsing with default proxy configuration",
+        "GoogleEarthEnterpriseTerrainProvider and GoogleEarthEnterpriseImageryProvider San Francisco bay viewing"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

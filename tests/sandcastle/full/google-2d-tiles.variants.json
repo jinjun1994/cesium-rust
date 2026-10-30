@@ -1,0 +1,621 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Google 2D Global Photorealistic Imagery (Philadelphia Focus)",
+      "entities": [
+        {
+          "id": "google-2d-philly-box",
+          "name": "Philadelphia City Hall Center Benchmark",
+          "show": true,
+          "positionDegrees": [
+            -75.1652,
+            39.9526,
+            120
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              80
+            ]
+          },
+          "color": [
+            0.2,
+            0.6,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "assetId": 3830184,
+            "imageryProvider": "Google2DImageryProvider"
+          }
+        },
+        {
+          "id": "google-2d-tower-cylinder",
+          "name": "Comcast Technology Center Tower Column",
+          "show": true,
+          "positionDegrees": [
+            -75.164,
+            39.9535,
+            100
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 18,
+            "bottomRadius": 18
+          },
+          "color": [
+            0.95,
+            0.7,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geocoder": "GOOGLE",
+            "terrainAssetId": 1
+          }
+        },
+        {
+          "id": "google-2d-center-sphere",
+          "name": "Market Street Urban Navigational Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.1665,
+            39.9515,
+            80
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              16,
+              16,
+              16
+            ]
+          },
+          "color": [
+            0.3,
+            0.85,
+            0.4,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "keepExpanded": true,
+            "coordinateSystem": "WGS84"
+          }
+        },
+        {
+          "id": "google-2d-viewport-rect",
+          "name": "Google 2D Tiles Philadelphia Metropolitan Bounds",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.28,
+              39.867,
+              -74.956,
+              40.138
+            ]
+          },
+          "color": [
+            0.15,
+            0.3,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.65,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "southWest": [
+              -75.280266,
+              39.867004
+            ],
+            "northEast": [
+              -74.955763,
+              40.137992
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "High-Zoom Urban Core Inspection Mode (Emerald Landmark Highlights)",
+      "entities": [
+        {
+          "id": "google-2d-philly-box",
+          "name": "Philadelphia City Hall Center Benchmark",
+          "show": true,
+          "positionDegrees": [
+            -75.1652,
+            39.9526,
+            120
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              80
+            ]
+          },
+          "color": [
+            0.2,
+            0.9,
+            0.5,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "assetId": 3830184,
+            "imageryProvider": "Google2DImageryProvider"
+          }
+        },
+        {
+          "id": "google-2d-tower-cylinder",
+          "name": "Comcast Technology Center Tower Column",
+          "show": true,
+          "positionDegrees": [
+            -75.164,
+            39.9535,
+            100
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 18,
+            "bottomRadius": 18
+          },
+          "color": [
+            0.95,
+            0.7,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geocoder": "GOOGLE",
+            "terrainAssetId": 1
+          }
+        },
+        {
+          "id": "google-2d-center-sphere",
+          "name": "Market Street Urban Navigational Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.1665,
+            39.9515,
+            80
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              16,
+              16,
+              16
+            ]
+          },
+          "color": [
+            0.3,
+            0.85,
+            0.4,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "keepExpanded": true,
+            "coordinateSystem": "WGS84"
+          }
+        },
+        {
+          "id": "google-2d-viewport-rect",
+          "name": "Google 2D Tiles Philadelphia Metropolitan Bounds",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.28,
+              39.867,
+              -74.956,
+              40.138
+            ]
+          },
+          "color": [
+            0.15,
+            0.3,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.65,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "southWest": [
+              -75.280266,
+              39.867004
+            ],
+            "northEast": [
+              -74.955763,
+              40.137992
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Delaware River Waterfront Shading (Azure Hydrological Tints)",
+      "entities": [
+        {
+          "id": "google-2d-philly-box",
+          "name": "Philadelphia City Hall Center Benchmark",
+          "show": true,
+          "positionDegrees": [
+            -75.1652,
+            39.9526,
+            120
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              80
+            ]
+          },
+          "color": [
+            0.2,
+            0.6,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "assetId": 3830184,
+            "imageryProvider": "Google2DImageryProvider"
+          }
+        },
+        {
+          "id": "google-2d-tower-cylinder",
+          "name": "Comcast Technology Center Tower Column",
+          "show": true,
+          "positionDegrees": [
+            -75.164,
+            39.9535,
+            100
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 18,
+            "bottomRadius": 18
+          },
+          "color": [
+            0.15,
+            0.5,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.8,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geocoder": "GOOGLE",
+            "terrainAssetId": 1
+          }
+        },
+        {
+          "id": "google-2d-center-sphere",
+          "name": "Market Street Urban Navigational Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.1665,
+            39.9515,
+            80
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              16,
+              16,
+              16
+            ]
+          },
+          "color": [
+            0.3,
+            0.85,
+            0.4,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "keepExpanded": true,
+            "coordinateSystem": "WGS84"
+          }
+        },
+        {
+          "id": "google-2d-viewport-rect",
+          "name": "Google 2D Tiles Philadelphia Metropolitan Bounds",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.28,
+              39.867,
+              -74.956,
+              40.138
+            ]
+          },
+          "color": [
+            0.15,
+            0.3,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.65,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "southWest": [
+              -75.280266,
+              39.867004
+            ],
+            "northEast": [
+              -74.955763,
+              40.137992
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Regional Tri-State Overview Perspective (Amber Bound Envelope)",
+      "entities": [
+        {
+          "id": "google-2d-philly-box",
+          "name": "Philadelphia City Hall Center Benchmark",
+          "show": true,
+          "positionDegrees": [
+            -75.1652,
+            39.9526,
+            120
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              80
+            ]
+          },
+          "color": [
+            0.2,
+            0.6,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "assetId": 3830184,
+            "imageryProvider": "Google2DImageryProvider"
+          }
+        },
+        {
+          "id": "google-2d-tower-cylinder",
+          "name": "Comcast Technology Center Tower Column",
+          "show": true,
+          "positionDegrees": [
+            -75.164,
+            39.9535,
+            100
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 18,
+            "bottomRadius": 18
+          },
+          "color": [
+            0.95,
+            0.7,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geocoder": "GOOGLE",
+            "terrainAssetId": 1
+          }
+        },
+        {
+          "id": "google-2d-center-sphere",
+          "name": "Market Street Urban Navigational Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.1665,
+            39.9515,
+            80
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              16,
+              16,
+              16
+            ]
+          },
+          "color": [
+            0.95,
+            0.45,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "keepExpanded": true,
+            "coordinateSystem": "WGS84"
+          }
+        },
+        {
+          "id": "google-2d-viewport-rect",
+          "name": "Google 2D Tiles Philadelphia Metropolitan Bounds",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.28,
+              39.867,
+              -74.956,
+              40.138
+            ]
+          },
+          "color": [
+            0.35,
+            0.25,
+            0.15,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.65,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "southWest": [
+              -75.280266,
+              39.867004
+            ],
+            "northEast": [
+              -74.955763,
+              40.137992
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

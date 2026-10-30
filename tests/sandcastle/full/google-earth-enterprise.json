@@ -1,0 +1,148 @@
+[
+  {
+    "id": "gee-server-node-box",
+    "name": "Google Earth Enterprise Server Node Benchmark",
+    "show": true,
+    "positionDegrees": [
+      -122.4194,
+      37.7749,
+      100
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        40,
+        40,
+        80
+      ]
+    },
+    "color": [
+      0.25,
+      0.5,
+      0.95,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.65,
+      0.8,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "serverUrl": "http://www.earthenterprise.org/3d",
+      "proxy": "/proxy/",
+      "metadataClass": "GoogleEarthEnterpriseMetadata"
+    }
+  },
+  {
+    "id": "gee-terrain-mesh-cylinder",
+    "name": "GEE Terrain Provider Surface Normal Pillar",
+    "show": true,
+    "positionDegrees": [
+      -122.418,
+      37.776,
+      90
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 60,
+      "topRadius": 18,
+      "bottomRadius": 18
+    },
+    "color": [
+      0.3,
+      0.8,
+      0.4,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.7,
+      1,
+      0.75,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "terrainProvider": "GoogleEarthEnterpriseTerrainProvider",
+      "fromMetadata": true
+    }
+  },
+  {
+    "id": "gee-imagery-probe-sphere",
+    "name": "GEE Imagery Layer & Black Marble Sampling Sphere",
+    "show": true,
+    "positionDegrees": [
+      -122.421,
+      37.7735,
+      80
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        16,
+        16,
+        16
+      ]
+    },
+    "color": [
+      0.95,
+      0.7,
+      0.15,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.9,
+      0.55,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "imageryProvider": "GoogleEarthEnterpriseImageryProvider",
+      "layerType": "blackMarble"
+    }
+  },
+  {
+    "id": "gee-bayarea-coverage-rect",
+    "name": "San Francisco Bay Regional Coverage Rectangle",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -123,
+        36,
+        -121.7,
+        39
+      ]
+    },
+    "color": [
+      0.15,
+      0.25,
+      0.4,
+      0.35
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.45,
+      0.6,
+      0.8,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "west": -123,
+      "south": 36,
+      "east": -121.7,
+      "north": 39
+    }
+  }
+]
