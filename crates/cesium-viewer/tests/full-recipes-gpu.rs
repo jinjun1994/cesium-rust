@@ -696,6 +696,10 @@ async fn verify_extended(id: &str, data: &[u8]) {
         "aec-architectural-design",
         "aec-clipping",
         "aec-elements-api-query",
+        "aec-isolate-by-category",
+        "aec-metadata-styling",
+        "aec-snapping",
+        "aec-tileset-metadata-filtering",
     ]
     .contains(&id)
     {
@@ -6478,6 +6482,186 @@ fn complete_aec_elements_api_query() {
             if i > 0 {
                 let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
                     format!("../../docs/full-aec-elements-api-query-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_aec_isolate_by_category() {
+    pollster::block_on(async {
+        verify_extended(
+            "aec-isolate-by-category",
+            include_bytes!("../../../tests/sandcastle/full/aec-isolate-by-category.json"),
+        )
+        .await;
+        let raw =
+            include_bytes!("../../../tests/sandcastle/full/aec-isolate-by-category.variants.json");
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 6);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-aec-isolate-by-category-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_aec_metadata_styling() {
+    pollster::block_on(async {
+        verify_extended(
+            "aec-metadata-styling",
+            include_bytes!("../../../tests/sandcastle/full/aec-metadata-styling.json"),
+        )
+        .await;
+        let raw =
+            include_bytes!("../../../tests/sandcastle/full/aec-metadata-styling.variants.json");
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-aec-metadata-styling-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_aec_snapping() {
+    pollster::block_on(async {
+        verify_extended(
+            "aec-snapping",
+            include_bytes!("../../../tests/sandcastle/full/aec-snapping.json"),
+        )
+        .await;
+        let raw = include_bytes!("../../../tests/sandcastle/full/aec-snapping.variants.json");
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-aec-snapping-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_aec_tileset_metadata_filtering() {
+    pollster::block_on(async {
+        verify_extended(
+            "aec-tileset-metadata-filtering",
+            include_bytes!("../../../tests/sandcastle/full/aec-tileset-metadata-filtering.json"),
+        )
+        .await;
+        let raw = include_bytes!(
+            "../../../tests/sandcastle/full/aec-tileset-metadata-filtering.variants.json"
+        );
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-aec-tileset-metadata-filtering-variant-{i}-smoke.log"),
                 );
                 let _ = s.zoom_to_entities(&[], 768, 512);
                 let t = attachment(

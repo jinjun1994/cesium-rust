@@ -1,0 +1,745 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Highlight All Pipe Lengths (0m - 50m)",
+      "entities": [
+        {
+          "id": "aec-meta-ghost-building",
+          "name": "Snowdon Towers Ghost Architecture Shell",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            246
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              56,
+              48,
+              32
+            ]
+          },
+          "color": [
+            0.68,
+            0.85,
+            0.95,
+            0.18
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.9,
+            1,
+            0.45
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "ghostArchitecture",
+            "styleFormula": "color('lightblue', 0.05)"
+          }
+        },
+        {
+          "id": "aec-meta-hvac-main",
+          "name": "HVAC Main Supply Trunk (Length 42m)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            252
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 42,
+            "topRadius": 3.5,
+            "bottomRadius": 3.5
+          },
+          "color": [
+            0.95,
+            0.25,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "length": 42,
+            "ductType": "Primary Supply Air Trunk",
+            "sectionMm": "600x400"
+          }
+        },
+        {
+          "id": "aec-meta-hvac-branch",
+          "name": "HVAC Branch Supply Duct (Length 18m)",
+          "show": true,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            246
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 24,
+            "topRadius": 2.8,
+            "bottomRadius": 2.8
+          },
+          "color": [
+            0.95,
+            0.25,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "length": 18,
+            "ductType": "Secondary Distribution Duct",
+            "sectionMm": "350x250"
+          }
+        },
+        {
+          "id": "aec-meta-hvac-terminal",
+          "name": "HVAC Diffuser Terminal Run (Length 6m)",
+          "show": true,
+          "positionDegrees": [
+            -79.8868,
+            40.0215,
+            240
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              12,
+              4,
+              4
+            ]
+          },
+          "color": [
+            0.95,
+            0.25,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "length": 6,
+            "ductType": "Ceiling Diffuser Terminal Run",
+            "sectionMm": "200x200"
+          }
+        },
+        {
+          "id": "aec-meta-site-footprint",
+          "name": "Snowdon Towers MEP Site Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8876,
+              40.0214,
+              -79.8856,
+              40.023
+            ]
+          },
+          "color": [
+            0.25,
+            0.42,
+            0.35,
+            0.3
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.65,
+            0.5,
+            0.7
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "siteFootprint"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Highlight Short Terminal Runs (0m - 10m)",
+      "entities": [
+        {
+          "id": "aec-meta-ghost-building",
+          "name": "Snowdon Towers Ghost Architecture Shell",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            246
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              56,
+              48,
+              32
+            ]
+          },
+          "color": [
+            0.68,
+            0.85,
+            0.95,
+            0.18
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.9,
+            1,
+            0.45
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "ghostArchitecture",
+            "styleFormula": "color('lightblue', 0.05)"
+          }
+        },
+        {
+          "id": "aec-meta-hvac-main",
+          "name": "HVAC Main Supply Trunk (Length 42m)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            252
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 42,
+            "topRadius": 3.5,
+            "bottomRadius": 3.5
+          },
+          "color": [
+            0.3,
+            0.6,
+            0.85,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "length": 42,
+            "ductType": "Primary Supply Air Trunk",
+            "sectionMm": "600x400"
+          }
+        },
+        {
+          "id": "aec-meta-hvac-branch",
+          "name": "HVAC Branch Supply Duct (Length 18m)",
+          "show": true,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            246
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 24,
+            "topRadius": 2.8,
+            "bottomRadius": 2.8
+          },
+          "color": [
+            0.3,
+            0.6,
+            0.85,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "length": 18,
+            "ductType": "Secondary Distribution Duct",
+            "sectionMm": "350x250"
+          }
+        },
+        {
+          "id": "aec-meta-hvac-terminal",
+          "name": "HVAC Diffuser Terminal Run (Length 6m)",
+          "show": true,
+          "positionDegrees": [
+            -79.8868,
+            40.0215,
+            240
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              12,
+              4,
+              4
+            ]
+          },
+          "color": [
+            0.95,
+            0.25,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "length": 6,
+            "ductType": "Ceiling Diffuser Terminal Run",
+            "sectionMm": "200x200"
+          }
+        },
+        {
+          "id": "aec-meta-site-footprint",
+          "name": "Snowdon Towers MEP Site Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8876,
+              40.0214,
+              -79.8856,
+              40.023
+            ]
+          },
+          "color": [
+            0.25,
+            0.42,
+            0.35,
+            0.3
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.65,
+            0.5,
+            0.7
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "siteFootprint"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Highlight Medium Branch Ducts (10m - 25m)",
+      "entities": [
+        {
+          "id": "aec-meta-ghost-building",
+          "name": "Snowdon Towers Ghost Architecture Shell",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            246
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              56,
+              48,
+              32
+            ]
+          },
+          "color": [
+            0.68,
+            0.85,
+            0.95,
+            0.18
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.9,
+            1,
+            0.45
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "ghostArchitecture",
+            "styleFormula": "color('lightblue', 0.05)"
+          }
+        },
+        {
+          "id": "aec-meta-hvac-main",
+          "name": "HVAC Main Supply Trunk (Length 42m)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            252
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 42,
+            "topRadius": 3.5,
+            "bottomRadius": 3.5
+          },
+          "color": [
+            0.3,
+            0.6,
+            0.85,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "length": 42,
+            "ductType": "Primary Supply Air Trunk",
+            "sectionMm": "600x400"
+          }
+        },
+        {
+          "id": "aec-meta-hvac-branch",
+          "name": "HVAC Branch Supply Duct (Length 18m)",
+          "show": true,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            246
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 24,
+            "topRadius": 2.8,
+            "bottomRadius": 2.8
+          },
+          "color": [
+            0.95,
+            0.25,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "length": 18,
+            "ductType": "Secondary Distribution Duct",
+            "sectionMm": "350x250"
+          }
+        },
+        {
+          "id": "aec-meta-hvac-terminal",
+          "name": "HVAC Diffuser Terminal Run (Length 6m)",
+          "show": true,
+          "positionDegrees": [
+            -79.8868,
+            40.0215,
+            240
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              12,
+              4,
+              4
+            ]
+          },
+          "color": [
+            0.3,
+            0.6,
+            0.85,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "length": 6,
+            "ductType": "Ceiling Diffuser Terminal Run",
+            "sectionMm": "200x200"
+          }
+        },
+        {
+          "id": "aec-meta-site-footprint",
+          "name": "Snowdon Towers MEP Site Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8876,
+              40.0214,
+              -79.8856,
+              40.023
+            ]
+          },
+          "color": [
+            0.25,
+            0.42,
+            0.35,
+            0.3
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.65,
+            0.5,
+            0.7
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "siteFootprint"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Highlight Long Supply Mains (25m - 50m)",
+      "entities": [
+        {
+          "id": "aec-meta-ghost-building",
+          "name": "Snowdon Towers Ghost Architecture Shell",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            246
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              56,
+              48,
+              32
+            ]
+          },
+          "color": [
+            0.68,
+            0.85,
+            0.95,
+            0.18
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.9,
+            1,
+            0.45
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "ghostArchitecture",
+            "styleFormula": "color('lightblue', 0.05)"
+          }
+        },
+        {
+          "id": "aec-meta-hvac-main",
+          "name": "HVAC Main Supply Trunk (Length 42m)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            252
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 42,
+            "topRadius": 3.5,
+            "bottomRadius": 3.5
+          },
+          "color": [
+            0.95,
+            0.25,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "length": 42,
+            "ductType": "Primary Supply Air Trunk",
+            "sectionMm": "600x400"
+          }
+        },
+        {
+          "id": "aec-meta-hvac-branch",
+          "name": "HVAC Branch Supply Duct (Length 18m)",
+          "show": true,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            246
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 24,
+            "topRadius": 2.8,
+            "bottomRadius": 2.8
+          },
+          "color": [
+            0.3,
+            0.6,
+            0.85,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "length": 18,
+            "ductType": "Secondary Distribution Duct",
+            "sectionMm": "350x250"
+          }
+        },
+        {
+          "id": "aec-meta-hvac-terminal",
+          "name": "HVAC Diffuser Terminal Run (Length 6m)",
+          "show": true,
+          "positionDegrees": [
+            -79.8868,
+            40.0215,
+            240
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              12,
+              4,
+              4
+            ]
+          },
+          "color": [
+            0.3,
+            0.6,
+            0.85,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "length": 6,
+            "ductType": "Ceiling Diffuser Terminal Run",
+            "sectionMm": "200x200"
+          }
+        },
+        {
+          "id": "aec-meta-site-footprint",
+          "name": "Snowdon Towers MEP Site Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8876,
+              40.0214,
+              -79.8856,
+              40.023
+            ]
+          },
+          "color": [
+            0.25,
+            0.42,
+            0.35,
+            0.3
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.65,
+            0.5,
+            0.7
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "siteFootprint"
+          }
+        }
+      ]
+    }
+  ]
+}

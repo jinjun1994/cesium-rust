@@ -4716,4 +4716,67 @@ mod tests {
         let eq_variants = crate::entity_variants::decode(&eq_variants_raw).unwrap();
         assert_eq!(eq_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch63_aec_isolate_metadata_snapping_filtering() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. AEC Isolate by Category
+        let ic_data = std::fs::read(base.join("aec-isolate-by-category.json")).unwrap();
+        let ic_entities = decode(&ic_data).unwrap();
+        assert_eq!(ic_entities.len(), 6);
+        assert!(matches!(ic_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(ic_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(ic_entities[2].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ic_entities[3].shape, Shape::Box { .. }));
+        assert!(matches!(ic_entities[4].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ic_entities[5].shape, Shape::Rectangle { .. }));
+        let ic_variants_raw =
+            std::fs::read(base.join("aec-isolate-by-category.variants.json")).unwrap();
+        let ic_variants = crate::entity_variants::decode(&ic_variants_raw).unwrap();
+        assert_eq!(ic_variants.variants.len(), 6);
+
+        // 2. AEC Metadata Styling
+        let ms_data = std::fs::read(base.join("aec-metadata-styling.json")).unwrap();
+        let ms_entities = decode(&ms_data).unwrap();
+        assert_eq!(ms_entities.len(), 5);
+        assert!(matches!(ms_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(ms_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ms_entities[2].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ms_entities[3].shape, Shape::Box { .. }));
+        assert!(matches!(ms_entities[4].shape, Shape::Rectangle { .. }));
+        let ms_variants_raw =
+            std::fs::read(base.join("aec-metadata-styling.variants.json")).unwrap();
+        let ms_variants = crate::entity_variants::decode(&ms_variants_raw).unwrap();
+        assert_eq!(ms_variants.variants.len(), 4);
+
+        // 3. AEC Snapping
+        let sn_data = std::fs::read(base.join("aec-snapping.json")).unwrap();
+        let sn_entities = decode(&sn_data).unwrap();
+        assert_eq!(sn_entities.len(), 6);
+        assert!(matches!(sn_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(sn_entities[1].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(sn_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(sn_entities[3].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(sn_entities[4].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(sn_entities[5].shape, Shape::Rectangle { .. }));
+        let sn_variants_raw = std::fs::read(base.join("aec-snapping.variants.json")).unwrap();
+        let sn_variants = crate::entity_variants::decode(&sn_variants_raw).unwrap();
+        assert_eq!(sn_variants.variants.len(), 4);
+
+        // 4. AEC Tileset Metadata Filtering
+        let tf_data = std::fs::read(base.join("aec-tileset-metadata-filtering.json")).unwrap();
+        let tf_entities = decode(&tf_data).unwrap();
+        assert_eq!(tf_entities.len(), 5);
+        assert!(matches!(tf_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(tf_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(tf_entities[2].shape, Shape::Box { .. }));
+        assert!(matches!(tf_entities[3].shape, Shape::Box { .. }));
+        assert!(matches!(tf_entities[4].shape, Shape::Rectangle { .. }));
+        let tf_variants_raw =
+            std::fs::read(base.join("aec-tileset-metadata-filtering.variants.json")).unwrap();
+        let tf_variants = crate::entity_variants::decode(&tf_variants_raw).unwrap();
+        assert_eq!(tf_variants.variants.len(), 4);
+    }
 }

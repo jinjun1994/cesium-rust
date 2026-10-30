@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.62（已通过 195 / 309 个完整案例，剩余 114 个）
+- **当前版本**：v0.0.63（已通过 199 / 309 个完整案例，剩余 110 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.63 验收完成：构件分类隔离 (Design Model – Category Filtering)、元数据着色 (Design Model – Metadata Styling)、混合几何捕捉 (AEC Snapping) 与元数据多级过滤 (Design Model – Tileset Metadata Filtering)
+- **完成配方**（累计推进至 **199 / 309**，剩余 110 个）：
+  1. `aec-isolate-by-category`（Autodesk Revit 斯诺登大厦构件 CategoryID 隔离过滤、场地开挖与图层控制：展示所有构件分类基准、仅隔离展示墙体构件、仅隔离展示楼板构件、仅隔离展示核心筒楼梯构件、仅隔离展示出入口门构件、仅隔离展示照明灯具构件 6 种变体）
+  2. `aec-metadata-styling`（嵌入式机电元数据动态着色、双滑块管线长度区间过滤与幽灵建筑半透衬托：高亮全范围 0m~50m HVAC 管线基准、仅高亮 0m~10m 末端送风散流管段、仅高亮 10m~25m 支路送风风管、仅高亮 25m~50m 主干送风管路 4 种变体）
+  3. `aec-snapping`（BIM 构件混合式端点与边缘捕捉、几何精度优化与热度距离剔除：边缘捕捉模式：青色悬停边缘/青柠客户端瞬时捕捉/红色服务器精化端点、表面捕捉模式：黄色表面悬停/表面捕捉端点、地形悬停模式：灰色光标反馈防漂移、全捕捉标定端点激活模式 4 种变体）
+  4. `aec-tileset-metadata-filtering`（三维瓦片集并行元数据结构解析、CTRL+点击单选与拾取隐藏模式：所有分类子分类可见基准、CTRL+点击单选结构立柱、子分类过滤隐藏幕墙竖框、交互拾取隐藏屋顶与楼板 4 种变体）
+- **核心研发突破**：
+  1. **BIM 构件级 CategoryID 声明式条件样式（Revit CategoryID Conditional Styling Pipeline）**：支持 `${feature['category']} === '...'` 动态计算规则，与多边形裁剪面和 SSAO 环境光遮蔽组合，实现毫秒级专业构件隔离。
+  2. **机电属性连续区间动态样式引擎（HVAC Continuous Metadata Range Styling Engine）**：基于双滑块输入动态构造 `(${length} >= min) && (${length} <= max)` 条件分支，支持复杂机电工程在半透明幽灵建筑模型中的高亮渲染。
+  3. **混合式几何端点捕捉与距离过滤（Hybrid Client-Server Snapping & Heat Rejection）**：集成 `Scene.snap` 屏幕光线投影、`EdgeDisplayMode.SurfacesAndEdges` 几何边缘渲染与 `IonSnapHeat.NONE` 结合像素阈值的防漂移保护算法。
+  4. **并行元数据数组解析与多级过滤树（Tileset-Level Parallel Metadata Parsing & Filtering Tree）**：完成 `categoryIds`、`subcategoryIds`、`subcategoryParentIds` 并行数组到层次化拓扑映射树的构建，支持 CTRL+点击单选独占模式与交互式拾取隐藏求值。
+- **验证结果**：
+  - **普通 Rust 单元测试**：123 项全部通过（含 `batch63_aec_isolate_metadata_snapping_filtering`）。
+  - **真实 GPU 离屏渲染测试**：200 / 200 项全数通过（`200 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：199 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Design Model – Category Filtering、Design Model – Metadata Styling、AEC Snapping 与 Design Model – Tileset Metadata Filtering 验证文档](docs/aec-isolate-metadata-snapping-filtering-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.62 验收完成：高程垂直夸张 (Vertical Exaggeration with 3D Tiles)、BIM 专业图层 (Design Model – Layer Control and Metadata Picking)、场地开挖嵌合 (Design Model – Terrain Inset) 与构件级检索 (Design Model – Elements API Query)
 - **完成配方**（累计推进至 **195 / 309**，剩余 114 个）：

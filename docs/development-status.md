@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.63
+
+新增 Design Model – Category Filtering、Design Model – Metadata Styling、AEC Snapping、Design Model – Tileset Metadata Filtering 四个完整案例，累计 **199 / 309**，剩余 110 个。123 项普通 Rust、200 项实际 GPU、8 组 Node、199 个浏览器 WebGPU 案例通过。验证包含 Autodesk Revit 建筑构件 CategoryID 隔离过滤（展示所有构件分类基准、仅隔离展示墙体构件、仅隔离展示楼板构件、仅隔离展示核心筒楼梯构件、仅隔离展示出入口门构件、仅隔离展示照明灯具构件 6 种变体）、嵌入式机电元数据动态着色与双滑块风管长度过滤（高亮全范围 0m~50m HVAC 管线基准、仅高亮 0m~10m 末端送风散流管段、仅高亮 10m~25m 支路送风风管、仅高亮 25m~50m 主干送风管路 4 种变体）、BIM 构件混合式端点与边缘捕捉（边缘捕捉模式：青色悬停边缘/青柠客户端瞬时捕捉/红色服务器精化端点、表面捕捉模式：黄色表面悬停/表面捕捉端点、地形悬停模式：灰色光标反馈防漂移、全捕捉标定端点激活模式 4 种变体）、以及三维瓦片集并行元数据结构解析与构件单选拾取（所有分类子分类可见基准、CTRL+点击单选结构立柱、子分类过滤隐藏幕墙竖框、交互拾取隐藏屋顶与楼板 4 种变体）。详见 [本批验证](aec-isolate-metadata-snapping-filtering-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.62
 
 新增 Vertical Exaggeration with 3D Tiles、Design Model – Layer Control and Metadata Picking、Design Model – Terrain Inset、Design Model – Elements API Query 四个完整案例，累计 **195 / 309**，剩余 114 个。122 项普通 Rust、196 项实际 GPU、8 组 Node、195 个浏览器 WebGPU 案例通过。验证包含谷歌实景三维高程垂直夸张参数调谐（3 倍地形垂直起伏夸张基准、5 倍极致高山峡谷夸张模式、1 倍真实物理尺度真实地形起伏基准与引入 1500 米非零相对高度基准面偏移 4 种变体）、Autodesk Revit 斯诺登大厦多专业协同 BIM 设计图层与属性拾取（建筑与幕墙图层基准激活、结构工程与暖通机电专业聚焦模式、七大专业全开与纯实景三维环境对比 4 种变体）、建筑基地 GeoJSON 多边形地形开挖与设计模型嵌合（设计方案嵌合基准、反向裁剪模式剔除全球瓦片仅保留基坑内部、仅保留地块贴地多边形模式与原始地表全貌 4 种变体）、以及 Cesium ion 资产构件级 Elements API 结构化检索与空间定位（所有墙体构件检索基准、承重主体结构检索模式、建筑门窗洞口构件过滤模式与空间规划过滤模式 4 种变体）。详见 [本批验证](3dtiles-verticalexag-aec-design-clipping-elements-validation.md)。以下保留历史记录。

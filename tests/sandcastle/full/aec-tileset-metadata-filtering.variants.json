@@ -1,0 +1,773 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "All Categories and Subcategories Visible",
+      "entities": [
+        {
+          "id": "aec-filter-col-cylinder",
+          "name": "Cast-In-Place Concrete Columns (Cat 101, Sub 201)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            245
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 26,
+            "topRadius": 2,
+            "bottomRadius": 2
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 101,
+            "categoryName": "Structural Columns",
+            "subcategoryId": 201,
+            "subcategoryName": "Cast-In-Place Concrete"
+          }
+        },
+        {
+          "id": "aec-filter-mullions-box",
+          "name": "Curtain Wall System & Mullions (Cat 102, Sub 202)",
+          "show": true,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            246
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              22,
+              1.5,
+              26
+            ]
+          },
+          "color": [
+            0.35,
+            0.88,
+            0.92,
+            0.88
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.98,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 102,
+            "categoryName": "Curtain Walls",
+            "subcategoryId": 202,
+            "subcategoryName": "Curtain Wall Mullions"
+          }
+        },
+        {
+          "id": "aec-filter-floor-slab",
+          "name": "Structural Concrete Floor Slabs (Cat 103, Sub 203)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            233
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              48,
+              48,
+              2.5
+            ]
+          },
+          "color": [
+            0.72,
+            0.75,
+            0.8,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.92,
+            0.98,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 103,
+            "categoryName": "Floors",
+            "subcategoryId": 203,
+            "subcategoryName": "Concrete Slab"
+          }
+        },
+        {
+          "id": "aec-filter-roof-deck",
+          "name": "Composite Steel Roof Deck (Cat 104, Sub 204)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            258
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              46,
+              46,
+              1.8
+            ]
+          },
+          "color": [
+            0.55,
+            0.58,
+            0.65,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.8,
+            0.88,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 104,
+            "categoryName": "Roofs",
+            "subcategoryId": 204,
+            "subcategoryName": "Steel Deck"
+          }
+        },
+        {
+          "id": "aec-filter-site-grid",
+          "name": "Snowdon Towers Advanced Metadata Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8876,
+              40.0213,
+              -79.8856,
+              40.0229
+            ]
+          },
+          "color": [
+            0.3,
+            0.42,
+            0.36,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.68,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "metadataSiteGrid"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Solo Structural Columns (CTRL+Click Solo Cat 101)",
+      "entities": [
+        {
+          "id": "aec-filter-col-cylinder",
+          "name": "Cast-In-Place Concrete Columns (Cat 101, Sub 201)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            245
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 26,
+            "topRadius": 2,
+            "bottomRadius": 2
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 101,
+            "categoryName": "Structural Columns",
+            "subcategoryId": 201,
+            "subcategoryName": "Cast-In-Place Concrete"
+          }
+        },
+        {
+          "id": "aec-filter-mullions-box",
+          "name": "Curtain Wall System & Mullions (Cat 102, Sub 202)",
+          "show": false,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            246
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              22,
+              1.5,
+              26
+            ]
+          },
+          "color": [
+            0.35,
+            0.88,
+            0.92,
+            0.88
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.98,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 102,
+            "categoryName": "Curtain Walls",
+            "subcategoryId": 202,
+            "subcategoryName": "Curtain Wall Mullions"
+          }
+        },
+        {
+          "id": "aec-filter-floor-slab",
+          "name": "Structural Concrete Floor Slabs (Cat 103, Sub 203)",
+          "show": false,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            233
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              48,
+              48,
+              2.5
+            ]
+          },
+          "color": [
+            0.72,
+            0.75,
+            0.8,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.92,
+            0.98,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 103,
+            "categoryName": "Floors",
+            "subcategoryId": 203,
+            "subcategoryName": "Concrete Slab"
+          }
+        },
+        {
+          "id": "aec-filter-roof-deck",
+          "name": "Composite Steel Roof Deck (Cat 104, Sub 204)",
+          "show": false,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            258
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              46,
+              46,
+              1.8
+            ]
+          },
+          "color": [
+            0.55,
+            0.58,
+            0.65,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.8,
+            0.88,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 104,
+            "categoryName": "Roofs",
+            "subcategoryId": 204,
+            "subcategoryName": "Steel Deck"
+          }
+        },
+        {
+          "id": "aec-filter-site-grid",
+          "name": "Snowdon Towers Advanced Metadata Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8876,
+              40.0213,
+              -79.8856,
+              40.0229
+            ]
+          },
+          "color": [
+            0.3,
+            0.42,
+            0.36,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.68,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "metadataSiteGrid"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Filter Subcategories (Hide Mullions Sub 202)",
+      "entities": [
+        {
+          "id": "aec-filter-col-cylinder",
+          "name": "Cast-In-Place Concrete Columns (Cat 101, Sub 201)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            245
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 26,
+            "topRadius": 2,
+            "bottomRadius": 2
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 101,
+            "categoryName": "Structural Columns",
+            "subcategoryId": 201,
+            "subcategoryName": "Cast-In-Place Concrete"
+          }
+        },
+        {
+          "id": "aec-filter-mullions-box",
+          "name": "Curtain Wall System & Mullions (Cat 102, Sub 202)",
+          "show": false,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            246
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              22,
+              1.5,
+              26
+            ]
+          },
+          "color": [
+            0.35,
+            0.88,
+            0.92,
+            0.88
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.98,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 102,
+            "categoryName": "Curtain Walls",
+            "subcategoryId": 202,
+            "subcategoryName": "Curtain Wall Mullions"
+          }
+        },
+        {
+          "id": "aec-filter-floor-slab",
+          "name": "Structural Concrete Floor Slabs (Cat 103, Sub 203)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            233
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              48,
+              48,
+              2.5
+            ]
+          },
+          "color": [
+            0.72,
+            0.75,
+            0.8,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.92,
+            0.98,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 103,
+            "categoryName": "Floors",
+            "subcategoryId": 203,
+            "subcategoryName": "Concrete Slab"
+          }
+        },
+        {
+          "id": "aec-filter-roof-deck",
+          "name": "Composite Steel Roof Deck (Cat 104, Sub 204)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            258
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              46,
+              46,
+              1.8
+            ]
+          },
+          "color": [
+            0.55,
+            0.58,
+            0.65,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.8,
+            0.88,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 104,
+            "categoryName": "Roofs",
+            "subcategoryId": 204,
+            "subcategoryName": "Steel Deck"
+          }
+        },
+        {
+          "id": "aec-filter-site-grid",
+          "name": "Snowdon Towers Advanced Metadata Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8876,
+              40.0213,
+              -79.8856,
+              40.0229
+            ]
+          },
+          "color": [
+            0.3,
+            0.42,
+            0.36,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.68,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "metadataSiteGrid"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Hide by Pick Mode (Hide Roof & Floors)",
+      "entities": [
+        {
+          "id": "aec-filter-col-cylinder",
+          "name": "Cast-In-Place Concrete Columns (Cat 101, Sub 201)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            245
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 26,
+            "topRadius": 2,
+            "bottomRadius": 2
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 101,
+            "categoryName": "Structural Columns",
+            "subcategoryId": 201,
+            "subcategoryName": "Cast-In-Place Concrete"
+          }
+        },
+        {
+          "id": "aec-filter-mullions-box",
+          "name": "Curtain Wall System & Mullions (Cat 102, Sub 202)",
+          "show": true,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            246
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              22,
+              1.5,
+              26
+            ]
+          },
+          "color": [
+            0.35,
+            0.88,
+            0.92,
+            0.88
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.98,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 102,
+            "categoryName": "Curtain Walls",
+            "subcategoryId": 202,
+            "subcategoryName": "Curtain Wall Mullions"
+          }
+        },
+        {
+          "id": "aec-filter-floor-slab",
+          "name": "Structural Concrete Floor Slabs (Cat 103, Sub 203)",
+          "show": false,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            233
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              48,
+              48,
+              2.5
+            ]
+          },
+          "color": [
+            0.72,
+            0.75,
+            0.8,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.92,
+            0.98,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 103,
+            "categoryName": "Floors",
+            "subcategoryId": 203,
+            "subcategoryName": "Concrete Slab"
+          }
+        },
+        {
+          "id": "aec-filter-roof-deck",
+          "name": "Composite Steel Roof Deck (Cat 104, Sub 204)",
+          "show": false,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            258
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              46,
+              46,
+              1.8
+            ]
+          },
+          "color": [
+            0.55,
+            0.58,
+            0.65,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.8,
+            0.88,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": 104,
+            "categoryName": "Roofs",
+            "subcategoryId": 204,
+            "subcategoryName": "Steel Deck"
+          }
+        },
+        {
+          "id": "aec-filter-site-grid",
+          "name": "Snowdon Towers Advanced Metadata Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8876,
+              40.0213,
+              -79.8856,
+              40.0229
+            ]
+          },
+          "color": [
+            0.3,
+            0.42,
+            0.36,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.68,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "metadataSiteGrid"
+          }
+        }
+      ]
+    }
+  ]
+}

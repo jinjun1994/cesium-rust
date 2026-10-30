@@ -1,0 +1,1361 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Show All Categories",
+      "entities": [
+        {
+          "id": "aec-isolate-wall",
+          "name": "Snowdon Towers Architectural Walls (-2000011)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            245
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              6,
+              25
+            ]
+          },
+          "color": [
+            0.82,
+            0.76,
+            0.7,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000011,
+            "categoryName": "Walls",
+            "revitCategory": "OST_Walls"
+          }
+        },
+        {
+          "id": "aec-isolate-floor",
+          "name": "Snowdon Towers Slabs and Floors (-2000032)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            233
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              55,
+              45,
+              2.5
+            ]
+          },
+          "color": [
+            0.65,
+            0.68,
+            0.72,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000032,
+            "categoryName": "Floors",
+            "revitCategory": "OST_Floors"
+          }
+        },
+        {
+          "id": "aec-isolate-stairs",
+          "name": "Snowdon Towers Spiral Stairs Core (-2000120)",
+          "show": true,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            245
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 26,
+            "topRadius": 5,
+            "bottomRadius": 5
+          },
+          "color": [
+            0.85,
+            0.52,
+            0.22,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000120,
+            "categoryName": "Stairs",
+            "revitCategory": "OST_Stairs"
+          }
+        },
+        {
+          "id": "aec-isolate-doors",
+          "name": "Snowdon Towers Entrance Doors (-2000023)",
+          "show": true,
+          "positionDegrees": [
+            -79.8868,
+            40.0214,
+            236
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              3,
+              8,
+              6
+            ]
+          },
+          "color": [
+            0.2,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.8,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000023,
+            "categoryName": "Doors",
+            "revitCategory": "OST_Doors"
+          }
+        },
+        {
+          "id": "aec-isolate-lighting",
+          "name": "Snowdon Towers Lighting Luminaires (-2001120)",
+          "show": true,
+          "positionDegrees": [
+            -79.8865,
+            40.0218,
+            252
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              3.5,
+              3.5,
+              3.5
+            ]
+          },
+          "color": [
+            0.98,
+            0.92,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2001120,
+            "categoryName": "Lighting Fixtures",
+            "revitCategory": "OST_LightingFixtures"
+          }
+        },
+        {
+          "id": "aec-isolate-site-bounds",
+          "name": "Snowdon Towers Clipping Site Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8877,
+              40.0214,
+              -79.8855,
+              40.0231
+            ]
+          },
+          "color": [
+            0.28,
+            0.48,
+            0.38,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "siteClippingBounds"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Isolate Walls (OST_Walls -2000011)",
+      "entities": [
+        {
+          "id": "aec-isolate-wall",
+          "name": "Snowdon Towers Architectural Walls (-2000011)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            245
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              6,
+              25
+            ]
+          },
+          "color": [
+            0.82,
+            0.76,
+            0.7,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000011,
+            "categoryName": "Walls",
+            "revitCategory": "OST_Walls"
+          }
+        },
+        {
+          "id": "aec-isolate-floor",
+          "name": "Snowdon Towers Slabs and Floors (-2000032)",
+          "show": false,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            233
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              55,
+              45,
+              2.5
+            ]
+          },
+          "color": [
+            0.65,
+            0.68,
+            0.72,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000032,
+            "categoryName": "Floors",
+            "revitCategory": "OST_Floors"
+          }
+        },
+        {
+          "id": "aec-isolate-stairs",
+          "name": "Snowdon Towers Spiral Stairs Core (-2000120)",
+          "show": false,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            245
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 26,
+            "topRadius": 5,
+            "bottomRadius": 5
+          },
+          "color": [
+            0.85,
+            0.52,
+            0.22,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000120,
+            "categoryName": "Stairs",
+            "revitCategory": "OST_Stairs"
+          }
+        },
+        {
+          "id": "aec-isolate-doors",
+          "name": "Snowdon Towers Entrance Doors (-2000023)",
+          "show": false,
+          "positionDegrees": [
+            -79.8868,
+            40.0214,
+            236
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              3,
+              8,
+              6
+            ]
+          },
+          "color": [
+            0.2,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.8,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000023,
+            "categoryName": "Doors",
+            "revitCategory": "OST_Doors"
+          }
+        },
+        {
+          "id": "aec-isolate-lighting",
+          "name": "Snowdon Towers Lighting Luminaires (-2001120)",
+          "show": false,
+          "positionDegrees": [
+            -79.8865,
+            40.0218,
+            252
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              3.5,
+              3.5,
+              3.5
+            ]
+          },
+          "color": [
+            0.98,
+            0.92,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2001120,
+            "categoryName": "Lighting Fixtures",
+            "revitCategory": "OST_LightingFixtures"
+          }
+        },
+        {
+          "id": "aec-isolate-site-bounds",
+          "name": "Snowdon Towers Clipping Site Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8877,
+              40.0214,
+              -79.8855,
+              40.0231
+            ]
+          },
+          "color": [
+            0.28,
+            0.48,
+            0.38,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "siteClippingBounds"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Isolate Floors (OST_Floors -2000032)",
+      "entities": [
+        {
+          "id": "aec-isolate-wall",
+          "name": "Snowdon Towers Architectural Walls (-2000011)",
+          "show": false,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            245
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              6,
+              25
+            ]
+          },
+          "color": [
+            0.82,
+            0.76,
+            0.7,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000011,
+            "categoryName": "Walls",
+            "revitCategory": "OST_Walls"
+          }
+        },
+        {
+          "id": "aec-isolate-floor",
+          "name": "Snowdon Towers Slabs and Floors (-2000032)",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            233
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              55,
+              45,
+              2.5
+            ]
+          },
+          "color": [
+            0.65,
+            0.68,
+            0.72,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000032,
+            "categoryName": "Floors",
+            "revitCategory": "OST_Floors"
+          }
+        },
+        {
+          "id": "aec-isolate-stairs",
+          "name": "Snowdon Towers Spiral Stairs Core (-2000120)",
+          "show": false,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            245
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 26,
+            "topRadius": 5,
+            "bottomRadius": 5
+          },
+          "color": [
+            0.85,
+            0.52,
+            0.22,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000120,
+            "categoryName": "Stairs",
+            "revitCategory": "OST_Stairs"
+          }
+        },
+        {
+          "id": "aec-isolate-doors",
+          "name": "Snowdon Towers Entrance Doors (-2000023)",
+          "show": false,
+          "positionDegrees": [
+            -79.8868,
+            40.0214,
+            236
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              3,
+              8,
+              6
+            ]
+          },
+          "color": [
+            0.2,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.8,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000023,
+            "categoryName": "Doors",
+            "revitCategory": "OST_Doors"
+          }
+        },
+        {
+          "id": "aec-isolate-lighting",
+          "name": "Snowdon Towers Lighting Luminaires (-2001120)",
+          "show": false,
+          "positionDegrees": [
+            -79.8865,
+            40.0218,
+            252
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              3.5,
+              3.5,
+              3.5
+            ]
+          },
+          "color": [
+            0.98,
+            0.92,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2001120,
+            "categoryName": "Lighting Fixtures",
+            "revitCategory": "OST_LightingFixtures"
+          }
+        },
+        {
+          "id": "aec-isolate-site-bounds",
+          "name": "Snowdon Towers Clipping Site Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8877,
+              40.0214,
+              -79.8855,
+              40.0231
+            ]
+          },
+          "color": [
+            0.28,
+            0.48,
+            0.38,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "siteClippingBounds"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Isolate Stairs (OST_Stairs -2000120)",
+      "entities": [
+        {
+          "id": "aec-isolate-wall",
+          "name": "Snowdon Towers Architectural Walls (-2000011)",
+          "show": false,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            245
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              6,
+              25
+            ]
+          },
+          "color": [
+            0.82,
+            0.76,
+            0.7,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000011,
+            "categoryName": "Walls",
+            "revitCategory": "OST_Walls"
+          }
+        },
+        {
+          "id": "aec-isolate-floor",
+          "name": "Snowdon Towers Slabs and Floors (-2000032)",
+          "show": false,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            233
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              55,
+              45,
+              2.5
+            ]
+          },
+          "color": [
+            0.65,
+            0.68,
+            0.72,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000032,
+            "categoryName": "Floors",
+            "revitCategory": "OST_Floors"
+          }
+        },
+        {
+          "id": "aec-isolate-stairs",
+          "name": "Snowdon Towers Spiral Stairs Core (-2000120)",
+          "show": true,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            245
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 26,
+            "topRadius": 5,
+            "bottomRadius": 5
+          },
+          "color": [
+            0.85,
+            0.52,
+            0.22,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000120,
+            "categoryName": "Stairs",
+            "revitCategory": "OST_Stairs"
+          }
+        },
+        {
+          "id": "aec-isolate-doors",
+          "name": "Snowdon Towers Entrance Doors (-2000023)",
+          "show": false,
+          "positionDegrees": [
+            -79.8868,
+            40.0214,
+            236
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              3,
+              8,
+              6
+            ]
+          },
+          "color": [
+            0.2,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.8,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000023,
+            "categoryName": "Doors",
+            "revitCategory": "OST_Doors"
+          }
+        },
+        {
+          "id": "aec-isolate-lighting",
+          "name": "Snowdon Towers Lighting Luminaires (-2001120)",
+          "show": false,
+          "positionDegrees": [
+            -79.8865,
+            40.0218,
+            252
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              3.5,
+              3.5,
+              3.5
+            ]
+          },
+          "color": [
+            0.98,
+            0.92,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2001120,
+            "categoryName": "Lighting Fixtures",
+            "revitCategory": "OST_LightingFixtures"
+          }
+        },
+        {
+          "id": "aec-isolate-site-bounds",
+          "name": "Snowdon Towers Clipping Site Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8877,
+              40.0214,
+              -79.8855,
+              40.0231
+            ]
+          },
+          "color": [
+            0.28,
+            0.48,
+            0.38,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "siteClippingBounds"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Isolate Doors (OST_Doors -2000023)",
+      "entities": [
+        {
+          "id": "aec-isolate-wall",
+          "name": "Snowdon Towers Architectural Walls (-2000011)",
+          "show": false,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            245
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              6,
+              25
+            ]
+          },
+          "color": [
+            0.82,
+            0.76,
+            0.7,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000011,
+            "categoryName": "Walls",
+            "revitCategory": "OST_Walls"
+          }
+        },
+        {
+          "id": "aec-isolate-floor",
+          "name": "Snowdon Towers Slabs and Floors (-2000032)",
+          "show": false,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            233
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              55,
+              45,
+              2.5
+            ]
+          },
+          "color": [
+            0.65,
+            0.68,
+            0.72,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000032,
+            "categoryName": "Floors",
+            "revitCategory": "OST_Floors"
+          }
+        },
+        {
+          "id": "aec-isolate-stairs",
+          "name": "Snowdon Towers Spiral Stairs Core (-2000120)",
+          "show": false,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            245
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 26,
+            "topRadius": 5,
+            "bottomRadius": 5
+          },
+          "color": [
+            0.85,
+            0.52,
+            0.22,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000120,
+            "categoryName": "Stairs",
+            "revitCategory": "OST_Stairs"
+          }
+        },
+        {
+          "id": "aec-isolate-doors",
+          "name": "Snowdon Towers Entrance Doors (-2000023)",
+          "show": true,
+          "positionDegrees": [
+            -79.8868,
+            40.0214,
+            236
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              3,
+              8,
+              6
+            ]
+          },
+          "color": [
+            0.2,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.8,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000023,
+            "categoryName": "Doors",
+            "revitCategory": "OST_Doors"
+          }
+        },
+        {
+          "id": "aec-isolate-lighting",
+          "name": "Snowdon Towers Lighting Luminaires (-2001120)",
+          "show": false,
+          "positionDegrees": [
+            -79.8865,
+            40.0218,
+            252
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              3.5,
+              3.5,
+              3.5
+            ]
+          },
+          "color": [
+            0.98,
+            0.92,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2001120,
+            "categoryName": "Lighting Fixtures",
+            "revitCategory": "OST_LightingFixtures"
+          }
+        },
+        {
+          "id": "aec-isolate-site-bounds",
+          "name": "Snowdon Towers Clipping Site Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8877,
+              40.0214,
+              -79.8855,
+              40.0231
+            ]
+          },
+          "color": [
+            0.28,
+            0.48,
+            0.38,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "siteClippingBounds"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Isolate Lighting (OST_LightingFixtures -2001120)",
+      "entities": [
+        {
+          "id": "aec-isolate-wall",
+          "name": "Snowdon Towers Architectural Walls (-2000011)",
+          "show": false,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            245
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              6,
+              25
+            ]
+          },
+          "color": [
+            0.82,
+            0.76,
+            0.7,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000011,
+            "categoryName": "Walls",
+            "revitCategory": "OST_Walls"
+          }
+        },
+        {
+          "id": "aec-isolate-floor",
+          "name": "Snowdon Towers Slabs and Floors (-2000032)",
+          "show": false,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            233
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              55,
+              45,
+              2.5
+            ]
+          },
+          "color": [
+            0.65,
+            0.68,
+            0.72,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.9,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000032,
+            "categoryName": "Floors",
+            "revitCategory": "OST_Floors"
+          }
+        },
+        {
+          "id": "aec-isolate-stairs",
+          "name": "Snowdon Towers Spiral Stairs Core (-2000120)",
+          "show": false,
+          "positionDegrees": [
+            -79.8863,
+            40.0219,
+            245
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 26,
+            "topRadius": 5,
+            "bottomRadius": 5
+          },
+          "color": [
+            0.85,
+            0.52,
+            0.22,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000120,
+            "categoryName": "Stairs",
+            "revitCategory": "OST_Stairs"
+          }
+        },
+        {
+          "id": "aec-isolate-doors",
+          "name": "Snowdon Towers Entrance Doors (-2000023)",
+          "show": false,
+          "positionDegrees": [
+            -79.8868,
+            40.0214,
+            236
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              3,
+              8,
+              6
+            ]
+          },
+          "color": [
+            0.2,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.8,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2000023,
+            "categoryName": "Doors",
+            "revitCategory": "OST_Doors"
+          }
+        },
+        {
+          "id": "aec-isolate-lighting",
+          "name": "Snowdon Towers Lighting Luminaires (-2001120)",
+          "show": true,
+          "positionDegrees": [
+            -79.8865,
+            40.0218,
+            252
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              3.5,
+              3.5,
+              3.5
+            ]
+          },
+          "color": [
+            0.98,
+            0.92,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "categoryId": -2001120,
+            "categoryName": "Lighting Fixtures",
+            "revitCategory": "OST_LightingFixtures"
+          }
+        },
+        {
+          "id": "aec-isolate-site-bounds",
+          "name": "Snowdon Towers Clipping Site Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8877,
+              40.0214,
+              -79.8855,
+              40.0231
+            ]
+          },
+          "color": [
+            0.28,
+            0.48,
+            0.38,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "siteClippingBounds"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -5467,6 +5467,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "aec-isolate-by-category",
+      "title": "Design Model – Category Filtering",
+      "sourceSha256": "488fbff81b79f62f7d13897e4ab0b77a522ed9ac1930fc7b3b4409a9bd86dfe9",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=aec-isolate-by-category",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/aec-isolate-by-category.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/aec-isolate-by-category.json",
+      "entityCount": 6,
+      "variantCount": 6,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Isolate architectural design elements by Revit CategoryID with site clipping",
+        "Interactive category filtering across walls, floors, stairs, doors, and lighting"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "aec-metadata-styling",
+      "title": "Design Model – Metadata Styling",
+      "sourceSha256": "b87bd0560fee8124ec3eba5faed5dc820633c29bfbb574e6580ac9f710e804ff",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=aec-metadata-styling",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/aec-metadata-styling.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/aec-metadata-styling.json",
+      "entityCount": 5,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Dynamic 3D Tiles styling based on embedded metadata and UI dual-slider input",
+        "HVAC pipe length highlighting filter with semi-transparent ghost architectural backdrop"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "aec-snapping",
+      "title": "AEC Snapping",
+      "sourceSha256": "86d3aa5a7fb5cccdb9bcd9709ff7fd5f09d3e6d6bb59cc76c761cd668e0152b0",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=aec-snapping",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/aec-snapping.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/aec-snapping.json",
+      "entityCount": 6,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Hybrid client-side and IonSnapService server-side snapping on BIM/CAD assets",
+        "Edge display mode control, surface vs edge snap classification, and distance-based snap heat rejection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "aec-tileset-metadata-filtering",
+      "title": "Design Model – Tileset Metadata Filtering",
+      "sourceSha256": "410830d4c3f73da110df78458abede4032ae3916095784aaff3f8d9e8ffad430",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=aec-tileset-metadata-filtering",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/aec-tileset-metadata-filtering.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/aec-tileset-metadata-filtering.json",
+      "entityCount": 5,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Tileset-level parallel metadata arrays reading and dynamic category/subcategory filter panel",
+        "Supports CTRL+click solo selection, Hide by Pick interactive mode, and custom evaluate function"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

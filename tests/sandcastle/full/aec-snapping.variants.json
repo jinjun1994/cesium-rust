@@ -1,0 +1,897 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Edge Snapping Mode (Cyan Edge Hover + Lime Client + Red Server)",
+      "entities": [
+        {
+          "id": "aec-snap-column",
+          "name": "BIM Structural Column Geometry Target",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            245
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10,
+              10,
+              35
+            ]
+          },
+          "color": [
+            0.72,
+            0.78,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.2,
+            0.5,
+            0.9,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "edgeDisplayMode": "SurfacesAndEdges",
+            "snapTarget": true,
+            "assetId": 5161569
+          }
+        },
+        {
+          "id": "aec-snap-hover-marker",
+          "name": "Cyan Hover Edge Snap Indicator",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            268
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              8,
+              8,
+              8
+            ]
+          },
+          "color": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "hoverEdge",
+            "pixelSize": 10
+          }
+        },
+        {
+          "id": "aec-snap-client-marker",
+          "name": "Lime Client Instant Snap Marker",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            268
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              7,
+              7,
+              7
+            ]
+          },
+          "color": [
+            0.2,
+            1,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "clientSnap",
+            "pixelSize": 8
+          }
+        },
+        {
+          "id": "aec-snap-server-marker",
+          "name": "Red Server Geometry-Refined Snap Marker",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            268
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              9,
+              9,
+              9
+            ]
+          },
+          "color": [
+            1,
+            0.15,
+            0.15,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "serverSnap",
+            "pixelSize": 14
+          }
+        },
+        {
+          "id": "aec-snap-terrain-marker",
+          "name": "Gray Terrain Cursor Feedback",
+          "show": false,
+          "positionDegrees": [
+            -79.8864,
+            40.0215,
+            245
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              8,
+              8,
+              8
+            ]
+          },
+          "color": [
+            0.55,
+            0.55,
+            0.55,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "hoverTerrain"
+          }
+        },
+        {
+          "id": "aec-snap-foundation-pad",
+          "name": "BIM Snapping Foundation Slab Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8872,
+              40.0213,
+              -79.8858,
+              40.0222
+            ]
+          },
+          "color": [
+            0.3,
+            0.42,
+            0.52,
+            0.4
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.6,
+            0.75,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "foundationPad"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Surface Snapping Mode (Yellow Surface Hover + Surface Snap)",
+      "entities": [
+        {
+          "id": "aec-snap-column",
+          "name": "BIM Structural Column Geometry Target",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            245
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10,
+              10,
+              35
+            ]
+          },
+          "color": [
+            0.72,
+            0.78,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.2,
+            0.5,
+            0.9,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "edgeDisplayMode": "SurfacesAndEdges",
+            "snapTarget": true,
+            "assetId": 5161569
+          }
+        },
+        {
+          "id": "aec-snap-hover-marker",
+          "name": "Cyan Hover Edge Snap Indicator",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            268
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              8,
+              8,
+              8
+            ]
+          },
+          "color": [
+            1,
+            0.95,
+            0.1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "hoverEdge",
+            "pixelSize": 10
+          }
+        },
+        {
+          "id": "aec-snap-client-marker",
+          "name": "Lime Client Instant Snap Marker",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            268
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              7,
+              7,
+              7
+            ]
+          },
+          "color": [
+            0.2,
+            1,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "clientSnap",
+            "pixelSize": 8
+          }
+        },
+        {
+          "id": "aec-snap-server-marker",
+          "name": "Red Server Geometry-Refined Snap Marker",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            268
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              9,
+              9,
+              9
+            ]
+          },
+          "color": [
+            1,
+            0.4,
+            0.1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "serverSnap",
+            "pixelSize": 14
+          }
+        },
+        {
+          "id": "aec-snap-terrain-marker",
+          "name": "Gray Terrain Cursor Feedback",
+          "show": false,
+          "positionDegrees": [
+            -79.8864,
+            40.0215,
+            245
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              8,
+              8,
+              8
+            ]
+          },
+          "color": [
+            0.55,
+            0.55,
+            0.55,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "hoverTerrain"
+          }
+        },
+        {
+          "id": "aec-snap-foundation-pad",
+          "name": "BIM Snapping Foundation Slab Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8872,
+              40.0213,
+              -79.8858,
+              40.0222
+            ]
+          },
+          "color": [
+            0.3,
+            0.42,
+            0.52,
+            0.4
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.6,
+            0.75,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "foundationPad"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Terrain Hover Mode (Gray Feedback, Reject Server Snap)",
+      "entities": [
+        {
+          "id": "aec-snap-column",
+          "name": "BIM Structural Column Geometry Target",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            245
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10,
+              10,
+              35
+            ]
+          },
+          "color": [
+            0.72,
+            0.78,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.2,
+            0.5,
+            0.9,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "edgeDisplayMode": "SurfacesAndEdges",
+            "snapTarget": true,
+            "assetId": 5161569
+          }
+        },
+        {
+          "id": "aec-snap-hover-marker",
+          "name": "Cyan Hover Edge Snap Indicator",
+          "show": false,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            268
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              8,
+              8,
+              8
+            ]
+          },
+          "color": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "hoverEdge",
+            "pixelSize": 10
+          }
+        },
+        {
+          "id": "aec-snap-client-marker",
+          "name": "Lime Client Instant Snap Marker",
+          "show": false,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            268
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              7,
+              7,
+              7
+            ]
+          },
+          "color": [
+            0.2,
+            1,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "clientSnap",
+            "pixelSize": 8
+          }
+        },
+        {
+          "id": "aec-snap-server-marker",
+          "name": "Red Server Geometry-Refined Snap Marker",
+          "show": false,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            268
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              9,
+              9,
+              9
+            ]
+          },
+          "color": [
+            1,
+            0.15,
+            0.15,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "serverSnap",
+            "pixelSize": 14
+          }
+        },
+        {
+          "id": "aec-snap-terrain-marker",
+          "name": "Gray Terrain Cursor Feedback",
+          "show": true,
+          "positionDegrees": [
+            -79.8864,
+            40.0215,
+            245
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              8,
+              8,
+              8
+            ]
+          },
+          "color": [
+            0.55,
+            0.55,
+            0.55,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "hoverTerrain"
+          }
+        },
+        {
+          "id": "aec-snap-foundation-pad",
+          "name": "BIM Snapping Foundation Slab Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8872,
+              40.0213,
+              -79.8858,
+              40.0222
+            ]
+          },
+          "color": [
+            0.3,
+            0.42,
+            0.52,
+            0.4
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.6,
+            0.75,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "foundationPad"
+          }
+        }
+      ]
+    },
+    {
+      "label": "All Snapping Calibration Markers Enabled",
+      "entities": [
+        {
+          "id": "aec-snap-column",
+          "name": "BIM Structural Column Geometry Target",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            245
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10,
+              10,
+              35
+            ]
+          },
+          "color": [
+            0.72,
+            0.78,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.2,
+            0.5,
+            0.9,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "edgeDisplayMode": "SurfacesAndEdges",
+            "snapTarget": true,
+            "assetId": 5161569
+          }
+        },
+        {
+          "id": "aec-snap-hover-marker",
+          "name": "Cyan Hover Edge Snap Indicator",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            268
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              8,
+              8,
+              8
+            ]
+          },
+          "color": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "hoverEdge",
+            "pixelSize": 10
+          }
+        },
+        {
+          "id": "aec-snap-client-marker",
+          "name": "Lime Client Instant Snap Marker",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            268
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              7,
+              7,
+              7
+            ]
+          },
+          "color": [
+            0.2,
+            1,
+            0.2,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "clientSnap",
+            "pixelSize": 8
+          }
+        },
+        {
+          "id": "aec-snap-server-marker",
+          "name": "Red Server Geometry-Refined Snap Marker",
+          "show": true,
+          "positionDegrees": [
+            -79.8866,
+            40.0217,
+            268
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              9,
+              9,
+              9
+            ]
+          },
+          "color": [
+            1,
+            0.15,
+            0.15,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "serverSnap",
+            "pixelSize": 14
+          }
+        },
+        {
+          "id": "aec-snap-terrain-marker",
+          "name": "Gray Terrain Cursor Feedback",
+          "show": true,
+          "positionDegrees": [
+            -79.8864,
+            40.0215,
+            245
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              8,
+              8,
+              8
+            ]
+          },
+          "color": [
+            0.55,
+            0.55,
+            0.55,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "hoverTerrain"
+          }
+        },
+        {
+          "id": "aec-snap-foundation-pad",
+          "name": "BIM Snapping Foundation Slab Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -79.8872,
+              40.0213,
+              -79.8858,
+              40.0222
+            ]
+          },
+          "color": [
+            0.3,
+            0.42,
+            0.52,
+            0.4
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.6,
+            0.75,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "foundationPad"
+          }
+        }
+      ]
+    }
+  ]
+}
