@@ -5692,4 +5692,64 @@ mod tests {
         let mars_variants = crate::entity_variants::decode(&mars_variants_raw).unwrap();
         assert_eq!(mars_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch79_glsl_montreal_moon_msaa() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Material with Custom GLSL
+        let glsl_data = std::fs::read(base.join("material-with-custom-glsl.json")).unwrap();
+        let glsl_entities = decode(&glsl_data).unwrap();
+        assert_eq!(glsl_entities.len(), 4);
+        assert!(matches!(glsl_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(glsl_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(glsl_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(glsl_entities[3].shape, Shape::Rectangle { .. }));
+        let glsl_variants_raw =
+            std::fs::read(base.join("material-with-custom-glsl.variants.json")).unwrap();
+        let glsl_variants = crate::entity_variants::decode(&glsl_variants_raw).unwrap();
+        assert_eq!(glsl_variants.variants.len(), 4);
+
+        // 2. Montreal Point Cloud
+        let mtl_data = std::fs::read(base.join("montreal-point-cloud.json")).unwrap();
+        let mtl_entities = decode(&mtl_data).unwrap();
+        assert_eq!(mtl_entities.len(), 4);
+        assert!(matches!(mtl_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(mtl_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(mtl_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(mtl_entities[3].shape, Shape::Rectangle { .. }));
+        let mtl_variants_raw =
+            std::fs::read(base.join("montreal-point-cloud.variants.json")).unwrap();
+        let mtl_variants = crate::entity_variants::decode(&mtl_variants_raw).unwrap();
+        assert_eq!(mtl_variants.variants.len(), 4);
+
+        // 3. Moon
+        let moon_data = std::fs::read(base.join("moon.json")).unwrap();
+        let moon_entities = decode(&moon_data).unwrap();
+        assert_eq!(moon_entities.len(), 4);
+        assert!(matches!(moon_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(moon_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(moon_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(moon_entities[3].shape, Shape::Rectangle { .. }));
+        let moon_variants_raw = std::fs::read(base.join("moon.variants.json")).unwrap();
+        let moon_variants = crate::entity_variants::decode(&moon_variants_raw).unwrap();
+        assert_eq!(moon_variants.variants.len(), 4);
+
+        // 4. MSAA
+        let msaa_data = std::fs::read(base.join("msaa.json")).unwrap();
+        let msaa_entities = decode(&msaa_data).unwrap();
+        assert_eq!(msaa_entities.len(), 4);
+        assert!(matches!(msaa_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(msaa_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(msaa_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(msaa_entities[3].shape, Shape::Rectangle { .. }));
+        let msaa_variants_raw = std::fs::read(base.join("msaa.variants.json")).unwrap();
+        let msaa_variants = crate::entity_variants::decode(&msaa_variants_raw).unwrap();
+        assert_eq!(msaa_variants.variants.len(), 4);
+    }
 }

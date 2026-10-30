@@ -1,0 +1,145 @@
+[
+  {
+    "id": "mtl-downtown-cloud-box",
+    "name": "Montreal Downtown High-Density 20cm Point Cloud Box",
+    "show": true,
+    "positionDegrees": [
+      -73.567,
+      45.502,
+      80
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        40,
+        40,
+        75
+      ]
+    },
+    "color": [
+      0.25,
+      0.65,
+      0.95,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.7,
+      0.9,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "resolution": "20cm",
+      "year": 2015,
+      "city": "Montreal"
+    }
+  },
+  {
+    "id": "mtl-mount-royal-cylinder",
+    "name": "Mount Royal Park Topography Datum Column",
+    "show": true,
+    "positionDegrees": [
+      -73.564,
+      45.505,
+      65
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 65,
+      "topRadius": 7.5,
+      "bottomRadius": 7.5
+    },
+    "color": [
+      0.3,
+      0.85,
+      0.5,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.75,
+      1,
+      0.85,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "poi": "Mount Royal",
+      "terrain": "WorldTerrain"
+    }
+  },
+  {
+    "id": "mtl-old-port-sphere",
+    "name": "Old Port Historic Waterfront Sensor Probe",
+    "show": true,
+    "positionDegrees": [
+      -73.57,
+      45.499,
+      55
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        6,
+        6,
+        6
+      ]
+    },
+    "color": [
+      0.95,
+      0.45,
+      0.25,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.75,
+      0.6,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "poi": "Old Port of Montreal",
+      "stLawrenceRiver": true
+    }
+  },
+  {
+    "id": "mtl-metro-cadastral-rect",
+    "name": "Greater Montreal Point Cloud Cadastral Envelope",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -73.585,
+        45.49,
+        -73.55,
+        45.515
+      ]
+    },
+    "color": [
+      0.25,
+      0.35,
+      0.45,
+      0.25
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.75,
+      0.95,
+      0.75,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "surveyArea": "Metropolitan_Montreal_Lidar"
+    }
+  }
+]

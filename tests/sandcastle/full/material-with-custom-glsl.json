@@ -1,0 +1,146 @@
+[
+  {
+    "id": "glsl-custom-material-box",
+    "name": "Custom Fabric Shader Dynamic Appearance Box",
+    "show": true,
+    "positionDegrees": [
+      114.502,
+      30.498,
+      50
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        25,
+        25,
+        25
+      ]
+    },
+    "color": [
+      1,
+      1,
+      0,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      0.6,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "fabricType": "CustomBoxShader",
+      "materialCacheKey": "my-box-material-appearance",
+      "boxSize": 25,
+      "rotateZ": true
+    }
+  },
+  {
+    "id": "glsl-uniform-time-cylinder",
+    "name": "Fabric Uniform Time Cycle Calibration Pillar",
+    "show": true,
+    "positionDegrees": [
+      114.505,
+      30.501,
+      40
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 50,
+      "topRadius": 6,
+      "bottomRadius": 6
+    },
+    "color": [
+      0.25,
+      0.75,
+      0.95,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.7,
+      0.95,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "uniformVariable": "time",
+      "frameNumber": 1
+    }
+  },
+  {
+    "id": "glsl-phong-lighting-sphere",
+    "name": "czm_phong Custom FragColor Shading Probe",
+    "show": true,
+    "positionDegrees": [
+      114.499,
+      30.495,
+      45
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        5,
+        5,
+        5
+      ]
+    },
+    "color": [
+      0.95,
+      0.35,
+      0.75,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.75,
+      0.9,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "diffuseShader": "czm_material.diffuse",
+      "alphaLineScan": true
+    }
+  },
+  {
+    "id": "glsl-material-bounds-rect",
+    "name": "Custom GLSL Appearance Cadastral Footprint Envelope",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        114.49,
+        30.485,
+        114.515,
+        30.51
+      ]
+    },
+    "color": [
+      0.25,
+      0.35,
+      0.3,
+      0.25
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.95,
+      0.9,
+      0.3,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "eastNorthUpToFixedFrame": true
+    }
+  }
+]

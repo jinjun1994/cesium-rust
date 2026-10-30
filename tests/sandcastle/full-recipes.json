@@ -7211,6 +7211,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "material-with-custom-glsl",
+      "title": "Material with Custom GLSL",
+      "sourceSha256": "f303a83b8d0f488e13328ade2aeadc4eb6150770b084648de7b6835b75e9b060",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=material-with-custom-glsl",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/material-with-custom-glsl.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/material-with-custom-glsl.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Cesium.Material with custom Fabric schema CustomBoxShader",
+        "Custom MaterialAppearance with vertex and fragment shader sources and uniform time animation",
+        "Dynamic Phong shading and sinusoidal RGB color modulation"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "montreal-point-cloud",
+      "title": "Montreal Point Cloud",
+      "sourceSha256": "13d5b82cef7d0c2489d3d63c08f867495c72ee3d9407055503f903ae1f07a2b3",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=montreal-point-cloud",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/montreal-point-cloud.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/montreal-point-cloud.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Montreal Canada 2015 20cm resolution point cloud tiled on Cesium ion",
+        "Multiple stored city viewpoints (Overview, Mount Royal, Old Port)",
+        "Camera flyTo with orientation direction and up vectors over Cesium World Terrain"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "moon",
+      "title": "Moon",
+      "sourceSha256": "86fba597dc0c2cedd224756c9fc69d6c05845126838d17d1abdcf657ea380b67",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=moon",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/moon.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/moon.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Ellipsoid.MOON default ellipsoid frame with Moon Terrain 3D Tiles (Ion 2684829)",
+        "LROC Mare boundary clamped GeoJSON overlays and Artemis 3 candidate landing sites",
+        "Apollo 11 Tranquility Base landmark and crater exploration views"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "msaa",
+      "title": "MSAA",
+      "sourceSha256": "1f6583637fe784a2b84d9c02c375a4292d40ae44693fcfe9fb975a81e16a29a4",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=msaa",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/msaa.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/msaa.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Scene.msaaSamples multisample anti-aliasing configuration (1x, 2x, 4x, 8x)",
+        "Scene.msaaSupported WebGPU / WebGL hardware capability guard",
+        "Anti-aliased model silhouetted edges against Cesium World Terrain"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

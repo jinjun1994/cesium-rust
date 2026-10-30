@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "khr-mesh-primitive-restart-dev",
+      "id": "material-with-custom-glsl",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "7a7e911f74ec8dbb2a3b2f46493008841023e54e317f78985673abbf8e076428",
-      "inputSha256": "28dbd55d7f7aefc3c3b481940a0424ee00f9e1cde66827f56aa967066232351c",
-      "fixtureSha256": "3cc5130713424ac5002b3744976f47944a804ca5efa9ecd60d0757df2f88f3b4",
+      "sourceSha256": "f303a83b8d0f488e13328ade2aeadc4eb6150770b084648de7b6835b75e9b060",
+      "inputSha256": "aecf41aea346be4a9461986d3a3ddd67566b00448cf432ccd5b8ddc7effe7357",
+      "fixtureSha256": "4088a8d6c66f5bdfacb11241df40a3684779fee24a839c581ea941722cb58cf3",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,150 +22,150 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "khr-restart-hilbert-box",
-        "khr-restart-strip-cylinder",
-        "khr-restart-fan-sphere",
-        "khr-restart-bounds-rect"
+        "glsl-custom-material-box",
+        "glsl-uniform-time-cylinder",
+        "glsl-phong-lighting-sphere",
+        "glsl-material-bounds-rect"
       ],
       "pixelCounts": [
         {
-          "id": "khr-restart-hilbert-box",
+          "id": "glsl-custom-material-box",
+          "pixels": 208
+        },
+        {
+          "id": "glsl-uniform-time-cylinder",
+          "pixels": 137
+        },
+        {
+          "id": "glsl-phong-lighting-sphere",
+          "pixels": 26
+        },
+        {
+          "id": "glsl-material-bounds-rect",
+          "pixels": 66852
+        }
+      ]
+    },
+    {
+      "id": "montreal-point-cloud",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "13d5b82cef7d0c2489d3d63c08f867495c72ee3d9407055503f903ae1f07a2b3",
+      "inputSha256": "dd4d7a1a6749e4bc0aefd40878daea588bed360b5da727d3831dbc888a23fcb3",
+      "fixtureSha256": "91e39c05ed03c13c5c81fdd01b27fde810bae8b5687259f9c82f797e19c2b7b7",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "mtl-downtown-cloud-box",
+        "mtl-mount-royal-cylinder",
+        "mtl-old-port-sphere",
+        "mtl-metro-cadastral-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "mtl-downtown-cloud-box",
+          "pixels": 720
+        },
+        {
+          "id": "mtl-mount-royal-cylinder",
+          "pixels": 177
+        },
+        {
+          "id": "mtl-old-port-sphere",
+          "pixels": 30
+        },
+        {
+          "id": "mtl-metro-cadastral-rect",
+          "pixels": 66325
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "86fba597dc0c2cedd224756c9fc69d6c05845126838d17d1abdcf657ea380b67",
+      "inputSha256": "d82aee6a5cf3d5faee632ba787ceadecb57ed4c96967ae4f12d411cb2e652052",
+      "fixtureSha256": "f6fe99924eadec2c885aae2bf23c67f82aebf7a94370791499cc143e5fbe5c9a",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "moon-apollo11-tranquility-box",
+        "moon-artemis3-southpole-cylinder",
+        "moon-mare-serenitatis-sphere",
+        "moon-survey-envelope-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "moon-apollo11-tranquility-box",
+          "pixels": 627
+        },
+        {
+          "id": "moon-artemis3-southpole-cylinder",
+          "pixels": 169
+        },
+        {
+          "id": "moon-mare-serenitatis-sphere",
+          "pixels": 30
+        },
+        {
+          "id": "moon-survey-envelope-rect",
+          "pixels": 66319
+        }
+      ]
+    },
+    {
+      "id": "msaa",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "1f6583637fe784a2b84d9c02c375a4292d40ae44693fcfe9fb975a81e16a29a4",
+      "inputSha256": "b9290cc894d00d22a5e66fd8bbfbdd0fcade49315ec84d28a83a9d68a952bdb7",
+      "fixtureSha256": "75939b05e536d90a5c3980e68273b288d2ac17e60e761deec64ca18c9ffd9110",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "msaa-facility-target-box",
+        "msaa-subpixel-sample-cylinder",
+        "msaa-silhouetted-edge-sphere",
+        "msaa-testbed-cadastral-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "msaa-facility-target-box",
           "pixels": 474
         },
         {
-          "id": "khr-restart-strip-cylinder",
+          "id": "msaa-subpixel-sample-cylinder",
           "pixels": 152
         },
         {
-          "id": "khr-restart-fan-sphere",
+          "id": "msaa-silhouetted-edge-sphere",
           "pixels": 26
         },
         {
-          "id": "khr-restart-bounds-rect",
-          "pixels": 66811
-        }
-      ]
-    },
-    {
-      "id": "lensflare",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "bd66021619df5187e6501068e596db8eed83b8ee04d3a56a157a82a76d968ad8",
-      "inputSha256": "9c418eb851dacf9432899dd4f0f701e96c522dabf2d30df883854bc3a52a7801",
-      "fixtureSha256": "db3822225b590a539ac8381642012105dab38536195b83294eb592712fef5b5a",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "lensflare-sun-anchor-box",
-        "lensflare-halo-dispersion-cylinder",
-        "lensflare-optical-dirt-sphere",
-        "lensflare-celestial-view-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "lensflare-sun-anchor-box",
-          "pixels": 103076
-        },
-        {
-          "id": "lensflare-halo-dispersion-cylinder",
-          "pixels": 62356
-        },
-        {
-          "id": "lensflare-optical-dirt-sphere",
-          "pixels": 166022
-        },
-        {
-          "id": "lensflare-celestial-view-rect",
-          "pixels": 66311
-        }
-      ]
-    },
-    {
-      "id": "many-clipping-planes-dev",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "05f21d953f60eb0388bbe59ff48e6074ffcd0beb8bd458cdafcbbbf1db19abc2",
-      "inputSha256": "5f8aedd5f943fd9203ebe265e9199ab24ddc055c3b285bb073f57058c964867b",
-      "fixtureSha256": "42a219961583eb503bf6856a6f1ae79d5aac38eab85de31adf6eee4e9b735fed",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "many-clip-center-model-box",
-        "many-clip-radial-cylinder",
-        "many-clip-normal-sphere",
-        "many-clip-cadastral-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "many-clip-center-model-box",
-          "pixels": 569
-        },
-        {
-          "id": "many-clip-radial-cylinder",
-          "pixels": 567
-        },
-        {
-          "id": "many-clip-normal-sphere",
-          "pixels": 26
-        },
-        {
-          "id": "many-clip-cadastral-rect",
+          "id": "msaa-testbed-cadastral-rect",
           "pixels": 66867
-        }
-      ]
-    },
-    {
-      "id": "mars",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "eee6e36ae479069c74240302d86f2f82e48418081ec8586b7500e59ba9d2c4f7",
-      "inputSha256": "02f3fac041a9b55829a0a0ffe722b7fe6a60ca964f809b521dbb3503038b86d1",
-      "fixtureSha256": "ad5a266b9781344d1982a93da5bb2b7bec7b94e638cef76f2bf113d673ce6785",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "mars-jezero-crater-box",
-        "mars-atmosphere-datum-cylinder",
-        "mars-gale-curiosity-sphere",
-        "mars-equatorial-survey-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "mars-jezero-crater-box",
-          "pixels": 715
-        },
-        {
-          "id": "mars-atmosphere-datum-cylinder",
-          "pixels": 236
-        },
-        {
-          "id": "mars-gale-curiosity-sphere",
-          "pixels": 41
-        },
-        {
-          "id": "mars-equatorial-survey-rect",
-          "pixels": 61153
         }
       ]
     }

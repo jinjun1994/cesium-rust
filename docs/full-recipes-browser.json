@@ -1,5 +1,5 @@
 {
-  "version": "0.0.78",
+  "version": "0.0.79",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -10268,10 +10268,174 @@
           "pixels": 61153
         }
       ]
+    },
+    {
+      "id": "material-with-custom-glsl",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "f303a83b8d0f488e13328ade2aeadc4eb6150770b084648de7b6835b75e9b060",
+      "inputSha256": "aecf41aea346be4a9461986d3a3ddd67566b00448cf432ccd5b8ddc7effe7357",
+      "fixtureSha256": "4088a8d6c66f5bdfacb11241df40a3684779fee24a839c581ea941722cb58cf3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "glsl-custom-material-box",
+        "glsl-uniform-time-cylinder",
+        "glsl-phong-lighting-sphere",
+        "glsl-material-bounds-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "glsl-custom-material-box",
+          "pixels": 208
+        },
+        {
+          "id": "glsl-uniform-time-cylinder",
+          "pixels": 137
+        },
+        {
+          "id": "glsl-phong-lighting-sphere",
+          "pixels": 26
+        },
+        {
+          "id": "glsl-material-bounds-rect",
+          "pixels": 66852
+        }
+      ]
+    },
+    {
+      "id": "montreal-point-cloud",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "13d5b82cef7d0c2489d3d63c08f867495c72ee3d9407055503f903ae1f07a2b3",
+      "inputSha256": "dd4d7a1a6749e4bc0aefd40878daea588bed360b5da727d3831dbc888a23fcb3",
+      "fixtureSha256": "91e39c05ed03c13c5c81fdd01b27fde810bae8b5687259f9c82f797e19c2b7b7",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "mtl-downtown-cloud-box",
+        "mtl-mount-royal-cylinder",
+        "mtl-old-port-sphere",
+        "mtl-metro-cadastral-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "mtl-downtown-cloud-box",
+          "pixels": 720
+        },
+        {
+          "id": "mtl-mount-royal-cylinder",
+          "pixels": 177
+        },
+        {
+          "id": "mtl-old-port-sphere",
+          "pixels": 30
+        },
+        {
+          "id": "mtl-metro-cadastral-rect",
+          "pixels": 66325
+        }
+      ]
+    },
+    {
+      "id": "moon",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "86fba597dc0c2cedd224756c9fc69d6c05845126838d17d1abdcf657ea380b67",
+      "inputSha256": "d82aee6a5cf3d5faee632ba787ceadecb57ed4c96967ae4f12d411cb2e652052",
+      "fixtureSha256": "f6fe99924eadec2c885aae2bf23c67f82aebf7a94370791499cc143e5fbe5c9a",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "moon-apollo11-tranquility-box",
+        "moon-artemis3-southpole-cylinder",
+        "moon-mare-serenitatis-sphere",
+        "moon-survey-envelope-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "moon-apollo11-tranquility-box",
+          "pixels": 627
+        },
+        {
+          "id": "moon-artemis3-southpole-cylinder",
+          "pixels": 169
+        },
+        {
+          "id": "moon-mare-serenitatis-sphere",
+          "pixels": 30
+        },
+        {
+          "id": "moon-survey-envelope-rect",
+          "pixels": 66319
+        }
+      ]
+    },
+    {
+      "id": "msaa",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "1f6583637fe784a2b84d9c02c375a4292d40ae44693fcfe9fb975a81e16a29a4",
+      "inputSha256": "b9290cc894d00d22a5e66fd8bbfbdd0fcade49315ec84d28a83a9d68a952bdb7",
+      "fixtureSha256": "75939b05e536d90a5c3980e68273b288d2ac17e60e761deec64ca18c9ffd9110",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "msaa-facility-target-box",
+        "msaa-subpixel-sample-cylinder",
+        "msaa-silhouetted-edge-sphere",
+        "msaa-testbed-cadastral-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "msaa-facility-target-box",
+          "pixels": 474
+        },
+        {
+          "id": "msaa-subpixel-sample-cylinder",
+          "pixels": 152
+        },
+        {
+          "id": "msaa-silhouetted-edge-sphere",
+          "pixels": 26
+        },
+        {
+          "id": "msaa-testbed-cadastral-rect",
+          "pixels": 66867
+        }
+      ]
     }
   ],
   "browser": "151.0.7922.34",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed",
-  "totalCases": 259
+  "totalCases": 263
 }

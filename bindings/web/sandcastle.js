@@ -270,6 +270,10 @@ $('fullNew232').onclick=guarded(()=>runFull('khr-mesh-primitive-restart-dev'));
 $('fullNew233').onclick=guarded(()=>runFull('lensflare'));
 $('fullNew234').onclick=guarded(()=>runFull('many-clipping-planes-dev'));
 $('fullNew235').onclick=guarded(()=>runFull('mars'));
+$('fullNew236').onclick=guarded(()=>runFull('material-with-custom-glsl'));
+$('fullNew237').onclick=guarded(()=>runFull('montreal-point-cloud'));
+$('fullNew238').onclick=guarded(()=>runFull('moon'));
+$('fullNew239').onclick=guarded(()=>runFull('msaa'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

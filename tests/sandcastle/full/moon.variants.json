@@ -1,0 +1,601 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Moon 3D Tiles Lunar Terrain (Apollo 11 Tranquility Base)",
+      "entities": [
+        {
+          "id": "moon-apollo11-tranquility-box",
+          "name": "Apollo 11 Sea of Tranquility Landmark Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            23.473,
+            0.674,
+            500
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              60
+            ]
+          },
+          "color": [
+            0.85,
+            0.85,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ellipsoid": "Ellipsoid.MOON",
+            "landingSite": "Apollo 11 (Statio Tranquillitatis)",
+            "terrainAssetId": 2684829
+          }
+        },
+        {
+          "id": "moon-artemis3-southpole-cylinder",
+          "name": "Artemis 3 South Pole Candidate Landing Site Column",
+          "show": true,
+          "positionDegrees": [
+            0,
+            -85,
+            400
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 7.5,
+            "bottomRadius": 7.5
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mission": "Artemis 3",
+            "region": "Lunar South Pole",
+            "geojsonAssetId": 2683531
+          }
+        },
+        {
+          "id": "moon-mare-serenitatis-sphere",
+          "name": "LROC Global Lunar Mare Basalt Boundary Probe",
+          "show": true,
+          "positionDegrees": [
+            17.5,
+            28,
+            450
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              6,
+              6,
+              6
+            ]
+          },
+          "color": [
+            0.1,
+            0.42,
+            0.44,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.8,
+            0.85,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mare": "Mare Serenitatis",
+            "boundariesAssetId": 2683530
+          }
+        },
+        {
+          "id": "moon-survey-envelope-rect",
+          "name": "Lunar Reconnaissance Orbiter Survey Footprint Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              23.4,
+              0.6,
+              23.55,
+              0.75
+            ]
+          },
+          "color": [
+            0.25,
+            0.25,
+            0.35,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.85,
+            0.95,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "coverage": "Lunar High-Resolution Cartography"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Artemis 3 South Polar Shadowed Craters Exploration Mode",
+      "entities": [
+        {
+          "id": "moon-apollo11-tranquility-box",
+          "name": "Apollo 11 Sea of Tranquility Landmark Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            23.473,
+            0.674,
+            500
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              60
+            ]
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ellipsoid": "Ellipsoid.MOON",
+            "landingSite": "Apollo 11 (Statio Tranquillitatis)",
+            "terrainAssetId": 2684829
+          }
+        },
+        {
+          "id": "moon-artemis3-southpole-cylinder",
+          "name": "Artemis 3 South Pole Candidate Landing Site Column",
+          "show": true,
+          "positionDegrees": [
+            0,
+            -85,
+            400
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 7.5,
+            "bottomRadius": 7.5
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mission": "Artemis 3",
+            "region": "Lunar South Pole",
+            "geojsonAssetId": 2683531
+          }
+        },
+        {
+          "id": "moon-mare-serenitatis-sphere",
+          "name": "LROC Global Lunar Mare Basalt Boundary Probe",
+          "show": true,
+          "positionDegrees": [
+            17.5,
+            28,
+            450
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              6,
+              6,
+              6
+            ]
+          },
+          "color": [
+            0.1,
+            0.42,
+            0.44,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.8,
+            0.85,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mare": "Mare Serenitatis",
+            "boundariesAssetId": 2683530
+          }
+        },
+        {
+          "id": "moon-survey-envelope-rect",
+          "name": "Lunar Reconnaissance Orbiter Survey Footprint Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              23.4,
+              0.6,
+              23.55,
+              0.75
+            ]
+          },
+          "color": [
+            0.25,
+            0.25,
+            0.35,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.85,
+            0.95,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "coverage": "Lunar High-Resolution Cartography"
+          }
+        }
+      ]
+    },
+    {
+      "label": "LROC Global Mare Boundaries Clamped GeoJSON Overlay Mode",
+      "entities": [
+        {
+          "id": "moon-apollo11-tranquility-box",
+          "name": "Apollo 11 Sea of Tranquility Landmark Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            23.473,
+            0.674,
+            500
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              60
+            ]
+          },
+          "color": [
+            0.85,
+            0.85,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ellipsoid": "Ellipsoid.MOON",
+            "landingSite": "Apollo 11 (Statio Tranquillitatis)",
+            "terrainAssetId": 2684829
+          }
+        },
+        {
+          "id": "moon-artemis3-southpole-cylinder",
+          "name": "Artemis 3 South Pole Candidate Landing Site Column",
+          "show": true,
+          "positionDegrees": [
+            0,
+            -85,
+            400
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 7.5,
+            "bottomRadius": 7.5
+          },
+          "color": [
+            0.2,
+            0.75,
+            0.55,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mission": "Artemis 3",
+            "region": "Lunar South Pole",
+            "geojsonAssetId": 2683531
+          }
+        },
+        {
+          "id": "moon-mare-serenitatis-sphere",
+          "name": "LROC Global Lunar Mare Basalt Boundary Probe",
+          "show": true,
+          "positionDegrees": [
+            17.5,
+            28,
+            450
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              6,
+              6,
+              6
+            ]
+          },
+          "color": [
+            0.1,
+            0.42,
+            0.44,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.8,
+            0.85,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mare": "Mare Serenitatis",
+            "boundariesAssetId": 2683530
+          }
+        },
+        {
+          "id": "moon-survey-envelope-rect",
+          "name": "Lunar Reconnaissance Orbiter Survey Footprint Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              23.4,
+              0.6,
+              23.55,
+              0.75
+            ]
+          },
+          "color": [
+            0.25,
+            0.25,
+            0.35,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.85,
+            0.95,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "coverage": "Lunar High-Resolution Cartography"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Lunar Highland Anorthosite Regolith Reflectance Analysis",
+      "entities": [
+        {
+          "id": "moon-apollo11-tranquility-box",
+          "name": "Apollo 11 Sea of Tranquility Landmark Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            23.473,
+            0.674,
+            500
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              60
+            ]
+          },
+          "color": [
+            0.85,
+            0.85,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ellipsoid": "Ellipsoid.MOON",
+            "landingSite": "Apollo 11 (Statio Tranquillitatis)",
+            "terrainAssetId": 2684829
+          }
+        },
+        {
+          "id": "moon-artemis3-southpole-cylinder",
+          "name": "Artemis 3 South Pole Candidate Landing Site Column",
+          "show": true,
+          "positionDegrees": [
+            0,
+            -85,
+            400
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 7.5,
+            "bottomRadius": 7.5
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mission": "Artemis 3",
+            "region": "Lunar South Pole",
+            "geojsonAssetId": 2683531
+          }
+        },
+        {
+          "id": "moon-mare-serenitatis-sphere",
+          "name": "LROC Global Lunar Mare Basalt Boundary Probe",
+          "show": true,
+          "positionDegrees": [
+            17.5,
+            28,
+            450
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              6,
+              6,
+              6
+            ]
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "mare": "Mare Serenitatis",
+            "boundariesAssetId": 2683530
+          }
+        },
+        {
+          "id": "moon-survey-envelope-rect",
+          "name": "Lunar Reconnaissance Orbiter Survey Footprint Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              23.4,
+              0.6,
+              23.55,
+              0.75
+            ]
+          },
+          "color": [
+            0.35,
+            0.25,
+            0.25,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.85,
+            0.95,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "coverage": "Lunar High-Resolution Cartography"
+          }
+        }
+      ]
+    }
+  ]
+}

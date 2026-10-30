@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.78（已通过 259 / 309 个完整案例，剩余 50 个）
+- **当前版本**：v0.0.79（已通过 263 / 309 个完整案例，剩余 46 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.79 验收完成：Material with Custom GLSL、Montreal Point Cloud、Moon 与 MSAA
+- **完成配方**（累计推进至 **263 / 309**，剩余 46 个）：
+  1. `material-with-custom-glsl`（Cesium Material Fabric 规范、自定义顶点/片元着色器、时钟 Uniform 驱动与动态 Phong 高光：基准自定义 Fabric GLSL 材质外观、正弦时间周期 RGB 色度动态调制模式、双扫描明亮透明度光带模式、连续 Z 轴顶点旋转模式 4 种变体）
+  2. `montreal-point-cloud`（加拿大蒙特利尔 20cm 高分辨率激光点云、皇家山地貌与多视角导览：基准蒙特利尔 20cm 分辨率激光雷达点云、皇家山公园植被地形点云分类模式、老港历史滨水街区近景巡检模式、圣劳伦斯河沿岸水域勘测边界模式 4 种变体）
+  3. `moon`（月球全境 3D 瓦片地形、LROC 月海玄武岩边界与阿波罗/阿尔忒弥斯着陆点：基准月球 3D 瓦片地形、阿尔忒弥斯 3 号南极永久阴影坑科学考察模式、LROC 全球月海玄武岩边界贴地 GeoJSON 矢量模式、月球高地斜长岩风化层反射率光谱分析模式 4 种变体）
+  4. `msaa`（场景级多重采样抗锯齿 MSAA、亚像素级边缘平滑与硬件功能检测：基准 MSAA 8x 多重采样抗锯齿激活、MSAA 4x 性能平衡抗锯齿模式、MSAA 2x 轻量边缘平滑模式、MSAA 1x 走样基准直通模式 4 种变体）
+- **核心研发突破**：
+  1. **Fabric 架构自定义材质与动态着色器注入（Fabric Custom Shaders & Dynamic Uniforms）**：支持 `Cesium.Material` 的 Fabric 架构与 `MaterialAppearance` 顶点/片元自定义代码注入，结合 `czm_phong` 与时间周期实现平滑的正弦颜色过渡与光带扫描。
+  2. **高密度城市倾斜激光雷达点云漫游（Urban Lidar Point Cloud Streaming & FlyTos）**：集成蒙特利尔 20cm 级点云模型，支持精确的三维直角坐标视点导引与相机四元数定向飞行。
+  3. **月球全域实景三维与玄武岩地质图（Lunar 3D Terrain & Geological Overlay）**：支持 `Ellipsoid.MOON` 参考椭球体与高程瓦片碰撞，结合 LROC 全球月海玄武岩贴地 GeoJSON 矢量图层展示多时期人类探月成果。
+  4. **硬件级多重采样抗锯齿调控（Hardware Multisample Anti-Aliasing Pipeline）**：支持 `scene.msaaSamples`（1x、2x、4x、8x）动态调优与硬件兼容性守卫，消除模型边缘与高程地形之间的亚像素锯齿走样。
+- **验证结果**：
+  - **普通 Rust 单元测试**：139 项全部通过（含 `batch79_glsl_montreal_moon_msaa`）。
+  - **真实 GPU 离屏渲染测试**：264 / 264 项全数通过（`264 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，263 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：263 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Material with Custom GLSL、Montreal Point Cloud、Moon 与 MSAA 验证文档](docs/glsl-montreal-moon-msaa-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.78 验收完成：KHR_mesh_primitive_restart - Dev、LensFlare、Many Clipping Planes - Dev 与 Mars
 - **完成配方**（累计推进至 **259 / 309**，剩余 50 个）：
