@@ -6070,4 +6070,62 @@ mod tests {
         let scene_variants = crate::entity_variants::decode(&scene_variants_raw).unwrap();
         assert_eq!(scene_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch85_shadows_sharedctx_splitdir_starburst() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Shadows - Dev
+        let shadows_data = std::fs::read(base.join("shadows-dev.json")).unwrap();
+        let shadows_entities = decode(&shadows_data).unwrap();
+        assert_eq!(shadows_entities.len(), 4);
+        assert!(matches!(shadows_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(shadows_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(shadows_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(shadows_entities[3].shape, Shape::Rectangle { .. }));
+        let shadows_variants_raw = std::fs::read(base.join("shadows-dev.variants.json")).unwrap();
+        let shadows_variants = crate::entity_variants::decode(&shadows_variants_raw).unwrap();
+        assert_eq!(shadows_variants.variants.len(), 4);
+
+        // 2. Shared Context
+        let shared_data = std::fs::read(base.join("shared-context.json")).unwrap();
+        let shared_entities = decode(&shared_data).unwrap();
+        assert_eq!(shared_entities.len(), 4);
+        assert!(matches!(shared_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(shared_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(shared_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(shared_entities[3].shape, Shape::Rectangle { .. }));
+        let shared_variants_raw = std::fs::read(base.join("shared-context.variants.json")).unwrap();
+        let shared_variants = crate::entity_variants::decode(&shared_variants_raw).unwrap();
+        assert_eq!(shared_variants.variants.len(), 4);
+
+        // 3. SplitDirection
+        let split_data = std::fs::read(base.join("splitdirection.json")).unwrap();
+        let split_entities = decode(&split_data).unwrap();
+        assert_eq!(split_entities.len(), 4);
+        assert!(matches!(split_entities[0].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(split_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(split_entities[2].shape, Shape::Box { .. }));
+        assert!(matches!(split_entities[3].shape, Shape::Rectangle { .. }));
+        let split_variants_raw = std::fs::read(base.join("splitdirection.variants.json")).unwrap();
+        let split_variants = crate::entity_variants::decode(&split_variants_raw).unwrap();
+        assert_eq!(split_variants.variants.len(), 4);
+
+        // 4. Star Burst
+        let star_data = std::fs::read(base.join("star-burst.json")).unwrap();
+        let star_entities = decode(&star_data).unwrap();
+        assert_eq!(star_entities.len(), 4);
+        assert!(matches!(star_entities[0].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(star_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(star_entities[2].shape, Shape::Box { .. }));
+        assert!(matches!(star_entities[3].shape, Shape::Rectangle { .. }));
+        let star_variants_raw = std::fs::read(base.join("star-burst.variants.json")).unwrap();
+        let star_variants = crate::entity_variants::decode(&star_variants_raw).unwrap();
+        assert_eq!(star_variants.variants.len(), 4);
+    }
 }

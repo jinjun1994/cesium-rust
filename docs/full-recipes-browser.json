@@ -1,5 +1,5 @@
 {
-  "version": "0.0.84",
+  "version": "0.0.85",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -11252,10 +11252,174 @@
           "pixels": 60984
         }
       ]
+    },
+    {
+      "id": "shadows-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "72d6e444e5b3d32900ac7208b0c2e28b74f2173f1ed75eeba9ea8bdda47e8f63",
+      "inputSha256": "cc7df8d3cabf9cb8291c83de19e2de2bf0b2b4ec8048e577a802e887a666612c",
+      "fixtureSha256": "f561d6510bd4bf43dc303f80724510e3c1a3eac6f77a2cff9311d0260da5c793",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "shadowsdev-tester-box",
+        "shadowsdev-light-column",
+        "shadowsdev-depth-sphere",
+        "shadowsdev-ground-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "shadowsdev-tester-box",
+          "pixels": 1543
+        },
+        {
+          "id": "shadowsdev-light-column",
+          "pixels": 968
+        },
+        {
+          "id": "shadowsdev-depth-sphere",
+          "pixels": 104
+        },
+        {
+          "id": "shadowsdev-ground-rect",
+          "pixels": 52598
+        }
+      ]
+    },
+    {
+      "id": "shared-context",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "7bad93435d974f7415fde79e2e9441e378238bdfa94857979f0f8c5c264b5094",
+      "inputSha256": "027660785a9e7cbd74fc54b4cc78111cc47af8c9ab97180980f597387a537966",
+      "fixtureSha256": "05c15545d6964f10955542d6fabd9d93440bcddc624448f6601a3549d895d236",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "sharedctx-green-cylinder",
+        "sharedctx-box-primitive",
+        "sharedctx-sphere-primitive",
+        "sharedctx-dualview-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "sharedctx-green-cylinder",
+          "pixels": 117796
+        },
+        {
+          "id": "sharedctx-box-primitive",
+          "pixels": 99560
+        },
+        {
+          "id": "sharedctx-sphere-primitive",
+          "pixels": 166025
+        },
+        {
+          "id": "sharedctx-dualview-rect",
+          "pixels": 61653
+        }
+      ]
+    },
+    {
+      "id": "splitdirection",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "8d3fcf463b53b2fe6d64c3cb437afb0b602a63851cde7ed176ff00fe547c1d2d",
+      "inputSha256": "66fc3aa946d56cf12b4f2e49599be1593b0a2b1ac451f25fbc994680d28b6a93",
+      "fixtureSha256": "8839a613d576ef00a5af83c75cab08b6885095de3d58e6a125167301b8cf058e",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "splitdir-left-point-sphere",
+        "splitdir-right-point-cylinder",
+        "splitdir-swipe-center-box",
+        "splitdir-canvas-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "splitdir-left-point-sphere",
+          "pixels": 162502
+        },
+        {
+          "id": "splitdir-right-point-cylinder",
+          "pixels": 64703
+        },
+        {
+          "id": "splitdir-swipe-center-box",
+          "pixels": 10671
+        },
+        {
+          "id": "splitdir-canvas-rect",
+          "pixels": 55488
+        }
+      ]
+    },
+    {
+      "id": "star-burst",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "855161ac3cb1441827b58d1ddc3eb4cd43ac5b5b73eacf2288f29481528bee91",
+      "inputSha256": "fb831908f1589406f6b47935e4b8fbab3c13e36f3513b7d0be010284416c79ce",
+      "fixtureSha256": "b3beec4cfc01beff7ebe8fbcd0a412cf2e528ff7fd70149a702681b908f7a4b2",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "starburst-hub-sphere",
+        "starburst-radial-vector-cylinder",
+        "starburst-orbit-ring-box",
+        "starburst-facility-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "starburst-hub-sphere",
+          "pixels": 163
+        },
+        {
+          "id": "starburst-radial-vector-cylinder",
+          "pixels": 427
+        },
+        {
+          "id": "starburst-orbit-ring-box",
+          "pixels": 5981
+        },
+        {
+          "id": "starburst-facility-rect",
+          "pixels": 52414
+        }
+      ]
     }
   ],
   "browser": "151.0.7922.34",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed",
-  "totalCases": 283
+  "totalCases": 287
 }

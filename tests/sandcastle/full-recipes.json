@@ -7883,6 +7883,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "shadows-dev",
+      "title": "Shadows - Dev",
+      "sourceSha256": "72d6e444e5b3d32900ac7208b0c2e28b74f2173f1ed75eeba9ea8bdda47e8f63",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=shadows-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/shadows-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/shadows-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Comprehensive shadow map bias tuning: polygonOffset, normalOffset, normalShading & depthBias",
+        "Multiple lighting sources (Sun, Fixed, Point, Spot) with customizable distance and angle",
+        "Multi-cascade shadow maps across terrain, globe and 3D Tilesets"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "shared-context",
+      "title": "Shared Context",
+      "sourceSha256": "7bad93435d974f7415fde79e2e9441e378238bdfa94857979f0f8c5c264b5094",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=shared-context",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/shared-context.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/shared-context.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "SharedContext cross-viewer WebGL/WebGPU resource and geometry buffer sharing",
+        "Dual-viewer synchronized 2D/3D presentation with green semi-transparent cylinder",
+        "Separate viewer pipeline lifecycle management without GPU resource duplication"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "splitdirection",
+      "title": "SplitDirection",
+      "sourceSha256": "8d3fcf463b53b2fe6d64c3cb437afb0b602a63851cde7ed176ff00fe547c1d2d",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=splitdirection",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/splitdirection.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/splitdirection.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "SplitDirection.LEFT, SplitDirection.RIGHT and NONE viewport partitioning",
+        "PointPrimitiveCollection and BillboardCollection split rendering across swipe line",
+        "Screen space interactive splitter dragging with dynamic fragment clipping"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "star-burst",
+      "title": "Expand Clustered Billboards",
+      "sourceSha256": "855161ac3cb1441827b58d1ddc3eb4cd43ac5b5b73eacf2288f29481528bee91",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=star-burst",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/star-burst.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/star-burst.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Clustered billboard star-burst radial orbit expansion on mouse click",
+        "ScreenSpaceEventHandler interactive left-click burst and collapse toggle",
+        "Dynamic billboard positioning and label visibility animation across radial ring"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

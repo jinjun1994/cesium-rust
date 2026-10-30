@@ -1,0 +1,127 @@
+[
+  {
+    "id": "starburst-hub-sphere",
+    "name": "Clustered Billboards Origin Hub Probe Sphere",
+    "show": true,
+    "positionDegrees": [
+      -75.59777,
+      40.03883,
+      15
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        15,
+        15,
+        15
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.95,
+      0.3,
+      0.2,
+      1
+    ],
+    "outlineColor": [
+      0.45,
+      0.05,
+      0.05,
+      1
+    ]
+  },
+  {
+    "id": "starburst-radial-vector-cylinder",
+    "name": "Radial Expansion Trajectory Vector Pillar",
+    "show": true,
+    "positionDegrees": [
+      -75.59777,
+      40.03883,
+      60
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 80,
+      "topRadius": 8,
+      "bottomRadius": 18
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.2,
+      0.7,
+      0.95,
+      0.8
+    ],
+    "outlineColor": [
+      0.05,
+      0.3,
+      0.5,
+      1
+    ]
+  },
+  {
+    "id": "starburst-orbit-ring-box",
+    "name": "Expanded Satellite Cluster Outer Bounding Hull",
+    "show": true,
+    "positionDegrees": [
+      -75.59777,
+      40.03883,
+      30
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        180,
+        180,
+        40
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.95,
+      0.85,
+      0.2,
+      0.75
+    ],
+    "outlineColor": [
+      0.5,
+      0.4,
+      0.05,
+      1
+    ]
+  },
+  {
+    "id": "starburst-facility-rect",
+    "name": "Exton Facility Campus Billboard Cluster Envelope",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -75.601,
+        40.036,
+        -75.594,
+        40.041
+      ],
+      "height": 0,
+      "extrudedHeight": 4
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.3,
+      0.35,
+      0.45,
+      0.6
+    ],
+    "outlineColor": [
+      0.75,
+      0.8,
+      0.9,
+      1
+    ]
+  }
+]

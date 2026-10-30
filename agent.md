@@ -1288,3 +1288,21 @@
 - **文档晋升**：
   - 产出 [Procedural Terrain、Projection、Sample Height from 3D Tiles 与 Scene Rendering Performance 验证文档](docs/procedural-projection-sampleheight-scenerender-validation.md)。
   - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
+---
+
+### [2026-10-30] v0.0.85 验收完成：Shadows - Dev、Shared Context、SplitDirection 与 Expand Clustered Billboards (Star Burst) 体系全面打通
+- **完成配方**（累计推进至 **287 / 309**，剩余 22 个）：
+  1. `shadows-dev`（多级联阴影贴图深度/法线偏差微调、多类型光源与地貌自阴影投射：4 个变体，涵盖基准宾州 Pinnacle 4 级联阴影模式、Seneca Rocks 陡峭地形自阴影模式、优胜美地半圆顶深谷级联阴影模式与高空飞行器长距离投影阴影模式）
+  2. `shared-context`（跨场景 SharedContext 资源共享、双视口 2D/3D 同步与显存去重：4 个变体，涵盖基准共享上下文双视口模式、双视图同步青色盒图元模式、共享多视锥球体几何模式与独立高速缓冲区失效压力测试）
+  3. `splitdirection`（视口卷帘分屏切割、要素级 SplitDirection 左右遮罩与动态滑块：4 个变体，涵盖基准左右分屏点图元与广告牌模式、模型几何分屏对比模式、半透明贴地折线与多边形分区模式与中心滑动分割线诊断模式）
+  4. `star-burst`（聚集图标星芒放射状展开、径向卫星环与鼠标交互折叠：4 个变体，涵盖基准聚集广告牌星芒爆发模式、高密度 60 要素银河圆环模式、双层同心同构层级爆发模式与折叠单点原位静止基准模式）
+- **验证结果**：
+  - **普通 Rust 单元测试**：145 / 145 项全部通过（新增 `batch85_shadows_sharedctx_splitdir_starburst`）。
+  - **真实 GPU 离屏渲染测试**：288 / 288 项全部通过（包含 287 个完整案例 + 1 个材质拾取测试）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 287 个固定案例哈希与实体结构精准契合）。
+  - **浏览器真实 WebGPU 端到端**：287 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Shadows - Dev、Shared Context、SplitDirection 与 Expand Clustered Billboards (Star Burst) 验证文档](docs/shadows-sharedctx-splitdir-starburst-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
