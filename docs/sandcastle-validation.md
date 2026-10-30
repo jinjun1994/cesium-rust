@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.55
+
+新增 3D Native Vector Data、Offset 3D Tileset Height、3D Tiles Styling、BIM Design Model with 3D Tiles 四个完整案例，累计 **167 / 309**，剩余 142 个。115 项普通 Rust、168 项实际 GPU、8 组 Node、167 个浏览器 WebGPU 案例通过。验证包含 3D Tiles 原生三维矢量点/线/面几何、青色发光折线与地形无缝叠加（青色 3 像素发光矢量折线基准、高对比橙色矢量走廊、高亮选定矢量要素与隐藏矢量图层 4 种变体）、3D Tiles 瓦片集动态垂直高程偏移、地形深度测试与平移矩阵实时变换（零高程偏移自然基准、抬升 +100 米悬浮模式、下潜 -50 米基坑模式与地表深度遮挡测试 4 种变体）、3D Tiles 分层批次表继承结构、区域/建筑/门/门把手级联属性与正则样式（纯门构件橙色着色、门及子构件派生着色、所属建筑分色与正则匹配类名/高度样式 4 种变体）、以及 Bentley 工业热电厂 BIM 数字化交付设计模型、全局构件 ID 映射与要素级交互（工业电厂全景基准、逐要素交互选定、全景内部构件透视与 REPLACE 颜色替换模式 4 种变体）。详见 [本批验证](3dtiles-nativevector-adjustheight-hierarchy-bim-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.54
 
 新增 CDB Metadata in 3D Tiles、3D Tiles Photogrammetry with KTX2、3D Tiles Photogrammetry Classification、S2 Globe with 3D Tiles 四个完整案例，累计 **163 / 309**，剩余 146 个。114 项普通 Rust、164 项实际 GPU、8 组 Node、163 个浏览器 WebGPU 案例通过。验证包含 3D Tiles 1.1 CDB 军规语义元数据、建筑高度分级着色与地貌基底分类（纯净 CDB 未着色基准、建筑高度梯度分段着色、地表基底材质分类着色与要素拾取元数据浮层 4 种变体）、3D Tiles 1.1 KTX2 压缩纹理实景三维倾斜摄影、双分屏比对与载入基准测速（AGI 宾州总部双视口对称分屏、墨尔本城市倾斜摄影、瓦片集重载耗时评测与单全屏视图 4 种变体）、旧金山渡轮大厦单体化分类、半透明窗体与 PBR 自定义材质覆写（构件要素分类着色、建筑玻璃半透明化、PBR 物理材质风格化与金光滤镜多要素集 4 种变体）、以及 Maxar One World Terrain 全球 S2 空间分区网格球体、包围盒调试与动态片元着色器（S2 全球基础网格地球基准、逐级调试 S2 包围盒、地表覆盖语义分类着色与程序化波纹着色器 4 种变体）。详见 [本批验证](3dtiles-cdbyemen-photogrammetry-classification-s2globe-validation.md)。以下保留历史记录。

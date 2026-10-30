@@ -6287,6 +6287,170 @@
           "pixels": 67252
         }
       ]
+    },
+    {
+      "id": "3d-tiles-3d-native-vector",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "356933590674ad03662172cf28ca33e125763a3e6e94e892800c993a4109c711",
+      "inputSha256": "1a2717e4c0a82f498dc5287f965c1827961976dd42edf596e27dd797dc9372bd",
+      "fixtureSha256": "e36d2fcf9c8300c815337b0144df0219d5d7c4242056c65139764d0e85b34423",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "native-vector-datum-cylinder",
+        "native-vector-corridor-box",
+        "native-vector-sensor-dome",
+        "native-vector-boundary-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "native-vector-datum-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "native-vector-corridor-box",
+          "pixels": 103808
+        },
+        {
+          "id": "native-vector-sensor-dome",
+          "pixels": 152594
+        },
+        {
+          "id": "native-vector-boundary-rect",
+          "pixels": 89188
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-adjust-height",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "c5e8de8cd0a1ba8e90eb82bd777c1d8b569856e5f3e0ee864d365a7fbd9d5023",
+      "inputSha256": "d909dabdeb6a9aa41cb430d33e773c03ceba99d259e8445046cb167857e417d7",
+      "fixtureSha256": "14f11672ab83590564fe46d82dc9097e04f903d047eea7a4d8b0ad48d1963618",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "adjust-height-origin-datum",
+        "adjust-height-translated-box",
+        "adjust-height-envelope-sphere",
+        "adjust-height-bounding-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "adjust-height-origin-datum",
+          "pixels": 87505
+        },
+        {
+          "id": "adjust-height-translated-box",
+          "pixels": 103808
+        },
+        {
+          "id": "adjust-height-envelope-sphere",
+          "pixels": 152594
+        },
+        {
+          "id": "adjust-height-bounding-rect",
+          "pixels": 101065
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-batch-table-hierarchy",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "e567c334352b7a7be04c135a27151f5ab1e2a7d124db9b137b902b64b87f8c69",
+      "inputSha256": "564e1d64be79ebb1fea38f8c1d6c6edde8ac868e8d77bc855b7ebf2caffbed51",
+      "fixtureSha256": "22f0abeaae18cfa5c33f32958d4b70c56145ce1e50b9f69bcf7714319998d9b2",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "hierarchy-zone-pivot-cylinder",
+        "hierarchy-building-massing-box",
+        "hierarchy-architectural-dome",
+        "hierarchy-cadastral-boundary-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "hierarchy-zone-pivot-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "hierarchy-building-massing-box",
+          "pixels": 103808
+        },
+        {
+          "id": "hierarchy-architectural-dome",
+          "pixels": 152594
+        },
+        {
+          "id": "hierarchy-cadastral-boundary-rect",
+          "pixels": 101065
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-bim",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "6d1a209d8bec90d918540d04d7374d726db3d6a3194aff8443c67c1dab4e4e57",
+      "inputSha256": "6ed4883d56eab174231a2f99f43c477624922a783625d9b05f61efec62566119",
+      "fixtureSha256": "e2b6e99b947eb1940a77b3eaa98e2828ddab2c3ff41797c75f727880b442c8b0",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "bim-reactor-stack-cylinder",
+        "bim-generator-hall-box",
+        "bim-containment-vessel-sphere",
+        "bim-power-plant-boundary-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "bim-reactor-stack-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "bim-generator-hall-box",
+          "pixels": 103808
+        },
+        {
+          "id": "bim-containment-vessel-sphere",
+          "pixels": 152594
+        },
+        {
+          "id": "bim-power-plant-boundary-rect",
+          "pixels": 99442
+        }
+      ]
     }
   ],
   "browser": "156.0.8078.75",

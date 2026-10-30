@@ -174,6 +174,10 @@ $('fullNew136').onclick=guarded(()=>runFull('3d-tiles-1.1-cdb-yemen'));
 $('fullNew137').onclick=guarded(()=>runFull('3d-tiles-1.1-photogrammetry'));
 $('fullNew138').onclick=guarded(()=>runFull('3d-tiles-1.1-photogrammetry-classification'));
 $('fullNew139').onclick=guarded(()=>runFull('3d-tiles-1.1-s2-globe'));
+$('fullNew140').onclick=guarded(()=>runFull('3d-tiles-3d-native-vector'));
+$('fullNew141').onclick=guarded(()=>runFull('3d-tiles-adjust-height'));
+$('fullNew142').onclick=guarded(()=>runFull('3d-tiles-batch-table-hierarchy'));
+$('fullNew143').onclick=guarded(()=>runFull('3d-tiles-bim'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

@@ -1,0 +1,633 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Zero Height Offset (Ground Level Elevation)",
+      "entities": [
+        {
+          "id": "adjust-height-origin-datum",
+          "name": "3D Tileset Elevation Ground Benchmark Datum",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.85,
+            0.35,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.55,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sampleDataTileset": "Tilesets/Tileset/tileset.json",
+            "elevationOffsetMeters": 0
+          }
+        },
+        {
+          "id": "adjust-height-translated-box",
+          "name": "Dynamic Height Translation Testing Massing Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "knockoutModelHeight": 0,
+            "modelMatrixTransformation": "Matrix4.fromTranslation"
+          }
+        },
+        {
+          "id": "adjust-height-envelope-sphere",
+          "name": "Tileset Bounding Sphere Envelope Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.45,
+            0.85,
+            0.35,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "boundingSphereRadius": 104.5,
+            "cameraHeadingPitchRange": [
+              0,
+              -0.5,
+              209
+            ]
+          }
+        },
+        {
+          "id": "adjust-height-bounding-rect",
+          "name": "Exton Tileset Geometric Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.65,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthTestAgainstTerrain": true,
+            "shadowsEnabled": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Elevated Offset +100m (Floating Massing)",
+      "entities": [
+        {
+          "id": "adjust-height-origin-datum",
+          "name": "3D Tileset Elevation Ground Benchmark Datum",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.85,
+            0.35,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.55,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sampleDataTileset": "Tilesets/Tileset/tileset.json",
+            "elevationOffsetMeters": 0
+          }
+        },
+        {
+          "id": "adjust-height-translated-box",
+          "name": "Dynamic Height Translation Testing Massing Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "knockoutModelHeight": 0,
+            "modelMatrixTransformation": "Matrix4.fromTranslation"
+          }
+        },
+        {
+          "id": "adjust-height-envelope-sphere",
+          "name": "Tileset Bounding Sphere Envelope Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.45,
+            0.85,
+            0.35,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "boundingSphereRadius": 104.5,
+            "cameraHeadingPitchRange": [
+              0,
+              -0.5,
+              209
+            ]
+          }
+        },
+        {
+          "id": "adjust-height-bounding-rect",
+          "name": "Exton Tileset Geometric Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.65,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthTestAgainstTerrain": true,
+            "shadowsEnabled": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Subsurface Offset -50m (Excavation Alignment)",
+      "entities": [
+        {
+          "id": "adjust-height-origin-datum",
+          "name": "3D Tileset Elevation Ground Benchmark Datum",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.3,
+            0.8,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.55,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sampleDataTileset": "Tilesets/Tileset/tileset.json",
+            "elevationOffsetMeters": 0
+          }
+        },
+        {
+          "id": "adjust-height-translated-box",
+          "name": "Dynamic Height Translation Testing Massing Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "knockoutModelHeight": 0,
+            "modelMatrixTransformation": "Matrix4.fromTranslation"
+          }
+        },
+        {
+          "id": "adjust-height-envelope-sphere",
+          "name": "Tileset Bounding Sphere Envelope Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.45,
+            0.85,
+            0.35,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "boundingSphereRadius": 104.5,
+            "cameraHeadingPitchRange": [
+              0,
+              -0.5,
+              209
+            ]
+          }
+        },
+        {
+          "id": "adjust-height-bounding-rect",
+          "name": "Exton Tileset Geometric Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.65,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthTestAgainstTerrain": true,
+            "shadowsEnabled": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Depth Test Against Terrain Enabled (Strict Occlusion)",
+      "entities": [
+        {
+          "id": "adjust-height-origin-datum",
+          "name": "3D Tileset Elevation Ground Benchmark Datum",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.85,
+            0.35,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.55,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sampleDataTileset": "Tilesets/Tileset/tileset.json",
+            "elevationOffsetMeters": 0
+          }
+        },
+        {
+          "id": "adjust-height-translated-box",
+          "name": "Dynamic Height Translation Testing Massing Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "knockoutModelHeight": 0,
+            "modelMatrixTransformation": "Matrix4.fromTranslation"
+          }
+        },
+        {
+          "id": "adjust-height-envelope-sphere",
+          "name": "Tileset Bounding Sphere Envelope Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.45,
+            0.85,
+            0.35,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "boundingSphereRadius": 104.5,
+            "cameraHeadingPitchRange": [
+              0,
+              -0.5,
+              209
+            ]
+          }
+        },
+        {
+          "id": "adjust-height-bounding-rect",
+          "name": "Exton Tileset Geometric Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.2,
+            0.6,
+            0.85,
+            0.75
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthTestAgainstTerrain": true,
+            "shadowsEnabled": true
+          }
+        }
+      ]
+    }
+  ]
+}

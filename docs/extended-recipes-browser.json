@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "3d-tiles-1.1-cdb-yemen",
+      "id": "3d-tiles-3d-native-vector",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "ab8fae9eaf92fbc873bb80b4eba25124477be72f21173a46f92c9d0cdd7da7b6",
-      "inputSha256": "edeae9e107d08af55a5660a83f2ddcc3a2314c751772da76f3fd3995fffe15da",
-      "fixtureSha256": "e6d2d4b18f023d5830357631ae0ae20f5321d4cd8c0405e4d87ac7032ca04f85",
+      "sourceSha256": "356933590674ad03662172cf28ca33e125763a3e6e94e892800c993a4109c711",
+      "inputSha256": "1a2717e4c0a82f498dc5287f965c1827961976dd42edf596e27dd797dc9372bd",
+      "fixtureSha256": "e36d2fcf9c8300c815337b0144df0219d5d7c4242056c65139764d0e85b34423",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,78 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "cdb-crater-benchmark-pillar",
-        "cdb-aden-airport-terminal-box",
-        "cdb-yemen-terrain-dome",
-        "cdb-aden-port-basin-rect"
+        "native-vector-datum-cylinder",
+        "native-vector-corridor-box",
+        "native-vector-sensor-dome",
+        "native-vector-boundary-rect"
       ],
       "pixelCounts": [
         {
-          "id": "cdb-crater-benchmark-pillar",
+          "id": "native-vector-datum-cylinder",
           "pixels": 87505
         },
         {
-          "id": "cdb-aden-airport-terminal-box",
-          "pixels": 103919
-        },
-        {
-          "id": "cdb-yemen-terrain-dome",
-          "pixels": 152594
-        },
-        {
-          "id": "cdb-aden-port-basin-rect",
-          "pixels": 75321
-        }
-      ]
-    },
-    {
-      "id": "3d-tiles-1.1-photogrammetry",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "9302ec2e5247b7b9d264ee8c7d7e3c30ac41e1c20775de1032a9bc7482a98299",
-      "inputSha256": "32e4a767d7c4f49f706f5c461c3ce785e1b9e0ec7a12693c026831a6144bbfd3",
-      "fixtureSha256": "2a4130fe8b6b61d9237036a2205eb941e1f7e74fa64a562d35189ea0770e1f4c",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "photogrammetry-agi-beacon-tower",
-        "photogrammetry-reality-tiler-box",
-        "photogrammetry-ktx2-texture-dome",
-        "photogrammetry-exton-facility-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "photogrammetry-agi-beacon-tower",
-          "pixels": 87505
-        },
-        {
-          "id": "photogrammetry-reality-tiler-box",
+          "id": "native-vector-corridor-box",
           "pixels": 103808
         },
         {
-          "id": "photogrammetry-ktx2-texture-dome",
+          "id": "native-vector-sensor-dome",
           "pixels": 152594
         },
         {
-          "id": "photogrammetry-exton-facility-rect",
-          "pixels": 89158
+          "id": "native-vector-boundary-rect",
+          "pixels": 89188
         }
       ]
     },
     {
-      "id": "3d-tiles-1.1-photogrammetry-classification",
+      "id": "3d-tiles-adjust-height",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "c7ce3414a7409e6e212994c82c162f042a00466e694a9e15d42b46def180257e",
-      "inputSha256": "66a594047abe2d2cb1a0b70ae0d04f0c93b133bbc57ccfa7067c45fe91c32ff2",
-      "fixtureSha256": "8ca09c5a89fe93ffd6e8b6113d2b8fd3c34b8ca4f072f3c6ec0b439093410735",
+      "sourceSha256": "c5e8de8cd0a1ba8e90eb82bd777c1d8b569856e5f3e0ee864d365a7fbd9d5023",
+      "inputSha256": "d909dabdeb6a9aa41cb430d33e773c03ceba99d259e8445046cb167857e417d7",
+      "fixtureSha256": "14f11672ab83590564fe46d82dc9097e04f903d047eea7a4d8b0ad48d1963618",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -104,37 +63,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "ferry-building-clock-tower",
-        "embarcadero-classification-volume",
-        "ferry-plaza-translucent-sphere",
-        "san-francisco-waterfront-boundary"
+        "adjust-height-origin-datum",
+        "adjust-height-translated-box",
+        "adjust-height-envelope-sphere",
+        "adjust-height-bounding-rect"
       ],
       "pixelCounts": [
         {
-          "id": "ferry-building-clock-tower",
+          "id": "adjust-height-origin-datum",
           "pixels": 87505
         },
         {
-          "id": "embarcadero-classification-volume",
+          "id": "adjust-height-translated-box",
           "pixels": 103808
         },
         {
-          "id": "ferry-plaza-translucent-sphere",
+          "id": "adjust-height-envelope-sphere",
           "pixels": 152594
         },
         {
-          "id": "san-francisco-waterfront-boundary",
-          "pixels": 91121
+          "id": "adjust-height-bounding-rect",
+          "pixels": 101065
         }
       ]
     },
     {
-      "id": "3d-tiles-1.1-s2-globe",
+      "id": "3d-tiles-batch-table-hierarchy",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "19f94e2bf58792aa20faeff8207ca1834d38affd2b4bc8968e0bcb489f002053",
-      "inputSha256": "c18f01400cf39457b958a2662f2143685d0fe1094920e67538e8ceb8059afee5",
-      "fixtureSha256": "cd97e523c07de840ab917b05959df316cf96a8bb75eeeab17944a685b8533c5c",
+      "sourceSha256": "e567c334352b7a7be04c135a27151f5ab1e2a7d124db9b137b902b64b87f8c69",
+      "inputSha256": "564e1d64be79ebb1fea38f8c1d6c6edde8ac868e8d77bc855b7ebf2caffbed51",
+      "fixtureSha256": "22f0abeaae18cfa5c33f32958d4b70c56145ce1e50b9f69bcf7714319998d9b2",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -145,27 +104,68 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "s2-hierarchical-cell-pillar",
-        "s2-bounding-projection-box",
-        "s2-maxar-terrain-globe-dome",
-        "s2-continental-coverage-rect"
+        "hierarchy-zone-pivot-cylinder",
+        "hierarchy-building-massing-box",
+        "hierarchy-architectural-dome",
+        "hierarchy-cadastral-boundary-rect"
       ],
       "pixelCounts": [
         {
-          "id": "s2-hierarchical-cell-pillar",
+          "id": "hierarchy-zone-pivot-cylinder",
           "pixels": 87505
         },
         {
-          "id": "s2-bounding-projection-box",
-          "pixels": 103704
+          "id": "hierarchy-building-massing-box",
+          "pixels": 103808
         },
         {
-          "id": "s2-maxar-terrain-globe-dome",
-          "pixels": 151378
+          "id": "hierarchy-architectural-dome",
+          "pixels": 152594
         },
         {
-          "id": "s2-continental-coverage-rect",
-          "pixels": 67252
+          "id": "hierarchy-cadastral-boundary-rect",
+          "pixels": 101065
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-bim",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "6d1a209d8bec90d918540d04d7374d726db3d6a3194aff8443c67c1dab4e4e57",
+      "inputSha256": "6ed4883d56eab174231a2f99f43c477624922a783625d9b05f61efec62566119",
+      "fixtureSha256": "e2b6e99b947eb1940a77b3eaa98e2828ddab2c3ff41797c75f727880b442c8b0",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "bim-reactor-stack-cylinder",
+        "bim-generator-hall-box",
+        "bim-containment-vessel-sphere",
+        "bim-power-plant-boundary-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "bim-reactor-stack-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "bim-generator-hall-box",
+          "pixels": 103808
+        },
+        {
+          "id": "bim-containment-vessel-sphere",
+          "pixels": 152594
+        },
+        {
+          "id": "bim-power-plant-boundary-rect",
+          "pixels": 99442
         }
       ]
     }

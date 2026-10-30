@@ -1,0 +1,621 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Cyan Polylines with Linewidth 3 & Default Style",
+      "entities": [
+        {
+          "id": "native-vector-datum-cylinder",
+          "name": "3D Vector Network Spatial Reference Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -105.27,
+            40.01,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0,
+            0.95,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.3,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "vectorTilesetId": 5135764,
+            "vectorStyleColor": "cyan",
+            "vectorLineWidth": 3
+          }
+        },
+        {
+          "id": "native-vector-corridor-box",
+          "name": "3D Vector Corridor Extruded Geometry Box",
+          "show": true,
+          "positionDegrees": [
+            -105.26,
+            40.02,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.85,
+            0.45,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.65,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "baseTilesetId": 5135767,
+            "featureTopology": "Polyline Corridor"
+          }
+        },
+        {
+          "id": "native-vector-sensor-dome",
+          "name": "Vector Feature Semantic Envelope Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            -105.28,
+            40,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.75,
+            0.95,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainProvider": "Cesium World Terrain",
+            "vectorFormat": "Point, Polyline, Polygon in 3D Tiles"
+          }
+        },
+        {
+          "id": "native-vector-boundary-rect",
+          "name": "3D Native Vector Geographic Boundary Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -105.31,
+              39.98,
+              -105.24,
+              40.04
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.5,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            1,
+            0.7,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionDefaultStyleActive": true,
+            "coordinateSystem": "WGS84 Ellipsoidal"
+          }
+        }
+      ]
+    },
+    {
+      "label": "High-Contrast Vector Styling (Orange Polylines & Fill)",
+      "entities": [
+        {
+          "id": "native-vector-datum-cylinder",
+          "name": "3D Vector Network Spatial Reference Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -105.27,
+            40.01,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0,
+            0.95,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.3,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "vectorTilesetId": 5135764,
+            "vectorStyleColor": "cyan",
+            "vectorLineWidth": 3
+          }
+        },
+        {
+          "id": "native-vector-corridor-box",
+          "name": "3D Vector Corridor Extruded Geometry Box",
+          "show": true,
+          "positionDegrees": [
+            -105.26,
+            40.02,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.65,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "baseTilesetId": 5135767,
+            "featureTopology": "Polyline Corridor"
+          }
+        },
+        {
+          "id": "native-vector-sensor-dome",
+          "name": "Vector Feature Semantic Envelope Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            -105.28,
+            40,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.75,
+            0.95,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainProvider": "Cesium World Terrain",
+            "vectorFormat": "Point, Polyline, Polygon in 3D Tiles"
+          }
+        },
+        {
+          "id": "native-vector-boundary-rect",
+          "name": "3D Native Vector Geographic Boundary Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -105.31,
+              39.98,
+              -105.24,
+              40.04
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.5,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            1,
+            0.7,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionDefaultStyleActive": true,
+            "coordinateSystem": "WGS84 Ellipsoidal"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Vector Geometry Highlight (Selected Features)",
+      "entities": [
+        {
+          "id": "native-vector-datum-cylinder",
+          "name": "3D Vector Network Spatial Reference Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -105.27,
+            40.01,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            1,
+            0.95,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.3,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "vectorTilesetId": 5135764,
+            "vectorStyleColor": "cyan",
+            "vectorLineWidth": 3
+          }
+        },
+        {
+          "id": "native-vector-corridor-box",
+          "name": "3D Vector Corridor Extruded Geometry Box",
+          "show": true,
+          "positionDegrees": [
+            -105.26,
+            40.02,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.85,
+            0.45,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.65,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "baseTilesetId": 5135767,
+            "featureTopology": "Polyline Corridor"
+          }
+        },
+        {
+          "id": "native-vector-sensor-dome",
+          "name": "Vector Feature Semantic Envelope Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            -105.28,
+            40,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.75,
+            0.95,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainProvider": "Cesium World Terrain",
+            "vectorFormat": "Point, Polyline, Polygon in 3D Tiles"
+          }
+        },
+        {
+          "id": "native-vector-boundary-rect",
+          "name": "3D Native Vector Geographic Boundary Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -105.31,
+              39.98,
+              -105.24,
+              40.04
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.5,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            1,
+            0.7,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionDefaultStyleActive": true,
+            "coordinateSystem": "WGS84 Ellipsoidal"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Base Model Only (Vectors Suppressed)",
+      "entities": [
+        {
+          "id": "native-vector-datum-cylinder",
+          "name": "3D Vector Network Spatial Reference Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -105.27,
+            40.01,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0,
+            0.95,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.3,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "vectorTilesetId": 5135764,
+            "vectorStyleColor": "cyan",
+            "vectorLineWidth": 3
+          }
+        },
+        {
+          "id": "native-vector-corridor-box",
+          "name": "3D Vector Corridor Extruded Geometry Box",
+          "show": true,
+          "positionDegrees": [
+            -105.26,
+            40.02,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.85,
+            0.45,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.65,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "baseTilesetId": 5135767,
+            "featureTopology": "Polyline Corridor"
+          }
+        },
+        {
+          "id": "native-vector-sensor-dome",
+          "name": "Vector Feature Semantic Envelope Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            -105.28,
+            40,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.75,
+            0.95,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainProvider": "Cesium World Terrain",
+            "vectorFormat": "Point, Polyline, Polygon in 3D Tiles"
+          }
+        },
+        {
+          "id": "native-vector-boundary-rect",
+          "name": "3D Native Vector Geographic Boundary Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -105.31,
+              39.98,
+              -105.24,
+              40.04
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.5,
+            0.5,
+            0.6,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            1,
+            0.7,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionDefaultStyleActive": true,
+            "coordinateSystem": "WGS84 Ellipsoidal"
+          }
+        }
+      ]
+    }
+  ]
+}

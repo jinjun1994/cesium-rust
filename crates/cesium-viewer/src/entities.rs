@@ -4252,4 +4252,61 @@ mod tests {
         let s2_variants = crate::entity_variants::decode(&s2_variants_raw).unwrap();
         assert_eq!(s2_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch55_3d_tiles_native_vector_adjust_height_hierarchy_bim() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. 3D Native Vector Data
+        let nv_data = std::fs::read(base.join("3d-tiles-3d-native-vector.json")).unwrap();
+        let nv_entities = decode(&nv_data).unwrap();
+        assert_eq!(nv_entities.len(), 4);
+        assert!(matches!(nv_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(nv_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(nv_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(nv_entities[3].shape, Shape::Rectangle { .. }));
+        let nv_variants_raw =
+            std::fs::read(base.join("3d-tiles-3d-native-vector.variants.json")).unwrap();
+        let nv_variants = crate::entity_variants::decode(&nv_variants_raw).unwrap();
+        assert_eq!(nv_variants.variants.len(), 4);
+
+        // 2. Offset 3D Tileset Height
+        let ah_data = std::fs::read(base.join("3d-tiles-adjust-height.json")).unwrap();
+        let ah_entities = decode(&ah_data).unwrap();
+        assert_eq!(ah_entities.len(), 4);
+        assert!(matches!(ah_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ah_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(ah_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ah_entities[3].shape, Shape::Rectangle { .. }));
+        let ah_variants_raw =
+            std::fs::read(base.join("3d-tiles-adjust-height.variants.json")).unwrap();
+        let ah_variants = crate::entity_variants::decode(&ah_variants_raw).unwrap();
+        assert_eq!(ah_variants.variants.len(), 4);
+
+        // 3. 3D Tiles Batch Table Hierarchy
+        let bh_data = std::fs::read(base.join("3d-tiles-batch-table-hierarchy.json")).unwrap();
+        let bh_entities = decode(&bh_data).unwrap();
+        assert_eq!(bh_entities.len(), 4);
+        assert!(matches!(bh_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(bh_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(bh_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(bh_entities[3].shape, Shape::Rectangle { .. }));
+        let bh_variants_raw =
+            std::fs::read(base.join("3d-tiles-batch-table-hierarchy.variants.json")).unwrap();
+        let bh_variants = crate::entity_variants::decode(&bh_variants_raw).unwrap();
+        assert_eq!(bh_variants.variants.len(), 4);
+
+        // 4. BIM Design Model with 3D Tiles
+        let bim_data = std::fs::read(base.join("3d-tiles-bim.json")).unwrap();
+        let bim_entities = decode(&bim_data).unwrap();
+        assert_eq!(bim_entities.len(), 4);
+        assert!(matches!(bim_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(bim_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(bim_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(bim_entities[3].shape, Shape::Rectangle { .. }));
+        let bim_variants_raw = std::fs::read(base.join("3d-tiles-bim.variants.json")).unwrap();
+        let bim_variants = crate::entity_variants::decode(&bim_variants_raw).unwrap();
+        assert_eq!(bim_variants.variants.len(), 4);
+    }
 }

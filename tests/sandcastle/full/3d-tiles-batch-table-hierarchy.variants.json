@@ -1,0 +1,629 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Color all doors (Orange Doors, White Buildings)",
+      "entities": [
+        {
+          "id": "hierarchy-zone-pivot-cylinder",
+          "name": "Cadastral Zone & Building Hierarchy Spatial Pivot",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            1,
+            0.65,
+            0,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sampleDataTileset": "Hierarchy/BatchTableHierarchy/tileset.json",
+            "hierarchyClass": "zone",
+            "zoneName": "zone0"
+          }
+        },
+        {
+          "id": "hierarchy-building-massing-box",
+          "name": "Multi-Level Building Massing Structural Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.65,
+            0.25,
+            0.85,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hierarchyClass": "building",
+            "buildingName": "building0",
+            "buildingArea": 450
+          }
+        },
+        {
+          "id": "hierarchy-architectural-dome",
+          "name": "Roof & Wall Component Semantic Enclosure Dome",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.55,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hierarchyChildClasses": "roof, wall, door, doorknob",
+            "doorWidth": 1.2,
+            "doorknobSize": 0.08
+          }
+        },
+        {
+          "id": "hierarchy-cadastral-boundary-rect",
+          "name": "Batch Table Cadastral Zone Boundary Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.55,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.75,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "julianDate": 2457522.154792,
+            "styleCondition": "isExactClass('door') ? color('orange') : color('white')"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Color all features derived from door (Class Inheritance)",
+      "entities": [
+        {
+          "id": "hierarchy-zone-pivot-cylinder",
+          "name": "Cadastral Zone & Building Hierarchy Spatial Pivot",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            1,
+            0.65,
+            0,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sampleDataTileset": "Hierarchy/BatchTableHierarchy/tileset.json",
+            "hierarchyClass": "zone",
+            "zoneName": "zone0"
+          }
+        },
+        {
+          "id": "hierarchy-building-massing-box",
+          "name": "Multi-Level Building Massing Structural Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.65,
+            0.25,
+            0.85,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hierarchyClass": "building",
+            "buildingName": "building0",
+            "buildingArea": 450
+          }
+        },
+        {
+          "id": "hierarchy-architectural-dome",
+          "name": "Roof & Wall Component Semantic Enclosure Dome",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            1,
+            0.5,
+            0.1,
+            0.9
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hierarchyChildClasses": "roof, wall, door, doorknob",
+            "doorWidth": 1.2,
+            "doorknobSize": 0.08
+          }
+        },
+        {
+          "id": "hierarchy-cadastral-boundary-rect",
+          "name": "Batch Table Cadastral Zone Boundary Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.55,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.75,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "julianDate": 2457522.154792,
+            "styleCondition": "isExactClass('door') ? color('orange') : color('white')"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Color by building (Zone Hierarchy Partitioning)",
+      "entities": [
+        {
+          "id": "hierarchy-zone-pivot-cylinder",
+          "name": "Cadastral Zone & Building Hierarchy Spatial Pivot",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            1,
+            0.65,
+            0,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sampleDataTileset": "Hierarchy/BatchTableHierarchy/tileset.json",
+            "hierarchyClass": "zone",
+            "zoneName": "zone0"
+          }
+        },
+        {
+          "id": "hierarchy-building-massing-box",
+          "name": "Multi-Level Building Massing Structural Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.9,
+            0.2,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hierarchyClass": "building",
+            "buildingName": "building0",
+            "buildingArea": 450
+          }
+        },
+        {
+          "id": "hierarchy-architectural-dome",
+          "name": "Roof & Wall Component Semantic Enclosure Dome",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.55,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hierarchyChildClasses": "roof, wall, door, doorknob",
+            "doorWidth": 1.2,
+            "doorknobSize": 0.08
+          }
+        },
+        {
+          "id": "hierarchy-cadastral-boundary-rect",
+          "name": "Batch Table Cadastral Zone Boundary Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.55,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.75,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "julianDate": 2457522.154792,
+            "styleCondition": "isExactClass('door') ? color('orange') : color('white')"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Color features by class name & Style by height",
+      "entities": [
+        {
+          "id": "hierarchy-zone-pivot-cylinder",
+          "name": "Cadastral Zone & Building Hierarchy Spatial Pivot",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.8,
+            0.2,
+            0.8,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sampleDataTileset": "Hierarchy/BatchTableHierarchy/tileset.json",
+            "hierarchyClass": "zone",
+            "zoneName": "zone0"
+          }
+        },
+        {
+          "id": "hierarchy-building-massing-box",
+          "name": "Multi-Level Building Massing Structural Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.65,
+            0.25,
+            0.85,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hierarchyClass": "building",
+            "buildingName": "building0",
+            "buildingArea": 450
+          }
+        },
+        {
+          "id": "hierarchy-architectural-dome",
+          "name": "Roof & Wall Component Semantic Enclosure Dome",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.55,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hierarchyChildClasses": "roof, wall, door, doorknob",
+            "doorWidth": 1.2,
+            "doorknobSize": 0.08
+          }
+        },
+        {
+          "id": "hierarchy-cadastral-boundary-rect",
+          "name": "Batch Table Cadastral Zone Boundary Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.55,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.75,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "julianDate": 2457522.154792,
+            "styleCondition": "isExactClass('door') ? color('orange') : color('white')"
+          }
+        }
+      ]
+    }
+  ]
+}

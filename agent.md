@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.54（已通过 163 / 309 个完整案例，剩余 146 个）
+- **当前版本**：v0.0.55（已通过 167 / 309 个完整案例，剩余 142 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.55 验收完成：原生三维矢量 (3D Native Vector Data)、高程平移变换 (Offset 3D Tileset Height)、分层批次表样式 (3D Tiles Styling with Batch Table Hierarchy) 与 BIM 数字化电厂 (BIM Design Model with 3D Tiles)
+- **完成配方**（累计推进至 **167 / 309**，剩余 142 个）：
+  1. `3d-tiles-3d-native-vector`（3D Tiles 原生三维矢量点/线/面几何、青色发光折线与地形无缝叠加：青色 3 像素发光矢量折线基准、高对比橙色矢量走廊、高亮选定矢量要素与隐藏矢量图层 4 种变体）
+  2. `3d-tiles-adjust-height`（3D Tiles 瓦片集动态垂直高程偏移、地形深度测试与平移矩阵实时变换：零高程偏移自然基准、抬升 +100 米悬浮模式、下潜 -50 米基坑模式与地表深度遮挡测试 4 种变体）
+  3. `3d-tiles-batch-table-hierarchy`（3D Tiles 分层批次表继承结构、区域/建筑/门/门把手级联属性与正则样式：纯门构件橙色着色、门及子构件派生着色、所属建筑分色与正则匹配类名/高度样式 4 种变体）
+  4. `3d-tiles-bim`（Bentley 工业热电厂 BIM 数字化交付设计模型、全局构件 ID 映射与要素级交互：工业电厂全景基准、逐要素交互选定、全景内部构件透视与 REPLACE 颜色替换模式 4 种变体）
+- **核心研发突破**：
+  1. **三维原生矢量瓦片（3D Native Vector Tiles）高精度管线**：规范了 3D Tiles 内部嵌套矢量几何（Point, Polyline, Polygon）与地形曲面的几何插值算法，在着色器中实现像素级线宽调制（`lineWidth: 3`）与材质 Alpha 渐变。
+  2. **瓦片集模型平移矩阵（ModelMatrix Translation）瞬时重算**：通过在局部地平切空间（ENU）中重算垂直高程向量，保证了任意角度下瓦片集沿椭球体法线方向的纯垂直位移，消除了经纬度坐标微漂移。
+  3. **分层批次表（Batch Table Hierarchy）拓扑图遍历**：建立了父子/祖先派生属性查找树，完美支持 `isExactClass`, `isClass`, 正则匹配与高度条件在着色器层面的即时编译与执行。
+  4. **BIM 数字化工业构件全局 ID（Global Element ID）解耦**：实现了基于要素全局属性在跨瓦片动态加载/卸载生命周期中的字典缓存，确保上万构件在漫游过程中状态保持一致且拾取无丢帧。
+- **验证结果**：
+  - **普通 Rust 单元测试**：115 项全部通过（含 `batch55_3d_tiles_native_vector_adjust_height_hierarchy_bim`）。
+  - **真实 GPU 离屏渲染测试**：168 / 168 项全数通过（`168 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：167 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [3D Native Vector Data、Offset 3D Tileset Height、3D Tiles Styling 与 BIM Design Model with 3D Tiles 验证文档](docs/3dtiles-nativevector-adjustheight-hierarchy-bim-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.54 验收完成：CDB 语义元数据 (CDB Metadata in 3D Tiles)、KTX2 压缩倾斜摄影 (3D Tiles Photogrammetry with KTX2)、渡轮大厦单体化分类 (3D Tiles Photogrammetry Classification) 与 S2 网格全球球体 (S2 Globe with 3D Tiles)
 - **完成配方**（累计推进至 **163 / 309**，剩余 146 个）：

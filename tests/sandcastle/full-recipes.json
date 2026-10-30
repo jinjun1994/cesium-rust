@@ -4603,6 +4603,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "3d-tiles-3d-native-vector",
+      "title": "3D Native Vector Data",
+      "sourceSha256": "356933590674ad03662172cf28ca33e125763a3e6e94e892800c993a4109c711",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-3d-native-vector",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-3d-native-vector.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-3d-native-vector.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Native Vector Data (point, polyline, polygon geometries) streamed within 3D Tiles",
+        "Cyan vector polyline styling with linewidth 3, terrain integration, and ion default styling"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-adjust-height",
+      "title": "Offset 3D Tileset Height",
+      "sourceSha256": "c5e8de8cd0a1ba8e90eb82bd777c1d8b569856e5f3e0ee864d365a7fbd9d5023",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-adjust-height",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-adjust-height.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-adjust-height.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Dynamic vertical height adjustment and modelMatrix translation on 3D Tilesets",
+        "Reactive Knockout view model elevation slider, terrain depth testing, and shadows"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-batch-table-hierarchy",
+      "title": "3D Tiles Styling",
+      "sourceSha256": "e567c334352b7a7be04c135a27151f5ab1e2a7d124db9b137b902b64b87f8c69",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-batch-table-hierarchy",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-batch-table-hierarchy.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-batch-table-hierarchy.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Tiles styling with Batch Table Hierarchy (zones, buildings, roofs, walls, doors, doorknobs)",
+        "Class inheritance conditions, exact class name matching, regex styling, and height conditions"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-bim",
+      "title": "BIM Design Model with 3D Tiles",
+      "sourceSha256": "6d1a209d8bec90d918540d04d7374d726db3d6a3194aff8443c67c1dab4e4e57",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-bim",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-bim.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-bim.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "BIM Design Model with 3D Tiles on Bentley Systems thermal power plant model",
+        "Global element ID tracking, per-feature hover/click selection, element hiding, and REPLACE blend mode"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",
