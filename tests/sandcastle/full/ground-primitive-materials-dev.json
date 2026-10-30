@@ -1,0 +1,145 @@
+[
+  {
+    "id": "ground-mat-checker-box",
+    "name": "Checkerboard Draped Ground Primitive Landmark",
+    "show": true,
+    "positionDegrees": [
+      -122.195,
+      46.2,
+      2000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        40,
+        40,
+        80
+      ]
+    },
+    "color": [
+      0.95,
+      0.25,
+      0.25,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.65,
+      0.65,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "materialType": "Checkerboard",
+      "supportsMaterials": true,
+      "classificationType": "TERRAIN"
+    }
+  },
+  {
+    "id": "ground-mat-bump-cylinder",
+    "name": "BumpMap Normal Perturbation Draped Column",
+    "show": true,
+    "positionDegrees": [
+      -122.185,
+      46.208,
+      1900
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 60,
+      "topRadius": 18,
+      "bottomRadius": 18
+    },
+    "color": [
+      0.25,
+      0.85,
+      0.35,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.65,
+      1,
+      0.75,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "materialType": "BumpMap",
+      "strength": 0.8
+    }
+  },
+  {
+    "id": "ground-mat-water-sphere",
+    "name": "Water Surface Material Normal Wave Probe",
+    "show": true,
+    "positionDegrees": [
+      -122.205,
+      46.192,
+      1850
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        16,
+        16,
+        16
+      ]
+    },
+    "color": [
+      0.2,
+      0.6,
+      0.95,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.65,
+      0.85,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "materialType": "Water",
+      "specularIntensity": 0.8
+    }
+  },
+  {
+    "id": "ground-mat-drape-rect",
+    "name": "Mount St. Helens Ground Primitive Drape Extent",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -122.22,
+        46.18,
+        -122.17,
+        46.22
+      ]
+    },
+    "color": [
+      0.2,
+      0.35,
+      0.25,
+      0.35
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.5,
+      0.75,
+      0.55,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "appearance": "EllipsoidSurfaceAppearance"
+    }
+  }
+]

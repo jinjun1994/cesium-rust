@@ -1,0 +1,145 @@
+[
+  {
+    "id": "hdr-milktruck-box",
+    "name": "Cesium Milk Truck HDR Benchmark Anchor",
+    "show": true,
+    "positionDegrees": [
+      -111.822,
+      36.223,
+      1250
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        35,
+        35,
+        50
+      ]
+    },
+    "color": [
+      0.95,
+      0.85,
+      0.25,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.95,
+      0.65,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "highDynamicRange": true,
+      "exposure": 1,
+      "tonemapper": "PBR_NEUTRAL"
+    }
+  },
+  {
+    "id": "hdr-exposure-cylinder",
+    "name": "Dynamic Exposure Luminescence Column",
+    "show": true,
+    "positionDegrees": [
+      -111.82,
+      36.225,
+      1230
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 60,
+      "topRadius": 16,
+      "bottomRadius": 16
+    },
+    "color": [
+      0.2,
+      0.85,
+      0.75,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.65,
+      1,
+      0.95,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "tonemapper": "ACES",
+      "shadows": true
+    }
+  },
+  {
+    "id": "hdr-tonemap-sphere",
+    "name": "Specular Tone Preservation Probe",
+    "show": true,
+    "positionDegrees": [
+      -111.824,
+      36.221,
+      1220
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        15,
+        15,
+        15
+      ]
+    },
+    "color": [
+      0.95,
+      0.35,
+      0.45,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.7,
+      0.8,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "tonemapper": "REINHARD",
+      "gammaCorrected": true
+    }
+  },
+  {
+    "id": "hdr-canyon-rect",
+    "name": "Grand Canyon Scenic HDR Lighting Envelope",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -111.84,
+        36.21,
+        -111.8,
+        36.24
+      ]
+    },
+    "color": [
+      0.35,
+      0.25,
+      0.2,
+      0.35
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.7,
+      0.55,
+      0.45,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "location": "Grand Canyon North Rim"
+    }
+  }
+]

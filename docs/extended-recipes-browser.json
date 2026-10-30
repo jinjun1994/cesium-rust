@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "google-photorealistic-3d-tiles",
+      "id": "ground-primitive-materials-dev",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "d7aa09b4e0a6acc94a7ae5fb32fdb38eb16486aeb68f9e815f72c4bb0ba6af0a",
-      "inputSha256": "504919160617eb0a3cf3e105733a99835e0aa4115b78b38b613e40c4617104ce",
-      "fixtureSha256": "e9ee5f077eaa1c673b2089f5c83e1b9a9ee6815e6a7eda1f6dc8bd8027919ec4",
+      "sourceSha256": "7a4aac9a2089abc2528a969b4f23133455402a37a9d2c3b3120a8768a4a42158",
+      "inputSha256": "974c9bedad1d75cd4c4148c34aca21b9200d035d9971eec9abd4bb0b602144a5",
+      "fixtureSha256": "27604d47c2fa551f7590e6f68c429b9e9e4a801f62cfe226e2e2d9b7692c55b0",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,150 +22,150 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "google-plex-hq-box",
-        "google-plex-tower-cylinder",
-        "google-plex-campus-sphere",
-        "google-plex-extent-rect"
+        "ground-mat-checker-box",
+        "ground-mat-bump-cylinder",
+        "ground-mat-water-sphere",
+        "ground-mat-drape-rect"
       ],
       "pixelCounts": [
         {
-          "id": "google-plex-hq-box",
-          "pixels": 627
-        },
-        {
-          "id": "google-plex-tower-cylinder",
-          "pixels": 373
-        },
-        {
-          "id": "google-plex-campus-sphere",
-          "pixels": 139
-        },
-        {
-          "id": "google-plex-extent-rect",
-          "pixels": 64319
-        }
-      ]
-    },
-    {
-      "id": "google-photorealistic-3d-tiles-with-building-insert",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "d83488f6a5fd0c63df13ccf02af3779f6a82eed6b7043791a5c898503bafc9bb",
-      "inputSha256": "d8565ba7c25b54256fba127253e86a2f300da44df0ca763389915d4e9b794477",
-      "fixtureSha256": "60a14d933f46942207dca4543f6ee0c038b2eea364e4dae490a9ba3f726645ef",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "google-insert-building-box",
-        "google-insert-lot-cylinder",
-        "google-insert-target-sphere",
-        "google-insert-envelope-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "google-insert-building-box",
-          "pixels": 855
-        },
-        {
-          "id": "google-insert-lot-cylinder",
-          "pixels": 494
-        },
-        {
-          "id": "google-insert-target-sphere",
-          "pixels": 188
-        },
-        {
-          "id": "google-insert-envelope-rect",
-          "pixels": 66066
-        }
-      ]
-    },
-    {
-      "id": "google-streetview-panorama",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "48f3f09dce4e7596311a3d21c53882e91d642f5e220607d469f5a4a60469686b",
-      "inputSha256": "00fcbe5ff9cdb2f49813d82e32e1dc3700b065b4c53dcc62ce068f5508b256e0",
-      "fixtureSha256": "02aa398cdd273126a375f40b02e10933d6f2978274ee3199ef1b3066cdf683cf",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "streetview-pano-camera-box",
-        "streetview-pano-pod-cylinder",
-        "streetview-pano-bubble-sphere",
-        "streetview-pano-footprint-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "streetview-pano-camera-box",
-          "pixels": 448
-        },
-        {
-          "id": "streetview-pano-pod-cylinder",
-          "pixels": 314
-        },
-        {
-          "id": "streetview-pano-bubble-sphere",
-          "pixels": 225
-        },
-        {
-          "id": "streetview-pano-footprint-rect",
-          "pixels": 66607
-        }
-      ]
-    },
-    {
-      "id": "ground-primitive-dev",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "978cd865495e03d66df98756b24f76fe6e8fc0e4259224110a1bf7b3e6e0e546",
-      "inputSha256": "dd17eb97001299e8d875c5c68054a9a65c22cefc538ed81c164825dcbc34044b",
-      "fixtureSha256": "2dfd225b9d637742e25102543e9298204059b0c142fd94bad8f91e3b0a5c1746",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "ground-prim-red-polygon-box",
-        "ground-prim-green-corridor-cylinder",
-        "ground-prim-blue-circle-sphere",
-        "ground-prim-terrain-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "ground-prim-red-polygon-box",
+          "id": "ground-mat-checker-box",
           "pixels": 741
         },
         {
-          "id": "ground-prim-green-corridor-cylinder",
+          "id": "ground-mat-bump-cylinder",
           "pixels": 494
         },
         {
-          "id": "ground-prim-blue-circle-sphere",
+          "id": "ground-mat-water-sphere",
           "pixels": 188
         },
         {
-          "id": "ground-prim-terrain-rect",
+          "id": "ground-mat-drape-rect",
           "pixels": 66951
+        }
+      ]
+    },
+    {
+      "id": "high-dynamic-range",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "aa1832f484c568f0e020a3bf57af9b3ab7b1044ef0f2ba81cdeef86b4998987b",
+      "inputSha256": "549cf1cc34cfb8c3c65747aa6984d9ce958ded03a3408ab9f8151546adeed664",
+      "fixtureSha256": "10e3b76a2a9dec1e5c1b99d2f54004b5d9045a2e08f949653fcd9f4354db2b7e",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "hdr-milktruck-box",
+        "hdr-exposure-cylinder",
+        "hdr-tonemap-sphere",
+        "hdr-canyon-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "hdr-milktruck-box",
+          "pixels": 474
+        },
+        {
+          "id": "hdr-exposure-cylinder",
+          "pixels": 424
+        },
+        {
+          "id": "hdr-tonemap-sphere",
+          "pixels": 163
+        },
+        {
+          "id": "hdr-canyon-rect",
+          "pixels": 65481
+        }
+      ]
+    },
+    {
+      "id": "hybrid-snapping-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "da9a9e9f28fc9a4d78be917fb62f2eae5fb9a7438a23c4f1bf608b62fc7803e7",
+      "inputSha256": "ce93269fbd6e8d5de18dfd9e7e668ee99a4a89bc42e4f6435d1772ef25f64aa7",
+      "fixtureSha256": "cdaa528b551c4cda6644061bc0b58ff405fe4e821249aba7b486fb8a0713f1c3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "hybrid-snap-bim-box",
+        "hybrid-snap-client-cylinder",
+        "hybrid-snap-server-sphere",
+        "hybrid-snap-stage-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "hybrid-snap-bim-box",
+          "pixels": 741
+        },
+        {
+          "id": "hybrid-snap-client-cylinder",
+          "pixels": 494
+        },
+        {
+          "id": "hybrid-snap-server-sphere",
+          "pixels": 188
+        },
+        {
+          "id": "hybrid-snap-stage-rect",
+          "pixels": 66779
+        }
+      ]
+    },
+    {
+      "id": "i3s-3d-object-layer",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "94fb6821aa773ab1df0b67edf95cb696ec04331a081f5e87366b0e6ebc5491c4",
+      "inputSha256": "b2bea37a7e0ad5c602d4b7188db746de293da8fceae67b39ab91b60df63ca9f2",
+      "fixtureSha256": "6212286ef0b64e0db50a6fd7b645794bc86b8758ccb645eda503592bc167d1ca",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "i3s-sf-bldg-box",
+        "i3s-geoid-datum-cylinder",
+        "i3s-feature-probe-sphere",
+        "i3s-layer-extent-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "i3s-sf-bldg-box",
+          "pixels": 741
+        },
+        {
+          "id": "i3s-geoid-datum-cylinder",
+          "pixels": 494
+        },
+        {
+          "id": "i3s-feature-probe-sphere",
+          "pixels": 188
+        },
+        {
+          "id": "i3s-layer-extent-rect",
+          "pixels": 65891
         }
       ]
     }

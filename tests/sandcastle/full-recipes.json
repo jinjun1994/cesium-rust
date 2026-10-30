@@ -6655,6 +6655,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "ground-primitive-materials-dev",
+      "title": "Ground Primitive Materials - Dev",
+      "sourceSha256": "7a4aac9a2089abc2528a969b4f23133455402a37a9d2c3b3120a8768a4a42158",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=ground-primitive-materials-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/ground-primitive-materials-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/ground-primitive-materials-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "GroundPrimitive.supportsMaterials verification and materials on ground primitives",
+        "AlphaMap, BumpMap, Checkerboard, Composite, and Water materials draped on WorldTerrain"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "high-dynamic-range",
+      "title": "High Dynamic Range",
+      "sourceSha256": "aa1832f484c568f0e020a3bf57af9b3ab7b1044ef0f2ba81cdeef86b4998987b",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=high-dynamic-range",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/high-dynamic-range.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/high-dynamic-range.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "High dynamic range (HDR) rendering pipeline and exposure adjustment post process stages",
+        "PBR_NEUTRAL, ACES, REINHARD, MODIFIED_REINHARD, and FILMIC tonemapping algorithms"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "hybrid-snapping-dev",
+      "title": "Hybrid Snapping - Dev",
+      "sourceSha256": "da9a9e9f28fc9a4d78be917fb62f2eae5fb9a7438a23c4f1bf608b62fc7803e7",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=hybrid-snapping-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/hybrid-snapping-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/hybrid-snapping-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Hybrid snapping combining client-side GPU Scene.snap hover with server-side authoritative click snap",
+        "BIM/CAD asset 5161569 feature snapping, edge visibility extraction, and deviation calculation"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "i3s-3d-object-layer",
+      "title": "I3S Consumption Cesium Demo",
+      "sourceSha256": "94fb6821aa773ab1df0b67edf95cb696ec04331a081f5e87366b0e6ebc5491c4",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=i3s-3d-object-layer",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/i3s-3d-object-layer.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/i3s-3d-object-layer.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "I3SDataProvider fromUrl loading San Francisco 3D Object SceneServer layer",
+        "EGM2008 geoid gravity height model conversion and interactive feature attribute infoBox display"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

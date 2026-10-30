@@ -5386,4 +5386,66 @@ mod tests {
         let gv_variants = crate::entity_variants::decode(&gv_variants_raw).unwrap();
         assert_eq!(gv_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch74_groundprimmat_hdr_hybridsnap_i3s() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Ground Primitive Materials - Dev
+        let gpm_data = std::fs::read(base.join("ground-primitive-materials-dev.json")).unwrap();
+        let gpm_entities = decode(&gpm_data).unwrap();
+        assert_eq!(gpm_entities.len(), 4);
+        assert!(matches!(gpm_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(gpm_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(gpm_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(gpm_entities[3].shape, Shape::Rectangle { .. }));
+        let gpm_variants_raw =
+            std::fs::read(base.join("ground-primitive-materials-dev.variants.json")).unwrap();
+        let gpm_variants = crate::entity_variants::decode(&gpm_variants_raw).unwrap();
+        assert_eq!(gpm_variants.variants.len(), 4);
+
+        // 2. High Dynamic Range
+        let hdr_data = std::fs::read(base.join("high-dynamic-range.json")).unwrap();
+        let hdr_entities = decode(&hdr_data).unwrap();
+        assert_eq!(hdr_entities.len(), 4);
+        assert!(matches!(hdr_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(hdr_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(hdr_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(hdr_entities[3].shape, Shape::Rectangle { .. }));
+        let hdr_variants_raw =
+            std::fs::read(base.join("high-dynamic-range.variants.json")).unwrap();
+        let hdr_variants = crate::entity_variants::decode(&hdr_variants_raw).unwrap();
+        assert_eq!(hdr_variants.variants.len(), 4);
+
+        // 3. Hybrid Snapping - Dev
+        let hs_data = std::fs::read(base.join("hybrid-snapping-dev.json")).unwrap();
+        let hs_entities = decode(&hs_data).unwrap();
+        assert_eq!(hs_entities.len(), 4);
+        assert!(matches!(hs_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(hs_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(hs_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(hs_entities[3].shape, Shape::Rectangle { .. }));
+        let hs_variants_raw =
+            std::fs::read(base.join("hybrid-snapping-dev.variants.json")).unwrap();
+        let hs_variants = crate::entity_variants::decode(&hs_variants_raw).unwrap();
+        assert_eq!(hs_variants.variants.len(), 4);
+
+        // 4. I3S 3D Object Layer
+        let i3s_data = std::fs::read(base.join("i3s-3d-object-layer.json")).unwrap();
+        let i3s_entities = decode(&i3s_data).unwrap();
+        assert_eq!(i3s_entities.len(), 4);
+        assert!(matches!(i3s_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(i3s_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(i3s_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(i3s_entities[3].shape, Shape::Rectangle { .. }));
+        let i3s_variants_raw =
+            std::fs::read(base.join("i3s-3d-object-layer.variants.json")).unwrap();
+        let i3s_variants = crate::entity_variants::decode(&i3s_variants_raw).unwrap();
+        assert_eq!(i3s_variants.variants.len(), 4);
+    }
 }

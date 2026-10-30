@@ -1,5 +1,5 @@
 {
-  "version": "0.0.73",
+  "version": "0.0.74",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -9448,10 +9448,174 @@
           "pixels": 66951
         }
       ]
+    },
+    {
+      "id": "ground-primitive-materials-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "7a4aac9a2089abc2528a969b4f23133455402a37a9d2c3b3120a8768a4a42158",
+      "inputSha256": "974c9bedad1d75cd4c4148c34aca21b9200d035d9971eec9abd4bb0b602144a5",
+      "fixtureSha256": "27604d47c2fa551f7590e6f68c429b9e9e4a801f62cfe226e2e2d9b7692c55b0",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "ground-mat-checker-box",
+        "ground-mat-bump-cylinder",
+        "ground-mat-water-sphere",
+        "ground-mat-drape-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "ground-mat-checker-box",
+          "pixels": 741
+        },
+        {
+          "id": "ground-mat-bump-cylinder",
+          "pixels": 494
+        },
+        {
+          "id": "ground-mat-water-sphere",
+          "pixels": 188
+        },
+        {
+          "id": "ground-mat-drape-rect",
+          "pixels": 66951
+        }
+      ]
+    },
+    {
+      "id": "high-dynamic-range",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "aa1832f484c568f0e020a3bf57af9b3ab7b1044ef0f2ba81cdeef86b4998987b",
+      "inputSha256": "549cf1cc34cfb8c3c65747aa6984d9ce958ded03a3408ab9f8151546adeed664",
+      "fixtureSha256": "10e3b76a2a9dec1e5c1b99d2f54004b5d9045a2e08f949653fcd9f4354db2b7e",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "hdr-milktruck-box",
+        "hdr-exposure-cylinder",
+        "hdr-tonemap-sphere",
+        "hdr-canyon-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "hdr-milktruck-box",
+          "pixels": 474
+        },
+        {
+          "id": "hdr-exposure-cylinder",
+          "pixels": 424
+        },
+        {
+          "id": "hdr-tonemap-sphere",
+          "pixels": 163
+        },
+        {
+          "id": "hdr-canyon-rect",
+          "pixels": 65481
+        }
+      ]
+    },
+    {
+      "id": "hybrid-snapping-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "da9a9e9f28fc9a4d78be917fb62f2eae5fb9a7438a23c4f1bf608b62fc7803e7",
+      "inputSha256": "ce93269fbd6e8d5de18dfd9e7e668ee99a4a89bc42e4f6435d1772ef25f64aa7",
+      "fixtureSha256": "cdaa528b551c4cda6644061bc0b58ff405fe4e821249aba7b486fb8a0713f1c3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "hybrid-snap-bim-box",
+        "hybrid-snap-client-cylinder",
+        "hybrid-snap-server-sphere",
+        "hybrid-snap-stage-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "hybrid-snap-bim-box",
+          "pixels": 741
+        },
+        {
+          "id": "hybrid-snap-client-cylinder",
+          "pixels": 494
+        },
+        {
+          "id": "hybrid-snap-server-sphere",
+          "pixels": 188
+        },
+        {
+          "id": "hybrid-snap-stage-rect",
+          "pixels": 66779
+        }
+      ]
+    },
+    {
+      "id": "i3s-3d-object-layer",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "94fb6821aa773ab1df0b67edf95cb696ec04331a081f5e87366b0e6ebc5491c4",
+      "inputSha256": "b2bea37a7e0ad5c602d4b7188db746de293da8fceae67b39ab91b60df63ca9f2",
+      "fixtureSha256": "6212286ef0b64e0db50a6fd7b645794bc86b8758ccb645eda503592bc167d1ca",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "i3s-sf-bldg-box",
+        "i3s-geoid-datum-cylinder",
+        "i3s-feature-probe-sphere",
+        "i3s-layer-extent-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "i3s-sf-bldg-box",
+          "pixels": 741
+        },
+        {
+          "id": "i3s-geoid-datum-cylinder",
+          "pixels": 494
+        },
+        {
+          "id": "i3s-feature-probe-sphere",
+          "pixels": 188
+        },
+        {
+          "id": "i3s-layer-extent-rect",
+          "pixels": 65891
+        }
+      ]
     }
   ],
   "browser": "151.0.7922.34",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed",
-  "totalCases": 239
+  "totalCases": 243
 }

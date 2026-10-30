@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.73（已通过 239 / 309 个完整案例，剩余 70 个）
+- **当前版本**：v0.0.74（已通过 243 / 309 个完整案例，剩余 66 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.74 验收完成：Ground Primitive Materials - Dev、High Dynamic Range、Hybrid Snapping - Dev 与 I3S 3D Object Layer
+- **完成配方**（累计推进至 **243 / 309**，剩余 66 个）：
+  1. `ground-primitive-materials-dev`（贴地几何图元高级材质着色、法线扰动与多图层贴地混合：基准棋盘格贴地覆层、凹凸贴图法线扰动贴地面、等高线流式条带贴地图元、程序化木纹地表着色 4 种变体）
+  2. `high-dynamic-range`（高动态范围 HDR、色调映射 Tonemapping 与自动曝光控制：基准高动态范围开启、日光高亮度过曝基准、深阴影暗光辐射模式、标准低动态范围基准对照 4 种变体）
+  3. `hybrid-snapping-dev`（混合吸附：客户端网格几何顶点/边缘吸附与服务端高程拾取融合：基准混合吸附、地表射线地形高程吸附、模型包围盒角点与面吸附、交互式多点测量吸附轨迹 4 种变体）
+  4. `i3s-3d-object-layer`（Esri I3S 索引三维场景图层、旧金山城市建筑与属性图层解析：基准旧金山 I3S 3D 对象图层、密集中心地段高层建筑纹理检视、符号化高程颜色分类模式、线框包围几何体诊断 4 种变体）
+- **核心研发突破**：
+  1. **贴地高级材质与法线扰动贴合（Ground Primitive Advanced Materials & Terrain Drape）**：实现 `GroundPrimitive` 支持棋盘格、法线扰动 BumpMap、条带 Stripe 与木纹 Wood 材质地表贴模渲染，验证复杂微表面纹理与真实地形贴合。
+  2. **高动态范围光照与曝光控制（High Dynamic Range & Tonemapping Pipeline）**：构建基于 `scene.highDynamicRange` 的色调映射与自动曝光计算通道，保障强日光镜面高光与微光阴影细节兼顾。
+  3. **客户端与服务端几何混合吸附（Hybrid Geometry & Elevation Snapping Engine）**：实现结合几何顶点、包围线框边缘与服务端地表高程射线检测的混合吸附引擎，支持亚米级空间定位与测量吸附。
+  4. **Esri I3S 场景图层流式解析（I3S 3D Object Scene Layer & Spatial Indexing）**：建立 `I3SDataProvider` 树形空间索引调度体系，实现大规模城市建筑三维白模与纹理要素流式装载和属性交互拾取。
+- **验证结果**：
+  - **普通 Rust 单元测试**：134 项全部通过（含 `batch74_groundprimmat_hdr_hybridsnap_i3s`）。
+  - **真实 GPU 离屏渲染测试**：244 / 244 项全数通过（`244 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，243 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：243 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Ground Primitive Materials - Dev、High Dynamic Range、Hybrid Snapping - Dev 与 I3S 3D Object Layer 验证文档](docs/groundprimmat-hdr-hybridsnap-i3s-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.73 验收完成：Google Photorealistic 3D Tiles、Google Photorealistic 3D Tiles with Building Insert、Google Street View Panorama 与 Ground Primitive - Dev
 - **完成配方**（累计推进至 **239 / 309**，剩余 70 个）：

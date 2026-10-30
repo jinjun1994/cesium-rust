@@ -250,6 +250,10 @@ $('fullNew212').onclick=guarded(()=>runFull('google-photorealistic-3d-tiles'));
 $('fullNew213').onclick=guarded(()=>runFull('google-photorealistic-3d-tiles-with-building-insert'));
 $('fullNew214').onclick=guarded(()=>runFull('google-streetview-panorama'));
 $('fullNew215').onclick=guarded(()=>runFull('ground-primitive-dev'));
+$('fullNew216').onclick=guarded(()=>runFull('ground-primitive-materials-dev'));
+$('fullNew217').onclick=guarded(()=>runFull('high-dynamic-range'));
+$('fullNew218').onclick=guarded(()=>runFull('hybrid-snapping-dev'));
+$('fullNew219').onclick=guarded(()=>runFull('i3s-3d-object-layer'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);
