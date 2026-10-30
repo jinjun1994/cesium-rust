@@ -182,6 +182,10 @@ $('fullNew144').onclick=guarded(()=>runFull('3d-tiles-clipping-planes'));
 $('fullNew145').onclick=guarded(()=>runFull('3d-tiles-compare'));
 $('fullNew146').onclick=guarded(()=>runFull('3d-tiles-edge-visibility'));
 $('fullNew147').onclick=guarded(()=>runFull('3d-tiles-feature-picking'));
+$('fullNew148').onclick=guarded(()=>runFull('3d-tiles-feature-styling'));
+$('fullNew149').onclick=guarded(()=>runFull('3d-tiles-formats'));
+$('fullNew150').onclick=guarded(()=>runFull('3d-tiles-gaussian-splats-with-lod'));
+$('fullNew151').onclick=guarded(()=>runFull('3d-tiles-gaussian-splatting'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

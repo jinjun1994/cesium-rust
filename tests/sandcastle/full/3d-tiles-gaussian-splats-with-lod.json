@@ -1,0 +1,155 @@
+[
+  {
+    "id": "splats-lod-core-cylinder",
+    "name": "Gaussian Splats Scene Center Anchor Pillar",
+    "show": true,
+    "positionDegrees": [
+      -122.1381,
+      47.6445,
+      2500
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 5000,
+      "topRadius": 1500,
+      "bottomRadius": 1500
+    },
+    "color": [
+      0.95,
+      0.65,
+      0.15,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.85,
+      0.35,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "boundingSphereRadius": 50,
+      "viewOffsetHeadingPitchRange": [
+        100,
+        -25,
+        500
+      ],
+      "terrainEnabled": true
+    }
+  },
+  {
+    "id": "splats-lod-octree-box",
+    "name": "Spatial Octree Hierarchical Level of Detail Volume",
+    "show": true,
+    "positionDegrees": [
+      -122.132,
+      47.65,
+      2000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        2500,
+        2500,
+        2200
+      ]
+    },
+    "color": [
+      0.25,
+      0.75,
+      0.95,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.45,
+      0.95,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "maxScreenSpaceError": 16,
+      "progressiveStreaming": true
+    }
+  },
+  {
+    "id": "splats-lod-radiance-sphere",
+    "name": "Radiance Field Covariance Ellipsoid Boundary",
+    "show": true,
+    "positionDegrees": [
+      -122.144,
+      47.639,
+      2200
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        2000,
+        2000,
+        1800
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      0.85,
+      0.25,
+      0.75,
+      0.85
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "splatRadiusScale": 1,
+      "pointBudget": 2000000
+    }
+  },
+  {
+    "id": "splats-lod-capture-rect",
+    "name": "Photogrammetric Drone Capture Area Footprint",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -122.16,
+        47.63,
+        -122.11,
+        47.66
+      ],
+      "height": 2000,
+      "extrudedHeight": 4000,
+      "rotation": 0
+    },
+    "color": [
+      0.35,
+      0.85,
+      0.45,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.55,
+      1,
+      0.65,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "captureType": "Aerial 3DGS Photogrammetry",
+      "ionAssetSupported": true
+    }
+  }
+]

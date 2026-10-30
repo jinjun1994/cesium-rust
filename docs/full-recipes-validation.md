@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.57
+
+新增 3D Tiles Feature Styling、3D Tiles Formats、3D Tiles Gaussian Splats with LOD、3D Tiles Gaussian Splatting 四个完整案例，累计 **175 / 309**，剩余 134 个。117 项普通 Rust、176 项实际 GPU、8 组 Node、175 个浏览器 WebGPU 案例通过。验证包含西雅图 Cesium OSM Buildings 建筑群声明式样式语言、材质条件分类与高度渐变着色（西雅图白模基准、建筑高度 HSL 连续色谱渐变、材质分类离散调色盘与高度阈值条件过滤 4 种变体）、3D Tiles 全格式多模态瓦片集、B3DM/I3DM/PNTS/CMPT 综合展示与检视器（B3DM 不透明基准、B3DM 半透明模型、PNTS 点云 RGB 着色与 I3DM 实例化矩阵 4 种变体）、层次细节空间八叉树 3D 高斯溅射辐射场、点预算约束与地表融合（全层级细节基准、高密度 400 万点、粗糙低细节预览与溅射半径放大 4 种变体）、以及实时 3D Gaussian Splatting 辐射场重构、协方差矩阵投影与前向深度排序（3DGS 真实辐射场基准、球谐函数色彩增益、低透明度调试与高对比轮廓增强 4 种变体）。详见 [本批验证](3dtiles-styling-formats-gaussiansplats-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.56
 
 新增 3D Tiles Clipping Planes、3D Tiles Compare、3D Tiles Edge Visibility、3D Tiles Feature Picking 四个完整案例，累计 **171 / 309**，剩余 138 个。116 项普通 Rust、172 项实际 GPU、8 组 Node、171 个浏览器 WebGPU 案例通过。验证包含 3D Tiles 任意方向动态裁剪平面集合、轮廓描边边缘样式与多模型目标适配（基准单向内凹裁剪剖切、45度斜向剖切平面与霓虹绿色发光高亮描边、正交六面体剖面切割组合与法向量反向遮罩剖切 4 种变体）、墨尔本实景三维与 Cesium OSM Buildings 双视口滑动分割实时对比渲染（50% 居中对称分割比对基准、25% 偏左滑块位置、75% 偏右滑块位置与全屏纯实景摄影基准视图 4 种变体）、建筑构件边缘几何特征线与外轮廓剪影提取与四态显隐模式（基准 EDGES_AND_SILHOUETTES 开启模式、纯结构边缘线模式、纯外轮廓剪影模式与关闭轮廓纯 PBR 模式 4 种变体）、以及曼哈顿纽约建筑群悬停交互高亮、单机要素选中、属性表提取与属性浮窗联动（基准鼠标悬停绿色剪影轮廓与点击黄色高亮锁定、高对比红色选中模式、全量属性展示模式与清除选择状态 4 种变体）。详见 [本批验证](3dtiles-clipping-compare-edge-picking-validation.md)。以下保留历史记录。

@@ -1,0 +1,637 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Default 3D Gaussian Splatting Scene",
+      "entities": [
+        {
+          "id": "gaussian-splatting-focal-cylinder",
+          "name": "3DGS Focal Center Landmark Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.165,
+            39.952,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.25,
+            0.55,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.75,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3667783,
+            "headingPitchRange": [
+              0,
+              -15,
+              200
+            ],
+            "radianceModel": "3D Gaussian Splats"
+          }
+        },
+        {
+          "id": "gaussian-splatting-volume-box",
+          "name": "Depth-Sorted Splat Rasterization Volume",
+          "show": true,
+          "positionDegrees": [
+            -75.158,
+            39.958,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.45,
+            0.25,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.65,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sortOrder": "Back-to-Front",
+            "blendEquation": "Alpha Premultiplied"
+          }
+        },
+        {
+          "id": "gaussian-splatting-ellipsoid-kernel",
+          "name": "Covariance Ellipsoid 3D Kernel Envelope",
+          "show": true,
+          "positionDegrees": [
+            -75.172,
+            39.946,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.35,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sphericalHarmonicsDegree": 3,
+            "covarianceRank": 3
+          }
+        },
+        {
+          "id": "gaussian-splatting-coverage-rect",
+          "name": "High-Resolution Scan Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.19,
+              39.93,
+              -75.14,
+              39.97
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.75,
+            0.25,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.45,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "captureDate": "2024-Q3",
+            "pointCountApprox": 1200000
+          }
+        }
+      ]
+    },
+    {
+      "label": "Spherical Harmonic Color Boost (Vivid Radiance)",
+      "entities": [
+        {
+          "id": "gaussian-splatting-focal-cylinder",
+          "name": "3DGS Focal Center Landmark Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.165,
+            39.952,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.25,
+            0.55,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.75,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3667783,
+            "headingPitchRange": [
+              0,
+              -15,
+              200
+            ],
+            "radianceModel": "3D Gaussian Splats"
+          }
+        },
+        {
+          "id": "gaussian-splatting-volume-box",
+          "name": "Depth-Sorted Splat Rasterization Volume",
+          "show": true,
+          "positionDegrees": [
+            -75.158,
+            39.958,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.45,
+            0.25,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.65,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sortOrder": "Back-to-Front",
+            "blendEquation": "Alpha Premultiplied"
+          }
+        },
+        {
+          "id": "gaussian-splatting-ellipsoid-kernel",
+          "name": "Covariance Ellipsoid 3D Kernel Envelope",
+          "show": true,
+          "positionDegrees": [
+            -75.172,
+            39.946,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.4,
+            0.95,
+            0.4,
+            0.95
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sphericalHarmonicsDegree": 3,
+            "covarianceRank": 3
+          }
+        },
+        {
+          "id": "gaussian-splatting-coverage-rect",
+          "name": "High-Resolution Scan Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.19,
+              39.93,
+              -75.14,
+              39.97
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.75,
+            0.25,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.45,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "captureDate": "2024-Q3",
+            "pointCountApprox": 1200000
+          }
+        }
+      ]
+    },
+    {
+      "label": "Low-Opacity Splat Inspection Mode (Alpha = 0.5)",
+      "entities": [
+        {
+          "id": "gaussian-splatting-focal-cylinder",
+          "name": "3DGS Focal Center Landmark Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.165,
+            39.952,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.25,
+            0.55,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.75,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3667783,
+            "headingPitchRange": [
+              0,
+              -15,
+              200
+            ],
+            "radianceModel": "3D Gaussian Splats"
+          }
+        },
+        {
+          "id": "gaussian-splatting-volume-box",
+          "name": "Depth-Sorted Splat Rasterization Volume",
+          "show": true,
+          "positionDegrees": [
+            -75.158,
+            39.958,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.45,
+            0.25,
+            0.5
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.65,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sortOrder": "Back-to-Front",
+            "blendEquation": "Alpha Premultiplied"
+          }
+        },
+        {
+          "id": "gaussian-splatting-ellipsoid-kernel",
+          "name": "Covariance Ellipsoid 3D Kernel Envelope",
+          "show": true,
+          "positionDegrees": [
+            -75.172,
+            39.946,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.35,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sphericalHarmonicsDegree": 3,
+            "covarianceRank": 3
+          }
+        },
+        {
+          "id": "gaussian-splatting-coverage-rect",
+          "name": "High-Resolution Scan Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.19,
+              39.93,
+              -75.14,
+              39.97
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.75,
+            0.25,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.45,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "captureDate": "2024-Q3",
+            "pointCountApprox": 1200000
+          }
+        }
+      ]
+    },
+    {
+      "label": "High-Contrast Feature Silhouette Overlay",
+      "entities": [
+        {
+          "id": "gaussian-splatting-focal-cylinder",
+          "name": "3DGS Focal Center Landmark Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.165,
+            39.952,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.95,
+            0.9,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.75,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 3667783,
+            "headingPitchRange": [
+              0,
+              -15,
+              200
+            ],
+            "radianceModel": "3D Gaussian Splats"
+          }
+        },
+        {
+          "id": "gaussian-splatting-volume-box",
+          "name": "Depth-Sorted Splat Rasterization Volume",
+          "show": true,
+          "positionDegrees": [
+            -75.158,
+            39.958,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.45,
+            0.25,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.65,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sortOrder": "Back-to-Front",
+            "blendEquation": "Alpha Premultiplied"
+          }
+        },
+        {
+          "id": "gaussian-splatting-ellipsoid-kernel",
+          "name": "Covariance Ellipsoid 3D Kernel Envelope",
+          "show": true,
+          "positionDegrees": [
+            -75.172,
+            39.946,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.35,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sphericalHarmonicsDegree": 3,
+            "covarianceRank": 3
+          }
+        },
+        {
+          "id": "gaussian-splatting-coverage-rect",
+          "name": "High-Resolution Scan Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.19,
+              39.93,
+              -75.14,
+              39.97
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.75,
+            0.25,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.45,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "captureDate": "2024-Q3",
+            "pointCountApprox": 1200000
+          }
+        }
+      ]
+    }
+  ]
+}

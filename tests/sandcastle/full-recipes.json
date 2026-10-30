@@ -4819,6 +4819,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "3d-tiles-feature-styling",
+      "title": "3D Tiles Feature Styling",
+      "sourceSha256": "ddd96b46e231a843b374803c09e35ff7d781a1dfc5b9c962f9cd9c03089484ac",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-feature-styling",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-feature-styling.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-feature-styling.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Tiles Styling language expressions for individual features in Cesium OSM Buildings",
+        "Support for color by building material, height-based HSL gradient, and conditional visibility"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-formats",
+      "title": "3D Tiles Formats",
+      "sourceSha256": "b44ecba763830ec48523bf01502da40aabc51e8074a4a0259ebc6c49694b3511",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-formats",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-formats.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-formats.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Tiles inspector and format showcase covering B3DM, I3DM, PNTS, and CMPT tilesets",
+        "Support for translucent batched tilesets, point cloud RGB semantics, and instanced matrices"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-gaussian-splats-with-lod",
+      "title": "3D Tiles Gaussian Splats – Multiple LODs",
+      "sourceSha256": "6a66b6a6e1b2001287efba895ea15096e00f2ef6e865424eccee1eb6024d6cf3",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-gaussian-splats-with-lod",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-gaussian-splats-with-lod.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-gaussian-splats-with-lod.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Tiles Gaussian Splats with hierarchical Level of Detail (LOD) and terrain integration",
+        "Point budget controls, bounding sphere camera framing, and dynamic splat radius scaling"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-gaussian-splatting",
+      "title": "3D Tiles Gaussian Splats",
+      "sourceSha256": "622cce93e933880446e92511fd4064a8f76ecec7ad00bb078bc87ebb0ae6266f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-gaussian-splatting",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-gaussian-splatting.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-gaussian-splatting.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Real-time 3D Gaussian Splatting radiance field rendering from Ion asset streaming",
+        "Sorted alpha blending, covariance ellipsoid projection, and spherical harmonics shading"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

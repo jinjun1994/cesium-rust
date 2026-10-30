@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "3d-tiles-clipping-planes",
+      "id": "3d-tiles-feature-styling",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "ffe1f045f3a645b917c621a4e727f3f387a476bb8267f6a36d22b9371ce8ef80",
-      "inputSha256": "a4347aa69bf119b53c6ad4ab689332bbfa1739ec76ca4e6c3315d552c7c6a5dc",
-      "fixtureSha256": "177f795eae20f618e7f8ddf3e520b2cc6609564c6caac76ab34a23b5a84cc862",
+      "sourceSha256": "ddd96b46e231a843b374803c09e35ff7d781a1dfc5b9c962f9cd9c03089484ac",
+      "inputSha256": "63c7509cbb561cda9f32cf90241d2e3b2bfa64a7e7f8bb8524a08ca8708a134f",
+      "fixtureSha256": "ee17547c03b6330f2f8aee43c926d4a7eb776a728a1d2a388b989568999fb4f2",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,37 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "clip-planes-pivot-cylinder",
-        "clip-planes-cutout-box",
-        "clip-planes-normal-sphere",
-        "clip-planes-section-rect"
+        "feature-styling-seattle-needle-cylinder",
+        "feature-styling-height-gradient-box",
+        "feature-styling-material-sphere",
+        "feature-styling-downtown-rect"
       ],
       "pixelCounts": [
         {
-          "id": "clip-planes-pivot-cylinder",
+          "id": "feature-styling-seattle-needle-cylinder",
           "pixels": 87505
         },
         {
-          "id": "clip-planes-cutout-box",
+          "id": "feature-styling-height-gradient-box",
           "pixels": 103808
         },
         {
-          "id": "clip-planes-normal-sphere",
+          "id": "feature-styling-material-sphere",
           "pixels": 152594
         },
         {
-          "id": "clip-planes-section-rect",
-          "pixels": 101065
+          "id": "feature-styling-downtown-rect",
+          "pixels": 95536
         }
       ]
     },
     {
-      "id": "3d-tiles-compare",
+      "id": "3d-tiles-formats",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "43538d39444d1f268dce8e324fc70decd6c7683172fc4a84ce4ba1ee3f71d270",
-      "inputSha256": "f05184ceb34db31e8494d5637b61c8eb9316fb5e9d4cc39aae0534b661c013a4",
-      "fixtureSha256": "b582814f1efd53285773b6f5e8cb1ed9f069e42c461c1c8f5369751d64540a95",
+      "sourceSha256": "b44ecba763830ec48523bf01502da40aabc51e8074a4a0259ebc6c49694b3511",
+      "inputSha256": "7af6629dc679ed051b4460ff2309f5bb448845fa14f5964415301a775aaec9c7",
+      "fixtureSha256": "82c0689c4c4692aa8f1854e98aeea7a6adf359271c8e589480773ba3e620bc37",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -63,37 +63,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "compare-melbourne-spire-cylinder",
-        "compare-split-divider-box",
-        "compare-photogrammetry-dome",
-        "compare-urban-corridor-rect"
+        "formats-b3dm-monolith-cylinder",
+        "formats-i3dm-instanced-box",
+        "formats-pnts-cloud-sphere",
+        "formats-composite-campus-rect"
       ],
       "pixelCounts": [
         {
-          "id": "compare-melbourne-spire-cylinder",
+          "id": "formats-b3dm-monolith-cylinder",
           "pixels": 87505
         },
         {
-          "id": "compare-split-divider-box",
+          "id": "formats-i3dm-instanced-box",
           "pixels": 103808
         },
         {
-          "id": "compare-photogrammetry-dome",
+          "id": "formats-pnts-cloud-sphere",
           "pixels": 152594
         },
         {
-          "id": "compare-urban-corridor-rect",
-          "pixels": 96400
+          "id": "formats-composite-campus-rect",
+          "pixels": 98093
         }
       ]
     },
     {
-      "id": "3d-tiles-edge-visibility",
+      "id": "3d-tiles-gaussian-splats-with-lod",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "3c8319fac350d781cf0cb9f53dbbe32da6fb4bfb18a919f6d18ad59507e871d4",
-      "inputSha256": "cb1dab2000fa9e58226661fb5529b41cafd93f3681837e22a0a1e70ad5e9a2b8",
-      "fixtureSha256": "d139477e223d34c72478a488d3b0c5c053798bb9edd7104acf6eb8eab211f5bb",
+      "sourceSha256": "6a66b6a6e1b2001287efba895ea15096e00f2ef6e865424eccee1eb6024d6cf3",
+      "inputSha256": "b66c85654e1dd6b4933b8617a951a80fa9c71a25a03f16c19b23f2150433d544",
+      "fixtureSha256": "bf9076b6ea95f4416d5e86ac9d86eac5974a061d55a6723a54779a47cf286d76",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -104,37 +104,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "edge-visibility-datum-cylinder",
-        "edge-visibility-wireframe-box",
-        "edge-visibility-silhouette-dome",
-        "edge-visibility-campus-rect"
+        "splats-lod-core-cylinder",
+        "splats-lod-octree-box",
+        "splats-lod-radiance-sphere",
+        "splats-lod-capture-rect"
       ],
       "pixelCounts": [
         {
-          "id": "edge-visibility-datum-cylinder",
+          "id": "splats-lod-core-cylinder",
           "pixels": 87505
         },
         {
-          "id": "edge-visibility-wireframe-box",
+          "id": "splats-lod-octree-box",
           "pixels": 103808
         },
         {
-          "id": "edge-visibility-silhouette-dome",
+          "id": "splats-lod-radiance-sphere",
           "pixels": 152594
         },
         {
-          "id": "edge-visibility-campus-rect",
-          "pixels": 101065
+          "id": "splats-lod-capture-rect",
+          "pixels": 100835
         }
       ]
     },
     {
-      "id": "3d-tiles-feature-picking",
+      "id": "3d-tiles-gaussian-splatting",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "459aca5a1a5fbef30d01859880f7bdfbe631b0cf441b8b1522bb4257c3d1adb2",
-      "inputSha256": "3058779f628e4715a5701ac355b369db5522d20f380525d75c2825a36ade15d4",
-      "fixtureSha256": "d781cb679191683d916cd3f0e42c2c17654309c43c24b99d2c812ca84d69b42d",
+      "sourceSha256": "622cce93e933880446e92511fd4064a8f76ecec7ad00bb078bc87ebb0ae6266f",
+      "inputSha256": "edbe9dd16bd8dc528db040f7b56ff7d73ecb4e24a7462c1589f2bc8ece338b16",
+      "fixtureSha256": "6286a179a682839d7de4e4ba407f079fb69a7d7f8748aa9edde0aff29112f548",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -145,27 +145,27 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "picking-manhattan-beacon-cylinder",
-        "picking-hover-selected-box",
-        "picking-feature-inspection-sphere",
-        "picking-cadastral-zone-rect"
+        "gaussian-splatting-focal-cylinder",
+        "gaussian-splatting-volume-box",
+        "gaussian-splatting-ellipsoid-kernel",
+        "gaussian-splatting-coverage-rect"
       ],
       "pixelCounts": [
         {
-          "id": "picking-manhattan-beacon-cylinder",
+          "id": "gaussian-splatting-focal-cylinder",
           "pixels": 87505
         },
         {
-          "id": "picking-hover-selected-box",
+          "id": "gaussian-splatting-volume-box",
           "pixels": 103808
         },
         {
-          "id": "picking-feature-inspection-sphere",
+          "id": "gaussian-splatting-ellipsoid-kernel",
           "pixels": 152594
         },
         {
-          "id": "picking-cadastral-zone-rect",
-          "pixels": 96298
+          "id": "gaussian-splatting-coverage-rect",
+          "pixels": 96414
         }
       ]
     }

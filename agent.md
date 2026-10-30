@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.56（已通过 171 / 309 个完整案例，剩余 138 个）
+- **当前版本**：v0.0.57（已通过 175 / 309 个完整案例，剩余 134 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.57 验收完成：样式语言表达式 (3D Tiles Feature Styling)、全格式多模态 (3D Tiles Formats)、LOD 高斯溅射 (3D Tiles Gaussian Splats with LOD) 与实时 3DGS (3D Tiles Gaussian Splatting)
+- **完成配方**（累计推进至 **175 / 309**，剩余 134 个）：
+  1. `3d-tiles-feature-styling`（西雅图 Cesium OSM Buildings 建筑群声明式样式语言、材质条件分类与高度渐变着色：西雅图白模基准、建筑高度 HSL 连续色谱渐变、材质分类离散调色盘与高度阈值条件过滤 4 种变体）
+  2. `3d-tiles-formats`（3D Tiles 全格式多模态瓦片集、B3DM/I3DM/PNTS/CMPT 综合展示与检视器：B3DM 不透明基准、B3DM 半透明模型、PNTS 点云 RGB 着色与 I3DM 实例化矩阵 4 种变体）
+  3. `3d-tiles-gaussian-splats-with-lod`（层次细节空间八叉树 3D 高斯溅射辐射场、点预算约束与地表融合：全层级细节基准、高密度 400 万点、粗糙低细节预览与溅射半径放大 4 种变体）
+  4. `3d-tiles-gaussian-splatting`（实时 3D Gaussian Splatting 辐射场重构、协方差矩阵投影与前向深度排序：3DGS 真实辐射场基准、球谐函数色彩增益、低透明度调试与高对比轮廓增强 4 种变体）
+- **核心研发突破**：
+  1. **3D Tiles 声明式样式语法运行时（Declarative Tile Styling Runtime）**：支持 HSL 动态色彩空间求值、自定义数学运算符与属性条件三元表达式，直接映射为片元着色器常量寄存器。
+  2. **跨格式瓦片集统一解算（Unified 3D Tiles Multi-Format Decoder）**：同一视口管线无缝支持 B3DM 实体面、I3DM 几何实例化、PNTS 属性激光点云与 CMPT 复合瓦片集无缝混合渲染。
+  3. **分层细节三维高斯溅射八叉树（Hierarchical LOD Gaussian Splats Octree）**：建立视锥空间误差 SSE 自适应八叉树切割，支持数百万高斯溅射椭球内核的保真度动态缩放。
+  4. **3DGS 协方差椭球投影与前向混合（Covariance Splat Projection & Alpha Compositing）**：精确计算相机视线切向投影椭圆，结合深度排序执行预乘透明度合成，实现完全无伪影的实景辐射场重构。
+- **验证结果**：
+  - **普通 Rust 单元测试**：117 项全部通过（含 `batch57_3d_tiles_feature_styling_formats_gaussian_splats`）。
+  - **真实 GPU 离屏渲染测试**：176 / 176 项全数通过（`176 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：175 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [3D Tiles Feature Styling、3D Tiles Formats、3D Tiles Gaussian Splats with LOD 与 3D Tiles Gaussian Splatting 验证文档](docs/3dtiles-styling-formats-gaussiansplats-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.56 验收完成：剖切平面集合 (3D Tiles Clipping Planes)、双视口滑块比对 (3D Tiles Compare)、建筑边缘与剪影提取 (3D Tiles Edge Visibility) 与曼哈顿要素拾取交互 (3D Tiles Feature Picking)
 - **完成配方**（累计推进至 **171 / 309**，剩余 138 个）：

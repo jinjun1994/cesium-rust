@@ -1,0 +1,154 @@
+[
+  {
+    "id": "formats-b3dm-monolith-cylinder",
+    "name": "B3DM Batched 3D Model Primary Cylinder",
+    "show": true,
+    "positionDegrees": [
+      -75.615,
+      40.045,
+      2500
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 5000,
+      "topRadius": 1500,
+      "bottomRadius": 1500
+    },
+    "color": [
+      0.85,
+      0.35,
+      0.25,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.55,
+      0.45,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "format": "b3dm",
+      "sampleTileset": "Tilesets/Tileset/tileset.json",
+      "inspectorMixin": true
+    }
+  },
+  {
+    "id": "formats-i3dm-instanced-box",
+    "name": "I3DM Instanced 3D Model Forest Matrix Box",
+    "show": true,
+    "positionDegrees": [
+      -75.608,
+      40.052,
+      2000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        2500,
+        2500,
+        2200
+      ]
+    },
+    "color": [
+      0.25,
+      0.85,
+      0.55,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.45,
+      1,
+      0.75,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "format": "i3dm",
+      "sampleTileset": "Instanced/InstancedOrientation/tileset.json",
+      "instanceCount": 25
+    }
+  },
+  {
+    "id": "formats-pnts-cloud-sphere",
+    "name": "PNTS Point Cloud Spectral Cluster Sphere",
+    "show": true,
+    "positionDegrees": [
+      -75.622,
+      40.038,
+      2200
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        2000,
+        2000,
+        1800
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      0.2,
+      0.65,
+      0.95,
+      0.85
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "format": "pnts",
+      "sampleTileset": "PointCloud/PointCloudRGB/tileset.json",
+      "semantics": "RGB, POSITION, NORMAL"
+    }
+  },
+  {
+    "id": "formats-composite-campus-rect",
+    "name": "CMPT Composite Tile & Translucent Extent",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -75.635,
+        40.03,
+        -75.595,
+        40.065
+      ],
+      "height": 2000,
+      "extrudedHeight": 4000,
+      "rotation": 0
+    },
+    "color": [
+      0.65,
+      0.35,
+      0.85,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.85,
+      0.55,
+      1,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "format": "cmpt",
+      "translucentResource": "Batched/BatchedTranslucent/tileset.json",
+      "shadows": true
+    }
+  }
+]

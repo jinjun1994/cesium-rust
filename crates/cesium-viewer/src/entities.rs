@@ -4366,4 +4366,62 @@ mod tests {
         let fp_variants = crate::entity_variants::decode(&fp_variants_raw).unwrap();
         assert_eq!(fp_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch57_3d_tiles_feature_styling_formats_gaussian_splats() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. 3D Tiles Feature Styling
+        let fs_data = std::fs::read(base.join("3d-tiles-feature-styling.json")).unwrap();
+        let fs_entities = decode(&fs_data).unwrap();
+        assert_eq!(fs_entities.len(), 4);
+        assert!(matches!(fs_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(fs_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(fs_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(fs_entities[3].shape, Shape::Rectangle { .. }));
+        let fs_variants_raw =
+            std::fs::read(base.join("3d-tiles-feature-styling.variants.json")).unwrap();
+        let fs_variants = crate::entity_variants::decode(&fs_variants_raw).unwrap();
+        assert_eq!(fs_variants.variants.len(), 4);
+
+        // 2. 3D Tiles Formats
+        let fm_data = std::fs::read(base.join("3d-tiles-formats.json")).unwrap();
+        let fm_entities = decode(&fm_data).unwrap();
+        assert_eq!(fm_entities.len(), 4);
+        assert!(matches!(fm_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(fm_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(fm_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(fm_entities[3].shape, Shape::Rectangle { .. }));
+        let fm_variants_raw = std::fs::read(base.join("3d-tiles-formats.variants.json")).unwrap();
+        let fm_variants = crate::entity_variants::decode(&fm_variants_raw).unwrap();
+        assert_eq!(fm_variants.variants.len(), 4);
+
+        // 3. 3D Tiles Gaussian Splats with LOD
+        let gs_lod_data =
+            std::fs::read(base.join("3d-tiles-gaussian-splats-with-lod.json")).unwrap();
+        let gs_lod_entities = decode(&gs_lod_data).unwrap();
+        assert_eq!(gs_lod_entities.len(), 4);
+        assert!(matches!(gs_lod_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(gs_lod_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(gs_lod_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(gs_lod_entities[3].shape, Shape::Rectangle { .. }));
+        let gs_lod_variants_raw =
+            std::fs::read(base.join("3d-tiles-gaussian-splats-with-lod.variants.json")).unwrap();
+        let gs_lod_variants = crate::entity_variants::decode(&gs_lod_variants_raw).unwrap();
+        assert_eq!(gs_lod_variants.variants.len(), 4);
+
+        // 4. 3D Tiles Gaussian Splatting
+        let gs_data = std::fs::read(base.join("3d-tiles-gaussian-splatting.json")).unwrap();
+        let gs_entities = decode(&gs_data).unwrap();
+        assert_eq!(gs_entities.len(), 4);
+        assert!(matches!(gs_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(gs_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(gs_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(gs_entities[3].shape, Shape::Rectangle { .. }));
+        let gs_variants_raw =
+            std::fs::read(base.join("3d-tiles-gaussian-splatting.variants.json")).unwrap();
+        let gs_variants = crate::entity_variants::decode(&gs_variants_raw).unwrap();
+        assert_eq!(gs_variants.variants.len(), 4);
+    }
 }
