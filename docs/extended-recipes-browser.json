@@ -6,63 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "aec-isolate-by-category",
-      "status": "passed",
-      "entities": 6,
-      "sourceSha256": "488fbff81b79f62f7d13897e4ab0b77a522ed9ac1930fc7b3b4409a9bd86dfe9",
-      "inputSha256": "2ac76e6a9c9fb30f7553f8a5b10925da6041ed995a91264733511796225fa60c",
-      "fixtureSha256": "2f8e91627a819bf37c250bc7951c2d8ac65290d1c3d373cacabf485f8e6dfca8",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "aec-isolate-wall",
-        "aec-isolate-floor",
-        "aec-isolate-stairs",
-        "aec-isolate-doors",
-        "aec-isolate-lighting",
-        "aec-isolate-site-bounds"
-      ],
-      "pixelCounts": [
-        {
-          "id": "aec-isolate-wall",
-          "pixels": 209
-        },
-        {
-          "id": "aec-isolate-floor",
-          "pixels": 410
-        },
-        {
-          "id": "aec-isolate-stairs",
-          "pixels": 60
-        },
-        {
-          "id": "aec-isolate-doors",
-          "pixels": 14
-        },
-        {
-          "id": "aec-isolate-lighting",
-          "pixels": 14
-        },
-        {
-          "id": "aec-isolate-site-bounds",
-          "pixels": 5328
-        }
-      ]
-    },
-    {
-      "id": "aec-metadata-styling",
+      "id": "aerometrex-san-francisco",
       "status": "passed",
       "entities": 5,
-      "sourceSha256": "b87bd0560fee8124ec3eba5faed5dc820633c29bfbb574e6580ac9f710e804ff",
-      "inputSha256": "6e3549ac18113cc6ecec83440b707cd9b8980f1e5206c554f929096d096012b3",
-      "fixtureSha256": "5c8fe848e8637652db75b410e809d2545b7358ab3353b277419495e0f8fe3b03",
+      "sourceSha256": "07083a05d46ac2065795f5f1fb3159ffdd4ad7fa2b1b7a675ad93343bdfa8408",
+      "inputSha256": "d8c467f6b09033e9cba43cbc4888e7f10cd45f2332d8ef9630a77aff911cc85c",
+      "fixtureSha256": "5ac1ffe8fb62c23ddb154abcb49da92caf0830c6d6997842279c7a52a4f3f4df",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -73,42 +22,42 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "aec-meta-ghost-building",
-        "aec-meta-hvac-main",
-        "aec-meta-hvac-branch",
-        "aec-meta-hvac-terminal",
-        "aec-meta-site-footprint"
+        "sf-ferry-building-tower",
+        "sf-pier39-marina",
+        "sf-skyline-transamerica",
+        "sf-lombard-crooked-hill",
+        "sf-bay-waterfront-bounds"
       ],
       "pixelCounts": [
         {
-          "id": "aec-meta-ghost-building",
-          "pixels": 702
+          "id": "sf-ferry-building-tower",
+          "pixels": 1035
         },
         {
-          "id": "aec-meta-hvac-main",
-          "pixels": 76
+          "id": "sf-pier39-marina",
+          "pixels": 1833
         },
         {
-          "id": "aec-meta-hvac-branch",
-          "pixels": 30
+          "id": "sf-skyline-transamerica",
+          "pixels": 2175
         },
         {
-          "id": "aec-meta-hvac-terminal",
-          "pixels": 24
+          "id": "sf-lombard-crooked-hill",
+          "pixels": 594
         },
         {
-          "id": "aec-meta-site-footprint",
-          "pixels": 4461
+          "id": "sf-bay-waterfront-bounds",
+          "pixels": 64431
         }
       ]
     },
     {
-      "id": "aec-snapping",
+      "id": "arcgis-tiled-elevation-terrain",
       "status": "passed",
-      "entities": 6,
-      "sourceSha256": "86d3aa5a7fb5cccdb9bcd9709ff7fd5f09d3e6d6bb59cc76c761cd668e0152b0",
-      "inputSha256": "a28b4b1b995ff39560c9d291777ef2f9b4c4481c2f694791a9922c06ba0996bb",
-      "fixtureSha256": "c8e60c4185997394b1ca08c490f9e8165aac58f251f0f3323a0764b890dfb13b",
+      "entities": 4,
+      "sourceSha256": "c547a6dbf2be1eb13e20993ce1d78d188795584a10e3809a2aeaa76a922cb9f7",
+      "inputSha256": "abf141c501917f6bcc14631c479edaac5e5a7919d0ab734b72e666458d667499",
+      "fixtureSha256": "f36c6fe459ad29df3b716d0dbc0ef1caa36f119c112128292ea789e1e1e0dca3",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -119,47 +68,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "aec-snap-column",
-        "aec-snap-hover-marker",
-        "aec-snap-client-marker",
-        "aec-snap-server-marker",
-        "aec-snap-terrain-marker",
-        "aec-snap-foundation-pad"
+        "arcgis-elevation-pillar",
+        "arcgis-canyon-rim-box",
+        "arcgis-colorado-river-datum",
+        "arcgis-coverage-boundary"
       ],
       "pixelCounts": [
         {
-          "id": "aec-snap-column",
-          "pixels": 80
+          "id": "arcgis-elevation-pillar",
+          "pixels": 31707
         },
         {
-          "id": "aec-snap-hover-marker",
-          "pixels": 56
+          "id": "arcgis-canyon-rim-box",
+          "pixels": 19034
         },
         {
-          "id": "aec-snap-client-marker",
-          "pixels": 41
+          "id": "arcgis-colorado-river-datum",
+          "pixels": 14367
         },
         {
-          "id": "aec-snap-server-marker",
-          "pixels": 61
-        },
-        {
-          "id": "aec-snap-terrain-marker",
-          "pixels": 56
-        },
-        {
-          "id": "aec-snap-foundation-pad",
-          "pixels": 1809
+          "id": "arcgis-coverage-boundary",
+          "pixels": 61664
         }
       ]
     },
     {
-      "id": "aec-tileset-metadata-filtering",
+      "id": "arcticdem",
       "status": "passed",
-      "entities": 5,
-      "sourceSha256": "410830d4c3f73da110df78458abede4032ae3916095784aaff3f8d9e8ffad430",
-      "inputSha256": "5f70c813703484e23ce2eabd4a6debdd335e0b0fc27af1075b36516bc398c06a",
-      "fixtureSha256": "1a91c7883b28befc5878816a44d1a0e9619c9636b1317a3ebef94f745af465da",
+      "entities": 4,
+      "sourceSha256": "4de76cc07860ed18739a51bf3b774c4656bfad4519514fcd306fc908cfc35c04",
+      "inputSha256": "c78d92da6eb84954f4d1c6dec6ca571786895bcbe4e408a19e1350ac33c7a009",
+      "fixtureSha256": "32c0cd0cf7ebd6663c81e6910fefd7a5adfce11f01e07e9373b31c6116573147",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -170,32 +109,68 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "aec-filter-col-cylinder",
-        "aec-filter-mullions-box",
-        "aec-filter-floor-slab",
-        "aec-filter-roof-deck",
-        "aec-filter-site-grid"
+        "arctic-denali-summit",
+        "arctic-kahiltna-glacier",
+        "arctic-lateral-moraine",
+        "arctic-strip-coverage-rect"
       ],
       "pixelCounts": [
         {
-          "id": "aec-filter-col-cylinder",
-          "pixels": 30
+          "id": "arctic-denali-summit",
+          "pixels": 47516
         },
         {
-          "id": "aec-filter-mullions-box",
-          "pixels": 107
+          "id": "arctic-kahiltna-glacier",
+          "pixels": 64771
         },
         {
-          "id": "aec-filter-floor-slab",
-          "pixels": 390
+          "id": "arctic-lateral-moraine",
+          "pixels": 36601
         },
         {
-          "id": "aec-filter-roof-deck",
-          "pixels": 342
+          "id": "arctic-strip-coverage-rect",
+          "pixels": 66423
+        }
+      ]
+    },
+    {
+      "id": "cesium-inspector",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "f867a46b9c0dc15191a01e4d5868bc2b319b1ca828ad14cb95ab64ce0f036942",
+      "inputSha256": "b60a157b7a663da4a2acc4f28503f244ed086ae6623075b6b94793b13e4e9fe3",
+      "fixtureSha256": "2376e75d5ea6bd68985770f4ca3b9657c3cbe44f84ecc189cfd0e3eaddee3302",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "inspector-primitive-box",
+        "inspector-elevated-rectangle",
+        "inspector-billboard-marker",
+        "inspector-terrain-reference"
+      ],
+      "pixelCounts": [
+        {
+          "id": "inspector-primitive-box",
+          "pixels": 98374
         },
         {
-          "id": "aec-filter-site-grid",
-          "pixels": 4461
+          "id": "inspector-elevated-rectangle",
+          "pixels": 63468
+        },
+        {
+          "id": "inspector-billboard-marker",
+          "pixels": 166025
+        },
+        {
+          "id": "inspector-terrain-reference",
+          "pixels": 75705
         }
       ]
     }

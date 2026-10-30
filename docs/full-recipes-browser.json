@@ -7793,6 +7793,175 @@
           "pixels": 4461
         }
       ]
+    },
+    {
+      "id": "aerometrex-san-francisco",
+      "status": "passed",
+      "entities": 5,
+      "sourceSha256": "07083a05d46ac2065795f5f1fb3159ffdd4ad7fa2b1b7a675ad93343bdfa8408",
+      "inputSha256": "d8c467f6b09033e9cba43cbc4888e7f10cd45f2332d8ef9630a77aff911cc85c",
+      "fixtureSha256": "5ac1ffe8fb62c23ddb154abcb49da92caf0830c6d6997842279c7a52a4f3f4df",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "sf-ferry-building-tower",
+        "sf-pier39-marina",
+        "sf-skyline-transamerica",
+        "sf-lombard-crooked-hill",
+        "sf-bay-waterfront-bounds"
+      ],
+      "pixelCounts": [
+        {
+          "id": "sf-ferry-building-tower",
+          "pixels": 1035
+        },
+        {
+          "id": "sf-pier39-marina",
+          "pixels": 1833
+        },
+        {
+          "id": "sf-skyline-transamerica",
+          "pixels": 2175
+        },
+        {
+          "id": "sf-lombard-crooked-hill",
+          "pixels": 594
+        },
+        {
+          "id": "sf-bay-waterfront-bounds",
+          "pixels": 64431
+        }
+      ]
+    },
+    {
+      "id": "arcgis-tiled-elevation-terrain",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "c547a6dbf2be1eb13e20993ce1d78d188795584a10e3809a2aeaa76a922cb9f7",
+      "inputSha256": "abf141c501917f6bcc14631c479edaac5e5a7919d0ab734b72e666458d667499",
+      "fixtureSha256": "f36c6fe459ad29df3b716d0dbc0ef1caa36f119c112128292ea789e1e1e0dca3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "arcgis-elevation-pillar",
+        "arcgis-canyon-rim-box",
+        "arcgis-colorado-river-datum",
+        "arcgis-coverage-boundary"
+      ],
+      "pixelCounts": [
+        {
+          "id": "arcgis-elevation-pillar",
+          "pixels": 31707
+        },
+        {
+          "id": "arcgis-canyon-rim-box",
+          "pixels": 19034
+        },
+        {
+          "id": "arcgis-colorado-river-datum",
+          "pixels": 14367
+        },
+        {
+          "id": "arcgis-coverage-boundary",
+          "pixels": 61664
+        }
+      ]
+    },
+    {
+      "id": "arcticdem",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "4de76cc07860ed18739a51bf3b774c4656bfad4519514fcd306fc908cfc35c04",
+      "inputSha256": "c78d92da6eb84954f4d1c6dec6ca571786895bcbe4e408a19e1350ac33c7a009",
+      "fixtureSha256": "32c0cd0cf7ebd6663c81e6910fefd7a5adfce11f01e07e9373b31c6116573147",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "arctic-denali-summit",
+        "arctic-kahiltna-glacier",
+        "arctic-lateral-moraine",
+        "arctic-strip-coverage-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "arctic-denali-summit",
+          "pixels": 47516
+        },
+        {
+          "id": "arctic-kahiltna-glacier",
+          "pixels": 64771
+        },
+        {
+          "id": "arctic-lateral-moraine",
+          "pixels": 36601
+        },
+        {
+          "id": "arctic-strip-coverage-rect",
+          "pixels": 66423
+        }
+      ]
+    },
+    {
+      "id": "cesium-inspector",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "f867a46b9c0dc15191a01e4d5868bc2b319b1ca828ad14cb95ab64ce0f036942",
+      "inputSha256": "b60a157b7a663da4a2acc4f28503f244ed086ae6623075b6b94793b13e4e9fe3",
+      "fixtureSha256": "2376e75d5ea6bd68985770f4ca3b9657c3cbe44f84ecc189cfd0e3eaddee3302",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "inspector-primitive-box",
+        "inspector-elevated-rectangle",
+        "inspector-billboard-marker",
+        "inspector-terrain-reference"
+      ],
+      "pixelCounts": [
+        {
+          "id": "inspector-primitive-box",
+          "pixels": 98374
+        },
+        {
+          "id": "inspector-elevated-rectangle",
+          "pixels": 63468
+        },
+        {
+          "id": "inspector-billboard-marker",
+          "pixels": 166025
+        },
+        {
+          "id": "inspector-terrain-reference",
+          "pixels": 75705
+        }
+      ]
     }
   ],
   "browser": "156.0.8078.75",

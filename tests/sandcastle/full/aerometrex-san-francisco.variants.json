@@ -1,0 +1,745 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: San Francisco Waterfront & Landmarks",
+      "entities": [
+        {
+          "id": "sf-ferry-building-tower",
+          "name": "San Francisco Ferry Building Landmark Tower (~6mm/px)",
+          "show": true,
+          "positionDegrees": [
+            -122.3937,
+            37.7955,
+            65
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              40,
+              90
+            ]
+          },
+          "color": [
+            0.86,
+            0.78,
+            0.7,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "The Embarcadero / Market St",
+            "resolution": "~6mm per pixel",
+            "assetId": 1415196
+          }
+        },
+        {
+          "id": "sf-pier39-marina",
+          "name": "Pier 39 Marine Boardwalk (2cm/px)",
+          "show": true,
+          "positionDegrees": [
+            -122.4098,
+            37.8087,
+            50
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 35,
+            "bottomRadius": 35
+          },
+          "color": [
+            0.35,
+            0.68,
+            0.88,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "Fisherman Wharf / Pier 39",
+            "resolution": "2 cm per pixel"
+          }
+        },
+        {
+          "id": "sf-skyline-transamerica",
+          "name": "Transamerica Financial Skyline Tower",
+          "show": true,
+          "positionDegrees": [
+            -122.401,
+            37.792,
+            140
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              45,
+              45,
+              260
+            ]
+          },
+          "color": [
+            0.92,
+            0.92,
+            0.96,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "Montgomery Street Financial Core",
+            "heightMeters": 260
+          }
+        },
+        {
+          "id": "sf-lombard-crooked-hill",
+          "name": "Lombard Street Russian Hill Crooked Section",
+          "show": true,
+          "positionDegrees": [
+            -122.418,
+            37.802,
+            90
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              32,
+              32,
+              22
+            ]
+          },
+          "color": [
+            0.88,
+            0.38,
+            0.28,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.65,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "Russian Hill Switchbacks",
+            "resolution": "2 cm per pixel"
+          }
+        },
+        {
+          "id": "sf-bay-waterfront-bounds",
+          "name": "San Francisco Waterfront Photogrammetry Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.425,
+              37.788,
+              -122.385,
+              37.815
+            ]
+          },
+          "color": [
+            0.2,
+            0.45,
+            0.65,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.65,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "waterfrontBounds"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Ferry Building & Embarcadero (~6mm/px)",
+      "entities": [
+        {
+          "id": "sf-ferry-building-tower",
+          "name": "San Francisco Ferry Building Landmark Tower (~6mm/px)",
+          "show": true,
+          "positionDegrees": [
+            -122.3937,
+            37.7955,
+            65
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              40,
+              90
+            ]
+          },
+          "color": [
+            0.98,
+            0.85,
+            0.3,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "The Embarcadero / Market St",
+            "resolution": "~6mm per pixel",
+            "assetId": 1415196
+          }
+        },
+        {
+          "id": "sf-pier39-marina",
+          "name": "Pier 39 Marine Boardwalk (2cm/px)",
+          "show": true,
+          "positionDegrees": [
+            -122.4098,
+            37.8087,
+            50
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 35,
+            "bottomRadius": 35
+          },
+          "color": [
+            0.35,
+            0.68,
+            0.88,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "Fisherman Wharf / Pier 39",
+            "resolution": "2 cm per pixel"
+          }
+        },
+        {
+          "id": "sf-skyline-transamerica",
+          "name": "Transamerica Financial Skyline Tower",
+          "show": true,
+          "positionDegrees": [
+            -122.401,
+            37.792,
+            140
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              45,
+              45,
+              260
+            ]
+          },
+          "color": [
+            0.92,
+            0.92,
+            0.96,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "Montgomery Street Financial Core",
+            "heightMeters": 260
+          }
+        },
+        {
+          "id": "sf-lombard-crooked-hill",
+          "name": "Lombard Street Russian Hill Crooked Section",
+          "show": true,
+          "positionDegrees": [
+            -122.418,
+            37.802,
+            90
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              32,
+              32,
+              22
+            ]
+          },
+          "color": [
+            0.88,
+            0.38,
+            0.28,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.65,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "Russian Hill Switchbacks",
+            "resolution": "2 cm per pixel"
+          }
+        },
+        {
+          "id": "sf-bay-waterfront-bounds",
+          "name": "San Francisco Waterfront Photogrammetry Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.425,
+              37.788,
+              -122.385,
+              37.815
+            ]
+          },
+          "color": [
+            0.2,
+            0.45,
+            0.65,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.65,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "waterfrontBounds"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Pier 39 Marina (2cm/px High Resolution)",
+      "entities": [
+        {
+          "id": "sf-ferry-building-tower",
+          "name": "San Francisco Ferry Building Landmark Tower (~6mm/px)",
+          "show": true,
+          "positionDegrees": [
+            -122.3937,
+            37.7955,
+            65
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              40,
+              90
+            ]
+          },
+          "color": [
+            0.86,
+            0.78,
+            0.7,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "The Embarcadero / Market St",
+            "resolution": "~6mm per pixel",
+            "assetId": 1415196
+          }
+        },
+        {
+          "id": "sf-pier39-marina",
+          "name": "Pier 39 Marine Boardwalk (2cm/px)",
+          "show": true,
+          "positionDegrees": [
+            -122.4098,
+            37.8087,
+            50
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 35,
+            "bottomRadius": 35
+          },
+          "color": [
+            0.2,
+            0.9,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "Fisherman Wharf / Pier 39",
+            "resolution": "2 cm per pixel"
+          }
+        },
+        {
+          "id": "sf-skyline-transamerica",
+          "name": "Transamerica Financial Skyline Tower",
+          "show": true,
+          "positionDegrees": [
+            -122.401,
+            37.792,
+            140
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              45,
+              45,
+              260
+            ]
+          },
+          "color": [
+            0.92,
+            0.92,
+            0.96,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "Montgomery Street Financial Core",
+            "heightMeters": 260
+          }
+        },
+        {
+          "id": "sf-lombard-crooked-hill",
+          "name": "Lombard Street Russian Hill Crooked Section",
+          "show": true,
+          "positionDegrees": [
+            -122.418,
+            37.802,
+            90
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              32,
+              32,
+              22
+            ]
+          },
+          "color": [
+            0.88,
+            0.38,
+            0.28,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.65,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "Russian Hill Switchbacks",
+            "resolution": "2 cm per pixel"
+          }
+        },
+        {
+          "id": "sf-bay-waterfront-bounds",
+          "name": "San Francisco Waterfront Photogrammetry Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.425,
+              37.788,
+              -122.385,
+              37.815
+            ]
+          },
+          "color": [
+            0.2,
+            0.45,
+            0.65,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.65,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "waterfrontBounds"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Financial District Skyline & Lombard Russian Hill",
+      "entities": [
+        {
+          "id": "sf-ferry-building-tower",
+          "name": "San Francisco Ferry Building Landmark Tower (~6mm/px)",
+          "show": true,
+          "positionDegrees": [
+            -122.3937,
+            37.7955,
+            65
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              40,
+              90
+            ]
+          },
+          "color": [
+            0.86,
+            0.78,
+            0.7,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "The Embarcadero / Market St",
+            "resolution": "~6mm per pixel",
+            "assetId": 1415196
+          }
+        },
+        {
+          "id": "sf-pier39-marina",
+          "name": "Pier 39 Marine Boardwalk (2cm/px)",
+          "show": true,
+          "positionDegrees": [
+            -122.4098,
+            37.8087,
+            50
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 35,
+            "bottomRadius": 35
+          },
+          "color": [
+            0.35,
+            0.68,
+            0.88,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "Fisherman Wharf / Pier 39",
+            "resolution": "2 cm per pixel"
+          }
+        },
+        {
+          "id": "sf-skyline-transamerica",
+          "name": "Transamerica Financial Skyline Tower",
+          "show": true,
+          "positionDegrees": [
+            -122.401,
+            37.792,
+            140
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              45,
+              45,
+              260
+            ]
+          },
+          "color": [
+            0.95,
+            0.3,
+            0.3,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "Montgomery Street Financial Core",
+            "heightMeters": 260
+          }
+        },
+        {
+          "id": "sf-lombard-crooked-hill",
+          "name": "Lombard Street Russian Hill Crooked Section",
+          "show": true,
+          "positionDegrees": [
+            -122.418,
+            37.802,
+            90
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              32,
+              32,
+              22
+            ]
+          },
+          "color": [
+            0.3,
+            0.9,
+            0.4,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.65,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "location": "Russian Hill Switchbacks",
+            "resolution": "2 cm per pixel"
+          }
+        },
+        {
+          "id": "sf-bay-waterfront-bounds",
+          "name": "San Francisco Waterfront Photogrammetry Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.425,
+              37.788,
+              -122.385,
+              37.815
+            ]
+          },
+          "color": [
+            0.2,
+            0.45,
+            0.65,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.65,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "waterfrontBounds"
+          }
+        }
+      ]
+    }
+  ]
+}

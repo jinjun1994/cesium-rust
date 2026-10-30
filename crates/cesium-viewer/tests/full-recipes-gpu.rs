@@ -700,6 +700,10 @@ async fn verify_extended(id: &str, data: &[u8]) {
         "aec-metadata-styling",
         "aec-snapping",
         "aec-tileset-metadata-filtering",
+        "aerometrex-san-francisco",
+        "arcgis-tiled-elevation-terrain",
+        "arcticdem",
+        "cesium-inspector",
     ]
     .contains(&id)
     {
@@ -6662,6 +6666,184 @@ fn complete_aec_tileset_metadata_filtering() {
             if i > 0 {
                 let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
                     format!("../../docs/full-aec-tileset-metadata-filtering-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_aerometrex_san_francisco() {
+    pollster::block_on(async {
+        verify_extended(
+            "aerometrex-san-francisco",
+            include_bytes!("../../../tests/sandcastle/full/aerometrex-san-francisco.json"),
+        )
+        .await;
+        let raw =
+            include_bytes!("../../../tests/sandcastle/full/aerometrex-san-francisco.variants.json");
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-aerometrex-san-francisco-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_arcgis_tiled_elevation_terrain() {
+    pollster::block_on(async {
+        verify_extended(
+            "arcgis-tiled-elevation-terrain",
+            include_bytes!("../../../tests/sandcastle/full/arcgis-tiled-elevation-terrain.json"),
+        )
+        .await;
+        let raw = include_bytes!(
+            "../../../tests/sandcastle/full/arcgis-tiled-elevation-terrain.variants.json"
+        );
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-arcgis-tiled-elevation-terrain-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_arcticdem() {
+    pollster::block_on(async {
+        verify_extended(
+            "arcticdem",
+            include_bytes!("../../../tests/sandcastle/full/arcticdem.json"),
+        )
+        .await;
+        let raw = include_bytes!("../../../tests/sandcastle/full/arcticdem.variants.json");
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+                    .join(format!("../../docs/full-arcticdem-variant-{i}-smoke.log"));
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_cesium_inspector() {
+    pollster::block_on(async {
+        verify_extended(
+            "cesium-inspector",
+            include_bytes!("../../../tests/sandcastle/full/cesium-inspector.json"),
+        )
+        .await;
+        let raw = include_bytes!("../../../tests/sandcastle/full/cesium-inspector.variants.json");
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-cesium-inspector-variant-{i}-smoke.log"),
                 );
                 let _ = s.zoom_to_entities(&[], 768, 512);
                 let t = attachment(

@@ -210,6 +210,10 @@ $('fullNew172').onclick=guarded(()=>runFull('aec-isolate-by-category'));
 $('fullNew173').onclick=guarded(()=>runFull('aec-metadata-styling'));
 $('fullNew174').onclick=guarded(()=>runFull('aec-snapping'));
 $('fullNew175').onclick=guarded(()=>runFull('aec-tileset-metadata-filtering'));
+$('fullNew176').onclick=guarded(()=>runFull('aerometrex-san-francisco'));
+$('fullNew177').onclick=guarded(()=>runFull('arcgis-tiled-elevation-terrain'));
+$('fullNew178').onclick=guarded(()=>runFull('arcticdem'));
+$('fullNew179').onclick=guarded(()=>runFull('cesium-inspector'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

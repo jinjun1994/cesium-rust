@@ -5575,6 +5575,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "aerometrex-san-francisco",
+      "title": "Aerometrex San Francisco",
+      "sourceSha256": "07083a05d46ac2065795f5f1fb3159ffdd4ad7fa2b1b7a675ad93343bdfa8408",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=aerometrex-san-francisco",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/aerometrex-san-francisco.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/aerometrex-san-francisco.json",
+      "entityCount": 5,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Aerometrex San Francisco High-Resolution 3D Model with Street-Level Enhanced 3D (~6mm/px)",
+        "Tour menu camera flyTos across Ferry Building, Pier 39, Skyline, and Lombard Street"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "arcgis-tiled-elevation-terrain",
+      "title": "ArcGIS Tiled Elevation Terrain",
+      "sourceSha256": "c547a6dbf2be1eb13e20993ce1d78d188795584a10e3809a2aeaa76a922cb9f7",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=arcgis-tiled-elevation-terrain",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/arcgis-tiled-elevation-terrain.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/arcgis-tiled-elevation-terrain.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "ArcGISTiledElevationTerrainProvider connecting to WorldElevation3D LERC ImageServer",
+        "Support for global 3D elevation tiles with async provider initialization and fallback alert"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "arcticdem",
+      "title": "ArcticDEM",
+      "sourceSha256": "4de76cc07860ed18739a51bf3b774c4656bfad4519514fcd306fc908cfc35c04",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=arcticdem",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/arcticdem.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/arcticdem.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "ArcticDEM Release 4 high-resolution 2m photogrammetric arctic terrain via Cesium ion Asset 3956",
+        "Toolbar location presets for Denali, Anchorage Area, Peaks, and Riverbed viewpoints"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "cesium-inspector",
+      "title": "Cesium Inspector",
+      "sourceSha256": "f867a46b9c0dc15191a01e4d5868bc2b319b1ca828ad14cb95ab64ce0f036942",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=cesium-inspector",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/cesium-inspector.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/cesium-inspector.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Cesium Inspector mixin diagnostics, depthTestAgainstTerrain globe flag, and primitive rendering",
+        "Translucent BoxGeometry primitive, elevated RectangleGeometry primitive, and BillboardCollection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

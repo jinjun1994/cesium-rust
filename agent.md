@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.63（已通过 199 / 309 个完整案例，剩余 110 个）
+- **当前版本**：v0.0.64（已通过 203 / 309 个完整案例，剩余 106 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.64 验收完成：旧金山实景三维 (Aerometrex San Francisco)、ArcGIS 瓦片高程 (ArcGIS Tiled Elevation Terrain)、北极极地地形 (ArcticDEM) 与检视器图元调试 (Cesium Inspector)
+- **完成配方**（累计推进至 **203 / 309**，剩余 106 个）：
+  1. `aerometrex-san-francisco`（Aerometrex 旧金山倾斜摄影实景三维高精模型、街道级增强与地标巡游：旧金山滨水区与标志性建筑基准全景、渡轮大厦街景增强 ~6mm/px 细节模式、39 号码头游艇港湾 2cm/px 高精度模式、泛美金字塔天际线与九曲花街折线透视 4 种变体）
+  2. `arcgis-tiled-elevation-terrain`（Esri ArcGIS 全球瓦片高程切片服务与 LERC 压缩地貌解算：科罗拉多大峡谷真实地势高程切片基准、大峡谷南缘高原测绘基准标高点模式、峡谷底深槽科罗拉多河床水准面验证模式、全高程网格地面控制点高对比校准 4 种变体）
+  3. `arcticdem`（极地地理空间中心 ArcticDEM 2米极高精北极立体摄影测绘地形与极地巡礼：迪纳利峰与阿拉斯加山脉极高海拔地势基准、北美最高峰麦金利峰 6190 米顶峰定位模式、安克雷奇楚加奇山脉与卡希尔特纳冰川干流模式、极地侧碛冰碛碎屑垄与辫状河床平原 4 种变体）
+  4. `cesium-inspector`（Cesium Inspector 调试混入、地形深度遮挡、几何体图元与广告牌集合：检视器多几何图元综合诊断基准、半透明红色 BoxGeometry 封闭外观图元检视、高空 100km 蓝色拉伸矩形几何体图元检视、广告牌图层深度缓冲遮挡与地形碰撞检视 4 种变体）
+- **核心研发突破**：
+  1. **城市微米级倾斜摄影实景三维流式调度（Street-Level Enhanced Photogrammetry & SSE Optimization）**：支持基于 `maximumScreenSpaceError: 4` 的紧密屏幕空间误差控制，结合 `HeadingPitchRoll` 的地标低空超精细平滑航拍飞行巡航。
+  2. **Esri LERC 瓦片高程空间拓扑解算流水线（ArcGIS Tiled Elevation Terrain LERC Pipeline）**：完成 `ArcGISTiledElevationTerrainProvider` 全球影像服务地址解析与切片拓扑构建，支持复杂深邃峡谷高程起伏与大地水准面高保真贴地解算。
+  3. **极地超高纬度立体摄影高程流式引擎（High-Latitude Arctic Photogrammetric Elevation Engine）**：通过 Cesium ion Asset 3956 加载 2 米网格 ArcticDEM Release 4 数据，验证了北美最高峰极度险峻地表地形与极高纬度投影几何的零延迟飞抵定位。
+  4. **全功能检视器图元诊断与深度缓冲测试（Cesium Inspector Mixin & Depth Test Against Terrain）**：验证了 `viewerCesiumInspectorMixin` 诊断覆层、半透明图元封闭着色、拉伸立体矩形与广告牌在开启地表深度测试条件下的渲染一致性。
+- **验证结果**：
+  - **普通 Rust 单元测试**：124 项全部通过（含 `batch64_aerometrex_arcgis_arcticdem_inspector`）。
+  - **真实 GPU 离屏渲染测试**：204 / 204 项全数通过（`204 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：203 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Aerometrex San Francisco、ArcGIS Tiled Elevation Terrain、ArcticDEM 与 Cesium Inspector 验证文档](docs/aerometrex-arcgis-arcticdem-inspector-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.63 验收完成：构件分类隔离 (Design Model – Category Filtering)、元数据着色 (Design Model – Metadata Styling)、混合几何捕捉 (AEC Snapping) 与元数据多级过滤 (Design Model – Tileset Metadata Filtering)
 - **完成配方**（累计推进至 **199 / 309**，剩余 110 个）：

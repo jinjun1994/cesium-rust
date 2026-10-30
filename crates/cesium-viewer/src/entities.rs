@@ -4779,4 +4779,61 @@ mod tests {
         let tf_variants = crate::entity_variants::decode(&tf_variants_raw).unwrap();
         assert_eq!(tf_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch64_aerometrex_arcgis_arcticdem_inspector() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Aerometrex San Francisco
+        let sf_data = std::fs::read(base.join("aerometrex-san-francisco.json")).unwrap();
+        let sf_entities = decode(&sf_data).unwrap();
+        assert_eq!(sf_entities.len(), 5);
+        assert!(matches!(sf_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(sf_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(sf_entities[2].shape, Shape::Box { .. }));
+        assert!(matches!(sf_entities[3].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(sf_entities[4].shape, Shape::Rectangle { .. }));
+        let sf_variants_raw =
+            std::fs::read(base.join("aerometrex-san-francisco.variants.json")).unwrap();
+        let sf_variants = crate::entity_variants::decode(&sf_variants_raw).unwrap();
+        assert_eq!(sf_variants.variants.len(), 4);
+
+        // 2. ArcGIS Tiled Elevation Terrain
+        let ag_data = std::fs::read(base.join("arcgis-tiled-elevation-terrain.json")).unwrap();
+        let ag_entities = decode(&ag_data).unwrap();
+        assert_eq!(ag_entities.len(), 4);
+        assert!(matches!(ag_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ag_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(ag_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ag_entities[3].shape, Shape::Rectangle { .. }));
+        let ag_variants_raw =
+            std::fs::read(base.join("arcgis-tiled-elevation-terrain.variants.json")).unwrap();
+        let ag_variants = crate::entity_variants::decode(&ag_variants_raw).unwrap();
+        assert_eq!(ag_variants.variants.len(), 4);
+
+        // 3. ArcticDEM
+        let ad_data = std::fs::read(base.join("arcticdem.json")).unwrap();
+        let ad_entities = decode(&ad_data).unwrap();
+        assert_eq!(ad_entities.len(), 4);
+        assert!(matches!(ad_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ad_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(ad_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ad_entities[3].shape, Shape::Rectangle { .. }));
+        let ad_variants_raw = std::fs::read(base.join("arcticdem.variants.json")).unwrap();
+        let ad_variants = crate::entity_variants::decode(&ad_variants_raw).unwrap();
+        assert_eq!(ad_variants.variants.len(), 4);
+
+        // 4. Cesium Inspector
+        let ci_data = std::fs::read(base.join("cesium-inspector.json")).unwrap();
+        let ci_entities = decode(&ci_data).unwrap();
+        assert_eq!(ci_entities.len(), 4);
+        assert!(matches!(ci_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(ci_entities[1].shape, Shape::Rectangle { .. }));
+        assert!(matches!(ci_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ci_entities[3].shape, Shape::Cylinder { .. }));
+        let ci_variants_raw = std::fs::read(base.join("cesium-inspector.variants.json")).unwrap();
+        let ci_variants = crate::entity_variants::decode(&ci_variants_raw).unwrap();
+        assert_eq!(ci_variants.variants.len(), 4);
+    }
 }
