@@ -1,0 +1,621 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Right Click Annotate & Middle Click Hide",
+      "entities": [
+        {
+          "id": "interactivity-selected-pin-cylinder",
+          "name": "Spatial Interaction Anchor & Pin Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.15,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "rightClickAction": "annotate",
+            "middleClickAction": "hide",
+            "pickPositionSupported": true
+          }
+        },
+        {
+          "id": "interactivity-hover-bbox",
+          "name": "Dynamic Feature Hover Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hoverHighlightColor": "yellow",
+            "depthTestAgainstTerrain": true
+          }
+        },
+        {
+          "id": "interactivity-annotation-sphere",
+          "name": "Spatial Annotation 3D Label Anchor Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.55,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "labelCollectionActive": true,
+            "annotationCount": 1
+          }
+        },
+        {
+          "id": "interactivity-survey-rect",
+          "name": "Interactive Cadastral Survey Boundary Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.45,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.65,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "knockoutBindings": true,
+            "middleClickActionActive": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Annotations Active (3D Text Overlay Markers)",
+      "entities": [
+        {
+          "id": "interactivity-selected-pin-cylinder",
+          "name": "Spatial Interaction Anchor & Pin Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.15,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "rightClickAction": "annotate",
+            "middleClickAction": "hide",
+            "pickPositionSupported": true
+          }
+        },
+        {
+          "id": "interactivity-hover-bbox",
+          "name": "Dynamic Feature Hover Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hoverHighlightColor": "yellow",
+            "depthTestAgainstTerrain": true
+          }
+        },
+        {
+          "id": "interactivity-annotation-sphere",
+          "name": "Spatial Annotation 3D Label Anchor Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.95,
+            0.2,
+            0.3,
+            0.95
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "labelCollectionActive": true,
+            "annotationCount": 1
+          }
+        },
+        {
+          "id": "interactivity-survey-rect",
+          "name": "Interactive Cadastral Survey Boundary Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.45,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.65,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "knockoutBindings": true,
+            "middleClickActionActive": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Hidden Features Mode (Selective Architectural Culling)",
+      "entities": [
+        {
+          "id": "interactivity-selected-pin-cylinder",
+          "name": "Spatial Interaction Anchor & Pin Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.15,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "rightClickAction": "annotate",
+            "middleClickAction": "hide",
+            "pickPositionSupported": true
+          }
+        },
+        {
+          "id": "interactivity-hover-bbox",
+          "name": "Dynamic Feature Hover Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.35,
+            0.45,
+            0.55,
+            0.5
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hoverHighlightColor": "yellow",
+            "depthTestAgainstTerrain": true
+          }
+        },
+        {
+          "id": "interactivity-annotation-sphere",
+          "name": "Spatial Annotation 3D Label Anchor Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.55,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "labelCollectionActive": true,
+            "annotationCount": 1
+          }
+        },
+        {
+          "id": "interactivity-survey-rect",
+          "name": "Interactive Cadastral Survey Boundary Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.45,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.65,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "knockoutBindings": true,
+            "middleClickActionActive": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Reset Interactivity (All Features Restored)",
+      "entities": [
+        {
+          "id": "interactivity-selected-pin-cylinder",
+          "name": "Spatial Interaction Anchor & Pin Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.2,
+            0.95,
+            0.4,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "rightClickAction": "annotate",
+            "middleClickAction": "hide",
+            "pickPositionSupported": true
+          }
+        },
+        {
+          "id": "interactivity-hover-bbox",
+          "name": "Dynamic Feature Hover Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hoverHighlightColor": "yellow",
+            "depthTestAgainstTerrain": true
+          }
+        },
+        {
+          "id": "interactivity-annotation-sphere",
+          "name": "Spatial Annotation 3D Label Anchor Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.55,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "labelCollectionActive": true,
+            "annotationCount": 1
+          }
+        },
+        {
+          "id": "interactivity-survey-rect",
+          "name": "Interactive Cadastral Survey Boundary Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.45,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.65,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "knockoutBindings": true,
+            "middleClickActionActive": true
+          }
+        }
+      ]
+    }
+  ]
+}

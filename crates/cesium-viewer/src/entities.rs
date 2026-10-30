@@ -4424,4 +4424,63 @@ mod tests {
         let gs_variants = crate::entity_variants::decode(&gs_variants_raw).unwrap();
         assert_eq!(gs_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch58_3d_tiles_splatting_compare_inspector_interactivity_interior() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. 3D Tiles Gaussian Splatting Comparison
+        let gsc_data =
+            std::fs::read(base.join("3d-tiles-gaussian-splatting-comparison.json")).unwrap();
+        let gsc_entities = decode(&gsc_data).unwrap();
+        assert_eq!(gsc_entities.len(), 4);
+        assert!(matches!(gsc_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(gsc_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(gsc_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(gsc_entities[3].shape, Shape::Rectangle { .. }));
+        let gsc_variants_raw =
+            std::fs::read(base.join("3d-tiles-gaussian-splatting-comparison.variants.json"))
+                .unwrap();
+        let gsc_variants = crate::entity_variants::decode(&gsc_variants_raw).unwrap();
+        assert_eq!(gsc_variants.variants.len(), 4);
+
+        // 2. 3D Tiles Inspector
+        let ins_data = std::fs::read(base.join("3d-tiles-inspector.json")).unwrap();
+        let ins_entities = decode(&ins_data).unwrap();
+        assert_eq!(ins_entities.len(), 4);
+        assert!(matches!(ins_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ins_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(ins_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ins_entities[3].shape, Shape::Rectangle { .. }));
+        let ins_variants_raw =
+            std::fs::read(base.join("3d-tiles-inspector.variants.json")).unwrap();
+        let ins_variants = crate::entity_variants::decode(&ins_variants_raw).unwrap();
+        assert_eq!(ins_variants.variants.len(), 4);
+
+        // 3. 3D Tiles Interactivity
+        let act_data = std::fs::read(base.join("3d-tiles-interactivity.json")).unwrap();
+        let act_entities = decode(&act_data).unwrap();
+        assert_eq!(act_entities.len(), 4);
+        assert!(matches!(act_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(act_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(act_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(act_entities[3].shape, Shape::Rectangle { .. }));
+        let act_variants_raw =
+            std::fs::read(base.join("3d-tiles-interactivity.variants.json")).unwrap();
+        let act_variants = crate::entity_variants::decode(&act_variants_raw).unwrap();
+        assert_eq!(act_variants.variants.len(), 4);
+
+        // 4. 3D Tiles Interior
+        let itr_data = std::fs::read(base.join("3d-tiles-interior.json")).unwrap();
+        let itr_entities = decode(&itr_data).unwrap();
+        assert_eq!(itr_entities.len(), 4);
+        assert!(matches!(itr_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(itr_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(itr_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(itr_entities[3].shape, Shape::Rectangle { .. }));
+        let itr_variants_raw = std::fs::read(base.join("3d-tiles-interior.variants.json")).unwrap();
+        let itr_variants = crate::entity_variants::decode(&itr_variants_raw).unwrap();
+        assert_eq!(itr_variants.variants.len(), 4);
+    }
 }

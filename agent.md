@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.57（已通过 175 / 309 个完整案例，剩余 134 个）
+- **当前版本**：v0.0.58（已通过 179 / 309 个完整案例，剩余 130 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.58 验收完成：高斯溅射分屏 (3D Tiles Gaussian Splatting Comparison)、NYC 瓦片检视器 (3D Tiles Inspector)、三维交互标注 (3D Tiles Interactivity) 与室内漫游 (3D Tiles Interior)
+- **完成配方**（累计推进至 **179 / 309**，剩余 130 个）：
+  1. `3d-tiles-gaussian-splatting-comparison`（双辐射场 Ion 资产 3667784 与 3443919 双视口滑动分割实时对比渲染：50% 居中对称分割比对基准、25% 偏左滑块位置、75% 偏右滑块位置与关闭分屏单模型 4 种变体）
+  2. `3d-tiles-inspector`（NYC 3D Buildings 瓦片集层级调试器、着色模式、网格线框与包围盒空间检视：层级随机着色与三角网线框基准、定向包围盒 OBB 与外接球调试显示、冻结瓦片动态请求并调试 SSE 几何误差与关闭调试覆层纯物理材质光照白模 4 种变体）
+  3. `3d-tiles-interactivity`（基于鼠标位置动态拾取、实时三维标注悬浮与局部构件隐藏交互系统：右键添加标注/中键隐藏构件基准交互、激活 3D 文字标注浮层、选择性建筑构件隐藏模式与重置所有构件可见性 4 种变体）
+  4. `3d-tiles-interior`（San Miguel 经典室内高精度建筑网格模型与近距离室内相机漫游：室内天井走廊自然视角基准、室内自然天光增强与暖色调氛围漫游模式、拱门与立柱几何结构轮廓增强线框模式与俯视剖切鸟瞰透视 4 种变体）
+- **核心研发突破**：
+  1. **双高斯辐射场视锥独立裁剪与混合渲染（Dual 3DGS Split Pipeline）**：在 WebGPU 片元阶段实现基于左右视口掩码的独立协方差投影与深度排序，保证两种辐射场同一帧内零干扰融合。
+  2. **瓦片集调试检视器架构（3D Tiles Inspector & Wireframe Mode）**：支持运行时动态切换调试线框模式（`enableDebugWireframe`）、定向包围盒（OBB）可视化以及几何误差热力图渲染。
+  3. **实时像素级深度拾取与空间标注（Depth-Tested PickPosition & Label Attachment）**：实现屏幕坐标与地表及 3D Tiles 混合深度的精确求交，支持动态添加浮动 3D 标签与构件可见性位图掩膜。
+  4. **近距离室内漫游与几何保真（Indoor Close-Range Camera & Collision Tolerance）**：针对微观室内场景重构了相机极近裁剪面与深度缓冲动态分配，消除室内狭窄转弯处的近平面几何穿模伪影。
+- **验证结果**：
+  - **普通 Rust 单元测试**：118 项全部通过（含 `batch58_3d_tiles_splatting_compare_inspector_interactivity_interior`）。
+  - **真实 GPU 离屏渲染测试**：180 / 180 项全数通过（`180 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：179 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [3D Tiles Gaussian Splatting Comparison、3D Tiles Inspector、3D Tiles Interactivity 与 3D Tiles Interior 验证文档](docs/3dtiles-gscompare-inspector-interactivity-interior-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.57 验收完成：样式语言表达式 (3D Tiles Feature Styling)、全格式多模态 (3D Tiles Formats)、LOD 高斯溅射 (3D Tiles Gaussian Splats with LOD) 与实时 3DGS (3D Tiles Gaussian Splatting)
 - **完成配方**（累计推进至 **175 / 309**，剩余 134 个）：

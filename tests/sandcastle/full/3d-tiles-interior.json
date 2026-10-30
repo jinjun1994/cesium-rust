@@ -1,0 +1,159 @@
+[
+  {
+    "id": "interior-san-miguel-pillar-cylinder",
+    "name": "San Miguel Indoor Courtyard Column Pillar Cylinder",
+    "show": true,
+    "positionDegrees": [
+      -100.917,
+      20.914,
+      2500
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 5000,
+      "topRadius": 1500,
+      "bottomRadius": 1500
+    },
+    "color": [
+      0.95,
+      0.55,
+      0.25,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.75,
+      0.45,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "ionAssetId": 125737,
+      "sceneModel": "San Miguel Interior Architectural Mesh",
+      "author": "Guillermo M. Leal Llaguno"
+    }
+  },
+  {
+    "id": "interior-courtyard-room-box",
+    "name": "Interior Architectural Chamber Enclosure Box",
+    "show": true,
+    "positionDegrees": [
+      -100.91,
+      20.92,
+      2000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        2500,
+        2500,
+        2200
+      ]
+    },
+    "color": [
+      0.25,
+      0.65,
+      0.95,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.45,
+      0.85,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "initialDestination": [
+        -1111583.37,
+        -5855888.15,
+        2262561.44
+      ],
+      "initialOrientationHpr": [
+        100,
+        -15,
+        0
+      ]
+    }
+  },
+  {
+    "id": "interior-spatial-light-sphere",
+    "name": "Indoor Skylight Natural Lighting Hemisphere",
+    "show": true,
+    "positionDegrees": [
+      -100.924,
+      20.908,
+      2200
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        2000,
+        2000,
+        1800
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      0.95,
+      0.95,
+      0.35,
+      0.85
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "ambientOcclusion": true,
+      "indoorCollisionDetection": false
+    }
+  },
+  {
+    "id": "interior-architectural-floor-rect",
+    "name": "Interior Ground Floor Layout Boundary Footprint",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -100.935,
+        20.9,
+        -100.895,
+        20.935
+      ],
+      "height": 2000,
+      "extrudedHeight": 4000,
+      "rotation": 0
+    },
+    "color": [
+      0.45,
+      0.75,
+      0.35,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.65,
+      0.95,
+      0.55,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "floorAreaApprox": "850 sq meters",
+      "indoorNavigationEnabled": true
+    }
+  }
+]

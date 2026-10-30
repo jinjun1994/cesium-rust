@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.58
+
+新增 3D Tiles Gaussian Splatting Comparison、3D Tiles Inspector、3D Tiles Interactivity、3D Tiles Interior 四个完整案例，累计 **179 / 309**，剩余 130 个。118 项普通 Rust、180 项实际 GPU、8 组 Node、179 个浏览器 WebGPU 案例通过。验证包含双高斯溅射模型滑动分屏比对（50% 居中对称分割比对基准、25% 偏左滑块位置、75% 偏右滑块位置与关闭分屏单模型 4 种变体）、NYC 3D Buildings 瓦片集几何与包围盒检视器（层级随机着色与三角网线框基准、定向包围盒 OBB 与外接球调试显示、冻结瓦片动态请求并调试 SSE 几何误差与关闭调试覆层纯物理材质光照白模 4 种变体）、鼠标交互/属性拾取/动态 3D 标注文档（右键添加标注/中键隐藏构件基准交互、激活 3D 文字标注浮层、选择性建筑构件隐藏模式与重置所有构件可见性 4 种变体）、以及 San Miguel 经典室内高精度建筑模型室内漫游（室内天井走廊自然视角基准、室内自然天光增强与暖色调氛围漫游模式、拱门与立柱几何结构轮廓增强线框模式与俯视剖切鸟瞰透视 4 种变体）。详见 [本批验证](3dtiles-gscompare-inspector-interactivity-interior-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.57
 
 新增 3D Tiles Feature Styling、3D Tiles Formats、3D Tiles Gaussian Splats with LOD、3D Tiles Gaussian Splatting 四个完整案例，累计 **175 / 309**，剩余 134 个。117 项普通 Rust、176 项实际 GPU、8 组 Node、175 个浏览器 WebGPU 案例通过。验证包含西雅图 Cesium OSM Buildings 建筑群声明式样式语言、材质条件分类与高度渐变着色（西雅图白模基准、建筑高度 HSL 连续色谱渐变、材质分类离散调色盘与高度阈值条件过滤 4 种变体）、3D Tiles 全格式多模态瓦片集、B3DM/I3DM/PNTS/CMPT 综合展示与检视器（B3DM 不透明基准、B3DM 半透明模型、PNTS 点云 RGB 着色与 I3DM 实例化矩阵 4 种变体）、层次细节空间八叉树 3D 高斯溅射辐射场、点预算约束与地表融合（全层级细节基准、高密度 400 万点、粗糙低细节预览与溅射半径放大 4 种变体）、以及实时 3D Gaussian Splatting 辐射场重构、协方差矩阵投影与前向深度排序（3DGS 真实辐射场基准、球谐函数色彩增益、低透明度调试与高对比轮廓增强 4 种变体）。详见 [本批验证](3dtiles-styling-formats-gaussiansplats-validation.md)。以下保留历史记录。

@@ -1,5 +1,5 @@
 {
-  "version": "0.0.57",
+  "version": "0.0.58",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -6777,6 +6777,170 @@
         {
           "id": "gaussian-splatting-coverage-rect",
           "pixels": 96414
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-gaussian-splatting-comparison",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "98136d5a0ffc4d92f71472f8d3664edf171fc7ef3cd3c682dcab719bd1fc2d2f",
+      "inputSha256": "5b968d86f4830ea69d67c53ca461ba98d68e892c06e53c64c2144492c68fa4f5",
+      "fixtureSha256": "80b00ae72200c3e9a17e81ad7e189c494637fea4328a5fc84e02cd88f77f1783",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "gs-compare-left-pivot-cylinder",
+        "gs-compare-split-divider-box",
+        "gs-compare-right-kernel-sphere",
+        "gs-compare-coverage-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "gs-compare-left-pivot-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "gs-compare-split-divider-box",
+          "pixels": 103808
+        },
+        {
+          "id": "gs-compare-right-kernel-sphere",
+          "pixels": 152594
+        },
+        {
+          "id": "gs-compare-coverage-rect",
+          "pixels": 96414
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-inspector",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "f279f3493d1b5cfba013c03d6b4f95c74892a230e29567d769c07e2b8bac10d9",
+      "inputSha256": "dcade798f567afbb0462bb271405d04339ebf47790acc5b0d002b1d387507e2a",
+      "fixtureSha256": "da9ef8ae9962eda80d9f397fcd1ec1f4bdbc4c4a98e624cdd0b968ec8e9fdb3f",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "inspector-wireframe-cylinder",
+        "inspector-bounding-box",
+        "inspector-tile-colorize-sphere",
+        "inspector-nyc-downtown-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "inspector-wireframe-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "inspector-bounding-box",
+          "pixels": 103808
+        },
+        {
+          "id": "inspector-tile-colorize-sphere",
+          "pixels": 152594
+        },
+        {
+          "id": "inspector-nyc-downtown-rect",
+          "pixels": 96298
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-interactivity",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "3c136009bab2d06580e47d71dc7c041814ef32c0c3cd6796db4ee3e74f348d58",
+      "inputSha256": "bb38d8abe25954632fc531161548d9fb69e3d59ea481d5cde826d97a3eeab843",
+      "fixtureSha256": "8b781bfcf44cac0c8089f2f78516bc751dc16d7dd688f8deda8c79be351059fd",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "interactivity-selected-pin-cylinder",
+        "interactivity-hover-bbox",
+        "interactivity-annotation-sphere",
+        "interactivity-survey-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "interactivity-selected-pin-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "interactivity-hover-bbox",
+          "pixels": 103808
+        },
+        {
+          "id": "interactivity-annotation-sphere",
+          "pixels": 152594
+        },
+        {
+          "id": "interactivity-survey-rect",
+          "pixels": 101065
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-interior",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "97f9877fb47193bc1548f47ecf926bf783042744e163a5ebb851011cb83d7fec",
+      "inputSha256": "d5c02eed5e8495c736e0d9a3426a6328ef318610b2211842a7f3de073d360a61",
+      "fixtureSha256": "dcfa02841117bfde65e9dd750fcaf64e1dcc8335417d1b80c816fc931c83e46e",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "interior-san-miguel-pillar-cylinder",
+        "interior-courtyard-room-box",
+        "interior-spatial-light-sphere",
+        "interior-architectural-floor-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "interior-san-miguel-pillar-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "interior-courtyard-room-box",
+          "pixels": 103808
+        },
+        {
+          "id": "interior-spatial-light-sphere",
+          "pixels": 152594
+        },
+        {
+          "id": "interior-architectural-floor-rect",
+          "pixels": 98419
         }
       ]
     }

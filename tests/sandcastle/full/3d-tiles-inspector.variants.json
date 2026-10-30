@@ -1,0 +1,621 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Colorize Tiles Enabled & Wireframe Mode",
+      "entities": [
+        {
+          "id": "inspector-wireframe-cylinder",
+          "name": "3D Tiles Wireframe Inspection Anchor Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -74.006,
+            40.7128,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 75343,
+            "enableDebugWireframe": true,
+            "debugColorizeTiles": true
+          }
+        },
+        {
+          "id": "inspector-bounding-box",
+          "name": "Tile Hierarchical Bounding Volume Box",
+          "show": true,
+          "positionDegrees": [
+            -73.998,
+            40.719,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.45,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "debugShowBoundingVolume": true,
+            "debugShowContentBoundingVolume": true
+          }
+        },
+        {
+          "id": "inspector-tile-colorize-sphere",
+          "name": "Tile Level Colorization Palette Reference Sphere",
+          "show": true,
+          "positionDegrees": [
+            -74.015,
+            40.705,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "debugShowGeometricError": true,
+            "freezeTileLoading": false
+          }
+        },
+        {
+          "id": "inspector-nyc-downtown-rect",
+          "name": "NYC Financial District Urban Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -74.03,
+              40.69,
+              -73.98,
+              40.73
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.55,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthTestAgainstTerrain": true,
+            "dataSource": "NYC OpenData 3D Buildings"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Bounding Volumes Visualized (Oriented Bounding Boxes)",
+      "entities": [
+        {
+          "id": "inspector-wireframe-cylinder",
+          "name": "3D Tiles Wireframe Inspection Anchor Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -74.006,
+            40.7128,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 75343,
+            "enableDebugWireframe": true,
+            "debugColorizeTiles": true
+          }
+        },
+        {
+          "id": "inspector-bounding-box",
+          "name": "Tile Hierarchical Bounding Volume Box",
+          "show": true,
+          "positionDegrees": [
+            -73.998,
+            40.719,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.2,
+            0.95,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "debugShowBoundingVolume": true,
+            "debugShowContentBoundingVolume": true
+          }
+        },
+        {
+          "id": "inspector-tile-colorize-sphere",
+          "name": "Tile Level Colorization Palette Reference Sphere",
+          "show": true,
+          "positionDegrees": [
+            -74.015,
+            40.705,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "debugShowGeometricError": true,
+            "freezeTileLoading": false
+          }
+        },
+        {
+          "id": "inspector-nyc-downtown-rect",
+          "name": "NYC Financial District Urban Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -74.03,
+              40.69,
+              -73.98,
+              40.73
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.55,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthTestAgainstTerrain": true,
+            "dataSource": "NYC OpenData 3D Buildings"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Freeze Tile Loading & Screen Space Error Debugging",
+      "entities": [
+        {
+          "id": "inspector-wireframe-cylinder",
+          "name": "3D Tiles Wireframe Inspection Anchor Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -74.006,
+            40.7128,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 75343,
+            "enableDebugWireframe": true,
+            "debugColorizeTiles": true
+          }
+        },
+        {
+          "id": "inspector-bounding-box",
+          "name": "Tile Hierarchical Bounding Volume Box",
+          "show": true,
+          "positionDegrees": [
+            -73.998,
+            40.719,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.45,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "debugShowBoundingVolume": true,
+            "debugShowContentBoundingVolume": true
+          }
+        },
+        {
+          "id": "inspector-tile-colorize-sphere",
+          "name": "Tile Level Colorization Palette Reference Sphere",
+          "show": true,
+          "positionDegrees": [
+            -74.015,
+            40.705,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.95,
+            0.45,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "debugShowGeometricError": true,
+            "freezeTileLoading": false
+          }
+        },
+        {
+          "id": "inspector-nyc-downtown-rect",
+          "name": "NYC Financial District Urban Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -74.03,
+              40.69,
+              -73.98,
+              40.73
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.55,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthTestAgainstTerrain": true,
+            "dataSource": "NYC OpenData 3D Buildings"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Standard Photorealistic Shading (Debug Overlays Off)",
+      "entities": [
+        {
+          "id": "inspector-wireframe-cylinder",
+          "name": "3D Tiles Wireframe Inspection Anchor Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -74.006,
+            40.7128,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.7,
+            0.7,
+            0.7,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 75343,
+            "enableDebugWireframe": true,
+            "debugColorizeTiles": true
+          }
+        },
+        {
+          "id": "inspector-bounding-box",
+          "name": "Tile Hierarchical Bounding Volume Box",
+          "show": true,
+          "positionDegrees": [
+            -73.998,
+            40.719,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.45,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "debugShowBoundingVolume": true,
+            "debugShowContentBoundingVolume": true
+          }
+        },
+        {
+          "id": "inspector-tile-colorize-sphere",
+          "name": "Tile Level Colorization Palette Reference Sphere",
+          "show": true,
+          "positionDegrees": [
+            -74.015,
+            40.705,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "debugShowGeometricError": true,
+            "freezeTileLoading": false
+          }
+        },
+        {
+          "id": "inspector-nyc-downtown-rect",
+          "name": "NYC Financial District Urban Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -74.03,
+              40.69,
+              -73.98,
+              40.73
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.55,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthTestAgainstTerrain": true,
+            "dataSource": "NYC OpenData 3D Buildings"
+          }
+        }
+      ]
+    }
+  ]
+}

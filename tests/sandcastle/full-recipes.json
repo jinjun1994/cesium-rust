@@ -4927,6 +4927,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "3d-tiles-gaussian-splatting-comparison",
+      "title": "3D Tiles Gaussian Splats – Mesh Comparison",
+      "sourceSha256": "98136d5a0ffc4d92f71472f8d3664edf171fc7ef3cd3c682dcab719bd1fc2d2f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-gaussian-splatting-comparison",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-gaussian-splatting-comparison.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-gaussian-splatting-comparison.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Gaussian Splatting split-screen comparison between dual ion assets (3667784 vs 3443919)",
+        "Synchronized splitDirection slider control and HeadingPitchRange camera framing"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-inspector",
+      "title": "3D Tiles Inspector",
+      "sourceSha256": "f279f3493d1b5cfba013c03d6b4f95c74892a230e29567d769c07e2b8bac10d9",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-inspector",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-inspector.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-inspector.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Tiles inspector integration on NYC 3D Buildings with terrain depth testing",
+        "Support for debug wireframe, debugColorizeTiles, and bounding volume inspection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-interactivity",
+      "title": "3D Tiles Interactivity",
+      "sourceSha256": "3c136009bab2d06580e47d71dc7c041814ef32c0c3cd6796db4ee3e74f348d58",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-interactivity",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-interactivity.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-interactivity.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Tiles mouse interactivity with pickPosition, dynamic annotations, and feature hiding",
+        "Knockout UI binding support for right-click annotate and middle-click hide actions"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-interior",
+      "title": "3D Tiles Interior",
+      "sourceSha256": "97f9877fb47193bc1548f47ecf926bf783042744e163a5ebb851011cb83d7fec",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-interior",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-interior.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-interior.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "San Miguel architectural interior mesh navigation with custom camera orientation",
+        "Indoor close-quarters camera controls, lighting preservation, and collision handling"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",
