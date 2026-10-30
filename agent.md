@@ -1270,3 +1270,21 @@
 - **文档晋升**：
   - 产出 [Pick From Ray - Dev、Picking - Dev、Polylines on 3D Tiles 与 Post Processing 验证文档](docs/raypick-picking-polylines3d-postprocess-validation.md)。
   - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
+---
+
+### [2026-10-30] v0.0.84 验收完成：Procedural Terrain、Projection、Sample Height from 3D Tiles 与 Scene Rendering Performance 体系全面打通
+- **完成配方**（累计推进至 **283 / 309**，剩余 26 个）：
+  1. `procedural-terrain`（程序化高度图地形生成、值噪声分形布朗运动与正弦山脊计算：4 个变体，涵盖基准值噪声分形布朗运动高山模式、周期正弦波山脊模式、高频涟漪程序化地形模式与平滑低频沙丘地貌模式）
+  2. `projection`（透视与正交投影实时切换、相机视锥变换与实体锁定：4 个变体，涵盖基准正交平行投影模式、透视投影模式、正交长焦特写巡检模式与广角鸟瞰透视视口模式）
+  3. `sample-height-from-3d-tiles`（3D Tiles 瓦片高程采样、精细多点高度拟合与地形贴合折线：4 个变体，涵盖基准贴合高程采样、高密度 60 点精细地形剖面、稀疏 10 点结构大跨度巡检与正交横截面贴合高程断面）
+  4. `scene-rendering-performance`（显式按需渲染驱动、鼠标交互按需重绘与仿真时钟步进：4 个变体，涵盖基准鼠标悬停交互按需重绘模式、动画飞机仿真场景模式、3D 瓦片静态城市场景模式与显式后台 API 状态失效重绘模式）
+- **验证结果**：
+  - **普通 Rust 单元测试**：144 / 144 项全部通过（新增 `batch84_procedural_projection_sampleheight_scenerender`）。
+  - **真实 GPU 离屏渲染测试**：284 / 284 项全部通过（包含 283 个完整案例 + 1 个材质拾取测试）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 283 个固定案例哈希与实体结构精准契合）。
+  - **浏览器真实 WebGPU 端到端**：283 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Procedural Terrain、Projection、Sample Height from 3D Tiles 与 Scene Rendering Performance 验证文档](docs/procedural-projection-sampleheight-scenerender-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。

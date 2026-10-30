@@ -7771,6 +7771,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "procedural-terrain",
+      "title": "Procedural Terrain",
+      "sourceSha256": "d27845be5163de39fa9494f8a828f31a6923f6dda7640a74e707f2c0b064572c",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=procedural-terrain",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/procedural-terrain.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/procedural-terrain.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "CustomHeightmapTerrainProvider procedural value noise & fractal brownian motion",
+        "Mathematical sine wave periodic ridge elevation profile computation",
+        "Camera setView lookAt orientation over procedural alpine mountain terrain"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "projection",
+      "title": "Projection",
+      "sourceSha256": "ccdd96ae6853a821eda866ff0caa7bb043dc0f5a60f9a9fb10504910e3924c56",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=projection",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/projection.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/projection.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "ProjectionPicker switching between orthographic and perspective camera projections",
+        "Model orientation with heading-pitch-roll quaternion transforms",
+        "Tracked entity camera lock-on with minimumPixelSize and maximumScale bounds"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "sample-height-from-3d-tiles",
+      "title": "Sample Height from 3D Tiles",
+      "sourceSha256": "48810992dda2dc0339e605e6c377b61d60b91d10a77a815b3464246eb5b08151",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=sample-height-from-3d-tiles",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/sample-height-from-3d-tiles.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/sample-height-from-3d-tiles.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Scene.clampToHeightMostDetailed elevation sampling across 3D Tilesets",
+        "Interpolated 30-sample cartesian line segments with red marker spheres",
+        "PolylineOutlineMaterialProperty yellow transect polyline visualization"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "scene-rendering-performance",
+      "title": "Scene Rendering Performance",
+      "sourceSha256": "0d98879aec8170e33ee91835276285ec9809be7d277046d95139c255f495f997",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=scene-rendering-performance",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/scene-rendering-performance.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/scene-rendering-performance.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "RequestRenderMode explicit rendering optimization for reduced CPU/GPU usage",
+        "ScreenSpaceEventHandler mouse-move interactive entity hover and re-render trigger",
+        "Knockout view-model binding with maximumRenderTimeChange simulation intervals"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

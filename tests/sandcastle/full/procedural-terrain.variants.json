@@ -1,0 +1,525 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Value Noise FBM Mountain Mode (Octaves Accumulation, Peak 9000m)",
+      "entities": [
+        {
+          "id": "procedural-terrain-peak-box",
+          "name": "FBM Value Noise Peak Mountain Core",
+          "show": true,
+          "positionDegrees": [
+            86.56,
+            27.56,
+            4500
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              12000,
+              12000,
+              9000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.85,
+            0.9,
+            0.95,
+            1
+          ],
+          "outlineColor": [
+            0.4,
+            0.45,
+            0.5,
+            1
+          ]
+        },
+        {
+          "id": "procedural-terrain-ridge-cylinder",
+          "name": "Fractal Elevation Ridge Spine",
+          "show": true,
+          "positionDegrees": [
+            86.58,
+            27.58,
+            3000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 6000,
+            "topRadius": 1500,
+            "bottomRadius": 2500
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.55,
+            0.6,
+            0.65,
+            1
+          ],
+          "outlineColor": [
+            0.3,
+            0.35,
+            0.4,
+            1
+          ]
+        },
+        {
+          "id": "procedural-terrain-valley-sphere",
+          "name": "Procedural Valley Datum Sphere",
+          "show": true,
+          "positionDegrees": [
+            86.54,
+            27.54,
+            1500
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              1800,
+              1800,
+              1800
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.45,
+            0.35,
+            1
+          ],
+          "outlineColor": [
+            0.1,
+            0.25,
+            0.18,
+            1
+          ]
+        },
+        {
+          "id": "procedural-terrain-bounds-rect",
+          "name": "Custom Heightmap Procedural Tile Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              86.4,
+              27.4,
+              86.7,
+              27.7
+            ],
+            "height": 0,
+            "extrudedHeight": 500
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.3,
+            0.35,
+            0.4,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.9,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Mathematical Sine Wave Ridges Mode (Periodic Sine Terrain, Peak 4000m)",
+      "entities": [
+        {
+          "id": "procedural-terrain-sine-peak-box",
+          "name": "Sine Wave Periodic Ridge Peak Structure",
+          "show": true,
+          "positionDegrees": [
+            86.56,
+            27.56,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10000,
+              10000,
+              4000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.4,
+            0.7,
+            0.95,
+            1
+          ],
+          "outlineColor": [
+            0.4,
+            0.45,
+            0.5,
+            1
+          ]
+        },
+        {
+          "id": "procedural-terrain-ridge-cylinder",
+          "name": "Fractal Elevation Ridge Spine",
+          "show": true,
+          "positionDegrees": [
+            86.58,
+            27.58,
+            3000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 6000,
+            "topRadius": 1500,
+            "bottomRadius": 2500
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.55,
+            0.6,
+            0.65,
+            1
+          ],
+          "outlineColor": [
+            0.3,
+            0.35,
+            0.4,
+            1
+          ]
+        },
+        {
+          "id": "procedural-terrain-valley-sphere",
+          "name": "Procedural Valley Datum Sphere",
+          "show": true,
+          "positionDegrees": [
+            86.54,
+            27.54,
+            1500
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              1800,
+              1800,
+              1800
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.45,
+            0.35,
+            1
+          ],
+          "outlineColor": [
+            0.1,
+            0.25,
+            0.18,
+            1
+          ]
+        },
+        {
+          "id": "procedural-terrain-bounds-rect",
+          "name": "Custom Heightmap Procedural Tile Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              86.4,
+              27.4,
+              86.7,
+              27.7
+            ],
+            "height": 0,
+            "extrudedHeight": 500
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.3,
+            0.35,
+            0.4,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.9,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "High-Frequency Ripple Procedural Terrain (High Octaves 6000m Crest)",
+      "entities": [
+        {
+          "id": "procedural-terrain-peak-box",
+          "name": "FBM Value Noise Peak Mountain Core",
+          "show": true,
+          "positionDegrees": [
+            86.56,
+            27.56,
+            4500
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              12000,
+              12000,
+              9000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.85,
+            0.9,
+            0.95,
+            1
+          ],
+          "outlineColor": [
+            0.4,
+            0.45,
+            0.5,
+            1
+          ]
+        },
+        {
+          "id": "procedural-terrain-ripple-spine",
+          "name": "High Frequency Octave Wave Spine",
+          "show": true,
+          "positionDegrees": [
+            86.58,
+            27.58,
+            3000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 8000,
+            "topRadius": 1000,
+            "bottomRadius": 3000
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.75,
+            0.5,
+            0.8,
+            1
+          ],
+          "outlineColor": [
+            0.3,
+            0.35,
+            0.4,
+            1
+          ]
+        },
+        {
+          "id": "procedural-terrain-valley-sphere",
+          "name": "Procedural Valley Datum Sphere",
+          "show": true,
+          "positionDegrees": [
+            86.54,
+            27.54,
+            1500
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              1800,
+              1800,
+              1800
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.45,
+            0.35,
+            1
+          ],
+          "outlineColor": [
+            0.1,
+            0.25,
+            0.18,
+            1
+          ]
+        },
+        {
+          "id": "procedural-terrain-bounds-rect",
+          "name": "Custom Heightmap Procedural Tile Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              86.4,
+              27.4,
+              86.7,
+              27.7
+            ],
+            "height": 0,
+            "extrudedHeight": 500
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.3,
+            0.35,
+            0.4,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.9,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Smooth Rolling Dunes Procedural Terrain (Gentle Gradient Low Frequency)",
+      "entities": [
+        {
+          "id": "procedural-terrain-peak-box",
+          "name": "FBM Value Noise Peak Mountain Core",
+          "show": true,
+          "positionDegrees": [
+            86.56,
+            27.56,
+            4500
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              12000,
+              12000,
+              9000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.85,
+            0.9,
+            0.95,
+            1
+          ],
+          "outlineColor": [
+            0.4,
+            0.45,
+            0.5,
+            1
+          ]
+        },
+        {
+          "id": "procedural-terrain-ridge-cylinder",
+          "name": "Fractal Elevation Ridge Spine",
+          "show": true,
+          "positionDegrees": [
+            86.58,
+            27.58,
+            3000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 6000,
+            "topRadius": 1500,
+            "bottomRadius": 2500
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.55,
+            0.6,
+            0.65,
+            1
+          ],
+          "outlineColor": [
+            0.3,
+            0.35,
+            0.4,
+            1
+          ]
+        },
+        {
+          "id": "procedural-terrain-dune-dome",
+          "name": "Smooth Dune Low Gradient Dome",
+          "show": true,
+          "positionDegrees": [
+            86.54,
+            27.54,
+            1500
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              3000,
+              3000,
+              1200
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.85,
+            0.75,
+            0.45,
+            1
+          ],
+          "outlineColor": [
+            0.1,
+            0.25,
+            0.18,
+            1
+          ]
+        },
+        {
+          "id": "procedural-terrain-bounds-rect",
+          "name": "Custom Heightmap Procedural Tile Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              86.4,
+              27.4,
+              86.7,
+              27.7
+            ],
+            "height": 0,
+            "extrudedHeight": 500
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.3,
+            0.35,
+            0.4,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.9,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

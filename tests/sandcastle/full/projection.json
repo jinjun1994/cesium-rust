@@ -1,0 +1,127 @@
+[
+  {
+    "id": "projection-milktruck-box",
+    "name": "Cesium Milk Truck Model Bounding Hull",
+    "show": true,
+    "positionDegrees": [
+      -123.0744619,
+      44.0503706,
+      12
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        28,
+        14,
+        16
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.9,
+      0.85,
+      0.2,
+      1
+    ],
+    "outlineColor": [
+      0.4,
+      0.35,
+      0.05,
+      1
+    ]
+  },
+  {
+    "id": "projection-frustum-cylinder",
+    "name": "Orthographic Projection Optical Vector Column",
+    "show": true,
+    "positionDegrees": [
+      -123.0744619,
+      44.0503706,
+      50
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 60,
+      "topRadius": 18,
+      "bottomRadius": 18
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.2,
+      0.6,
+      0.9,
+      0.75
+    ],
+    "outlineColor": [
+      0.1,
+      0.3,
+      0.6,
+      1
+    ]
+  },
+  {
+    "id": "projection-anchor-sphere",
+    "name": "Local Tangent Coordinate Frame Origin Marker",
+    "show": true,
+    "positionDegrees": [
+      -123.0744619,
+      44.0503706,
+      0
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        8,
+        8,
+        8
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      1,
+      0.2,
+      0.2,
+      1
+    ],
+    "outlineColor": [
+      0.5,
+      0.05,
+      0.05,
+      1
+    ]
+  },
+  {
+    "id": "projection-staging-rect",
+    "name": "Ground Staging Pad and Reference Boundary",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -123.076,
+        44.049,
+        -123.073,
+        44.052
+      ],
+      "height": 0,
+      "extrudedHeight": 2
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.4,
+      0.4,
+      0.45,
+      0.7
+    ],
+    "outlineColor": [
+      0.8,
+      0.8,
+      0.85,
+      1
+    ]
+  }
+]

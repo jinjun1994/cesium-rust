@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "pick-from-ray-dev",
+      "id": "procedural-terrain",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "ad6681509062d0f970b726172af86cb989991daf57fc8e6f026b1ee938d90f77",
-      "inputSha256": "5b0a2219597a6766656ad0bc54bcb03c6c431d21ea0b5450d510746493a0b478",
-      "fixtureSha256": "39e7166cac7794a69f2c557121b25bb240a3558e9c542ab604fd777ae87f4bed",
+      "sourceSha256": "d27845be5163de39fa9494f8a828f31a6923f6dda7640a74e707f2c0b064572c",
+      "inputSha256": "0fe9a1007d177194a8bf0b5562dbc461fb4fcdd95a3abca8e290dc262bb6c82a",
+      "fixtureSha256": "6f1a323a141bf82e08736aa5379609202f28a61f9a7a99492aa81bfc2002f9ae",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,37 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "raypick-start-blue-sphere",
-        "raypick-target-red-sphere",
-        "raypick-intersection-box",
-        "raypick-extent-rect"
+        "procedural-terrain-peak-box",
+        "procedural-terrain-ridge-cylinder",
+        "procedural-terrain-valley-sphere",
+        "procedural-terrain-bounds-rect"
       ],
       "pixelCounts": [
         {
-          "id": "raypick-start-blue-sphere",
-          "pixels": 77
+          "id": "procedural-terrain-peak-box",
+          "pixels": 103418
         },
         {
-          "id": "raypick-target-red-sphere",
-          "pixels": 77
+          "id": "procedural-terrain-ridge-cylinder",
+          "pixels": 80668
         },
         {
-          "id": "raypick-intersection-box",
-          "pixels": 30
+          "id": "procedural-terrain-valley-sphere",
+          "pixels": 166025
         },
         {
-          "id": "raypick-extent-rect",
-          "pixels": 66413
+          "id": "procedural-terrain-bounds-rect",
+          "pixels": 68024
         }
       ]
     },
     {
-      "id": "picking-dev",
+      "id": "projection",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "9ef1d33d60d21ff053f099a5867726a23bfe06b85f8bdf4d6ff700fb57a374e3",
-      "inputSha256": "4e159d2329c1cde9d74d7442fce8d0e6b7eb3261a8d3194867590d910f4da8be",
-      "fixtureSha256": "b604f69fd156c50fd31f94c6bec40903f04fd3cf9143a19a1a284fd642a4e12d",
+      "sourceSha256": "ccdd96ae6853a821eda866ff0caa7bb043dc0f5a60f9a9fb10504910e3924c56",
+      "inputSha256": "d13f9f7104f376b16c71d8250c58b505c9a743e578f9ea17f67d18fe800478be",
+      "fixtureSha256": "9610f7caa7be190cd1b770e43eaf4490997a31aa5aa17974ddef382a4a8a6a93",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -63,37 +63,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "pickingdev-target-box",
-        "pickingdev-vector-cylinder",
-        "pickingdev-screen-point-sphere",
-        "pickingdev-bounds-rect"
+        "projection-milktruck-box",
+        "projection-frustum-cylinder",
+        "projection-anchor-sphere",
+        "projection-staging-rect"
       ],
       "pixelCounts": [
         {
-          "id": "pickingdev-target-box",
-          "pixels": 70
+          "id": "projection-milktruck-box",
+          "pixels": 130
         },
         {
-          "id": "pickingdev-vector-cylinder",
-          "pixels": 66
+          "id": "projection-frustum-cylinder",
+          "pixels": 494
         },
         {
-          "id": "pickingdev-screen-point-sphere",
-          "pixels": 44
+          "id": "projection-anchor-sphere",
+          "pixels": 56
         },
         {
-          "id": "pickingdev-bounds-rect",
-          "pixels": 66606
+          "id": "projection-staging-rect",
+          "pixels": 12101
         }
       ]
     },
     {
-      "id": "polylines-on-3d-tiles",
+      "id": "sample-height-from-3d-tiles",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "7afec578763ee24b23b414c96caef9be2bd5ede14c2c12c83422c369116823bc",
-      "inputSha256": "571a9d2d9ca5e8ed65059adc806e126ba5422234ed2a3e249659df43a8684460",
-      "fixtureSha256": "3f56191ab0ec1fe80b639936387122a99e3dbfebc1e19899ad9181935a18bfc7",
+      "sourceSha256": "48810992dda2dc0339e605e6c377b61d60b91d10a77a815b3464246eb5b08151",
+      "inputSha256": "94df8891848ed81002a9842f2dad266ef8130e41aacf18b483fbb9f727fb82e5",
+      "fixtureSha256": "7c75497ddf844523a42646dbb760c28934d449b91e4414c89e2c0603c268f6d6",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -104,37 +104,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "polylines3d-powerplant-box",
-        "polylines3d-clamped-pipe-cylinder",
-        "polylines3d-photogrammetry-sphere",
-        "polylines3d-corridor-rect"
+        "sampleheight-profile-polyline-box",
+        "sampleheight-transect-cylinder",
+        "sampleheight-datum-sphere",
+        "sampleheight-tileset-rect"
       ],
       "pixelCounts": [
         {
-          "id": "polylines3d-powerplant-box",
-          "pixels": 156
+          "id": "sampleheight-profile-polyline-box",
+          "pixels": 1676
         },
         {
-          "id": "polylines3d-clamped-pipe-cylinder",
-          "pixels": 40
+          "id": "sampleheight-transect-cylinder",
+          "pixels": 103
         },
         {
-          "id": "polylines3d-photogrammetry-sphere",
-          "pixels": 77
+          "id": "sampleheight-datum-sphere",
+          "pixels": 56
         },
         {
-          "id": "polylines3d-corridor-rect",
-          "pixels": 66039
+          "id": "sampleheight-tileset-rect",
+          "pixels": 30012
         }
       ]
     },
     {
-      "id": "post-processing",
+      "id": "scene-rendering-performance",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "54deb9679a83ca5575e19d5541cec44a24ddd1401245f42e31f28db5dda33c53",
-      "inputSha256": "5b9aff43981d25c3dfbe5dbfc8b129ba4923b4754c9d9d1d805c84b57f93e853",
-      "fixtureSha256": "22b661b0363cb8811c9adec0760cb4482fa06ba335211a274c0fdb6358194d29",
+      "sourceSha256": "0d98879aec8170e33ee91835276285ec9809be7d277046d95139c255f495f997",
+      "inputSha256": "eb7d36bd65d685e398921862b6696a54f8841b3a64c51b6677fe75ff02075047",
+      "fixtureSha256": "729a795e0ea155ef59749cb8ebfd7cafd4f02eca2f45ff5edd5366c6b8ee6ea4",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -145,27 +145,27 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "postprocess-character-box",
-        "postprocess-silhouette-halo-ellipsoid",
-        "postprocess-nightvision-cylinder",
-        "postprocess-inspection-rect"
+        "scenerender-demand-box",
+        "scenerender-aircraft-cylinder",
+        "scenerender-cadence-sphere",
+        "scenerender-envelope-rect"
       ],
       "pixelCounts": [
         {
-          "id": "postprocess-character-box",
-          "pixels": 40
+          "id": "scenerender-demand-box",
+          "pixels": 69179
         },
         {
-          "id": "postprocess-silhouette-halo-ellipsoid",
-          "pixels": 120
+          "id": "scenerender-aircraft-cylinder",
+          "pixels": 109636
         },
         {
-          "id": "postprocess-nightvision-cylinder",
-          "pixels": 46
+          "id": "scenerender-cadence-sphere",
+          "pixels": 166025
         },
         {
-          "id": "postprocess-inspection-rect",
-          "pixels": 66080
+          "id": "scenerender-envelope-rect",
+          "pixels": 60984
         }
       ]
     }

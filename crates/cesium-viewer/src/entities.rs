@@ -6009,4 +6009,65 @@ mod tests {
         let post_variants = crate::entity_variants::decode(&post_variants_raw).unwrap();
         assert_eq!(post_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch84_procedural_projection_sampleheight_scenerender() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Procedural Terrain
+        let proc_data = std::fs::read(base.join("procedural-terrain.json")).unwrap();
+        let proc_entities = decode(&proc_data).unwrap();
+        assert_eq!(proc_entities.len(), 4);
+        assert!(matches!(proc_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(proc_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(proc_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(proc_entities[3].shape, Shape::Rectangle { .. }));
+        let proc_variants_raw =
+            std::fs::read(base.join("procedural-terrain.variants.json")).unwrap();
+        let proc_variants = crate::entity_variants::decode(&proc_variants_raw).unwrap();
+        assert_eq!(proc_variants.variants.len(), 4);
+
+        // 2. Projection
+        let proj_data = std::fs::read(base.join("projection.json")).unwrap();
+        let proj_entities = decode(&proj_data).unwrap();
+        assert_eq!(proj_entities.len(), 4);
+        assert!(matches!(proj_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(proj_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(proj_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(proj_entities[3].shape, Shape::Rectangle { .. }));
+        let proj_variants_raw = std::fs::read(base.join("projection.variants.json")).unwrap();
+        let proj_variants = crate::entity_variants::decode(&proj_variants_raw).unwrap();
+        assert_eq!(proj_variants.variants.len(), 4);
+
+        // 3. Sample Height from 3D Tiles
+        let sample_data = std::fs::read(base.join("sample-height-from-3d-tiles.json")).unwrap();
+        let sample_entities = decode(&sample_data).unwrap();
+        assert_eq!(sample_entities.len(), 4);
+        assert!(matches!(sample_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(sample_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(sample_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(sample_entities[3].shape, Shape::Rectangle { .. }));
+        let sample_variants_raw =
+            std::fs::read(base.join("sample-height-from-3d-tiles.variants.json")).unwrap();
+        let sample_variants = crate::entity_variants::decode(&sample_variants_raw).unwrap();
+        assert_eq!(sample_variants.variants.len(), 4);
+
+        // 4. Scene Rendering Performance
+        let scene_data = std::fs::read(base.join("scene-rendering-performance.json")).unwrap();
+        let scene_entities = decode(&scene_data).unwrap();
+        assert_eq!(scene_entities.len(), 4);
+        assert!(matches!(scene_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(scene_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(scene_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(scene_entities[3].shape, Shape::Rectangle { .. }));
+        let scene_variants_raw =
+            std::fs::read(base.join("scene-rendering-performance.variants.json")).unwrap();
+        let scene_variants = crate::entity_variants::decode(&scene_variants_raw).unwrap();
+        assert_eq!(scene_variants.variants.len(), 4);
+    }
 }
