@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.69
+
+新增 Custom Shaders Property Textures、CZML 3D Tiles、Depth of Field、Overlay Imagery on 3D Tiles 四个完整案例，累计 **223 / 309**，剩余 86 个。129 项普通 Rust、224 项实际 GPU、8 组 Node、223 个浏览器 WebGPU 案例通过。验证包含 MAXAR OWT Muscatatuk 实景三维属性纹理、CE90/LE90 不确定度着色器（基准水平不确定度 CE90、垂直不确定度 LE90 模式、水平与垂直双不确定度联合模式、无不确定度纯净地貌表面 4 种变体）、CZML 1.0 规约声明式 3D Tiles 数据包、CzmlDataSource 异步流式加载与视口自适应（基准 CZML 瓦片集数据包、隔离单体建筑特征模式、半透明体量检视模式、高对比线框包络模式 4 种变体）、景深后处理阶段、高斯卷积模糊、弥散圆半径调谐与 13 具热气球走廊焦距追踪（基准景深开启模式、近景特写聚焦模式、远景地平线聚焦模式、直通停用景深模式 4 种变体）、以及 Bentley iTwin 实景三维网格表面贴地影像投影、Bing Maps 矢量路网注记叠加（基准费城实景三维与 Bing 地名注记贴地投影、高分卫星正射影像贴模模式、地籍矢量宗地地块贴模模式、无纹理白模网格模式 4 种变体）。详见 [本批验证](customproptex-czml3dtiles-depthoffield-drapeimagery-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.68
 
 新增 Custom Post Process、Custom Primitive - Dev、Custom Shaders 3D Tiles、Custom Shaders Models 四个完整案例，累计 **219 / 309**，剩余 90 个。128 项普通 Rust、220 项实际 GPU、8 组 Node、219 个浏览器 WebGPU 案例通过。验证包含自定义卷积核马赛克后处理阶段、步长解算与全屏后处理管线（16x16 卷积核马赛克基准：青色与紫罗兰模型像素化模糊阶段、高密度步长模式、反色对比度诊断模式、直通观察模式 4 种变体）、自定义底层图元 DrawCommand、VertexArray 与双波干涉动态曲面网格（双波平面驻波干涉基准：鸭翅绿与明金色波动能量分布、高频驻波模式、一维色彩纹理映射模式、四边形线框拓扑检查模式 4 种变体）、3D Tiles 自定义着色器、相机距离渐变色带与程序化动态纹理（相机距离着色基准：蓝绿平滑深度梯度过渡、动态程序化条纹模式、无光照纯净立面模式、高对比度景深分段蒙版 4 种变体）、以及 glTF 模型自定义着色器、程序化棋盘格、半透明梯度与顶点法向膨胀（自定义动画贴图基准：赛车红与动态流动条纹、程序化棋盘格蒙版模式、半透明对角透明度渐变、顶点法向位移膨胀模式 4 种变体）。详见 [本批验证](custompostprocess-customprimitive-customshaders-validation.md)。以下保留历史记录。

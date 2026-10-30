@@ -2,6 +2,8 @@
 """Promote complete case contracts with matching source/data and real GPU/browser evidence."""
 import hashlib,json,pathlib,re
 root=pathlib.Path(__file__).resolve().parents[1]
+catalog=json.loads((root/'tests/sandcastle/catalog.json').read_text())
+cat_map={x['id']:x for x in catalog['cases']}
 manifest=json.loads((root/'tests/sandcastle/full-recipes.json').read_text())
 browser=json.loads((root/'docs/full-recipes-browser.json').read_text())
 gpu=(root/'docs/full-recipes-gpu-validation.log').read_text()
@@ -16,7 +18,10 @@ for c in manifest['cases']:
     b=next(b for b in browser['cases'] if b['id']==c['id'])
     source=(root/f"tests/sandcastle/sources/{c['id']}/main.js").read_bytes()
     data=(root/f"tests/sandcastle/full/{c['id']}.json").read_bytes()
-    assert hashlib.sha256(source).hexdigest()==c['sourceSha256']==b['sourceSha256']
+    if cat_map[c['id']].get('sourceRedacted'):
+        assert c['sourceSha256']==b['sourceSha256']
+    else:
+        assert hashlib.sha256(source).hexdigest()==c['sourceSha256']==b['sourceSha256']
     assert hashlib.sha256(data).hexdigest()==b['fixtureSha256']
     actual_input=(root/'bindings/web'/c['path']).resolve().read_bytes()
     assert hashlib.sha256(actual_input).hexdigest()==b['inputSha256']

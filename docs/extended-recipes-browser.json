@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "custom-post-process",
+      "id": "custom-shaders-property-textures",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "7df489ca1c43a326e7e4f886bd08893cf74789718821d624cb14e2e30f10a88a",
-      "inputSha256": "6de84dd62a1371256e2eb23d1cd6f5188adcacd36adbf289d7b2530fc7e4bdeb",
-      "fixtureSha256": "f897b1ec49d5413bbcc9d50a6fba826c78cdd759c43cd3e5a484c7af78867c89",
+      "sourceSha256": "ead44e5817440e27cea30f9d746fcdd9bb1e86927ff87f7e9b742e43791fb9a4",
+      "inputSha256": "e689da38bf3081c0ce314dc99f372c6fa82e984febbcac6dd2d9a4e6afc935ad",
+      "fixtureSha256": "8a59c7d38400279a55b786aa23a085081316cd8d0b5eb954b657f4036e333fce",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,37 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "custom-post-mosaic-subject",
-        "custom-post-kernel-pillar",
-        "custom-post-pixel-probe",
-        "custom-post-viewport-rect"
+        "custom-proptex-ce90-box",
+        "custom-proptex-le90-pillar",
+        "custom-proptex-combined-probe",
+        "custom-proptex-muscatatuk-rect"
       ],
       "pixelCounts": [
         {
-          "id": "custom-post-mosaic-subject",
-          "pixels": 493
+          "id": "custom-proptex-ce90-box",
+          "pixels": 270
         },
         {
-          "id": "custom-post-kernel-pillar",
-          "pixels": 448
+          "id": "custom-proptex-le90-pillar",
+          "pixels": 230
         },
         {
-          "id": "custom-post-pixel-probe",
-          "pixels": 225
+          "id": "custom-proptex-combined-probe",
+          "pixels": 104
         },
         {
-          "id": "custom-post-viewport-rect",
-          "pixels": 34891
+          "id": "custom-proptex-muscatatuk-rect",
+          "pixels": 66008
         }
       ]
     },
     {
-      "id": "custom-primitive-dev",
+      "id": "czml-3d-tiles",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "febf1bfcb50b76c9a71906e66aa2677c7b29122a16a618eb35620f6ae65c401e",
-      "inputSha256": "8da43cdf381342dd4f9b53188be63da51444e0dc4341c00724482e8adb7d10b0",
-      "fixtureSha256": "3c61b569fdad8e3be03be61c6b8a11fda032830713b215f16479a4d309a5fc18",
+      "sourceSha256": "ce3333bb8895cdf8e661bdca9dad9c34c30541599df79fb0940ebc9ce0b393dd",
+      "inputSha256": "92ff65b1da26585a7d80dcc10176d23785ad33346a3724ecf81cd4b259f56855",
+      "fixtureSha256": "554adf321b1231bdcfa068025510ba254fc3fc3214c8ce5a45acff11f9e2e9c9",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -63,37 +63,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "custom-prim-wave-plate",
-        "custom-prim-disp-pillar",
-        "custom-prim-1d-tex-sphere",
-        "custom-prim-domain-rect"
+        "czml-3dtiles-batched-box",
+        "czml-3dtiles-anchor-pillar",
+        "czml-3dtiles-origin-sphere",
+        "czml-3dtiles-dataset-rect"
       ],
       "pixelCounts": [
         {
-          "id": "custom-prim-wave-plate",
-          "pixels": 802
+          "id": "czml-3dtiles-batched-box",
+          "pixels": 627
         },
         {
-          "id": "custom-prim-disp-pillar",
-          "pixels": 576
+          "id": "czml-3dtiles-anchor-pillar",
+          "pixels": 373
         },
         {
-          "id": "custom-prim-1d-tex-sphere",
-          "pixels": 277
+          "id": "czml-3dtiles-origin-sphere",
+          "pixels": 139
         },
         {
-          "id": "custom-prim-domain-rect",
-          "pixels": 66312
+          "id": "czml-3dtiles-dataset-rect",
+          "pixels": 66358
         }
       ]
     },
     {
-      "id": "custom-shaders-3d-tiles",
+      "id": "depth-of-field",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "8976952f2ed765d3af9b45a8ac47b19f32a63d7f0349375a5bb9ce759dd6ad17",
-      "inputSha256": "c07ae2d482ca6200be80d033e7a11330c3b244d748d37d945928a9bcadc61c0c",
-      "fixtureSha256": "9f83bd06b7cf9327b4f60dec870107b94c47f2accccd88f90900231043275e6e",
+      "sourceSha256": "758cb20c93e27c611401cee676b11273397c24c724b79645837e9e6a7243c279",
+      "inputSha256": "4cc44ce2c960c5e4b54b74e7159a1991941ca71be32e7610fa0a33129c0b0b41",
+      "fixtureSha256": "0167e07286c9beaa96262ca2f5ca6d4b201a4db9f8a966e80cb44ea0b0e7b890",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -104,37 +104,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "custom-shader-tower-box",
-        "custom-shader-stripes-cylinder",
-        "custom-shader-camera-probe",
-        "custom-shader-nyc-bounds-rect"
+        "dof-focal-target-box",
+        "dof-sampling-kernel-pillar",
+        "dof-blur-probe-sphere",
+        "dof-balloons-corridor-rect"
       ],
       "pixelCounts": [
         {
-          "id": "custom-shader-tower-box",
-          "pixels": 2835
+          "id": "dof-focal-target-box",
+          "pixels": 220
         },
         {
-          "id": "custom-shader-stripes-cylinder",
-          "pixels": 978
+          "id": "dof-sampling-kernel-pillar",
+          "pixels": 236
         },
         {
-          "id": "custom-shader-camera-probe",
-          "pixels": 427
+          "id": "dof-blur-probe-sphere",
+          "pixels": 163
         },
         {
-          "id": "custom-shader-nyc-bounds-rect",
-          "pixels": 65798
+          "id": "dof-balloons-corridor-rect",
+          "pixels": 48775
         }
       ]
     },
     {
-      "id": "custom-shaders-models",
+      "id": "drape-imagery-on-3d-tiles",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "275662cf8726020ddb97f42c6b57f1d0073e1f0dea3eb2b42b911e20349c50f3",
-      "inputSha256": "6e2f54f9ea4ba7915edefe1922ecc4c84bce960f089318934c4d50564207acf2",
-      "fixtureSha256": "38309ee2d32af693816392c38b91a0b787f4186febda6243a537f19d9d1f1eaa",
+      "sourceSha256": "7eb1a70ad49f2a8d3f5fceff218d6b6f9743b8da202abb2642eea54c9894278f",
+      "inputSha256": "b97f3813e4d2b6678099175ef097752a6dd397864b4761ede9b6c1ae4a3a0d98",
+      "fixtureSha256": "c332be8592eb68df1633f2d3a835dc74f76e064080151801031b4ee2981aeeb3",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -145,27 +145,27 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "custom-model-vehicle-box",
-        "custom-model-balloon-cylinder",
-        "custom-model-wave-sphere",
-        "custom-model-stage-rect"
+        "drape-reality-mesh-box",
+        "drape-bing-label-pillar",
+        "drape-georef-probe",
+        "drape-philly-bounds-rect"
       ],
       "pixelCounts": [
         {
-          "id": "custom-model-vehicle-box",
-          "pixels": 807
+          "id": "drape-reality-mesh-box",
+          "pixels": 570
         },
         {
-          "id": "custom-model-balloon-cylinder",
-          "pixels": 920
+          "id": "drape-bing-label-pillar",
+          "pixels": 309
         },
         {
-          "id": "custom-model-wave-sphere",
-          "pixels": 333
+          "id": "drape-georef-probe",
+          "pixels": 139
         },
         {
-          "id": "custom-model-stage-rect",
-          "pixels": 65262
+          "id": "drape-philly-bounds-rect",
+          "pixels": 66545
         }
       ]
     }

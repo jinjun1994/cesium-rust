@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.68（已通过 219 / 309 个完整案例，剩余 90 个）
+- **当前版本**：v0.0.69（已通过 223 / 309 个完整案例，剩余 86 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.69 验收完成：Custom Shaders Property Textures、CZML 3D Tiles、Depth of Field 与 Overlay Imagery on 3D Tiles
+- **完成配方**（累计推进至 **223 / 309**，剩余 86 个）：
+  1. `custom-shaders-property-textures`（MAXAR OWT Muscatatuk 实景三维属性纹理、CE90/LE90 不确定度着色器：基准水平不确定度 CE90、垂直不确定度 LE90 模式、水平与垂直双不确定度联合模式、无不确定度纯净地貌表面 4 种变体）
+  2. `czml-3d-tiles`（CZML 1.0 规约声明式 3D Tiles 数据包、CzmlDataSource 异步流式加载与视口自适应：基准 CZML 瓦片集数据包、隔离单体建筑特征模式、半透明体量检视模式、高对比线框包络模式 4 种变体）
+  3. `depth-of-field`（景深后处理阶段、高斯卷积模糊、弥散圆半径调谐与 13 具热气球走廊焦距追踪：基准景深开启模式、近景特写聚焦模式、远景地平线聚焦模式、直通停用景深模式 4 种变体）
+  4. `drape-imagery-on-3d-tiles`（Bentley iTwin 实景三维网格表面贴地影像投影、Bing Maps 矢量路网注记叠加：基准费城实景三维与 Bing 地名注记贴地投影、高分卫星正射影像贴模模式、地籍矢量宗地地块贴模模式、无纹理白模网格模式 4 种变体）
+- **核心研发突破**：
+  1. **实景三维属性纹理元数据通道提取（Property Textures & Metadata Channel Extraction）**：支持在 `CustomShader` 中解算实景三维多波段属性纹理（Property Textures），提取 `fsInput.metadata.r3dm_uncertainty_ce90sum` 与 `le90sum` 实现不确定度实时漫反射着色。
+  2. **CZML 3D Tiles 声明式数据包支持（CZML 3D Tiles Packet & CzmlDataSource Integration）**：解析 CZML 1.0 规范中的 `tileset` 数据包字段，支持通过 `CzmlDataSource.load` 动态注入三维瓦片集合与要素空间自适应聚焦。
+  3. **景深后处理阶段与动态光圈参数（Depth of Field Post Process & Circle of Confusion）**：实现通过 `PostProcessStageLibrary.createDepthOfFieldStage` 统一管理焦距 `focalDistance`、高斯模糊核 `sigma`、采样步长 `stepSize`，完成长焦走廊多模型精准景深模拟。
+  4. **三维实景网格表面影像图层贴模投影（Draped Imagery Layers on 3D Reality Mesh）**：构建 `tileset.imageryLayers` 多层贴模流水线，支持在 Bentley iTwin 实景三维表面无缝贴合 Bing Maps 矢量注记与高分正射影像。
+- **验证结果**：
+  - **普通 Rust 单元测试**：129 项全部通过（含 `batch69_customshaderspropertytextures_czml3dtiles_depthoffield_drapeimageryon3dtiles`）。
+  - **真实 GPU 离屏渲染测试**：224 / 224 项全数通过（`224 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，223 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：223 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Custom Shaders Property Textures、CZML 3D Tiles、Depth of Field 与 Overlay Imagery on 3D Tiles 验证文档](docs/customproptex-czml3dtiles-depthoffield-drapeimagery-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.68 验收完成：Custom Post Process、Custom Primitive - Dev、Custom Shaders 3D Tiles 与 Custom Shaders Models
 - **完成配方**（累计推进至 **219 / 309**，剩余 90 个）：

@@ -1,0 +1,597 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Philadelphia Reality Mesh with Draped Bing Labels",
+      "entities": [
+        {
+          "id": "drape-reality-mesh-box",
+          "name": "Philadelphia Reality Mesh Architectural Anchor",
+          "show": true,
+          "positionDegrees": [
+            -75.163,
+            39.952,
+            27.5
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              38,
+              38,
+              55
+            ]
+          },
+          "color": [
+            0.3,
+            0.65,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "realityMesh": "Bentley iTwin RealityDataId",
+            "maximumScreenSpaceError": 2
+          }
+        },
+        {
+          "id": "drape-bing-label-pillar",
+          "name": "Bing Maps Overlay Layer Calibration Pillar",
+          "show": true,
+          "positionDegrees": [
+            -75.1622,
+            39.9528,
+            20
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 40,
+            "topRadius": 15,
+            "bottomRadius": 15
+          },
+          "color": [
+            0.9,
+            0.6,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "drapedLayer": "Bing Maps Labels",
+            "ionAssetId": 2411391
+          }
+        },
+        {
+          "id": "drape-georef-probe",
+          "name": "Cartographic Drape Projection Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.1638,
+            39.9512,
+            18
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              14,
+              14,
+              14
+            ]
+          },
+          "color": [
+            0.4,
+            0.85,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "projectionDrape": "EllipsoidSurfaceAppearance",
+            "imageryLayersCount": 1
+          }
+        },
+        {
+          "id": "drape-philly-bounds-rect",
+          "name": "Philadelphia Reality Data Bounds",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.168,
+              39.948,
+              -75.158,
+              39.956
+            ]
+          },
+          "color": [
+            0.2,
+            0.25,
+            0.5,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.55,
+            0.9,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geographicFocus": "Philadelphia City Hall",
+            "skyAtmosphere": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Satellite Imagery Overlay Mode (Emerald Aerial Draping)",
+      "entities": [
+        {
+          "id": "drape-reality-mesh-box",
+          "name": "Philadelphia Reality Mesh Architectural Anchor",
+          "show": true,
+          "positionDegrees": [
+            -75.163,
+            39.952,
+            27.5
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              38,
+              38,
+              55
+            ]
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.45,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "realityMesh": "Bentley iTwin RealityDataId",
+            "maximumScreenSpaceError": 2
+          }
+        },
+        {
+          "id": "drape-bing-label-pillar",
+          "name": "Bing Maps Overlay Layer Calibration Pillar",
+          "show": true,
+          "positionDegrees": [
+            -75.1622,
+            39.9528,
+            20
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 40,
+            "topRadius": 15,
+            "bottomRadius": 15
+          },
+          "color": [
+            0.9,
+            0.6,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "drapedLayer": "Bing Maps Labels",
+            "ionAssetId": 2411391
+          }
+        },
+        {
+          "id": "drape-georef-probe",
+          "name": "Cartographic Drape Projection Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.1638,
+            39.9512,
+            18
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              14,
+              14,
+              14
+            ]
+          },
+          "color": [
+            0.4,
+            0.85,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "projectionDrape": "EllipsoidSurfaceAppearance",
+            "imageryLayersCount": 1
+          }
+        },
+        {
+          "id": "drape-philly-bounds-rect",
+          "name": "Philadelphia Reality Data Bounds",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.168,
+              39.948,
+              -75.158,
+              39.956
+            ]
+          },
+          "color": [
+            0.2,
+            0.25,
+            0.5,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.55,
+            0.9,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geographicFocus": "Philadelphia City Hall",
+            "skyAtmosphere": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Cadastral Vector Drape (Amber Parcel Highlighting)",
+      "entities": [
+        {
+          "id": "drape-reality-mesh-box",
+          "name": "Philadelphia Reality Mesh Architectural Anchor",
+          "show": true,
+          "positionDegrees": [
+            -75.163,
+            39.952,
+            27.5
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              38,
+              38,
+              55
+            ]
+          },
+          "color": [
+            0.3,
+            0.65,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "realityMesh": "Bentley iTwin RealityDataId",
+            "maximumScreenSpaceError": 2
+          }
+        },
+        {
+          "id": "drape-bing-label-pillar",
+          "name": "Bing Maps Overlay Layer Calibration Pillar",
+          "show": true,
+          "positionDegrees": [
+            -75.1622,
+            39.9528,
+            20
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 40,
+            "topRadius": 15,
+            "bottomRadius": 15
+          },
+          "color": [
+            0.95,
+            0.45,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "drapedLayer": "Bing Maps Labels",
+            "ionAssetId": 2411391
+          }
+        },
+        {
+          "id": "drape-georef-probe",
+          "name": "Cartographic Drape Projection Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.1638,
+            39.9512,
+            18
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              14,
+              14,
+              14
+            ]
+          },
+          "color": [
+            0.4,
+            0.85,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "projectionDrape": "EllipsoidSurfaceAppearance",
+            "imageryLayersCount": 1
+          }
+        },
+        {
+          "id": "drape-philly-bounds-rect",
+          "name": "Philadelphia Reality Data Bounds",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.168,
+              39.948,
+              -75.158,
+              39.956
+            ]
+          },
+          "color": [
+            0.2,
+            0.25,
+            0.5,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.55,
+            0.9,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geographicFocus": "Philadelphia City Hall",
+            "skyAtmosphere": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Untextured Raw Reality Mesh (Labels Only High-Contrast Inspection)",
+      "entities": [
+        {
+          "id": "drape-reality-mesh-box",
+          "name": "Philadelphia Reality Mesh Architectural Anchor",
+          "show": true,
+          "positionDegrees": [
+            -75.163,
+            39.952,
+            27.5
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              38,
+              38,
+              55
+            ]
+          },
+          "color": [
+            0.3,
+            0.65,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "realityMesh": "Bentley iTwin RealityDataId",
+            "maximumScreenSpaceError": 2
+          }
+        },
+        {
+          "id": "drape-bing-label-pillar",
+          "name": "Bing Maps Overlay Layer Calibration Pillar",
+          "show": true,
+          "positionDegrees": [
+            -75.1622,
+            39.9528,
+            20
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 40,
+            "topRadius": 15,
+            "bottomRadius": 15
+          },
+          "color": [
+            0.9,
+            0.6,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "drapedLayer": "Bing Maps Labels",
+            "ionAssetId": 2411391
+          }
+        },
+        {
+          "id": "drape-georef-probe",
+          "name": "Cartographic Drape Projection Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.1638,
+            39.9512,
+            18
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              14,
+              14,
+              14
+            ]
+          },
+          "color": [
+            0.85,
+            0.3,
+            0.8,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.95,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "projectionDrape": "EllipsoidSurfaceAppearance",
+            "imageryLayersCount": 1
+          }
+        },
+        {
+          "id": "drape-philly-bounds-rect",
+          "name": "Philadelphia Reality Data Bounds",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.168,
+              39.948,
+              -75.158,
+              39.956
+            ]
+          },
+          "color": [
+            0.35,
+            0.3,
+            0.15,
+            0.3
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.55,
+            0.9,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geographicFocus": "Philadelphia City Hall",
+            "skyAtmosphere": true
+          }
+        }
+      ]
+    }
+  ]
+}

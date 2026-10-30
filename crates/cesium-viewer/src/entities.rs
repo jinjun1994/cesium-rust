@@ -5076,4 +5076,64 @@ mod tests {
         let sm_variants = crate::entity_variants::decode(&sm_variants_raw).unwrap();
         assert_eq!(sm_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch69_customshaderspropertytextures_czml3dtiles_depthoffield_drapeimageryon3dtiles() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Custom Shaders Property Textures
+        let pt_data = std::fs::read(base.join("custom-shaders-property-textures.json")).unwrap();
+        let pt_entities = decode(&pt_data).unwrap();
+        assert_eq!(pt_entities.len(), 4);
+        assert!(matches!(pt_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(pt_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(pt_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(pt_entities[3].shape, Shape::Rectangle { .. }));
+        let pt_variants_raw =
+            std::fs::read(base.join("custom-shaders-property-textures.variants.json")).unwrap();
+        let pt_variants = crate::entity_variants::decode(&pt_variants_raw).unwrap();
+        assert_eq!(pt_variants.variants.len(), 4);
+
+        // 2. CZML 3D Tiles
+        let cz_data = std::fs::read(base.join("czml-3d-tiles.json")).unwrap();
+        let cz_entities = decode(&cz_data).unwrap();
+        assert_eq!(cz_entities.len(), 4);
+        assert!(matches!(cz_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(cz_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(cz_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(cz_entities[3].shape, Shape::Rectangle { .. }));
+        let cz_variants_raw = std::fs::read(base.join("czml-3d-tiles.variants.json")).unwrap();
+        let cz_variants = crate::entity_variants::decode(&cz_variants_raw).unwrap();
+        assert_eq!(cz_variants.variants.len(), 4);
+
+        // 3. Depth of Field
+        let df_data = std::fs::read(base.join("depth-of-field.json")).unwrap();
+        let df_entities = decode(&df_data).unwrap();
+        assert_eq!(df_entities.len(), 4);
+        assert!(matches!(df_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(df_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(df_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(df_entities[3].shape, Shape::Rectangle { .. }));
+        let df_variants_raw = std::fs::read(base.join("depth-of-field.variants.json")).unwrap();
+        let df_variants = crate::entity_variants::decode(&df_variants_raw).unwrap();
+        assert_eq!(df_variants.variants.len(), 4);
+
+        // 4. Overlay Imagery on 3D Tiles
+        let di_data = std::fs::read(base.join("drape-imagery-on-3d-tiles.json")).unwrap();
+        let di_entities = decode(&di_data).unwrap();
+        assert_eq!(di_entities.len(), 4);
+        assert!(matches!(di_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(di_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(di_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(di_entities[3].shape, Shape::Rectangle { .. }));
+        let di_variants_raw =
+            std::fs::read(base.join("drape-imagery-on-3d-tiles.variants.json")).unwrap();
+        let di_variants = crate::entity_variants::decode(&di_variants_raw).unwrap();
+        assert_eq!(di_variants.variants.len(), 4);
+    }
 }

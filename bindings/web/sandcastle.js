@@ -230,6 +230,10 @@ $('fullNew192').onclick=guarded(()=>runFull('custom-post-process'));
 $('fullNew193').onclick=guarded(()=>runFull('custom-primitive-dev'));
 $('fullNew194').onclick=guarded(()=>runFull('custom-shaders-3d-tiles'));
 $('fullNew195').onclick=guarded(()=>runFull('custom-shaders-models'));
+$('fullNew196').onclick=guarded(()=>runFull('custom-shaders-property-textures'));
+$('fullNew197').onclick=guarded(()=>runFull('czml-3d-tiles'));
+$('fullNew198').onclick=guarded(()=>runFull('depth-of-field'));
+$('fullNew199').onclick=guarded(()=>runFull('drape-imagery-on-3d-tiles'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

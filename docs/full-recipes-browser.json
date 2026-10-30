@@ -8628,10 +8628,174 @@
           "pixels": 65262
         }
       ]
+    },
+    {
+      "id": "custom-shaders-property-textures",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "ead44e5817440e27cea30f9d746fcdd9bb1e86927ff87f7e9b742e43791fb9a4",
+      "inputSha256": "e689da38bf3081c0ce314dc99f372c6fa82e984febbcac6dd2d9a4e6afc935ad",
+      "fixtureSha256": "8a59c7d38400279a55b786aa23a085081316cd8d0b5eb954b657f4036e333fce",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "custom-proptex-ce90-box",
+        "custom-proptex-le90-pillar",
+        "custom-proptex-combined-probe",
+        "custom-proptex-muscatatuk-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "custom-proptex-ce90-box",
+          "pixels": 270
+        },
+        {
+          "id": "custom-proptex-le90-pillar",
+          "pixels": 230
+        },
+        {
+          "id": "custom-proptex-combined-probe",
+          "pixels": 104
+        },
+        {
+          "id": "custom-proptex-muscatatuk-rect",
+          "pixels": 66008
+        }
+      ]
+    },
+    {
+      "id": "czml-3d-tiles",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "ce3333bb8895cdf8e661bdca9dad9c34c30541599df79fb0940ebc9ce0b393dd",
+      "inputSha256": "92ff65b1da26585a7d80dcc10176d23785ad33346a3724ecf81cd4b259f56855",
+      "fixtureSha256": "554adf321b1231bdcfa068025510ba254fc3fc3214c8ce5a45acff11f9e2e9c9",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "czml-3dtiles-batched-box",
+        "czml-3dtiles-anchor-pillar",
+        "czml-3dtiles-origin-sphere",
+        "czml-3dtiles-dataset-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "czml-3dtiles-batched-box",
+          "pixels": 627
+        },
+        {
+          "id": "czml-3dtiles-anchor-pillar",
+          "pixels": 373
+        },
+        {
+          "id": "czml-3dtiles-origin-sphere",
+          "pixels": 139
+        },
+        {
+          "id": "czml-3dtiles-dataset-rect",
+          "pixels": 66358
+        }
+      ]
+    },
+    {
+      "id": "depth-of-field",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "758cb20c93e27c611401cee676b11273397c24c724b79645837e9e6a7243c279",
+      "inputSha256": "4cc44ce2c960c5e4b54b74e7159a1991941ca71be32e7610fa0a33129c0b0b41",
+      "fixtureSha256": "0167e07286c9beaa96262ca2f5ca6d4b201a4db9f8a966e80cb44ea0b0e7b890",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "dof-focal-target-box",
+        "dof-sampling-kernel-pillar",
+        "dof-blur-probe-sphere",
+        "dof-balloons-corridor-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "dof-focal-target-box",
+          "pixels": 220
+        },
+        {
+          "id": "dof-sampling-kernel-pillar",
+          "pixels": 236
+        },
+        {
+          "id": "dof-blur-probe-sphere",
+          "pixels": 163
+        },
+        {
+          "id": "dof-balloons-corridor-rect",
+          "pixels": 48775
+        }
+      ]
+    },
+    {
+      "id": "drape-imagery-on-3d-tiles",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "7eb1a70ad49f2a8d3f5fceff218d6b6f9743b8da202abb2642eea54c9894278f",
+      "inputSha256": "b97f3813e4d2b6678099175ef097752a6dd397864b4761ede9b6c1ae4a3a0d98",
+      "fixtureSha256": "c332be8592eb68df1633f2d3a835dc74f76e064080151801031b4ee2981aeeb3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "drape-reality-mesh-box",
+        "drape-bing-label-pillar",
+        "drape-georef-probe",
+        "drape-philly-bounds-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "drape-reality-mesh-box",
+          "pixels": 570
+        },
+        {
+          "id": "drape-bing-label-pillar",
+          "pixels": 309
+        },
+        {
+          "id": "drape-georef-probe",
+          "pixels": 139
+        },
+        {
+          "id": "drape-philly-bounds-rect",
+          "pixels": 66545
+        }
+      ]
     }
   ],
   "browser": "156.0.8078.75",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed",
-  "totalCases": 219
+  "totalCases": 223
 }

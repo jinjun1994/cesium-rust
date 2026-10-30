@@ -1,0 +1,145 @@
+[
+  {
+    "id": "czml-3dtiles-batched-box",
+    "name": "BatchedColors B3DM Primary Structure",
+    "show": true,
+    "positionDegrees": [
+      -75.152,
+      39.952,
+      30
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        40,
+        40,
+        60
+      ]
+    },
+    "color": [
+      0.9,
+      0.25,
+      0.25,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.6,
+      0.6,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "czmlPacketId": "BatchedColors",
+      "tilesetUri": "BatchedColors/tileset.json"
+    }
+  },
+  {
+    "id": "czml-3dtiles-anchor-pillar",
+    "name": "CZML Tileset Spatial Anchor Cylinder",
+    "show": true,
+    "positionDegrees": [
+      -75.1512,
+      39.9527,
+      25
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 50,
+      "topRadius": 16,
+      "bottomRadius": 16
+    },
+    "color": [
+      0.2,
+      0.75,
+      0.4,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.6,
+      1,
+      0.7,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "packetType": "tileset",
+      "format": "b3dm"
+    }
+  },
+  {
+    "id": "czml-3dtiles-origin-sphere",
+    "name": "CZML Document Reference Origin Sphere",
+    "show": true,
+    "positionDegrees": [
+      -75.1528,
+      39.9513,
+      20
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        14,
+        14,
+        14
+      ]
+    },
+    "color": [
+      0.3,
+      0.55,
+      0.95,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.7,
+      0.85,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "spatialReference": "WGS84",
+      "czmlVersion": "1.0"
+    }
+  },
+  {
+    "id": "czml-3dtiles-dataset-rect",
+    "name": "BatchedColors CZML Footprint Extent",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -75.156,
+        39.949,
+        -75.148,
+        39.955
+      ]
+    },
+    "color": [
+      0.3,
+      0.25,
+      0.5,
+      0.35
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.65,
+      0.55,
+      0.9,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "dataSource": "CzmlDataSource",
+      "dynamicPackets": 2
+    }
+  }
+]

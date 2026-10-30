@@ -1,0 +1,145 @@
+[
+  {
+    "id": "custom-proptex-ce90-box",
+    "name": "Horizontal Uncertainty CE90 Benchmark Volume",
+    "show": true,
+    "positionDegrees": [
+      -85.534,
+      39.052,
+      232
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        32,
+        32,
+        24
+      ]
+    },
+    "color": [
+      0.2,
+      0.65,
+      0.85,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.6,
+      0.9,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "uncertaintyMode": "UNCERTAINTY_CE90",
+      "propertyTexture": "r3dm_uncertainty_ce90sum"
+    }
+  },
+  {
+    "id": "custom-proptex-le90-pillar",
+    "name": "Vertical Uncertainty LE90 Inspection Cylinder",
+    "show": true,
+    "positionDegrees": [
+      -85.5332,
+      39.0526,
+      235
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 30,
+      "topRadius": 14,
+      "bottomRadius": 14
+    },
+    "color": [
+      0.85,
+      0.55,
+      0.15,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.8,
+      0.4,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "uncertaintyMode": "UNCERTAINTY_LE90",
+      "propertyTexture": "r3dm_uncertainty_le90sum"
+    }
+  },
+  {
+    "id": "custom-proptex-combined-probe",
+    "name": "Combined Dual Uncertainty Assessment Probe",
+    "show": true,
+    "positionDegrees": [
+      -85.5348,
+      39.0514,
+      230
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        12,
+        12,
+        12
+      ]
+    },
+    "color": [
+      0.75,
+      0.25,
+      0.9,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.95,
+      0.65,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "uncertaintyMode": "UNCERTAINTY",
+      "metadataChannels": 2
+    }
+  },
+  {
+    "id": "custom-proptex-muscatatuk-rect",
+    "name": "Muscatatuk Photogrammetry Property Extent",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -85.538,
+        39.049,
+        -85.53,
+        39.055
+      ]
+    },
+    "color": [
+      0.15,
+      0.35,
+      0.25,
+      0.35
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.4,
+      0.8,
+      0.55,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "dataset": "MAXAR OWT Muscatatuk Photogrammetry",
+      "ionAssetId": 2342602
+    }
+  }
+]
