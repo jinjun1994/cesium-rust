@@ -1,0 +1,610 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Tileset Default Split (SplitDirection.NONE, slider at 50%)",
+      "entities": [
+        {
+          "id": "split-dev-seam-cylinder",
+          "name": "Split Viewport Partition Marker Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612094,
+            40.04253,
+            100
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 150,
+            "topRadius": 35,
+            "bottomRadius": 35
+          },
+          "color": [
+            0.15,
+            0.85,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splitDirection": "NONE",
+            "splitPosition": 0.5
+          }
+        },
+        {
+          "id": "split-dev-tileset-box",
+          "name": "Active 3D Tileset Spatial Volume Box",
+          "show": true,
+          "positionDegrees": [
+            -75.6115,
+            40.043,
+            90
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              70,
+              70,
+              60
+            ]
+          },
+          "color": [
+            0.95,
+            0.65,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "selectedTileset": "Tileset",
+            "supportedTilesetsCount": 14
+          }
+        },
+        {
+          "id": "split-dev-camera-sphere",
+          "name": "Split Camera Pivot Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.6125,
+            40.042,
+            95
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              40,
+              40,
+              40
+            ]
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.85,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "enableDebugWireframe": true,
+            "shadows": true
+          }
+        },
+        {
+          "id": "split-dev-boundary-rect",
+          "name": "Split Multi-Tileset Boundary Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.614,
+              40.041,
+              -75.61,
+              40.044
+            ],
+            "height": 60,
+            "extrudedHeight": 120,
+            "rotation": 0
+          },
+          "color": [
+            0.25,
+            0.55,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.75,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sliderElement": "#slider",
+            "inspectorMixinEnabled": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Left Viewport Split (SplitDirection.LEFT, slider at 30%)",
+      "entities": [
+        {
+          "id": "split-dev-seam-cylinder",
+          "name": "Split Viewport Partition Marker Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612094,
+            40.04253,
+            100
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 150,
+            "topRadius": 35,
+            "bottomRadius": 35
+          },
+          "color": [
+            0.15,
+            0.95,
+            0.45,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splitDirection": "LEFT",
+            "splitPosition": 0.3
+          }
+        },
+        {
+          "id": "split-dev-tileset-box",
+          "name": "Active 3D Tileset Spatial Volume Box",
+          "show": true,
+          "positionDegrees": [
+            -75.6115,
+            40.043,
+            90
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              70,
+              70,
+              60
+            ]
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.35,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "selectedTileset": "Tileset",
+            "supportedTilesetsCount": 14
+          }
+        },
+        {
+          "id": "split-dev-camera-sphere",
+          "name": "Split Camera Pivot Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.6125,
+            40.042,
+            95
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              40,
+              40,
+              40
+            ]
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.85,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "enableDebugWireframe": true,
+            "shadows": true
+          }
+        },
+        {
+          "id": "split-dev-boundary-rect",
+          "name": "Split Multi-Tileset Boundary Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.614,
+              40.041,
+              -75.61,
+              40.044
+            ],
+            "height": 60,
+            "extrudedHeight": 120,
+            "rotation": 0
+          },
+          "color": [
+            0.25,
+            0.55,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.75,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sliderElement": "#slider",
+            "inspectorMixinEnabled": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Right Viewport Split (SplitDirection.RIGHT, slider at 70%)",
+      "entities": [
+        {
+          "id": "split-dev-seam-cylinder",
+          "name": "Split Viewport Partition Marker Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612094,
+            40.04253,
+            100
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 150,
+            "topRadius": 35,
+            "bottomRadius": 35
+          },
+          "color": [
+            0.95,
+            0.35,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splitDirection": "RIGHT",
+            "splitPosition": 0.7
+          }
+        },
+        {
+          "id": "split-dev-tileset-box",
+          "name": "Active 3D Tileset Spatial Volume Box",
+          "show": true,
+          "positionDegrees": [
+            -75.6115,
+            40.043,
+            90
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              70,
+              70,
+              60
+            ]
+          },
+          "color": [
+            0.95,
+            0.65,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "selectedTileset": "Tileset",
+            "supportedTilesetsCount": 14
+          }
+        },
+        {
+          "id": "split-dev-camera-sphere",
+          "name": "Split Camera Pivot Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.6125,
+            40.042,
+            95
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              40,
+              40,
+              40
+            ]
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "enableDebugWireframe": true,
+            "shadows": true
+          }
+        },
+        {
+          "id": "split-dev-boundary-rect",
+          "name": "Split Multi-Tileset Boundary Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.614,
+              40.041,
+              -75.61,
+              40.044
+            ],
+            "height": 60,
+            "extrudedHeight": 120,
+            "rotation": 0
+          },
+          "color": [
+            0.25,
+            0.55,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.75,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sliderElement": "#slider",
+            "inspectorMixinEnabled": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Instanced Tileset Split with Shadow Caster Enabled",
+      "entities": [
+        {
+          "id": "split-dev-seam-cylinder",
+          "name": "Split Viewport Partition Marker Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612094,
+            40.04253,
+            100
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 150,
+            "topRadius": 35,
+            "bottomRadius": 35
+          },
+          "color": [
+            0.15,
+            0.85,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splitDirection": "NONE",
+            "splitPosition": 0.5
+          }
+        },
+        {
+          "id": "split-dev-tileset-box",
+          "name": "Active 3D Tileset Spatial Volume Box",
+          "show": true,
+          "positionDegrees": [
+            -75.6115,
+            40.043,
+            90
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              90,
+              90,
+              75
+            ]
+          },
+          "color": [
+            0.95,
+            0.65,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "selectedTileset": "Instanced",
+            "supportedTilesetsCount": 14
+          }
+        },
+        {
+          "id": "split-dev-camera-sphere",
+          "name": "Split Camera Pivot Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.6125,
+            40.042,
+            95
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              40,
+              40,
+              40
+            ]
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.85,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "enableDebugWireframe": true,
+            "shadows": true,
+            "shadowMapSize": 2048
+          }
+        },
+        {
+          "id": "split-dev-boundary-rect",
+          "name": "Split Multi-Tileset Boundary Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.614,
+              40.041,
+              -75.61,
+              40.044
+            ],
+            "height": 60,
+            "extrudedHeight": 120,
+            "rotation": 0
+          },
+          "color": [
+            0.25,
+            0.55,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.75,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sliderElement": "#slider",
+            "inspectorMixinEnabled": true
+          }
+        }
+      ]
+    }
+  ]
+}

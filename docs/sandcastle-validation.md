@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.61
+
+新增 3D Tiles Point Cloud Styling、Global Rivers Vector Tiles with Property-based LOD、3D Tiles Split - Dev、3D Tiles Terrain Classification 四个完整案例，累计 **191 / 309**，剩余 118 个。121 项普通 Rust、192 项实际 GPU、8 组 Node、191 个浏览器 WebGPU 案例通过。验证包含点云声明式样式语言、逐点温度条件色谱、三角/几何坐标函数与动态点图元尺寸（温度二值红蓝阶跃着色基准、10 级温度条件色带与透明度通道混合模式、空间归一化三维坐标位置色彩渐变模式与动态宏定义点尺寸缩放 4 种变体）、全球 HydroRIVERS 矢量水系流速层级与属性 LOD 地形贴地渲染（1-10 级对数水系流量彩虹色带基准、干流主江加粗高亮模式、末端细小支流强化模式与单色灰度线宽分级 4 种变体）、14 种多格式 3D Tileset 滑动分屏对比与阴影检视（基准 50% 居中无分割全景视图、左侧视口单侧遮罩剖切模式、右侧视口单侧遮罩剖切模式与实例化 I3DM 瓦片集分屏与实时阴影投射 4 种变体）、以及维也纳城市矢量 3D Tiles 全球地形覆层分类与交互高亮（维也纳半透明白色地块贴地分类基准、鼠标悬停动态黄色要素高亮模式、绿蓝规划功能分区覆层多边形模式与关闭分类维也纳纯地形 4 种变体）。详见 [本批验证](3dtiles-pointcloudstyling-river-splitdev-terrainclass-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.60
 
 新增 3D Tiles Picking Dev、3D Tiles Point Cloud、3D Tiles Point Cloud Classification、3D Tiles Point Cloud Shading 四个完整案例，累计 **187 / 309**，剩余 122 个。120 项普通 Rust、188 项实际 GPU、8 组 Node、187 个浏览器 WebGPU 案例通过。验证包含多数据源 3D Tiles 深度拾取与射线交汇测试（谷歌高精实景三维瓦片集射线拾取基准、Cesium OSM 建筑群向量几何特征拾取模式、Aerometrex 倾斜摄影表面精确拾取模式与纯深度缓冲光线投射探测 4 种变体）、哥伦比亚大学机器人实验室激光扫描点云与 PNTS 格式几何流式呈现（哥伦比亚实验室高精激光扫描点云基准、按激光反射强度与回波计数着色模式、高程梯度色彩映射模式与固定点尺寸强化呈现 4 种变体）、三维点云几何向量单体化分类与空间拓扑着色（基准红色半透明分类体量覆盖、绿色植被与树冠体量分类覆层、蓝色建筑物与结构设施分类覆层与关闭单体化分类纯激光点云视图 4 种变体）、以及基于视穹光照 EDL 与几何误差衰减的点云高品质着色（圣海伦斯火山点云基准启用 EDL 边缘着色、启用几何误差屏幕衰减模式、教堂高精激光扫描点云全功能光照衰减组合与经典直接光照基准模式 4 种变体）。详见 [本批验证](3dtiles-pickingdev-pointcloud-class-shading-validation.md)。以下保留历史记录。

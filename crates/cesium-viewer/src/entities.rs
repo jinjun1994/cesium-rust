@@ -4602,4 +4602,61 @@ mod tests {
         let pcs_variants = crate::entity_variants::decode(&pcs_variants_raw).unwrap();
         assert_eq!(pcs_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch61_3d_tiles_point_cloud_styling_river_split_terrain() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. 3D Tiles Point Cloud Styling
+        let pcs_data = std::fs::read(base.join("3d-tiles-point-cloud-styling.json")).unwrap();
+        let pcs_entities = decode(&pcs_data).unwrap();
+        assert_eq!(pcs_entities.len(), 4);
+        assert!(matches!(pcs_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(pcs_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(pcs_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(pcs_entities[3].shape, Shape::Rectangle { .. }));
+        let pcs_variants_raw =
+            std::fs::read(base.join("3d-tiles-point-cloud-styling.variants.json")).unwrap();
+        let pcs_variants = crate::entity_variants::decode(&pcs_variants_raw).unwrap();
+        assert_eq!(pcs_variants.variants.len(), 4);
+
+        // 2. 3D Tiles Property LOD River
+        let riv_data = std::fs::read(base.join("3d-tiles-property-lod-river.json")).unwrap();
+        let riv_entities = decode(&riv_data).unwrap();
+        assert_eq!(riv_entities.len(), 4);
+        assert!(matches!(riv_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(riv_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(riv_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(riv_entities[3].shape, Shape::Rectangle { .. }));
+        let riv_variants_raw =
+            std::fs::read(base.join("3d-tiles-property-lod-river.variants.json")).unwrap();
+        let riv_variants = crate::entity_variants::decode(&riv_variants_raw).unwrap();
+        assert_eq!(riv_variants.variants.len(), 4);
+
+        // 3. 3D Tiles Split Dev
+        let sp_data = std::fs::read(base.join("3d-tiles-split-dev.json")).unwrap();
+        let sp_entities = decode(&sp_data).unwrap();
+        assert_eq!(sp_entities.len(), 4);
+        assert!(matches!(sp_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(sp_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(sp_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(sp_entities[3].shape, Shape::Rectangle { .. }));
+        let sp_variants_raw = std::fs::read(base.join("3d-tiles-split-dev.variants.json")).unwrap();
+        let sp_variants = crate::entity_variants::decode(&sp_variants_raw).unwrap();
+        assert_eq!(sp_variants.variants.len(), 4);
+
+        // 4. 3D Tiles Terrain Classification
+        let tc_data = std::fs::read(base.join("3d-tiles-terrain-classification.json")).unwrap();
+        let tc_entities = decode(&tc_data).unwrap();
+        assert_eq!(tc_entities.len(), 4);
+        assert!(matches!(tc_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(tc_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(tc_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(tc_entities[3].shape, Shape::Rectangle { .. }));
+        let tc_variants_raw =
+            std::fs::read(base.join("3d-tiles-terrain-classification.variants.json")).unwrap();
+        let tc_variants = crate::entity_variants::decode(&tc_variants_raw).unwrap();
+        assert_eq!(tc_variants.variants.len(), 4);
+    }
 }

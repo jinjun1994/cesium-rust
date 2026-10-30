@@ -1,0 +1,615 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Vienna Austria Vector Classification Draped on Terrain (rgba(255, 255, 255, 0.5))",
+      "entities": [
+        {
+          "id": "terrain-class-vienna-cylinder",
+          "name": "Vienna Geocoded Anchor Cylinder",
+          "show": true,
+          "positionDegrees": [
+            16.3738,
+            48.2082,
+            350
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 600,
+            "topRadius": 180,
+            "bottomRadius": 180
+          },
+          "color": [
+            0.95,
+            0.95,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geocoderQuery": "Vienna, Austria",
+            "ionAssetId": 5737,
+            "classificationType": "TERRAIN"
+          }
+        },
+        {
+          "id": "terrain-class-parcel-box",
+          "name": "Classified Urban Building Volume Box",
+          "show": true,
+          "positionDegrees": [
+            16.376,
+            48.21,
+            320
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              350,
+              350,
+              250
+            ]
+          },
+          "color": [
+            1,
+            1,
+            1,
+            0.5
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "styleColor": "rgba(255, 255, 255, 0.5)",
+            "format": "Vector 3D Tiles (vctr)"
+          }
+        },
+        {
+          "id": "terrain-class-highlight-sphere",
+          "name": "Vector Feature Highlight Sphere",
+          "show": true,
+          "positionDegrees": [
+            16.371,
+            48.206,
+            330
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              200,
+              200,
+              200
+            ]
+          },
+          "color": [
+            1,
+            1,
+            0,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hoverHighlightColor": "Color.YELLOW",
+            "interactionType": "MOUSE_MOVE"
+          }
+        },
+        {
+          "id": "terrain-class-boundary-rect",
+          "name": "Vienna Vector Classification Bounds Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              16.35,
+              48.19,
+              16.4,
+              48.23
+            ],
+            "height": 200,
+            "extrudedHeight": 450,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.65,
+            0.95,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainProvider": "Terrain.fromWorldTerrain()",
+            "flightDuration": 0
+          }
+        }
+      ]
+    },
+    {
+      "label": "Hover Highlight State (Yellow Color Override on Picked Feature)",
+      "entities": [
+        {
+          "id": "terrain-class-vienna-cylinder",
+          "name": "Vienna Geocoded Anchor Cylinder",
+          "show": true,
+          "positionDegrees": [
+            16.3738,
+            48.2082,
+            350
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 600,
+            "topRadius": 180,
+            "bottomRadius": 180
+          },
+          "color": [
+            0.95,
+            0.95,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geocoderQuery": "Vienna, Austria",
+            "ionAssetId": 5737,
+            "classificationType": "TERRAIN"
+          }
+        },
+        {
+          "id": "terrain-class-parcel-box",
+          "name": "Classified Urban Building Volume Box",
+          "show": true,
+          "positionDegrees": [
+            16.376,
+            48.21,
+            320
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              350,
+              350,
+              250
+            ]
+          },
+          "color": [
+            1,
+            1,
+            0,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "styleColor": "rgba(255, 255, 255, 0.5)",
+            "format": "Vector 3D Tiles (vctr)",
+            "isHovered": true
+          }
+        },
+        {
+          "id": "terrain-class-highlight-sphere",
+          "name": "Vector Feature Highlight Sphere",
+          "show": true,
+          "positionDegrees": [
+            16.371,
+            48.206,
+            330
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              260,
+              260,
+              260
+            ]
+          },
+          "color": [
+            1,
+            0.9,
+            0,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hoverHighlightColor": "Color.YELLOW",
+            "interactionType": "MOUSE_MOVE"
+          }
+        },
+        {
+          "id": "terrain-class-boundary-rect",
+          "name": "Vienna Vector Classification Bounds Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              16.35,
+              48.19,
+              16.4,
+              48.23
+            ],
+            "height": 200,
+            "extrudedHeight": 450,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.65,
+            0.95,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainProvider": "Terrain.fromWorldTerrain()",
+            "flightDuration": 0
+          }
+        }
+      ]
+    },
+    {
+      "label": "Colored Zoning Parcels (Green/Blue Draped Polygon Classification)",
+      "entities": [
+        {
+          "id": "terrain-class-vienna-cylinder",
+          "name": "Vienna Geocoded Anchor Cylinder",
+          "show": true,
+          "positionDegrees": [
+            16.3738,
+            48.2082,
+            350
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 600,
+            "topRadius": 180,
+            "bottomRadius": 180
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.4,
+            0.75
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geocoderQuery": "Vienna, Austria",
+            "ionAssetId": 5737,
+            "classificationType": "TERRAIN"
+          }
+        },
+        {
+          "id": "terrain-class-parcel-box",
+          "name": "Classified Urban Building Volume Box",
+          "show": true,
+          "positionDegrees": [
+            16.376,
+            48.21,
+            320
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              350,
+              350,
+              250
+            ]
+          },
+          "color": [
+            0.15,
+            0.55,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "styleColor": "rgba(255, 255, 255, 0.5)",
+            "format": "Vector 3D Tiles (vctr)",
+            "zoningType": "Residential High Density"
+          }
+        },
+        {
+          "id": "terrain-class-highlight-sphere",
+          "name": "Vector Feature Highlight Sphere",
+          "show": true,
+          "positionDegrees": [
+            16.371,
+            48.206,
+            330
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              200,
+              200,
+              200
+            ]
+          },
+          "color": [
+            0.3,
+            0.9,
+            0.5,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hoverHighlightColor": "Color.YELLOW",
+            "interactionType": "MOUSE_MOVE"
+          }
+        },
+        {
+          "id": "terrain-class-boundary-rect",
+          "name": "Vienna Vector Classification Bounds Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              16.35,
+              48.19,
+              16.4,
+              48.23
+            ],
+            "height": 200,
+            "extrudedHeight": 450,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.65,
+            0.95,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainProvider": "Terrain.fromWorldTerrain()",
+            "flightDuration": 0
+          }
+        }
+      ]
+    },
+    {
+      "label": "Classification Suppressed (Pure World Terrain View in Vienna)",
+      "entities": [
+        {
+          "id": "terrain-class-vienna-cylinder",
+          "name": "Vienna Geocoded Anchor Cylinder",
+          "show": false,
+          "positionDegrees": [
+            16.3738,
+            48.2082,
+            350
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 600,
+            "topRadius": 180,
+            "bottomRadius": 180
+          },
+          "color": [
+            0.95,
+            0.95,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geocoderQuery": "Vienna, Austria",
+            "ionAssetId": 5737,
+            "classificationType": "TERRAIN"
+          }
+        },
+        {
+          "id": "terrain-class-parcel-box",
+          "name": "Classified Urban Building Volume Box",
+          "show": false,
+          "positionDegrees": [
+            16.376,
+            48.21,
+            320
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              350,
+              350,
+              250
+            ]
+          },
+          "color": [
+            1,
+            1,
+            1,
+            0.5
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "styleColor": "rgba(255, 255, 255, 0.5)",
+            "format": "Vector 3D Tiles (vctr)"
+          }
+        },
+        {
+          "id": "terrain-class-highlight-sphere",
+          "name": "Vector Feature Highlight Sphere",
+          "show": false,
+          "positionDegrees": [
+            16.371,
+            48.206,
+            330
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              200,
+              200,
+              200
+            ]
+          },
+          "color": [
+            1,
+            1,
+            0,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "hoverHighlightColor": "Color.YELLOW",
+            "interactionType": "MOUSE_MOVE"
+          }
+        },
+        {
+          "id": "terrain-class-boundary-rect",
+          "name": "Vienna Vector Classification Bounds Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              16.35,
+              48.19,
+              16.4,
+              48.23
+            ],
+            "height": 200,
+            "extrudedHeight": 450,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.65,
+            0.95,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainProvider": "Terrain.fromWorldTerrain()",
+            "flightDuration": 0
+          }
+        }
+      ]
+    }
+  ]
+}

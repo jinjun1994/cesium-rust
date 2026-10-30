@@ -1,0 +1,149 @@
+[
+  {
+    "id": "river-lod-flow-cylinder",
+    "name": "HydroRIVERS Gauge Station Cylinder",
+    "show": true,
+    "positionDegrees": [
+      86.859391,
+      26.907291,
+      2000
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 5000,
+      "topRadius": 1500,
+      "bottomRadius": 1500
+    },
+    "color": [
+      0,
+      0,
+      0.5,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.1,
+      0.2,
+      0.8,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "ionAssetId": 5135960,
+      "ordFlowOrder": 1,
+      "flowClassification": "Main Stem Mega River"
+    }
+  },
+  {
+    "id": "river-lod-basin-box",
+    "name": "Catchment Basin Extent Box",
+    "show": true,
+    "positionDegrees": [
+      86.865,
+      26.915,
+      1800
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        4000,
+        4000,
+        3000
+      ]
+    },
+    "color": [
+      0.12,
+      0.53,
+      0.9,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.25,
+      0.65,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "ordFlowRange": "1-10",
+      "drapingEnabled": true,
+      "heightReference": "CLAMP_TO_TERRAIN"
+    }
+  },
+  {
+    "id": "river-lod-watershed-sphere",
+    "name": "Watershed Node Inspection Sphere",
+    "show": true,
+    "positionDegrees": [
+      86.852,
+      26.9,
+      1900
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        2000,
+        2000,
+        2000
+      ]
+    },
+    "color": [
+      0,
+      1,
+      1,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.3,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "lineWidthEquation": "5.0 - clamp(Number(${ORD_FLOW}), 0.0, 10.0) * 0.4"
+    }
+  },
+  {
+    "id": "river-lod-corridor-rect",
+    "name": "Himalayan River Corridor Rectangle",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        86.82,
+        26.88,
+        86.9,
+        26.94
+      ],
+      "height": 1000,
+      "extrudedHeight": 2500,
+      "rotation": 0
+    },
+    "color": [
+      0.2,
+      0.8,
+      0.2,
+      0.75
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.35,
+      0.95,
+      0.35,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "legendElement": "#ordFlowLegend",
+      "sourceDocumentation": "HydroRIVERS_TechDoc_v10.pdf"
+    }
+  }
+]

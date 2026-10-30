@@ -1,0 +1,609 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Step Red/Blue Temperature Styling (${temperature} > 0.5 ? red : blue)",
+      "entities": [
+        {
+          "id": "pnts-style-probe-cylinder",
+          "name": "Point Cloud Styling Probe Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612094,
+            40.04253,
+            100
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 30,
+            "bottomRadius": 30
+          },
+          "color": [
+            0.95,
+            0.25,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "activeStyle": "Step Red/Blue",
+            "temperatureThreshold": 0.5
+          }
+        },
+        {
+          "id": "pnts-style-volume-box",
+          "name": "Styling Filter Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            -75.6115,
+            40.043,
+            90
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              60,
+              60,
+              50
+            ]
+          },
+          "color": [
+            0.25,
+            0.45,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pointSize": 5,
+            "pointCount": 1000
+          }
+        },
+        {
+          "id": "pnts-style-temperature-sphere",
+          "name": "Temperature Gradient Field Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.6125,
+            40.042,
+            95
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              35,
+              35,
+              35
+            ]
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "evalExpression": "${temperature} > 0.5 ? color('red') : color('blue')"
+          }
+        },
+        {
+          "id": "pnts-style-footprint-rect",
+          "name": "Laser Footprint Coverage Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.614,
+              40.041,
+              -75.61,
+              40.044
+            ],
+            "height": 60,
+            "extrudedHeight": 120,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.45,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.95,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "tilesetUrl": "../../SampleData/Cesium3DTiles/PointCloud/PointCloudWithPerPointProperties/tileset.json",
+            "julianDate": 2457522.154792
+          }
+        }
+      ]
+    },
+    {
+      "label": "Color Ramp (10-Stage Temperature Conditions & Alpha)",
+      "entities": [
+        {
+          "id": "pnts-style-probe-cylinder",
+          "name": "Point Cloud Styling Probe Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612094,
+            40.04253,
+            100
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 30,
+            "bottomRadius": 30
+          },
+          "color": [
+            0,
+            0.8,
+            0.6,
+            1
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "activeStyle": "Color Ramp",
+            "temperatureThreshold": 0.5
+          }
+        },
+        {
+          "id": "pnts-style-volume-box",
+          "name": "Styling Filter Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            -75.6115,
+            40.043,
+            90
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              60,
+              60,
+              50
+            ]
+          },
+          "color": [
+            0.4,
+            1,
+            0.2,
+            0.5
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pointSize": 5,
+            "pointCount": 1000,
+            "conditionStage": "0.3"
+          }
+        },
+        {
+          "id": "pnts-style-temperature-sphere",
+          "name": "Temperature Gradient Field Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.6125,
+            40.042,
+            95
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              35,
+              35,
+              35
+            ]
+          },
+          "color": [
+            1,
+            0.5,
+            0,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "evalExpression": "${temperature} > 0.5 ? color('red') : color('blue')",
+            "conditionStage": "0.5"
+          }
+        },
+        {
+          "id": "pnts-style-footprint-rect",
+          "name": "Laser Footprint Coverage Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.614,
+              40.041,
+              -75.61,
+              40.044
+            ],
+            "height": 60,
+            "extrudedHeight": 120,
+            "rotation": 0
+          },
+          "color": [
+            0.8,
+            0,
+            0.8,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.95,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "tilesetUrl": "../../SampleData/Cesium3DTiles/PointCloud/PointCloudWithPerPointProperties/tileset.json",
+            "julianDate": 2457522.154792
+          }
+        }
+      ]
+    },
+    {
+      "label": "Position-Based Spatial Gradient (vec4(${POSITION}, 1.0))",
+      "entities": [
+        {
+          "id": "pnts-style-probe-cylinder",
+          "name": "Point Cloud Styling Probe Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612094,
+            40.04253,
+            100
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 30,
+            "bottomRadius": 30
+          },
+          "color": [
+            0.85,
+            0.35,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "activeStyle": "Color based on position",
+            "temperatureThreshold": 0.5
+          }
+        },
+        {
+          "id": "pnts-style-volume-box",
+          "name": "Styling Filter Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            -75.6115,
+            40.043,
+            90
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              60,
+              60,
+              50
+            ]
+          },
+          "color": [
+            0.25,
+            0.45,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pointSize": 5,
+            "pointCount": 1000
+          }
+        },
+        {
+          "id": "pnts-style-temperature-sphere",
+          "name": "Temperature Gradient Field Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.6125,
+            40.042,
+            95
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              35,
+              35,
+              35
+            ]
+          },
+          "color": [
+            0.15,
+            0.85,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "evalExpression": "${temperature} > 0.5 ? color('red') : color('blue')",
+            "coordinateGradient": "normalized-xyz"
+          }
+        },
+        {
+          "id": "pnts-style-footprint-rect",
+          "name": "Laser Footprint Coverage Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.614,
+              40.041,
+              -75.61,
+              40.044
+            ],
+            "height": 60,
+            "extrudedHeight": 120,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.45,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.95,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "tilesetUrl": "../../SampleData/Cesium3DTiles/PointCloud/PointCloudWithPerPointProperties/tileset.json",
+            "julianDate": 2457522.154792
+          }
+        }
+      ]
+    },
+    {
+      "label": "Point Size & Multiple Defines Dynamic Styling",
+      "entities": [
+        {
+          "id": "pnts-style-probe-cylinder",
+          "name": "Point Cloud Styling Probe Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612094,
+            40.04253,
+            100
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 30,
+            "bottomRadius": 30
+          },
+          "color": [
+            0.95,
+            0.25,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "activeStyle": "Step Red/Blue",
+            "temperatureThreshold": 0.5
+          }
+        },
+        {
+          "id": "pnts-style-volume-box",
+          "name": "Styling Filter Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            -75.6115,
+            40.043,
+            90
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              80,
+              80,
+              65
+            ]
+          },
+          "color": [
+            0.25,
+            0.45,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pointSize": "temperature * 10",
+            "pointCount": 1000
+          }
+        },
+        {
+          "id": "pnts-style-temperature-sphere",
+          "name": "Temperature Gradient Field Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.6125,
+            40.042,
+            95
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              45,
+              45,
+              45
+            ]
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "evalExpression": "${temperature} > 0.5 ? color('red') : color('blue')",
+            "dynamicDefines": "length, time"
+          }
+        },
+        {
+          "id": "pnts-style-footprint-rect",
+          "name": "Laser Footprint Coverage Rectangle",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.614,
+              40.041,
+              -75.61,
+              40.044
+            ],
+            "height": 60,
+            "extrudedHeight": 120,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.45,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.95,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "tilesetUrl": "../../SampleData/Cesium3DTiles/PointCloud/PointCloudWithPerPointProperties/tileset.json",
+            "julianDate": 2457522.154792
+          }
+        }
+      ]
+    }
+  ]
+}

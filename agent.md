@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.60（已通过 187 / 309 个完整案例，剩余 122 个）
+- **当前版本**：v0.0.61（已通过 191 / 309 个完整案例，剩余 118 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.61 验收完成：点云样式语言 (3D Tiles Point Cloud Styling)、全球水系属性 LOD (Global Rivers Vector Tiles with Property-based LOD)、多格式分屏对比 (3D Tiles Split - Dev) 与地形覆层分类 (3D Tiles Terrain Classification)
+- **完成配方**（累计推进至 **191 / 309**，剩余 118 个）：
+  1. `3d-tiles-point-cloud-styling`（点云声明式样式语言、逐点温度条件色谱、三角/几何坐标函数与动态点图元尺寸：温度二值红蓝阶跃着色基准、10 级温度条件色带与透明度通道混合模式、空间归一化三维坐标位置色彩渐变模式与动态宏定义点尺寸缩放 4 种变体）
+  2. `3d-tiles-property-lod-river`（全球 HydroRIVERS 矢量水系流速层级与属性 LOD 地形贴地渲染：1-10 级对数水系流量彩虹色带基准、干流主江加粗高亮模式、末端细小支流强化模式与单色灰度线宽分级 4 种变体）
+  3. `3d-tiles-split-dev`（14 种多格式 3D Tileset 滑动分屏对比与阴影检视：基准 50% 居中无分割全景视图、左侧视口单侧遮罩剖切模式、右侧视口单侧遮罩剖切模式与实例化 I3DM 瓦片集分屏与实时阴影投射 4 种变体）
+  4. `3d-tiles-terrain-classification`（维也纳城市矢量 3D Tiles 全球地形覆层分类与交互高亮：维也纳半透明白色地块贴地分类基准、鼠标悬停动态黄色要素高亮模式、绿蓝规划功能分区覆层多边形模式与关闭分类维也纳纯地形 4 种变体）
+- **核心研发突破**：
+  1. **点云高维属性样式求值引擎（Point Cloud Styling Evaluator）**：支持将逐点温度属性（`${temperature}`）与三维空间位置（`${POSITION}`）编译入 WebGPU 着色管线，实现条件分段、三角函数与连续色带映射。
+  2. **大规模矢量水系流速属性 LOD 与贴地着色（River Vector Tiles Property LOD）**：结合全球世界地形（World Terrain），实现按水文流速分级（`ORD_FLOW`）自适应调节折线像素宽度，并与 DOM 语义图例高效联动。
+  3. **多模态 3D Tiles 视口滑动掩膜裁剪（Multi-Tileset Viewport Split Masking）**：构建基于屏幕横向坐标分界线（`splitPosition`）的片元丢弃与掩码合成流水线，支持 14 种 3D Tileset 的独立阴影与线框调试。
+  4. **维也纳城市级矢量瓦片地形单体化分类（Vienna Vector Terrain Classification）**：在真实全球高程起伏地表上实现毫秒级矢量多边形贴地包络，支持光标实时拾取与黄色高亮交互。
+- **验证结果**：
+  - **普通 Rust 单元测试**：121 项全部通过（含 `batch61_3d_tiles_point_cloud_styling_river_split_terrain`）。
+  - **真实 GPU 离屏渲染测试**：192 / 192 项全数通过（`192 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：191 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [3D Tiles Point Cloud Styling、Global Rivers Vector Tiles with Property-based LOD、3D Tiles Split - Dev 与 3D Tiles Terrain Classification 验证文档](docs/3dtiles-pointcloudstyling-river-splitdev-terrainclass-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.60 验收完成：多源拾取 (3D Tiles Picking Dev)、激光点云 (3D Tiles Point Cloud)、点云单体化分类 (3D Tiles Point Cloud Classification) 与视穹光照衰减 (3D Tiles Point Cloud Shading)
 - **完成配方**（累计推进至 **187 / 309**，剩余 122 个）：

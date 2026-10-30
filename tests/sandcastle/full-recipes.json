@@ -5251,6 +5251,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "3d-tiles-point-cloud-styling",
+      "title": "3D Tiles Point Cloud Styling",
+      "sourceSha256": "5087578a76fc7e567aaba9f25a0565f0b4aeffc800b1aab408a34ab33be63778",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-point-cloud-styling",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-point-cloud-styling.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-point-cloud-styling.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Point cloud styling language with per-point temperature and coordinate properties",
+        "Support for condition-based color ramps, trigonometric functions, and dynamic point size defines"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-property-lod-river",
+      "title": "Global Rivers Vector Tiles with Property-based LOD",
+      "sourceSha256": "a011234af1dfadbbecbe5affcb25340b55ff1ce0f3180fdd38c9691c1050e975",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-property-lod-river",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-property-lod-river.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-property-lod-river.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Global HydroRIVERS vector 3D tileset with property-based LOD clamping to world terrain",
+        "ORD_FLOW flow hierarchy styling with variable line widths and interactive legend overlay"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-split-dev",
+      "title": "3D Tiles Split - Dev",
+      "sourceSha256": "29253bba1c5eba2dc1b01644fb5e2c97d648b352d59cfaccc596dfb6b7c661a7",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-split-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-split-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-split-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Interactive split viewport for 14 multi-format 3D tilesets with slider synchronization",
+        "SplitDirection left/none/right toggling, shadow caster control, and inspector mixin integration"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-terrain-classification",
+      "title": "3D Tiles Terrain Classification",
+      "sourceSha256": "f5b69068aba1585f86bbda7001ea8d454fbc62f5a374e98c3ff08da1e85f9ec9",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-terrain-classification",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-terrain-classification.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-terrain-classification.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Vector 3D Tiles classification draped directly over World Terrain in Vienna, Austria",
+        "Translucent classification styling and real-time mouse move hover highlight to yellow"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

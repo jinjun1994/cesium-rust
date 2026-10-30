@@ -7271,6 +7271,170 @@
           "pixels": 95898
         }
       ]
+    },
+    {
+      "id": "3d-tiles-point-cloud-styling",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "5087578a76fc7e567aaba9f25a0565f0b4aeffc800b1aab408a34ab33be63778",
+      "inputSha256": "82d5f5759cf1606e7da855079e6216a95a01ad79bff34867456d59f169a75c6e",
+      "fixtureSha256": "563e36dfc968d36acb4db4187b6e5baba4858845b6c50379652fde39f4eafac1",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "pnts-style-probe-cylinder",
+        "pnts-style-volume-box",
+        "pnts-style-temperature-sphere",
+        "pnts-style-footprint-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "pnts-style-probe-cylinder",
+          "pixels": 1516
+        },
+        {
+          "id": "pnts-style-volume-box",
+          "pixels": 1040
+        },
+        {
+          "id": "pnts-style-temperature-sphere",
+          "pixels": 826
+        },
+        {
+          "id": "pnts-style-footprint-rect",
+          "pixels": 20818
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-property-lod-river",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "a011234af1dfadbbecbe5affcb25340b55ff1ce0f3180fdd38c9691c1050e975",
+      "inputSha256": "6c2c94c476278260186d8cdd0d5beceece6f1c36b9ec6fc08a09462109e8738f",
+      "fixtureSha256": "825c06ceef3ff0005462dfc988fdc0a0055e3636cd9ed7e6da65709481375ee1",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "river-lod-flow-cylinder",
+        "river-lod-basin-box",
+        "river-lod-watershed-sphere",
+        "river-lod-corridor-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "river-lod-flow-cylinder",
+          "pixels": 87336
+        },
+        {
+          "id": "river-lod-basin-box",
+          "pixels": 103418
+        },
+        {
+          "id": "river-lod-watershed-sphere",
+          "pixels": 166025
+        },
+        {
+          "id": "river-lod-corridor-rect",
+          "pixels": 81332
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-split-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "29253bba1c5eba2dc1b01644fb5e2c97d648b352d59cfaccc596dfb6b7c661a7",
+      "inputSha256": "8177ef5c23f68bfbe2517147e6f8d765130080e2493ef95b4f8feefc2b89925c",
+      "fixtureSha256": "68c17cfe942d264f85abdb09856641a4d2d56ae6d957f73dfd38f461ed2f1751",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "split-dev-seam-cylinder",
+        "split-dev-tileset-box",
+        "split-dev-camera-sphere",
+        "split-dev-boundary-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "split-dev-seam-cylinder",
+          "pixels": 2147
+        },
+        {
+          "id": "split-dev-tileset-box",
+          "pixels": 1386
+        },
+        {
+          "id": "split-dev-camera-sphere",
+          "pixels": 1061
+        },
+        {
+          "id": "split-dev-boundary-rect",
+          "pixels": 20818
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-terrain-classification",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "f5b69068aba1585f86bbda7001ea8d454fbc62f5a374e98c3ff08da1e85f9ec9",
+      "inputSha256": "5ed9dbb49bb6f7ff06d1852a45a07ebe5de8c07be65f1f01821a63baeef72bf8",
+      "fixtureSha256": "0466a042424024c375d95d237f7f20ea5d68c1bff9cdae0394f283e23bb6a1df",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "terrain-class-vienna-cylinder",
+        "terrain-class-parcel-box",
+        "terrain-class-highlight-sphere",
+        "terrain-class-boundary-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "terrain-class-vienna-cylinder",
+          "pixels": 49160
+        },
+        {
+          "id": "terrain-class-parcel-box",
+          "pixels": 34601
+        },
+        {
+          "id": "terrain-class-highlight-sphere",
+          "pixels": 26647
+        },
+        {
+          "id": "terrain-class-boundary-rect",
+          "pixels": 71548
+        }
+      ]
     }
   ],
   "browser": "156.0.8078.75",
