@@ -5014,4 +5014,66 @@ mod tests {
         let cp_variants = crate::entity_variants::decode(&cp_variants_raw).unwrap();
         assert_eq!(cp_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch68_custompostprocess_customprimitive_customshaders3dtiles_customshadersmodels() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Custom Post Process
+        let pp_data = std::fs::read(base.join("custom-post-process.json")).unwrap();
+        let pp_entities = decode(&pp_data).unwrap();
+        assert_eq!(pp_entities.len(), 4);
+        assert!(matches!(pp_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(pp_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(pp_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(pp_entities[3].shape, Shape::Rectangle { .. }));
+        let pp_variants_raw =
+            std::fs::read(base.join("custom-post-process.variants.json")).unwrap();
+        let pp_variants = crate::entity_variants::decode(&pp_variants_raw).unwrap();
+        assert_eq!(pp_variants.variants.len(), 4);
+
+        // 2. Custom Primitive - Dev
+        let cp_data = std::fs::read(base.join("custom-primitive-dev.json")).unwrap();
+        let cp_entities = decode(&cp_data).unwrap();
+        assert_eq!(cp_entities.len(), 4);
+        assert!(matches!(cp_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(cp_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(cp_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(cp_entities[3].shape, Shape::Rectangle { .. }));
+        let cp_variants_raw =
+            std::fs::read(base.join("custom-primitive-dev.variants.json")).unwrap();
+        let cp_variants = crate::entity_variants::decode(&cp_variants_raw).unwrap();
+        assert_eq!(cp_variants.variants.len(), 4);
+
+        // 3. Custom Shaders 3D Tiles
+        let st_data = std::fs::read(base.join("custom-shaders-3d-tiles.json")).unwrap();
+        let st_entities = decode(&st_data).unwrap();
+        assert_eq!(st_entities.len(), 4);
+        assert!(matches!(st_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(st_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(st_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(st_entities[3].shape, Shape::Rectangle { .. }));
+        let st_variants_raw =
+            std::fs::read(base.join("custom-shaders-3d-tiles.variants.json")).unwrap();
+        let st_variants = crate::entity_variants::decode(&st_variants_raw).unwrap();
+        assert_eq!(st_variants.variants.len(), 4);
+
+        // 4. Custom Shaders Models
+        let sm_data = std::fs::read(base.join("custom-shaders-models.json")).unwrap();
+        let sm_entities = decode(&sm_data).unwrap();
+        assert_eq!(sm_entities.len(), 4);
+        assert!(matches!(sm_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(sm_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(sm_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(sm_entities[3].shape, Shape::Rectangle { .. }));
+        let sm_variants_raw =
+            std::fs::read(base.join("custom-shaders-models.variants.json")).unwrap();
+        let sm_variants = crate::entity_variants::decode(&sm_variants_raw).unwrap();
+        assert_eq!(sm_variants.variants.len(), 4);
+    }
 }

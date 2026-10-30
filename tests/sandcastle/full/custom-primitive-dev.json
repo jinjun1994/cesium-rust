@@ -1,0 +1,148 @@
+[
+  {
+    "id": "custom-prim-wave-plate",
+    "name": "Interference Wave Procedural Surface Mesh",
+    "show": true,
+    "positionDegrees": [
+      0,
+      0,
+      20
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        60,
+        60,
+        25
+      ]
+    },
+    "color": [
+      0.15,
+      0.85,
+      0.8,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.6,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "halfWidthMeters": 10000,
+      "faceResolution": 200,
+      "primitiveType": "TRIANGLES"
+    }
+  },
+  {
+    "id": "custom-prim-disp-pillar",
+    "name": "Vertex Sinusoidal Wave Amplitude Column",
+    "show": true,
+    "positionDegrees": [
+      0.005,
+      0.005,
+      25
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 50,
+      "topRadius": 22,
+      "bottomRadius": 22
+    },
+    "color": [
+      0.95,
+      0.78,
+      0.2,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.95,
+      0.5,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "amplitude": 1000,
+      "frequencyK": [
+        0.0004,
+        0.0001
+      ]
+    }
+  },
+  {
+    "id": "custom-prim-1d-tex-sphere",
+    "name": "1D Color Palette Texture Probe",
+    "show": true,
+    "positionDegrees": [
+      -0.005,
+      -0.005,
+      20
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        20,
+        20,
+        20
+      ]
+    },
+    "color": [
+      0.9,
+      0.2,
+      0.75,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.6,
+      0.9,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "textureType": "1D HSL Palette",
+      "paletteWidth": 256
+    }
+  },
+  {
+    "id": "custom-prim-domain-rect",
+    "name": "Custom Primitive Procedural Extent",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -0.015,
+        -0.015,
+        0.015,
+        0.015
+      ]
+    },
+    "color": [
+      0.1,
+      0.25,
+      0.5,
+      0.35
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.3,
+      0.6,
+      1,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "gridAreaMeters2": 400000000
+    }
+  }
+]

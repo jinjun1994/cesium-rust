@@ -6007,6 +6007,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "custom-post-process",
+      "title": "Custom Post Process",
+      "sourceSha256": "7df489ca1c43a326e7e4f886bd08893cf74789718821d624cb14e2e30f10a88a",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=custom-post-process",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/custom-post-process.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/custom-post-process.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Custom mosaic / convolution filter post-process stage with 16x16 kernel averaging",
+        "Model positioning, screen-space step computation, and PostProcessStage integration"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "custom-primitive-dev",
+      "title": "Custom Primitive - Dev",
+      "sourceSha256": "febf1bfcb50b76c9a71906e66aa2677c7b29122a16a618eb35620f6ae65c401e",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=custom-primitive-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/custom-primitive-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/custom-primitive-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "CustomPrimitive procedurally-generated surface with DrawCommand, VertexArray, and IndexBuffer",
+        "Two plane wave interference pattern vertex shader, 1D texture palette, and ENU model matrix"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "custom-shaders-3d-tiles",
+      "title": "Custom Shaders 3D Tiles",
+      "sourceSha256": "8976952f2ed765d3af9b45a8ac47b19f32a63d7f0349375a5bb9ce759dd6ad17",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=custom-shaders-3d-tiles",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/custom-shaders-3d-tiles.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/custom-shaders-3d-tiles.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "CustomShader integration with 3D Tilesets (Ion Asset 75343 NYC Buildings)",
+        "Camera distance gradient coloring with positionEC.z, animated stripes, and unlit lighting model"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "custom-shaders-models",
+      "title": "Custom Shaders Models",
+      "sourceSha256": "275662cf8726020ddb97f42c6b57f1d0073e1f0dea3eb2b42b911e20349c50f3",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=custom-shaders-models",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/custom-shaders-models.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/custom-shaders-models.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "CustomShader applied to glTF models (GroundVehicle, Balloon, MilkTruck, PointCloudWave)",
+        "Custom animated textures, procedural checkerboard mask, translucent alpha, and vertex deformation"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

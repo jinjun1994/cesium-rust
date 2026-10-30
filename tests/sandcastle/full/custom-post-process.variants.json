@@ -1,0 +1,585 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: 16x16 Kernel Mosaic Post Process (Cyan & Violet)",
+      "entities": [
+        {
+          "id": "custom-post-mosaic-subject",
+          "name": "Mosaic Post Process Subject Model",
+          "show": true,
+          "positionDegrees": [
+            -123.0745,
+            44.0504,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              36,
+              36,
+              52
+            ]
+          },
+          "color": [
+            0.2,
+            0.75,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "postProcessStage": "MosaicBlurKernel",
+            "kernelWidth": 16
+          }
+        },
+        {
+          "id": "custom-post-kernel-pillar",
+          "name": "Convolution Sampling Kernel Anchor",
+          "show": true,
+          "positionDegrees": [
+            -123.0738,
+            44.051,
+            20
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 40,
+            "topRadius": 20,
+            "bottomRadius": 20
+          },
+          "color": [
+            0.65,
+            0.35,
+            0.9,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "filterPass": "16x16 Box Average"
+          }
+        },
+        {
+          "id": "custom-post-pixel-probe",
+          "name": "Screen Space Pixel Ratio Sampling Probe",
+          "show": true,
+          "positionDegrees": [
+            -123.0752,
+            44.0498,
+            18
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              18,
+              18,
+              18
+            ]
+          },
+          "color": [
+            0.98,
+            0.65,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "samplingStep": "8.0 * czm_pixelRatio / viewport.zw"
+          }
+        },
+        {
+          "id": "custom-post-viewport-rect",
+          "name": "Mosaic Post Process Viewport Bounds",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.077,
+              44.048,
+              -123.072,
+              44.053
+            ]
+          },
+          "color": [
+            0.25,
+            0.15,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.4,
+            0.9,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pass": "PostProcessStage"
+          }
+        }
+      ]
+    },
+    {
+      "label": "High-Density Pixel Step Mode (Amber Radiant Highlight)",
+      "entities": [
+        {
+          "id": "custom-post-mosaic-subject",
+          "name": "Mosaic Post Process Subject Model",
+          "show": true,
+          "positionDegrees": [
+            -123.0745,
+            44.0504,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              36,
+              36,
+              52
+            ]
+          },
+          "color": [
+            1,
+            0.5,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "postProcessStage": "MosaicBlurKernel",
+            "kernelWidth": 16
+          }
+        },
+        {
+          "id": "custom-post-kernel-pillar",
+          "name": "Convolution Sampling Kernel Anchor",
+          "show": true,
+          "positionDegrees": [
+            -123.0738,
+            44.051,
+            20
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 40,
+            "topRadius": 20,
+            "bottomRadius": 20
+          },
+          "color": [
+            0.65,
+            0.35,
+            0.9,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "filterPass": "16x16 Box Average"
+          }
+        },
+        {
+          "id": "custom-post-pixel-probe",
+          "name": "Screen Space Pixel Ratio Sampling Probe",
+          "show": true,
+          "positionDegrees": [
+            -123.0752,
+            44.0498,
+            18
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              18,
+              18,
+              18
+            ]
+          },
+          "color": [
+            0.98,
+            0.65,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "samplingStep": "8.0 * czm_pixelRatio / viewport.zw"
+          }
+        },
+        {
+          "id": "custom-post-viewport-rect",
+          "name": "Mosaic Post Process Viewport Bounds",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.077,
+              44.048,
+              -123.072,
+              44.053
+            ]
+          },
+          "color": [
+            0.25,
+            0.15,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.4,
+            0.9,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pass": "PostProcessStage"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Inverted Contrast Mosaic Diagnostic (Neon Lime Infill)",
+      "entities": [
+        {
+          "id": "custom-post-mosaic-subject",
+          "name": "Mosaic Post Process Subject Model",
+          "show": true,
+          "positionDegrees": [
+            -123.0745,
+            44.0504,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              36,
+              36,
+              52
+            ]
+          },
+          "color": [
+            0.2,
+            0.75,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "postProcessStage": "MosaicBlurKernel",
+            "kernelWidth": 16
+          }
+        },
+        {
+          "id": "custom-post-kernel-pillar",
+          "name": "Convolution Sampling Kernel Anchor",
+          "show": true,
+          "positionDegrees": [
+            -123.0738,
+            44.051,
+            20
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 40,
+            "topRadius": 20,
+            "bottomRadius": 20
+          },
+          "color": [
+            0.3,
+            0.95,
+            0.4,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "filterPass": "16x16 Box Average"
+          }
+        },
+        {
+          "id": "custom-post-pixel-probe",
+          "name": "Screen Space Pixel Ratio Sampling Probe",
+          "show": true,
+          "positionDegrees": [
+            -123.0752,
+            44.0498,
+            18
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              18,
+              18,
+              18
+            ]
+          },
+          "color": [
+            0.98,
+            0.65,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "samplingStep": "8.0 * czm_pixelRatio / viewport.zw"
+          }
+        },
+        {
+          "id": "custom-post-viewport-rect",
+          "name": "Mosaic Post Process Viewport Bounds",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.077,
+              44.048,
+              -123.072,
+              44.053
+            ]
+          },
+          "color": [
+            0.25,
+            0.15,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.4,
+            0.9,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pass": "PostProcessStage"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Bypass Stage Pass-Through View (Clean Geometry Outline)",
+      "entities": [
+        {
+          "id": "custom-post-mosaic-subject",
+          "name": "Mosaic Post Process Subject Model",
+          "show": true,
+          "positionDegrees": [
+            -123.0745,
+            44.0504,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              36,
+              36,
+              52
+            ]
+          },
+          "color": [
+            0.2,
+            0.75,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "postProcessStage": "MosaicBlurKernel",
+            "kernelWidth": 16
+          }
+        },
+        {
+          "id": "custom-post-kernel-pillar",
+          "name": "Convolution Sampling Kernel Anchor",
+          "show": true,
+          "positionDegrees": [
+            -123.0738,
+            44.051,
+            20
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 40,
+            "topRadius": 20,
+            "bottomRadius": 20
+          },
+          "color": [
+            0.65,
+            0.35,
+            0.9,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "filterPass": "16x16 Box Average"
+          }
+        },
+        {
+          "id": "custom-post-pixel-probe",
+          "name": "Screen Space Pixel Ratio Sampling Probe",
+          "show": true,
+          "positionDegrees": [
+            -123.0752,
+            44.0498,
+            18
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              18,
+              18,
+              18
+            ]
+          },
+          "color": [
+            0.2,
+            0.9,
+            1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "samplingStep": "8.0 * czm_pixelRatio / viewport.zw"
+          }
+        },
+        {
+          "id": "custom-post-viewport-rect",
+          "name": "Mosaic Post Process Viewport Bounds",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.077,
+              44.048,
+              -123.072,
+              44.053
+            ]
+          },
+          "color": [
+            0.25,
+            0.15,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.4,
+            0.9,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pass": "PostProcessStage"
+          }
+        }
+      ]
+    }
+  ]
+}

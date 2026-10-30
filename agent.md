@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.67（已通过 215 / 309 个完整案例，剩余 94 个）
+- **当前版本**：v0.0.68（已通过 219 / 309 个完整案例，剩余 90 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.68 验收完成：Custom Post Process、Custom Primitive - Dev、Custom Shaders 3D Tiles 与 Custom Shaders Models
+- **完成配方**（累计推进至 **219 / 309**，剩余 90 个）：
+  1. `custom-post-process`（自定义卷积核马赛克后处理阶段、步长解算与全屏后处理管线：16x16 卷积核马赛克基准：青色与紫罗兰模型像素化模糊阶段、高密度步长模式、反色对比度诊断模式、直通观察模式 4 种变体）
+  2. `custom-primitive-dev`（自定义底层图元 DrawCommand、VertexArray 与双波干涉动态曲面网格：双波平面驻波干涉基准：鸭翅绿与明金色波动能量分布、高频驻波模式、一维色彩纹理映射模式、四边形线框拓扑检查模式 4 种变体）
+  3. `custom-shaders-3d-tiles`（3D Tiles 自定义着色器、相机距离渐变色带与程序化动态纹理：相机距离着色基准：蓝绿平滑深度梯度过渡、动态程序化条纹模式、无光照纯净立面模式、高对比度景深分段蒙版 4 种变体）
+  4. `custom-shaders-models`（glTF 模型自定义着色器、程序化棋盘格、半透明梯度与顶点法向膨胀：自定义动画贴图基准：赛车红与动态流动条纹、程序化棋盘格蒙版模式、半透明对角透明度渐变、顶点法向位移膨胀模式 4 种变体）
+- **核心研发突破**：
+  1. **自定义后处理卷积核与视口步长采样（Custom Post Process & Convolution Mosaic Filtering）**：实现通过 `PostProcessStage` 混合着色器执行 16x16 卷积核离散采样滤波，解算视口长宽比与 `czm_pixelStep` 空间步长。
+  2. **可编程底层图元装配流水线（Programmable Custom Primitive & Interference Surface）**：构建基于 `DrawCommand`、`VertexArray` 与局部 ENU 模型矩阵的自定义图元架构，支持双波正弦平面波干涉顶点与 1D 纹理调色板映射。
+  3. **3D Tiles CustomShader 深度色带扩展（CustomShader for 3D Tiles & Distance Gradients）**：支持在 Cesium3DTileset 几何阶段注入自定义片元着色器，基于相机视点距离 `positionEC.z` 进行多色阶线性渐变与条纹脉冲动画。
+  4. **glTF 模型自定义着色器与形变动画（glTF Model CustomShader & Vertex Deformation）**：实现 glTF 模型材质自定义 Uniform 绑定、时间推进动画、程序化对角透明通道、棋盘格掩膜与法向量空间位移膨胀。
+- **验证结果**：
+  - **普通 Rust 单元测试**：128 项全部通过（含 `batch68_custompostprocess_customprimitive_customshaders3dtiles_customshadersmodels`）。
+  - **真实 GPU 离屏渲染测试**：220 / 220 项全数通过（`220 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，219 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：219 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Custom Post Process、Custom Primitive - Dev、Custom Shaders 3D Tiles 与 Custom Shaders Models 验证文档](docs/custompostprocess-customprimitive-customshaders-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.67 验收完成：Constant LOD - Dev、Custom DataSource、Custom Geocoder 与 Custom Per-Feature Post Process
 - **完成配方**（累计推进至 **215 / 309**，剩余 94 个）：

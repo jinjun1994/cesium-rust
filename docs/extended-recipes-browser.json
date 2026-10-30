@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "constant-lod-dev",
+      "id": "custom-post-process",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "a86a8dbf24e48c66cc42463b7f855bb4d5721dd648fcd08245c821d759beb10b",
-      "inputSha256": "77f8c371cad44370b3450ddfa930836929592b859894e9bdaf4f3cc811cb7b84",
-      "fixtureSha256": "81ffae5b3644b6a7a3fdccd39f8e0592e28f295a966858d188554b6a13ced4ec",
+      "sourceSha256": "7df489ca1c43a326e7e4f886bd08893cf74789718821d624cb14e2e30f10a88a",
+      "inputSha256": "6de84dd62a1371256e2eb23d1cd6f5188adcacd36adbf289d7b2530fc7e4bdeb",
+      "fixtureSha256": "f897b1ec49d5413bbcc9d50a6fba826c78cdd759c43cd3e5a484c7af78867c89",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,150 +22,150 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "clod-checker-plane-box",
-        "clod-grass-canopy-cylinder",
-        "clod-normal-map-sphere",
-        "clod-model-footprint-rect"
+        "custom-post-mosaic-subject",
+        "custom-post-kernel-pillar",
+        "custom-post-pixel-probe",
+        "custom-post-viewport-rect"
       ],
       "pixelCounts": [
         {
-          "id": "clod-checker-plane-box",
-          "pixels": 709
+          "id": "custom-post-mosaic-subject",
+          "pixels": 493
         },
         {
-          "id": "clod-grass-canopy-cylinder",
-          "pixels": 656
+          "id": "custom-post-kernel-pillar",
+          "pixels": 448
         },
         {
-          "id": "clod-normal-map-sphere",
-          "pixels": 277
-        },
-        {
-          "id": "clod-model-footprint-rect",
-          "pixels": 51923
-        }
-      ]
-    },
-    {
-      "id": "custom-datasource",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "37d2421f66666855cbc5387819873b92f91897eb3d5d53bc156623fee8ca8732",
-      "inputSha256": "84ba5b58ac21aa7062afabcd23f9ef009090cd46eeabc33697786c1993cab36c",
-      "fixtureSha256": "10c50e07a14049719fd9d364dac7140402adbe18bd61a4481c00c182e379ce3e",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "custom-ds-tokyo-pillar",
-        "custom-ds-nyc-pillar",
-        "custom-ds-london-marker",
-        "custom-ds-globe-baseline-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "custom-ds-tokyo-pillar",
-          "pixels": 1217
-        },
-        {
-          "id": "custom-ds-nyc-pillar",
-          "pixels": 1260
-        },
-        {
-          "id": "custom-ds-london-marker",
-          "pixels": 427
-        },
-        {
-          "id": "custom-ds-globe-baseline-rect",
-          "pixels": 62024
-        }
-      ]
-    },
-    {
-      "id": "custom-geocoder",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "b5664c168d526b7ba22d7795e0bcefb148b5b2dc2a726838472703c395c037b3",
-      "inputSha256": "ee240b0222ae04a5663764ce32430b6273cb41f3570afba15585914b4c2c171b",
-      "fixtureSha256": "46f6b05cd5e50b5e79eaafa0729a4f86c574b75e47f9ef5b99ce503f6f7c39ea",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "custom-geo-philly-box",
-        "custom-geo-ben-franklin-pillar",
-        "custom-geo-search-pin-sphere",
-        "custom-geo-nominatim-bbox-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "custom-geo-philly-box",
-          "pixels": 881
-        },
-        {
-          "id": "custom-geo-ben-franklin-pillar",
-          "pixels": 567
-        },
-        {
-          "id": "custom-geo-search-pin-sphere",
-          "pixels": 333
-        },
-        {
-          "id": "custom-geo-nominatim-bbox-rect",
-          "pixels": 66773
-        }
-      ]
-    },
-    {
-      "id": "custom-per-feature-post-process",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "68ff10c1aebad4c1903cc6ce23cd2e1ef81d050667f7b9d1789fcd0ed2fddde2",
-      "inputSha256": "638263193a7dca1ee7cc78553d57db0f9af289686634b237e0413e59316c5260",
-      "fixtureSha256": "facfbe3b37c64e32586c1359166c7007d32dd618642dd16c7d8cb3f4fa30a7a4",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "custom-post-subject-box",
-        "custom-post-podium-cylinder",
-        "custom-post-hover-marker",
-        "custom-post-stage-footprint-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "custom-post-subject-box",
-          "pixels": 474
-        },
-        {
-          "id": "custom-post-podium-cylinder",
-          "pixels": 484
-        },
-        {
-          "id": "custom-post-hover-marker",
+          "id": "custom-post-pixel-probe",
           "pixels": 225
         },
         {
-          "id": "custom-post-stage-footprint-rect",
+          "id": "custom-post-viewport-rect",
           "pixels": 34891
+        }
+      ]
+    },
+    {
+      "id": "custom-primitive-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "febf1bfcb50b76c9a71906e66aa2677c7b29122a16a618eb35620f6ae65c401e",
+      "inputSha256": "8da43cdf381342dd4f9b53188be63da51444e0dc4341c00724482e8adb7d10b0",
+      "fixtureSha256": "3c61b569fdad8e3be03be61c6b8a11fda032830713b215f16479a4d309a5fc18",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "custom-prim-wave-plate",
+        "custom-prim-disp-pillar",
+        "custom-prim-1d-tex-sphere",
+        "custom-prim-domain-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "custom-prim-wave-plate",
+          "pixels": 802
+        },
+        {
+          "id": "custom-prim-disp-pillar",
+          "pixels": 576
+        },
+        {
+          "id": "custom-prim-1d-tex-sphere",
+          "pixels": 277
+        },
+        {
+          "id": "custom-prim-domain-rect",
+          "pixels": 66312
+        }
+      ]
+    },
+    {
+      "id": "custom-shaders-3d-tiles",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "8976952f2ed765d3af9b45a8ac47b19f32a63d7f0349375a5bb9ce759dd6ad17",
+      "inputSha256": "c07ae2d482ca6200be80d033e7a11330c3b244d748d37d945928a9bcadc61c0c",
+      "fixtureSha256": "9f83bd06b7cf9327b4f60dec870107b94c47f2accccd88f90900231043275e6e",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "custom-shader-tower-box",
+        "custom-shader-stripes-cylinder",
+        "custom-shader-camera-probe",
+        "custom-shader-nyc-bounds-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "custom-shader-tower-box",
+          "pixels": 2835
+        },
+        {
+          "id": "custom-shader-stripes-cylinder",
+          "pixels": 978
+        },
+        {
+          "id": "custom-shader-camera-probe",
+          "pixels": 427
+        },
+        {
+          "id": "custom-shader-nyc-bounds-rect",
+          "pixels": 65798
+        }
+      ]
+    },
+    {
+      "id": "custom-shaders-models",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "275662cf8726020ddb97f42c6b57f1d0073e1f0dea3eb2b42b911e20349c50f3",
+      "inputSha256": "6e2f54f9ea4ba7915edefe1922ecc4c84bce960f089318934c4d50564207acf2",
+      "fixtureSha256": "38309ee2d32af693816392c38b91a0b787f4186febda6243a537f19d9d1f1eaa",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "custom-model-vehicle-box",
+        "custom-model-balloon-cylinder",
+        "custom-model-wave-sphere",
+        "custom-model-stage-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "custom-model-vehicle-box",
+          "pixels": 807
+        },
+        {
+          "id": "custom-model-balloon-cylinder",
+          "pixels": 920
+        },
+        {
+          "id": "custom-model-wave-sphere",
+          "pixels": 333
+        },
+        {
+          "id": "custom-model-stage-rect",
+          "pixels": 65262
         }
       ]
     }

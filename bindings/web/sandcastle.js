@@ -226,6 +226,10 @@ $('fullNew188').onclick=guarded(()=>runFull('constant-lod-dev'));
 $('fullNew189').onclick=guarded(()=>runFull('custom-datasource'));
 $('fullNew190').onclick=guarded(()=>runFull('custom-geocoder'));
 $('fullNew191').onclick=guarded(()=>runFull('custom-per-feature-post-process'));
+$('fullNew192').onclick=guarded(()=>runFull('custom-post-process'));
+$('fullNew193').onclick=guarded(()=>runFull('custom-primitive-dev'));
+$('fullNew194').onclick=guarded(()=>runFull('custom-shaders-3d-tiles'));
+$('fullNew195').onclick=guarded(()=>runFull('custom-shaders-models'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.68
+
+新增 Custom Post Process、Custom Primitive - Dev、Custom Shaders 3D Tiles、Custom Shaders Models 四个完整案例，累计 **219 / 309**，剩余 90 个。128 项普通 Rust、220 项实际 GPU、8 组 Node、219 个浏览器 WebGPU 案例通过。验证包含自定义卷积核马赛克后处理阶段、步长解算与全屏后处理管线（16x16 卷积核马赛克基准：青色与紫罗兰模型像素化模糊阶段、高密度步长模式、反色对比度诊断模式、直通观察模式 4 种变体）、自定义底层图元 DrawCommand、VertexArray 与双波干涉动态曲面网格（双波平面驻波干涉基准：鸭翅绿与明金色波动能量分布、高频驻波模式、一维色彩纹理映射模式、四边形线框拓扑检查模式 4 种变体）、3D Tiles 自定义着色器、相机距离渐变色带与程序化动态纹理（相机距离着色基准：蓝绿平滑深度梯度过渡、动态程序化条纹模式、无光照纯净立面模式、高对比度景深分段蒙版 4 种变体）、以及 glTF 模型自定义着色器、程序化棋盘格、半透明梯度与顶点法向膨胀（自定义动画贴图基准：赛车红与动态流动条纹、程序化棋盘格蒙版模式、半透明对角透明度渐变、顶点法向位移膨胀模式 4 种变体）。详见 [本批验证](custompostprocess-customprimitive-customshaders-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.67
 
 新增 Constant LOD - Dev、Custom DataSource、Custom Geocoder、Custom Per-Feature Post Process 四个完整案例，累计 **215 / 309**，剩余 94 个。127 项普通 Rust、216 项实际 GPU、8 组 Node、215 个浏览器 WebGPU 案例通过。验证包含 glTF 2.0 恒定细节层次网格与多贴图材质（基准棋盘格恒定细节层次、草地纹理恒定细节层次模式、自发光增强棋盘格模式、45度斜倾平面与法线贴图变换 4 种变体）、WebGL Globe 自定义数据源与人口密度柱体图谱（1990 年代基准人口密度序列、1995 年代城市人口增长序列、千禧年峰值人口序列、动态高度缩放倍率模式 4 种变体）、OpenStreetMap Nominatim 异步地理编码器与多边形范围解算（基准 Nominatim 查询：费城地名空间矩形包围盒解算、聚焦费城市政厅地标建筑模式、大都会扩展行政区界模式、高对比度地名检索锚点模式 4 种变体）、以及基于 `czm_selected()` 片元着色器逐要素后处理高亮（未选中基准模型与后处理舞台、鼠标悬停要素高亮模式、多图元联合高亮模式、后处理舞台色调诊断模式 4 种变体）。详见 [本批验证](constantlod-customds-customgeocoder-custompostprocess-validation.md)。以下保留历史记录。

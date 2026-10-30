@@ -1,0 +1,589 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Color Tiles by Distance to Camera (Blue/Green Gradient)",
+      "entities": [
+        {
+          "id": "custom-shader-tower-box",
+          "name": "Camera Distance Colorized Tower Member",
+          "show": true,
+          "positionDegrees": [
+            -74.0188,
+            40.6911,
+            120
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              60,
+              60,
+              240
+            ]
+          },
+          "color": [
+            0.15,
+            0.45,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.8,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shader": "ColorByDistanceToCamera",
+            "ionAssetId": 75343
+          }
+        },
+        {
+          "id": "custom-shader-stripes-cylinder",
+          "name": "Animated Texture Stripes Column",
+          "show": true,
+          "positionDegrees": [
+            -74.015,
+            40.693,
+            45
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 90,
+            "topRadius": 25,
+            "bottomRadius": 25
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "textureUniform": "cesium_stripes.png",
+            "animated": true
+          }
+        },
+        {
+          "id": "custom-shader-camera-probe",
+          "name": "Eye Coordinates Position Benchmark Sphere",
+          "show": true,
+          "positionDegrees": [
+            -74.022,
+            40.689,
+            40
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25,
+              25,
+              25
+            ]
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "attribute": "positionEC.z"
+          }
+        },
+        {
+          "id": "custom-shader-nyc-bounds-rect",
+          "name": "3D Tiles NYC Dataset Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -74.025,
+              40.685,
+              -74.01,
+              40.7
+            ]
+          },
+          "color": [
+            0.2,
+            0.3,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            1,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "lightingModel": "UNLIT"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Animated Procedural Texture Stripes (Yellow & Indigo Bands)",
+      "entities": [
+        {
+          "id": "custom-shader-tower-box",
+          "name": "Camera Distance Colorized Tower Member",
+          "show": true,
+          "positionDegrees": [
+            -74.0188,
+            40.6911,
+            120
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              60,
+              60,
+              240
+            ]
+          },
+          "color": [
+            0.9,
+            0.75,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shader": "ColorByDistanceToCamera",
+            "ionAssetId": 75343
+          }
+        },
+        {
+          "id": "custom-shader-stripes-cylinder",
+          "name": "Animated Texture Stripes Column",
+          "show": true,
+          "positionDegrees": [
+            -74.015,
+            40.693,
+            45
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 90,
+            "topRadius": 25,
+            "bottomRadius": 25
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "textureUniform": "cesium_stripes.png",
+            "animated": true
+          }
+        },
+        {
+          "id": "custom-shader-camera-probe",
+          "name": "Eye Coordinates Position Benchmark Sphere",
+          "show": true,
+          "positionDegrees": [
+            -74.022,
+            40.689,
+            40
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25,
+              25,
+              25
+            ]
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "attribute": "positionEC.z"
+          }
+        },
+        {
+          "id": "custom-shader-nyc-bounds-rect",
+          "name": "3D Tiles NYC Dataset Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -74.025,
+              40.685,
+              -74.01,
+              40.7
+            ]
+          },
+          "color": [
+            0.2,
+            0.3,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            1,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "lightingModel": "UNLIT"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Unlit Standard PBR Material (White Architectural Facade)",
+      "entities": [
+        {
+          "id": "custom-shader-tower-box",
+          "name": "Camera Distance Colorized Tower Member",
+          "show": true,
+          "positionDegrees": [
+            -74.0188,
+            40.6911,
+            120
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              60,
+              60,
+              240
+            ]
+          },
+          "color": [
+            0.15,
+            0.45,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.8,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shader": "ColorByDistanceToCamera",
+            "ionAssetId": 75343
+          }
+        },
+        {
+          "id": "custom-shader-stripes-cylinder",
+          "name": "Animated Texture Stripes Column",
+          "show": true,
+          "positionDegrees": [
+            -74.015,
+            40.693,
+            45
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 90,
+            "topRadius": 25,
+            "bottomRadius": 25
+          },
+          "color": [
+            0.85,
+            0.9,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "textureUniform": "cesium_stripes.png",
+            "animated": true
+          }
+        },
+        {
+          "id": "custom-shader-camera-probe",
+          "name": "Eye Coordinates Position Benchmark Sphere",
+          "show": true,
+          "positionDegrees": [
+            -74.022,
+            40.689,
+            40
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25,
+              25,
+              25
+            ]
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "attribute": "positionEC.z"
+          }
+        },
+        {
+          "id": "custom-shader-nyc-bounds-rect",
+          "name": "3D Tiles NYC Dataset Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -74.025,
+              40.685,
+              -74.01,
+              40.7
+            ]
+          },
+          "color": [
+            0.2,
+            0.3,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            1,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "lightingModel": "UNLIT"
+          }
+        }
+      ]
+    },
+    {
+      "label": "High-Contrast Camera Range Mask (Neon Amber Depth Bands)",
+      "entities": [
+        {
+          "id": "custom-shader-tower-box",
+          "name": "Camera Distance Colorized Tower Member",
+          "show": true,
+          "positionDegrees": [
+            -74.0188,
+            40.6911,
+            120
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              60,
+              60,
+              240
+            ]
+          },
+          "color": [
+            0.15,
+            0.45,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.8,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "shader": "ColorByDistanceToCamera",
+            "ionAssetId": 75343
+          }
+        },
+        {
+          "id": "custom-shader-stripes-cylinder",
+          "name": "Animated Texture Stripes Column",
+          "show": true,
+          "positionDegrees": [
+            -74.015,
+            40.693,
+            45
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 90,
+            "topRadius": 25,
+            "bottomRadius": 25
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "textureUniform": "cesium_stripes.png",
+            "animated": true
+          }
+        },
+        {
+          "id": "custom-shader-camera-probe",
+          "name": "Eye Coordinates Position Benchmark Sphere",
+          "show": true,
+          "positionDegrees": [
+            -74.022,
+            40.689,
+            40
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25,
+              25,
+              25
+            ]
+          },
+          "color": [
+            1,
+            0.45,
+            0.05,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.8,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "attribute": "positionEC.z"
+          }
+        },
+        {
+          "id": "custom-shader-nyc-bounds-rect",
+          "name": "3D Tiles NYC Dataset Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -74.025,
+              40.685,
+              -74.01,
+              40.7
+            ]
+          },
+          "color": [
+            0.2,
+            0.3,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            1,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "lightingModel": "UNLIT"
+          }
+        }
+      ]
+    }
+  ]
+}
