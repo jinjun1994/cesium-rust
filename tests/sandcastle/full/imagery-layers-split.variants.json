@@ -1,0 +1,597 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Split Earth at Night & World Street Map (Midway Slider 50%)",
+      "entities": [
+        {
+          "id": "split-night-city-box",
+          "name": "Earth at Night Radiance Split Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            31.235,
+            30.044,
+            80
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              75
+            ]
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splitDirection": "LEFT",
+            "splitPosition": 0.5,
+            "nightImagery": "EarthAtNight"
+          }
+        },
+        {
+          "id": "split-street-divider-cylinder",
+          "name": "World Street Map Seam Divider Column",
+          "show": true,
+          "positionDegrees": [
+            31.238,
+            30.047,
+            60
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 65,
+            "topRadius": 8.5,
+            "bottomRadius": 8.5
+          },
+          "color": [
+            0.35,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splitDirection": "NONE",
+            "streetProvider": "World_Street_Map"
+          }
+        },
+        {
+          "id": "split-slider-marker-sphere",
+          "name": "Screen Space Split Slider Interactive Anchor",
+          "show": true,
+          "positionDegrees": [
+            31.232,
+            30.041,
+            70
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              7,
+              7,
+              7
+            ]
+          },
+          "color": [
+            0.95,
+            0.35,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sliderDragging": true,
+            "pinchInteractive": true
+          }
+        },
+        {
+          "id": "split-nile-valley-rect",
+          "name": "Nile Valley Imagery Split Comparison Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              31.1,
+              29.9,
+              31.4,
+              30.2
+            ]
+          },
+          "color": [
+            0.2,
+            0.25,
+            0.35,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.85,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "region": "Cairo_Nile_Delta"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Nighttime Radiance Dominated Left Split (Slider 80% Reveal)",
+      "entities": [
+        {
+          "id": "split-night-city-box",
+          "name": "Earth at Night Radiance Split Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            31.235,
+            30.044,
+            80
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              75
+            ]
+          },
+          "color": [
+            0.95,
+            0.7,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splitDirection": "LEFT",
+            "splitPosition": 0.5,
+            "nightImagery": "EarthAtNight"
+          }
+        },
+        {
+          "id": "split-street-divider-cylinder",
+          "name": "World Street Map Seam Divider Column",
+          "show": true,
+          "positionDegrees": [
+            31.238,
+            30.047,
+            60
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 65,
+            "topRadius": 8.5,
+            "bottomRadius": 8.5
+          },
+          "color": [
+            0.35,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splitDirection": "NONE",
+            "streetProvider": "World_Street_Map"
+          }
+        },
+        {
+          "id": "split-slider-marker-sphere",
+          "name": "Screen Space Split Slider Interactive Anchor",
+          "show": true,
+          "positionDegrees": [
+            31.232,
+            30.041,
+            70
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              7,
+              7,
+              7
+            ]
+          },
+          "color": [
+            0.95,
+            0.35,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sliderDragging": true,
+            "pinchInteractive": true
+          }
+        },
+        {
+          "id": "split-nile-valley-rect",
+          "name": "Nile Valley Imagery Split Comparison Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              31.1,
+              29.9,
+              31.4,
+              30.2
+            ]
+          },
+          "color": [
+            0.2,
+            0.25,
+            0.35,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.85,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "region": "Cairo_Nile_Delta"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Daylight Cartographic Street Map Dominated (Slider 20% Reveal)",
+      "entities": [
+        {
+          "id": "split-night-city-box",
+          "name": "Earth at Night Radiance Split Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            31.235,
+            30.044,
+            80
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              75
+            ]
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splitDirection": "LEFT",
+            "splitPosition": 0.5,
+            "nightImagery": "EarthAtNight"
+          }
+        },
+        {
+          "id": "split-street-divider-cylinder",
+          "name": "World Street Map Seam Divider Column",
+          "show": true,
+          "positionDegrees": [
+            31.238,
+            30.047,
+            60
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 65,
+            "topRadius": 8.5,
+            "bottomRadius": 8.5
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.45,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splitDirection": "NONE",
+            "streetProvider": "World_Street_Map"
+          }
+        },
+        {
+          "id": "split-slider-marker-sphere",
+          "name": "Screen Space Split Slider Interactive Anchor",
+          "show": true,
+          "positionDegrees": [
+            31.232,
+            30.041,
+            70
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              7,
+              7,
+              7
+            ]
+          },
+          "color": [
+            0.95,
+            0.35,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sliderDragging": true,
+            "pinchInteractive": true
+          }
+        },
+        {
+          "id": "split-nile-valley-rect",
+          "name": "Nile Valley Imagery Split Comparison Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              31.1,
+              29.9,
+              31.4,
+              30.2
+            ]
+          },
+          "color": [
+            0.2,
+            0.25,
+            0.35,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.85,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "region": "Cairo_Nile_Delta"
+          }
+        }
+      ]
+    },
+    {
+      "label": "High-Contrast Continental Coastline Boundary (Diagnostic Split Seam)",
+      "entities": [
+        {
+          "id": "split-night-city-box",
+          "name": "Earth at Night Radiance Split Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            31.235,
+            30.044,
+            80
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              75
+            ]
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splitDirection": "LEFT",
+            "splitPosition": 0.5,
+            "nightImagery": "EarthAtNight"
+          }
+        },
+        {
+          "id": "split-street-divider-cylinder",
+          "name": "World Street Map Seam Divider Column",
+          "show": true,
+          "positionDegrees": [
+            31.238,
+            30.047,
+            60
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 65,
+            "topRadius": 8.5,
+            "bottomRadius": 8.5
+          },
+          "color": [
+            0.35,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splitDirection": "NONE",
+            "streetProvider": "World_Street_Map"
+          }
+        },
+        {
+          "id": "split-slider-marker-sphere",
+          "name": "Screen Space Split Slider Interactive Anchor",
+          "show": true,
+          "positionDegrees": [
+            31.232,
+            30.041,
+            70
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              7,
+              7,
+              7
+            ]
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sliderDragging": true,
+            "pinchInteractive": true
+          }
+        },
+        {
+          "id": "split-nile-valley-rect",
+          "name": "Nile Valley Imagery Split Comparison Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              31.1,
+              29.9,
+              31.4,
+              30.2
+            ]
+          },
+          "color": [
+            0.35,
+            0.25,
+            0.25,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.85,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "region": "Cairo_Nile_Delta"
+          }
+        }
+      ]
+    }
+  ]
+}

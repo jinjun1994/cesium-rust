@@ -258,6 +258,10 @@ $('fullNew220').onclick=guarded(()=>runFull('i3s-building-scene-layer'));
 $('fullNew221').onclick=guarded(()=>runFull('i3s-feature-picking'));
 $('fullNew222').onclick=guarded(()=>runFull('i3s-integratedmesh-layer'));
 $('fullNew223').onclick=guarded(()=>runFull('image-based-lighting'));
+$('fullNew224').onclick=guarded(()=>runFull('imagery-assets-available-from-ion'));
+$('fullNew225').onclick=guarded(()=>runFull('imagery-layers-split'));
+$('fullNew226').onclick=guarded(()=>runFull('imagery-layers-texture-filters'));
+$('fullNew227').onclick=guarded(()=>runFull('imodel-mesh-export-service'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

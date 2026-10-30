@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "i3s-building-scene-layer",
+      "id": "imagery-assets-available-from-ion",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "83127c32b227a7db0f9f1d81ce7f161997dda42c2eb0f33bcdc0ee0b09edf10d",
-      "inputSha256": "a44ce1a36c6a68dd8ca6d08f413dc2f581b43a880612d752772769b2659b85a9",
-      "fixtureSha256": "17e7355b03d686052b5e43cda10be88558b2a0f9556517712c8c830a99aa314f",
+      "sourceSha256": "cc3e7bb51896006115a2ef2c31691816c2e06c759e51574abb11e2129d59fbbf",
+      "inputSha256": "9c0d5e398bb8b44bc0bfd75199a28473f747ac562c68c3d395d724574883ae67",
+      "fixtureSha256": "91113c34245e8f61b264185b6f55782de46cb307bc79ab2b5189a35825099c0c",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,37 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "bsl-library-box",
-        "bsl-atrium-cylinder",
-        "bsl-mep-sphere",
-        "bsl-extent-rect"
+        "ion-imagery-philly-box",
+        "ion-imagery-azure-cylinder",
+        "ion-imagery-sentinel-sphere",
+        "ion-imagery-philly-rect"
       ],
       "pixelCounts": [
         {
-          "id": "bsl-library-box",
-          "pixels": 342
+          "id": "ion-imagery-philly-box",
+          "pixels": 815
         },
         {
-          "id": "bsl-atrium-cylinder",
-          "pixels": 48
+          "id": "ion-imagery-azure-cylinder",
+          "pixels": 169
         },
         {
-          "id": "bsl-mep-sphere",
-          "pixels": 26
+          "id": "ion-imagery-sentinel-sphere",
+          "pixels": 30
         },
         {
-          "id": "bsl-extent-rect",
-          "pixels": 27394
+          "id": "ion-imagery-philly-rect",
+          "pixels": 66779
         }
       ]
     },
     {
-      "id": "i3s-feature-picking",
+      "id": "imagery-layers-split",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "416fabbd97b74cbd1c42f3647d8e49659030c96d6c79cbda5c10383f9d2f1d9d",
-      "inputSha256": "b44ef44623250747cd11a2ca5bc44bf7ad11a4001169198d99c088dc94783e72",
-      "fixtureSha256": "0f6fbe8b41ca738a0e91dec02a9a727008cdf93da51a2f4956c44ed143ba5b9c",
+      "sourceSha256": "c13288d1138f56784d0af3688a881d88a2a5243271485b35e44b3164f0345a40",
+      "inputSha256": "6d2972729fd55d59f05f8c69d1ecfabfe0d15945e51b81a4babbe6380ab9bae2",
+      "fixtureSha256": "c79352d10132849fe7a93ac6f35283f77ea4cc53faf8eb7afabaeaf57cc46f91",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -63,37 +63,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "i3s-nyc-tower-box",
-        "i3s-geoid-sensor-cylinder",
-        "i3s-pick-attribute-sphere",
-        "i3s-manhattan-lot-rect"
+        "split-night-city-box",
+        "split-street-divider-cylinder",
+        "split-slider-marker-sphere",
+        "split-nile-valley-rect"
       ],
       "pixelCounts": [
         {
-          "id": "i3s-nyc-tower-box",
-          "pixels": 855
+          "id": "split-night-city-box",
+          "pixels": 985
         },
         {
-          "id": "i3s-geoid-sensor-cylinder",
-          "pixels": 236
+          "id": "split-street-divider-cylinder",
+          "pixels": 227
         },
         {
-          "id": "i3s-pick-attribute-sphere",
+          "id": "split-slider-marker-sphere",
           "pixels": 41
         },
         {
-          "id": "i3s-manhattan-lot-rect",
-          "pixels": 66598
+          "id": "split-nile-valley-rect",
+          "pixels": 59667
         }
       ]
     },
     {
-      "id": "i3s-integratedmesh-layer",
+      "id": "imagery-layers-texture-filters",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "cfa6e60c1a3fc111db1b067acaa1b7d8142ddb6847fdec2f09e093fb991bdd4e",
-      "inputSha256": "c5b0be675f67cf74a12f3aee7f323d82787d7bbdd419b12b51abcaad77a2d8e8",
-      "fixtureSha256": "73fd90091e508217ebe4076db20a273c4d42f0eef3ea5e04cde6f4a1b004ebce",
+      "sourceSha256": "8c69604ae3870e5816e22d7a7a7e386f712dbbeb225cad5a292493366c267a8b",
+      "inputSha256": "cdbc3d1e0e107f91f51e62f2f7e80f359b6a3b33091915f3ccbf9aa011cdf616",
+      "fixtureSha256": "46af51d2fe1974717c86091d75b14d42030d20e57697edf582be1d0f3f50e78e",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -104,37 +104,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "i3s-mesh-frankfurt-box",
-        "i3s-main-waterfront-cylinder",
-        "i3s-altstadt-probe-sphere",
-        "i3s-frankfurt-extent-rect"
+        "filter-linear-base-box",
+        "filter-nearest-pixel-cylinder",
+        "filter-texture-seam-sphere",
+        "filter-great-lakes-rect"
       ],
       "pixelCounts": [
         {
-          "id": "i3s-mesh-frankfurt-box",
-          "pixels": 766
+          "id": "filter-linear-base-box",
+          "pixels": 881
         },
         {
-          "id": "i3s-main-waterfront-cylinder",
-          "pixels": 215
+          "id": "filter-nearest-pixel-cylinder",
+          "pixels": 210
         },
         {
-          "id": "i3s-altstadt-probe-sphere",
+          "id": "filter-texture-seam-sphere",
           "pixels": 36
         },
         {
-          "id": "i3s-frankfurt-extent-rect",
-          "pixels": 66769
+          "id": "filter-great-lakes-rect",
+          "pixels": 63024
         }
       ]
     },
     {
-      "id": "image-based-lighting",
+      "id": "imodel-mesh-export-service",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "fdfca22816826ccf639fe48129596f20ff66b6666443fb03fd1f4816e8879ceb",
-      "inputSha256": "8e4d1eb17afa11ab9ffa0ed2002c77a5d4a5e18a53cc9dcfb76d7f098cb24969",
-      "fixtureSha256": "f59046104b8dd040497c2420f6e97156513f0165ada3f7a9ba9d86f9726008c3",
+      "sourceSha256": "3187a43cf794814f4a64e1a05d5e1ecf8d9c7c0a36994d52c280c884246f6ed0",
+      "inputSha256": "80bb5601799f3d7a544dd258f7d55bf479fc82e3fc7d1638a62051509d45dfb2",
+      "fixtureSha256": "f0a1f6de0633535e6055bc83d34e51b4d92bbde2b1566527fdba9a66e322c028",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -145,27 +145,27 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "ibl-pawns-stage-box",
-        "ibl-specular-cylinder",
-        "ibl-harmonic-sphere",
-        "ibl-ground-reflection-rect"
+        "imodel-facility-core-box",
+        "imodel-steel-framing-cylinder",
+        "imodel-hover-tooltip-sphere",
+        "imodel-project-boundary-rect"
       ],
       "pixelCounts": [
         {
-          "id": "ibl-pawns-stage-box",
+          "id": "imodel-facility-core-box",
+          "pixels": 713
+        },
+        {
+          "id": "imodel-steel-framing-cylinder",
           "pixels": 152
         },
         {
-          "id": "ibl-specular-cylinder",
-          "pixels": 37
+          "id": "imodel-hover-tooltip-sphere",
+          "pixels": 30
         },
         {
-          "id": "ibl-harmonic-sphere",
-          "pixels": 16
-        },
-        {
-          "id": "ibl-ground-reflection-rect",
-          "pixels": 15920
+          "id": "imodel-project-boundary-rect",
+          "pixels": 64946
         }
       ]
     }

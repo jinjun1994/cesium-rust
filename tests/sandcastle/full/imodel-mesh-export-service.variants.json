@@ -1,0 +1,597 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Bentley iModel Infrastructure Mesh (BIM Architectural Elements)",
+      "entities": [
+        {
+          "id": "imodel-facility-core-box",
+          "name": "Bentley iModel Industrial Facility Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -75.62,
+            40.035,
+            80
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              45,
+              35,
+              70
+            ]
+          },
+          "color": [
+            0.85,
+            0.45,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "platform": "Bentley_iTwin",
+            "hoverHighlight": "#eeff41",
+            "serviceType": "MeshExportService"
+          }
+        },
+        {
+          "id": "imodel-steel-framing-cylinder",
+          "name": "Structural Steel Framing Truss Column",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.038,
+            65
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 55,
+            "topRadius": 7,
+            "bottomRadius": 7
+          },
+          "color": [
+            0.93,
+            1,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "discipline": "StructuralSteel",
+            "elementId": "Truss_Column_A1"
+          }
+        },
+        {
+          "id": "imodel-hover-tooltip-sphere",
+          "name": "Feature Hover Tooltip Screen Space Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.622,
+            40.032,
+            75
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              6,
+              6,
+              6
+            ]
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "htmlOverlay": "backdrop",
+            "mouseoverPicking": true
+          }
+        },
+        {
+          "id": "imodel-project-boundary-rect",
+          "name": "Bentley Project Cadastral Boundary Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.635,
+              40.025,
+              -75.605,
+              40.045
+            ]
+          },
+          "color": [
+            0.35,
+            0.35,
+            0.25,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.9,
+            0.35,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "projectExtent": "Exton_Industrial_Campus"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Hover Yellow Feature Highlight Mode (#eeff41 Selection Tint)",
+      "entities": [
+        {
+          "id": "imodel-facility-core-box",
+          "name": "Bentley iModel Industrial Facility Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -75.62,
+            40.035,
+            80
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              45,
+              35,
+              70
+            ]
+          },
+          "color": [
+            0.93,
+            1,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "platform": "Bentley_iTwin",
+            "hoverHighlight": "#eeff41",
+            "serviceType": "MeshExportService"
+          }
+        },
+        {
+          "id": "imodel-steel-framing-cylinder",
+          "name": "Structural Steel Framing Truss Column",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.038,
+            65
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 55,
+            "topRadius": 7,
+            "bottomRadius": 7
+          },
+          "color": [
+            0.93,
+            1,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "discipline": "StructuralSteel",
+            "elementId": "Truss_Column_A1"
+          }
+        },
+        {
+          "id": "imodel-hover-tooltip-sphere",
+          "name": "Feature Hover Tooltip Screen Space Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.622,
+            40.032,
+            75
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              6,
+              6,
+              6
+            ]
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "htmlOverlay": "backdrop",
+            "mouseoverPicking": true
+          }
+        },
+        {
+          "id": "imodel-project-boundary-rect",
+          "name": "Bentley Project Cadastral Boundary Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.635,
+              40.025,
+              -75.605,
+              40.045
+            ]
+          },
+          "color": [
+            0.35,
+            0.35,
+            0.25,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.9,
+            0.35,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "projectExtent": "Exton_Industrial_Campus"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Structural Steel Framing Isolation (Engineering Discipline Mesh)",
+      "entities": [
+        {
+          "id": "imodel-facility-core-box",
+          "name": "Bentley iModel Industrial Facility Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -75.62,
+            40.035,
+            80
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              45,
+              35,
+              70
+            ]
+          },
+          "color": [
+            0.85,
+            0.45,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "platform": "Bentley_iTwin",
+            "hoverHighlight": "#eeff41",
+            "serviceType": "MeshExportService"
+          }
+        },
+        {
+          "id": "imodel-steel-framing-cylinder",
+          "name": "Structural Steel Framing Truss Column",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.038,
+            65
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 55,
+            "topRadius": 7,
+            "bottomRadius": 7
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.45,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "discipline": "StructuralSteel",
+            "elementId": "Truss_Column_A1"
+          }
+        },
+        {
+          "id": "imodel-hover-tooltip-sphere",
+          "name": "Feature Hover Tooltip Screen Space Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.622,
+            40.032,
+            75
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              6,
+              6,
+              6
+            ]
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "htmlOverlay": "backdrop",
+            "mouseoverPicking": true
+          }
+        },
+        {
+          "id": "imodel-project-boundary-rect",
+          "name": "Bentley Project Cadastral Boundary Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.635,
+              40.025,
+              -75.605,
+              40.045
+            ]
+          },
+          "color": [
+            0.35,
+            0.35,
+            0.25,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.9,
+            0.35,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "projectExtent": "Exton_Industrial_Campus"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Spatial Bounding Volume Extent Mode (Project Cadastral Footprint)",
+      "entities": [
+        {
+          "id": "imodel-facility-core-box",
+          "name": "Bentley iModel Industrial Facility Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -75.62,
+            40.035,
+            80
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              45,
+              35,
+              70
+            ]
+          },
+          "color": [
+            0.85,
+            0.45,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "platform": "Bentley_iTwin",
+            "hoverHighlight": "#eeff41",
+            "serviceType": "MeshExportService"
+          }
+        },
+        {
+          "id": "imodel-steel-framing-cylinder",
+          "name": "Structural Steel Framing Truss Column",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.038,
+            65
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 55,
+            "topRadius": 7,
+            "bottomRadius": 7
+          },
+          "color": [
+            0.93,
+            1,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "discipline": "StructuralSteel",
+            "elementId": "Truss_Column_A1"
+          }
+        },
+        {
+          "id": "imodel-hover-tooltip-sphere",
+          "name": "Feature Hover Tooltip Screen Space Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.622,
+            40.032,
+            75
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              6,
+              6,
+              6
+            ]
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "htmlOverlay": "backdrop",
+            "mouseoverPicking": true
+          }
+        },
+        {
+          "id": "imodel-project-boundary-rect",
+          "name": "Bentley Project Cadastral Boundary Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.635,
+              40.025,
+              -75.605,
+              40.045
+            ]
+          },
+          "color": [
+            0.35,
+            0.25,
+            0.25,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.9,
+            0.35,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "projectExtent": "Exton_Industrial_Campus"
+          }
+        }
+      ]
+    }
+  ]
+}

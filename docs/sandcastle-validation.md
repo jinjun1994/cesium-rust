@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.76
+
+新增 Imagery Assets available from ion、Imagery Layers Split、Imagery Layers Texture Filters、iModel Mesh Export Service 四个完整案例，累计 **251 / 309**，剩余 58 个。136 项普通 Rust、252 项实际 GPU、8 组 Node、251 个浏览器 WebGPU 案例通过。验证包含 Cesium ion 影像资产目录、多源航拍遥感图层与费城多图层动态切换（基准谷歌 2D 卫星正射影像、微软 Azure 航拍高精巡检模式、欧空局 Sentinel-2 全球多光谱地表覆盖、谷歌 2D 地形等高线专题图 4 种变体）、影像图层卷帘分屏对齐、日夜双底图对比与屏幕空间交互滑块（基准日夜影像卷帘对比、夜间灯光辐射主导左侧分割、日间制图街道地图主导、高对比大陆海岸线边界 4 种变体）、影像纹理过滤、双线性插值平滑与最近邻像素化放大走样对比（基准双线性平滑与最近邻像素过滤卷帘对比、纯最近邻像素艺术制图模式、纯双线性滤波平滑渐变模式、五大湖水岸高对比模式 4 种变体）、以及 Bentley iTwin / iModel 基础设施工程网格导出服务、要素悬停黄色高亮与属性标签遮罩（基准 Bentley iModel 基础设施网格、鼠标悬停黄色高亮模式、结构钢构架独立隔离模式、空间包围体量范围模式 4 种变体）。详见 [本批验证](ionassets-split-filters-imodel-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.75
 
 新增 I3S Building Scene Layer、I3S Feature Picking、I3S Integrated Mesh Layer、Image-Based Lighting 四个完整案例，累计 **247 / 309**，剩余 62 个。135 项普通 Rust、248 项实际 GPU、8 组 Node、247 个浏览器 WebGPU 案例通过。验证包含 Esri I3S 建筑场景图层、BIM 专业子图层分类与 Turanga 图书馆全景（基准新西兰基督城 Turanga 图书馆建筑场景图层、建筑专业独立隔离模式、机电 HVAC 暖通管网巡检、高对比空间包络线框诊断 4 种变体）、Esri I3S 纽约高密集建筑属性要素拾取、字段动态加载与 EGM2008 水准面转码（基准纽约曼哈顿属性化 I3S 要素拾取、建筑高度与地籍税块属性检视、中城商业建筑密度分类、高精度大地水准面高程对齐 4 种变体）、Esri I3S 摄影测量实景三维连续网格、法兰克福城市全景与防遮挡渲染（基准德国法兰克福倾斜摄影连续三维网格、美因河滨水连续网格巡检、历史老城区高密纹理模式、高空大范围网格覆盖边界模式 4 种变体）、以及基于图像的真实感物理环境光照 IBL、Filament 9 项二阶球谐漫反射与 KTX2 镜面反射立方体贴图（基准 Kiara 晴午实景环境贴图与球谐光照、程序化日光环境光模式、高反射镜面金属镜像模式、环境地面漫反射辉光着色模式 4 种变体）。详见 [本批验证](bsl-featurepicking-integratedmesh-ibl-validation.md)。以下保留历史记录。

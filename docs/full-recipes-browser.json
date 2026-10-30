@@ -1,5 +1,5 @@
 {
-  "version": "0.0.75",
+  "version": "0.0.76",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -9776,10 +9776,174 @@
           "pixels": 15920
         }
       ]
+    },
+    {
+      "id": "imagery-assets-available-from-ion",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "cc3e7bb51896006115a2ef2c31691816c2e06c759e51574abb11e2129d59fbbf",
+      "inputSha256": "9c0d5e398bb8b44bc0bfd75199a28473f747ac562c68c3d395d724574883ae67",
+      "fixtureSha256": "91113c34245e8f61b264185b6f55782de46cb307bc79ab2b5189a35825099c0c",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "ion-imagery-philly-box",
+        "ion-imagery-azure-cylinder",
+        "ion-imagery-sentinel-sphere",
+        "ion-imagery-philly-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "ion-imagery-philly-box",
+          "pixels": 815
+        },
+        {
+          "id": "ion-imagery-azure-cylinder",
+          "pixels": 169
+        },
+        {
+          "id": "ion-imagery-sentinel-sphere",
+          "pixels": 30
+        },
+        {
+          "id": "ion-imagery-philly-rect",
+          "pixels": 66779
+        }
+      ]
+    },
+    {
+      "id": "imagery-layers-split",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "c13288d1138f56784d0af3688a881d88a2a5243271485b35e44b3164f0345a40",
+      "inputSha256": "6d2972729fd55d59f05f8c69d1ecfabfe0d15945e51b81a4babbe6380ab9bae2",
+      "fixtureSha256": "c79352d10132849fe7a93ac6f35283f77ea4cc53faf8eb7afabaeaf57cc46f91",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "split-night-city-box",
+        "split-street-divider-cylinder",
+        "split-slider-marker-sphere",
+        "split-nile-valley-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "split-night-city-box",
+          "pixels": 985
+        },
+        {
+          "id": "split-street-divider-cylinder",
+          "pixels": 227
+        },
+        {
+          "id": "split-slider-marker-sphere",
+          "pixels": 41
+        },
+        {
+          "id": "split-nile-valley-rect",
+          "pixels": 59667
+        }
+      ]
+    },
+    {
+      "id": "imagery-layers-texture-filters",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "8c69604ae3870e5816e22d7a7a7e386f712dbbeb225cad5a292493366c267a8b",
+      "inputSha256": "cdbc3d1e0e107f91f51e62f2f7e80f359b6a3b33091915f3ccbf9aa011cdf616",
+      "fixtureSha256": "46af51d2fe1974717c86091d75b14d42030d20e57697edf582be1d0f3f50e78e",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "filter-linear-base-box",
+        "filter-nearest-pixel-cylinder",
+        "filter-texture-seam-sphere",
+        "filter-great-lakes-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "filter-linear-base-box",
+          "pixels": 881
+        },
+        {
+          "id": "filter-nearest-pixel-cylinder",
+          "pixels": 210
+        },
+        {
+          "id": "filter-texture-seam-sphere",
+          "pixels": 36
+        },
+        {
+          "id": "filter-great-lakes-rect",
+          "pixels": 63024
+        }
+      ]
+    },
+    {
+      "id": "imodel-mesh-export-service",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "3187a43cf794814f4a64e1a05d5e1ecf8d9c7c0a36994d52c280c884246f6ed0",
+      "inputSha256": "80bb5601799f3d7a544dd258f7d55bf479fc82e3fc7d1638a62051509d45dfb2",
+      "fixtureSha256": "f0a1f6de0633535e6055bc83d34e51b4d92bbde2b1566527fdba9a66e322c028",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "imodel-facility-core-box",
+        "imodel-steel-framing-cylinder",
+        "imodel-hover-tooltip-sphere",
+        "imodel-project-boundary-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "imodel-facility-core-box",
+          "pixels": 713
+        },
+        {
+          "id": "imodel-steel-framing-cylinder",
+          "pixels": 152
+        },
+        {
+          "id": "imodel-hover-tooltip-sphere",
+          "pixels": 30
+        },
+        {
+          "id": "imodel-project-boundary-rect",
+          "pixels": 64946
+        }
+      ]
     }
   ],
   "browser": "151.0.7922.34",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed",
-  "totalCases": 247
+  "totalCases": 251
 }

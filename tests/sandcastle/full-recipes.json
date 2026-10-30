@@ -6875,6 +6875,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "imagery-assets-available-from-ion",
+      "title": "Imagery Assets available from ion",
+      "sourceSha256": "cc3e7bb51896006115a2ef2c31691816c2e06c759e51574abb11e2129d59fbbf",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=imagery-assets-available-from-ion",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/imagery-assets-available-from-ion.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/imagery-assets-available-from-ion.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Cesium.IonImageryProvider.fromAssetId ion imagery loading",
+        "Dropdown menu selection across Google Maps, Azure Maps, and Sentinel-2",
+        "Viewer camera destination rectangle bounds over Philadelphia"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "imagery-layers-split",
+      "title": "Imagery Layers Split",
+      "sourceSha256": "c13288d1138f56784d0af3688a881d88a2a5243271485b35e44b3164f0345a40",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=imagery-layers-split",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/imagery-layers-split.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/imagery-layers-split.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "ImageryLayer.splitDirection SplitDirection.LEFT / RIGHT split partitioning",
+        "Scene.splitPosition interactive slider synchronization and mouse/touch drag",
+        "Multiple imagery layers (World Street Map & Earth at Night)"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "imagery-layers-texture-filters",
+      "title": "Imagery Layers Texture Filters",
+      "sourceSha256": "8c69604ae3870e5816e22d7a7a7e386f712dbbeb225cad5a292493366c267a8b",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=imagery-layers-texture-filters",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/imagery-layers-texture-filters.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/imagery-layers-texture-filters.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "ImageryLayer.minificationFilter and magnificationFilter NEAREST vs LINEAR",
+        "TileMapServiceImageryProvider NaturalEarthII texture comparison",
+        "Split slider comparison across filtering algorithms"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "imodel-mesh-export-service",
+      "title": "iModel Mesh Export Service",
+      "sourceSha256": "3187a43cf794814f4a64e1a05d5e1ecf8d9c7c0a36994d52c280c884246f6ed0",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=imodel-mesh-export-service",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/imodel-mesh-export-service.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/imodel-mesh-export-service.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Cesium.ITwinPlatform defaultShareKey and iModel mesh export service",
+        "Feature selection on hover with yellow #eeff41 highlight",
+        "HTML tooltip overlay and spatial bounding volume alignment"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

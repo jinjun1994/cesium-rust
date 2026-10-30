@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.75（已通过 247 / 309 个完整案例，剩余 62 个）
+- **当前版本**：v0.0.76（已通过 251 / 309 个完整案例，剩余 58 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.76 验收完成：Imagery Assets available from ion、Imagery Layers Split、Imagery Layers Texture Filters 与 iModel Mesh Export Service
+- **完成配方**（累计推进至 **251 / 309**，剩余 58 个）：
+  1. `imagery-assets-available-from-ion`（Cesium ion 影像资产目录、多源航拍遥感图层与费城多图层动态切换：基准谷歌 2D 卫星正射影像、微软 Azure 航拍高精巡检模式、欧空局 Sentinel-2 全球多光谱地表覆盖、谷歌 2D 地形等高线专题图 4 种变体）
+  2. `imagery-layers-split`（影像图层卷帘分屏对齐、日夜双底图对比与屏幕空间交互滑块：基准日夜影像卷帘对比、夜间灯光辐射主导左侧分割、日间制图街道地图主导、高对比大陆海岸线边界 4 种变体）
+  3. `imagery-layers-texture-filters`（影像纹理过滤、双线性插值平滑与最近邻像素化放大走样对比：基准双线性平滑与最近邻像素过滤卷帘对比、纯最近邻像素艺术制图模式、纯双线性滤波平滑渐变模式、五大湖水岸高对比模式 4 种变体）
+  4. `imodel-mesh-export-service`（Bentley iTwin / iModel 基础设施工程网格导出服务、要素悬停黄色高亮与属性标签遮罩：基准 Bentley iModel 基础设施网格、鼠标悬停黄色高亮模式、结构钢构架独立隔离模式、空间包围体量范围模式 4 种变体）
+- **核心研发突破**：
+  1. **Ion 全球影像资产目录热切换（Ion Imagery Asset Catalog & Provider Runtime）**：实现通过 `IonImageryProvider.fromAssetId` 统一装配 Google Maps、Azure Maps 与 Sentinel-2 多源遥感图层，支持动态相机包围盒精确定位。
+  2. **屏幕空间卷帘图层分割交互（Screen Space Split Direction & Position Pipeline）**：支持 `ImageryLayer.splitDirection` 区域级像素裁剪与 `viewer.scene.splitPosition` 滑块联动，实现流畅的双底图无缝对比。
+  3. **各向同性纹理过滤与采样器调谐（Texture Filtering Modes & Bilinear vs Nearest Sampler）**：支持 `minificationFilter` 与 `magnificationFilter` 动态配置，验证最近邻硬像素走样与双线性抗锯齿插值精细视觉差异。
+  4. **Bentley iTwin 基础设施网格与悬停高亮（iModel Mesh Export Service & Hover Picking）**：集成 `ITwinPlatform.defaultShareKey` 授权接入，实现基于鼠标移动的要素 `#eeff41` 荧光黄高亮选择与 HTML 提示框遮罩联动。
+- **验证结果**：
+  - **普通 Rust 单元测试**：136 项全部通过（含 `batch76_ionassets_split_filters_imodel`）。
+  - **真实 GPU 离屏渲染测试**：252 / 252 项全数通过（`252 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，251 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：251 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Imagery Assets available from ion、Imagery Layers Split、Imagery Layers Texture Filters 与 iModel Mesh Export Service 验证文档](docs/ionassets-split-filters-imodel-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.75 验收完成：I3S Building Scene Layer、I3S Feature Picking、I3S Integrated Mesh Layer 与 Image-Based Lighting
 - **完成配方**（累计推进至 **247 / 309**，剩余 62 个）：

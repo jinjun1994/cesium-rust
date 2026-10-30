@@ -1,0 +1,144 @@
+[
+  {
+    "id": "filter-linear-base-box",
+    "name": "NaturalEarthII Bilinear Texture Anchor Box",
+    "show": true,
+    "positionDegrees": [
+      -82,
+      45,
+      100
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        45,
+        45,
+        80
+      ]
+    },
+    "color": [
+      0.25,
+      0.75,
+      0.95,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.7,
+      0.95,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "minificationFilter": "LINEAR",
+      "magnificationFilter": "LINEAR"
+    }
+  },
+  {
+    "id": "filter-nearest-pixel-cylinder",
+    "name": "Nearest Neighbor Pixel Filtering Calibration Column",
+    "show": true,
+    "positionDegrees": [
+      -81.9,
+      45.1,
+      80
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 60,
+      "topRadius": 8,
+      "bottomRadius": 8
+    },
+    "color": [
+      0.95,
+      0.45,
+      0.25,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.75,
+      0.6,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "minificationFilter": "NEAREST",
+      "magnificationFilter": "NEAREST",
+      "splitDirection": "RIGHT"
+    }
+  },
+  {
+    "id": "filter-texture-seam-sphere",
+    "name": "Texture Filtering Interpolation Probe Sphere",
+    "show": true,
+    "positionDegrees": [
+      -82.1,
+      44.9,
+      90
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        6.5,
+        6.5,
+        6.5
+      ]
+    },
+    "color": [
+      0.95,
+      0.85,
+      0.25,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.95,
+      0.65,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "textureSampling": "PointVsBilinear"
+    }
+  },
+  {
+    "id": "filter-great-lakes-rect",
+    "name": "Great Lakes Michigan Texture Filter Evaluation Rectangle",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -84,
+        43,
+        -80,
+        47
+      ]
+    },
+    "color": [
+      0.2,
+      0.35,
+      0.35,
+      0.25
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.45,
+      0.95,
+      0.85,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "geographicArea": "Great_Lakes_Basin"
+    }
+  }
+]

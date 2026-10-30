@@ -5510,4 +5510,66 @@ mod tests {
         let ibl_variants = crate::entity_variants::decode(&ibl_variants_raw).unwrap();
         assert_eq!(ibl_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch76_ionassets_split_filters_imodel() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Imagery Assets available from ion
+        let ia_data = std::fs::read(base.join("imagery-assets-available-from-ion.json")).unwrap();
+        let ia_entities = decode(&ia_data).unwrap();
+        assert_eq!(ia_entities.len(), 4);
+        assert!(matches!(ia_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(ia_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ia_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ia_entities[3].shape, Shape::Rectangle { .. }));
+        let ia_variants_raw =
+            std::fs::read(base.join("imagery-assets-available-from-ion.variants.json")).unwrap();
+        let ia_variants = crate::entity_variants::decode(&ia_variants_raw).unwrap();
+        assert_eq!(ia_variants.variants.len(), 4);
+
+        // 2. Imagery Layers Split
+        let ils_data = std::fs::read(base.join("imagery-layers-split.json")).unwrap();
+        let ils_entities = decode(&ils_data).unwrap();
+        assert_eq!(ils_entities.len(), 4);
+        assert!(matches!(ils_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(ils_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ils_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ils_entities[3].shape, Shape::Rectangle { .. }));
+        let ils_variants_raw =
+            std::fs::read(base.join("imagery-layers-split.variants.json")).unwrap();
+        let ils_variants = crate::entity_variants::decode(&ils_variants_raw).unwrap();
+        assert_eq!(ils_variants.variants.len(), 4);
+
+        // 3. Imagery Layers Texture Filters
+        let tf_data = std::fs::read(base.join("imagery-layers-texture-filters.json")).unwrap();
+        let tf_entities = decode(&tf_data).unwrap();
+        assert_eq!(tf_entities.len(), 4);
+        assert!(matches!(tf_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(tf_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(tf_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(tf_entities[3].shape, Shape::Rectangle { .. }));
+        let tf_variants_raw =
+            std::fs::read(base.join("imagery-layers-texture-filters.variants.json")).unwrap();
+        let tf_variants = crate::entity_variants::decode(&tf_variants_raw).unwrap();
+        assert_eq!(tf_variants.variants.len(), 4);
+
+        // 4. iModel Mesh Export Service
+        let im_data = std::fs::read(base.join("imodel-mesh-export-service.json")).unwrap();
+        let im_entities = decode(&im_data).unwrap();
+        assert_eq!(im_entities.len(), 4);
+        assert!(matches!(im_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(im_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(im_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(im_entities[3].shape, Shape::Rectangle { .. }));
+        let im_variants_raw =
+            std::fs::read(base.join("imodel-mesh-export-service.variants.json")).unwrap();
+        let im_variants = crate::entity_variants::decode(&im_variants_raw).unwrap();
+        assert_eq!(im_variants.variants.len(), 4);
+    }
 }
