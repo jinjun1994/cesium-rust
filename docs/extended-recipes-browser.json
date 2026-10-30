@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "ground-primitive-materials-dev",
+      "id": "i3s-building-scene-layer",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "7a4aac9a2089abc2528a969b4f23133455402a37a9d2c3b3120a8768a4a42158",
-      "inputSha256": "974c9bedad1d75cd4c4148c34aca21b9200d035d9971eec9abd4bb0b602144a5",
-      "fixtureSha256": "27604d47c2fa551f7590e6f68c429b9e9e4a801f62cfe226e2e2d9b7692c55b0",
+      "sourceSha256": "83127c32b227a7db0f9f1d81ce7f161997dda42c2eb0f33bcdc0ee0b09edf10d",
+      "inputSha256": "a44ce1a36c6a68dd8ca6d08f413dc2f581b43a880612d752772769b2659b85a9",
+      "fixtureSha256": "17e7355b03d686052b5e43cda10be88558b2a0f9556517712c8c830a99aa314f",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,37 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "ground-mat-checker-box",
-        "ground-mat-bump-cylinder",
-        "ground-mat-water-sphere",
-        "ground-mat-drape-rect"
+        "bsl-library-box",
+        "bsl-atrium-cylinder",
+        "bsl-mep-sphere",
+        "bsl-extent-rect"
       ],
       "pixelCounts": [
         {
-          "id": "ground-mat-checker-box",
-          "pixels": 741
+          "id": "bsl-library-box",
+          "pixels": 342
         },
         {
-          "id": "ground-mat-bump-cylinder",
-          "pixels": 494
+          "id": "bsl-atrium-cylinder",
+          "pixels": 48
         },
         {
-          "id": "ground-mat-water-sphere",
-          "pixels": 188
+          "id": "bsl-mep-sphere",
+          "pixels": 26
         },
         {
-          "id": "ground-mat-drape-rect",
-          "pixels": 66951
+          "id": "bsl-extent-rect",
+          "pixels": 27394
         }
       ]
     },
     {
-      "id": "high-dynamic-range",
+      "id": "i3s-feature-picking",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "aa1832f484c568f0e020a3bf57af9b3ab7b1044ef0f2ba81cdeef86b4998987b",
-      "inputSha256": "549cf1cc34cfb8c3c65747aa6984d9ce958ded03a3408ab9f8151546adeed664",
-      "fixtureSha256": "10e3b76a2a9dec1e5c1b99d2f54004b5d9045a2e08f949653fcd9f4354db2b7e",
+      "sourceSha256": "416fabbd97b74cbd1c42f3647d8e49659030c96d6c79cbda5c10383f9d2f1d9d",
+      "inputSha256": "b44ef44623250747cd11a2ca5bc44bf7ad11a4001169198d99c088dc94783e72",
+      "fixtureSha256": "0f6fbe8b41ca738a0e91dec02a9a727008cdf93da51a2f4956c44ed143ba5b9c",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -63,37 +63,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "hdr-milktruck-box",
-        "hdr-exposure-cylinder",
-        "hdr-tonemap-sphere",
-        "hdr-canyon-rect"
+        "i3s-nyc-tower-box",
+        "i3s-geoid-sensor-cylinder",
+        "i3s-pick-attribute-sphere",
+        "i3s-manhattan-lot-rect"
       ],
       "pixelCounts": [
         {
-          "id": "hdr-milktruck-box",
-          "pixels": 474
+          "id": "i3s-nyc-tower-box",
+          "pixels": 855
         },
         {
-          "id": "hdr-exposure-cylinder",
-          "pixels": 424
+          "id": "i3s-geoid-sensor-cylinder",
+          "pixels": 236
         },
         {
-          "id": "hdr-tonemap-sphere",
-          "pixels": 163
+          "id": "i3s-pick-attribute-sphere",
+          "pixels": 41
         },
         {
-          "id": "hdr-canyon-rect",
-          "pixels": 65481
+          "id": "i3s-manhattan-lot-rect",
+          "pixels": 66598
         }
       ]
     },
     {
-      "id": "hybrid-snapping-dev",
+      "id": "i3s-integratedmesh-layer",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "da9a9e9f28fc9a4d78be917fb62f2eae5fb9a7438a23c4f1bf608b62fc7803e7",
-      "inputSha256": "ce93269fbd6e8d5de18dfd9e7e668ee99a4a89bc42e4f6435d1772ef25f64aa7",
-      "fixtureSha256": "cdaa528b551c4cda6644061bc0b58ff405fe4e821249aba7b486fb8a0713f1c3",
+      "sourceSha256": "cfa6e60c1a3fc111db1b067acaa1b7d8142ddb6847fdec2f09e093fb991bdd4e",
+      "inputSha256": "c5b0be675f67cf74a12f3aee7f323d82787d7bbdd419b12b51abcaad77a2d8e8",
+      "fixtureSha256": "73fd90091e508217ebe4076db20a273c4d42f0eef3ea5e04cde6f4a1b004ebce",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -104,37 +104,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "hybrid-snap-bim-box",
-        "hybrid-snap-client-cylinder",
-        "hybrid-snap-server-sphere",
-        "hybrid-snap-stage-rect"
+        "i3s-mesh-frankfurt-box",
+        "i3s-main-waterfront-cylinder",
+        "i3s-altstadt-probe-sphere",
+        "i3s-frankfurt-extent-rect"
       ],
       "pixelCounts": [
         {
-          "id": "hybrid-snap-bim-box",
-          "pixels": 741
+          "id": "i3s-mesh-frankfurt-box",
+          "pixels": 766
         },
         {
-          "id": "hybrid-snap-client-cylinder",
-          "pixels": 494
+          "id": "i3s-main-waterfront-cylinder",
+          "pixels": 215
         },
         {
-          "id": "hybrid-snap-server-sphere",
-          "pixels": 188
+          "id": "i3s-altstadt-probe-sphere",
+          "pixels": 36
         },
         {
-          "id": "hybrid-snap-stage-rect",
-          "pixels": 66779
+          "id": "i3s-frankfurt-extent-rect",
+          "pixels": 66769
         }
       ]
     },
     {
-      "id": "i3s-3d-object-layer",
+      "id": "image-based-lighting",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "94fb6821aa773ab1df0b67edf95cb696ec04331a081f5e87366b0e6ebc5491c4",
-      "inputSha256": "b2bea37a7e0ad5c602d4b7188db746de293da8fceae67b39ab91b60df63ca9f2",
-      "fixtureSha256": "6212286ef0b64e0db50a6fd7b645794bc86b8758ccb645eda503592bc167d1ca",
+      "sourceSha256": "fdfca22816826ccf639fe48129596f20ff66b6666443fb03fd1f4816e8879ceb",
+      "inputSha256": "8e4d1eb17afa11ab9ffa0ed2002c77a5d4a5e18a53cc9dcfb76d7f098cb24969",
+      "fixtureSha256": "f59046104b8dd040497c2420f6e97156513f0165ada3f7a9ba9d86f9726008c3",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -145,27 +145,27 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "i3s-sf-bldg-box",
-        "i3s-geoid-datum-cylinder",
-        "i3s-feature-probe-sphere",
-        "i3s-layer-extent-rect"
+        "ibl-pawns-stage-box",
+        "ibl-specular-cylinder",
+        "ibl-harmonic-sphere",
+        "ibl-ground-reflection-rect"
       ],
       "pixelCounts": [
         {
-          "id": "i3s-sf-bldg-box",
-          "pixels": 741
+          "id": "ibl-pawns-stage-box",
+          "pixels": 152
         },
         {
-          "id": "i3s-geoid-datum-cylinder",
-          "pixels": 494
+          "id": "ibl-specular-cylinder",
+          "pixels": 37
         },
         {
-          "id": "i3s-feature-probe-sphere",
-          "pixels": 188
+          "id": "ibl-harmonic-sphere",
+          "pixels": 16
         },
         {
-          "id": "i3s-layer-extent-rect",
-          "pixels": 65891
+          "id": "ibl-ground-reflection-rect",
+          "pixels": 15920
         }
       ]
     }

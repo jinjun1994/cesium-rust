@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.74（已通过 243 / 309 个完整案例，剩余 66 个）
+- **当前版本**：v0.0.75（已通过 247 / 309 个完整案例，剩余 62 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.75 验收完成：I3S Building Scene Layer、I3S Feature Picking、I3S Integrated Mesh Layer 与 Image-Based Lighting
+- **完成配方**（累计推进至 **247 / 309**，剩余 62 个）：
+  1. `i3s-building-scene-layer`（Esri I3S 建筑场景图层、BIM 专业子图层分类与 Turanga 图书馆全景：基准新西兰基督城 Turanga 图书馆建筑场景图层、建筑专业独立隔离模式、机电 HVAC 暖通管网巡检、高对比空间包络线框诊断 4 种变体）
+  2. `i3s-feature-picking`（Esri I3S 纽约高密集建筑属性要素拾取、字段动态加载与 EGM2008 水准面转码：基准纽约曼哈顿属性化 I3S 要素拾取、建筑高度与地籍税块属性检视、中城商业建筑密度分类、高精度大地水准面高程对齐 4 种变体）
+  3. `i3s-integratedmesh-layer`（Esri I3S 摄影测量实景三维连续网格、法兰克福城市全景与防遮挡渲染：基准德国法兰克福倾斜摄影连续三维网格、美因河滨水连续网格巡检、历史老城区高密纹理模式、高空大范围网格覆盖边界模式 4 种变体）
+  4. `image-based-lighting`（基于图像的真实感物理环境光照 IBL、Filament 9 项二阶球谐漫反射与 KTX2 镜面反射立方体贴图：基准 Kiara 晴午实景环境贴图与球谐光照、程序化日光环境光模式、高反射镜面金属镜像模式、环境地面漫反射辉光着色模式 4 种变体）
+- **核心研发突破**：
+  1. **BIM 建筑场景图层与子图层拓扑调度（I3S Building Scene Layer & Discipline Filtering）**：实现 `I3SDataProvider` 与 `I3SBuildingSceneLayerExplorer` 对 Turanga Library 数据集的建筑、结构与机电专业子图层交互式过滤与渲染。
+  2. **高密度建筑要素拾取与水准面转码（I3S Feature Table Query & EGM2008 Geoid Datum）**：集成 `i3sNode.loadFields()` 与大地水准面重力高程模型，实现曼哈顿海量建筑单体元数据字段查询与精准高程拟合。
+  3. **倾斜摄影连续实景三维网格（Continuous Integrated Mesh Topography & Depth Blending）**：支持法兰克福倾斜摄影大范围三维实景网格流式加载与抗穿插深度融合，构建无缝城市地表全景。
+  4. **全套二阶球谐漫反射与物理镜面 IBL（Spherical Harmonics Irradiance & Specular IBL Pipeline）**：实现 Google Filament 9 项球谐系数漫反射积分与 Khronos KTX2 立方体镜面反射环境映射，完成影棚级物理 PBR 光照与地面反弹光模拟。
+- **验证结果**：
+  - **普通 Rust 单元测试**：135 项全部通过（含 `batch75_bsl_picking_integratedmesh_ibl`）。
+  - **真实 GPU 离屏渲染测试**：248 / 248 项全数通过（`248 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，247 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：247 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [I3S Building Scene Layer、I3S Feature Picking、I3S Integrated Mesh Layer 与 Image-Based Lighting 验证文档](docs/bsl-featurepicking-integratedmesh-ibl-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.74 验收完成：Ground Primitive Materials - Dev、High Dynamic Range、Hybrid Snapping - Dev 与 I3S 3D Object Layer
 - **完成配方**（累计推进至 **243 / 309**，剩余 66 个）：

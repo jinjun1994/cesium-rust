@@ -1,0 +1,145 @@
+[
+  {
+    "id": "ibl-pawns-stage-box",
+    "name": "Pawns glTF Model IBL Studio Pedestal",
+    "show": true,
+    "positionDegrees": [
+      -123.0744619,
+      44.0503706,
+      10
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        25,
+        25,
+        8
+      ]
+    },
+    "color": [
+      0.85,
+      0.8,
+      0.25,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.95,
+      0.6,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "lightingModel": "ImageBasedLighting",
+      "specularEnvironmentMaps": "kiara_6_afternoon_2k_ibl.ktx2",
+      "groundColor": "#292817"
+    }
+  },
+  {
+    "id": "ibl-specular-cylinder",
+    "name": "Specular Reflection Analysis Light Column",
+    "show": true,
+    "positionDegrees": [
+      -123.0742,
+      44.0505,
+      12
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 18,
+      "topRadius": 3.5,
+      "bottomRadius": 3.5
+    },
+    "color": [
+      0.35,
+      0.75,
+      0.95,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.75,
+      0.95,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "roughness": 0.1,
+      "metalness": 0.9
+    }
+  },
+  {
+    "id": "ibl-harmonic-sphere",
+    "name": "Spherical Harmonics Irradiance Evaluation Sphere",
+    "show": true,
+    "positionDegrees": [
+      -123.0747,
+      44.0502,
+      14
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        4,
+        4,
+        4
+      ]
+    },
+    "color": [
+      0.95,
+      0.45,
+      0.35,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.75,
+      0.7,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "coefficients": 9,
+      "diffuseIrradiance": true
+    }
+  },
+  {
+    "id": "ibl-ground-reflection-rect",
+    "name": "Warm Ground Bounce Radiance Footprint",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -123.076,
+        44.049,
+        -123.072,
+        44.052
+      ]
+    },
+    "color": [
+      0.25,
+      0.22,
+      0.15,
+      0.3
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.85,
+      0.75,
+      0.45,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "groundBounce": "#292817"
+    }
+  }
+]

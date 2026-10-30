@@ -1,0 +1,146 @@
+[
+  {
+    "id": "i3s-nyc-tower-box",
+    "name": "Manhattan Attributed High-Rise Landmark Box",
+    "show": true,
+    "positionDegrees": [
+      -74.006,
+      40.7128,
+      60
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        40,
+        40,
+        100
+      ]
+    },
+    "color": [
+      0.25,
+      0.65,
+      0.95,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.65,
+      0.9,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "layerType": "3DObject",
+      "dataset": "NYC_Attributed_v17",
+      "bldgName": "Manhattan Tower",
+      "heightMeters": 100
+    }
+  },
+  {
+    "id": "i3s-geoid-sensor-cylinder",
+    "name": "EGM2008 Geoid Vertical Datum Calibration Pillar",
+    "show": true,
+    "positionDegrees": [
+      -74.004,
+      40.7135,
+      50
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 70,
+      "topRadius": 8,
+      "bottomRadius": 8
+    },
+    "color": [
+      0.95,
+      0.75,
+      0.25,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.9,
+      0.6,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "datum": "EGM2008",
+      "geoidTranscoding": true
+    }
+  },
+  {
+    "id": "i3s-pick-attribute-sphere",
+    "name": "Feature Attribute Query Probe Target",
+    "show": true,
+    "positionDegrees": [
+      -74.008,
+      40.7121,
+      55
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        7,
+        7,
+        7
+      ]
+    },
+    "color": [
+      0.35,
+      0.9,
+      0.45,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.75,
+      1,
+      0.8,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "pickMode": "InteractiveFields",
+      "samplePositionValid": true
+    }
+  },
+  {
+    "id": "i3s-manhattan-lot-rect",
+    "name": "NYC Tax Lot Cadastral Footprint Envelope",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -74.01,
+        40.71,
+        -74.002,
+        40.716
+      ]
+    },
+    "color": [
+      0.25,
+      0.35,
+      0.45,
+      0.25
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.45,
+      0.85,
+      1,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "borough": "Manhattan"
+    }
+  }
+]

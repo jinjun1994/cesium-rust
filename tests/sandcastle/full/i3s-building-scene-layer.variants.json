@@ -1,0 +1,597 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Turanga Library Building Scene Layer (BIM Structural Elements)",
+      "entities": [
+        {
+          "id": "bsl-library-box",
+          "name": "Turanga Library Structural Volume Landmark",
+          "show": true,
+          "positionDegrees": [
+            172.6368,
+            -43.5303,
+            20
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              30,
+              25
+            ]
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.8,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "layerType": "BuildingSceneLayer",
+            "discipline": "Architectural",
+            "buildingName": "Turanga Library"
+          }
+        },
+        {
+          "id": "bsl-atrium-cylinder",
+          "name": "Central Timber Atrium Pillar Column",
+          "show": true,
+          "positionDegrees": [
+            172.6372,
+            -43.5299,
+            18
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 22,
+            "topRadius": 4.5,
+            "bottomRadius": 4.5
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.45,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "discipline": "Structural",
+            "element": "TimberPillar"
+          }
+        },
+        {
+          "id": "bsl-mep-sphere",
+          "name": "MEP HVAC Infrastructure Sensor Probe",
+          "show": true,
+          "positionDegrees": [
+            172.6364,
+            -43.5307,
+            28
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              5,
+              5,
+              5
+            ]
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "discipline": "Mechanical",
+            "system": "HVAC_Ductwork"
+          }
+        },
+        {
+          "id": "bsl-extent-rect",
+          "name": "Turanga Library Cadastral Parcel Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              172.634,
+              -43.532,
+              172.639,
+              -43.528
+            ]
+          },
+          "color": [
+            0.25,
+            0.25,
+            0.35,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.75,
+            0.35,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "spatialExtent": "Christchurch_Central"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Architectural Discipline Isolation Mode (Discipline Sublayer)",
+      "entities": [
+        {
+          "id": "bsl-library-box",
+          "name": "Turanga Library Structural Volume Landmark",
+          "show": true,
+          "positionDegrees": [
+            172.6368,
+            -43.5303,
+            20
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              30,
+              25
+            ]
+          },
+          "color": [
+            0.95,
+            0.35,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "layerType": "BuildingSceneLayer",
+            "discipline": "Architectural",
+            "buildingName": "Turanga Library"
+          }
+        },
+        {
+          "id": "bsl-atrium-cylinder",
+          "name": "Central Timber Atrium Pillar Column",
+          "show": true,
+          "positionDegrees": [
+            172.6372,
+            -43.5299,
+            18
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 22,
+            "topRadius": 4.5,
+            "bottomRadius": 4.5
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.45,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "discipline": "Structural",
+            "element": "TimberPillar"
+          }
+        },
+        {
+          "id": "bsl-mep-sphere",
+          "name": "MEP HVAC Infrastructure Sensor Probe",
+          "show": true,
+          "positionDegrees": [
+            172.6364,
+            -43.5307,
+            28
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              5,
+              5,
+              5
+            ]
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "discipline": "Mechanical",
+            "system": "HVAC_Ductwork"
+          }
+        },
+        {
+          "id": "bsl-extent-rect",
+          "name": "Turanga Library Cadastral Parcel Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              172.634,
+              -43.532,
+              172.639,
+              -43.528
+            ]
+          },
+          "color": [
+            0.25,
+            0.25,
+            0.35,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.75,
+            0.35,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "spatialExtent": "Christchurch_Central"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Mechanical HVAC Ductwork Inspection (Amber Piping Infrastructure)",
+      "entities": [
+        {
+          "id": "bsl-library-box",
+          "name": "Turanga Library Structural Volume Landmark",
+          "show": true,
+          "positionDegrees": [
+            172.6368,
+            -43.5303,
+            20
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              30,
+              25
+            ]
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.8,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "layerType": "BuildingSceneLayer",
+            "discipline": "Architectural",
+            "buildingName": "Turanga Library"
+          }
+        },
+        {
+          "id": "bsl-atrium-cylinder",
+          "name": "Central Timber Atrium Pillar Column",
+          "show": true,
+          "positionDegrees": [
+            172.6372,
+            -43.5299,
+            18
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 22,
+            "topRadius": 4.5,
+            "bottomRadius": 4.5
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "discipline": "Structural",
+            "element": "TimberPillar"
+          }
+        },
+        {
+          "id": "bsl-mep-sphere",
+          "name": "MEP HVAC Infrastructure Sensor Probe",
+          "show": true,
+          "positionDegrees": [
+            172.6364,
+            -43.5307,
+            28
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              5,
+              5,
+              5
+            ]
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "discipline": "Mechanical",
+            "system": "HVAC_Ductwork"
+          }
+        },
+        {
+          "id": "bsl-extent-rect",
+          "name": "Turanga Library Cadastral Parcel Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              172.634,
+              -43.532,
+              172.639,
+              -43.528
+            ]
+          },
+          "color": [
+            0.25,
+            0.25,
+            0.35,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.75,
+            0.35,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "spatialExtent": "Christchurch_Central"
+          }
+        }
+      ]
+    },
+    {
+      "label": "High-Contrast Envelope Wireframe Diagnostics (Building Spatial Extent)",
+      "entities": [
+        {
+          "id": "bsl-library-box",
+          "name": "Turanga Library Structural Volume Landmark",
+          "show": true,
+          "positionDegrees": [
+            172.6368,
+            -43.5303,
+            20
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              30,
+              25
+            ]
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.8,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "layerType": "BuildingSceneLayer",
+            "discipline": "Architectural",
+            "buildingName": "Turanga Library"
+          }
+        },
+        {
+          "id": "bsl-atrium-cylinder",
+          "name": "Central Timber Atrium Pillar Column",
+          "show": true,
+          "positionDegrees": [
+            172.6372,
+            -43.5299,
+            18
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 22,
+            "topRadius": 4.5,
+            "bottomRadius": 4.5
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.45,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "discipline": "Structural",
+            "element": "TimberPillar"
+          }
+        },
+        {
+          "id": "bsl-mep-sphere",
+          "name": "MEP HVAC Infrastructure Sensor Probe",
+          "show": true,
+          "positionDegrees": [
+            172.6364,
+            -43.5307,
+            28
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              5,
+              5,
+              5
+            ]
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "discipline": "Mechanical",
+            "system": "HVAC_Ductwork"
+          }
+        },
+        {
+          "id": "bsl-extent-rect",
+          "name": "Turanga Library Cadastral Parcel Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              172.634,
+              -43.532,
+              172.639,
+              -43.528
+            ]
+          },
+          "color": [
+            0.35,
+            0.25,
+            0.25,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.75,
+            0.35,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "spatialExtent": "Christchurch_Central"
+          }
+        }
+      ]
+    }
+  ]
+}

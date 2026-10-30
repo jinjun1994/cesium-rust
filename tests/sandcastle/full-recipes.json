@@ -6763,6 +6763,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "i3s-building-scene-layer",
+      "title": "I3S Building Scene Cesium Demo",
+      "sourceSha256": "83127c32b227a7db0f9f1d81ce7f161997dda42c2eb0f33bcdc0ee0b09edf10d",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=i3s-building-scene-layer",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/i3s-building-scene-layer.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/i3s-building-scene-layer.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "I3SDataProvider fromUrl loading Turanga Library SceneServer dataset",
+        "I3SBuildingSceneLayerExplorer building disciplines and sublayer filtering",
+        "ArcGISTiledElevationTerrainProvider height system alignment and feature picking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "i3s-feature-picking",
+      "title": "I3S Feature Picking Cesium Demo",
+      "sourceSha256": "416fabbd97b74cbd1c42f3647d8e49659030c96d6c79cbda5c10383f9d2f1d9d",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=i3s-feature-picking",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/i3s-feature-picking.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/i3s-feature-picking.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "I3SDataProvider NYC_Attributed SceneServer feature data loading",
+        "EGM2008 geoid service integration for gravity-based height transcoding",
+        "i3sNode.loadFields() and getFieldsForPickedPosition attribute table inspection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "i3s-integratedmesh-layer",
+      "title": "I3S Consumption Cesium Demo",
+      "sourceSha256": "cfa6e60c1a3fc111db1b067acaa1b7d8142ddb6847fdec2f09e093fb991bdd4e",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=i3s-integratedmesh-layer",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/i3s-integratedmesh-layer.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/i3s-integratedmesh-layer.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "I3SDataProvider Frankfurt photogrammetric integrated mesh layer 0",
+        "Continuous city mesh rendering with depthTestAgainstTerrain disabled",
+        "EGM2008 gravity model geoid conversion for seamless elevation alignment"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "image-based-lighting",
+      "title": "Image-Based Lighting",
+      "sourceSha256": "fdfca22816826ccf639fe48129596f20ff66b6666443fb03fd1f4816e8879ceb",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=image-based-lighting",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/image-based-lighting.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/image-based-lighting.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Model.imageBasedLighting with 9 spherical harmonic coefficients (L00-L22)",
+        "KTX2 specular environment cubemap kiara_6_afternoon_2k_ibl",
+        "Toggle procedural environment lighting and groundColor reflection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

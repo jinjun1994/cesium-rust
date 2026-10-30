@@ -1,5 +1,5 @@
 {
-  "version": "0.0.74",
+  "version": "0.0.75",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -9612,10 +9612,174 @@
           "pixels": 65891
         }
       ]
+    },
+    {
+      "id": "i3s-building-scene-layer",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "83127c32b227a7db0f9f1d81ce7f161997dda42c2eb0f33bcdc0ee0b09edf10d",
+      "inputSha256": "a44ce1a36c6a68dd8ca6d08f413dc2f581b43a880612d752772769b2659b85a9",
+      "fixtureSha256": "17e7355b03d686052b5e43cda10be88558b2a0f9556517712c8c830a99aa314f",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "bsl-library-box",
+        "bsl-atrium-cylinder",
+        "bsl-mep-sphere",
+        "bsl-extent-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "bsl-library-box",
+          "pixels": 342
+        },
+        {
+          "id": "bsl-atrium-cylinder",
+          "pixels": 48
+        },
+        {
+          "id": "bsl-mep-sphere",
+          "pixels": 26
+        },
+        {
+          "id": "bsl-extent-rect",
+          "pixels": 27394
+        }
+      ]
+    },
+    {
+      "id": "i3s-feature-picking",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "416fabbd97b74cbd1c42f3647d8e49659030c96d6c79cbda5c10383f9d2f1d9d",
+      "inputSha256": "b44ef44623250747cd11a2ca5bc44bf7ad11a4001169198d99c088dc94783e72",
+      "fixtureSha256": "0f6fbe8b41ca738a0e91dec02a9a727008cdf93da51a2f4956c44ed143ba5b9c",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "i3s-nyc-tower-box",
+        "i3s-geoid-sensor-cylinder",
+        "i3s-pick-attribute-sphere",
+        "i3s-manhattan-lot-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "i3s-nyc-tower-box",
+          "pixels": 855
+        },
+        {
+          "id": "i3s-geoid-sensor-cylinder",
+          "pixels": 236
+        },
+        {
+          "id": "i3s-pick-attribute-sphere",
+          "pixels": 41
+        },
+        {
+          "id": "i3s-manhattan-lot-rect",
+          "pixels": 66598
+        }
+      ]
+    },
+    {
+      "id": "i3s-integratedmesh-layer",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "cfa6e60c1a3fc111db1b067acaa1b7d8142ddb6847fdec2f09e093fb991bdd4e",
+      "inputSha256": "c5b0be675f67cf74a12f3aee7f323d82787d7bbdd419b12b51abcaad77a2d8e8",
+      "fixtureSha256": "73fd90091e508217ebe4076db20a273c4d42f0eef3ea5e04cde6f4a1b004ebce",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "i3s-mesh-frankfurt-box",
+        "i3s-main-waterfront-cylinder",
+        "i3s-altstadt-probe-sphere",
+        "i3s-frankfurt-extent-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "i3s-mesh-frankfurt-box",
+          "pixels": 766
+        },
+        {
+          "id": "i3s-main-waterfront-cylinder",
+          "pixels": 215
+        },
+        {
+          "id": "i3s-altstadt-probe-sphere",
+          "pixels": 36
+        },
+        {
+          "id": "i3s-frankfurt-extent-rect",
+          "pixels": 66769
+        }
+      ]
+    },
+    {
+      "id": "image-based-lighting",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "fdfca22816826ccf639fe48129596f20ff66b6666443fb03fd1f4816e8879ceb",
+      "inputSha256": "8e4d1eb17afa11ab9ffa0ed2002c77a5d4a5e18a53cc9dcfb76d7f098cb24969",
+      "fixtureSha256": "f59046104b8dd040497c2420f6e97156513f0165ada3f7a9ba9d86f9726008c3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "ibl-pawns-stage-box",
+        "ibl-specular-cylinder",
+        "ibl-harmonic-sphere",
+        "ibl-ground-reflection-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "ibl-pawns-stage-box",
+          "pixels": 152
+        },
+        {
+          "id": "ibl-specular-cylinder",
+          "pixels": 37
+        },
+        {
+          "id": "ibl-harmonic-sphere",
+          "pixels": 16
+        },
+        {
+          "id": "ibl-ground-reflection-rect",
+          "pixels": 15920
+        }
+      ]
     }
   ],
   "browser": "151.0.7922.34",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed",
-  "totalCases": 243
+  "totalCases": 247
 }

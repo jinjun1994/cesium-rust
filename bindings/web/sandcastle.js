@@ -254,6 +254,10 @@ $('fullNew216').onclick=guarded(()=>runFull('ground-primitive-materials-dev'));
 $('fullNew217').onclick=guarded(()=>runFull('high-dynamic-range'));
 $('fullNew218').onclick=guarded(()=>runFull('hybrid-snapping-dev'));
 $('fullNew219').onclick=guarded(()=>runFull('i3s-3d-object-layer'));
+$('fullNew220').onclick=guarded(()=>runFull('i3s-building-scene-layer'));
+$('fullNew221').onclick=guarded(()=>runFull('i3s-feature-picking'));
+$('fullNew222').onclick=guarded(()=>runFull('i3s-integratedmesh-layer'));
+$('fullNew223').onclick=guarded(()=>runFull('image-based-lighting'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

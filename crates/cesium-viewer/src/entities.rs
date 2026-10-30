@@ -5448,4 +5448,66 @@ mod tests {
         let i3s_variants = crate::entity_variants::decode(&i3s_variants_raw).unwrap();
         assert_eq!(i3s_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch75_bsl_picking_integratedmesh_ibl() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. I3S Building Scene Layer
+        let bsl_data = std::fs::read(base.join("i3s-building-scene-layer.json")).unwrap();
+        let bsl_entities = decode(&bsl_data).unwrap();
+        assert_eq!(bsl_entities.len(), 4);
+        assert!(matches!(bsl_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(bsl_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(bsl_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(bsl_entities[3].shape, Shape::Rectangle { .. }));
+        let bsl_variants_raw =
+            std::fs::read(base.join("i3s-building-scene-layer.variants.json")).unwrap();
+        let bsl_variants = crate::entity_variants::decode(&bsl_variants_raw).unwrap();
+        assert_eq!(bsl_variants.variants.len(), 4);
+
+        // 2. I3S Feature Picking
+        let ifp_data = std::fs::read(base.join("i3s-feature-picking.json")).unwrap();
+        let ifp_entities = decode(&ifp_data).unwrap();
+        assert_eq!(ifp_entities.len(), 4);
+        assert!(matches!(ifp_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(ifp_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ifp_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ifp_entities[3].shape, Shape::Rectangle { .. }));
+        let ifp_variants_raw =
+            std::fs::read(base.join("i3s-feature-picking.variants.json")).unwrap();
+        let ifp_variants = crate::entity_variants::decode(&ifp_variants_raw).unwrap();
+        assert_eq!(ifp_variants.variants.len(), 4);
+
+        // 3. I3S Integrated Mesh Layer
+        let im_data = std::fs::read(base.join("i3s-integratedmesh-layer.json")).unwrap();
+        let im_entities = decode(&im_data).unwrap();
+        assert_eq!(im_entities.len(), 4);
+        assert!(matches!(im_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(im_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(im_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(im_entities[3].shape, Shape::Rectangle { .. }));
+        let im_variants_raw =
+            std::fs::read(base.join("i3s-integratedmesh-layer.variants.json")).unwrap();
+        let im_variants = crate::entity_variants::decode(&im_variants_raw).unwrap();
+        assert_eq!(im_variants.variants.len(), 4);
+
+        // 4. Image-Based Lighting
+        let ibl_data = std::fs::read(base.join("image-based-lighting.json")).unwrap();
+        let ibl_entities = decode(&ibl_data).unwrap();
+        assert_eq!(ibl_entities.len(), 4);
+        assert!(matches!(ibl_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(ibl_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ibl_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ibl_entities[3].shape, Shape::Rectangle { .. }));
+        let ibl_variants_raw =
+            std::fs::read(base.join("image-based-lighting.variants.json")).unwrap();
+        let ibl_variants = crate::entity_variants::decode(&ibl_variants_raw).unwrap();
+        assert_eq!(ibl_variants.variants.len(), 4);
+    }
 }
