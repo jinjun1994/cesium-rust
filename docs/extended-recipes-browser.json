@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "aerometrex-san-francisco",
+      "id": "cesium-osm-buildings",
       "status": "passed",
       "entities": 5,
-      "sourceSha256": "07083a05d46ac2065795f5f1fb3159ffdd4ad7fa2b1b7a675ad93343bdfa8408",
-      "inputSha256": "d8c467f6b09033e9cba43cbc4888e7f10cd45f2332d8ef9630a77aff911cc85c",
-      "fixtureSha256": "5ac1ffe8fb62c23ddb154abcb49da92caf0830c6d6997842279c7a52a4f3f4df",
+      "sourceSha256": "8df14cdd2ee1b5bbdaa16944f8217af2277835d2c47f73d7d635233ea8c030f5",
+      "inputSha256": "4591143cd9108c85bb1c9e4ca179c529f7abf9dbb3ab80bbcb2b760c3fa2c919",
+      "fixtureSha256": "e8388ed0cef2112dcff25d0daace0f3d7ef79bfb5c2447ae0a81715df90d31c5",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,42 +22,42 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "sf-ferry-building-tower",
-        "sf-pier39-marina",
-        "sf-skyline-transamerica",
-        "sf-lombard-crooked-hill",
-        "sf-bay-waterfront-bounds"
+        "osm-1wtc-tower",
+        "osm-battery-park-pillar",
+        "osm-brooklyn-bridge-tower",
+        "osm-liberty-island-marker",
+        "osm-manhattan-bounds-rect"
       ],
       "pixelCounts": [
         {
-          "id": "sf-ferry-building-tower",
-          "pixels": 1035
+          "id": "osm-1wtc-tower",
+          "pixels": 4632
         },
         {
-          "id": "sf-pier39-marina",
-          "pixels": 1833
+          "id": "osm-battery-park-pillar",
+          "pixels": 754
         },
         {
-          "id": "sf-skyline-transamerica",
-          "pixels": 2175
+          "id": "osm-brooklyn-bridge-tower",
+          "pixels": 1092
         },
         {
-          "id": "sf-lombard-crooked-hill",
-          "pixels": 594
+          "id": "osm-liberty-island-marker",
+          "pixels": 1169
         },
         {
-          "id": "sf-bay-waterfront-bounds",
-          "pixels": 64431
+          "id": "osm-manhattan-bounds-rect",
+          "pixels": 64663
         }
       ]
     },
     {
-      "id": "arcgis-tiled-elevation-terrain",
+      "id": "cesium-world-terrain",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "c547a6dbf2be1eb13e20993ce1d78d188795584a10e3809a2aeaa76a922cb9f7",
-      "inputSha256": "abf141c501917f6bcc14631c479edaac5e5a7919d0ab734b72e666458d667499",
-      "fixtureSha256": "f36c6fe459ad29df3b716d0dbc0ef1caa36f119c112128292ea789e1e1e0dca3",
+      "sourceSha256": "446161a5db608cf961865cd1f94bbfe9e316ac6b2b373ce433d619b21162414c",
+      "inputSha256": "45bb9975c220fd0940de018c493b78a558222114b4d1583d551b0283f938c2c4",
+      "fixtureSha256": "7316e3247fbf6889caea169882077d6debeb7a5e1cb5e4bad6ff73a440bb0b6c",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -68,37 +68,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "arcgis-elevation-pillar",
-        "arcgis-canyon-rim-box",
-        "arcgis-colorado-river-datum",
-        "arcgis-coverage-boundary"
+        "cwt-halfdome-monolith",
+        "cwt-elcapitan-cliff",
+        "cwt-merced-river-basin",
+        "cwt-yosemite-boundary-rect"
       ],
       "pixelCounts": [
         {
-          "id": "arcgis-elevation-pillar",
-          "pixels": 31707
+          "id": "cwt-halfdome-monolith",
+          "pixels": 49160
         },
         {
-          "id": "arcgis-canyon-rim-box",
-          "pixels": 19034
+          "id": "cwt-elcapitan-cliff",
+          "pixels": 81859
         },
         {
-          "id": "arcgis-colorado-river-datum",
-          "pixels": 14367
+          "id": "cwt-merced-river-basin",
+          "pixels": 34611
         },
         {
-          "id": "arcgis-coverage-boundary",
-          "pixels": 61664
+          "id": "cwt-yosemite-boundary-rect",
+          "pixels": 55937
         }
       ]
     },
     {
-      "id": "arcticdem",
+      "id": "clamp-to-3d-model",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "4de76cc07860ed18739a51bf3b774c4656bfad4519514fcd306fc908cfc35c04",
-      "inputSha256": "c78d92da6eb84954f4d1c6dec6ca571786895bcbe4e408a19e1350ac33c7a009",
-      "fixtureSha256": "32c0cd0cf7ebd6663c81e6910fefd7a5adfce11f01e07e9373b31c6116573147",
+      "sourceSha256": "e87e29b6f1e502928423fd631a7e47ab75e3368ffcf502b8e3673d8f6ddc10f5",
+      "inputSha256": "91ba5dcf4da40778dedabc2e3cee14b0d5d60bf29140994ef601872fcdf80ab9",
+      "fixtureSha256": "16b5bc336248ff528d7b70397432827324e6e135c39886c84eecdbfb2e3da5e7",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -109,37 +109,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "arctic-denali-summit",
-        "arctic-kahiltna-glacier",
-        "arctic-lateral-moraine",
-        "arctic-strip-coverage-rect"
+        "clamp-vehicle-chassis",
+        "clamp-sample-height-point",
+        "clamp-reference-mast",
+        "clamp-test-ground-bounds"
       ],
       "pixelCounts": [
         {
-          "id": "arctic-denali-summit",
-          "pixels": 47516
+          "id": "clamp-vehicle-chassis",
+          "pixels": 126
         },
         {
-          "id": "arctic-kahiltna-glacier",
-          "pixels": 64771
+          "id": "clamp-sample-height-point",
+          "pixels": 77
         },
         {
-          "id": "arctic-lateral-moraine",
-          "pixels": 36601
+          "id": "clamp-reference-mast",
+          "pixels": 125
         },
         {
-          "id": "arctic-strip-coverage-rect",
-          "pixels": 66423
+          "id": "clamp-test-ground-bounds",
+          "pixels": 52024
         }
       ]
     },
     {
-      "id": "cesium-inspector",
+      "id": "classification",
       "status": "passed",
-      "entities": 4,
-      "sourceSha256": "f867a46b9c0dc15191a01e4d5868bc2b319b1ca828ad14cb95ab64ce0f036942",
-      "inputSha256": "b60a157b7a663da4a2acc4f28503f244ed086ae6623075b6b94793b13e4e9fe3",
-      "fixtureSha256": "2376e75d5ea6bd68985770f4ca3b9657c3cbe44f84ecc189cfd0e3eaddee3302",
+      "entities": 5,
+      "sourceSha256": "a69202016a31e7ee402f5e6c8e268b62696efcd11fb813463c8790b519ba2190",
+      "inputSha256": "81a029744151b9852dd4391eda9fd1b53af1b3cdf42e80e5f17a6ee8b3420032",
+      "fixtureSha256": "325442c5b8a3955eab10e62a367470e605e7531c3f928ac52228da10809abe58",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -150,27 +150,32 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "inspector-primitive-box",
-        "inspector-elevated-rectangle",
-        "inspector-billboard-marker",
-        "inspector-terrain-reference"
+        "class-building-volume",
+        "class-tree-volume-1",
+        "class-tree-volume-2",
+        "class-survey-marker",
+        "class-site-footprint-rect"
       ],
       "pixelCounts": [
         {
-          "id": "inspector-primitive-box",
-          "pixels": 98374
+          "id": "class-building-volume",
+          "pixels": 154
         },
         {
-          "id": "inspector-elevated-rectangle",
-          "pixels": 63468
+          "id": "class-tree-volume-1",
+          "pixels": 125
         },
         {
-          "id": "inspector-billboard-marker",
-          "pixels": 166025
+          "id": "class-tree-volume-2",
+          "pixels": 125
         },
         {
-          "id": "inspector-terrain-reference",
-          "pixels": 75705
+          "id": "class-survey-marker",
+          "pixels": 126
+        },
+        {
+          "id": "class-site-footprint-rect",
+          "pixels": 3756
         }
       ]
     }

@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.64（已通过 203 / 309 个完整案例，剩余 106 个）
+- **当前版本**：v0.0.65（已通过 207 / 309 个完整案例，剩余 102 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.65 验收完成：Cesium OSM Buildings、Cesium World Terrain、Clamp to 3D Model 与 Classification
+- **完成配方**（累计推进至 **207 / 309**，剩余 102 个）：
+  1. `cesium-osm-buildings`（OpenStreetMap 全球建筑白模实景三维瓦片与元数据属性着色/条件样式：丹佛市中心 OSM 3D 建筑白模基准全景、基于建筑要素高度元数据渐变着色模式、高层超高商业大厦条件过滤模式：高度 > 100米、线框拓扑与光照高对比材质诊断模式 4 种变体）
+  2. `cesium-world-terrain`（全球高保真地貌切片、水体法线反射与高程光照解算：雷尼尔雪山与 Cesium World Terrain 全球地貌基准、水体遮罩高光与动态法线反光增强模式、高海拔地形法线阴影与山体坡度着色模式、火山口边缘地貌微地形与等高线高程网格模式 4 种变体）
+  3. `clamp-to-3d-model`（三维模型表面实时贴地附着与点线面拓扑吸附：模型表面吸附传感器与巡检路径基准、高亮贴模表面法线垂足巡检点模式、沿模型几何轮廓表面贴合飞行走廊轨迹线模式、模型表面投影与结构基底包围盒贴合模式 4 种变体）
+  4. `classification`（三维空间几何分类体图元与瓦片/地表分区覆写：城市地块空间几何分类基准、商业规划区琥珀色高亮多边形体分类模式、住宅区与生态绿地青绿双色空间分类模式、反转空间遮罩与重点工程冲突分类检视模式 4 种变体）
+- **核心研发突破**：
+  1. **OSM Buildings 批次表元数据样式流水线（3D Tiles OSM Metadata Styling & Filter Pipeline）**：构建 `createOsmBuildingsAsync` 异步加载机制与基于批次表属性（如 `building:levels`、`height`）的动态着色和可见性过滤。
+  2. **全球地形切片与法线水面反射系统（World Terrain Watermask & Normal Shading Engine）**：支持 `createWorldTerrainAsync` 地貌瓦片解析，集成 `requestWaterMask: true` 水体掩膜和 `requestVertexNormals: true` 法线坡度实时阴影渲染。
+  3. **模型表面贴模吸附算法（HeightReference CLAMP_TO_3D_MODEL Ray Intersection）**：实现实体与几何线面吸附到三维模型表面网格上的射线拾取、法线对齐及实时贴合。
+  4. **分类体图元渲染（ClassificationPrimitive Volume & Surface Overlay）**：验证了空间三维挤出体几何与地表/瓦片分类覆层机制（`ClassificationType.BOTH`），支持多分区规划与高亮着色遮罩。
+- **验证结果**：
+  - **普通 Rust 单元测试**：125 项全部通过（含 `batch65_osm_worldterrain_clampto3d_classification`）。
+  - **真实 GPU 离屏渲染测试**：208 / 208 项全数通过（`208 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，207 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：207 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Cesium OSM Buildings、Cesium World Terrain、Clamp to 3D Model 与 Classification 验证文档](docs/osmbuildings-worldterrain-clampto3d-classification-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.64 验收完成：旧金山实景三维 (Aerometrex San Francisco)、ArcGIS 瓦片高程 (ArcGIS Tiled Elevation Terrain)、北极极地地形 (ArcticDEM) 与检视器图元调试 (Cesium Inspector)
 - **完成配方**（累计推进至 **203 / 309**，剩余 106 个）：

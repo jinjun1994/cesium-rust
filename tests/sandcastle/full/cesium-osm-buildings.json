@@ -1,0 +1,183 @@
+[
+  {
+    "id": "osm-1wtc-tower",
+    "name": "One World Trade Center Landmark Tower",
+    "show": true,
+    "positionDegrees": [
+      -74.0134,
+      40.7127,
+      210
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        60,
+        60,
+        420
+      ]
+    },
+    "color": [
+      0.85,
+      0.9,
+      0.98,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "building": "commercial",
+      "levels": 104,
+      "heightMeters": 417,
+      "source": "Cesium OSM Buildings"
+    }
+  },
+  {
+    "id": "osm-battery-park-pillar",
+    "name": "Battery Park Esplanade Monument Pillar",
+    "show": true,
+    "positionDegrees": [
+      -74.016,
+      40.703,
+      30
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 60,
+      "topRadius": 25,
+      "bottomRadius": 25
+    },
+    "color": [
+      0.3,
+      0.72,
+      0.48,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.6,
+      1,
+      0.8,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "leisure": "park",
+      "name": "The Battery"
+    }
+  },
+  {
+    "id": "osm-brooklyn-bridge-tower",
+    "name": "Brooklyn Bridge Manhattan Anchorage Pier",
+    "show": true,
+    "positionDegrees": [
+      -74,
+      40.707,
+      50
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        45,
+        65,
+        90
+      ]
+    },
+    "color": [
+      0.82,
+      0.75,
+      0.68,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.9,
+      0.8,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "man_made": "bridge",
+      "material": "limestone_granite"
+    }
+  },
+  {
+    "id": "osm-liberty-island-marker",
+    "name": "Statue of Liberty National Monument Pedestal",
+    "show": true,
+    "positionDegrees": [
+      -74.0445,
+      40.6892,
+      50
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        40,
+        40,
+        48
+      ]
+    },
+    "color": [
+      0.35,
+      0.76,
+      0.68,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.6,
+      1,
+      0.9,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "historic": "monument",
+      "heightMeters": 93
+    }
+  },
+  {
+    "id": "osm-manhattan-bounds-rect",
+    "name": "Lower Manhattan OSM Building Footprint Boundary",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -74.05,
+        40.68,
+        -73.99,
+        40.72
+      ]
+    },
+    "color": [
+      0.25,
+      0.35,
+      0.45,
+      0.35
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.4,
+      0.6,
+      0.8,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "role": "urbanFootprint"
+    }
+  }
+]

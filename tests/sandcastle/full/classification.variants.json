@@ -1,0 +1,741 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: All Classification Volumes (Building & Trees)",
+      "entities": [
+        {
+          "id": "class-building-volume",
+          "name": "Building Structure Classification Box Volume",
+          "show": true,
+          "positionDegrees": [
+            -75.5965,
+            39.8491,
+            120
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              24,
+              18,
+              24
+            ]
+          },
+          "color": [
+            1,
+            0,
+            0,
+            0.5
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.4,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume"
+          }
+        },
+        {
+          "id": "class-tree-volume-1",
+          "name": "Vegetation Canopy Tree 1 Classification Ellipsoid",
+          "show": true,
+          "positionDegrees": [
+            -75.5963,
+            39.8492,
+            120
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              15,
+              12
+            ]
+          },
+          "color": [
+            0.95,
+            0.39,
+            0.1,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume 1"
+          }
+        },
+        {
+          "id": "class-tree-volume-2",
+          "name": "Vegetation Canopy Tree 2 Classification Ellipsoid",
+          "show": true,
+          "positionDegrees": [
+            -75.5964,
+            39.8493,
+            120
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              15,
+              12
+            ]
+          },
+          "color": [
+            0.94,
+            0.23,
+            0.28,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume 2"
+          }
+        },
+        {
+          "id": "class-survey-marker",
+          "name": "Photogrammetry Ground Datum Classification Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.5966,
+            39.849,
+            125
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 30,
+            "topRadius": 8,
+            "bottomRadius": 8
+          },
+          "color": [
+            0,
+            0.31,
+            1,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume 3"
+          }
+        },
+        {
+          "id": "class-site-footprint-rect",
+          "name": "Photogrammetry Survey Classification Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.5975,
+              39.8485,
+              -75.5955,
+              39.8498
+            ]
+          },
+          "color": [
+            0.28,
+            0.42,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.68,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "classificationSiteBounds"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Highlight Building Volume (Red 50% Alpha)",
+      "entities": [
+        {
+          "id": "class-building-volume",
+          "name": "Building Structure Classification Box Volume",
+          "show": true,
+          "positionDegrees": [
+            -75.5965,
+            39.8491,
+            120
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              24,
+              18,
+              24
+            ]
+          },
+          "color": [
+            1,
+            0.2,
+            0.2,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.4,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume"
+          }
+        },
+        {
+          "id": "class-tree-volume-1",
+          "name": "Vegetation Canopy Tree 1 Classification Ellipsoid",
+          "show": true,
+          "positionDegrees": [
+            -75.5963,
+            39.8492,
+            120
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              15,
+              12
+            ]
+          },
+          "color": [
+            0.95,
+            0.39,
+            0.1,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume 1"
+          }
+        },
+        {
+          "id": "class-tree-volume-2",
+          "name": "Vegetation Canopy Tree 2 Classification Ellipsoid",
+          "show": true,
+          "positionDegrees": [
+            -75.5964,
+            39.8493,
+            120
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              15,
+              12
+            ]
+          },
+          "color": [
+            0.94,
+            0.23,
+            0.28,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume 2"
+          }
+        },
+        {
+          "id": "class-survey-marker",
+          "name": "Photogrammetry Ground Datum Classification Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.5966,
+            39.849,
+            125
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 30,
+            "topRadius": 8,
+            "bottomRadius": 8
+          },
+          "color": [
+            0,
+            0.31,
+            1,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume 3"
+          }
+        },
+        {
+          "id": "class-site-footprint-rect",
+          "name": "Photogrammetry Survey Classification Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.5975,
+              39.8485,
+              -75.5955,
+              39.8498
+            ]
+          },
+          "color": [
+            0.28,
+            0.42,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.68,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "classificationSiteBounds"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Highlight Vegetation Volumes (Orange & Crimson Trees)",
+      "entities": [
+        {
+          "id": "class-building-volume",
+          "name": "Building Structure Classification Box Volume",
+          "show": true,
+          "positionDegrees": [
+            -75.5965,
+            39.8491,
+            120
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              24,
+              18,
+              24
+            ]
+          },
+          "color": [
+            1,
+            0,
+            0,
+            0.5
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.4,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume"
+          }
+        },
+        {
+          "id": "class-tree-volume-1",
+          "name": "Vegetation Canopy Tree 1 Classification Ellipsoid",
+          "show": true,
+          "positionDegrees": [
+            -75.5963,
+            39.8492,
+            120
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              15,
+              12
+            ]
+          },
+          "color": [
+            1,
+            0.55,
+            0.1,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume 1"
+          }
+        },
+        {
+          "id": "class-tree-volume-2",
+          "name": "Vegetation Canopy Tree 2 Classification Ellipsoid",
+          "show": true,
+          "positionDegrees": [
+            -75.5964,
+            39.8493,
+            120
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              15,
+              12
+            ]
+          },
+          "color": [
+            1,
+            0.3,
+            0.35,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume 2"
+          }
+        },
+        {
+          "id": "class-survey-marker",
+          "name": "Photogrammetry Ground Datum Classification Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.5966,
+            39.849,
+            125
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 30,
+            "topRadius": 8,
+            "bottomRadius": 8
+          },
+          "color": [
+            0,
+            0.31,
+            1,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume 3"
+          }
+        },
+        {
+          "id": "class-site-footprint-rect",
+          "name": "Photogrammetry Survey Classification Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.5975,
+              39.8485,
+              -75.5955,
+              39.8498
+            ]
+          },
+          "color": [
+            0.28,
+            0.42,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.68,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "classificationSiteBounds"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Interactive Hover Pick Emulation (Magenta Highlight)",
+      "entities": [
+        {
+          "id": "class-building-volume",
+          "name": "Building Structure Classification Box Volume",
+          "show": true,
+          "positionDegrees": [
+            -75.5965,
+            39.8491,
+            120
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              24,
+              18,
+              24
+            ]
+          },
+          "color": [
+            1,
+            0,
+            1,
+            0.8
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.4,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume"
+          }
+        },
+        {
+          "id": "class-tree-volume-1",
+          "name": "Vegetation Canopy Tree 1 Classification Ellipsoid",
+          "show": true,
+          "positionDegrees": [
+            -75.5963,
+            39.8492,
+            120
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              15,
+              12
+            ]
+          },
+          "color": [
+            0.95,
+            0.39,
+            0.1,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume 1"
+          }
+        },
+        {
+          "id": "class-tree-volume-2",
+          "name": "Vegetation Canopy Tree 2 Classification Ellipsoid",
+          "show": true,
+          "positionDegrees": [
+            -75.5964,
+            39.8493,
+            120
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              15,
+              12
+            ]
+          },
+          "color": [
+            0.94,
+            0.23,
+            0.28,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.5,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume 2"
+          }
+        },
+        {
+          "id": "class-survey-marker",
+          "name": "Photogrammetry Ground Datum Classification Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.5966,
+            39.849,
+            125
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 30,
+            "topRadius": 8,
+            "bottomRadius": 8
+          },
+          "color": [
+            0,
+            0.31,
+            1,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "id": "volume 3"
+          }
+        },
+        {
+          "id": "class-site-footprint-rect",
+          "name": "Photogrammetry Survey Classification Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.5975,
+              39.8485,
+              -75.5955,
+              39.8498
+            ]
+          },
+          "color": [
+            0.28,
+            0.42,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.68,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "classificationSiteBounds"
+          }
+        }
+      ]
+    }
+  ]
+}

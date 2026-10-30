@@ -1,0 +1,593 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Cesium World Terrain (Yosemite Valley High Relief)",
+      "entities": [
+        {
+          "id": "cwt-halfdome-monolith",
+          "name": "Half Dome Monolithic Granite Summit (2694m)",
+          "show": true,
+          "positionDegrees": [
+            -119.533,
+            37.746,
+            2694
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 600,
+            "topRadius": 180,
+            "bottomRadius": 180
+          },
+          "color": [
+            0.88,
+            0.88,
+            0.92,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 2694,
+            "geology": "Half Dome Granodiorite",
+            "provider": "Cesium World Terrain"
+          }
+        },
+        {
+          "id": "cwt-elcapitan-cliff",
+          "name": "El Capitan Vertical Granite Wall (2307m)",
+          "show": true,
+          "positionDegrees": [
+            -119.637,
+            37.734,
+            2307
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              500,
+              350,
+              900
+            ]
+          },
+          "color": [
+            0.85,
+            0.82,
+            0.75,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.85,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 2307,
+            "verticalDropMeters": 914
+          }
+        },
+        {
+          "id": "cwt-merced-river-basin",
+          "name": "Yosemite Valley Merced River Drainage Basin",
+          "show": true,
+          "positionDegrees": [
+            -119.585,
+            37.742,
+            1220
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              250,
+              250,
+              150
+            ]
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "valleyFloorElevationMeters": 1219
+          }
+        },
+        {
+          "id": "cwt-yosemite-boundary-rect",
+          "name": "Yosemite Valley High-Resolution Mesh Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -119.7,
+              37.68,
+              -119.45,
+              37.8
+            ]
+          },
+          "color": [
+            0.28,
+            0.45,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            0.5,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainType": "Quantized-Mesh 1.0 Terrain"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Half Dome Monolith Summit View",
+      "entities": [
+        {
+          "id": "cwt-halfdome-monolith",
+          "name": "Half Dome Monolithic Granite Summit (2694m)",
+          "show": true,
+          "positionDegrees": [
+            -119.533,
+            37.746,
+            2694
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 600,
+            "topRadius": 180,
+            "bottomRadius": 180
+          },
+          "color": [
+            0.98,
+            0.85,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 2694,
+            "geology": "Half Dome Granodiorite",
+            "provider": "Cesium World Terrain"
+          }
+        },
+        {
+          "id": "cwt-elcapitan-cliff",
+          "name": "El Capitan Vertical Granite Wall (2307m)",
+          "show": true,
+          "positionDegrees": [
+            -119.637,
+            37.734,
+            2307
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              500,
+              350,
+              900
+            ]
+          },
+          "color": [
+            0.85,
+            0.82,
+            0.75,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.85,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 2307,
+            "verticalDropMeters": 914
+          }
+        },
+        {
+          "id": "cwt-merced-river-basin",
+          "name": "Yosemite Valley Merced River Drainage Basin",
+          "show": true,
+          "positionDegrees": [
+            -119.585,
+            37.742,
+            1220
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              250,
+              250,
+              150
+            ]
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "valleyFloorElevationMeters": 1219
+          }
+        },
+        {
+          "id": "cwt-yosemite-boundary-rect",
+          "name": "Yosemite Valley High-Resolution Mesh Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -119.7,
+              37.68,
+              -119.45,
+              37.8
+            ]
+          },
+          "color": [
+            0.28,
+            0.45,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            0.5,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainType": "Quantized-Mesh 1.0 Terrain"
+          }
+        }
+      ]
+    },
+    {
+      "label": "El Capitan Vertical Granite Wall",
+      "entities": [
+        {
+          "id": "cwt-halfdome-monolith",
+          "name": "Half Dome Monolithic Granite Summit (2694m)",
+          "show": true,
+          "positionDegrees": [
+            -119.533,
+            37.746,
+            2694
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 600,
+            "topRadius": 180,
+            "bottomRadius": 180
+          },
+          "color": [
+            0.88,
+            0.88,
+            0.92,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 2694,
+            "geology": "Half Dome Granodiorite",
+            "provider": "Cesium World Terrain"
+          }
+        },
+        {
+          "id": "cwt-elcapitan-cliff",
+          "name": "El Capitan Vertical Granite Wall (2307m)",
+          "show": true,
+          "positionDegrees": [
+            -119.637,
+            37.734,
+            2307
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              500,
+              350,
+              900
+            ]
+          },
+          "color": [
+            0.95,
+            0.4,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.85,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 2307,
+            "verticalDropMeters": 914
+          }
+        },
+        {
+          "id": "cwt-merced-river-basin",
+          "name": "Yosemite Valley Merced River Drainage Basin",
+          "show": true,
+          "positionDegrees": [
+            -119.585,
+            37.742,
+            1220
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              250,
+              250,
+              150
+            ]
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "valleyFloorElevationMeters": 1219
+          }
+        },
+        {
+          "id": "cwt-yosemite-boundary-rect",
+          "name": "Yosemite Valley High-Resolution Mesh Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -119.7,
+              37.68,
+              -119.45,
+              37.8
+            ]
+          },
+          "color": [
+            0.28,
+            0.45,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            0.5,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainType": "Quantized-Mesh 1.0 Terrain"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Merced River Valley Basin & Meadows",
+      "entities": [
+        {
+          "id": "cwt-halfdome-monolith",
+          "name": "Half Dome Monolithic Granite Summit (2694m)",
+          "show": true,
+          "positionDegrees": [
+            -119.533,
+            37.746,
+            2694
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 600,
+            "topRadius": 180,
+            "bottomRadius": 180
+          },
+          "color": [
+            0.88,
+            0.88,
+            0.92,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 2694,
+            "geology": "Half Dome Granodiorite",
+            "provider": "Cesium World Terrain"
+          }
+        },
+        {
+          "id": "cwt-elcapitan-cliff",
+          "name": "El Capitan Vertical Granite Wall (2307m)",
+          "show": true,
+          "positionDegrees": [
+            -119.637,
+            37.734,
+            2307
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              500,
+              350,
+              900
+            ]
+          },
+          "color": [
+            0.85,
+            0.82,
+            0.75,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.85,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "elevationMeters": 2307,
+            "verticalDropMeters": 914
+          }
+        },
+        {
+          "id": "cwt-merced-river-basin",
+          "name": "Yosemite Valley Merced River Drainage Basin",
+          "show": true,
+          "positionDegrees": [
+            -119.585,
+            37.742,
+            1220
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              250,
+              250,
+              150
+            ]
+          },
+          "color": [
+            0.2,
+            0.9,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "valleyFloorElevationMeters": 1219
+          }
+        },
+        {
+          "id": "cwt-yosemite-boundary-rect",
+          "name": "Yosemite Valley High-Resolution Mesh Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -119.7,
+              37.68,
+              -119.45,
+              37.8
+            ]
+          },
+          "color": [
+            0.28,
+            0.45,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            0.5,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainType": "Quantized-Mesh 1.0 Terrain"
+          }
+        }
+      ]
+    }
+  ]
+}

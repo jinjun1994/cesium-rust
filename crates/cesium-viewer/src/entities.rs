@@ -4836,4 +4836,62 @@ mod tests {
         let ci_variants = crate::entity_variants::decode(&ci_variants_raw).unwrap();
         assert_eq!(ci_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch65_osm_worldterrain_clampto3d_classification() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. Cesium OSM Buildings
+        let ob_data = std::fs::read(base.join("cesium-osm-buildings.json")).unwrap();
+        let ob_entities = decode(&ob_data).unwrap();
+        assert_eq!(ob_entities.len(), 5);
+        assert!(matches!(ob_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(ob_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ob_entities[2].shape, Shape::Box { .. }));
+        assert!(matches!(ob_entities[3].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ob_entities[4].shape, Shape::Rectangle { .. }));
+        let ob_variants_raw =
+            std::fs::read(base.join("cesium-osm-buildings.variants.json")).unwrap();
+        let ob_variants = crate::entity_variants::decode(&ob_variants_raw).unwrap();
+        assert_eq!(ob_variants.variants.len(), 4);
+
+        // 2. Cesium World Terrain
+        let wt_data = std::fs::read(base.join("cesium-world-terrain.json")).unwrap();
+        let wt_entities = decode(&wt_data).unwrap();
+        assert_eq!(wt_entities.len(), 4);
+        assert!(matches!(wt_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(wt_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(wt_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(wt_entities[3].shape, Shape::Rectangle { .. }));
+        let wt_variants_raw =
+            std::fs::read(base.join("cesium-world-terrain.variants.json")).unwrap();
+        let wt_variants = crate::entity_variants::decode(&wt_variants_raw).unwrap();
+        assert_eq!(wt_variants.variants.len(), 4);
+
+        // 3. Clamp to 3D Model
+        let cm_data = std::fs::read(base.join("clamp-to-3d-model.json")).unwrap();
+        let cm_entities = decode(&cm_data).unwrap();
+        assert_eq!(cm_entities.len(), 4);
+        assert!(matches!(cm_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(cm_entities[1].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(cm_entities[2].shape, Shape::Cylinder { .. }));
+        assert!(matches!(cm_entities[3].shape, Shape::Rectangle { .. }));
+        let cm_variants_raw = std::fs::read(base.join("clamp-to-3d-model.variants.json")).unwrap();
+        let cm_variants = crate::entity_variants::decode(&cm_variants_raw).unwrap();
+        assert_eq!(cm_variants.variants.len(), 4);
+
+        // 4. Classification
+        let cl_data = std::fs::read(base.join("classification.json")).unwrap();
+        let cl_entities = decode(&cl_data).unwrap();
+        assert_eq!(cl_entities.len(), 5);
+        assert!(matches!(cl_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(cl_entities[1].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(cl_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(cl_entities[3].shape, Shape::Cylinder { .. }));
+        assert!(matches!(cl_entities[4].shape, Shape::Rectangle { .. }));
+        let cl_variants_raw = std::fs::read(base.join("classification.variants.json")).unwrap();
+        let cl_variants = crate::entity_variants::decode(&cl_variants_raw).unwrap();
+        assert_eq!(cl_variants.variants.len(), 4);
+    }
 }

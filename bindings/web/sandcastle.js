@@ -214,6 +214,10 @@ $('fullNew176').onclick=guarded(()=>runFull('aerometrex-san-francisco'));
 $('fullNew177').onclick=guarded(()=>runFull('arcgis-tiled-elevation-terrain'));
 $('fullNew178').onclick=guarded(()=>runFull('arcticdem'));
 $('fullNew179').onclick=guarded(()=>runFull('cesium-inspector'));
+$('fullNew180').onclick=guarded(()=>runFull('cesium-osm-buildings'));
+$('fullNew181').onclick=guarded(()=>runFull('cesium-world-terrain'));
+$('fullNew182').onclick=guarded(()=>runFull('clamp-to-3d-model'));
+$('fullNew183').onclick=guarded(()=>runFull('classification'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

@@ -5683,6 +5683,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "cesium-osm-buildings",
+      "title": "Cesium OSM Buildings",
+      "sourceSha256": "8df14cdd2ee1b5bbdaa16944f8217af2277835d2c47f73d7d635233ea8c030f5",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=cesium-osm-buildings",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/cesium-osm-buildings.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/cesium-osm-buildings.json",
+      "entityCount": 5,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Cesium OSM Buildings global 3D buildings dataset with createOsmBuildingsAsync",
+        "Camera flyTo orientation and Lower Manhattan New York City destination viewpoint"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "cesium-world-terrain",
+      "title": "Cesium World Terrain",
+      "sourceSha256": "446161a5db608cf961865cd1f94bbfe9e316ac6b2b373ce433d619b21162414c",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=cesium-world-terrain",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/cesium-world-terrain.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/cesium-world-terrain.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Cesium World Terrain global high-resolution quantized-mesh 3D terrain provider",
+        "Yosemite Valley Half Dome target framing with camera lookAt and lookAtTransform identity reset"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "clamp-to-3d-model",
+      "title": "Clamp to 3D Model",
+      "sourceSha256": "e87e29b6f1e502928423fd631a7e47ab75e3368ffcf502b8e3673d8f6ddc10f5",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=clamp-to-3d-model",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/clamp-to-3d-model.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/clamp-to-3d-model.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "SampleHeight dynamic query against glTF GroundVehicle model with trackedEntity",
+        "Real-time yellow point and label elevation annotation with depth test disabling"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "classification",
+      "title": "Classification",
+      "sourceSha256": "a69202016a31e7ee402f5e6c8e268b62696efcd11fb813463c8790b519ba2190",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=classification",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/classification.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/classification.json",
+      "entityCount": 5,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "ClassificationPrimitive geometry volumes for 3D Tiles classification with HPR model matrices",
+        "Interactive mouse move hover highlighting and GeometryInstance dynamic color attributes"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

@@ -1,0 +1,593 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Clamped Ground Vehicle with Real-Time Height Sampling",
+      "entities": [
+        {
+          "id": "clamp-vehicle-chassis",
+          "name": "Ground Vehicle Articulated Model Chassis",
+          "show": true,
+          "positionDegrees": [
+            -123.074,
+            44.05,
+            20
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              25,
+              16,
+              12
+            ]
+          },
+          "color": [
+            0.85,
+            0.32,
+            0.22,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "uri": "SampleData/models/GroundVehicle/GroundVehicle.glb",
+            "clamped": true
+          }
+        },
+        {
+          "id": "clamp-sample-height-point",
+          "name": "Real-Time Dynamic Clamping Sample Point",
+          "show": true,
+          "positionDegrees": [
+            -123.074,
+            44.05,
+            26
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              10,
+              10,
+              10
+            ]
+          },
+          "color": [
+            1,
+            0.95,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pixelSize": 10,
+            "sampleHeightSupported": true,
+            "color": "Yellow"
+          }
+        },
+        {
+          "id": "clamp-reference-mast",
+          "name": "Ground Proximity Laser Sensor Mast",
+          "show": true,
+          "positionDegrees": [
+            -123.073,
+            44.051,
+            25
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 45,
+            "topRadius": 6,
+            "bottomRadius": 6
+          },
+          "color": [
+            0.2,
+            0.72,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sensorRangeMeters": 50
+          }
+        },
+        {
+          "id": "clamp-test-ground-bounds",
+          "name": "Vehicle Proving Ground Testing Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.077,
+              44.047,
+              -123.071,
+              44.053
+            ]
+          },
+          "color": [
+            0.35,
+            0.45,
+            0.38,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.7,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "provingGround"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Tracking Vehicle Chassis Focus",
+      "entities": [
+        {
+          "id": "clamp-vehicle-chassis",
+          "name": "Ground Vehicle Articulated Model Chassis",
+          "show": true,
+          "positionDegrees": [
+            -123.074,
+            44.05,
+            20
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              25,
+              16,
+              12
+            ]
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "uri": "SampleData/models/GroundVehicle/GroundVehicle.glb",
+            "clamped": true
+          }
+        },
+        {
+          "id": "clamp-sample-height-point",
+          "name": "Real-Time Dynamic Clamping Sample Point",
+          "show": true,
+          "positionDegrees": [
+            -123.074,
+            44.05,
+            26
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              10,
+              10,
+              10
+            ]
+          },
+          "color": [
+            1,
+            0.95,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pixelSize": 10,
+            "sampleHeightSupported": true,
+            "color": "Yellow"
+          }
+        },
+        {
+          "id": "clamp-reference-mast",
+          "name": "Ground Proximity Laser Sensor Mast",
+          "show": true,
+          "positionDegrees": [
+            -123.073,
+            44.051,
+            25
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 45,
+            "topRadius": 6,
+            "bottomRadius": 6
+          },
+          "color": [
+            0.2,
+            0.72,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sensorRangeMeters": 50
+          }
+        },
+        {
+          "id": "clamp-test-ground-bounds",
+          "name": "Vehicle Proving Ground Testing Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.077,
+              44.047,
+              -123.071,
+              44.053
+            ]
+          },
+          "color": [
+            0.35,
+            0.45,
+            0.38,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.7,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "provingGround"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Sample Height Point Trajectory",
+      "entities": [
+        {
+          "id": "clamp-vehicle-chassis",
+          "name": "Ground Vehicle Articulated Model Chassis",
+          "show": true,
+          "positionDegrees": [
+            -123.074,
+            44.05,
+            20
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              25,
+              16,
+              12
+            ]
+          },
+          "color": [
+            0.85,
+            0.32,
+            0.22,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "uri": "SampleData/models/GroundVehicle/GroundVehicle.glb",
+            "clamped": true
+          }
+        },
+        {
+          "id": "clamp-sample-height-point",
+          "name": "Real-Time Dynamic Clamping Sample Point",
+          "show": true,
+          "positionDegrees": [
+            -123.074,
+            44.05,
+            26
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              10,
+              10,
+              10
+            ]
+          },
+          "color": [
+            0.2,
+            1,
+            0.3,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pixelSize": 10,
+            "sampleHeightSupported": true,
+            "color": "Yellow"
+          }
+        },
+        {
+          "id": "clamp-reference-mast",
+          "name": "Ground Proximity Laser Sensor Mast",
+          "show": true,
+          "positionDegrees": [
+            -123.073,
+            44.051,
+            25
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 45,
+            "topRadius": 6,
+            "bottomRadius": 6
+          },
+          "color": [
+            0.2,
+            0.72,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sensorRangeMeters": 50
+          }
+        },
+        {
+          "id": "clamp-test-ground-bounds",
+          "name": "Vehicle Proving Ground Testing Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.077,
+              44.047,
+              -123.071,
+              44.053
+            ]
+          },
+          "color": [
+            0.35,
+            0.45,
+            0.38,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.7,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "provingGround"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Ground Clearance & Obstacle Test",
+      "entities": [
+        {
+          "id": "clamp-vehicle-chassis",
+          "name": "Ground Vehicle Articulated Model Chassis",
+          "show": true,
+          "positionDegrees": [
+            -123.074,
+            44.05,
+            20
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              25,
+              16,
+              12
+            ]
+          },
+          "color": [
+            0.85,
+            0.32,
+            0.22,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "uri": "SampleData/models/GroundVehicle/GroundVehicle.glb",
+            "clamped": true
+          }
+        },
+        {
+          "id": "clamp-sample-height-point",
+          "name": "Real-Time Dynamic Clamping Sample Point",
+          "show": true,
+          "positionDegrees": [
+            -123.074,
+            44.05,
+            26
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              10,
+              10,
+              10
+            ]
+          },
+          "color": [
+            1,
+            0.95,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pixelSize": 10,
+            "sampleHeightSupported": true,
+            "color": "Yellow"
+          }
+        },
+        {
+          "id": "clamp-reference-mast",
+          "name": "Ground Proximity Laser Sensor Mast",
+          "show": true,
+          "positionDegrees": [
+            -123.073,
+            44.051,
+            25
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 45,
+            "topRadius": 6,
+            "bottomRadius": 6
+          },
+          "color": [
+            1,
+            0.3,
+            0.3,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sensorRangeMeters": 50
+          }
+        },
+        {
+          "id": "clamp-test-ground-bounds",
+          "name": "Vehicle Proving Ground Testing Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.077,
+              44.047,
+              -123.071,
+              44.053
+            ]
+          },
+          "color": [
+            0.35,
+            0.45,
+            0.38,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            0.7,
+            0.55,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "role": "provingGround"
+          }
+        }
+      ]
+    }
+  ]
+}
