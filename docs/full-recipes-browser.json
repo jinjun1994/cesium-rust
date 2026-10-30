@@ -1,5 +1,5 @@
 {
-  "version": "0.0.88",
+  "version": "0.0.89",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -11912,6 +11912,173 @@
         {
           "id": "vector-downtown-district-rect",
           "pixels": 69564
+        }
+      ]
+    },
+    {
+      "id": "video",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "2c1db14dde0a29f998bbdcd6ed82cca6212ea0ef944c8ff57c07f763687bf1ed",
+      "inputSha256": "b40d32399874cd99325311cdd1aa60f6f37173f6df249e31dee5aefed06833e8",
+      "fixtureSha256": "61202da51ba39201733e2b3c89807ce138d58003decc8175a95e2d1323f99cf3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "video-textured-ellipsoid",
+        "video-playback-screen-box",
+        "video-synchronizer-pillar",
+        "video-viewing-platform-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "video-textured-ellipsoid",
+          "pixels": 166025
+        },
+        {
+          "id": "video-playback-screen-box",
+          "pixels": 98712
+        },
+        {
+          "id": "video-synchronizer-pillar",
+          "pixels": 72979
+        },
+        {
+          "id": "video-viewing-platform-rect",
+          "pixels": 67500
+        }
+      ]
+    },
+    {
+      "id": "viewerless",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "c969f4e865c9bc26340a0431d740accf1d95883c38a3475d39ccd09a79df9646",
+      "inputSha256": "8ab4d5a12a07d44571b283e8da4c224c0f36fc12c456dbfa09f497c0722a4e38",
+      "fixtureSha256": "4c7bea82624f36211d444c1ed0c68ef389c651fb6b448b60b5f87518df9a2799",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "viewerless-canvas-backdrop-box",
+        "viewerless-ui-button-cylinder",
+        "viewerless-logo-mark-sphere",
+        "viewerless-viewport-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "viewerless-canvas-backdrop-box",
+          "pixels": 75084
+        },
+        {
+          "id": "viewerless-ui-button-cylinder",
+          "pixels": 134281
+        },
+        {
+          "id": "viewerless-logo-mark-sphere",
+          "pixels": 166025
+        },
+        {
+          "id": "viewerless-viewport-rect",
+          "pixels": 67176
+        }
+      ]
+    },
+    {
+      "id": "volumecloud",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "e7ed5f2dcb87001c8e5ecc757779dace62f6ccbd9081e5157139fa517bc2c447",
+      "inputSha256": "1030e459a8b633e7662605f9f754987c7ea8604e74c7ca2d0205d3831095706c",
+      "fixtureSha256": "5e5e191efa76239971d2a22d06403f869e68da17e19ac62f901a3e557b464e83",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "volcloud-raymarching-bounding-box",
+        "volcloud-perlin-noise-core-sphere",
+        "volcloud-density-attenuation-cylinder",
+        "volcloud-ground-shadow-footprint-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "volcloud-raymarching-bounding-box",
+          "pixels": 103076
+        },
+        {
+          "id": "volcloud-perlin-noise-core-sphere",
+          "pixels": 151551
+        },
+        {
+          "id": "volcloud-density-attenuation-cylinder",
+          "pixels": 90168
+        },
+        {
+          "id": "volcloud-ground-shadow-footprint-rect",
+          "pixels": 68558
+        }
+      ]
+    },
+    {
+      "id": "voxel-picking",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "44e42b439c6da0fdc91b37bb6d6833c295901b5f6424d50a0b0d9b59527ee44d",
+      "inputSha256": "198e1999449b8139ed9fdef2efd18bad4194bf1d61bcb6b8fce9cec5ffb4c05f",
+      "fixtureSha256": "d4478c65d10724819915cc92519247dd99de623dc340a0bcfe5254a6e3f487dc",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "voxel-selection-highlight-box",
+        "voxel-neighbor-cell-cylinder",
+        "voxel-multi-level-lod-sphere",
+        "voxel-subdivision-grid-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "voxel-selection-highlight-box",
+          "pixels": 103076
+        },
+        {
+          "id": "voxel-neighbor-cell-cylinder",
+          "pixels": 94356
+        },
+        {
+          "id": "voxel-multi-level-lod-sphere",
+          "pixels": 166025
+        },
+        {
+          "id": "voxel-subdivision-grid-rect",
+          "pixels": 68497
         }
       ]
     }

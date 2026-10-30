@@ -1,0 +1,127 @@
+[
+  {
+    "id": "video-textured-ellipsoid",
+    "name": "Video Stream Textured Ellipsoid Surface",
+    "show": true,
+    "positionDegrees": [
+      -79,
+      39,
+      1000
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        1000,
+        1000,
+        1000
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.2,
+      0.75,
+      0.95,
+      0.9
+    ],
+    "outlineColor": [
+      0.05,
+      0.35,
+      0.55,
+      1
+    ]
+  },
+  {
+    "id": "video-playback-screen-box",
+    "name": "Video Playback Staging Screen Hull",
+    "show": true,
+    "positionDegrees": [
+      -78.98,
+      39.02,
+      1200
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        1200,
+        600,
+        800
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.95,
+      0.85,
+      0.15,
+      0.85
+    ],
+    "outlineColor": [
+      0.55,
+      0.45,
+      0.05,
+      1
+    ]
+  },
+  {
+    "id": "video-synchronizer-pillar",
+    "name": "Clock VideoSynchronizer Frequency Column",
+    "show": true,
+    "positionDegrees": [
+      -79.02,
+      38.98,
+      800
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 800,
+      "topRadius": 200,
+      "bottomRadius": 200
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.3,
+      0.95,
+      0.45,
+      0.8
+    ],
+    "outlineColor": [
+      0.08,
+      0.45,
+      0.15,
+      1
+    ]
+  },
+  {
+    "id": "video-viewing-platform-rect",
+    "name": "Audience Viewing Platform Extent",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -79.03,
+        38.97,
+        -78.97,
+        39.03
+      ],
+      "height": 50,
+      "extrudedHeight": 150
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.45,
+      0.5,
+      0.7,
+      0.5
+    ],
+    "outlineColor": [
+      0.85,
+      0.9,
+      1,
+      0.9
+    ]
+  }
+]

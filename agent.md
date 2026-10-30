@@ -4,7 +4,7 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.88（已通过 299 / 309 个完整案例，剩余 10 个）
+- **当前版本**：v0.0.89（已通过 303 / 309 个完整案例，剩余 6 个）
 
 ---
 
@@ -1359,4 +1359,22 @@
   - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` 零告警、零报错。
 - **文档晋升**：
   - 产出 [Time Dynamic Point Cloud、Timeline Demo、Underground Color 与 Vector 3D Tiles 验证文档](docs/pointcloud-timeline-underground-vector-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
+---
+
+### [2026-10-31] v0.0.89 验收完成：Video、Viewerless Sandcastle、Volumetric Cloud 与 Voxel Picking 体系全面打通
+- **完成配方**（累计推进至 **303 / 309**，剩余 6 个）：
+  1. `video`（HTML5 视频动态纹理映射与时钟同步、CallbackProperty 动态材质重复、DOM 视频覆盖与视锥范围取景：4 个变体，涵盖基准视频球体循环播放模式、4x 贴图重复高密材质模式、纯视频屏幕投影平面模式与全景观影看台与静止背景模式）
+  2. `viewerless`（脱离 Cesium.Viewer 的轻量级独立渲染沙箱、自定义 CSS 渐变背景与 Cesium logomark、工具栏操作按钮与下拉菜单：4 个变体，涵盖基准无 Viewer 场景模式、高对比度深色暗黑模式、高亮纯净线框模式与轻量嵌入式看板模式）
+  3. `volumecloud`（3D 改进型柏林噪声光线步进体积云、无序无关透明度 orderIndependentTranslucency、自定义三维空间边界包围盒与光照密度衰减：4 个变体，涵盖基准体积云光线步进模式、高密度雷暴积雨云模式、薄层高空卷云透视模式与地面投影阴影遮蔽模式）
+  4. `voxel-picking`（多分辨率八叉树体素网格、光线投射拾取命中测试、动态单元选中高亮与邻居体素拓扑交互：4 个变体，涵盖基准体素单元精准点选高亮模式、多级 LOD 细节剖分模式、邻居体素关联遍历模式与透明度切片剖切模式）
+- **验证结果**：
+  - **普通 Rust 单元测试**：149 / 149 项全部通过（新增 `batch89_video_viewerless_volumecloud_voxelpick`）。
+  - **真实 GPU 离屏渲染测试**：304 / 304 项全部通过（包含 303 个完整案例 + 1 个材质拾取测试）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 303 个固定案例哈希与实体结构精准契合）。
+  - **浏览器真实 WebGPU 端到端**：303 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Video、Viewerless Sandcastle、Volumetric Cloud 与 Voxel Picking 验证文档](docs/video-viewerless-volumecloud-voxelpick-validation.md)。
   - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。

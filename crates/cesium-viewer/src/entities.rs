@@ -6344,4 +6344,71 @@ mod tests {
         let vector_variants = crate::entity_variants::decode(&vector_variants_raw).unwrap();
         assert_eq!(vector_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch89_video_viewerless_volumecloud_voxelpick() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Video
+        let video_data = std::fs::read(base.join("video.json")).unwrap();
+        let video_entities = decode(&video_data).unwrap();
+        assert_eq!(video_entities.len(), 4);
+        assert!(matches!(video_entities[0].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(video_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(video_entities[2].shape, Shape::Cylinder { .. }));
+        assert!(matches!(video_entities[3].shape, Shape::Rectangle { .. }));
+        let video_variants_raw = std::fs::read(base.join("video.variants.json")).unwrap();
+        let video_variants = crate::entity_variants::decode(&video_variants_raw).unwrap();
+        assert_eq!(video_variants.variants.len(), 4);
+
+        // 2. Viewerless
+        let viewerless_data = std::fs::read(base.join("viewerless.json")).unwrap();
+        let viewerless_entities = decode(&viewerless_data).unwrap();
+        assert_eq!(viewerless_entities.len(), 4);
+        assert!(matches!(viewerless_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(
+            viewerless_entities[1].shape,
+            Shape::Cylinder { .. }
+        ));
+        assert!(matches!(
+            viewerless_entities[2].shape,
+            Shape::Ellipsoid { .. }
+        ));
+        assert!(matches!(
+            viewerless_entities[3].shape,
+            Shape::Rectangle { .. }
+        ));
+        let viewerless_variants_raw = std::fs::read(base.join("viewerless.variants.json")).unwrap();
+        let viewerless_variants = crate::entity_variants::decode(&viewerless_variants_raw).unwrap();
+        assert_eq!(viewerless_variants.variants.len(), 4);
+
+        // 3. Volumetric Cloud
+        let vc_data = std::fs::read(base.join("volumecloud.json")).unwrap();
+        let vc_entities = decode(&vc_data).unwrap();
+        assert_eq!(vc_entities.len(), 4);
+        assert!(matches!(vc_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(vc_entities[1].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(vc_entities[2].shape, Shape::Cylinder { .. }));
+        assert!(matches!(vc_entities[3].shape, Shape::Rectangle { .. }));
+        let vc_variants_raw = std::fs::read(base.join("volumecloud.variants.json")).unwrap();
+        let vc_variants = crate::entity_variants::decode(&vc_variants_raw).unwrap();
+        assert_eq!(vc_variants.variants.len(), 4);
+
+        // 4. Voxel Picking
+        let vp_data = std::fs::read(base.join("voxel-picking.json")).unwrap();
+        let vp_entities = decode(&vp_data).unwrap();
+        assert_eq!(vp_entities.len(), 4);
+        assert!(matches!(vp_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(vp_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(vp_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(vp_entities[3].shape, Shape::Rectangle { .. }));
+        let vp_variants_raw = std::fs::read(base.join("voxel-picking.variants.json")).unwrap();
+        let vp_variants = crate::entity_variants::decode(&vp_variants_raw).unwrap();
+        assert_eq!(vp_variants.variants.len(), 4);
+    }
 }

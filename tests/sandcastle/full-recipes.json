@@ -8331,6 +8331,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "video",
+      "title": "Video",
+      "sourceSha256": "2c1db14dde0a29f998bbdcd6ed82cca6212ea0ef944c8ff57c07f763687bf1ed",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=video",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/video.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/video.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "requirements": [
+        "HTMLVideoElement texture mapping on spherical geometry",
+        "VideoSynchronizer synchronization with viewer.clock",
+        "Dynamic material repeat CallbackProperty and DOM overlay toggles"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "viewerless",
+      "title": "Viewerless Sandcastle",
+      "sourceSha256": "c969f4e865c9bc26340a0431d740accf1d95883c38a3475d39ccd09a79df9646",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=viewerless",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/viewerless.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/viewerless.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Standalone Sandcastle execution without Cesium.Viewer initialization",
+        "Custom body background CSS gradient and Cesium logomark rendering",
+        "Sandcastle toolbar buttons, toggle buttons, and toolbar menus"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "volumecloud",
+      "title": "Volumetric Cloud",
+      "sourceSha256": "e7ed5f2dcb87001c8e5ecc757779dace62f6ccbd9081e5157139fa517bc2c447",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=volumecloud",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/volumecloud.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/volumecloud.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D volumetric cloud rendering using 3D Improved Noise texture",
+        "Custom raymarching shader with orderIndependentTranslucency",
+        "Scaled modelMatrix coordinate bounding volume positioning"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "voxel-picking",
+      "title": "Voxel Picking",
+      "sourceSha256": "44e42b439c6da0fdc91b37bb6d6833c295901b5f6424d50a0b0d9b59527ee44d",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=voxel-picking",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/voxel-picking.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/voxel-picking.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "ProceduralMultiTileVoxelProvider multi-level octree voxel provider",
+        "Voxel cell raycast hit testing and spatial index resolution",
+        "Dynamic cell selection highlighting with custom metadata coloring"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

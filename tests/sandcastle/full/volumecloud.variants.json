@@ -1,0 +1,525 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: 3D Improved Noise Raymarched Volumetric Cloud",
+      "entities": [
+        {
+          "id": "volcloud-raymarching-bounding-box",
+          "name": "Volumetric Cloud Raymarching Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            113,
+            33,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10000,
+              10000,
+              10000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.9,
+            0.92,
+            0.95,
+            0.75
+          ],
+          "outlineColor": [
+            0.55,
+            0.6,
+            0.7,
+            0.9
+          ]
+        },
+        {
+          "id": "volcloud-perlin-noise-core-sphere",
+          "name": "3D Improved Noise Density Nucleus Sphere",
+          "show": true,
+          "positionDegrees": [
+            113,
+            33,
+            20000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              4000,
+              4000,
+              3500
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.96,
+            1,
+            0.85
+          ],
+          "outlineColor": [
+            0.7,
+            0.75,
+            0.85,
+            1
+          ]
+        },
+        {
+          "id": "volcloud-density-attenuation-cylinder",
+          "name": "Vertical Vapor Absorption Column",
+          "show": true,
+          "positionDegrees": [
+            113.02,
+            33.01,
+            19000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 8000,
+            "topRadius": 2500,
+            "bottomRadius": 2500
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.75,
+            0.85,
+            0.98,
+            0.7
+          ],
+          "outlineColor": [
+            0.4,
+            0.5,
+            0.7,
+            1
+          ]
+        },
+        {
+          "id": "volcloud-ground-shadow-footprint-rect",
+          "name": "Cloud Shadow Ground Projection Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              112.92,
+              32.92,
+              113.08,
+              33.08
+            ],
+            "height": 100,
+            "extrudedHeight": 500
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.4,
+            0.5,
+            0.4
+          ],
+          "outlineColor": [
+            0.7,
+            0.75,
+            0.85,
+            0.8
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Dense Cumulonimbus Storm Cell Mode (High Density Absorption)",
+      "entities": [
+        {
+          "id": "volcloud-dense-box",
+          "name": "Heavy Storm Vapor Enclosure",
+          "show": true,
+          "positionDegrees": [
+            113,
+            33,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10000,
+              10000,
+              10000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.55,
+            0.6,
+            0.7,
+            0.9
+          ],
+          "outlineColor": [
+            0.55,
+            0.6,
+            0.7,
+            0.9
+          ]
+        },
+        {
+          "id": "volcloud-perlin-noise-core-sphere",
+          "name": "3D Improved Noise Density Nucleus Sphere",
+          "show": true,
+          "positionDegrees": [
+            113,
+            33,
+            20000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              4000,
+              4000,
+              3500
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.96,
+            1,
+            0.85
+          ],
+          "outlineColor": [
+            0.7,
+            0.75,
+            0.85,
+            1
+          ]
+        },
+        {
+          "id": "volcloud-density-attenuation-cylinder",
+          "name": "Vertical Vapor Absorption Column",
+          "show": true,
+          "positionDegrees": [
+            113.02,
+            33.01,
+            19000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 8000,
+            "topRadius": 2500,
+            "bottomRadius": 2500
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.75,
+            0.85,
+            0.98,
+            0.7
+          ],
+          "outlineColor": [
+            0.4,
+            0.5,
+            0.7,
+            1
+          ]
+        },
+        {
+          "id": "volcloud-ground-shadow-footprint-rect",
+          "name": "Cloud Shadow Ground Projection Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              112.92,
+              32.92,
+              113.08,
+              33.08
+            ],
+            "height": 100,
+            "extrudedHeight": 500
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.4,
+            0.5,
+            0.4
+          ],
+          "outlineColor": [
+            0.7,
+            0.75,
+            0.85,
+            0.8
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Wispy Cirrus Dispersed Cloud Mode (High Translucency)",
+      "entities": [
+        {
+          "id": "volcloud-raymarching-bounding-box",
+          "name": "Volumetric Cloud Raymarching Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            113,
+            33,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10000,
+              10000,
+              10000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.9,
+            0.92,
+            0.95,
+            0.75
+          ],
+          "outlineColor": [
+            0.55,
+            0.6,
+            0.7,
+            0.9
+          ]
+        },
+        {
+          "id": "volcloud-cirrus-sphere",
+          "name": "Diffuse Cirrus Crystal Nucleus",
+          "show": true,
+          "positionDegrees": [
+            113,
+            33,
+            20000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              4000,
+              4000,
+              3500
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.98,
+            1,
+            0.5
+          ],
+          "outlineColor": [
+            0.7,
+            0.75,
+            0.85,
+            1
+          ]
+        },
+        {
+          "id": "volcloud-density-attenuation-cylinder",
+          "name": "Vertical Vapor Absorption Column",
+          "show": true,
+          "positionDegrees": [
+            113.02,
+            33.01,
+            19000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 8000,
+            "topRadius": 2500,
+            "bottomRadius": 2500
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.75,
+            0.85,
+            0.98,
+            0.7
+          ],
+          "outlineColor": [
+            0.4,
+            0.5,
+            0.7,
+            1
+          ]
+        },
+        {
+          "id": "volcloud-ground-shadow-footprint-rect",
+          "name": "Cloud Shadow Ground Projection Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              112.92,
+              32.92,
+              113.08,
+              33.08
+            ],
+            "height": 100,
+            "extrudedHeight": 500
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.4,
+            0.5,
+            0.4
+          ],
+          "outlineColor": [
+            0.7,
+            0.75,
+            0.85,
+            0.8
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Sunlight Scattering Multi-Phase Anisotropy Mode",
+      "entities": [
+        {
+          "id": "volcloud-raymarching-bounding-box",
+          "name": "Volumetric Cloud Raymarching Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            113,
+            33,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              10000,
+              10000,
+              10000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.9,
+            0.92,
+            0.95,
+            0.75
+          ],
+          "outlineColor": [
+            0.55,
+            0.6,
+            0.7,
+            0.9
+          ]
+        },
+        {
+          "id": "volcloud-perlin-noise-core-sphere",
+          "name": "3D Improved Noise Density Nucleus Sphere",
+          "show": true,
+          "positionDegrees": [
+            113,
+            33,
+            20000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              4000,
+              4000,
+              3500
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.96,
+            1,
+            0.85
+          ],
+          "outlineColor": [
+            0.7,
+            0.75,
+            0.85,
+            1
+          ]
+        },
+        {
+          "id": "volcloud-density-attenuation-cylinder",
+          "name": "Vertical Vapor Absorption Column",
+          "show": true,
+          "positionDegrees": [
+            113.02,
+            33.01,
+            19000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 8000,
+            "topRadius": 2500,
+            "bottomRadius": 2500
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.75,
+            0.85,
+            0.98,
+            0.7
+          ],
+          "outlineColor": [
+            0.4,
+            0.5,
+            0.7,
+            1
+          ]
+        },
+        {
+          "id": "volcloud-scatter-rect",
+          "name": "Forward-Scattering Sunlit Floor",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              112.92,
+              32.92,
+              113.08,
+              33.08
+            ],
+            "height": 100,
+            "extrudedHeight": 500
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            1,
+            0.9,
+            0.75,
+            0.55
+          ],
+          "outlineColor": [
+            0.7,
+            0.75,
+            0.85,
+            0.8
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+[
+  {
+    "id": "viewerless-canvas-backdrop-box",
+    "name": "Viewerless UI Staging Gradient Backdrop",
+    "show": true,
+    "positionDegrees": [
+      0,
+      0,
+      500
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        4000,
+        4000,
+        400
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.35,
+      0.75,
+      0.95,
+      0.85
+    ],
+    "outlineColor": [
+      0.1,
+      0.35,
+      0.55,
+      1
+    ]
+  },
+  {
+    "id": "viewerless-ui-button-cylinder",
+    "name": "Interactive Toolbar Button Action Target",
+    "show": true,
+    "positionDegrees": [
+      0.05,
+      0.05,
+      800
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 600,
+      "topRadius": 500,
+      "bottomRadius": 500
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.3,
+      0.95,
+      0.3,
+      0.85
+    ],
+    "outlineColor": [
+      0.08,
+      0.45,
+      0.08,
+      1
+    ]
+  },
+  {
+    "id": "viewerless-logo-mark-sphere",
+    "name": "Cesium Logomark Brand Alignment Sphere",
+    "show": true,
+    "positionDegrees": [
+      -0.05,
+      -0.05,
+      700
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        600,
+        600,
+        600
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.2,
+      0.45,
+      0.9,
+      0.9
+    ],
+    "outlineColor": [
+      0.05,
+      0.15,
+      0.45,
+      1
+    ]
+  },
+  {
+    "id": "viewerless-viewport-rect",
+    "name": "Standalone HTML Canvas Viewport Boundary",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -0.1,
+        -0.1,
+        0.1,
+        0.1
+      ],
+      "height": 100,
+      "extrudedHeight": 300
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.55,
+      0.65,
+      0.75,
+      0.5
+    ],
+    "outlineColor": [
+      0.85,
+      0.9,
+      1,
+      0.9
+    ]
+  }
+]
