@@ -1,0 +1,525 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: LightSlateGray Underground Color with Distance Alpha Blend",
+      "entities": [
+        {
+          "id": "underground-mine-shaft-box",
+          "name": "Parc Lead Mine Main Excavation Chamber",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            -500
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              400,
+              400,
+              200
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.45,
+            0.5,
+            0.55,
+            0.85
+          ],
+          "outlineColor": [
+            0.2,
+            0.25,
+            0.3,
+            1
+          ]
+        },
+        {
+          "id": "underground-adit-cylinder",
+          "name": "Subterranean Ventilation Shaft Adit",
+          "show": true,
+          "positionDegrees": [
+            -3.823,
+            53.118,
+            -450
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 500,
+            "topRadius": 80,
+            "bottomRadius": 80
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.8,
+            0.95,
+            0.8
+          ],
+          "outlineColor": [
+            0.05,
+            0.35,
+            0.55,
+            1
+          ]
+        },
+        {
+          "id": "underground-ore-body-sphere",
+          "name": "Subsurface Mineral Vein Centroid",
+          "show": true,
+          "positionDegrees": [
+            -3.827,
+            53.116,
+            -550
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              150,
+              150,
+              250
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.7,
+            0.15,
+            0.9
+          ],
+          "outlineColor": [
+            0.55,
+            0.35,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "underground-surface-collar-rect",
+          "name": "Surface Collar Entry Boundary Area",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -3.835,
+              53.11,
+              -3.815,
+              53.125
+            ],
+            "height": 100,
+            "extrudedHeight": 250
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.6,
+            0.4,
+            0.5
+          ],
+          "outlineColor": [
+            0.75,
+            0.9,
+            0.8,
+            0.9
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Solid Black Subterranean Occlusion Mode (High Depth Contrast)",
+      "entities": [
+        {
+          "id": "underground-black-chamber",
+          "name": "Pure Black Subterranean Void Chamber",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            -500
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              400,
+              400,
+              200
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.1,
+            0.1,
+            0.12,
+            0.95
+          ],
+          "outlineColor": [
+            0.2,
+            0.25,
+            0.3,
+            1
+          ]
+        },
+        {
+          "id": "underground-adit-cylinder",
+          "name": "Subterranean Ventilation Shaft Adit",
+          "show": true,
+          "positionDegrees": [
+            -3.823,
+            53.118,
+            -450
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 500,
+            "topRadius": 80,
+            "bottomRadius": 80
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.8,
+            0.95,
+            0.8
+          ],
+          "outlineColor": [
+            0.05,
+            0.35,
+            0.55,
+            1
+          ]
+        },
+        {
+          "id": "underground-ore-body-sphere",
+          "name": "Subsurface Mineral Vein Centroid",
+          "show": true,
+          "positionDegrees": [
+            -3.827,
+            53.116,
+            -550
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              150,
+              150,
+              250
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.7,
+            0.15,
+            0.9
+          ],
+          "outlineColor": [
+            0.55,
+            0.35,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "underground-surface-collar-rect",
+          "name": "Surface Collar Entry Boundary Area",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -3.835,
+              53.11,
+              -3.815,
+              53.125
+            ],
+            "height": 100,
+            "extrudedHeight": 250
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.6,
+            0.4,
+            0.5
+          ],
+          "outlineColor": [
+            0.75,
+            0.9,
+            0.8,
+            0.9
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Translucent Blue Deep Subsurface Mode (Hydrology Inspection)",
+      "entities": [
+        {
+          "id": "underground-mine-shaft-box",
+          "name": "Parc Lead Mine Main Excavation Chamber",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            -500
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              400,
+              400,
+              200
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.45,
+            0.5,
+            0.55,
+            0.85
+          ],
+          "outlineColor": [
+            0.2,
+            0.25,
+            0.3,
+            1
+          ]
+        },
+        {
+          "id": "underground-hydro-cylinder",
+          "name": "Deep Aquifer Flow Conduit Column",
+          "show": true,
+          "positionDegrees": [
+            -3.823,
+            53.118,
+            -450
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 500,
+            "topRadius": 80,
+            "bottomRadius": 80
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.1,
+            0.5,
+            0.95,
+            0.85
+          ],
+          "outlineColor": [
+            0.05,
+            0.35,
+            0.55,
+            1
+          ]
+        },
+        {
+          "id": "underground-ore-body-sphere",
+          "name": "Subsurface Mineral Vein Centroid",
+          "show": true,
+          "positionDegrees": [
+            -3.827,
+            53.116,
+            -550
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              150,
+              150,
+              250
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.7,
+            0.15,
+            0.9
+          ],
+          "outlineColor": [
+            0.55,
+            0.35,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "underground-surface-collar-rect",
+          "name": "Surface Collar Entry Boundary Area",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -3.835,
+              53.11,
+              -3.815,
+              53.125
+            ],
+            "height": 100,
+            "extrudedHeight": 250
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.6,
+            0.4,
+            0.5
+          ],
+          "outlineColor": [
+            0.75,
+            0.9,
+            0.8,
+            0.9
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Pure Surface Terrain Uncolored Baseline (Globe Color Disabled)",
+      "entities": [
+        {
+          "id": "underground-mine-shaft-box",
+          "name": "Parc Lead Mine Main Excavation Chamber",
+          "show": true,
+          "positionDegrees": [
+            -3.82518,
+            53.11728,
+            -500
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              400,
+              400,
+              200
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.45,
+            0.5,
+            0.55,
+            0.85
+          ],
+          "outlineColor": [
+            0.2,
+            0.25,
+            0.3,
+            1
+          ]
+        },
+        {
+          "id": "underground-adit-cylinder",
+          "name": "Subterranean Ventilation Shaft Adit",
+          "show": true,
+          "positionDegrees": [
+            -3.823,
+            53.118,
+            -450
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 500,
+            "topRadius": 80,
+            "bottomRadius": 80
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.8,
+            0.95,
+            0.8
+          ],
+          "outlineColor": [
+            0.05,
+            0.35,
+            0.55,
+            1
+          ]
+        },
+        {
+          "id": "underground-ore-body-sphere",
+          "name": "Subsurface Mineral Vein Centroid",
+          "show": true,
+          "positionDegrees": [
+            -3.827,
+            53.116,
+            -550
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              150,
+              150,
+              250
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.7,
+            0.15,
+            0.9
+          ],
+          "outlineColor": [
+            0.55,
+            0.35,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "underground-uncolored-rect",
+          "name": "Transparent Ground Surface Perimeter",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -3.835,
+              53.11,
+              -3.815,
+              53.125
+            ],
+            "height": 100,
+            "extrudedHeight": 250
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.5,
+            0.5,
+            0.6,
+            0.35
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.95,
+            0.6
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -6267,4 +6267,81 @@ mod tests {
         let tweaks_variants = crate::entity_variants::decode(&tweaks_variants_raw).unwrap();
         assert_eq!(tweaks_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch88_pointcloud_timeline_underground_vector() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Time Dynamic Point Cloud
+        let pc_data = std::fs::read(base.join("time-dynamic-point-cloud.json")).unwrap();
+        let pc_entities = decode(&pc_data).unwrap();
+        assert_eq!(pc_entities.len(), 4);
+        assert!(matches!(pc_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(pc_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(pc_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(pc_entities[3].shape, Shape::Rectangle { .. }));
+        let pc_variants_raw =
+            std::fs::read(base.join("time-dynamic-point-cloud.variants.json")).unwrap();
+        let pc_variants = crate::entity_variants::decode(&pc_variants_raw).unwrap();
+        assert_eq!(pc_variants.variants.len(), 4);
+
+        // 2. Timeline Demo
+        let timeline_data = std::fs::read(base.join("timeline.json")).unwrap();
+        let timeline_entities = decode(&timeline_data).unwrap();
+        assert_eq!(timeline_entities.len(), 4);
+        assert!(matches!(timeline_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(timeline_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(
+            timeline_entities[2].shape,
+            Shape::Ellipsoid { .. }
+        ));
+        assert!(matches!(
+            timeline_entities[3].shape,
+            Shape::Rectangle { .. }
+        ));
+        let timeline_variants_raw = std::fs::read(base.join("timeline.variants.json")).unwrap();
+        let timeline_variants = crate::entity_variants::decode(&timeline_variants_raw).unwrap();
+        assert_eq!(timeline_variants.variants.len(), 4);
+
+        // 3. Underground Color
+        let underground_data = std::fs::read(base.join("underground-color.json")).unwrap();
+        let underground_entities = decode(&underground_data).unwrap();
+        assert_eq!(underground_entities.len(), 4);
+        assert!(matches!(underground_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(
+            underground_entities[1].shape,
+            Shape::Cylinder { .. }
+        ));
+        assert!(matches!(
+            underground_entities[2].shape,
+            Shape::Ellipsoid { .. }
+        ));
+        assert!(matches!(
+            underground_entities[3].shape,
+            Shape::Rectangle { .. }
+        ));
+        let underground_variants_raw =
+            std::fs::read(base.join("underground-color.variants.json")).unwrap();
+        let underground_variants =
+            crate::entity_variants::decode(&underground_variants_raw).unwrap();
+        assert_eq!(underground_variants.variants.len(), 4);
+
+        // 4. Vector 3D Tiles
+        let vector_data = std::fs::read(base.join("vector-3d-tiles.json")).unwrap();
+        let vector_entities = decode(&vector_data).unwrap();
+        assert_eq!(vector_entities.len(), 4);
+        assert!(matches!(vector_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(vector_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(vector_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(vector_entities[3].shape, Shape::Rectangle { .. }));
+        let vector_variants_raw =
+            std::fs::read(base.join("vector-3d-tiles.variants.json")).unwrap();
+        let vector_variants = crate::entity_variants::decode(&vector_variants_raw).unwrap();
+        assert_eq!(vector_variants.variants.len(), 4);
+    }
 }

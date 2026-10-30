@@ -4,7 +4,7 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.87（已通过 295 / 309 个完整案例，剩余 14 个）
+- **当前版本**：v0.0.88（已通过 299 / 309 个完整案例，剩余 10 个）
 
 ---
 
@@ -1341,4 +1341,22 @@
   - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` 零告警、零报错。
 - **文档晋升**：
   - 产出 [Terrain Entity Batching - Dev、Terrain Exaggeration、Terrain Performance - Dev 与 Terrain Tweaks - Dev 验证文档](docs/terrain-batching-exaggeration-perf-tweaks-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
+---
+
+### [2026-10-31] v0.0.88 验收完成：Time Dynamic Point Cloud、Timeline Demo、Underground Color 与 Vector 3D Tiles 体系全面打通
+- **完成配方**（累计推进至 **299 / 309**，剩余 10 个）：
+  1. `time-dynamic-point-cloud`（基于时序时间段集合的时态动态点云流式驱动、多帧 PNTS 采样切片与点云样式：4 个变体，涵盖基准时序动态点云加载序列模式、10px 大直径点着色模式、4x 高倍速时序擦除快进模式与静态边界外壳与视锥取景模式）
+  2. `timeline`（多轨道时间轴交互部件、红绿蓝三轨区间标绘、ClockViewModel 与 AnimationViewModel 双向状态绑定：4 个变体，涵盖基准 24 小时红绿蓝三轨时间轴模式、120x 高倍速时钟快进延时摄影模式、多日大跨度全景观览模式与交互式精准拖拽时间轴焦点模式）
+  3. `underground-color`（英国帕克铅矿地下采矿工程巡检、相机碰撞检测关闭、地下底色板岩灰着色与视距渐变透明度：4 个变体，涵盖基准板岩灰地下底色与距离透明度渐变模式、纯黑地下遮挡高反差模式、半透明深蓝水文地下透视模式与纯地表关闭底色基准模式）
+  4. `vector-3d-tiles`（城市级矢量建筑要素 3D Tiles 瓦片集、年代离散分类样式、屋顶高程渐变色阶与摩天大楼突出高亮：4 个变体，涵盖基准建筑建造年代 8 色分类模式、屋顶高程渐变色阶模式、摩天大楼突出高亮模式与未着色中性线框矢量模式）
+- **验证结果**：
+  - **普通 Rust 单元测试**：148 / 148 项全部通过（新增 `batch88_pointcloud_timeline_underground_vector`）。
+  - **真实 GPU 离屏渲染测试**：300 / 300 项全部通过（包含 299 个完整案例 + 1 个材质拾取测试）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 299 个固定案例哈希与实体结构精准契合）。
+  - **浏览器真实 WebGPU 端到端**：299 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Time Dynamic Point Cloud、Timeline Demo、Underground Color 与 Vector 3D Tiles 验证文档](docs/pointcloud-timeline-underground-vector-validation.md)。
   - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。

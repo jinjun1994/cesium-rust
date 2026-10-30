@@ -1,5 +1,5 @@
 {
-  "version": "0.0.87",
+  "version": "0.0.88",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -11742,6 +11742,176 @@
         {
           "id": "tweaks-fill-highlight-rect",
           "pixels": 67719
+        }
+      ]
+    },
+    {
+      "id": "time-dynamic-point-cloud",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "accd1f7922fc050907d1b9381b9de780ee56fcc8ebb102b1b802ca73aa38eab3",
+      "inputSha256": "267cb510249ffa943a97c67b79afb53d631818d2a73e359bca9ad4844b0437ed",
+      "fixtureSha256": "27a6f3a6150eb45c16ee75ff57ac01310b8c2a36dcb55160c0b16534a85db692",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "tdpc-cluster-bounding-box",
+        "tdpc-temporal-trajectory-cylinder",
+        "tdpc-pnts-sample-sphere",
+        "tdpc-spatial-extent-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "tdpc-cluster-bounding-box",
+          "pixels": 455
+        },
+        {
+          "id": "tdpc-temporal-trajectory-cylinder",
+          "pixels": 192
+        },
+        {
+          "id": "tdpc-pnts-sample-sphere",
+          "pixels": 56
+        },
+        {
+          "id": "tdpc-spatial-extent-rect",
+          "pixels": 25254
+        }
+      ]
+    },
+    {
+      "id": "timeline",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "fc3939f5c10afb94adc63bbdb9a063b72b4f750ad4836c7c239d79e2c26dd043",
+      "inputSha256": "92ce1625be98db64925ff35404684d0e9ceffb91fa54bbf86b3e6f2154805988",
+      "fixtureSha256": "1f95b006fd5b1375310c865e36239b0473af623c82e99da5791379d5443332b6",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
+      ],
+      "pickedEntities": [
+        "timeline-start-interval-box",
+        "timeline-end-interval-cylinder",
+        "timeline-middle-span-sphere",
+        "timeline-active-scrub-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "timeline-start-interval-box",
+          "pixels": 75084
+        },
+        {
+          "id": "timeline-end-interval-cylinder",
+          "pixels": 133580
+        },
+        {
+          "id": "timeline-middle-span-sphere",
+          "pixels": 166025
+        },
+        {
+          "id": "timeline-active-scrub-rect",
+          "pixels": 67931
+        }
+      ]
+    },
+    {
+      "id": "underground-color",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "529b0521a83894609cda3383532e2622863041da6a64ac764f6569ab2babccc6",
+      "inputSha256": "376daaf8d6b5434f60e4e43a97c7bfe6a0c37cde5706e012639ade1d3bf6b523",
+      "fixtureSha256": "0571a87c27d1a4f26d531323c160cea70d3bc270ab1af9271624032baf040bd9",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "underground-mine-shaft-box",
+        "underground-adit-cylinder",
+        "underground-ore-body-sphere",
+        "underground-surface-collar-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "underground-mine-shaft-box",
+          "pixels": 6561
+        },
+        {
+          "id": "underground-adit-cylinder",
+          "pixels": 2505
+        },
+        {
+          "id": "underground-ore-body-sphere",
+          "pixels": 2617
+        },
+        {
+          "id": "underground-surface-collar-rect",
+          "pixels": 74048
+        }
+      ]
+    },
+    {
+      "id": "vector-3d-tiles",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "1a8c7323c7a8dba0b8869272e054be976c93de9fc1098b725c7a2627d88a3266",
+      "inputSha256": "b6f4601e8751d6dc2a02ada68dd439430189d8d96c5557aeec3a4d40c729faf2",
+      "fixtureSha256": "4be7ec97c9dafcf9b3ce3fc4b0e1cf0634a834ffd367c61a42c6743ef1b4259c",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "vector-skyscraper-tall-box",
+        "vector-midrise-building-cylinder",
+        "vector-historic-heritage-sphere",
+        "vector-downtown-district-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "vector-skyscraper-tall-box",
+          "pixels": 8414
+        },
+        {
+          "id": "vector-midrise-building-cylinder",
+          "pixels": 4870
+        },
+        {
+          "id": "vector-historic-heritage-sphere",
+          "pixels": 2358
+        },
+        {
+          "id": "vector-downtown-district-rect",
+          "pixels": 69564
         }
       ]
     }

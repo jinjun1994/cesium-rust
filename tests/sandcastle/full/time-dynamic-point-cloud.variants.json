@@ -1,0 +1,525 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Time-Dynamic Point Cloud Temporal Sequence (0.pnts ~ 4.pnts)",
+      "entities": [
+        {
+          "id": "tdpc-cluster-bounding-box",
+          "name": "Time-Dynamic Point Cloud Bounding Envelope",
+          "show": true,
+          "positionDegrees": [
+            -105,
+            40,
+            100
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              30
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.8,
+            0.95,
+            0.85
+          ],
+          "outlineColor": [
+            0.05,
+            0.35,
+            0.55,
+            1
+          ]
+        },
+        {
+          "id": "tdpc-temporal-trajectory-cylinder",
+          "name": "Point Stream Temporal Velocity Vector",
+          "show": true,
+          "positionDegrees": [
+            -105,
+            40,
+            120
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 8,
+            "bottomRadius": 10
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.8
+          ],
+          "outlineColor": [
+            0.55,
+            0.4,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "tdpc-pnts-sample-sphere",
+          "name": "PNTS Frame Interval Centroid Marker",
+          "show": true,
+          "positionDegrees": [
+            -105.0005,
+            40.0005,
+            95
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              8,
+              8,
+              8
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.9,
+            0.25,
+            0.35,
+            0.9
+          ],
+          "outlineColor": [
+            0.45,
+            0.08,
+            0.12,
+            1
+          ]
+        },
+        {
+          "id": "tdpc-spatial-extent-rect",
+          "name": "Time-Dynamic Point Sensor Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -105.002,
+              39.998,
+              -104.998,
+              40.002
+            ],
+            "height": 50,
+            "extrudedHeight": 80
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.45,
+            0.7,
+            0.55
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.95,
+            0.9
+          ]
+        }
+      ]
+    },
+    {
+      "label": "High-Density 10px Point Size Shading Mode (Vibrant Point Diameter)",
+      "entities": [
+        {
+          "id": "tdpc-high-res-box",
+          "name": "High-Density Point Cloud Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            -105,
+            40,
+            100
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              30
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.85,
+            0.2,
+            0.95,
+            0.9
+          ],
+          "outlineColor": [
+            0.05,
+            0.35,
+            0.55,
+            1
+          ]
+        },
+        {
+          "id": "tdpc-temporal-trajectory-cylinder",
+          "name": "Point Stream Temporal Velocity Vector",
+          "show": true,
+          "positionDegrees": [
+            -105,
+            40,
+            120
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 8,
+            "bottomRadius": 10
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.8
+          ],
+          "outlineColor": [
+            0.55,
+            0.4,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "tdpc-pnts-sample-sphere",
+          "name": "PNTS Frame Interval Centroid Marker",
+          "show": true,
+          "positionDegrees": [
+            -105.0005,
+            40.0005,
+            95
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              8,
+              8,
+              8
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.9,
+            0.25,
+            0.35,
+            0.9
+          ],
+          "outlineColor": [
+            0.45,
+            0.08,
+            0.12,
+            1
+          ]
+        },
+        {
+          "id": "tdpc-spatial-extent-rect",
+          "name": "Time-Dynamic Point Sensor Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -105.002,
+              39.998,
+              -104.998,
+              40.002
+            ],
+            "height": 50,
+            "extrudedHeight": 80
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.45,
+            0.7,
+            0.55
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.95,
+            0.9
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Fast Scrubbing 4x Temporal Multiplier Mode",
+      "entities": [
+        {
+          "id": "tdpc-cluster-bounding-box",
+          "name": "Time-Dynamic Point Cloud Bounding Envelope",
+          "show": true,
+          "positionDegrees": [
+            -105,
+            40,
+            100
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              30
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.8,
+            0.95,
+            0.85
+          ],
+          "outlineColor": [
+            0.05,
+            0.35,
+            0.55,
+            1
+          ]
+        },
+        {
+          "id": "tdpc-fast-velocity-column",
+          "name": "Accelerated Stream Vector Column",
+          "show": true,
+          "positionDegrees": [
+            -105,
+            40,
+            120
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 8,
+            "bottomRadius": 10
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.15,
+            0.95,
+            0.45,
+            0.85
+          ],
+          "outlineColor": [
+            0.55,
+            0.4,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "tdpc-pnts-sample-sphere",
+          "name": "PNTS Frame Interval Centroid Marker",
+          "show": true,
+          "positionDegrees": [
+            -105.0005,
+            40.0005,
+            95
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              8,
+              8,
+              8
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.9,
+            0.25,
+            0.35,
+            0.9
+          ],
+          "outlineColor": [
+            0.45,
+            0.08,
+            0.12,
+            1
+          ]
+        },
+        {
+          "id": "tdpc-spatial-extent-rect",
+          "name": "Time-Dynamic Point Sensor Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -105.002,
+              39.998,
+              -104.998,
+              40.002
+            ],
+            "height": 50,
+            "extrudedHeight": 80
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.45,
+            0.7,
+            0.55
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.95,
+            0.9
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Static Bounding Hull & Frustum Framing Mode",
+      "entities": [
+        {
+          "id": "tdpc-cluster-bounding-box",
+          "name": "Time-Dynamic Point Cloud Bounding Envelope",
+          "show": true,
+          "positionDegrees": [
+            -105,
+            40,
+            100
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              30
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.8,
+            0.95,
+            0.85
+          ],
+          "outlineColor": [
+            0.05,
+            0.35,
+            0.55,
+            1
+          ]
+        },
+        {
+          "id": "tdpc-temporal-trajectory-cylinder",
+          "name": "Point Stream Temporal Velocity Vector",
+          "show": true,
+          "positionDegrees": [
+            -105,
+            40,
+            120
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 8,
+            "bottomRadius": 10
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.8
+          ],
+          "outlineColor": [
+            0.55,
+            0.4,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "tdpc-pnts-sample-sphere",
+          "name": "PNTS Frame Interval Centroid Marker",
+          "show": true,
+          "positionDegrees": [
+            -105.0005,
+            40.0005,
+            95
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              8,
+              8,
+              8
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.9,
+            0.25,
+            0.35,
+            0.9
+          ],
+          "outlineColor": [
+            0.45,
+            0.08,
+            0.12,
+            1
+          ]
+        },
+        {
+          "id": "tdpc-framed-rect",
+          "name": "Pinned Sensor Inspection Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -105.002,
+              39.998,
+              -104.998,
+              40.002
+            ],
+            "height": 50,
+            "extrudedHeight": 80
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.6,
+            0.1,
+            0.7
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.95,
+            0.9
+          ]
+        }
+      ]
+    }
+  ]
+}

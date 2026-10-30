@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "terrain-entity-batching-dev",
+      "id": "time-dynamic-point-cloud",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "ec7f0f253a4df76eba2d043f99f38997b0b854e04756d70a383f33a7fa7fd4d0",
-      "inputSha256": "23582fd4fbaab8031adb826e58adac5afaedc87a44c57bd069f2b5c52baf8fc2",
-      "fixtureSha256": "35dc5c90d0a18dcce3038799dd464e608bfeef63959af8f0fd18f26719f4f05f",
+      "sourceSha256": "accd1f7922fc050907d1b9381b9de780ee56fcc8ebb102b1b802ca73aa38eab3",
+      "inputSha256": "267cb510249ffa943a97c67b79afb53d631818d2a73e359bca9ad4844b0437ed",
+      "fixtureSha256": "27a6f3a6150eb45c16ee75ff57ac01310b8c2a36dcb55160c0b16534a85db692",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -19,40 +19,43 @@
         "every instance ID picking",
         "hide/show",
         "wheel zoom",
-        "resize and manual fit"
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
       ],
       "pickedEntities": [
-        "batching-concave-polygon-box",
-        "batching-grid-cluster-anchor",
-        "batching-checkerboard-rect",
-        "batching-textured-ellipse-cylinder"
+        "tdpc-cluster-bounding-box",
+        "tdpc-temporal-trajectory-cylinder",
+        "tdpc-pnts-sample-sphere",
+        "tdpc-spatial-extent-rect"
       ],
       "pixelCounts": [
         {
-          "id": "batching-concave-polygon-box",
-          "pixels": 77437
+          "id": "tdpc-cluster-bounding-box",
+          "pixels": 455
         },
         {
-          "id": "batching-grid-cluster-anchor",
-          "pixels": 132215
+          "id": "tdpc-temporal-trajectory-cylinder",
+          "pixels": 192
         },
         {
-          "id": "batching-checkerboard-rect",
-          "pixels": 63998
+          "id": "tdpc-pnts-sample-sphere",
+          "pixels": 56
         },
         {
-          "id": "batching-textured-ellipse-cylinder",
-          "pixels": 57219
+          "id": "tdpc-spatial-extent-rect",
+          "pixels": 25254
         }
       ]
     },
     {
-      "id": "terrain-exaggeration",
+      "id": "timeline",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "21b39c0ec728e838116a9522fb41252eab14400c4e0d7569095a7028602ea2e1",
-      "inputSha256": "08d65720047baaddade357f00452bb21355a4b86b41466d5c1706ddc3117500a",
-      "fixtureSha256": "c80acdf700f4729651a6c59b794a3b43ddac1812710f0a37a80efbf2ca54540a",
+      "sourceSha256": "fc3939f5c10afb94adc63bbdb9a063b72b4f750ad4836c7c239d79e2c26dd043",
+      "inputSha256": "92ce1625be98db64925ff35404684d0e9ceffb91fa54bbf86b3e6f2154805988",
+      "fixtureSha256": "1f95b006fd5b1375310c865e36239b0473af623c82e99da5791379d5443332b6",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -60,112 +63,115 @@
         "every instance ID picking",
         "hide/show",
         "wheel zoom",
-        "resize and manual fit"
+        "resize and manual fit",
+        "inferred clock",
+        "seek at all samples",
+        "play/pause/loop"
       ],
       "pickedEntities": [
-        "exaggeration-target-ellipsoid",
-        "exaggeration-datum-plane",
-        "exaggeration-band-indicator",
-        "exaggeration-region-rect"
+        "timeline-start-interval-box",
+        "timeline-end-interval-cylinder",
+        "timeline-middle-span-sphere",
+        "timeline-active-scrub-rect"
       ],
       "pixelCounts": [
         {
-          "id": "exaggeration-target-ellipsoid",
-          "pixels": 121449
+          "id": "timeline-start-interval-box",
+          "pixels": 75084
         },
         {
-          "id": "exaggeration-datum-plane",
-          "pixels": 67329
+          "id": "timeline-end-interval-cylinder",
+          "pixels": 133580
         },
         {
-          "id": "exaggeration-band-indicator",
-          "pixels": 77461
-        },
-        {
-          "id": "exaggeration-region-rect",
-          "pixels": 68357
-        }
-      ]
-    },
-    {
-      "id": "terrain-performance-dev",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "5986df63b1a2d4edba39b45eb66ddaa3b7a8cdbf78c20f32147de355206c35d3",
-      "inputSha256": "7f8d34fc2c014c4a036bb9d30b73fb1fe3e0362832fe78314b79dc55ac997731",
-      "fixtureSha256": "549deffe13e782322568e12d97a01a3bc9b30d6a8d7c56e82243a9f03574c398",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "everest-summit-marker",
-        "everest-horizontal-flight-box",
-        "everest-khumbu-corridor-cylinder",
-        "everest-base-camp-staging-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "everest-summit-marker",
-          "pixels": 95070
-        },
-        {
-          "id": "everest-horizontal-flight-box",
-          "pixels": 52790
-        },
-        {
-          "id": "everest-khumbu-corridor-cylinder",
-          "pixels": 117796
-        },
-        {
-          "id": "everest-base-camp-staging-rect",
-          "pixels": 58271
-        }
-      ]
-    },
-    {
-      "id": "terrain-tweaks-dev",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "5d2c8c8161fa90d34ca60cb3f2f1a7e71b8d27eb066bdfd21dfc0480bd1ab01f",
-      "inputSha256": "55a993dab3f498cbeb398a1a79b07aabc0f22fa97cc5b60b209a7dd7241139fa",
-      "fixtureSha256": "055b31f82004015ac2b7cea2ea639f2f224ae5b31ccb36c9d616e99bd88b33b1",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "tweaks-descendant-limit-box",
-        "tweaks-ancestor-preload-column",
-        "tweaks-sibling-preload-sphere",
-        "tweaks-fill-highlight-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "tweaks-descendant-limit-box",
-          "pixels": 86939
-        },
-        {
-          "id": "tweaks-ancestor-preload-column",
-          "pixels": 94040
-        },
-        {
-          "id": "tweaks-sibling-preload-sphere",
+          "id": "timeline-middle-span-sphere",
           "pixels": 166025
         },
         {
-          "id": "tweaks-fill-highlight-rect",
-          "pixels": 67719
+          "id": "timeline-active-scrub-rect",
+          "pixels": 67931
+        }
+      ]
+    },
+    {
+      "id": "underground-color",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "529b0521a83894609cda3383532e2622863041da6a64ac764f6569ab2babccc6",
+      "inputSha256": "376daaf8d6b5434f60e4e43a97c7bfe6a0c37cde5706e012639ade1d3bf6b523",
+      "fixtureSha256": "0571a87c27d1a4f26d531323c160cea70d3bc270ab1af9271624032baf040bd9",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "underground-mine-shaft-box",
+        "underground-adit-cylinder",
+        "underground-ore-body-sphere",
+        "underground-surface-collar-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "underground-mine-shaft-box",
+          "pixels": 6561
+        },
+        {
+          "id": "underground-adit-cylinder",
+          "pixels": 2505
+        },
+        {
+          "id": "underground-ore-body-sphere",
+          "pixels": 2617
+        },
+        {
+          "id": "underground-surface-collar-rect",
+          "pixels": 74048
+        }
+      ]
+    },
+    {
+      "id": "vector-3d-tiles",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "1a8c7323c7a8dba0b8869272e054be976c93de9fc1098b725c7a2627d88a3266",
+      "inputSha256": "b6f4601e8751d6dc2a02ada68dd439430189d8d96c5557aeec3a4d40c729faf2",
+      "fixtureSha256": "4be7ec97c9dafcf9b3ce3fc4b0e1cf0634a834ffd367c61a42c6743ef1b4259c",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "vector-skyscraper-tall-box",
+        "vector-midrise-building-cylinder",
+        "vector-historic-heritage-sphere",
+        "vector-downtown-district-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "vector-skyscraper-tall-box",
+          "pixels": 8414
+        },
+        {
+          "id": "vector-midrise-building-cylinder",
+          "pixels": 4870
+        },
+        {
+          "id": "vector-historic-heritage-sphere",
+          "pixels": 2358
+        },
+        {
+          "id": "vector-downtown-district-rect",
+          "pixels": 69564
         }
       ]
     }

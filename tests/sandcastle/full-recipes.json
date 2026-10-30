@@ -8219,6 +8219,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "time-dynamic-point-cloud",
+      "title": "Time Dynamic Point Cloud",
+      "sourceSha256": "accd1f7922fc050907d1b9381b9de780ee56fcc8ebb102b1b802ca73aa38eab3",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=time-dynamic-point-cloud",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/time-dynamic-point-cloud.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/time-dynamic-point-cloud.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "requirements": [
+        "TimeIntervalCollection from ISO 8601 date sequence array",
+        "TimeDynamicPointCloud primitive with custom pointSize style",
+        "Clock LOOP_STOP range with timeline temporal extent zooming"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "timeline",
+      "title": "Timeline Demo",
+      "sourceSha256": "fc3939f5c10afb94adc63bbdb9a063b72b4f750ad4836c7c239d79e2c26dd043",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=timeline",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/timeline.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/timeline.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": true,
+      "requirements": [
+        "Timeline widget time tracks with custom start/middle/stop intervals",
+        "ClockViewModel and AnimationViewModel two-way clock binding",
+        "Dynamic date range input change events and timeline zooming"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "underground-color",
+      "title": "Underground Color",
+      "sourceSha256": "529b0521a83894609cda3383532e2622863041da6a64ac764f6569ab2babccc6",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=underground-color",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/underground-color.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/underground-color.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Globe undergroundColor and subterranean depth blending",
+        "undergroundColorAlphaByDistance near/far and nearValue/farValue distance scaling",
+        "Subterranean mine chamber inspection with disabled collision detection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "vector-3d-tiles",
+      "title": "Vector 3D Tiles",
+      "sourceSha256": "1a8c7323c7a8dba0b8869272e054be976c93de9fc1098b725c7a2627d88a3266",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=vector-3d-tiles",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/vector-3d-tiles.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/vector-3d-tiles.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Cesium3DTileset vector building classification and styling",
+        "styleByYear construction year multi-condition categorical color styling",
+        "styleByHeight and styleHighlightTall roof height sequential/threshold styling"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",
