@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.69（已通过 223 / 309 个完整案例，剩余 86 个）
+- **当前版本**：v0.0.70（已通过 227 / 309 个完整案例，剩余 82 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.70 验收完成：Edge Visibility - Dev、FXAA、Geometry and Appearances - Dev 与 Globe Interior
+- **完成配方**（累计推进至 **227 / 309**，剩余 82 个）：
+  1. `edge-visibility-dev`（EXT_mesh_primitive_edge_visibility 扩展三维模型表面/边缘独立显隐调度：双模型基准表面与边缘共显模式、纯表面模式、纯边缘线框模式、双模型非对称混合模式 4 种变体）
+  2. `fxaa`（全屏快速近似抗锯齿后处理阶段、亚像素几何边缘平滑与建筑天际线对比：基准 FXAA 开启模式、FXAA 直通停用模式、高对比建筑天际线剪影填充模式、城市地平线与地形平滑模式 4 种变体）
+  3. `geometry-and-appearances-dev`（底层 Primitive 与 GeometryInstance 组合、星形/圆形拉伸与色彩外观：基准每实例色彩外观、半透明外观覆写模式、平面纯色线框诊断模式、高对比复合截面填充模式 4 种变体）
+  4. `globe-interior`（地球同心圈层内地核/外核/地幔结构、地表半透明度开窗与海洋色彩透明过滤：基准内地核聚焦模式、外核地磁发电机壳层模式、地幔圈层展示模式、地表半透明矩形窗口模式 4 种变体）
+- **核心研发突破**：
+  1. **模型特征边缘扩展与显隐模式（Edge Visibility & EdgeDisplayMode Runtime）**：实现对 glTF 2.0 `EXT_mesh_primitive_edge_visibility` 扩展的显式解码与运行时切换，支持双模型在表面、边缘及混合模式下的独立外观控制。
+  2. **全屏亚像素抗锯齿阶段（Full-Screen FXAA Post Process Stage）**：构建基于 `postProcessStages.fxaa` 的亮度导数边缘检测与平滑重建管线，验证与全球实景三维瓦片及地形的端到端组合。
+  3. **底层图元装配与复合截面放样（Low-Level Primitives & PolylineVolume Geometry）**：支持将多个 `GeometryInstance` 挂接至 `Primitive` 并使用 `PerInstanceColorAppearance` 统一渲染，验证星形和圆形截面的拉伸放样及平面外观。
+  4. **地球深层圈层与地表局部开窗（Earth Interior Concentric Spheres & Translucency Cutout）**：构建地核与地幔多级空间几何体系，支持 `globe.translucency` 矩形区域开窗、透明度衰减与海洋颜色抠图。
+- **验证结果**：
+  - **普通 Rust 单元测试**：130 项全部通过（含 `batch70_edgevisibility_fxaa_geometryandappearances_globeinterior`）。
+  - **真实 GPU 离屏渲染测试**：228 / 228 项全数通过（`228 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，227 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：227 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Edge Visibility - Dev、FXAA、Geometry and Appearances - Dev 与 Globe Interior 验证文档](docs/edgevis-fxaa-geomapp-globeinterior-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.69 验收完成：Custom Shaders Property Textures、CZML 3D Tiles、Depth of Field 与 Overlay Imagery on 3D Tiles
 - **完成配方**（累计推进至 **223 / 309**，剩余 86 个）：

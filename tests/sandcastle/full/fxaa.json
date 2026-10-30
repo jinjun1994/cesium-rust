@@ -1,0 +1,144 @@
+[
+  {
+    "id": "fxaa-building-box",
+    "name": "NYC Facade Anti-Aliasing Benchmark Structure",
+    "show": true,
+    "positionDegrees": [
+      -74.006,
+      40.7128,
+      25
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        35,
+        35,
+        50
+      ]
+    },
+    "color": [
+      0.25,
+      0.7,
+      0.95,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.7,
+      0.9,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "stage": "FXAA",
+      "subpixelAntiAliasing": true
+    }
+  },
+  {
+    "id": "fxaa-edge-detector-pillar",
+    "name": "High-Frequency Edge Contrast Probe Pillar",
+    "show": true,
+    "positionDegrees": [
+      -74.0052,
+      40.7135,
+      22.5
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 45,
+      "topRadius": 15,
+      "bottomRadius": 15
+    },
+    "color": [
+      0.95,
+      0.55,
+      0.15,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.8,
+      0.4,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "edgeThreshold": 0.125,
+      "edgeThresholdMin": 0.05
+    }
+  },
+  {
+    "id": "fxaa-sample-sphere",
+    "name": "Subpixel Luminance Gradient Calibration Sphere",
+    "show": true,
+    "positionDegrees": [
+      -74.0068,
+      40.7121,
+      20
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        14,
+        14,
+        14
+      ]
+    },
+    "color": [
+      0.85,
+      0.25,
+      0.85,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.6,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "postProcessStage": "postProcessStages.fxaa"
+    }
+  },
+  {
+    "id": "fxaa-viewport-rect",
+    "name": "NYC Tileset Antialiased Viewport Extent",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -74.01,
+        40.709,
+        -74.002,
+        40.716
+      ]
+    },
+    "color": [
+      0.15,
+      0.25,
+      0.45,
+      0.35
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.45,
+      0.65,
+      0.95,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "tilesetIonAssetId": 75343,
+      "terrain": "WorldTerrain"
+    }
+  }
+]

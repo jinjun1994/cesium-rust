@@ -6223,6 +6223,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "edge-visibility-dev",
+      "title": "Edge Visibility - Dev",
+      "sourceSha256": "fe996a7bc7d6903575aa5615f32506cd7b99ea08b4ce56b4a752377a07cb5850",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=edge-visibility-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/edge-visibility-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/edge-visibility-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Dual glTF 2.0 models with EXT_mesh_primitive_edge_visibility extension",
+        "Surfaces only, surfaces and edges, and edges only display mode switching"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "fxaa",
+      "title": "FXAA",
+      "sourceSha256": "f62c7569d5111c7b75fec5d52b03467ce14473c8ff39fb80fa6c1552b9ca9fb1",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=fxaa",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/fxaa.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/fxaa.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Fast Approximate Anti-Aliasing (FXAA) post-process stage toggle",
+        "3D Tiles NYC buildings dataset with WorldTerrain and camera lookAt orientation"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "geometry-and-appearances-dev",
+      "title": "Geometry and Appearances - Dev",
+      "sourceSha256": "d30d485ea18d46118c32139fdf42ba401dc1b1c3682ab16586075907254237cb",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=geometry-and-appearances-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/geometry-and-appearances-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/geometry-and-appearances-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Low-level Primitive, GeometryInstance, and PolylineVolumeGeometry pipeline",
+        "PerInstanceColorAppearance, star/circle extruded cross sections, and flat shading"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "globe-interior",
+      "title": "Globe Interior",
+      "sourceSha256": "a92a25c1d3b1a5636890aaef35dacf9f3d637cdd84e2eff2b62bf96d816528a6",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=globe-interior",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/globe-interior.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/globe-interior.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Earth concentric interior geospheres: Inner Core, Outer Core, and Mantle ellipsoids",
+        "Globe translucency mask and rectangular cutout with colorToAlpha thresholding"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

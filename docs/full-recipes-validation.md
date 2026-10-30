@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.70
+
+新增 Edge Visibility - Dev、FXAA、Geometry and Appearances - Dev、Globe Interior 四个完整案例，累计 **227 / 309**，剩余 82 个。130 项普通 Rust、228 项实际 GPU、8 组 Node、227 个浏览器 WebGPU 案例通过。验证包含 EXT_mesh_primitive_edge_visibility 扩展三维模型表面/边缘独立显隐调度（双模型基准表面与边缘共显模式、纯表面模式、纯边缘线框模式、双模型非对称混合模式 4 种变体）、全屏快速近似抗锯齿后处理阶段、亚像素几何边缘平滑与建筑天际线对比（基准 FXAA 开启模式、FXAA 直通停用模式、高对比建筑天际线剪影填充模式、城市地平线与地形平滑模式 4 种变体）、底层 Primitive 与 GeometryInstance 组合、星形/圆形拉伸与色彩外观（基准每实例色彩外观、半透明外观覆写模式、平面纯色线框诊断模式、高对比复合截面填充模式 4 种变体）、以及地球同心圈层内地核/外核/地幔结构、地表半透明度开窗与海洋色彩透明过滤（基准内地核聚焦模式、外核地磁发电机壳层模式、地幔圈层展示模式、地表半透明矩形窗口模式 4 种变体）。详见 [本批验证](edgevis-fxaa-geomapp-globeinterior-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.69
 
 新增 Custom Shaders Property Textures、CZML 3D Tiles、Depth of Field、Overlay Imagery on 3D Tiles 四个完整案例，累计 **223 / 309**，剩余 86 个。129 项普通 Rust、224 项实际 GPU、8 组 Node、223 个浏览器 WebGPU 案例通过。验证包含 MAXAR OWT Muscatatuk 实景三维属性纹理、CE90/LE90 不确定度着色器（基准水平不确定度 CE90、垂直不确定度 LE90 模式、水平与垂直双不确定度联合模式、无不确定度纯净地貌表面 4 种变体）、CZML 1.0 规约声明式 3D Tiles 数据包、CzmlDataSource 异步流式加载与视口自适应（基准 CZML 瓦片集数据包、隔离单体建筑特征模式、半透明体量检视模式、高对比线框包络模式 4 种变体）、景深后处理阶段、高斯卷积模糊、弥散圆半径调谐与 13 具热气球走廊焦距追踪（基准景深开启模式、近景特写聚焦模式、远景地平线聚焦模式、直通停用景深模式 4 种变体）、以及 Bentley iTwin 实景三维网格表面贴地影像投影、Bing Maps 矢量路网注记叠加（基准费城实景三维与 Bing 地名注记贴地投影、高分卫星正射影像贴模模式、地籍矢量宗地地块贴模模式、无纹理白模网格模式 4 种变体）。详见 [本批验证](customproptex-czml3dtiles-depthoffield-drapeimagery-validation.md)。以下保留历史记录。

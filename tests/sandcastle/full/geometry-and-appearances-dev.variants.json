@@ -1,0 +1,605 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Per-Instance Color Appearances with Star & Tube Extrusions",
+      "entities": [
+        {
+          "id": "geom-app-star-box",
+          "name": "Star Profile Extruded Geometry Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -105,
+            20,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30000,
+              30000,
+              40000
+            ]
+          },
+          "color": [
+            0.85,
+            0.3,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "appearance": "PerInstanceColorAppearance",
+            "extrudedShape": "star"
+          }
+        },
+        {
+          "id": "geom-app-tube-cylinder",
+          "name": "Tube Geometry PolylineVolume Extrusion Column",
+          "show": true,
+          "positionDegrees": [
+            -104.5,
+            20.4,
+            25000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50000,
+            "topRadius": 18000,
+            "bottomRadius": 18000
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.45,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geometry": "PolylineVolumeGeometry",
+            "tubeRadius": 40000
+          }
+        },
+        {
+          "id": "geom-app-coplanar-sphere",
+          "name": "Flat Appearance Geometry Instance Sphere",
+          "show": true,
+          "positionDegrees": [
+            -105.5,
+            19.6,
+            20000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              16000,
+              16000,
+              16000
+            ]
+          },
+          "color": [
+            0.3,
+            0.55,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "renderState": {
+              "lineWidth": 1
+            },
+            "flat": true
+          }
+        },
+        {
+          "id": "geom-app-showcase-rect",
+          "name": "Geometry and Appearances Test Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -106,
+              19.2,
+              -104,
+              20.8
+            ]
+          },
+          "color": [
+            0.3,
+            0.2,
+            0.4,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.45,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "primitiveCount": 2,
+            "closedAppearance": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Translucent Appearance Override (Semi-Transparent Multi-Instance)",
+      "entities": [
+        {
+          "id": "geom-app-star-box",
+          "name": "Star Profile Extruded Geometry Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -105,
+            20,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30000,
+              30000,
+              40000
+            ]
+          },
+          "color": [
+            0.95,
+            0.4,
+            0.2,
+            0.5
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "appearance": "PerInstanceColorAppearance",
+            "extrudedShape": "star"
+          }
+        },
+        {
+          "id": "geom-app-tube-cylinder",
+          "name": "Tube Geometry PolylineVolume Extrusion Column",
+          "show": true,
+          "positionDegrees": [
+            -104.5,
+            20.4,
+            25000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50000,
+            "topRadius": 18000,
+            "bottomRadius": 18000
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.5,
+            0.5
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geometry": "PolylineVolumeGeometry",
+            "tubeRadius": 40000
+          }
+        },
+        {
+          "id": "geom-app-coplanar-sphere",
+          "name": "Flat Appearance Geometry Instance Sphere",
+          "show": true,
+          "positionDegrees": [
+            -105.5,
+            19.6,
+            20000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              16000,
+              16000,
+              16000
+            ]
+          },
+          "color": [
+            0.3,
+            0.55,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "renderState": {
+              "lineWidth": 1
+            },
+            "flat": true
+          }
+        },
+        {
+          "id": "geom-app-showcase-rect",
+          "name": "Geometry and Appearances Test Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -106,
+              19.2,
+              -104,
+              20.8
+            ]
+          },
+          "color": [
+            0.3,
+            0.2,
+            0.4,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.45,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "primitiveCount": 2,
+            "closedAppearance": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Wireframe Line Width Diagnostic (Flat Color Appearance)",
+      "entities": [
+        {
+          "id": "geom-app-star-box",
+          "name": "Star Profile Extruded Geometry Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -105,
+            20,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30000,
+              30000,
+              40000
+            ]
+          },
+          "color": [
+            0.85,
+            0.3,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "appearance": "PerInstanceColorAppearance",
+            "extrudedShape": "star"
+          }
+        },
+        {
+          "id": "geom-app-tube-cylinder",
+          "name": "Tube Geometry PolylineVolume Extrusion Column",
+          "show": true,
+          "positionDegrees": [
+            -104.5,
+            20.4,
+            25000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50000,
+            "topRadius": 18000,
+            "bottomRadius": 18000
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.45,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geometry": "PolylineVolumeGeometry",
+            "tubeRadius": 40000
+          }
+        },
+        {
+          "id": "geom-app-coplanar-sphere",
+          "name": "Flat Appearance Geometry Instance Sphere",
+          "show": true,
+          "positionDegrees": [
+            -105.5,
+            19.6,
+            20000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              16000,
+              16000,
+              16000
+            ]
+          },
+          "color": [
+            0.3,
+            0.55,
+            0.95,
+            0.95
+          ],
+          "fill": false,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "renderState": {
+              "lineWidth": 1
+            },
+            "flat": true
+          }
+        },
+        {
+          "id": "geom-app-showcase-rect",
+          "name": "Geometry and Appearances Test Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -106,
+              19.2,
+              -104,
+              20.8
+            ]
+          },
+          "color": [
+            0.3,
+            0.2,
+            0.4,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.45,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "primitiveCount": 2,
+            "closedAppearance": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "High-Contrast Composite Extrusion Infill (Crimson & Amber Profiles)",
+      "entities": [
+        {
+          "id": "geom-app-star-box",
+          "name": "Star Profile Extruded Geometry Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -105,
+            20,
+            20000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30000,
+              30000,
+              40000
+            ]
+          },
+          "color": [
+            0.9,
+            0.15,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "appearance": "PerInstanceColorAppearance",
+            "extrudedShape": "star"
+          }
+        },
+        {
+          "id": "geom-app-tube-cylinder",
+          "name": "Tube Geometry PolylineVolume Extrusion Column",
+          "show": true,
+          "positionDegrees": [
+            -104.5,
+            20.4,
+            25000
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50000,
+            "topRadius": 18000,
+            "bottomRadius": 18000
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.45,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geometry": "PolylineVolumeGeometry",
+            "tubeRadius": 40000
+          }
+        },
+        {
+          "id": "geom-app-coplanar-sphere",
+          "name": "Flat Appearance Geometry Instance Sphere",
+          "show": true,
+          "positionDegrees": [
+            -105.5,
+            19.6,
+            20000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              16000,
+              16000,
+              16000
+            ]
+          },
+          "color": [
+            0.3,
+            0.55,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "renderState": {
+              "lineWidth": 1
+            },
+            "flat": true
+          }
+        },
+        {
+          "id": "geom-app-showcase-rect",
+          "name": "Geometry and Appearances Test Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -106,
+              19.2,
+              -104,
+              20.8
+            ]
+          },
+          "color": [
+            0.45,
+            0.3,
+            0.1,
+            0.3
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.45,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "primitiveCount": 2,
+            "closedAppearance": true
+          }
+        }
+      ]
+    }
+  ]
+}

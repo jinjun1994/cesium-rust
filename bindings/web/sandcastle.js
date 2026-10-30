@@ -234,6 +234,10 @@ $('fullNew196').onclick=guarded(()=>runFull('custom-shaders-property-textures'))
 $('fullNew197').onclick=guarded(()=>runFull('czml-3d-tiles'));
 $('fullNew198').onclick=guarded(()=>runFull('depth-of-field'));
 $('fullNew199').onclick=guarded(()=>runFull('drape-imagery-on-3d-tiles'));
+$('fullNew200').onclick=guarded(()=>runFull('edge-visibility-dev'));
+$('fullNew201').onclick=guarded(()=>runFull('fxaa'));
+$('fullNew202').onclick=guarded(()=>runFull('geometry-and-appearances-dev'));
+$('fullNew203').onclick=guarded(()=>runFull('globe-interior'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

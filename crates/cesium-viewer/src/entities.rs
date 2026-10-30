@@ -5136,4 +5136,64 @@ mod tests {
         let di_variants = crate::entity_variants::decode(&di_variants_raw).unwrap();
         assert_eq!(di_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch70_edgevisibility_fxaa_geometryandappearances_globeinterior() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Edge Visibility - Dev
+        let ev_data = std::fs::read(base.join("edge-visibility-dev.json")).unwrap();
+        let ev_entities = decode(&ev_data).unwrap();
+        assert_eq!(ev_entities.len(), 4);
+        assert!(matches!(ev_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(ev_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ev_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ev_entities[3].shape, Shape::Rectangle { .. }));
+        let ev_variants_raw =
+            std::fs::read(base.join("edge-visibility-dev.variants.json")).unwrap();
+        let ev_variants = crate::entity_variants::decode(&ev_variants_raw).unwrap();
+        assert_eq!(ev_variants.variants.len(), 4);
+
+        // 2. FXAA
+        let fx_data = std::fs::read(base.join("fxaa.json")).unwrap();
+        let fx_entities = decode(&fx_data).unwrap();
+        assert_eq!(fx_entities.len(), 4);
+        assert!(matches!(fx_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(fx_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(fx_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(fx_entities[3].shape, Shape::Rectangle { .. }));
+        let fx_variants_raw = std::fs::read(base.join("fxaa.variants.json")).unwrap();
+        let fx_variants = crate::entity_variants::decode(&fx_variants_raw).unwrap();
+        assert_eq!(fx_variants.variants.len(), 4);
+
+        // 3. Geometry and Appearances - Dev
+        let ga_data = std::fs::read(base.join("geometry-and-appearances-dev.json")).unwrap();
+        let ga_entities = decode(&ga_data).unwrap();
+        assert_eq!(ga_entities.len(), 4);
+        assert!(matches!(ga_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(ga_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ga_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ga_entities[3].shape, Shape::Rectangle { .. }));
+        let ga_variants_raw =
+            std::fs::read(base.join("geometry-and-appearances-dev.variants.json")).unwrap();
+        let ga_variants = crate::entity_variants::decode(&ga_variants_raw).unwrap();
+        assert_eq!(ga_variants.variants.len(), 4);
+
+        // 4. Globe Interior
+        let gi_data = std::fs::read(base.join("globe-interior.json")).unwrap();
+        let gi_entities = decode(&gi_data).unwrap();
+        assert_eq!(gi_entities.len(), 4);
+        assert!(matches!(gi_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(gi_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(gi_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(gi_entities[3].shape, Shape::Rectangle { .. }));
+        let gi_variants_raw = std::fs::read(base.join("globe-interior.variants.json")).unwrap();
+        let gi_variants = crate::entity_variants::decode(&gi_variants_raw).unwrap();
+        assert_eq!(gi_variants.variants.len(), 4);
+    }
 }

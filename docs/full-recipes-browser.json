@@ -8792,10 +8792,174 @@
           "pixels": 66545
         }
       ]
+    },
+    {
+      "id": "edge-visibility-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "fe996a7bc7d6903575aa5615f32506cd7b99ea08b4ce56b4a752377a07cb5850",
+      "inputSha256": "844a9a1b86b378b205742d84117f7eebb70e0c74b5ee3ec76bce7f33897d911d",
+      "fixtureSha256": "93f91f5ed22409467233bda4503b27efef3e43eb60c15e9ebc3e933cddd1fcdf",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "edge-vis-model1-box",
+        "edge-vis-model2-cylinder",
+        "edge-vis-midpoint-probe",
+        "edge-vis-arena-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "edge-vis-model1-box",
+          "pixels": 150
+        },
+        {
+          "id": "edge-vis-model2-cylinder",
+          "pixels": 127
+        },
+        {
+          "id": "edge-vis-midpoint-probe",
+          "pixels": 56
+        },
+        {
+          "id": "edge-vis-arena-rect",
+          "pixels": 27949
+        }
+      ]
+    },
+    {
+      "id": "fxaa",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "f62c7569d5111c7b75fec5d52b03467ce14473c8ff39fb80fa6c1552b9ca9fb1",
+      "inputSha256": "9f9cde36fb13d8ebf69cc5f0f3a526ccb4d56a8b6117c2452bba84048a3e42fc",
+      "fixtureSha256": "28b00d93b4cb63e552aa68cec04c57602cfafb9e37f4d38d48046106cde13e96",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "fxaa-building-box",
+        "fxaa-edge-detector-pillar",
+        "fxaa-sample-sphere",
+        "fxaa-viewport-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "fxaa-building-box",
+          "pixels": 474
+        },
+        {
+          "id": "fxaa-edge-detector-pillar",
+          "pixels": 333
+        },
+        {
+          "id": "fxaa-sample-sphere",
+          "pixels": 139
+        },
+        {
+          "id": "fxaa-viewport-rect",
+          "pixels": 67056
+        }
+      ]
+    },
+    {
+      "id": "geometry-and-appearances-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "d30d485ea18d46118c32139fdf42ba401dc1b1c3682ab16586075907254237cb",
+      "inputSha256": "e399971421028d391c476ae8ad9f20552a6799449582732eadb636242dfc13ef",
+      "fixtureSha256": "5768b8609240fba6c407db986b8101f80b3d6e0fd24f4902e6fe2c519c8437bc",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "geom-app-star-box",
+        "geom-app-tube-cylinder",
+        "geom-app-coplanar-sphere",
+        "geom-app-showcase-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "geom-app-star-box",
+          "pixels": 96701
+        },
+        {
+          "id": "geom-app-tube-cylinder",
+          "pixels": 99268
+        },
+        {
+          "id": "geom-app-coplanar-sphere",
+          "pixels": 166025
+        },
+        {
+          "id": "geom-app-showcase-rect",
+          "pixels": 63950
+        }
+      ]
+    },
+    {
+      "id": "globe-interior",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "a92a25c1d3b1a5636890aaef35dacf9f3d637cdd84e2eff2b62bf96d816528a6",
+      "inputSha256": "f0a9c3278acab2a637f1df8d1215102732cfdfc86a2a17c7c4f2ed4f52482c06",
+      "fixtureSha256": "ad348eb479e3abce3dd85240cabdc9f957725642cf5772fcd6d4583368b22001",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "globe-interior-core-box",
+        "globe-interior-axis-cylinder",
+        "globe-interior-mantle-sphere",
+        "globe-interior-window-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "globe-interior-core-box",
+          "pixels": 92610
+        },
+        {
+          "id": "globe-interior-axis-cylinder",
+          "pixels": 69233
+        },
+        {
+          "id": "globe-interior-mantle-sphere",
+          "pixels": 166025
+        },
+        {
+          "id": "globe-interior-window-rect",
+          "pixels": 63564
+        }
+      ]
     }
   ],
   "browser": "156.0.8078.75",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed",
-  "totalCases": 223
+  "totalCases": 227
 }
