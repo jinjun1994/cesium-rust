@@ -788,6 +788,10 @@ async fn verify_extended(id: &str, data: &[u8]) {
         "shared-context",
         "splitdirection",
         "star-burst",
+        "styled-gltf-lines-dev",
+        "styled-gltf-points-dev",
+        "terrain",
+        "terrain-clipping-planes",
     ]
     .contains(&id)
     {
@@ -10701,6 +10705,184 @@ fn complete_star_burst() {
             if i > 0 {
                 let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
                     .join(format!("../../docs/full-star-burst-variant-{i}-smoke.log"));
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_styled_gltf_lines_dev() {
+    pollster::block_on(async {
+        verify_extended(
+            "styled-gltf-lines-dev",
+            include_bytes!("../../../tests/sandcastle/full/styled-gltf-lines-dev.json"),
+        )
+        .await;
+        let raw =
+            include_bytes!("../../../tests/sandcastle/full/styled-gltf-lines-dev.variants.json");
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-styled-gltf-lines-dev-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_styled_gltf_points_dev() {
+    pollster::block_on(async {
+        verify_extended(
+            "styled-gltf-points-dev",
+            include_bytes!("../../../tests/sandcastle/full/styled-gltf-points-dev.json"),
+        )
+        .await;
+        let raw =
+            include_bytes!("../../../tests/sandcastle/full/styled-gltf-points-dev.variants.json");
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-styled-gltf-points-dev-variant-{i}-smoke.log"),
+                );
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_terrain() {
+    pollster::block_on(async {
+        verify_extended(
+            "terrain",
+            include_bytes!("../../../tests/sandcastle/full/terrain.json"),
+        )
+        .await;
+        let raw = include_bytes!("../../../tests/sandcastle/full/terrain.variants.json");
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+                    .join(format!("../../docs/full-terrain-variant-{i}-smoke.log"));
+                let _ = s.zoom_to_entities(&[], 768, 512);
+                let t = attachment(
+                    &r.device,
+                    768,
+                    512,
+                    r.format(),
+                    wgpu::TextureUsages::RENDER_ATTACHMENT,
+                );
+                let view = t.create_view(&Default::default());
+                for _ in 0..90 {
+                    s.tick(1.0 / 60.0);
+                    let _ = s.render(&mut r, &view, None);
+                }
+                let stats = s.stats();
+                let camera = s.camera_state();
+                let text = format!("native smoke: 90 frames; {stats}\ncamera state: {camera}\n");
+                std::fs::write(&extra_smoke_path, text).unwrap();
+            }
+        }
+    });
+}
+
+#[test]
+#[ignore = "requires native GPU or Mesa Vulkan"]
+fn complete_terrain_clipping_planes() {
+    pollster::block_on(async {
+        verify_extended(
+            "terrain-clipping-planes",
+            include_bytes!("../../../tests/sandcastle/full/terrain-clipping-planes.json"),
+        )
+        .await;
+        let raw =
+            include_bytes!("../../../tests/sandcastle/full/terrain-clipping-planes.variants.json");
+        let variants = cesium_viewer::entity_variants::decode(raw).unwrap();
+        assert_eq!(variants.variants.len(), 4);
+        let (_, d, q) = device(&instance(), None).await.unwrap();
+        let mut r = Renderer::new(d, q, wgpu::TextureFormat::Rgba8UnormSrgb, 768, 512).unwrap();
+        let mut s = Scene::new(&mut r, None).unwrap();
+        for (i, v) in variants.variants.iter().enumerate() {
+            s.set_entity_variant(&mut r, raw, i).unwrap();
+            assert_eq!(s.entity_specs().len(), v.entities.len());
+            if i > 0 {
+                let extra_smoke_path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join(
+                    format!("../../docs/full-terrain-clipping-planes-variant-{i}-smoke.log"),
+                );
                 let _ = s.zoom_to_entities(&[], 768, 512);
                 let t = attachment(
                     &r.device,

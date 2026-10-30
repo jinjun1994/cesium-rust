@@ -1,0 +1,525 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Cesium World Terrain (Water Mask, Vertex Normals & Sun Lighting)",
+      "entities": [
+        {
+          "id": "terrain-elevation-box",
+          "name": "Mount Fuji Topographic Elevation Peak Anchor",
+          "show": true,
+          "positionDegrees": [
+            138.73,
+            35.36,
+            3776
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              6000,
+              6000,
+              3776
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.9,
+            0.92,
+            0.95,
+            1
+          ],
+          "outlineColor": [
+            0.4,
+            0.45,
+            0.5,
+            1
+          ]
+        },
+        {
+          "id": "terrain-ridge-cylinder",
+          "name": "Stratovolcano Topographic Ridge Spine Pillar",
+          "show": true,
+          "positionDegrees": [
+            138.75,
+            35.38,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 4000,
+            "topRadius": 1200,
+            "bottomRadius": 2000
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.6,
+            0.55,
+            0.5,
+            1
+          ],
+          "outlineColor": [
+            0.3,
+            0.25,
+            0.2,
+            1
+          ]
+        },
+        {
+          "id": "terrain-water-sphere",
+          "name": "Fuji Five Lakes Water Mask Reflectance Sphere",
+          "show": true,
+          "positionDegrees": [
+            138.7,
+            35.33,
+            1000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              1500,
+              1500,
+              1500
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.1,
+            0.4,
+            0.8,
+            1
+          ],
+          "outlineColor": [
+            0.05,
+            0.2,
+            0.5,
+            1
+          ]
+        },
+        {
+          "id": "terrain-fuji-rect",
+          "name": "Mount Fuji Regional Topographic Elevation Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              138.65,
+              35.3,
+              138.8,
+              35.45
+            ],
+            "height": 500,
+            "extrudedHeight": 800
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.45,
+            0.35,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.9,
+            0.8,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Flat Ellipsoid WGS84 Reference Baseline Mode (Zero Topographic Elevation)",
+      "entities": [
+        {
+          "id": "terrain-ellipsoid-flat-box",
+          "name": "Flat Ellipsoid WGS84 Geodetic Core",
+          "show": true,
+          "positionDegrees": [
+            138.73,
+            35.36,
+            100
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              6000,
+              6000,
+              200
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.4,
+            0.7,
+            0.9,
+            1
+          ],
+          "outlineColor": [
+            0.4,
+            0.45,
+            0.5,
+            1
+          ]
+        },
+        {
+          "id": "terrain-ridge-cylinder",
+          "name": "Stratovolcano Topographic Ridge Spine Pillar",
+          "show": true,
+          "positionDegrees": [
+            138.75,
+            35.38,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 4000,
+            "topRadius": 1200,
+            "bottomRadius": 2000
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.6,
+            0.55,
+            0.5,
+            1
+          ],
+          "outlineColor": [
+            0.3,
+            0.25,
+            0.2,
+            1
+          ]
+        },
+        {
+          "id": "terrain-water-sphere",
+          "name": "Fuji Five Lakes Water Mask Reflectance Sphere",
+          "show": true,
+          "positionDegrees": [
+            138.7,
+            35.33,
+            1000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              1500,
+              1500,
+              1500
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.1,
+            0.4,
+            0.8,
+            1
+          ],
+          "outlineColor": [
+            0.05,
+            0.2,
+            0.5,
+            1
+          ]
+        },
+        {
+          "id": "terrain-fuji-rect",
+          "name": "Mount Fuji Regional Topographic Elevation Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              138.65,
+              35.3,
+              138.8,
+              35.45
+            ],
+            "height": 500,
+            "extrudedHeight": 800
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.45,
+            0.35,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.9,
+            0.8,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Custom Sine Wave Mathematical Procedural Heightmap Mode (Periodic Relief)",
+      "entities": [
+        {
+          "id": "terrain-elevation-box",
+          "name": "Mount Fuji Topographic Elevation Peak Anchor",
+          "show": true,
+          "positionDegrees": [
+            138.73,
+            35.36,
+            3776
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              6000,
+              6000,
+              3776
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.9,
+            0.92,
+            0.95,
+            1
+          ],
+          "outlineColor": [
+            0.4,
+            0.45,
+            0.5,
+            1
+          ]
+        },
+        {
+          "id": "terrain-sine-ridge-shaft",
+          "name": "Sine Wave Periodic Ridge Spine",
+          "show": true,
+          "positionDegrees": [
+            138.75,
+            35.38,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 4000,
+            "topRadius": 1200,
+            "bottomRadius": 2000
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.85,
+            0.5,
+            0.3,
+            1
+          ],
+          "outlineColor": [
+            0.3,
+            0.25,
+            0.2,
+            1
+          ]
+        },
+        {
+          "id": "terrain-water-sphere",
+          "name": "Fuji Five Lakes Water Mask Reflectance Sphere",
+          "show": true,
+          "positionDegrees": [
+            138.7,
+            35.33,
+            1000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              1500,
+              1500,
+              1500
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.1,
+            0.4,
+            0.8,
+            1
+          ],
+          "outlineColor": [
+            0.05,
+            0.2,
+            0.5,
+            1
+          ]
+        },
+        {
+          "id": "terrain-fuji-rect",
+          "name": "Mount Fuji Regional Topographic Elevation Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              138.65,
+              35.3,
+              138.8,
+              35.45
+            ],
+            "height": 500,
+            "extrudedHeight": 800
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.45,
+            0.35,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.9,
+            0.8,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Dawn Sun Angle High-Relief Valley Shadow Mode (Dynamic Solar Shading)",
+      "entities": [
+        {
+          "id": "terrain-elevation-box",
+          "name": "Mount Fuji Topographic Elevation Peak Anchor",
+          "show": true,
+          "positionDegrees": [
+            138.73,
+            35.36,
+            3776
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              6000,
+              6000,
+              3776
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.9,
+            0.92,
+            0.95,
+            1
+          ],
+          "outlineColor": [
+            0.4,
+            0.45,
+            0.5,
+            1
+          ]
+        },
+        {
+          "id": "terrain-ridge-cylinder",
+          "name": "Stratovolcano Topographic Ridge Spine Pillar",
+          "show": true,
+          "positionDegrees": [
+            138.75,
+            35.38,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 4000,
+            "topRadius": 1200,
+            "bottomRadius": 2000
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.6,
+            0.55,
+            0.5,
+            1
+          ],
+          "outlineColor": [
+            0.3,
+            0.25,
+            0.2,
+            1
+          ]
+        },
+        {
+          "id": "terrain-solar-dawn-sphere",
+          "name": "Solar Shading Dynamic Incidence Probe",
+          "show": true,
+          "positionDegrees": [
+            138.7,
+            35.33,
+            1000
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              2000
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.75,
+            0.2,
+            1
+          ],
+          "outlineColor": [
+            0.05,
+            0.2,
+            0.5,
+            1
+          ]
+        },
+        {
+          "id": "terrain-fuji-rect",
+          "name": "Mount Fuji Regional Topographic Elevation Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              138.65,
+              35.3,
+              138.8,
+              35.45
+            ],
+            "height": 500,
+            "extrudedHeight": 800
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.45,
+            0.35,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.9,
+            0.8,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

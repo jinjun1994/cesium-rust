@@ -7995,6 +7995,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "styled-gltf-lines-dev",
+      "title": "Styled glTF Lines - Dev",
+      "sourceSha256": "e784cb906aac714f254aafabff901cf804e5632a5977ea9c0580e45a3fbc7fb1",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=styled-gltf-lines-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/styled-gltf-lines-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/styled-gltf-lines-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "BENTLEY_materials_line_style and EXT_mesh_primitive_edge_visibility glTF styling",
+        "Custom screen pixel line widths and 16-bit dash patterns",
+        "Model.fromGltfAsync edgeDisplayMode SURFACES_AND_EDGES rendering"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "styled-gltf-points-dev",
+      "title": "Styled glTF Points - Dev",
+      "sourceSha256": "8ad6353c986bb9b3ce2b1dc542adfb91a8d68b6e6daff29916a1c865cf6da8de",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=styled-gltf-points-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/styled-gltf-points-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/styled-gltf-points-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "BENTLEY_materials_point_style glTF extension with variable point diameters",
+        "Multi-color multi-radius point cloud primitives (red 5px, green 8px, blue 14px, yellow 10px)",
+        "Model bounding sphere camera lookAt inspection framing"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "terrain",
+      "title": "Terrain",
+      "sourceSha256": "1cb93bb20b4bd2c50e58ab97b3577f8f7d29dddf17378f6f2c5347ffa2e6510d",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=terrain",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/terrain.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/terrain.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "CesiumWorldTerrain with requestWaterMask and requestVertexNormals",
+        "EllipsoidTerrainProvider flat geometric geodetic reference comparison",
+        "CustomHeightmapTerrainProvider mathematical sine wave periodic relief"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "terrain-clipping-planes",
+      "title": "Terrain Clipping Planes",
+      "sourceSha256": "41b60df45bc0828fda05047a4f65f74520d02ab6da12f8a830a88587bcad686a",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=terrain-clipping-planes",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/terrain-clipping-planes.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/terrain-clipping-planes.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Globe ClippingPlaneCollection selective excavation and trench clipping",
+        "White fluorescent edge styling on clipped subterranean volume walls",
+        "Model placement inside subterranean excavated chamber with depthTestAgainstTerrain"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

@@ -4,7 +4,7 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.82（已通过 275 / 309 个完整案例，剩余 34 个）
+- **当前版本**：v0.0.86（已通过 291 / 309 个完整案例，剩余 18 个）
 
 ---
 
@@ -1305,4 +1305,22 @@
   - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` 零告警、零报错。
 - **文档晋升**：
   - 产出 [Shadows - Dev、Shared Context、SplitDirection 与 Expand Clustered Billboards (Star Burst) 验证文档](docs/shadows-sharedctx-splitdir-starburst-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
+---
+
+### [2026-10-30] v0.0.86 验收完成：Styled glTF Lines - Dev、Styled glTF Points - Dev、Terrain 与 Terrain Clipping Planes 体系全面打通
+- **完成配方**（累计推进至 **291 / 309**，剩余 18 个）：
+  1. `styled-gltf-lines-dev`（BENTLEY_materials_line_style 扩展、屏幕空间像素线宽与 16 位点划虚线图案：4 个变体，涵盖基准虚线与端点样式模式、高密连续折线网格模式、宽幅边缘轮廓高亮模式与极细单像素线宽模式）
+  2. `styled-gltf-points-dev`（BENTLEY_materials_point_style 扩展、逐要素像素直径与调色板着色：4 个变体，涵盖基准彩色点云要素模式、高密矩阵微点群模式、大直径圆标要素模式与单色单点基准模式）
+  3. `terrain`（全球地形综合工作台、Cesium World Terrain 水面掩膜/法线对比与程序化高程：4 个变体，涵盖基准 Cesium 全球地形与法线水面模式、椭球体无地形高程模式、正弦波程序化高程地形模式与纯平海平面基准模式）
+  4. `terrain-clipping-planes`（地形剖切平面地下工程基坑挖掘、动态法向与荧光切边包络：4 个变体，涵盖基准单向地形剖切槽模式、双向交叉深坑基坑模式、地下管道管沟剖切模式与全封闭基坑轮廓诊断模式）
+- **验证结果**：
+  - **普通 Rust 单元测试**：146 / 146 项全部通过（新增 `batch86_lines_points_terrain_terrainclip`）。
+  - **真实 GPU 离屏渲染测试**：292 / 292 项全部通过（包含 291 个完整案例 + 1 个材质拾取测试）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 291 个固定案例哈希与实体结构精准契合）。
+  - **浏览器真实 WebGPU 端到端**：291 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Styled glTF Lines - Dev、Styled glTF Points - Dev、Terrain 与 Terrain Clipping Planes 验证文档](docs/lines-points-terrain-terrainclip-validation.md)。
   - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。

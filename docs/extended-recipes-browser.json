@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "shadows-dev",
+      "id": "styled-gltf-lines-dev",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "72d6e444e5b3d32900ac7208b0c2e28b74f2173f1ed75eeba9ea8bdda47e8f63",
-      "inputSha256": "cc7df8d3cabf9cb8291c83de19e2de2bf0b2b4ec8048e577a802e887a666612c",
-      "fixtureSha256": "f561d6510bd4bf43dc303f80724510e3c1a3eac6f77a2cff9311d0260da5c793",
+      "sourceSha256": "e784cb906aac714f254aafabff901cf804e5632a5977ea9c0580e45a3fbc7fb1",
+      "inputSha256": "0c0d4a5d2fa1118551053be65fb7ae22f98e1452b5ab838266eff1d1533071fe",
+      "fixtureSha256": "05c518517d51aa4247cd86b73d430142ec47d3e1e7d0ca665fda703f68a0c4d7",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,37 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "shadowsdev-tester-box",
-        "shadowsdev-light-column",
-        "shadowsdev-depth-sphere",
-        "shadowsdev-ground-rect"
+        "styledlines-bounding-box",
+        "styledlines-vector-cylinder",
+        "styledlines-anchor-sphere",
+        "styledlines-staging-rect"
       ],
       "pixelCounts": [
         {
-          "id": "shadowsdev-tester-box",
-          "pixels": 1543
+          "id": "styledlines-bounding-box",
+          "pixels": 494
         },
         {
-          "id": "shadowsdev-light-column",
-          "pixels": 968
+          "id": "styledlines-vector-cylinder",
+          "pixels": 292
         },
         {
-          "id": "shadowsdev-depth-sphere",
-          "pixels": 104
+          "id": "styledlines-anchor-sphere",
+          "pixels": 47
         },
         {
-          "id": "shadowsdev-ground-rect",
-          "pixels": 52598
+          "id": "styledlines-staging-rect",
+          "pixels": 7451
         }
       ]
     },
     {
-      "id": "shared-context",
+      "id": "styled-gltf-points-dev",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "7bad93435d974f7415fde79e2e9441e378238bdfa94857979f0f8c5c264b5094",
-      "inputSha256": "027660785a9e7cbd74fc54b4cc78111cc47af8c9ab97180980f597387a537966",
-      "fixtureSha256": "05c15545d6964f10955542d6fabd9d93440bcddc624448f6601a3549d895d236",
+      "sourceSha256": "8ad6353c986bb9b3ce2b1dc542adfb91a8d68b6e6daff29916a1c865cf6da8de",
+      "inputSha256": "0c8f2dd324c376e46c2186b1e3d82b14089dfc3fc9850069f23f68e7f790114d",
+      "fixtureSha256": "5c7eeefab80e63d4813bc9475ac1e00d5667e22d6662705b5082d6cb13ebfa56",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -63,37 +63,78 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "sharedctx-green-cylinder",
-        "sharedctx-box-primitive",
-        "sharedctx-sphere-primitive",
-        "sharedctx-dualview-rect"
+        "styledpoints-bounding-box",
+        "styledpoints-vector-cylinder",
+        "styledpoints-anchor-sphere",
+        "styledpoints-staging-rect"
       ],
       "pixelCounts": [
         {
-          "id": "sharedctx-green-cylinder",
-          "pixels": 117796
+          "id": "styledpoints-bounding-box",
+          "pixels": 764
         },
         {
-          "id": "sharedctx-box-primitive",
-          "pixels": 99560
+          "id": "styledpoints-vector-cylinder",
+          "pixels": 456
         },
         {
-          "id": "sharedctx-sphere-primitive",
+          "id": "styledpoints-anchor-sphere",
+          "pixels": 77
+        },
+        {
+          "id": "styledpoints-staging-rect",
+          "pixels": 12101
+        }
+      ]
+    },
+    {
+      "id": "terrain",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "1cb93bb20b4bd2c50e58ab97b3577f8f7d29dddf17378f6f2c5347ffa2e6510d",
+      "inputSha256": "e3ebf57fc943caddff12d435a8570412ceaa303388af2884345d23914364eb0c",
+      "fixtureSha256": "50a51e4750968fe5aacd24760f31a7eb3fcc5fa66ac3c34247f8b2d0caef99d3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "terrain-elevation-box",
+        "terrain-ridge-cylinder",
+        "terrain-water-sphere",
+        "terrain-fuji-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "terrain-elevation-box",
+          "pixels": 101946
+        },
+        {
+          "id": "terrain-ridge-cylinder",
+          "pixels": 94891
+        },
+        {
+          "id": "terrain-water-sphere",
           "pixels": 166025
         },
         {
-          "id": "sharedctx-dualview-rect",
-          "pixels": 61653
+          "id": "terrain-fuji-rect",
+          "pixels": 68005
         }
       ]
     },
     {
-      "id": "splitdirection",
+      "id": "terrain-clipping-planes",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "8d3fcf463b53b2fe6d64c3cb437afb0b602a63851cde7ed176ff00fe547c1d2d",
-      "inputSha256": "66fc3aa946d56cf12b4f2e49599be1593b0a2b1ac451f25fbc994680d28b6a93",
-      "fixtureSha256": "8839a613d576ef00a5af83c75cab08b6885095de3d58e6a125167301b8cf058e",
+      "sourceSha256": "41b60df45bc0828fda05047a4f65f74520d02ab6da12f8a830a88587bcad686a",
+      "inputSha256": "4fdd6018f41c4a8014224ee337912af4082e1e840174678187f59f454ce9c298",
+      "fixtureSha256": "2e8900af24882e32065fcaeff40b4d95085a57c37780c709326d2b42d0fd0362",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -104,68 +145,27 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "splitdir-left-point-sphere",
-        "splitdir-right-point-cylinder",
-        "splitdir-swipe-center-box",
-        "splitdir-canvas-rect"
+        "terrainclip-excavation-box",
+        "terrainclip-character-cylinder",
+        "terrainclip-depth-sphere",
+        "terrainclip-envelope-rect"
       ],
       "pixelCounts": [
         {
-          "id": "splitdir-left-point-sphere",
-          "pixels": 162502
+          "id": "terrainclip-excavation-box",
+          "pixels": 79361
         },
         {
-          "id": "splitdir-right-point-cylinder",
-          "pixels": 64703
+          "id": "terrainclip-character-cylinder",
+          "pixels": 5228
         },
         {
-          "id": "splitdir-swipe-center-box",
-          "pixels": 10671
+          "id": "terrainclip-depth-sphere",
+          "pixels": 14799
         },
         {
-          "id": "splitdir-canvas-rect",
-          "pixels": 55488
-        }
-      ]
-    },
-    {
-      "id": "star-burst",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "855161ac3cb1441827b58d1ddc3eb4cd43ac5b5b73eacf2288f29481528bee91",
-      "inputSha256": "fb831908f1589406f6b47935e4b8fbab3c13e36f3513b7d0be010284416c79ce",
-      "fixtureSha256": "b3beec4cfc01beff7ebe8fbcd0a412cf2e528ff7fd70149a702681b908f7a4b2",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "starburst-hub-sphere",
-        "starburst-radial-vector-cylinder",
-        "starburst-orbit-ring-box",
-        "starburst-facility-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "starburst-hub-sphere",
-          "pixels": 163
-        },
-        {
-          "id": "starburst-radial-vector-cylinder",
-          "pixels": 427
-        },
-        {
-          "id": "starburst-orbit-ring-box",
-          "pixels": 5981
-        },
-        {
-          "id": "starburst-facility-rect",
-          "pixels": 52414
+          "id": "terrainclip-envelope-rect",
+          "pixels": 72791
         }
       ]
     }

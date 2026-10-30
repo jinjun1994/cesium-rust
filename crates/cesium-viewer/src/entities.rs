@@ -6128,4 +6128,65 @@ mod tests {
         let star_variants = crate::entity_variants::decode(&star_variants_raw).unwrap();
         assert_eq!(star_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch86_lines_points_terrain_terrainclip() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Styled glTF Lines - Dev
+        let lines_data = std::fs::read(base.join("styled-gltf-lines-dev.json")).unwrap();
+        let lines_entities = decode(&lines_data).unwrap();
+        assert_eq!(lines_entities.len(), 4);
+        assert!(matches!(lines_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(lines_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(lines_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(lines_entities[3].shape, Shape::Rectangle { .. }));
+        let lines_variants_raw =
+            std::fs::read(base.join("styled-gltf-lines-dev.variants.json")).unwrap();
+        let lines_variants = crate::entity_variants::decode(&lines_variants_raw).unwrap();
+        assert_eq!(lines_variants.variants.len(), 4);
+
+        // 2. Styled glTF Points - Dev
+        let points_data = std::fs::read(base.join("styled-gltf-points-dev.json")).unwrap();
+        let points_entities = decode(&points_data).unwrap();
+        assert_eq!(points_entities.len(), 4);
+        assert!(matches!(points_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(points_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(points_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(points_entities[3].shape, Shape::Rectangle { .. }));
+        let points_variants_raw =
+            std::fs::read(base.join("styled-gltf-points-dev.variants.json")).unwrap();
+        let points_variants = crate::entity_variants::decode(&points_variants_raw).unwrap();
+        assert_eq!(points_variants.variants.len(), 4);
+
+        // 3. Terrain
+        let terrain_data = std::fs::read(base.join("terrain.json")).unwrap();
+        let terrain_entities = decode(&terrain_data).unwrap();
+        assert_eq!(terrain_entities.len(), 4);
+        assert!(matches!(terrain_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(terrain_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(terrain_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(terrain_entities[3].shape, Shape::Rectangle { .. }));
+        let terrain_variants_raw = std::fs::read(base.join("terrain.variants.json")).unwrap();
+        let terrain_variants = crate::entity_variants::decode(&terrain_variants_raw).unwrap();
+        assert_eq!(terrain_variants.variants.len(), 4);
+
+        // 4. Terrain Clipping Planes
+        let clip_data = std::fs::read(base.join("terrain-clipping-planes.json")).unwrap();
+        let clip_entities = decode(&clip_data).unwrap();
+        assert_eq!(clip_entities.len(), 4);
+        assert!(matches!(clip_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(clip_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(clip_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(clip_entities[3].shape, Shape::Rectangle { .. }));
+        let clip_variants_raw =
+            std::fs::read(base.join("terrain-clipping-planes.variants.json")).unwrap();
+        let clip_variants = crate::entity_variants::decode(&clip_variants_raw).unwrap();
+        assert_eq!(clip_variants.variants.len(), 4);
+    }
 }

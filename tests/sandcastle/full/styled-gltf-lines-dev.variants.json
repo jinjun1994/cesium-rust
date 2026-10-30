@@ -1,0 +1,525 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: BENTLEY_materials_line_style Screen-Pixel Width (Surfaces & Edges)",
+      "entities": [
+        {
+          "id": "styledlines-bounding-box",
+          "name": "BENTLEY Materials Line Style Model Bounding Hull",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            20
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              40
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.8,
+            0.95,
+            1
+          ],
+          "outlineColor": [
+            0.05,
+            0.35,
+            0.45,
+            1
+          ]
+        },
+        {
+          "id": "styledlines-vector-cylinder",
+          "name": "Edge Display Mode Optical Vector Column",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            60
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 12,
+            "bottomRadius": 12
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.85,
+            0.2,
+            0.8
+          ],
+          "outlineColor": [
+            0.45,
+            0.38,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledlines-anchor-sphere",
+          "name": "Null Island Model Origin Alignment Sphere",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            0
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              8,
+              8,
+              8
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.3,
+            0.2,
+            1
+          ],
+          "outlineColor": [
+            0.45,
+            0.08,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledlines-staging-rect",
+          "name": "Styled Line Geometry Base Reference Grid",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -0.001,
+              -0.001,
+              0.001,
+              0.001
+            ],
+            "height": 0,
+            "extrudedHeight": 2
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.3,
+            0.35,
+            0.45,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.95,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "16-Bit Dash Pattern Stippled Geometry Mode (Dynamic Stippling)",
+      "entities": [
+        {
+          "id": "styledlines-stippled-box",
+          "name": "Stippled Dashed Edge Geometry Core",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            20
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              40
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.85,
+            0.3,
+            0.9,
+            1
+          ],
+          "outlineColor": [
+            0.05,
+            0.35,
+            0.45,
+            1
+          ]
+        },
+        {
+          "id": "styledlines-vector-cylinder",
+          "name": "Edge Display Mode Optical Vector Column",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            60
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 12,
+            "bottomRadius": 12
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.85,
+            0.2,
+            0.8
+          ],
+          "outlineColor": [
+            0.45,
+            0.38,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledlines-anchor-sphere",
+          "name": "Null Island Model Origin Alignment Sphere",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            0
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              8,
+              8,
+              8
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.3,
+            0.2,
+            1
+          ],
+          "outlineColor": [
+            0.45,
+            0.08,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledlines-staging-rect",
+          "name": "Styled Line Geometry Base Reference Grid",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -0.001,
+              -0.001,
+              0.001,
+              0.001
+            ],
+            "height": 0,
+            "extrudedHeight": 2
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.3,
+            0.35,
+            0.45,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.95,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "High-Contrast Fluorescent Wireframe Mode (Vibrant Edge Accents)",
+      "entities": [
+        {
+          "id": "styledlines-bounding-box",
+          "name": "BENTLEY Materials Line Style Model Bounding Hull",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            20
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              40
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.8,
+            0.95,
+            1
+          ],
+          "outlineColor": [
+            0.05,
+            0.35,
+            0.45,
+            1
+          ]
+        },
+        {
+          "id": "styledlines-fluorescent-column",
+          "name": "Fluorescent Edge Vector Column",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            60
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 12,
+            "bottomRadius": 12
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.95,
+            0.3,
+            0.9
+          ],
+          "outlineColor": [
+            0.45,
+            0.38,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledlines-anchor-sphere",
+          "name": "Null Island Model Origin Alignment Sphere",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            0
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              8,
+              8,
+              8
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.3,
+            0.2,
+            1
+          ],
+          "outlineColor": [
+            0.45,
+            0.08,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledlines-staging-rect",
+          "name": "Styled Line Geometry Base Reference Grid",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -0.001,
+              -0.001,
+              0.001,
+              0.001
+            ],
+            "height": 0,
+            "extrudedHeight": 2
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.3,
+            0.35,
+            0.45,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.95,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Oblique Perspective Edge Inspection Mode (LookAt Zoom Framing)",
+      "entities": [
+        {
+          "id": "styledlines-bounding-box",
+          "name": "BENTLEY Materials Line Style Model Bounding Hull",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            20
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              40
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.8,
+            0.95,
+            1
+          ],
+          "outlineColor": [
+            0.05,
+            0.35,
+            0.45,
+            1
+          ]
+        },
+        {
+          "id": "styledlines-vector-cylinder",
+          "name": "Edge Display Mode Optical Vector Column",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            60
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 12,
+            "bottomRadius": 12
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.85,
+            0.2,
+            0.8
+          ],
+          "outlineColor": [
+            0.45,
+            0.38,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledlines-inspection-sphere",
+          "name": "Oblique LookAt Focus Datum",
+          "show": true,
+          "positionDegrees": [
+            0,
+            0,
+            0
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              14,
+              14,
+              14
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.65,
+            0.1,
+            1
+          ],
+          "outlineColor": [
+            0.45,
+            0.08,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledlines-staging-rect",
+          "name": "Styled Line Geometry Base Reference Grid",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -0.001,
+              -0.001,
+              0.001,
+              0.001
+            ],
+            "height": 0,
+            "extrudedHeight": 2
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.3,
+            0.35,
+            0.45,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.95,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

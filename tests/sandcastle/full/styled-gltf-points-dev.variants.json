@@ -1,0 +1,525 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: BENTLEY_materials_point_style Variable Diameters (r5, g8, b14, y10)",
+      "entities": [
+        {
+          "id": "styledpoints-bounding-box",
+          "name": "BENTLEY Materials Point Style Multi-Diameter Envelope",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              50
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.85,
+            0.1,
+            1
+          ],
+          "outlineColor": [
+            0.45,
+            0.4,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledpoints-vector-cylinder",
+          "name": "Variable Diameter Point Cloud Elevation Column",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            75
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 70,
+            "topRadius": 15,
+            "bottomRadius": 15
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.75,
+            0.9,
+            0.85
+          ],
+          "outlineColor": [
+            0.05,
+            0.3,
+            0.45,
+            1
+          ]
+        },
+        {
+          "id": "styledpoints-anchor-sphere",
+          "name": "Eugene Oregon Point Cluster Origin Marker",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            0
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              10,
+              10,
+              10
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.9,
+            0.2,
+            0.2,
+            1
+          ],
+          "outlineColor": [
+            0.4,
+            0.05,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledpoints-staging-rect",
+          "name": "Multi-Size Styled Points Ground Staging Pad",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.076,
+              44.049,
+              -123.073,
+              44.052
+            ],
+            "height": 0,
+            "extrudedHeight": 2
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.4,
+            0.45,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.9,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Uniform Micro-Point Inspection Mode (High Resolution Density)",
+      "entities": [
+        {
+          "id": "styledpoints-micro-box",
+          "name": "Micro-Point Dense Cloud Core",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              50
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.3,
+            0.9,
+            0.5,
+            1
+          ],
+          "outlineColor": [
+            0.45,
+            0.4,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledpoints-vector-cylinder",
+          "name": "Variable Diameter Point Cloud Elevation Column",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            75
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 70,
+            "topRadius": 15,
+            "bottomRadius": 15
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.75,
+            0.9,
+            0.85
+          ],
+          "outlineColor": [
+            0.05,
+            0.3,
+            0.45,
+            1
+          ]
+        },
+        {
+          "id": "styledpoints-anchor-sphere",
+          "name": "Eugene Oregon Point Cluster Origin Marker",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            0
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              10,
+              10,
+              10
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.9,
+            0.2,
+            0.2,
+            1
+          ],
+          "outlineColor": [
+            0.4,
+            0.05,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledpoints-staging-rect",
+          "name": "Multi-Size Styled Points Ground Staging Pad",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.076,
+              44.049,
+              -123.073,
+              44.052
+            ],
+            "height": 0,
+            "extrudedHeight": 2
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.4,
+            0.45,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.9,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Large-Diameter Beacon Points Mode (Fluorescent Halo Markers)",
+      "entities": [
+        {
+          "id": "styledpoints-bounding-box",
+          "name": "BENTLEY Materials Point Style Multi-Diameter Envelope",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              50
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.85,
+            0.1,
+            1
+          ],
+          "outlineColor": [
+            0.45,
+            0.4,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledpoints-beacon-column",
+          "name": "Fluorescent Beacon Shaft",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            75
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 70,
+            "topRadius": 15,
+            "bottomRadius": 15
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.4,
+            0.7,
+            0.85
+          ],
+          "outlineColor": [
+            0.05,
+            0.3,
+            0.45,
+            1
+          ]
+        },
+        {
+          "id": "styledpoints-anchor-sphere",
+          "name": "Eugene Oregon Point Cluster Origin Marker",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            0
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              10,
+              10,
+              10
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.9,
+            0.2,
+            0.2,
+            1
+          ],
+          "outlineColor": [
+            0.4,
+            0.05,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledpoints-staging-rect",
+          "name": "Multi-Size Styled Points Ground Staging Pad",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.076,
+              44.049,
+              -123.073,
+              44.052
+            ],
+            "height": 0,
+            "extrudedHeight": 2
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.4,
+            0.45,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.9,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Color-Coded Intensity Attribute Point Mode (Multivariate Palette)",
+      "entities": [
+        {
+          "id": "styledpoints-bounding-box",
+          "name": "BENTLEY Materials Point Style Multi-Diameter Envelope",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              50
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.95,
+            0.85,
+            0.1,
+            1
+          ],
+          "outlineColor": [
+            0.45,
+            0.4,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledpoints-vector-cylinder",
+          "name": "Variable Diameter Point Cloud Elevation Column",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            75
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 70,
+            "topRadius": 15,
+            "bottomRadius": 15
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.2,
+            0.75,
+            0.9,
+            0.85
+          ],
+          "outlineColor": [
+            0.05,
+            0.3,
+            0.45,
+            1
+          ]
+        },
+        {
+          "id": "styledpoints-intensity-sphere",
+          "name": "Multivariate Intensity Attribute Beacon",
+          "show": true,
+          "positionDegrees": [
+            -123.0744619,
+            44.0503706,
+            0
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              16,
+              16,
+              16
+            ]
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.15,
+            0.8,
+            0.85,
+            1
+          ],
+          "outlineColor": [
+            0.4,
+            0.05,
+            0.05,
+            1
+          ]
+        },
+        {
+          "id": "styledpoints-staging-rect",
+          "name": "Multi-Size Styled Points Ground Staging Pad",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.076,
+              44.049,
+              -123.073,
+              44.052
+            ],
+            "height": 0,
+            "extrudedHeight": 2
+          },
+          "fill": true,
+          "outline": true,
+          "color": [
+            0.35,
+            0.4,
+            0.45,
+            0.6
+          ],
+          "outlineColor": [
+            0.8,
+            0.85,
+            0.9,
+            1
+          ]
+        }
+      ]
+    }
+  ]
+}

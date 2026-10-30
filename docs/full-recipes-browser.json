@@ -1,5 +1,5 @@
 {
-  "version": "0.0.85",
+  "version": "0.0.86",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -11416,10 +11416,174 @@
           "pixels": 52414
         }
       ]
+    },
+    {
+      "id": "styled-gltf-lines-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "e784cb906aac714f254aafabff901cf804e5632a5977ea9c0580e45a3fbc7fb1",
+      "inputSha256": "0c0d4a5d2fa1118551053be65fb7ae22f98e1452b5ab838266eff1d1533071fe",
+      "fixtureSha256": "05c518517d51aa4247cd86b73d430142ec47d3e1e7d0ca665fda703f68a0c4d7",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "styledlines-bounding-box",
+        "styledlines-vector-cylinder",
+        "styledlines-anchor-sphere",
+        "styledlines-staging-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "styledlines-bounding-box",
+          "pixels": 494
+        },
+        {
+          "id": "styledlines-vector-cylinder",
+          "pixels": 292
+        },
+        {
+          "id": "styledlines-anchor-sphere",
+          "pixels": 47
+        },
+        {
+          "id": "styledlines-staging-rect",
+          "pixels": 7451
+        }
+      ]
+    },
+    {
+      "id": "styled-gltf-points-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "8ad6353c986bb9b3ce2b1dc542adfb91a8d68b6e6daff29916a1c865cf6da8de",
+      "inputSha256": "0c8f2dd324c376e46c2186b1e3d82b14089dfc3fc9850069f23f68e7f790114d",
+      "fixtureSha256": "5c7eeefab80e63d4813bc9475ac1e00d5667e22d6662705b5082d6cb13ebfa56",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "styledpoints-bounding-box",
+        "styledpoints-vector-cylinder",
+        "styledpoints-anchor-sphere",
+        "styledpoints-staging-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "styledpoints-bounding-box",
+          "pixels": 764
+        },
+        {
+          "id": "styledpoints-vector-cylinder",
+          "pixels": 456
+        },
+        {
+          "id": "styledpoints-anchor-sphere",
+          "pixels": 77
+        },
+        {
+          "id": "styledpoints-staging-rect",
+          "pixels": 12101
+        }
+      ]
+    },
+    {
+      "id": "terrain",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "1cb93bb20b4bd2c50e58ab97b3577f8f7d29dddf17378f6f2c5347ffa2e6510d",
+      "inputSha256": "e3ebf57fc943caddff12d435a8570412ceaa303388af2884345d23914364eb0c",
+      "fixtureSha256": "50a51e4750968fe5aacd24760f31a7eb3fcc5fa66ac3c34247f8b2d0caef99d3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "terrain-elevation-box",
+        "terrain-ridge-cylinder",
+        "terrain-water-sphere",
+        "terrain-fuji-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "terrain-elevation-box",
+          "pixels": 101946
+        },
+        {
+          "id": "terrain-ridge-cylinder",
+          "pixels": 94891
+        },
+        {
+          "id": "terrain-water-sphere",
+          "pixels": 166025
+        },
+        {
+          "id": "terrain-fuji-rect",
+          "pixels": 68005
+        }
+      ]
+    },
+    {
+      "id": "terrain-clipping-planes",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "41b60df45bc0828fda05047a4f65f74520d02ab6da12f8a830a88587bcad686a",
+      "inputSha256": "4fdd6018f41c4a8014224ee337912af4082e1e840174678187f59f454ce9c298",
+      "fixtureSha256": "2e8900af24882e32065fcaeff40b4d95085a57c37780c709326d2b42d0fd0362",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "terrainclip-excavation-box",
+        "terrainclip-character-cylinder",
+        "terrainclip-depth-sphere",
+        "terrainclip-envelope-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "terrainclip-excavation-box",
+          "pixels": 79361
+        },
+        {
+          "id": "terrainclip-character-cylinder",
+          "pixels": 5228
+        },
+        {
+          "id": "terrainclip-depth-sphere",
+          "pixels": 14799
+        },
+        {
+          "id": "terrainclip-envelope-rect",
+          "pixels": 72791
+        }
+      ]
     }
   ],
   "browser": "151.0.7922.34",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed",
-  "totalCases": 287
+  "totalCases": 291
 }

@@ -1,0 +1,127 @@
+[
+  {
+    "id": "styledlines-bounding-box",
+    "name": "BENTLEY Materials Line Style Model Bounding Hull",
+    "show": true,
+    "positionDegrees": [
+      0,
+      0,
+      20
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        40,
+        40,
+        40
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.2,
+      0.8,
+      0.95,
+      1
+    ],
+    "outlineColor": [
+      0.05,
+      0.35,
+      0.45,
+      1
+    ]
+  },
+  {
+    "id": "styledlines-vector-cylinder",
+    "name": "Edge Display Mode Optical Vector Column",
+    "show": true,
+    "positionDegrees": [
+      0,
+      0,
+      60
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 60,
+      "topRadius": 12,
+      "bottomRadius": 12
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.95,
+      0.85,
+      0.2,
+      0.8
+    ],
+    "outlineColor": [
+      0.45,
+      0.38,
+      0.05,
+      1
+    ]
+  },
+  {
+    "id": "styledlines-anchor-sphere",
+    "name": "Null Island Model Origin Alignment Sphere",
+    "show": true,
+    "positionDegrees": [
+      0,
+      0,
+      0
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        8,
+        8,
+        8
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.95,
+      0.3,
+      0.2,
+      1
+    ],
+    "outlineColor": [
+      0.45,
+      0.08,
+      0.05,
+      1
+    ]
+  },
+  {
+    "id": "styledlines-staging-rect",
+    "name": "Styled Line Geometry Base Reference Grid",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -0.001,
+        -0.001,
+        0.001,
+        0.001
+      ],
+      "height": 0,
+      "extrudedHeight": 2
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.3,
+      0.35,
+      0.45,
+      0.6
+    ],
+    "outlineColor": [
+      0.8,
+      0.85,
+      0.95,
+      1
+    ]
+  }
+]
