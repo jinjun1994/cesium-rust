@@ -1,0 +1,154 @@
+[
+  {
+    "id": "picking-dev-anchor-cylinder",
+    "name": "Multi-Source 3D Tiles Picking Anchor Cylinder",
+    "show": true,
+    "positionDegrees": [
+      -122.4194,
+      37.7749,
+      2500
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 5000,
+      "topRadius": 1500,
+      "bottomRadius": 1500
+    },
+    "color": [
+      0.15,
+      0.65,
+      0.95,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.35,
+      0.85,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "supportedTilesets": [
+        "Google P3DT",
+        "Cesium OSM Buildings",
+        "Photogrammetry"
+      ],
+      "pickingMethod": "scene.pick"
+    }
+  },
+  {
+    "id": "picking-dev-probe-box",
+    "name": "Interactive Ray-Cast Depth Probe Volume Box",
+    "show": true,
+    "positionDegrees": [
+      -122.412,
+      37.781,
+      2000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        2500,
+        2500,
+        2200
+      ]
+    },
+    "color": [
+      0.95,
+      0.85,
+      0.15,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.95,
+      0.35,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "globeDisabled": true,
+      "onlyUsingWithGoogleGeocoder": true
+    }
+  },
+  {
+    "id": "picking-dev-hit-sphere",
+    "name": "Surface Intersection Normal Vector Reference Sphere",
+    "show": true,
+    "positionDegrees": [
+      -122.426,
+      37.768,
+      2200
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        2000,
+        2000,
+        1800
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      0.85,
+      0.25,
+      0.35,
+      0.85
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "normalExtraction": true,
+      "screenSpaceHandlerActive": true
+    }
+  },
+  {
+    "id": "picking-dev-footprint-rect",
+    "name": "San Francisco Downtown Picking Test Footprint",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -122.44,
+        37.75,
+        -122.39,
+        37.79
+      ],
+      "height": 2000,
+      "extrudedHeight": 4000,
+      "rotation": 0
+    },
+    "color": [
+      0.35,
+      0.85,
+      0.45,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.55,
+      1,
+      0.65,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "renderMode": "Pure 3D Tiles without Globe",
+      "baseLayerPicker": false
+    }
+  }
+]

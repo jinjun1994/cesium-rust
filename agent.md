@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.59（已通过 183 / 309 个完整案例，剩余 126 个）
+- **当前版本**：v0.0.60（已通过 187 / 309 个完整案例，剩余 122 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.60 验收完成：多源拾取 (3D Tiles Picking Dev)、激光点云 (3D Tiles Point Cloud)、点云单体化分类 (3D Tiles Point Cloud Classification) 与视穹光照衰减 (3D Tiles Point Cloud Shading)
+- **完成配方**（累计推进至 **187 / 309**，剩余 122 个）：
+  1. `3d-tiles-picking-dev`（多源 3D Tiles 深度拾取、射线空间投射与非地球球体环境对比：谷歌高精实景三维瓦片集射线拾取基准、Cesium OSM 建筑群向量几何特征拾取模式、Aerometrex 倾斜摄影表面精确拾取模式与纯深度缓冲光线投射探测 4 种变体）
+  2. `3d-tiles-point-cloud`（哥伦比亚大学机器人实验室激光扫描点云、PNTS 格式几何流式呈现：哥伦比亚实验室高精激光扫描点云基准、按激光反射强度与回波计数着色模式、高程梯度色彩映射模式与固定点尺寸强化呈现 4 种变体）
+  3. `3d-tiles-point-cloud-classification`（三维点云几何向量单体化分类、空间拓扑着色与分级检索：基准红色半透明分类体量覆盖、绿色植被与树冠体量分类覆层、蓝色建筑物与结构设施分类覆层与关闭单体化分类纯激光点云视图 4 种变体）
+  4. `3d-tiles-point-cloud-shading`（点云视穹光照 EDL、几何误差屏幕衰减与圣海伦斯火山点云渲染：圣海伦斯火山点云基准启用 EDL 边缘着色、启用几何误差屏幕衰减模式、教堂高精激光扫描点云全功能光照衰减组合与经典直接光照基准模式 4 种变体）
+- **核心研发突破**：
+  1. **多源瓦片集非球体深度拾取管线（Multi-Source Depth Picking Pipeline）**：在无地球背景（`globe: false`）的极端几何环境下，支持从 Google Photorealistic 3D Tiles、Cesium OSM Buildings 与 Aerometrex 实景网格中精确解算射线交点及空间法线。
+  2. **高密度激光点云流式渲染（High-Density PNTS Stream Shading）**：支持基于点反射强度、回波计数与空间高程梯度的动态着色器色彩映射，兼具固定点图元尺寸约束。
+  3. **点云几何向量单体化三维分类（Point Cloud Classification Stencil Integration）**：将 `ClassificationType.CESIUM_3D_TILE` 引入点云渲染管线，实现体量多边形向激光点群的精确投影与半透明着色覆盖。
+  4. **视穹光照 (Eye Dome Lighting) 与几何误差衰减流水线（EDL & Geometric Error Attenuation）**：在 WebGPU 延迟片元阶段实现 EDL 轮廓高亮阴影，配合屏幕空间几何误差（SSE）自适应衰减计算，消除稀疏点云的空隙穿透。
+- **验证结果**：
+  - **普通 Rust 单元测试**：120 项全部通过（含 `batch60_3d_tiles_picking_dev_point_cloud_shading`）。
+  - **真实 GPU 离屏渲染测试**：188 / 188 项全数通过（`188 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：187 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [3D Tiles Picking Dev、3D Tiles Point Cloud、3D Tiles Point Cloud Classification 与 3D Tiles Point Cloud Shading 验证文档](docs/3dtiles-pickingdev-pointcloud-class-shading-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.59 验收完成：NGA 精度网格 (3D Tiles NGA GPM Visualization)、流式性能巡检 (3D Tiles Performance Testing)、实景三维网格 (3D Tiles Photogrammetry) 与单体化三维分类 (3D Tiles Photogrammetry Classification)
 - **完成配方**（累计推进至 **183 / 309**，剩余 126 个）：

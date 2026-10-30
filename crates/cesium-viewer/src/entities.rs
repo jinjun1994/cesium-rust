@@ -4543,4 +4543,63 @@ mod tests {
         let pgc_variants = crate::entity_variants::decode(&pgc_variants_raw).unwrap();
         assert_eq!(pgc_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch60_3d_tiles_picking_dev_point_cloud_shading() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. 3D Tiles Picking Dev
+        let pdev_data = std::fs::read(base.join("3d-tiles-picking-dev.json")).unwrap();
+        let pdev_entities = decode(&pdev_data).unwrap();
+        assert_eq!(pdev_entities.len(), 4);
+        assert!(matches!(pdev_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(pdev_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(pdev_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(pdev_entities[3].shape, Shape::Rectangle { .. }));
+        let pdev_variants_raw =
+            std::fs::read(base.join("3d-tiles-picking-dev.variants.json")).unwrap();
+        let pdev_variants = crate::entity_variants::decode(&pdev_variants_raw).unwrap();
+        assert_eq!(pdev_variants.variants.len(), 4);
+
+        // 2. 3D Tiles Point Cloud
+        let pc_data = std::fs::read(base.join("3d-tiles-point-cloud.json")).unwrap();
+        let pc_entities = decode(&pc_data).unwrap();
+        assert_eq!(pc_entities.len(), 4);
+        assert!(matches!(pc_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(pc_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(pc_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(pc_entities[3].shape, Shape::Rectangle { .. }));
+        let pc_variants_raw =
+            std::fs::read(base.join("3d-tiles-point-cloud.variants.json")).unwrap();
+        let pc_variants = crate::entity_variants::decode(&pc_variants_raw).unwrap();
+        assert_eq!(pc_variants.variants.len(), 4);
+
+        // 3. 3D Tiles Point Cloud Classification
+        let pcc_data =
+            std::fs::read(base.join("3d-tiles-point-cloud-classification.json")).unwrap();
+        let pcc_entities = decode(&pcc_data).unwrap();
+        assert_eq!(pcc_entities.len(), 4);
+        assert!(matches!(pcc_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(pcc_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(pcc_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(pcc_entities[3].shape, Shape::Rectangle { .. }));
+        let pcc_variants_raw =
+            std::fs::read(base.join("3d-tiles-point-cloud-classification.variants.json")).unwrap();
+        let pcc_variants = crate::entity_variants::decode(&pcc_variants_raw).unwrap();
+        assert_eq!(pcc_variants.variants.len(), 4);
+
+        // 4. 3D Tiles Point Cloud Shading
+        let pcs_data = std::fs::read(base.join("3d-tiles-point-cloud-shading.json")).unwrap();
+        let pcs_entities = decode(&pcs_data).unwrap();
+        assert_eq!(pcs_entities.len(), 4);
+        assert!(matches!(pcs_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(pcs_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(pcs_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(pcs_entities[3].shape, Shape::Rectangle { .. }));
+        let pcs_variants_raw =
+            std::fs::read(base.join("3d-tiles-point-cloud-shading.variants.json")).unwrap();
+        let pcs_variants = crate::entity_variants::decode(&pcs_variants_raw).unwrap();
+        assert_eq!(pcs_variants.variants.len(), 4);
+    }
 }

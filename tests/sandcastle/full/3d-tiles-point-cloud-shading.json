@@ -1,0 +1,151 @@
+[
+  {
+    "id": "pnts-shading-st-helens-cylinder",
+    "name": "Mount St. Helens Volcanic Peak Anchor Cylinder",
+    "show": true,
+    "positionDegrees": [
+      -122.195,
+      46.191,
+      2500
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 5000,
+      "topRadius": 1500,
+      "bottomRadius": 1500
+    },
+    "color": [
+      0.85,
+      0.45,
+      0.15,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.65,
+      0.35,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "dataset": "St. Helens",
+      "eyeDomeLighting": true,
+      "geometricErrorScale": 1
+    }
+  },
+  {
+    "id": "pnts-shading-attenuation-box",
+    "name": "Dynamic Point Attenuation Calibration Box",
+    "show": true,
+    "positionDegrees": [
+      -122.188,
+      46.198,
+      2000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        2500,
+        2500,
+        2200
+      ]
+    },
+    "color": [
+      0.25,
+      0.65,
+      0.95,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.45,
+      0.85,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "maximumAttenuation": 16,
+      "baseResolution_meters": 0.05
+    }
+  },
+  {
+    "id": "pnts-shading-edl-sphere",
+    "name": "Eye Dome Lighting Depth Gradient Sphere",
+    "show": true,
+    "positionDegrees": [
+      -122.202,
+      46.184,
+      2200
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        2000,
+        2000,
+        1800
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      0.2,
+      0.85,
+      0.55,
+      0.85
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "edlStrength": 1,
+      "edlRadius": 1
+    }
+  },
+  {
+    "id": "pnts-shading-survey-rect",
+    "name": "Volcanic Caldera Point Cloud Survey Footprint",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -122.22,
+        46.17,
+        -122.17,
+        46.21
+      ],
+      "height": 2000,
+      "extrudedHeight": 4000,
+      "rotation": 0
+    },
+    "color": [
+      0.75,
+      0.25,
+      0.85,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.95,
+      0.45,
+      1,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "shadingSupported": true,
+      "maximumScreenSpaceError": 16
+    }
+  }
+]

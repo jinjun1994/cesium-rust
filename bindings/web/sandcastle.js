@@ -194,6 +194,10 @@ $('fullNew156').onclick=guarded(()=>runFull('3d-tiles-nga-gpm-visualization'));
 $('fullNew157').onclick=guarded(()=>runFull('3d-tiles-performance-testing-dev'));
 $('fullNew158').onclick=guarded(()=>runFull('3d-tiles-photogrammetry'));
 $('fullNew159').onclick=guarded(()=>runFull('3d-tiles-photogrammetry-classification'));
+$('fullNew160').onclick=guarded(()=>runFull('3d-tiles-picking-dev'));
+$('fullNew161').onclick=guarded(()=>runFull('3d-tiles-point-cloud'));
+$('fullNew162').onclick=guarded(()=>runFull('3d-tiles-point-cloud-classification'));
+$('fullNew163').onclick=guarded(()=>runFull('3d-tiles-point-cloud-shading'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

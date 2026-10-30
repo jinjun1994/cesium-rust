@@ -1,0 +1,637 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Semantic Zoning Classification on Point Cloud",
+      "entities": [
+        {
+          "id": "pnts-class-marker-cylinder",
+          "name": "Classified Point Cloud Survey Station Cylinder",
+          "show": true,
+          "positionDegrees": [
+            2.928,
+            46.227,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.95,
+            0.25,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pointCloudAssetId": 16421,
+            "classificationType": "CESIUM_3D_TILE",
+            "classificationUrl": "Classification/PointCloud/tileset.json"
+          }
+        },
+        {
+          "id": "pnts-class-prism-box",
+          "name": "3D Geometry Classification Prism Volume Box",
+          "show": true,
+          "positionDegrees": [
+            2.935,
+            46.233,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.45,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "styleExpression": "color(\"rgba(255, 0, 0, 0.6)\")",
+            "experimentalGeometryTiles": true
+          }
+        },
+        {
+          "id": "pnts-class-semantic-sphere",
+          "name": "Semantic Classification Label Reference Sphere",
+          "show": true,
+          "positionDegrees": [
+            2.921,
+            46.221,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classes": [
+              "Architecture",
+              "Ground",
+              "Vegetation",
+              "Artifacts"
+            ]
+          }
+        },
+        {
+          "id": "pnts-class-boundary-rect",
+          "name": "Point Cloud Semantic Zoning Boundary Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              2.91,
+              46.21,
+              2.95,
+              46.25
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.55,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "spatialIndex": "Morton Z-Order",
+            "classificationActive": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Building Structure Classification (Red Highlight)",
+      "entities": [
+        {
+          "id": "pnts-class-marker-cylinder",
+          "name": "Classified Point Cloud Survey Station Cylinder",
+          "show": true,
+          "positionDegrees": [
+            2.928,
+            46.227,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.95,
+            0.25,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pointCloudAssetId": 16421,
+            "classificationType": "CESIUM_3D_TILE",
+            "classificationUrl": "Classification/PointCloud/tileset.json"
+          }
+        },
+        {
+          "id": "pnts-class-prism-box",
+          "name": "3D Geometry Classification Prism Volume Box",
+          "show": true,
+          "positionDegrees": [
+            2.935,
+            46.233,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.2,
+            0.3,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "styleExpression": "color(\"rgba(255, 0, 0, 0.6)\")",
+            "experimentalGeometryTiles": true
+          }
+        },
+        {
+          "id": "pnts-class-semantic-sphere",
+          "name": "Semantic Classification Label Reference Sphere",
+          "show": true,
+          "positionDegrees": [
+            2.921,
+            46.221,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classes": [
+              "Architecture",
+              "Ground",
+              "Vegetation",
+              "Artifacts"
+            ]
+          }
+        },
+        {
+          "id": "pnts-class-boundary-rect",
+          "name": "Point Cloud Semantic Zoning Boundary Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              2.91,
+              46.21,
+              2.95,
+              46.25
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.55,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "spatialIndex": "Morton Z-Order",
+            "classificationActive": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Ground & Vegetation Classification (Green Tint)",
+      "entities": [
+        {
+          "id": "pnts-class-marker-cylinder",
+          "name": "Classified Point Cloud Survey Station Cylinder",
+          "show": true,
+          "positionDegrees": [
+            2.928,
+            46.227,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.95,
+            0.25,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pointCloudAssetId": 16421,
+            "classificationType": "CESIUM_3D_TILE",
+            "classificationUrl": "Classification/PointCloud/tileset.json"
+          }
+        },
+        {
+          "id": "pnts-class-prism-box",
+          "name": "3D Geometry Classification Prism Volume Box",
+          "show": true,
+          "positionDegrees": [
+            2.935,
+            46.233,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.45,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "styleExpression": "color(\"rgba(255, 0, 0, 0.6)\")",
+            "experimentalGeometryTiles": true
+          }
+        },
+        {
+          "id": "pnts-class-semantic-sphere",
+          "name": "Semantic Classification Label Reference Sphere",
+          "show": true,
+          "positionDegrees": [
+            2.921,
+            46.221,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.15,
+            0.9,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classes": [
+              "Architecture",
+              "Ground",
+              "Vegetation",
+              "Artifacts"
+            ]
+          }
+        },
+        {
+          "id": "pnts-class-boundary-rect",
+          "name": "Point Cloud Semantic Zoning Boundary Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              2.91,
+              46.21,
+              2.95,
+              46.25
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.55,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "spatialIndex": "Morton Z-Order",
+            "classificationActive": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Unclassified Point Cloud Base Shading",
+      "entities": [
+        {
+          "id": "pnts-class-marker-cylinder",
+          "name": "Classified Point Cloud Survey Station Cylinder",
+          "show": true,
+          "positionDegrees": [
+            2.928,
+            46.227,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.7,
+            0.7,
+            0.7,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "pointCloudAssetId": 16421,
+            "classificationType": "CESIUM_3D_TILE",
+            "classificationUrl": "Classification/PointCloud/tileset.json"
+          }
+        },
+        {
+          "id": "pnts-class-prism-box",
+          "name": "3D Geometry Classification Prism Volume Box",
+          "show": true,
+          "positionDegrees": [
+            2.935,
+            46.233,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.45,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "styleExpression": "color(\"rgba(255, 0, 0, 0.6)\")",
+            "experimentalGeometryTiles": true
+          }
+        },
+        {
+          "id": "pnts-class-semantic-sphere",
+          "name": "Semantic Classification Label Reference Sphere",
+          "show": true,
+          "positionDegrees": [
+            2.921,
+            46.221,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classes": [
+              "Architecture",
+              "Ground",
+              "Vegetation",
+              "Artifacts"
+            ]
+          }
+        },
+        {
+          "id": "pnts-class-boundary-rect",
+          "name": "Point Cloud Semantic Zoning Boundary Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              2.91,
+              46.21,
+              2.95,
+              46.25
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.55,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "spatialIndex": "Morton Z-Order",
+            "classificationActive": true
+          }
+        }
+      ]
+    }
+  ]
+}

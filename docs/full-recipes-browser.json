@@ -7107,6 +7107,170 @@
           "pixels": 96400
         }
       ]
+    },
+    {
+      "id": "3d-tiles-picking-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "9ef87a87520e7f92982317b5f9b21fd8076e7e807595245d9c3a985e3f0dfe41",
+      "inputSha256": "17fee6449f664bd9d53422f0cb26b263187888648734ac3f099ee2d6e6f8148a",
+      "fixtureSha256": "6b56c7aabfbb43f5a1b04232e4c4eb64812effe39fa804bb12ce369ed5bf74d9",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "picking-dev-anchor-cylinder",
+        "picking-dev-probe-box",
+        "picking-dev-hit-sphere",
+        "picking-dev-footprint-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "picking-dev-anchor-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "picking-dev-probe-box",
+          "pixels": 103808
+        },
+        {
+          "id": "picking-dev-hit-sphere",
+          "pixels": 152594
+        },
+        {
+          "id": "picking-dev-footprint-rect",
+          "pixels": 96436
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-point-cloud",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "53b92056ddbbd287c72b4fdc2416adee441676a4a82291f3a4837f12fbb05da1",
+      "inputSha256": "bf1d665a12ec82bead3a96341d862f5af33a1474f131eb177a9c927711b59cbe",
+      "fixtureSha256": "18bbcc26f596d2109d0bdf6d018e0ced163cde3951245f37c104767d4f2499f8",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "pnts-columbia-center-cylinder",
+        "pnts-scan-volume-box",
+        "pnts-sensor-dome-sphere",
+        "pnts-campus-site-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "pnts-columbia-center-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "pnts-scan-volume-box",
+          "pixels": 103808
+        },
+        {
+          "id": "pnts-sensor-dome-sphere",
+          "pixels": 152594
+        },
+        {
+          "id": "pnts-campus-site-rect",
+          "pixels": 91480
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-point-cloud-classification",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "079ec5e1eabc984af941d44e8b9b52cc5ee9a256b1d33daa2cea26cf94437f1b",
+      "inputSha256": "969f9464b5f78b96283003d22c86bab55c19789e81bc4f79f48ff5b738779f1e",
+      "fixtureSha256": "1ae00c2bd590ad8a560cc2d1898c7cc94cd8218c2710688557294c81fb39868f",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "pnts-class-marker-cylinder",
+        "pnts-class-prism-box",
+        "pnts-class-semantic-sphere",
+        "pnts-class-boundary-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "pnts-class-marker-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "pnts-class-prism-box",
+          "pixels": 103808
+        },
+        {
+          "id": "pnts-class-semantic-sphere",
+          "pixels": 152594
+        },
+        {
+          "id": "pnts-class-boundary-rect",
+          "pixels": 91480
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-point-cloud-shading",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "48bd69f2cbfd63de43e35a19279ae9c07c14388f2bdf617676a5ecf571af721f",
+      "inputSha256": "fe86715f8f344cc8f5876ae63591ee30c0feb488e31a7168b24c82a123151172",
+      "fixtureSha256": "61b4f23ca1953ba2a5de6ed8e4ed89bbaa188455e454284c3dc7b64ac359c7e3",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "pnts-shading-st-helens-cylinder",
+        "pnts-shading-attenuation-box",
+        "pnts-shading-edl-sphere",
+        "pnts-shading-survey-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "pnts-shading-st-helens-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "pnts-shading-attenuation-box",
+          "pixels": 103808
+        },
+        {
+          "id": "pnts-shading-edl-sphere",
+          "pixels": 152594
+        },
+        {
+          "id": "pnts-shading-survey-rect",
+          "pixels": 95898
+        }
+      ]
     }
   ],
   "browser": "156.0.8078.75",

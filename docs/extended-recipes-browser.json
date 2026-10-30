@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "3d-tiles-nga-gpm-visualization",
+      "id": "3d-tiles-picking-dev",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "d0838199a45b178302a49e840ee39568b40d360f802487506a350e9507cedcc4",
-      "inputSha256": "5c514eb13fc3ea77ece5c0dfeb2dc7dfd17eeff538fc46a1bd3cdba32356c78c",
-      "fixtureSha256": "beeddfad16643323fef609b83b734916bbea4c6443f072a5a369454e6650173d",
+      "sourceSha256": "9ef87a87520e7f92982317b5f9b21fd8076e7e807595245d9c3a985e3f0dfe41",
+      "inputSha256": "17fee6449f664bd9d53422f0cb26b263187888648734ac3f099ee2d6e6f8148a",
+      "fixtureSha256": "6b56c7aabfbb43f5a1b04232e4c4eb64812effe39fa804bb12ce369ed5bf74d9",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,37 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "gpm-reference-datum-cylinder",
-        "gpm-precision-mesh-box",
-        "gpm-covariance-ellipsoid",
-        "gpm-evaluation-survey-rect"
+        "picking-dev-anchor-cylinder",
+        "picking-dev-probe-box",
+        "picking-dev-hit-sphere",
+        "picking-dev-footprint-rect"
       ],
       "pixelCounts": [
         {
-          "id": "gpm-reference-datum-cylinder",
+          "id": "picking-dev-anchor-cylinder",
           "pixels": 87505
         },
         {
-          "id": "gpm-precision-mesh-box",
+          "id": "picking-dev-probe-box",
           "pixels": 103808
         },
         {
-          "id": "gpm-covariance-ellipsoid",
+          "id": "picking-dev-hit-sphere",
           "pixels": 152594
         },
         {
-          "id": "gpm-evaluation-survey-rect",
-          "pixels": 92007
+          "id": "picking-dev-footprint-rect",
+          "pixels": 96436
         }
       ]
     },
     {
-      "id": "3d-tiles-performance-testing-dev",
+      "id": "3d-tiles-point-cloud",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "60a7edcb2666e07c3190084c7b22cda8f93e83198e2dacfebbe401ecb49636a9",
-      "inputSha256": "ffa16d646cc9d6c71da1ed8855ae583a20d516a0293df8aa692ac6720a2361b1",
-      "fixtureSha256": "ee0701798e50fd95a4fb00853be4e887a6b4b929455df994daeefe9d04f5be1a",
+      "sourceSha256": "53b92056ddbbd287c72b4fdc2416adee441676a4a82291f3a4837f12fbb05da1",
+      "inputSha256": "bf1d665a12ec82bead3a96341d862f5af33a1474f131eb177a9c927711b59cbe",
+      "fixtureSha256": "18bbcc26f596d2109d0bdf6d018e0ced163cde3951245f37c104767d4f2499f8",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -63,37 +63,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "perf-benchmark-origin-cylinder",
-        "perf-benchmark-tour-waypoint-box",
-        "perf-heatmap-property-sphere",
-        "perf-streaming-boundary-rect"
+        "pnts-columbia-center-cylinder",
+        "pnts-scan-volume-box",
+        "pnts-sensor-dome-sphere",
+        "pnts-campus-site-rect"
       ],
       "pixelCounts": [
         {
-          "id": "perf-benchmark-origin-cylinder",
+          "id": "pnts-columbia-center-cylinder",
           "pixels": 87505
         },
         {
-          "id": "perf-benchmark-tour-waypoint-box",
+          "id": "pnts-scan-volume-box",
           "pixels": 103808
         },
         {
-          "id": "perf-heatmap-property-sphere",
+          "id": "pnts-sensor-dome-sphere",
           "pixels": 152594
         },
         {
-          "id": "perf-streaming-boundary-rect",
-          "pixels": 101065
+          "id": "pnts-campus-site-rect",
+          "pixels": 91480
         }
       ]
     },
     {
-      "id": "3d-tiles-photogrammetry",
+      "id": "3d-tiles-point-cloud-classification",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "8a84512ffcfb6798b06f6839fff6b80397736dec0780393b69c9720c6dcf69a9",
-      "inputSha256": "76c8e95929356d3c173a2f5217ba4e9e5cb1e62a7c4c0dd7280a800c1a5d588f",
-      "fixtureSha256": "e3d68299311cdfd9589a84605e90a73ff50dde909a2f5229c41ef28ae4f261c7",
+      "sourceSha256": "079ec5e1eabc984af941d44e8b9b52cc5ee9a256b1d33daa2cea26cf94437f1b",
+      "inputSha256": "969f9464b5f78b96283003d22c86bab55c19789e81bc4f79f48ff5b738779f1e",
+      "fixtureSha256": "1ae00c2bd590ad8a560cc2d1898c7cc94cd8218c2710688557294c81fb39868f",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -104,37 +104,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "photogrammetry-mesh-core-cylinder",
-        "photogrammetry-textured-block-box",
-        "photogrammetry-drone-survey-sphere",
-        "photogrammetry-flight-corridor-rect"
+        "pnts-class-marker-cylinder",
+        "pnts-class-prism-box",
+        "pnts-class-semantic-sphere",
+        "pnts-class-boundary-rect"
       ],
       "pixelCounts": [
         {
-          "id": "photogrammetry-mesh-core-cylinder",
+          "id": "pnts-class-marker-cylinder",
           "pixels": 87505
         },
         {
-          "id": "photogrammetry-textured-block-box",
+          "id": "pnts-class-prism-box",
           "pixels": 103808
         },
         {
-          "id": "photogrammetry-drone-survey-sphere",
+          "id": "pnts-class-semantic-sphere",
           "pixels": 152594
         },
         {
-          "id": "photogrammetry-flight-corridor-rect",
-          "pixels": 96400
+          "id": "pnts-class-boundary-rect",
+          "pixels": 91480
         }
       ]
     },
     {
-      "id": "3d-tiles-photogrammetry-classification",
+      "id": "3d-tiles-point-cloud-shading",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "967720a28a4036400389e935b41f7bc2ac3d324c35c7974572cf0a9b45932449",
-      "inputSha256": "dc21162cc102edfccc3a1e9bf4f77990a18a8957d9498e59a95fbbd5b6fb409d",
-      "fixtureSha256": "5633b1cadd9812285e790d2fd655e64f0483b75f08b53da38bbafc3e596c625c",
+      "sourceSha256": "48bd69f2cbfd63de43e35a19279ae9c07c14388f2bdf617676a5ecf571af721f",
+      "inputSha256": "fe86715f8f344cc8f5876ae63591ee30c0feb488e31a7168b24c82a123151172",
+      "fixtureSha256": "61b4f23ca1953ba2a5de6ed8e4ed89bbaa188455e454284c3dc7b64ac359c7e3",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -145,27 +145,27 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "photo-class-parcel-pillar-cylinder",
-        "photo-class-volume-box",
-        "photo-class-semantic-zone-sphere",
-        "photo-class-draped-boundary-rect"
+        "pnts-shading-st-helens-cylinder",
+        "pnts-shading-attenuation-box",
+        "pnts-shading-edl-sphere",
+        "pnts-shading-survey-rect"
       ],
       "pixelCounts": [
         {
-          "id": "photo-class-parcel-pillar-cylinder",
+          "id": "pnts-shading-st-helens-cylinder",
           "pixels": 87505
         },
         {
-          "id": "photo-class-volume-box",
+          "id": "pnts-shading-attenuation-box",
           "pixels": 103808
         },
         {
-          "id": "photo-class-semantic-zone-sphere",
+          "id": "pnts-shading-edl-sphere",
           "pixels": 152594
         },
         {
-          "id": "photo-class-draped-boundary-rect",
-          "pixels": 96400
+          "id": "pnts-shading-survey-rect",
+          "pixels": 95898
         }
       ]
     }

@@ -5143,6 +5143,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "3d-tiles-picking-dev",
+      "title": "3D Tiles Picking - Dev",
+      "sourceSha256": "9ef87a87520e7f92982317b5f9b21fd8076e7e807595245d9c3a985e3f0dfe41",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-picking-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-picking-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-picking-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Tiles picking comparison across Google P3DT, Cesium OSM Buildings, and Photogrammetry",
+        "Support for scene.pick, surface normal extraction, and globe-disabled rendering"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-point-cloud",
+      "title": "3D Tiles Point Cloud",
+      "sourceSha256": "53b92056ddbbd287c72b4fdc2416adee441676a4a82291f3a4837f12fbb05da1",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-point-cloud",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-point-cloud.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-point-cloud.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Terrestrial LiDAR point cloud from Columbia University Robotics Lab (Ion Asset 16421)",
+        "Precise camera setView framing with HeadingPitchRoll orientation and world terrain"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-point-cloud-classification",
+      "title": "3D Tiles Point Cloud Classification",
+      "sourceSha256": "079ec5e1eabc984af941d44e8b9b52cc5ee9a256b1d33daa2cea26cf94437f1b",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-point-cloud-classification",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-point-cloud-classification.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-point-cloud-classification.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Point Cloud classified by Geometry tileset using ClassificationType.CESIUM_3D_TILE",
+        "Dynamic semantic styling expressions on classified laser scanning point sets"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-point-cloud-shading",
+      "title": "3D Tiles Point Cloud Shading",
+      "sourceSha256": "48bd69f2cbfd63de43e35a19279ae9c07c14388f2bdf617676a5ecf571af721f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-point-cloud-shading",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-point-cloud-shading.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-point-cloud-shading.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Point cloud shading with Eye Dome Lighting (EDL), geometric error attenuation, and maximum screen space error",
+        "Support for St. Helens volcanic topography and historic Church datasets"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",
