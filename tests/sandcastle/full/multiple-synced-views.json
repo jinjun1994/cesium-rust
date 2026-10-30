@@ -1,0 +1,144 @@
+[
+  {
+    "id": "sync-3d-perspective-box",
+    "name": "3D Perspective Globe Camera Center Target Box",
+    "show": true,
+    "positionDegrees": [
+      -75.165,
+      39.952,
+      60
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        35,
+        35,
+        70
+      ]
+    },
+    "color": [
+      0.2,
+      0.85,
+      0.55,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.75,
+      1,
+      0.85,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sceneMode": "SCENE3D",
+      "sharedClock": true
+    }
+  },
+  {
+    "id": "sync-2d-ortho-cylinder",
+    "name": "2D Orthographic Map Synchronized Center Datum Column",
+    "show": true,
+    "positionDegrees": [
+      -75.162,
+      39.955,
+      45
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 50,
+      "topRadius": 6.5,
+      "bottomRadius": 6.5
+    },
+    "color": [
+      0.25,
+      0.65,
+      0.95,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.7,
+      0.9,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "sceneMode": "SCENE2D",
+      "pickEllipsoid": true
+    }
+  },
+  {
+    "id": "sync-focal-pick-sphere",
+    "name": "Viewport Center Screen Space Focal Raycast Probe",
+    "show": true,
+    "positionDegrees": [
+      -75.168,
+      39.949,
+      50
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        5.5,
+        5.5,
+        5.5
+      ]
+    },
+    "color": [
+      0.95,
+      0.85,
+      0.25,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.95,
+      0.7,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "viewCenter": "Cartesian2(w/2, h/2)",
+      "distanceLock": true
+    }
+  },
+  {
+    "id": "sync-viewport-extent-rect",
+    "name": "Synchronized Dual Viewport Cadastral Envelope",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -75.175,
+        39.945,
+        -75.155,
+        39.96
+      ]
+    },
+    "color": [
+      0.25,
+      0.35,
+      0.45,
+      0.25
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.85,
+      0.7,
+      0.95,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "dualViewerSync": "2D_and_3D"
+    }
+  }
+]

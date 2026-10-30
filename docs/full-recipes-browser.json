@@ -1,5 +1,5 @@
 {
-  "version": "0.0.79",
+  "version": "0.0.80",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -10432,10 +10432,174 @@
           "pixels": 66867
         }
       ]
+    },
+    {
+      "id": "multifrustum-snapping-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "988a873c7463f501a3229260ab0b02ab4410a54f32defcb8a69eb56ba5e91e24",
+      "inputSha256": "985b7501f83ff4adefc781b03f60d66a95aa9e6884ca31b4252a66288ddafa35",
+      "fixtureSha256": "dd1db8a8f1865bd04fc59aa066636d8dbb41a363fca002b67925e4f006c15a36",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "snap-far-tileset-box",
+        "snap-near-model-cylinder",
+        "snap-marker-probe-sphere",
+        "snap-multifrustum-bounds-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "snap-far-tileset-box",
+          "pixels": 741
+        },
+        {
+          "id": "snap-near-model-cylinder",
+          "pixels": 152
+        },
+        {
+          "id": "snap-marker-probe-sphere",
+          "pixels": 26
+        },
+        {
+          "id": "snap-multifrustum-bounds-rect",
+          "pixels": 66323
+        }
+      ]
+    },
+    {
+      "id": "multiple-shadows-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "854cc1ff2f63cef58b3cb12567f2a08e719868db74ab7d165a4e279857f099c9",
+      "inputSha256": "41c8dbd120e94641036ddb2d2566106ce8f625dabc43bbea245dada8e96ea0e2",
+      "fixtureSha256": "dd4ecdecdb6552c0ff39b30db987ca26ad5cd040a62b73d8afb72ba7f19d6791",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "shadow-model-caster-box",
+        "shadow-point-light-1-cylinder",
+        "shadow-point-light-2-sphere",
+        "shadow-scene-bounds-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "shadow-model-caster-box",
+          "pixels": 448
+        },
+        {
+          "id": "shadow-point-light-1-cylinder",
+          "pixels": 139
+        },
+        {
+          "id": "shadow-point-light-2-sphere",
+          "pixels": 26
+        },
+        {
+          "id": "shadow-scene-bounds-rect",
+          "pixels": 65983
+        }
+      ]
+    },
+    {
+      "id": "multiple-synced-views",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "8756119108f87742a46a731177d1bc2e45a0813cfdb0cf2c237092bfbb507eaa",
+      "inputSha256": "a18cc9b0953e610d261d62ecff7b978575e0393ea50662d333c39f4531051b45",
+      "fixtureSha256": "6bcab9e16e064c112316c93e521d3e2b9caa991ca7eb266f6aa4c93aa5ed636d",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "sync-3d-perspective-box",
+        "sync-2d-ortho-cylinder",
+        "sync-focal-pick-sphere",
+        "sync-viewport-extent-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "sync-3d-perspective-box",
+          "pixels": 576
+        },
+        {
+          "id": "sync-2d-ortho-cylinder",
+          "pixels": 139
+        },
+        {
+          "id": "sync-focal-pick-sphere",
+          "pixels": 26
+        },
+        {
+          "id": "sync-viewport-extent-rect",
+          "pixels": 66323
+        }
+      ]
+    },
+    {
+      "id": "pamap-terrain",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "f9d4369d475978c07f88851d9634d919ed9ba668c2c0b96b50bbe969e696ae77",
+      "inputSha256": "e4a71acab663527514afba43bca454d154953259e8da44b1a5cb008d7206efa8",
+      "fixtureSha256": "5cc66730a3fdc665f651f8fcdb6173a38ec7b8e6cc54360951420b70ef12e2fa",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "pamap-pinnacle-anchor-box",
+        "pamap-mount-nittany-cylinder",
+        "pamap-elevation-survey-sphere",
+        "pamap-pennsylvania-bounds-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "pamap-pinnacle-anchor-box",
+          "pixels": 627
+        },
+        {
+          "id": "pamap-mount-nittany-cylinder",
+          "pixels": 236
+        },
+        {
+          "id": "pamap-elevation-survey-sphere",
+          "pixels": 30
+        },
+        {
+          "id": "pamap-pennsylvania-bounds-rect",
+          "pixels": 65983
+        }
+      ]
     }
   ],
   "browser": "151.0.7922.34",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed",
-  "totalCases": 263
+  "totalCases": 267
 }

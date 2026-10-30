@@ -7323,6 +7323,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "multifrustum-snapping-dev",
+      "title": "Multifrustum Snapping - Dev",
+      "sourceSha256": "988a873c7463f501a3229260ab0b02ab4410a54f32defcb8a69eb56ba5e91e24",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=multifrustum-snapping-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/multifrustum-snapping-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/multifrustum-snapping-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Scene.snap client-side edge and surface snapping across multiple frustums",
+        "Forces multifrustum rendering with logarithmicDepthBuffer = false and farToNearRatio = 100",
+        "Diagnostics for edge snap (cyan), surface snap (yellow), and miss fallback (red)"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "multiple-shadows-dev",
+      "title": "Multiple Shadows - Dev",
+      "sourceSha256": "854cc1ff2f63cef58b3cb12567f2a08e719868db74ab7d165a4e279857f099c9",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=multiple-shadows-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/multiple-shadows-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/multiple-shadows-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Multiple Cesium.ShadowMap point light shadow casters with lightCamera",
+        "Shadow map debug frustum visualization toggle and animated shadow caster models",
+        "WorldTerrain depth buffer self-shadowing and soft shadows configuration"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "multiple-synced-views",
+      "title": "Multiple Synced Views",
+      "sourceSha256": "8756119108f87742a46a731177d1bc2e45a0813cfdb0cf2c237092bfbb507eaa",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=multiple-synced-views",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/multiple-synced-views.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/multiple-synced-views.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Synchronized dual 2D and 3D viewers sharing a single ClockViewModel",
+        "Viewport center screen space focal raycast and camera pickEllipsoid coupling",
+        "Dynamic camera distance tracking and orthographic map synchronization"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "pamap-terrain",
+      "title": "PAMAP Terrain",
+      "sourceSha256": "f9d4369d475978c07f88851d9634d919ed9ba668c2c0b96b50bbe969e696ae77",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=pamap-terrain",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/pamap-terrain.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/pamap-terrain.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "CesiumTerrainProvider.fromIonAssetId(3957) high-resolution Pennsylvania PASDA terrain",
+        "Pinnacle and Mount Nittany landmark flyTos with heading and pitch orientation",
+        "Appalachian ridge topographic lidar mesh and cadastral footprint inspection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

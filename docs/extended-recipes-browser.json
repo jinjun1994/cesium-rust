@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "material-with-custom-glsl",
+      "id": "multifrustum-snapping-dev",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "f303a83b8d0f488e13328ade2aeadc4eb6150770b084648de7b6835b75e9b060",
-      "inputSha256": "aecf41aea346be4a9461986d3a3ddd67566b00448cf432ccd5b8ddc7effe7357",
-      "fixtureSha256": "4088a8d6c66f5bdfacb11241df40a3684779fee24a839c581ea941722cb58cf3",
+      "sourceSha256": "988a873c7463f501a3229260ab0b02ab4410a54f32defcb8a69eb56ba5e91e24",
+      "inputSha256": "985b7501f83ff4adefc781b03f60d66a95aa9e6884ca31b4252a66288ddafa35",
+      "fixtureSha256": "dd1db8a8f1865bd04fc59aa066636d8dbb41a363fca002b67925e4f006c15a36",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,150 +22,150 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "glsl-custom-material-box",
-        "glsl-uniform-time-cylinder",
-        "glsl-phong-lighting-sphere",
-        "glsl-material-bounds-rect"
+        "snap-far-tileset-box",
+        "snap-near-model-cylinder",
+        "snap-marker-probe-sphere",
+        "snap-multifrustum-bounds-rect"
       ],
       "pixelCounts": [
         {
-          "id": "glsl-custom-material-box",
-          "pixels": 208
+          "id": "snap-far-tileset-box",
+          "pixels": 741
         },
         {
-          "id": "glsl-uniform-time-cylinder",
-          "pixels": 137
-        },
-        {
-          "id": "glsl-phong-lighting-sphere",
-          "pixels": 26
-        },
-        {
-          "id": "glsl-material-bounds-rect",
-          "pixels": 66852
-        }
-      ]
-    },
-    {
-      "id": "montreal-point-cloud",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "13d5b82cef7d0c2489d3d63c08f867495c72ee3d9407055503f903ae1f07a2b3",
-      "inputSha256": "dd4d7a1a6749e4bc0aefd40878daea588bed360b5da727d3831dbc888a23fcb3",
-      "fixtureSha256": "91e39c05ed03c13c5c81fdd01b27fde810bae8b5687259f9c82f797e19c2b7b7",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "mtl-downtown-cloud-box",
-        "mtl-mount-royal-cylinder",
-        "mtl-old-port-sphere",
-        "mtl-metro-cadastral-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "mtl-downtown-cloud-box",
-          "pixels": 720
-        },
-        {
-          "id": "mtl-mount-royal-cylinder",
-          "pixels": 177
-        },
-        {
-          "id": "mtl-old-port-sphere",
-          "pixels": 30
-        },
-        {
-          "id": "mtl-metro-cadastral-rect",
-          "pixels": 66325
-        }
-      ]
-    },
-    {
-      "id": "moon",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "86fba597dc0c2cedd224756c9fc69d6c05845126838d17d1abdcf657ea380b67",
-      "inputSha256": "d82aee6a5cf3d5faee632ba787ceadecb57ed4c96967ae4f12d411cb2e652052",
-      "fixtureSha256": "f6fe99924eadec2c885aae2bf23c67f82aebf7a94370791499cc143e5fbe5c9a",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "moon-apollo11-tranquility-box",
-        "moon-artemis3-southpole-cylinder",
-        "moon-mare-serenitatis-sphere",
-        "moon-survey-envelope-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "moon-apollo11-tranquility-box",
-          "pixels": 627
-        },
-        {
-          "id": "moon-artemis3-southpole-cylinder",
-          "pixels": 169
-        },
-        {
-          "id": "moon-mare-serenitatis-sphere",
-          "pixels": 30
-        },
-        {
-          "id": "moon-survey-envelope-rect",
-          "pixels": 66319
-        }
-      ]
-    },
-    {
-      "id": "msaa",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "1f6583637fe784a2b84d9c02c375a4292d40ae44693fcfe9fb975a81e16a29a4",
-      "inputSha256": "b9290cc894d00d22a5e66fd8bbfbdd0fcade49315ec84d28a83a9d68a952bdb7",
-      "fixtureSha256": "75939b05e536d90a5c3980e68273b288d2ac17e60e761deec64ca18c9ffd9110",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "msaa-facility-target-box",
-        "msaa-subpixel-sample-cylinder",
-        "msaa-silhouetted-edge-sphere",
-        "msaa-testbed-cadastral-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "msaa-facility-target-box",
-          "pixels": 474
-        },
-        {
-          "id": "msaa-subpixel-sample-cylinder",
+          "id": "snap-near-model-cylinder",
           "pixels": 152
         },
         {
-          "id": "msaa-silhouetted-edge-sphere",
+          "id": "snap-marker-probe-sphere",
           "pixels": 26
         },
         {
-          "id": "msaa-testbed-cadastral-rect",
-          "pixels": 66867
+          "id": "snap-multifrustum-bounds-rect",
+          "pixels": 66323
+        }
+      ]
+    },
+    {
+      "id": "multiple-shadows-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "854cc1ff2f63cef58b3cb12567f2a08e719868db74ab7d165a4e279857f099c9",
+      "inputSha256": "41c8dbd120e94641036ddb2d2566106ce8f625dabc43bbea245dada8e96ea0e2",
+      "fixtureSha256": "dd4ecdecdb6552c0ff39b30db987ca26ad5cd040a62b73d8afb72ba7f19d6791",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "shadow-model-caster-box",
+        "shadow-point-light-1-cylinder",
+        "shadow-point-light-2-sphere",
+        "shadow-scene-bounds-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "shadow-model-caster-box",
+          "pixels": 448
+        },
+        {
+          "id": "shadow-point-light-1-cylinder",
+          "pixels": 139
+        },
+        {
+          "id": "shadow-point-light-2-sphere",
+          "pixels": 26
+        },
+        {
+          "id": "shadow-scene-bounds-rect",
+          "pixels": 65983
+        }
+      ]
+    },
+    {
+      "id": "multiple-synced-views",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "8756119108f87742a46a731177d1bc2e45a0813cfdb0cf2c237092bfbb507eaa",
+      "inputSha256": "a18cc9b0953e610d261d62ecff7b978575e0393ea50662d333c39f4531051b45",
+      "fixtureSha256": "6bcab9e16e064c112316c93e521d3e2b9caa991ca7eb266f6aa4c93aa5ed636d",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "sync-3d-perspective-box",
+        "sync-2d-ortho-cylinder",
+        "sync-focal-pick-sphere",
+        "sync-viewport-extent-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "sync-3d-perspective-box",
+          "pixels": 576
+        },
+        {
+          "id": "sync-2d-ortho-cylinder",
+          "pixels": 139
+        },
+        {
+          "id": "sync-focal-pick-sphere",
+          "pixels": 26
+        },
+        {
+          "id": "sync-viewport-extent-rect",
+          "pixels": 66323
+        }
+      ]
+    },
+    {
+      "id": "pamap-terrain",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "f9d4369d475978c07f88851d9634d919ed9ba668c2c0b96b50bbe969e696ae77",
+      "inputSha256": "e4a71acab663527514afba43bca454d154953259e8da44b1a5cb008d7206efa8",
+      "fixtureSha256": "5cc66730a3fdc665f651f8fcdb6173a38ec7b8e6cc54360951420b70ef12e2fa",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "pamap-pinnacle-anchor-box",
+        "pamap-mount-nittany-cylinder",
+        "pamap-elevation-survey-sphere",
+        "pamap-pennsylvania-bounds-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "pamap-pinnacle-anchor-box",
+          "pixels": 627
+        },
+        {
+          "id": "pamap-mount-nittany-cylinder",
+          "pixels": 236
+        },
+        {
+          "id": "pamap-elevation-survey-sphere",
+          "pixels": 30
+        },
+        {
+          "id": "pamap-pennsylvania-bounds-rect",
+          "pixels": 65983
         }
       ]
     }

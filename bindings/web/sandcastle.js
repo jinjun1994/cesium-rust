@@ -274,6 +274,10 @@ $('fullNew236').onclick=guarded(()=>runFull('material-with-custom-glsl'));
 $('fullNew237').onclick=guarded(()=>runFull('montreal-point-cloud'));
 $('fullNew238').onclick=guarded(()=>runFull('moon'));
 $('fullNew239').onclick=guarded(()=>runFull('msaa'));
+$('fullNew240').onclick=guarded(()=>runFull('multifrustum-snapping-dev'));
+$('fullNew241').onclick=guarded(()=>runFull('multiple-shadows-dev'));
+$('fullNew242').onclick=guarded(()=>runFull('multiple-synced-views'));
+$('fullNew243').onclick=guarded(()=>runFull('pamap-terrain'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

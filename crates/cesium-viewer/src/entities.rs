@@ -5752,4 +5752,65 @@ mod tests {
         let msaa_variants = crate::entity_variants::decode(&msaa_variants_raw).unwrap();
         assert_eq!(msaa_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch80_multifrustum_shadows_synced_pamap() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Multifrustum Snapping - Dev
+        let snap_data = std::fs::read(base.join("multifrustum-snapping-dev.json")).unwrap();
+        let snap_entities = decode(&snap_data).unwrap();
+        assert_eq!(snap_entities.len(), 4);
+        assert!(matches!(snap_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(snap_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(snap_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(snap_entities[3].shape, Shape::Rectangle { .. }));
+        let snap_variants_raw =
+            std::fs::read(base.join("multifrustum-snapping-dev.variants.json")).unwrap();
+        let snap_variants = crate::entity_variants::decode(&snap_variants_raw).unwrap();
+        assert_eq!(snap_variants.variants.len(), 4);
+
+        // 2. Multiple Shadows - Dev
+        let shadow_data = std::fs::read(base.join("multiple-shadows-dev.json")).unwrap();
+        let shadow_entities = decode(&shadow_data).unwrap();
+        assert_eq!(shadow_entities.len(), 4);
+        assert!(matches!(shadow_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(shadow_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(shadow_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(shadow_entities[3].shape, Shape::Rectangle { .. }));
+        let shadow_variants_raw =
+            std::fs::read(base.join("multiple-shadows-dev.variants.json")).unwrap();
+        let shadow_variants = crate::entity_variants::decode(&shadow_variants_raw).unwrap();
+        assert_eq!(shadow_variants.variants.len(), 4);
+
+        // 3. Multiple Synced Views
+        let sync_data = std::fs::read(base.join("multiple-synced-views.json")).unwrap();
+        let sync_entities = decode(&sync_data).unwrap();
+        assert_eq!(sync_entities.len(), 4);
+        assert!(matches!(sync_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(sync_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(sync_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(sync_entities[3].shape, Shape::Rectangle { .. }));
+        let sync_variants_raw =
+            std::fs::read(base.join("multiple-synced-views.variants.json")).unwrap();
+        let sync_variants = crate::entity_variants::decode(&sync_variants_raw).unwrap();
+        assert_eq!(sync_variants.variants.len(), 4);
+
+        // 4. PAMAP Terrain
+        let pamap_data = std::fs::read(base.join("pamap-terrain.json")).unwrap();
+        let pamap_entities = decode(&pamap_data).unwrap();
+        assert_eq!(pamap_entities.len(), 4);
+        assert!(matches!(pamap_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(pamap_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(pamap_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(pamap_entities[3].shape, Shape::Rectangle { .. }));
+        let pamap_variants_raw = std::fs::read(base.join("pamap-terrain.variants.json")).unwrap();
+        let pamap_variants = crate::entity_variants::decode(&pamap_variants_raw).unwrap();
+        assert_eq!(pamap_variants.variants.len(), 4);
+    }
 }

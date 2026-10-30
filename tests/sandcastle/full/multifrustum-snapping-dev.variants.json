@@ -1,0 +1,605 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Multifrustum Snapping (Cyan Edge Snap in Near Frustum)",
+      "entities": [
+        {
+          "id": "snap-far-tileset-box",
+          "name": "Far Frustum 3D Tileset Snapping Target Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -75.165,
+            39.952,
+            60
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              80
+            ]
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "frustum": "FAR",
+            "farToNearRatio": 100,
+            "logarithmicDepthBuffer": false,
+            "ionAssetId": 4665927
+          }
+        },
+        {
+          "id": "snap-near-model-cylinder",
+          "name": "Near Frustum EdgeVisibility Model Datum Column",
+          "show": true,
+          "positionDegrees": [
+            -75.162,
+            39.955,
+            45
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 55,
+            "topRadius": 7,
+            "bottomRadius": 7
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "frustum": "NEAR",
+            "edgeDisplayMode": "SURFACES_AND_EDGES"
+          }
+        },
+        {
+          "id": "snap-marker-probe-sphere",
+          "name": "Snap Hit Diagnostic Screen Space Marker Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.168,
+            39.949,
+            50
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              5.5,
+              5.5,
+              5.5
+            ]
+          },
+          "color": [
+            0,
+            1,
+            1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "markerEdge": "#00ffff",
+            "markerSurface": "#ffff00",
+            "markerMiss": "#ff0000"
+          }
+        },
+        {
+          "id": "snap-multifrustum-bounds-rect",
+          "name": "Multifrustum Snapping Inspection Cadastral Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.175,
+              39.945,
+              -75.155,
+              39.96
+            ]
+          },
+          "color": [
+            0.25,
+            0.35,
+            0.45,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.95,
+            0.75,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "twoClickMeasurement": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Surface Snapping Mode (Yellow Marker Surface Intersection in Far Frustum)",
+      "entities": [
+        {
+          "id": "snap-far-tileset-box",
+          "name": "Far Frustum 3D Tileset Snapping Target Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -75.165,
+            39.952,
+            60
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              80
+            ]
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.8,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "frustum": "FAR",
+            "farToNearRatio": 100,
+            "logarithmicDepthBuffer": false,
+            "ionAssetId": 4665927
+          }
+        },
+        {
+          "id": "snap-near-model-cylinder",
+          "name": "Near Frustum EdgeVisibility Model Datum Column",
+          "show": true,
+          "positionDegrees": [
+            -75.162,
+            39.955,
+            45
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 55,
+            "topRadius": 7,
+            "bottomRadius": 7
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "frustum": "NEAR",
+            "edgeDisplayMode": "SURFACES_AND_EDGES"
+          }
+        },
+        {
+          "id": "snap-marker-probe-sphere",
+          "name": "Snap Hit Diagnostic Screen Space Marker Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.168,
+            39.949,
+            50
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              5.5,
+              5.5,
+              5.5
+            ]
+          },
+          "color": [
+            0,
+            1,
+            1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "markerEdge": "#00ffff",
+            "markerSurface": "#ffff00",
+            "markerMiss": "#ff0000"
+          }
+        },
+        {
+          "id": "snap-multifrustum-bounds-rect",
+          "name": "Multifrustum Snapping Inspection Cadastral Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.175,
+              39.945,
+              -75.155,
+              39.96
+            ]
+          },
+          "color": [
+            0.25,
+            0.35,
+            0.45,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.95,
+            0.75,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "twoClickMeasurement": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Miss Fallback Raycast Mode (Red Marker Screen Space pickPosition Fallback)",
+      "entities": [
+        {
+          "id": "snap-far-tileset-box",
+          "name": "Far Frustum 3D Tileset Snapping Target Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -75.165,
+            39.952,
+            60
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              80
+            ]
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "frustum": "FAR",
+            "farToNearRatio": 100,
+            "logarithmicDepthBuffer": false,
+            "ionAssetId": 4665927
+          }
+        },
+        {
+          "id": "snap-near-model-cylinder",
+          "name": "Near Frustum EdgeVisibility Model Datum Column",
+          "show": true,
+          "positionDegrees": [
+            -75.162,
+            39.955,
+            45
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 55,
+            "topRadius": 7,
+            "bottomRadius": 7
+          },
+          "color": [
+            0.95,
+            0.25,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "frustum": "NEAR",
+            "edgeDisplayMode": "SURFACES_AND_EDGES"
+          }
+        },
+        {
+          "id": "snap-marker-probe-sphere",
+          "name": "Snap Hit Diagnostic Screen Space Marker Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.168,
+            39.949,
+            50
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              5.5,
+              5.5,
+              5.5
+            ]
+          },
+          "color": [
+            0,
+            1,
+            1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "markerEdge": "#00ffff",
+            "markerSurface": "#ffff00",
+            "markerMiss": "#ff0000"
+          }
+        },
+        {
+          "id": "snap-multifrustum-bounds-rect",
+          "name": "Multifrustum Snapping Inspection Cadastral Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.175,
+              39.945,
+              -75.155,
+              39.96
+            ]
+          },
+          "color": [
+            0.25,
+            0.35,
+            0.45,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.95,
+            0.75,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "twoClickMeasurement": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Two-Click Measurement Mode (Orange Distance Vector Line Inspection)",
+      "entities": [
+        {
+          "id": "snap-far-tileset-box",
+          "name": "Far Frustum 3D Tileset Snapping Target Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -75.165,
+            39.952,
+            60
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              80
+            ]
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "frustum": "FAR",
+            "farToNearRatio": 100,
+            "logarithmicDepthBuffer": false,
+            "ionAssetId": 4665927
+          }
+        },
+        {
+          "id": "snap-near-model-cylinder",
+          "name": "Near Frustum EdgeVisibility Model Datum Column",
+          "show": true,
+          "positionDegrees": [
+            -75.162,
+            39.955,
+            45
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 55,
+            "topRadius": 7,
+            "bottomRadius": 7
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "frustum": "NEAR",
+            "edgeDisplayMode": "SURFACES_AND_EDGES"
+          }
+        },
+        {
+          "id": "snap-marker-probe-sphere",
+          "name": "Snap Hit Diagnostic Screen Space Marker Probe",
+          "show": true,
+          "positionDegrees": [
+            -75.168,
+            39.949,
+            50
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              5.5,
+              5.5,
+              5.5
+            ]
+          },
+          "color": [
+            1,
+            0.55,
+            0,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "markerEdge": "#00ffff",
+            "markerSurface": "#ffff00",
+            "markerMiss": "#ff0000"
+          }
+        },
+        {
+          "id": "snap-multifrustum-bounds-rect",
+          "name": "Multifrustum Snapping Inspection Cadastral Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.175,
+              39.945,
+              -75.155,
+              39.96
+            ]
+          },
+          "color": [
+            0.35,
+            0.25,
+            0.25,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.95,
+            0.75,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "twoClickMeasurement": true
+          }
+        }
+      ]
+    }
+  ]
+}

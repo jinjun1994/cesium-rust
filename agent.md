@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.79（已通过 263 / 309 个完整案例，剩余 46 个）
+- **当前版本**：v0.0.80（已通过 267 / 309 个完整案例，剩余 42 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.80 验收完成：Multifrustum Snapping - Dev、Multiple Shadows - Dev、Multiple Synced Views 与 PAMAP Terrain
+- **完成配方**（累计推进至 **267 / 309**，剩余 42 个）：
+  1. `multifrustum-snapping-dev`（Cesium ion 几何吸附多平截头体近远裁切面穿透、多视锥高精度拾取与对齐孔径控制：基准多平截头体离子模型吸附、高灵敏度大孔径吸附模式、中距离平截头体边界吸附模式、多视锥线段端点对准模式 4 种变体）
+  2. `multiple-shadows-dev`（多动态光源阴影图投影、方向光/聚光灯/点光源阴影级联混合与偏置解析度调优：基准多光源投射阴影、聚光灯窄锥角锐利阴影模式、日光主导高分辨率瀑布级联阴影模式、低空多色微弱辅助阴影模式 4 种变体）
+  3. `multiple-synced-views`（多相机视口联动同步、主从视口三维空间姿态解算与多地标分屏观览：基准多视口双向实时相机姿态联动、俯视正射主从对齐模式、地平线追踪双屏漫游模式、高空全景广角与微观细节对比模式 4 种变体）
+  4. `pamap-terrain`（宾夕法尼亚高分辨率激光雷达 PAMAP 地形数据、局部高精高程流与地貌等高线剖析：基准 PAMAP 高分辨率局部地形、阿勒格尼高原山脉高程增强模式、宾州局部水系低洼地貌对比模式、无地形基准椭球体对照模式 4 种变体）
+- **核心研发突破**：
+  1. **多平截头体几何吸附与视锥深度穿透（Multifrustum Snapping & Deep Picking）**：支持多平截头体渲染架构下的空间几何点与线段对准，跨深度分层消除 Z-fighting 并精确维持近远景拾取精度。
+  2. **多光源级联阴影管线与偏置调制（Multi-Source Cascade Shadow Mapping）**：集成多方向光与聚光灯阴影投射矩阵，动态计算级联阴影深度图偏置，消除粉刺走样与阴影断层。
+  3. **多视口相机姿态同步与主从对齐（Synchronized Camera Views & Split-View Orchestration）**：实现主从视图实时变换矩阵双向联动，支持俯视导航雷达与斜视巡检视角的平滑姿态镜像。
+  4. **高分辨率局部激光雷达地形流（High-Resolution PAMAP Terrain Streaming）**：集成宾夕法尼亚高精度 PAMAP 高程瓦片集，支持地势起伏分层增强与局域等高线微地貌解析。
+- **验证结果**：
+  - **普通 Rust 单元测试**：140 项全部通过（含 `batch80_multifrustum_shadows_synced_pamap`）。
+  - **真实 GPU 离屏渲染测试**：268 / 268 项全数通过（`268 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，267 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：267 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Multifrustum Snapping - Dev、Multiple Shadows - Dev、Multiple Synced Views 与 PAMAP Terrain 验证文档](docs/multifrustum-shadows-synced-pamap-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.79 验收完成：Material with Custom GLSL、Montreal Point Cloud、Moon 与 MSAA
 - **完成配方**（累计推进至 **263 / 309**，剩余 46 个）：
