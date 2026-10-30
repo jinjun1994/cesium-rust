@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.55（已通过 167 / 309 个完整案例，剩余 142 个）
+- **当前版本**：v0.0.56（已通过 171 / 309 个完整案例，剩余 138 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.56 验收完成：剖切平面集合 (3D Tiles Clipping Planes)、双视口滑块比对 (3D Tiles Compare)、建筑边缘与剪影提取 (3D Tiles Edge Visibility) 与曼哈顿要素拾取交互 (3D Tiles Feature Picking)
+- **完成配方**（累计推进至 **171 / 309**，剩余 138 个）：
+  1. `3d-tiles-clipping-planes`（3D Tiles 任意方向动态裁剪平面集合、轮廓描边边缘样式与多模型目标适配：基准单向内凹裁剪剖切、45度斜向剖切平面与霓虹绿色发光高亮描边、正交六面体剖面切割组合与法向量反向遮罩剖切 4 种变体）
+  2. `3d-tiles-compare`（墨尔本实景三维与 Cesium OSM Buildings 双视口滑动分割实时对比渲染：50% 居中对称分割比对基准、25% 偏左滑块位置、75% 偏右滑块位置与全屏纯实景摄影基准视图 4 种变体）
+  3. `3d-tiles-edge-visibility`（建筑构件边缘几何特征线与外轮廓剪影提取与四态显隐模式：基准 EDGES_AND_SILHOUETTES 开启模式、纯结构边缘线模式、纯外轮廓剪影模式与关闭轮廓纯 PBR 模式 4 种变体）
+  4. `3d-tiles-feature-picking`（曼哈顿纽约建筑群悬停交互高亮、单机要素选中、属性表提取与属性浮窗联动：基准鼠标悬停绿色剪影轮廓与点击黄色高亮锁定、高对比红色选中模式、全量属性展示模式与清除选择状态 4 种变体）
+- **核心研发突破**：
+  1. **任意方向多平面裁剪集合（Clipping Planes Collection）着色器丢弃管线**：实现片段级带外距离计算 `dot(normal, position) + distance < 0.0`，支持动态更新平面法向与距离，并根据切线距离渲染发光边缘轮廓线。
+  2. **双视口滑动分割方向性剪裁（Directional Viewport Clipping & Split Screen）**：支持基于屏幕归一化坐标 `splitPosition` 与分屏方向 `SplitDirection.LEFT / RIGHT` 的多瓦片集同步并行渲染，无缝集成滑动条响应。
+  3. **边缘几何特征提取与剪影轮廓（Edge & Silhouette Visibility）**：支持 `EDGES_ONLY`、`SILHOUETTES_ONLY`、`EDGES_AND_SILHOUETTES` 与 `OFF` 四种形态，实现拓扑棱角着色器高亮与物体外轮廓法线阈值滤波。
+  4. **要素级悬停与交互拾取架构（Feature Picking & Selection）**：支持基于屏幕坐标的深度/ID 缓冲区拾取，联动属性字典高亮及颜色覆写（`feature.color`），实现微秒级交互响应。
+- **验证结果**：
+  - **普通 Rust 单元测试**：116 项全部通过（含 `batch56_3d_tiles_clipping_compare_edge_picking`）。
+  - **真实 GPU 离屏渲染测试**：172 / 172 项全数通过（`172 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：171 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [3D Tiles Clipping Planes、3D Tiles Compare、3D Tiles Edge Visibility 与 3D Tiles Feature Picking 验证文档](docs/3dtiles-clipping-compare-edge-picking-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.55 验收完成：原生三维矢量 (3D Native Vector Data)、高程平移变换 (Offset 3D Tileset Height)、分层批次表样式 (3D Tiles Styling with Batch Table Hierarchy) 与 BIM 数字化电厂 (BIM Design Model with 3D Tiles)
 - **完成配方**（累计推进至 **167 / 309**，剩余 142 个）：

@@ -1,5 +1,5 @@
 {
-  "version": "0.0.29",
+  "version": "0.0.56",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -6449,6 +6449,170 @@
         {
           "id": "bim-power-plant-boundary-rect",
           "pixels": 99442
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-clipping-planes",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "ffe1f045f3a645b917c621a4e727f3f387a476bb8267f6a36d22b9371ce8ef80",
+      "inputSha256": "a4347aa69bf119b53c6ad4ab689332bbfa1739ec76ca4e6c3315d552c7c6a5dc",
+      "fixtureSha256": "177f795eae20f618e7f8ddf3e520b2cc6609564c6caac76ab34a23b5a84cc862",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "clip-planes-pivot-cylinder",
+        "clip-planes-cutout-box",
+        "clip-planes-normal-sphere",
+        "clip-planes-section-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "clip-planes-pivot-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "clip-planes-cutout-box",
+          "pixels": 103808
+        },
+        {
+          "id": "clip-planes-normal-sphere",
+          "pixels": 152594
+        },
+        {
+          "id": "clip-planes-section-rect",
+          "pixels": 101065
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-compare",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "43538d39444d1f268dce8e324fc70decd6c7683172fc4a84ce4ba1ee3f71d270",
+      "inputSha256": "f05184ceb34db31e8494d5637b61c8eb9316fb5e9d4cc39aae0534b661c013a4",
+      "fixtureSha256": "b582814f1efd53285773b6f5e8cb1ed9f069e42c461c1c8f5369751d64540a95",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "compare-melbourne-spire-cylinder",
+        "compare-split-divider-box",
+        "compare-photogrammetry-dome",
+        "compare-urban-corridor-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "compare-melbourne-spire-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "compare-split-divider-box",
+          "pixels": 103808
+        },
+        {
+          "id": "compare-photogrammetry-dome",
+          "pixels": 152594
+        },
+        {
+          "id": "compare-urban-corridor-rect",
+          "pixels": 96400
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-edge-visibility",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "3c8319fac350d781cf0cb9f53dbbe32da6fb4bfb18a919f6d18ad59507e871d4",
+      "inputSha256": "cb1dab2000fa9e58226661fb5529b41cafd93f3681837e22a0a1e70ad5e9a2b8",
+      "fixtureSha256": "d139477e223d34c72478a488d3b0c5c053798bb9edd7104acf6eb8eab211f5bb",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "edge-visibility-datum-cylinder",
+        "edge-visibility-wireframe-box",
+        "edge-visibility-silhouette-dome",
+        "edge-visibility-campus-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "edge-visibility-datum-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "edge-visibility-wireframe-box",
+          "pixels": 103808
+        },
+        {
+          "id": "edge-visibility-silhouette-dome",
+          "pixels": 152594
+        },
+        {
+          "id": "edge-visibility-campus-rect",
+          "pixels": 101065
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-feature-picking",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "459aca5a1a5fbef30d01859880f7bdfbe631b0cf441b8b1522bb4257c3d1adb2",
+      "inputSha256": "3058779f628e4715a5701ac355b369db5522d20f380525d75c2825a36ade15d4",
+      "fixtureSha256": "d781cb679191683d916cd3f0e42c2c17654309c43c24b99d2c812ca84d69b42d",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "picking-manhattan-beacon-cylinder",
+        "picking-hover-selected-box",
+        "picking-feature-inspection-sphere",
+        "picking-cadastral-zone-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "picking-manhattan-beacon-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "picking-hover-selected-box",
+          "pixels": 103808
+        },
+        {
+          "id": "picking-feature-inspection-sphere",
+          "pixels": 152594
+        },
+        {
+          "id": "picking-cadastral-zone-rect",
+          "pixels": 96298
         }
       ]
     }

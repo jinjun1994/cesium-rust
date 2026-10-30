@@ -1,0 +1,641 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: BIM Model Clipping (Horizontal Normal [0, 0, -1])",
+      "entities": [
+        {
+          "id": "clip-planes-pivot-cylinder",
+          "name": "Clipping Plane Anchor & Rotation Pivot Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.95,
+            0.45,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "planeNormal": [
+              0,
+              0,
+              -1
+            ],
+            "planeDistance": 0,
+            "edgeWidth": 1
+          }
+        },
+        {
+          "id": "clip-planes-cutout-box",
+          "name": "Sectional Excavation & Cutout Massing Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "targetObject": "BIM",
+            "edgeColor": "white",
+            "unionClipping": false
+          }
+        },
+        {
+          "id": "clip-planes-normal-sphere",
+          "name": "Clipping Normal Orientation Reference Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.45,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "debugBoundingVolumes": false,
+            "planeRepresentation": "PlaneGeometry"
+          }
+        },
+        {
+          "id": "clip-planes-section-rect",
+          "name": "Cross-Section Spatial Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.55,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clipObjects": "BIM, Point Cloud, Instanced, Model",
+            "edgeStylingEnabled": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Edge Styling Enabled (Glowing White 1px Cut Edges)",
+      "entities": [
+        {
+          "id": "clip-planes-pivot-cylinder",
+          "name": "Clipping Plane Anchor & Rotation Pivot Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            1,
+            1,
+            1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "planeNormal": [
+              0,
+              0,
+              -1
+            ],
+            "planeDistance": 0,
+            "edgeWidth": 1
+          }
+        },
+        {
+          "id": "clip-planes-cutout-box",
+          "name": "Sectional Excavation & Cutout Massing Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "targetObject": "BIM",
+            "edgeColor": "white",
+            "unionClipping": false
+          }
+        },
+        {
+          "id": "clip-planes-normal-sphere",
+          "name": "Clipping Normal Orientation Reference Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.45,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "debugBoundingVolumes": false,
+            "planeRepresentation": "PlaneGeometry"
+          }
+        },
+        {
+          "id": "clip-planes-section-rect",
+          "name": "Cross-Section Spatial Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.55,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clipObjects": "BIM, Point Cloud, Instanced, Model",
+            "edgeStylingEnabled": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Inverted Clipping Normal ([0, 0, 1] Revealing Interior)",
+      "entities": [
+        {
+          "id": "clip-planes-pivot-cylinder",
+          "name": "Clipping Plane Anchor & Rotation Pivot Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.95,
+            0.45,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "planeNormal": [
+              0,
+              0,
+              -1
+            ],
+            "planeDistance": 0,
+            "edgeWidth": 1
+          }
+        },
+        {
+          "id": "clip-planes-cutout-box",
+          "name": "Sectional Excavation & Cutout Massing Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "targetObject": "BIM",
+            "edgeColor": "white",
+            "unionClipping": false
+          }
+        },
+        {
+          "id": "clip-planes-normal-sphere",
+          "name": "Clipping Normal Orientation Reference Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.45,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "debugBoundingVolumes": false,
+            "planeRepresentation": "PlaneGeometry"
+          }
+        },
+        {
+          "id": "clip-planes-section-rect",
+          "name": "Cross-Section Spatial Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.55,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clipObjects": "BIM, Point Cloud, Instanced, Model",
+            "edgeStylingEnabled": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Debug Bounding Volumes Enabled (Tileset Sphere & Box Hierarchy)",
+      "entities": [
+        {
+          "id": "clip-planes-pivot-cylinder",
+          "name": "Clipping Plane Anchor & Rotation Pivot Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.95,
+            0.45,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "planeNormal": [
+              0,
+              0,
+              -1
+            ],
+            "planeDistance": 0,
+            "edgeWidth": 1
+          }
+        },
+        {
+          "id": "clip-planes-cutout-box",
+          "name": "Sectional Excavation & Cutout Massing Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.65,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "targetObject": "BIM",
+            "edgeColor": "white",
+            "unionClipping": false
+          }
+        },
+        {
+          "id": "clip-planes-normal-sphere",
+          "name": "Clipping Normal Orientation Reference Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.45,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "debugBoundingVolumes": false,
+            "planeRepresentation": "PlaneGeometry"
+          }
+        },
+        {
+          "id": "clip-planes-section-rect",
+          "name": "Cross-Section Spatial Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.2,
+            0.75,
+            0.9,
+            0.8
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "clipObjects": "BIM, Point Cloud, Instanced, Model",
+            "edgeStylingEnabled": true
+          }
+        }
+      ]
+    }
+  ]
+}

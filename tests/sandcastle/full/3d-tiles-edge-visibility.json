@@ -1,0 +1,154 @@
+[
+  {
+    "id": "edge-visibility-datum-cylinder",
+    "name": "Architectural Edge Contrast Datum Cylinder",
+    "show": true,
+    "positionDegrees": [
+      -75.612,
+      40.042,
+      2500
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 5000,
+      "topRadius": 1500,
+      "bottomRadius": 1500
+    },
+    "color": [
+      0.95,
+      0.85,
+      0.25,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.95,
+      0.5,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "ionAssetId": 4665927,
+      "edgeDisplayMode": "EDGES_ONLY"
+    }
+  },
+  {
+    "id": "edge-visibility-wireframe-box",
+    "name": "Geometric Crease & Silhouette Extraction Box",
+    "show": true,
+    "positionDegrees": [
+      -75.605,
+      40.048,
+      2000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        2500,
+        2500,
+        2200
+      ]
+    },
+    "color": [
+      0.15,
+      0.75,
+      0.85,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.35,
+      0.95,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "creaseAngleDegrees": 30,
+      "silhouetteColor": "cyan"
+    }
+  },
+  {
+    "id": "edge-visibility-silhouette-dome",
+    "name": "Boundary Silhouette Enclosure Hemisphere",
+    "show": true,
+    "positionDegrees": [
+      -75.618,
+      40.035,
+      2200
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        2000,
+        2000,
+        1800
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      0.75,
+      0.35,
+      0.85,
+      0.85
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "silhouetteWidth": 2,
+      "meshPbrShading": true
+    }
+  },
+  {
+    "id": "edge-visibility-campus-rect",
+    "name": "Exton Edge Visibility Testing Geographic Area",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -75.63,
+        40.03,
+        -75.59,
+        40.06
+      ],
+      "height": 2000,
+      "extrudedHeight": 4000,
+      "rotation": 0
+    },
+    "color": [
+      0.35,
+      0.65,
+      0.95,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.55,
+      0.85,
+      1,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "cameraHeadingPitchRange": [
+        0,
+        -0.5,
+        0
+      ],
+      "renderTargetFormat": "RGBA8_UNORM"
+    }
+  }
+]

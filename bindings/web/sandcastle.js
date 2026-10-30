@@ -178,6 +178,10 @@ $('fullNew140').onclick=guarded(()=>runFull('3d-tiles-3d-native-vector'));
 $('fullNew141').onclick=guarded(()=>runFull('3d-tiles-adjust-height'));
 $('fullNew142').onclick=guarded(()=>runFull('3d-tiles-batch-table-hierarchy'));
 $('fullNew143').onclick=guarded(()=>runFull('3d-tiles-bim'));
+$('fullNew144').onclick=guarded(()=>runFull('3d-tiles-clipping-planes'));
+$('fullNew145').onclick=guarded(()=>runFull('3d-tiles-compare'));
+$('fullNew146').onclick=guarded(()=>runFull('3d-tiles-edge-visibility'));
+$('fullNew147').onclick=guarded(()=>runFull('3d-tiles-feature-picking'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

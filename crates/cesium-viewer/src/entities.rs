@@ -4309,4 +4309,61 @@ mod tests {
         let bim_variants = crate::entity_variants::decode(&bim_variants_raw).unwrap();
         assert_eq!(bim_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch56_3d_tiles_clipping_compare_edge_picking() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. 3D Tiles Clipping Planes
+        let cp_data = std::fs::read(base.join("3d-tiles-clipping-planes.json")).unwrap();
+        let cp_entities = decode(&cp_data).unwrap();
+        assert_eq!(cp_entities.len(), 4);
+        assert!(matches!(cp_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(cp_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(cp_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(cp_entities[3].shape, Shape::Rectangle { .. }));
+        let cp_variants_raw =
+            std::fs::read(base.join("3d-tiles-clipping-planes.variants.json")).unwrap();
+        let cp_variants = crate::entity_variants::decode(&cp_variants_raw).unwrap();
+        assert_eq!(cp_variants.variants.len(), 4);
+
+        // 2. 3D Tiles Compare
+        let tc_data = std::fs::read(base.join("3d-tiles-compare.json")).unwrap();
+        let tc_entities = decode(&tc_data).unwrap();
+        assert_eq!(tc_entities.len(), 4);
+        assert!(matches!(tc_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(tc_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(tc_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(tc_entities[3].shape, Shape::Rectangle { .. }));
+        let tc_variants_raw = std::fs::read(base.join("3d-tiles-compare.variants.json")).unwrap();
+        let tc_variants = crate::entity_variants::decode(&tc_variants_raw).unwrap();
+        assert_eq!(tc_variants.variants.len(), 4);
+
+        // 3. 3D Tiles Edge Visibility
+        let ev_data = std::fs::read(base.join("3d-tiles-edge-visibility.json")).unwrap();
+        let ev_entities = decode(&ev_data).unwrap();
+        assert_eq!(ev_entities.len(), 4);
+        assert!(matches!(ev_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ev_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(ev_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ev_entities[3].shape, Shape::Rectangle { .. }));
+        let ev_variants_raw =
+            std::fs::read(base.join("3d-tiles-edge-visibility.variants.json")).unwrap();
+        let ev_variants = crate::entity_variants::decode(&ev_variants_raw).unwrap();
+        assert_eq!(ev_variants.variants.len(), 4);
+
+        // 4. 3D Tiles Feature Picking
+        let fp_data = std::fs::read(base.join("3d-tiles-feature-picking.json")).unwrap();
+        let fp_entities = decode(&fp_data).unwrap();
+        assert_eq!(fp_entities.len(), 4);
+        assert!(matches!(fp_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(fp_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(fp_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(fp_entities[3].shape, Shape::Rectangle { .. }));
+        let fp_variants_raw =
+            std::fs::read(base.join("3d-tiles-feature-picking.variants.json")).unwrap();
+        let fp_variants = crate::entity_variants::decode(&fp_variants_raw).unwrap();
+        assert_eq!(fp_variants.variants.len(), 4);
+    }
 }

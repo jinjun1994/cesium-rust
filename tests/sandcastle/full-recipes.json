@@ -4711,6 +4711,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "3d-tiles-clipping-planes",
+      "title": "3D Tiles Clipping Planes",
+      "sourceSha256": "ffe1f045f3a645b917c621a4e727f3f387a476bb8267f6a36d22b9371ce8ef80",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-clipping-planes",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-clipping-planes.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-clipping-planes.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Tiles clipping planes with dynamic distance, normal orientation, and edge styling",
+        "Multi-target clipping on BIM, Point Cloud, Instanced, and Model collections"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-compare",
+      "title": "3D Tiles Compare",
+      "sourceSha256": "43538d39444d1f268dce8e324fc70decd6c7683172fc4a84ce4ba1ee3f71d270",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-compare",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-compare.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-compare.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Tiles dual-screen split comparison between Melbourne photogrammetry and Cesium OSM Buildings",
+        "Interactive splitPosition slider synchronization and directional viewport clipping"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-edge-visibility",
+      "title": "3D Tiles Edge Visibility",
+      "sourceSha256": "3c8319fac350d781cf0cb9f53dbbe32da6fb4bfb18a919f6d18ad59507e871d4",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-edge-visibility",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-edge-visibility.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-edge-visibility.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Tiles edge visibility and silhouette extraction in multiple display modes",
+        "Support for EDGES_ONLY, EDGES_AND_SILHOUETTES, SILHOUETTES_ONLY, and OFF"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-feature-picking",
+      "title": "3D Tiles Feature Picking",
+      "sourceSha256": "459aca5a1a5fbef30d01859880f7bdfbe631b0cf441b8b1522bb4257c3d1adb2",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-feature-picking",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-feature-picking.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-feature-picking.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Tiles high-frequency mouse hover highlight and click selection on NYC buildings",
+        "Dynamic entity property table extraction, infoBox display, and terrain depth testing"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

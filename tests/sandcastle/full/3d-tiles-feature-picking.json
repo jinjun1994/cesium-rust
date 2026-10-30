@@ -1,0 +1,154 @@
+[
+  {
+    "id": "picking-manhattan-beacon-cylinder",
+    "name": "Lower Manhattan Financial Center Beacon Cylinder",
+    "show": true,
+    "positionDegrees": [
+      -74.006,
+      40.7128,
+      2500
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 5000,
+      "topRadius": 1500,
+      "bottomRadius": 1500
+    },
+    "color": [
+      0.85,
+      0.25,
+      0.35,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.45,
+      0.55,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "dataSource": "NYC OpenData 3D Buildings",
+      "binCode": "1001001"
+    }
+  },
+  {
+    "id": "picking-hover-selected-box",
+    "name": "Interactive Hover & Selection Focus Box",
+    "show": true,
+    "positionDegrees": [
+      -73.998,
+      40.719,
+      2000
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        2500,
+        2500,
+        2200
+      ]
+    },
+    "color": [
+      0.95,
+      0.85,
+      0.15,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.95,
+      0.4,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "hoverOutlineColor": "yellow",
+      "selectFillColor": "lime"
+    }
+  },
+  {
+    "id": "picking-feature-inspection-sphere",
+    "name": "Building Semantic Metadata Query Sphere",
+    "show": true,
+    "positionDegrees": [
+      -74.015,
+      40.705,
+      2200
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        2000,
+        2000,
+        1800
+      ],
+      "slicePartitions": 24,
+      "stackPartitions": 24
+    },
+    "color": [
+      0.25,
+      0.75,
+      0.95,
+      0.85
+    ],
+    "fill": true,
+    "outline": false,
+    "outlineColor": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "infoBoxEnabled": true,
+      "batchIdActive": true
+    }
+  },
+  {
+    "id": "picking-cadastral-zone-rect",
+    "name": "Manhattan Cadastral Survey Boundary Footprint",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -74.03,
+        40.69,
+        -73.98,
+        40.73
+      ],
+      "height": 2000,
+      "extrudedHeight": 4000,
+      "rotation": 0
+    },
+    "color": [
+      0.45,
+      0.85,
+      0.45,
+      0.7
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.65,
+      1,
+      0.65,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "depthTestAgainstTerrain": true,
+      "initialHeadingPitchRoll": [
+        0,
+        -0.5,
+        0
+      ]
+    }
+  }
+]
