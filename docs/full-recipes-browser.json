@@ -8300,10 +8300,174 @@
           "pixels": 12788
         }
       ]
+    },
+    {
+      "id": "constant-lod-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "a86a8dbf24e48c66cc42463b7f855bb4d5721dd648fcd08245c821d759beb10b",
+      "inputSha256": "77f8c371cad44370b3450ddfa930836929592b859894e9bdaf4f3cc811cb7b84",
+      "fixtureSha256": "81ffae5b3644b6a7a3fdccd39f8e0592e28f295a966858d188554b6a13ced4ec",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "clod-checker-plane-box",
+        "clod-grass-canopy-cylinder",
+        "clod-normal-map-sphere",
+        "clod-model-footprint-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "clod-checker-plane-box",
+          "pixels": 709
+        },
+        {
+          "id": "clod-grass-canopy-cylinder",
+          "pixels": 656
+        },
+        {
+          "id": "clod-normal-map-sphere",
+          "pixels": 277
+        },
+        {
+          "id": "clod-model-footprint-rect",
+          "pixels": 51923
+        }
+      ]
+    },
+    {
+      "id": "custom-datasource",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "37d2421f66666855cbc5387819873b92f91897eb3d5d53bc156623fee8ca8732",
+      "inputSha256": "84ba5b58ac21aa7062afabcd23f9ef009090cd46eeabc33697786c1993cab36c",
+      "fixtureSha256": "10c50e07a14049719fd9d364dac7140402adbe18bd61a4481c00c182e379ce3e",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "custom-ds-tokyo-pillar",
+        "custom-ds-nyc-pillar",
+        "custom-ds-london-marker",
+        "custom-ds-globe-baseline-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "custom-ds-tokyo-pillar",
+          "pixels": 1217
+        },
+        {
+          "id": "custom-ds-nyc-pillar",
+          "pixels": 1260
+        },
+        {
+          "id": "custom-ds-london-marker",
+          "pixels": 427
+        },
+        {
+          "id": "custom-ds-globe-baseline-rect",
+          "pixels": 62024
+        }
+      ]
+    },
+    {
+      "id": "custom-geocoder",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "b5664c168d526b7ba22d7795e0bcefb148b5b2dc2a726838472703c395c037b3",
+      "inputSha256": "ee240b0222ae04a5663764ce32430b6273cb41f3570afba15585914b4c2c171b",
+      "fixtureSha256": "46f6b05cd5e50b5e79eaafa0729a4f86c574b75e47f9ef5b99ce503f6f7c39ea",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "custom-geo-philly-box",
+        "custom-geo-ben-franklin-pillar",
+        "custom-geo-search-pin-sphere",
+        "custom-geo-nominatim-bbox-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "custom-geo-philly-box",
+          "pixels": 881
+        },
+        {
+          "id": "custom-geo-ben-franklin-pillar",
+          "pixels": 567
+        },
+        {
+          "id": "custom-geo-search-pin-sphere",
+          "pixels": 333
+        },
+        {
+          "id": "custom-geo-nominatim-bbox-rect",
+          "pixels": 66773
+        }
+      ]
+    },
+    {
+      "id": "custom-per-feature-post-process",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "68ff10c1aebad4c1903cc6ce23cd2e1ef81d050667f7b9d1789fcd0ed2fddde2",
+      "inputSha256": "638263193a7dca1ee7cc78553d57db0f9af289686634b237e0413e59316c5260",
+      "fixtureSha256": "facfbe3b37c64e32586c1359166c7007d32dd618642dd16c7d8cb3f4fa30a7a4",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "custom-post-subject-box",
+        "custom-post-podium-cylinder",
+        "custom-post-hover-marker",
+        "custom-post-stage-footprint-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "custom-post-subject-box",
+          "pixels": 474
+        },
+        {
+          "id": "custom-post-podium-cylinder",
+          "pixels": 484
+        },
+        {
+          "id": "custom-post-hover-marker",
+          "pixels": 225
+        },
+        {
+          "id": "custom-post-stage-footprint-rect",
+          "pixels": 34891
+        }
+      ]
     }
   ],
   "browser": "156.0.8078.75",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed",
-  "totalCases": 211
+  "totalCases": 215
 }

@@ -1,0 +1,609 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: 1990 Population Series (Global Urban Pillars)",
+      "entities": [
+        {
+          "id": "custom-ds-tokyo-pillar",
+          "name": "Tokyo Central Urban Population Density Pillar",
+          "show": true,
+          "positionDegrees": [
+            139.6917,
+            35.6895,
+            60
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 25,
+            "bottomRadius": 25
+          },
+          "color": [
+            0.95,
+            0.15,
+            0.5,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seriesName": "1990",
+            "city": "Tokyo",
+            "densityIndex": 0.92
+          }
+        },
+        {
+          "id": "custom-ds-nyc-pillar",
+          "name": "Shinjuku Skyscraper Cluster Density Pillar",
+          "show": true,
+          "positionDegrees": [
+            139.7005,
+            35.6908,
+            55
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              110
+            ]
+          },
+          "color": [
+            0.98,
+            0.55,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.8,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seriesName": "1990",
+            "district": "Shinjuku",
+            "densityIndex": 0.85
+          }
+        },
+        {
+          "id": "custom-ds-london-marker",
+          "name": "Yokohama Port Population Centroid Marker",
+          "show": true,
+          "positionDegrees": [
+            139.638,
+            35.4437,
+            45
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25,
+              25,
+              25
+            ]
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seriesName": "1990",
+            "city": "Yokohama",
+            "densityIndex": 0.72
+          }
+        },
+        {
+          "id": "custom-ds-globe-baseline-rect",
+          "name": "Tokyo Bay Megacity Cluster Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              139.55,
+              35.4,
+              139.85,
+              35.8
+            ]
+          },
+          "color": [
+            0.15,
+            0.2,
+            0.4,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.3,
+            0.5,
+            0.8,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "dataSource": "WebGLGlobeDataSource",
+            "heightScale": 10000000
+          }
+        }
+      ]
+    },
+    {
+      "label": "1995 Population Growth Series (Amber & Crimson Infill)",
+      "entities": [
+        {
+          "id": "custom-ds-tokyo-pillar",
+          "name": "Tokyo Central Urban Population Density Pillar",
+          "show": true,
+          "positionDegrees": [
+            139.6917,
+            35.6895,
+            60
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 25,
+            "bottomRadius": 25
+          },
+          "color": [
+            0.95,
+            0.15,
+            0.5,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seriesName": "1990",
+            "city": "Tokyo",
+            "densityIndex": 0.92
+          }
+        },
+        {
+          "id": "custom-ds-nyc-pillar",
+          "name": "Shinjuku Skyscraper Cluster Density Pillar",
+          "show": true,
+          "positionDegrees": [
+            139.7005,
+            35.6908,
+            55
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              110
+            ]
+          },
+          "color": [
+            1,
+            0.25,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seriesName": "1990",
+            "district": "Shinjuku",
+            "densityIndex": 0.85
+          }
+        },
+        {
+          "id": "custom-ds-london-marker",
+          "name": "Yokohama Port Population Centroid Marker",
+          "show": true,
+          "positionDegrees": [
+            139.638,
+            35.4437,
+            45
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25,
+              25,
+              25
+            ]
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seriesName": "1990",
+            "city": "Yokohama",
+            "densityIndex": 0.72
+          }
+        },
+        {
+          "id": "custom-ds-globe-baseline-rect",
+          "name": "Tokyo Bay Megacity Cluster Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              139.55,
+              35.4,
+              139.85,
+              35.8
+            ]
+          },
+          "color": [
+            0.15,
+            0.2,
+            0.4,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.3,
+            0.5,
+            0.8,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "dataSource": "WebGLGlobeDataSource",
+            "heightScale": 10000000
+          }
+        }
+      ]
+    },
+    {
+      "label": "2000 Peak Millennium Series (Vibrant Violet & Rose)",
+      "entities": [
+        {
+          "id": "custom-ds-tokyo-pillar",
+          "name": "Tokyo Central Urban Population Density Pillar",
+          "show": true,
+          "positionDegrees": [
+            139.6917,
+            35.6895,
+            60
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 25,
+            "bottomRadius": 25
+          },
+          "color": [
+            0.8,
+            0.2,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seriesName": "1990",
+            "city": "Tokyo",
+            "densityIndex": 0.92
+          }
+        },
+        {
+          "id": "custom-ds-nyc-pillar",
+          "name": "Shinjuku Skyscraper Cluster Density Pillar",
+          "show": true,
+          "positionDegrees": [
+            139.7005,
+            35.6908,
+            55
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              110
+            ]
+          },
+          "color": [
+            0.98,
+            0.55,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.8,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seriesName": "1990",
+            "district": "Shinjuku",
+            "densityIndex": 0.85
+          }
+        },
+        {
+          "id": "custom-ds-london-marker",
+          "name": "Yokohama Port Population Centroid Marker",
+          "show": true,
+          "positionDegrees": [
+            139.638,
+            35.4437,
+            45
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25,
+              25,
+              25
+            ]
+          },
+          "color": [
+            0.2,
+            0.8,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seriesName": "1990",
+            "city": "Yokohama",
+            "densityIndex": 0.72
+          }
+        },
+        {
+          "id": "custom-ds-globe-baseline-rect",
+          "name": "Tokyo Bay Megacity Cluster Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              139.55,
+              35.4,
+              139.85,
+              35.8
+            ]
+          },
+          "color": [
+            0.15,
+            0.2,
+            0.4,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.3,
+            0.5,
+            0.8,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "dataSource": "WebGLGlobeDataSource",
+            "heightScale": 10000000
+          }
+        }
+      ]
+    },
+    {
+      "label": "Dynamic Height Scale Multiplier (2x Elevation Spikes)",
+      "entities": [
+        {
+          "id": "custom-ds-tokyo-pillar",
+          "name": "Tokyo Central Urban Population Density Pillar",
+          "show": true,
+          "positionDegrees": [
+            139.6917,
+            35.6895,
+            60
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 120,
+            "topRadius": 25,
+            "bottomRadius": 25
+          },
+          "color": [
+            0.95,
+            0.15,
+            0.5,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seriesName": "1990",
+            "city": "Tokyo",
+            "densityIndex": 0.92
+          }
+        },
+        {
+          "id": "custom-ds-nyc-pillar",
+          "name": "Shinjuku Skyscraper Cluster Density Pillar",
+          "show": true,
+          "positionDegrees": [
+            139.7005,
+            35.6908,
+            55
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              110
+            ]
+          },
+          "color": [
+            0.98,
+            0.55,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.8,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seriesName": "1990",
+            "district": "Shinjuku",
+            "densityIndex": 0.85
+          }
+        },
+        {
+          "id": "custom-ds-london-marker",
+          "name": "Yokohama Port Population Centroid Marker",
+          "show": true,
+          "positionDegrees": [
+            139.638,
+            35.4437,
+            45
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25,
+              25,
+              25
+            ]
+          },
+          "color": [
+            0.3,
+            0.95,
+            0.6,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            1,
+            0.9,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "seriesName": "1990",
+            "city": "Yokohama",
+            "densityIndex": 0.72
+          }
+        },
+        {
+          "id": "custom-ds-globe-baseline-rect",
+          "name": "Tokyo Bay Megacity Cluster Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              139.55,
+              35.4,
+              139.85,
+              35.8
+            ]
+          },
+          "color": [
+            0.15,
+            0.2,
+            0.4,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.3,
+            0.5,
+            0.8,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "dataSource": "WebGLGlobeDataSource",
+            "heightScale": 10000000
+          }
+        }
+      ]
+    }
+  ]
+}

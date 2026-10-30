@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.66（已通过 211 / 309 个完整案例，剩余 98 个）
+- **当前版本**：v0.0.67（已通过 215 / 309 个完整案例，剩余 94 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.67 验收完成：Constant LOD - Dev、Custom DataSource、Custom Geocoder 与 Custom Per-Feature Post Process
+- **完成配方**（累计推进至 **215 / 309**，剩余 94 个）：
+  1. `constant-lod-dev`（glTF 2.0 恒定细节层次网格、棋盘格/法线贴图/草地材质与视线追踪：基准棋盘格恒定细节层次、草地纹理恒定细节层次模式、自发光增强棋盘格模式、45度斜倾平面与法线贴图变换 4 种变体）
+  2. `custom-datasource`（WebGL Globe 自定义数据源、时间序列切换与多柱体高度缩放渲染：1990 年代基准人口密度序列、1995 年代城市人口增长序列、千禧年峰值人口序列、动态高度缩放倍率模式 4 种变体）
+  3. `custom-geocoder`（OpenStreetMap Nominatim 异步地理编码器与多边形范围解算：基准 Nominatim 查询：费城地名空间矩形包围盒解算、聚焦费城市政厅地标建筑模式、大都会扩展行政区界模式、高对比度地名检索锚点模式 4 种变体）
+  4. `custom-per-feature-post-process`（后处理阶段逐要素高亮、czm_selected 片元着色器混合与鼠标交互拾取：未选中基准模型与后处理舞台、鼠标悬停要素高亮模式、多图元联合高亮模式、后处理舞台色调诊断模式 4 种变体）
+- **核心研发突破**：
+  1. **恒定屏幕空间细节层次网格管理（Constant LOD Screen Space Size Management）**：实现 glTF 模型的 `minimumPixelSize` 屏幕空间像素下限与 `maximumScale` 保护，支持 HeadingPitchRollOrientation 四元数姿态与实体视线追踪。
+  2. **自定义数据源时序流式流水线（Custom DataSource & Time-Series Batching）**：构建实现 DataSource 协议的 `WebGLGlobeDataSource`，验证批量实体挂起与恢复、多系列年份切换以及 HSL 色彩映射。
+  3. **异步地理编码服务与视口解算（Custom GeocoderService & Nominatim Pipeline）**：完成基于 Nominatim 服务的异步地址解析与地理矩形范围（Bounding Box）变换，支持自动化视口自适应缩放。
+  4. **逐要素后处理着色器蒙版（Per-Feature Post Process Stage & czm_selected Masking）**：构建基于 `PostProcessStage` 的自定义片元着色器管线，支持通过 `czm_selected()` 蒙版实现拾取要素动态高亮混合。
+- **验证结果**：
+  - **普通 Rust 单元测试**：127 项全部通过（含 `batch67_constantlod_customdatasource_customgeocoder_custompostprocess`）。
+  - **真实 GPU 离屏渲染测试**：216 / 216 项全数通过（`216 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，215 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：215 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Constant LOD - Dev、Custom DataSource、Custom Geocoder 与 Custom Per-Feature Post Process 验证文档](docs/constantlod-customds-customgeocoder-custompostprocess-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.66 验收完成：Classification Types、Client-side Snapping - Dev、Clipping Performance - Dev 与 Clipping Regions
 - **完成配方**（累计推进至 **211 / 309**，剩余 98 个）：

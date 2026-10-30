@@ -1,0 +1,597 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Checkerboard Constant LOD (Monochrome Grid)",
+      "entities": [
+        {
+          "id": "clod-checker-plane-box",
+          "name": "Constant LOD Checkerboard Plane Member",
+          "show": true,
+          "positionDegrees": [
+            -75.6867,
+            40.0658,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              60,
+              60,
+              15
+            ]
+          },
+          "color": [
+            0.85,
+            0.85,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.2,
+            0.2,
+            0.2,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "ConstantLod_Checker.gltf",
+            "minimumPixelSize": 128,
+            "maximumScale": 20000
+          }
+        },
+        {
+          "id": "clod-grass-canopy-cylinder",
+          "name": "Grass Surface Texture Canopy Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.6855,
+            40.0665,
+            30
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 24,
+            "bottomRadius": 24
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.35,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            1,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "ConstantLod_Grass.gltf",
+            "surfaceType": "vegetation"
+          }
+        },
+        {
+          "id": "clod-normal-map-sphere",
+          "name": "Normal Map Curvature Benchmark Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.688,
+            40.065,
+            25
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              20,
+              20,
+              20
+            ]
+          },
+          "color": [
+            0.2,
+            0.55,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.8,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "ConstantLod_NormalMap.gltf",
+            "hasNormalMap": true
+          }
+        },
+        {
+          "id": "clod-model-footprint-rect",
+          "name": "Constant LOD Model Placement Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.69,
+              40.063,
+              -75.683,
+              40.068
+            ]
+          },
+          "color": [
+            0.3,
+            0.35,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.7,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "testSite": "Exton Pennsylvania CLOD Test Facility"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Grass Constant LOD Mode (Emerald Texture Infill)",
+      "entities": [
+        {
+          "id": "clod-checker-plane-box",
+          "name": "Constant LOD Checkerboard Plane Member",
+          "show": true,
+          "positionDegrees": [
+            -75.6867,
+            40.0658,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              60,
+              60,
+              15
+            ]
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.4,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "ConstantLod_Checker.gltf",
+            "minimumPixelSize": 128,
+            "maximumScale": 20000
+          }
+        },
+        {
+          "id": "clod-grass-canopy-cylinder",
+          "name": "Grass Surface Texture Canopy Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.6855,
+            40.0665,
+            30
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 24,
+            "bottomRadius": 24
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.35,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            1,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "ConstantLod_Grass.gltf",
+            "surfaceType": "vegetation"
+          }
+        },
+        {
+          "id": "clod-normal-map-sphere",
+          "name": "Normal Map Curvature Benchmark Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.688,
+            40.065,
+            25
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              20,
+              20,
+              20
+            ]
+          },
+          "color": [
+            0.2,
+            0.55,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.8,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "ConstantLod_NormalMap.gltf",
+            "hasNormalMap": true
+          }
+        },
+        {
+          "id": "clod-model-footprint-rect",
+          "name": "Constant LOD Model Placement Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.69,
+              40.063,
+              -75.683,
+              40.068
+            ]
+          },
+          "color": [
+            0.3,
+            0.35,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.7,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "testSite": "Exton Pennsylvania CLOD Test Facility"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Checkerboard Emissive Glow (Amber Radiant Highlight)",
+      "entities": [
+        {
+          "id": "clod-checker-plane-box",
+          "name": "Constant LOD Checkerboard Plane Member",
+          "show": true,
+          "positionDegrees": [
+            -75.6867,
+            40.0658,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              60,
+              60,
+              15
+            ]
+          },
+          "color": [
+            0.85,
+            0.85,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.2,
+            0.2,
+            0.2,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "ConstantLod_Checker.gltf",
+            "minimumPixelSize": 128,
+            "maximumScale": 20000
+          }
+        },
+        {
+          "id": "clod-grass-canopy-cylinder",
+          "name": "Grass Surface Texture Canopy Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.6855,
+            40.0665,
+            30
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 24,
+            "bottomRadius": 24
+          },
+          "color": [
+            1,
+            0.75,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "ConstantLod_Grass.gltf",
+            "surfaceType": "vegetation"
+          }
+        },
+        {
+          "id": "clod-normal-map-sphere",
+          "name": "Normal Map Curvature Benchmark Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.688,
+            40.065,
+            25
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              20,
+              20,
+              20
+            ]
+          },
+          "color": [
+            0.2,
+            0.55,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.8,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "ConstantLod_NormalMap.gltf",
+            "hasNormalMap": true
+          }
+        },
+        {
+          "id": "clod-model-footprint-rect",
+          "name": "Constant LOD Model Placement Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.69,
+              40.063,
+              -75.683,
+              40.068
+            ]
+          },
+          "color": [
+            0.3,
+            0.35,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.7,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "testSite": "Exton Pennsylvania CLOD Test Facility"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Angled Plane & Normal Map Transform (Cyan Rotated Profile)",
+      "entities": [
+        {
+          "id": "clod-checker-plane-box",
+          "name": "Constant LOD Checkerboard Plane Member",
+          "show": true,
+          "positionDegrees": [
+            -75.6867,
+            40.0658,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              60,
+              60,
+              15
+            ]
+          },
+          "color": [
+            0.85,
+            0.85,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.2,
+            0.2,
+            0.2,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "ConstantLod_Checker.gltf",
+            "minimumPixelSize": 128,
+            "maximumScale": 20000
+          }
+        },
+        {
+          "id": "clod-grass-canopy-cylinder",
+          "name": "Grass Surface Texture Canopy Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.6855,
+            40.0665,
+            30
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 24,
+            "bottomRadius": 24
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.35,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.5,
+            1,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "ConstantLod_Grass.gltf",
+            "surfaceType": "vegetation"
+          }
+        },
+        {
+          "id": "clod-normal-map-sphere",
+          "name": "Normal Map Curvature Benchmark Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.688,
+            40.065,
+            25
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              20,
+              20,
+              20
+            ]
+          },
+          "color": [
+            0.1,
+            0.9,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "modelUri": "ConstantLod_NormalMap.gltf",
+            "hasNormalMap": true
+          }
+        },
+        {
+          "id": "clod-model-footprint-rect",
+          "name": "Constant LOD Model Placement Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.69,
+              40.063,
+              -75.683,
+              40.068
+            ]
+          },
+          "color": [
+            0.3,
+            0.35,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.7,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "testSite": "Exton Pennsylvania CLOD Test Facility"
+          }
+        }
+      ]
+    }
+  ]
+}

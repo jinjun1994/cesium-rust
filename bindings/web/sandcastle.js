@@ -222,6 +222,10 @@ $('fullNew184').onclick=guarded(()=>runFull('classification-types'));
 $('fullNew185').onclick=guarded(()=>runFull('client-side-snapping-dev'));
 $('fullNew186').onclick=guarded(()=>runFull('clipping-performance-dev'));
 $('fullNew187').onclick=guarded(()=>runFull('clipping-regions'));
+$('fullNew188').onclick=guarded(()=>runFull('constant-lod-dev'));
+$('fullNew189').onclick=guarded(()=>runFull('custom-datasource'));
+$('fullNew190').onclick=guarded(()=>runFull('custom-geocoder'));
+$('fullNew191').onclick=guarded(()=>runFull('custom-per-feature-post-process'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

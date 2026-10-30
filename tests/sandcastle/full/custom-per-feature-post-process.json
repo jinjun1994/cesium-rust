@@ -1,0 +1,142 @@
+[
+  {
+    "id": "custom-post-subject-box",
+    "name": "Tracked Model Target Subject Volume",
+    "show": true,
+    "positionDegrees": [
+      -123.0745,
+      44.0504,
+      25
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        35,
+        35,
+        50
+      ]
+    },
+    "color": [
+      0.6,
+      0.6,
+      0.65,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.9,
+      0.9,
+      0.95,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "modelUri": "Cesium_Man.glb",
+      "postProcessStage": "PerFeatureHighlight"
+    }
+  },
+  {
+    "id": "custom-post-podium-cylinder",
+    "name": "Model Inspection Podium Base",
+    "show": true,
+    "positionDegrees": [
+      -123.074,
+      44.0508,
+      18
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 36,
+      "topRadius": 22,
+      "bottomRadius": 22
+    },
+    "color": [
+      0.35,
+      0.45,
+      0.55,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.6,
+      0.75,
+      0.9,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "role": "stagePlatform"
+    }
+  },
+  {
+    "id": "custom-post-hover-marker",
+    "name": "Feature Pick Hover Detection Marker",
+    "show": true,
+    "positionDegrees": [
+      -123.075,
+      44.05,
+      20
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        18,
+        18,
+        18
+      ]
+    },
+    "color": [
+      0.15,
+      0.75,
+      0.75,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.5,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "shaderSelected": false
+    }
+  },
+  {
+    "id": "custom-post-stage-footprint-rect",
+    "name": "Post Process Stage Activation Footprint",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -123.077,
+        44.048,
+        -123.072,
+        44.053
+      ]
+    },
+    "color": [
+      0.35,
+      0.2,
+      0.45,
+      0.35
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.7,
+      0.45,
+      0.9,
+      0.85
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "fragmentShader": "czm_selected per-feature color blend"
+    }
+  }
+]

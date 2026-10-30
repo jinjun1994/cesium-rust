@@ -4955,4 +4955,63 @@ mod tests {
         let cr_variants = crate::entity_variants::decode(&cr_variants_raw).unwrap();
         assert_eq!(cr_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch67_constantlod_customdatasource_customgeocoder_custompostprocess() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Constant LOD - Dev
+        let cl_data = std::fs::read(base.join("constant-lod-dev.json")).unwrap();
+        let cl_entities = decode(&cl_data).unwrap();
+        assert_eq!(cl_entities.len(), 4);
+        assert!(matches!(cl_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(cl_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(cl_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(cl_entities[3].shape, Shape::Rectangle { .. }));
+        let cl_variants_raw = std::fs::read(base.join("constant-lod-dev.variants.json")).unwrap();
+        let cl_variants = crate::entity_variants::decode(&cl_variants_raw).unwrap();
+        assert_eq!(cl_variants.variants.len(), 4);
+
+        // 2. Custom DataSource
+        let ds_data = std::fs::read(base.join("custom-datasource.json")).unwrap();
+        let ds_entities = decode(&ds_data).unwrap();
+        assert_eq!(ds_entities.len(), 4);
+        assert!(matches!(ds_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ds_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(ds_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ds_entities[3].shape, Shape::Rectangle { .. }));
+        let ds_variants_raw = std::fs::read(base.join("custom-datasource.variants.json")).unwrap();
+        let ds_variants = crate::entity_variants::decode(&ds_variants_raw).unwrap();
+        assert_eq!(ds_variants.variants.len(), 4);
+
+        // 3. Custom Geocoder
+        let cg_data = std::fs::read(base.join("custom-geocoder.json")).unwrap();
+        let cg_entities = decode(&cg_data).unwrap();
+        assert_eq!(cg_entities.len(), 4);
+        assert!(matches!(cg_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(cg_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(cg_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(cg_entities[3].shape, Shape::Rectangle { .. }));
+        let cg_variants_raw = std::fs::read(base.join("custom-geocoder.variants.json")).unwrap();
+        let cg_variants = crate::entity_variants::decode(&cg_variants_raw).unwrap();
+        assert_eq!(cg_variants.variants.len(), 4);
+
+        // 4. Custom Per-Feature Post Process
+        let cp_data = std::fs::read(base.join("custom-per-feature-post-process.json")).unwrap();
+        let cp_entities = decode(&cp_data).unwrap();
+        assert_eq!(cp_entities.len(), 4);
+        assert!(matches!(cp_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(cp_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(cp_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(cp_entities[3].shape, Shape::Rectangle { .. }));
+        let cp_variants_raw =
+            std::fs::read(base.join("custom-per-feature-post-process.variants.json")).unwrap();
+        let cp_variants = crate::entity_variants::decode(&cp_variants_raw).unwrap();
+        assert_eq!(cp_variants.variants.len(), 4);
+    }
 }

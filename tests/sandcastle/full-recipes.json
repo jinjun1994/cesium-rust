@@ -5899,6 +5899,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "constant-lod-dev",
+      "title": "Constant LOD - Dev",
+      "sourceSha256": "a86a8dbf24e48c66cc42463b7f855bb4d5721dd648fcd08245c821d759beb10b",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=constant-lod-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/constant-lod-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/constant-lod-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Constant LOD (CLOD) glTF 2.0 models with checkerboard, normal maps, and grass textures",
+        "Model orientation with heading, pitch, roll controls and trackedEntity camera tracking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "custom-datasource",
+      "title": "Custom DataSource",
+      "sourceSha256": "37d2421f66666855cbc5387819873b92f91897eb3d5d53bc156623fee8ca8732",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=custom-datasource",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/custom-datasource.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/custom-datasource.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "WebGLGlobeDataSource custom DataSource implementation for WebGL Globe JSON population data",
+        "EntityCollection batching, series switching (1990/1995/2000), and height-scaled colored polyline pillars"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "custom-geocoder",
+      "title": "Custom Geocoder",
+      "sourceSha256": "b5664c168d526b7ba22d7795e0bcefb148b5b2dc2a726838472703c395c037b3",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=custom-geocoder",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/custom-geocoder.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/custom-geocoder.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "OpenStreetMap Nominatim custom GeocoderService implementation with fetchJson endpoint",
+        "Bounding box rectangle framing and automated geocoder search dispatch for Philadelphia"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "custom-per-feature-post-process",
+      "title": "Custom Per-Feature Post Process",
+      "sourceSha256": "68ff10c1aebad4c1903cc6ce23cd2e1ef81d050667f7b9d1789fcd0ed2fddde2",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=custom-per-feature-post-process",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/custom-per-feature-post-process.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/custom-per-feature-post-process.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Per-feature post process stage with czm_selected() fragment shader highlighting",
+        "Interactive mouse move selection with scene.pick and dynamic stage.selected updating"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

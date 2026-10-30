@@ -1,0 +1,609 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Nominatim Search \"Philadelphia\" & Bounding Box",
+      "entities": [
+        {
+          "id": "custom-geo-philly-box",
+          "name": "Philadelphia City Hall Landmark Tower",
+          "show": true,
+          "positionDegrees": [
+            -75.1636,
+            39.9524,
+            40
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              45,
+              45,
+              80
+            ]
+          },
+          "color": [
+            0.85,
+            0.78,
+            0.68,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.85,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "landmark": "City Hall",
+            "geocoderQuery": "Philadelphia"
+          }
+        },
+        {
+          "id": "custom-geo-ben-franklin-pillar",
+          "name": "Benjamin Franklin Parkway Anchor Pillar",
+          "show": true,
+          "positionDegrees": [
+            -75.172,
+            39.958,
+            30
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 20,
+            "bottomRadius": 20
+          },
+          "color": [
+            0.8,
+            0.5,
+            0.2,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "alignment": "Parkway Diagonal"
+          }
+        },
+        {
+          "id": "custom-geo-search-pin-sphere",
+          "name": "Nominatim Geocoded Search Pin Marker",
+          "show": true,
+          "positionDegrees": [
+            -75.1652,
+            39.9526,
+            25
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              22,
+              22,
+              22
+            ]
+          },
+          "color": [
+            0.95,
+            0.15,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geocoderService": "OpenStreetMap Nominatim",
+            "displayName": "Philadelphia, Pennsylvania, United States"
+          }
+        },
+        {
+          "id": "custom-geo-nominatim-bbox-rect",
+          "name": "Philadelphia Nominatim Result Bounding Box",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.28,
+              39.867,
+              -74.955,
+              40.138
+            ]
+          },
+          "color": [
+            0.2,
+            0.35,
+            0.75,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.65,
+            1,
+            0.85
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "boundingbox": [
+              39.867,
+              40.138,
+              -75.28,
+              -74.955
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Focus City Hall Landmark (Gold Tower Shading)",
+      "entities": [
+        {
+          "id": "custom-geo-philly-box",
+          "name": "Philadelphia City Hall Landmark Tower",
+          "show": true,
+          "positionDegrees": [
+            -75.1636,
+            39.9524,
+            40
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              45,
+              45,
+              80
+            ]
+          },
+          "color": [
+            0.95,
+            0.8,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "landmark": "City Hall",
+            "geocoderQuery": "Philadelphia"
+          }
+        },
+        {
+          "id": "custom-geo-ben-franklin-pillar",
+          "name": "Benjamin Franklin Parkway Anchor Pillar",
+          "show": true,
+          "positionDegrees": [
+            -75.172,
+            39.958,
+            30
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 20,
+            "bottomRadius": 20
+          },
+          "color": [
+            0.8,
+            0.5,
+            0.2,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "alignment": "Parkway Diagonal"
+          }
+        },
+        {
+          "id": "custom-geo-search-pin-sphere",
+          "name": "Nominatim Geocoded Search Pin Marker",
+          "show": true,
+          "positionDegrees": [
+            -75.1652,
+            39.9526,
+            25
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              22,
+              22,
+              22
+            ]
+          },
+          "color": [
+            0.95,
+            0.15,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geocoderService": "OpenStreetMap Nominatim",
+            "displayName": "Philadelphia, Pennsylvania, United States"
+          }
+        },
+        {
+          "id": "custom-geo-nominatim-bbox-rect",
+          "name": "Philadelphia Nominatim Result Bounding Box",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.28,
+              39.867,
+              -74.955,
+              40.138
+            ]
+          },
+          "color": [
+            0.2,
+            0.35,
+            0.75,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.65,
+            1,
+            0.85
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "boundingbox": [
+              39.867,
+              40.138,
+              -75.28,
+              -74.955
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Expanded Metro Extents (Emerald Regional Boundary)",
+      "entities": [
+        {
+          "id": "custom-geo-philly-box",
+          "name": "Philadelphia City Hall Landmark Tower",
+          "show": true,
+          "positionDegrees": [
+            -75.1636,
+            39.9524,
+            40
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              45,
+              45,
+              80
+            ]
+          },
+          "color": [
+            0.85,
+            0.78,
+            0.68,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.85,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "landmark": "City Hall",
+            "geocoderQuery": "Philadelphia"
+          }
+        },
+        {
+          "id": "custom-geo-ben-franklin-pillar",
+          "name": "Benjamin Franklin Parkway Anchor Pillar",
+          "show": true,
+          "positionDegrees": [
+            -75.172,
+            39.958,
+            30
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 20,
+            "bottomRadius": 20
+          },
+          "color": [
+            0.8,
+            0.5,
+            0.2,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "alignment": "Parkway Diagonal"
+          }
+        },
+        {
+          "id": "custom-geo-search-pin-sphere",
+          "name": "Nominatim Geocoded Search Pin Marker",
+          "show": true,
+          "positionDegrees": [
+            -75.1652,
+            39.9526,
+            25
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              22,
+              22,
+              22
+            ]
+          },
+          "color": [
+            0.95,
+            0.15,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geocoderService": "OpenStreetMap Nominatim",
+            "displayName": "Philadelphia, Pennsylvania, United States"
+          }
+        },
+        {
+          "id": "custom-geo-nominatim-bbox-rect",
+          "name": "Philadelphia Nominatim Result Bounding Box",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.28,
+              39.867,
+              -74.955,
+              40.138
+            ]
+          },
+          "color": [
+            0.15,
+            0.5,
+            0.3,
+            0.45
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.95,
+            0.6,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "boundingbox": [
+              39.867,
+              40.138,
+              -75.28,
+              -74.955
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "High-Contrast Search Pin Focus (Neon Amber Highlight)",
+      "entities": [
+        {
+          "id": "custom-geo-philly-box",
+          "name": "Philadelphia City Hall Landmark Tower",
+          "show": true,
+          "positionDegrees": [
+            -75.1636,
+            39.9524,
+            40
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              45,
+              45,
+              80
+            ]
+          },
+          "color": [
+            0.85,
+            0.78,
+            0.68,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.85,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "landmark": "City Hall",
+            "geocoderQuery": "Philadelphia"
+          }
+        },
+        {
+          "id": "custom-geo-ben-franklin-pillar",
+          "name": "Benjamin Franklin Parkway Anchor Pillar",
+          "show": true,
+          "positionDegrees": [
+            -75.172,
+            39.958,
+            30
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 60,
+            "topRadius": 20,
+            "bottomRadius": 20
+          },
+          "color": [
+            0.8,
+            0.5,
+            0.2,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "alignment": "Parkway Diagonal"
+          }
+        },
+        {
+          "id": "custom-geo-search-pin-sphere",
+          "name": "Nominatim Geocoded Search Pin Marker",
+          "show": true,
+          "positionDegrees": [
+            -75.1652,
+            39.9526,
+            25
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              22,
+              22,
+              22
+            ]
+          },
+          "color": [
+            1,
+            0.65,
+            0.05,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "geocoderService": "OpenStreetMap Nominatim",
+            "displayName": "Philadelphia, Pennsylvania, United States"
+          }
+        },
+        {
+          "id": "custom-geo-nominatim-bbox-rect",
+          "name": "Philadelphia Nominatim Result Bounding Box",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.28,
+              39.867,
+              -74.955,
+              40.138
+            ]
+          },
+          "color": [
+            0.2,
+            0.35,
+            0.75,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.65,
+            1,
+            0.85
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "boundingbox": [
+              39.867,
+              40.138,
+              -75.28,
+              -74.955
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
