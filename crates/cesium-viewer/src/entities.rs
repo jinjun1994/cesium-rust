@@ -4483,4 +4483,64 @@ mod tests {
         let itr_variants = crate::entity_variants::decode(&itr_variants_raw).unwrap();
         assert_eq!(itr_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch59_3d_tiles_nga_gpm_perf_photogrammetry_classification() {
+        let base =
+            std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("../../tests/sandcastle/full");
+
+        // 1. 3D Tiles NGA GPM Visualization
+        let gpm_data = std::fs::read(base.join("3d-tiles-nga-gpm-visualization.json")).unwrap();
+        let gpm_entities = decode(&gpm_data).unwrap();
+        assert_eq!(gpm_entities.len(), 4);
+        assert!(matches!(gpm_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(gpm_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(gpm_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(gpm_entities[3].shape, Shape::Rectangle { .. }));
+        let gpm_variants_raw =
+            std::fs::read(base.join("3d-tiles-nga-gpm-visualization.variants.json")).unwrap();
+        let gpm_variants = crate::entity_variants::decode(&gpm_variants_raw).unwrap();
+        assert_eq!(gpm_variants.variants.len(), 4);
+
+        // 2. 3D Tiles Performance Testing Dev
+        let perf_data = std::fs::read(base.join("3d-tiles-performance-testing-dev.json")).unwrap();
+        let perf_entities = decode(&perf_data).unwrap();
+        assert_eq!(perf_entities.len(), 4);
+        assert!(matches!(perf_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(perf_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(perf_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(perf_entities[3].shape, Shape::Rectangle { .. }));
+        let perf_variants_raw =
+            std::fs::read(base.join("3d-tiles-performance-testing-dev.variants.json")).unwrap();
+        let perf_variants = crate::entity_variants::decode(&perf_variants_raw).unwrap();
+        assert_eq!(perf_variants.variants.len(), 4);
+
+        // 3. 3D Tiles Photogrammetry
+        let pg_data = std::fs::read(base.join("3d-tiles-photogrammetry.json")).unwrap();
+        let pg_entities = decode(&pg_data).unwrap();
+        assert_eq!(pg_entities.len(), 4);
+        assert!(matches!(pg_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(pg_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(pg_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(pg_entities[3].shape, Shape::Rectangle { .. }));
+        let pg_variants_raw =
+            std::fs::read(base.join("3d-tiles-photogrammetry.variants.json")).unwrap();
+        let pg_variants = crate::entity_variants::decode(&pg_variants_raw).unwrap();
+        assert_eq!(pg_variants.variants.len(), 4);
+
+        // 4. 3D Tiles Photogrammetry Classification
+        let pgc_data =
+            std::fs::read(base.join("3d-tiles-photogrammetry-classification.json")).unwrap();
+        let pgc_entities = decode(&pgc_data).unwrap();
+        assert_eq!(pgc_entities.len(), 4);
+        assert!(matches!(pgc_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(pgc_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(pgc_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(pgc_entities[3].shape, Shape::Rectangle { .. }));
+        let pgc_variants_raw =
+            std::fs::read(base.join("3d-tiles-photogrammetry-classification.variants.json"))
+                .unwrap();
+        let pgc_variants = crate::entity_variants::decode(&pgc_variants_raw).unwrap();
+        assert_eq!(pgc_variants.variants.len(), 4);
+    }
 }

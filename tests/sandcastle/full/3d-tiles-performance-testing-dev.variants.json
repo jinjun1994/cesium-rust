@@ -1,0 +1,629 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Default Performance Benchmark Camera Tour",
+      "entities": [
+        {
+          "id": "perf-benchmark-origin-cylinder",
+          "name": "Streaming Performance Benchmark Anchor Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "flightDuration": 8,
+            "benchmarkMode": "Camera Tour"
+          }
+        },
+        {
+          "id": "perf-benchmark-tour-waypoint-box",
+          "name": "Camera Tour Trajectory Waypoint Target Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.55,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "tourLoadsMetric": true,
+            "lastTotalLoaded": 128
+          }
+        },
+        {
+          "id": "perf-heatmap-property-sphere",
+          "name": "Tile Streaming Heatmap Property Palette Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.15,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "heatmapTileProperty": "geometricError",
+            "rangeMinMax": [
+              -1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "perf-streaming-boundary-rect",
+          "name": "Tile Cache Throughput Testing Spatial Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.65,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.85,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cacheThrottlingTest": true,
+            "tourTimeSeconds": 24.5
+          }
+        }
+      ]
+    },
+    {
+      "label": "Heatmap Property Colorization (Geometric Error)",
+      "entities": [
+        {
+          "id": "perf-benchmark-origin-cylinder",
+          "name": "Streaming Performance Benchmark Anchor Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "flightDuration": 8,
+            "benchmarkMode": "Camera Tour"
+          }
+        },
+        {
+          "id": "perf-benchmark-tour-waypoint-box",
+          "name": "Camera Tour Trajectory Waypoint Target Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.55,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "tourLoadsMetric": true,
+            "lastTotalLoaded": 128
+          }
+        },
+        {
+          "id": "perf-heatmap-property-sphere",
+          "name": "Tile Streaming Heatmap Property Palette Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.95,
+            0.35,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "heatmapTileProperty": "geometricError",
+            "rangeMinMax": [
+              -1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "perf-streaming-boundary-rect",
+          "name": "Tile Cache Throughput Testing Spatial Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.65,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.85,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cacheThrottlingTest": true,
+            "tourTimeSeconds": 24.5
+          }
+        }
+      ]
+    },
+    {
+      "label": "High-Frequency Camera Flight Stress Test",
+      "entities": [
+        {
+          "id": "perf-benchmark-origin-cylinder",
+          "name": "Streaming Performance Benchmark Anchor Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "flightDuration": 8,
+            "benchmarkMode": "Camera Tour"
+          }
+        },
+        {
+          "id": "perf-benchmark-tour-waypoint-box",
+          "name": "Camera Tour Trajectory Waypoint Target Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.15,
+            0.95,
+            0.75,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "tourLoadsMetric": true,
+            "lastTotalLoaded": 128
+          }
+        },
+        {
+          "id": "perf-heatmap-property-sphere",
+          "name": "Tile Streaming Heatmap Property Palette Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.15,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "heatmapTileProperty": "geometricError",
+            "rangeMinMax": [
+              -1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "perf-streaming-boundary-rect",
+          "name": "Tile Cache Throughput Testing Spatial Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.35,
+            0.65,
+            0.95,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.85,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cacheThrottlingTest": true,
+            "tourTimeSeconds": 24.5
+          }
+        }
+      ]
+    },
+    {
+      "label": "Cache Exhaustion & Memory Pressure Inspection",
+      "entities": [
+        {
+          "id": "perf-benchmark-origin-cylinder",
+          "name": "Streaming Performance Benchmark Anchor Cylinder",
+          "show": true,
+          "positionDegrees": [
+            -75.612,
+            40.042,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.45,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "flightDuration": 8,
+            "benchmarkMode": "Camera Tour"
+          }
+        },
+        {
+          "id": "perf-benchmark-tour-waypoint-box",
+          "name": "Camera Tour Trajectory Waypoint Target Box",
+          "show": true,
+          "positionDegrees": [
+            -75.605,
+            40.048,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.55,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            1,
+            0.75,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "tourLoadsMetric": true,
+            "lastTotalLoaded": 128
+          }
+        },
+        {
+          "id": "perf-heatmap-property-sphere",
+          "name": "Tile Streaming Heatmap Property Palette Sphere",
+          "show": true,
+          "positionDegrees": [
+            -75.618,
+            40.035,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.95,
+            0.85,
+            0.15,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "heatmapTileProperty": "geometricError",
+            "rangeMinMax": [
+              -1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "perf-streaming-boundary-rect",
+          "name": "Tile Cache Throughput Testing Spatial Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -75.63,
+              40.03,
+              -75.59,
+              40.06
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.15,
+            0.45,
+            0.8
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.85,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cacheThrottlingTest": true,
+            "tourTimeSeconds": 24.5
+          }
+        }
+      ]
+    }
+  ]
+}

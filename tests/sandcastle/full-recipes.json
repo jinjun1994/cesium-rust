@@ -5035,6 +5035,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "3d-tiles-nga-gpm-visualization",
+      "title": "3D Tiles NGA GPM Visualization",
+      "sourceSha256": "d0838199a45b178302a49e840ee39568b40d360f802487506a350e9507cedcc4",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-nga-gpm-visualization",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-nga-gpm-visualization.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-nga-gpm-visualization.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "NGA GPM v1.2 specification precision mesh and positional error covariance visualization",
+        "Support for depthPlaneEllipsoidOffset, large cache budgets, and Maxar static credit"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-performance-testing-dev",
+      "title": "Streaming Performance Testing - Dev",
+      "sourceSha256": "60a7edcb2666e07c3190084c7b22cda8f93e83198e2dacfebbe401ecb49636a9",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-performance-testing-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-performance-testing-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-performance-testing-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "3D Tiles & Terrain streaming performance benchmark tool with camera tour flights",
+        "Real-time metrics tracking for tour loads, flight duration, and heatmapTileProperty"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-photogrammetry",
+      "title": "3D Tiles Photogrammetry",
+      "sourceSha256": "8a84512ffcfb6798b06f6839fff6b80397736dec0780393b69c9720c6dcf69a9",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-photogrammetry",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-photogrammetry.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-photogrammetry.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "High-resolution photogrammetric 3D mesh rendering from Ion Asset 40866",
+        "PBR textured surface lighting, automatic camera zoomTo, and world terrain integration"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "3d-tiles-photogrammetry-classification",
+      "title": "3D Tiles Photogrammetry Classification",
+      "sourceSha256": "967720a28a4036400389e935b41f7bc2ac3d324c35c7974572cf0a9b45932449",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=3d-tiles-photogrammetry-classification",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/3d-tiles-photogrammetry-classification.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/3d-tiles-photogrammetry-classification.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "B3DM classification volume tileset draping over photogrammetric 3D mesh",
+        "Support for ClassificationType.CESIUM_3D_TILE and semi-transparent style colors"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

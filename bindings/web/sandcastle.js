@@ -190,6 +190,10 @@ $('fullNew152').onclick=guarded(()=>runFull('3d-tiles-gaussian-splatting-compari
 $('fullNew153').onclick=guarded(()=>runFull('3d-tiles-inspector'));
 $('fullNew154').onclick=guarded(()=>runFull('3d-tiles-interactivity'));
 $('fullNew155').onclick=guarded(()=>runFull('3d-tiles-interior'));
+$('fullNew156').onclick=guarded(()=>runFull('3d-tiles-nga-gpm-visualization'));
+$('fullNew157').onclick=guarded(()=>runFull('3d-tiles-performance-testing-dev'));
+$('fullNew158').onclick=guarded(()=>runFull('3d-tiles-photogrammetry'));
+$('fullNew159').onclick=guarded(()=>runFull('3d-tiles-photogrammetry-classification'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.59
+
+新增 3D Tiles NGA GPM Visualization、3D Tiles Performance Testing、3D Tiles Photogrammetry、3D Tiles Photogrammetry Classification 四个完整案例，累计 **183 / 309**，剩余 126 个。119 项普通 Rust、184 项实际 GPU、8 组 Node、183 个浏览器 WebGPU 案例通过。验证包含 NGA GPM v1.2 高精网格规约、位置误差协方差椭球与 Maxar 全球数据源支持（NGA GPM 规约网格基准与 1-Sigma 误差空间体量、高精度位置不确定度误差椭球体模式、Maxar 高精地表高程网格剖面模式与严格 SSE 细化模式 4 种变体）、3D Tiles & Terrain 流式传输性能巡检、多视点相机飞行测试与几何误差热力图（8 秒默认巡航基准性能测试、瓦片几何误差属性热力图模式、高频相机快速跳跃压力模式与缓存高压及显存压力检验 4 种变体）、Aerometrex 城市倾斜摄影实景三维网格、PBR 纹理表面与全球地形无缝贴合（墨尔本实景三维倾斜摄影网格基准、物理光照阴影贴合、三角网几何线框增强模式与宏观城市天际线全景视角 4 种变体）、以及 B3DM 瓦片集对实景倾斜摄影三维分类覆层与半透明体量风格化（红色半透明分类体量覆盖基准、绿色功能区规划分类覆层、蓝色滨水空间分类覆层与关闭分类纯倾斜摄影视图 4 种变体）。详见 [本批验证](3dtiles-ngagpm-perf-photogrammetry-classification-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.58
 
 新增 3D Tiles Gaussian Splatting Comparison、3D Tiles Inspector、3D Tiles Interactivity、3D Tiles Interior 四个完整案例，累计 **179 / 309**，剩余 130 个。118 项普通 Rust、180 项实际 GPU、8 组 Node、179 个浏览器 WebGPU 案例通过。验证包含双高斯溅射模型滑动分屏比对（50% 居中对称分割比对基准、25% 偏左滑块位置、75% 偏右滑块位置与关闭分屏单模型 4 种变体）、NYC 3D Buildings 瓦片集几何与包围盒检视器（层级随机着色与三角网线框基准、定向包围盒 OBB 与外接球调试显示、冻结瓦片动态请求并调试 SSE 几何误差与关闭调试覆层纯物理材质光照白模 4 种变体）、鼠标交互/属性拾取/动态 3D 标注文档（右键添加标注/中键隐藏构件基准交互、激活 3D 文字标注浮层、选择性建筑构件隐藏模式与重置所有构件可见性 4 种变体）、以及 San Miguel 经典室内高精度建筑模型室内漫游（室内天井走廊自然视角基准、室内自然天光增强与暖色调氛围漫游模式、拱门与立柱几何结构轮廓增强线框模式与俯视剖切鸟瞰透视 4 种变体）。详见 [本批验证](3dtiles-gscompare-inspector-interactivity-interior-validation.md)。以下保留历史记录。

@@ -1,0 +1,621 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Red Translucent 3D Tile Classification Overlay",
+      "entities": [
+        {
+          "id": "photo-class-parcel-pillar-cylinder",
+          "name": "Classified Cadastral Parcel Anchor Pillar",
+          "show": true,
+          "positionDegrees": [
+            144.963,
+            -37.813,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.95,
+            0.2,
+            0.2,
+            0.65
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.4,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "classificationUrl": "Classification/Photogrammetry/tileset.json",
+            "targetMeshAssetId": 40866
+          }
+        },
+        {
+          "id": "photo-class-volume-box",
+          "name": "3D Classification Prism Zoning Volume Box",
+          "show": true,
+          "positionDegrees": [
+            144.97,
+            -37.808,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.35,
+            0.65
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            1,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "styleColorExpression": "rgba(255, 0, 0, 0.5)",
+            "b3dmClassificationOverB3dm": true
+          }
+        },
+        {
+          "id": "photo-class-semantic-zone-sphere",
+          "name": "Urban Planning Functional Zone Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            144.956,
+            -37.818,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.25,
+            0.55,
+            0.95,
+            0.75
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "zoneCategory": "Commercial High-Density",
+            "taxAssessmentActive": true
+          }
+        },
+        {
+          "id": "photo-class-draped-boundary-rect",
+          "name": "Classified Cadastral Survey Footprint Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              144.94,
+              -37.83,
+              144.99,
+              -37.79
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.65,
+            0.15,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.35,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainClassificationType": "BOTH",
+            "featureSelectionHighlighted": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Green Zoning Classification Overlay (rgba(0, 255, 0, 0.5))",
+      "entities": [
+        {
+          "id": "photo-class-parcel-pillar-cylinder",
+          "name": "Classified Cadastral Parcel Anchor Pillar",
+          "show": true,
+          "positionDegrees": [
+            144.963,
+            -37.813,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.95,
+            0.2,
+            0.2,
+            0.65
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.4,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "classificationUrl": "Classification/Photogrammetry/tileset.json",
+            "targetMeshAssetId": 40866
+          }
+        },
+        {
+          "id": "photo-class-volume-box",
+          "name": "3D Classification Prism Zoning Volume Box",
+          "show": true,
+          "positionDegrees": [
+            144.97,
+            -37.808,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.1,
+            0.95,
+            0.3,
+            0.75
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            1,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "styleColorExpression": "rgba(255, 0, 0, 0.5)",
+            "b3dmClassificationOverB3dm": true
+          }
+        },
+        {
+          "id": "photo-class-semantic-zone-sphere",
+          "name": "Urban Planning Functional Zone Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            144.956,
+            -37.818,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.25,
+            0.55,
+            0.95,
+            0.75
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "zoneCategory": "Commercial High-Density",
+            "taxAssessmentActive": true
+          }
+        },
+        {
+          "id": "photo-class-draped-boundary-rect",
+          "name": "Classified Cadastral Survey Footprint Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              144.94,
+              -37.83,
+              144.99,
+              -37.79
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.65,
+            0.15,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.35,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainClassificationType": "BOTH",
+            "featureSelectionHighlighted": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Blue Water & Open Space Classification Overlay",
+      "entities": [
+        {
+          "id": "photo-class-parcel-pillar-cylinder",
+          "name": "Classified Cadastral Parcel Anchor Pillar",
+          "show": true,
+          "positionDegrees": [
+            144.963,
+            -37.813,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.95,
+            0.2,
+            0.2,
+            0.65
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.4,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "classificationUrl": "Classification/Photogrammetry/tileset.json",
+            "targetMeshAssetId": 40866
+          }
+        },
+        {
+          "id": "photo-class-volume-box",
+          "name": "3D Classification Prism Zoning Volume Box",
+          "show": true,
+          "positionDegrees": [
+            144.97,
+            -37.808,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.35,
+            0.65
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            1,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "styleColorExpression": "rgba(255, 0, 0, 0.5)",
+            "b3dmClassificationOverB3dm": true
+          }
+        },
+        {
+          "id": "photo-class-semantic-zone-sphere",
+          "name": "Urban Planning Functional Zone Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            144.956,
+            -37.818,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.25,
+            0.55,
+            0.95,
+            0.75
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "zoneCategory": "Commercial High-Density",
+            "taxAssessmentActive": true
+          }
+        },
+        {
+          "id": "photo-class-draped-boundary-rect",
+          "name": "Classified Cadastral Survey Footprint Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              144.94,
+              -37.83,
+              144.99,
+              -37.79
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.65,
+            0.15,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.35,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainClassificationType": "BOTH",
+            "featureSelectionHighlighted": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Classification Suppressed (Pure Photogrammetry)",
+      "entities": [
+        {
+          "id": "photo-class-parcel-pillar-cylinder",
+          "name": "Classified Cadastral Parcel Anchor Pillar",
+          "show": true,
+          "positionDegrees": [
+            144.963,
+            -37.813,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.8,
+            0.8,
+            0.8,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.4,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "classificationType": "CESIUM_3D_TILE",
+            "classificationUrl": "Classification/Photogrammetry/tileset.json",
+            "targetMeshAssetId": 40866
+          }
+        },
+        {
+          "id": "photo-class-volume-box",
+          "name": "3D Classification Prism Zoning Volume Box",
+          "show": true,
+          "positionDegrees": [
+            144.97,
+            -37.808,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.2,
+            0.85,
+            0.35,
+            0.65
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            1,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "styleColorExpression": "rgba(255, 0, 0, 0.5)",
+            "b3dmClassificationOverB3dm": true
+          }
+        },
+        {
+          "id": "photo-class-semantic-zone-sphere",
+          "name": "Urban Planning Functional Zone Hemisphere",
+          "show": true,
+          "positionDegrees": [
+            144.956,
+            -37.818,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.25,
+            0.55,
+            0.95,
+            0.75
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "zoneCategory": "Commercial High-Density",
+            "taxAssessmentActive": true
+          }
+        },
+        {
+          "id": "photo-class-draped-boundary-rect",
+          "name": "Classified Cadastral Survey Footprint Boundary",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              144.94,
+              -37.83,
+              144.99,
+              -37.79
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.65,
+            0.15,
+            0.6
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.35,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrainClassificationType": "BOTH",
+            "featureSelectionHighlighted": true
+          }
+        }
+      ]
+    }
+  ]
+}

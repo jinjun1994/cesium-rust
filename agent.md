@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.58（已通过 179 / 309 个完整案例，剩余 130 个）
+- **当前版本**：v0.0.59（已通过 183 / 309 个完整案例，剩余 126 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.59 验收完成：NGA 精度网格 (3D Tiles NGA GPM Visualization)、流式性能巡检 (3D Tiles Performance Testing)、实景三维网格 (3D Tiles Photogrammetry) 与单体化三维分类 (3D Tiles Photogrammetry Classification)
+- **完成配方**（累计推进至 **183 / 309**，剩余 126 个）：
+  1. `3d-tiles-nga-gpm-visualization`（NGA GPM v1.2 高精网格规约、位置误差协方差椭球与 Maxar 全球数据源支持：NGA GPM 规约网格基准与 1-Sigma 误差空间体量、高精度位置不确定度误差椭球体模式、Maxar 高精地表高程网格剖面模式与严格 SSE 细化模式 4 种变体）
+  2. `3d-tiles-performance-testing-dev`（3D Tiles & Terrain 流式传输性能巡检、多视点相机飞行测试与几何误差热力图：8 秒默认巡航基准性能测试、瓦片几何误差属性热力图模式、高频相机快速跳跃压力模式与缓存高压及显存压力检验 4 种变体）
+  3. `3d-tiles-photogrammetry`（Aerometrex 城市倾斜摄影实景三维网格、PBR 纹理表面与全球地形无缝贴合：墨尔本实景三维倾斜摄影网格基准、物理光照阴影贴合、三角网几何线框增强模式与宏观城市天际线全景视角 4 种变体）
+  4. `3d-tiles-photogrammetry-classification`（B3DM 瓦片集对实景倾斜摄影三维分类覆层与半透明体量风格化：红色半透明分类体量覆盖基准、绿色功能区规划分类覆层、蓝色滨水空间分类覆层与关闭分类纯倾斜摄影视图 4 种变体）
+- **核心研发突破**：
+  1. **NGA GPM 精度网格与误差协方差空间映射（Precision Mesh & Error Covariance Mapping）**：构建基于三轴误差协方差张量（Covariance Tensor）的空间椭球体着色器生成管线，支持大范围深度缓冲偏置（`depthPlaneEllipsoidOffset`）下的稳定几何解算。
+  2. **自动化流式性能度量与热力图渲染（Streaming Performance Heatmap Pipeline）**：在渲染循环中实时统计多相机巡航过程中的瓦片吞吐量与帧耗时，并在着色器中实现几何误差（SSE）连续色带映射。
+  3. **倾斜摄影多源纹理高动态渲染（High-Fidelity Photogrammetry Shading）**：优化超大规模倾斜摄影三维网格的 PBR 漫反射通道采样与全球真实地形（World Terrain）高精度几何贴合。
+  4. **跨瓦片集单体化三维分类深度裁剪（3D Tile Classification Stencil Masking）**：实现独立 B3DM 分类空间棱柱对倾斜摄影网格的非破坏性语义覆写，支持半透明着色与要素属性联动。
+- **验证结果**：
+  - **普通 Rust 单元测试**：119 项全部通过（含 `batch59_3d_tiles_nga_gpm_perf_photogrammetry_classification`）。
+  - **真实 GPU 离屏渲染测试**：184 / 184 项全数通过（`184 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错）。
+  - **浏览器真实 WebGPU 端到端**：183 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [3D Tiles NGA GPM Visualization、3D Tiles Performance Testing、3D Tiles Photogrammetry 与 3D Tiles Photogrammetry Classification 验证文档](docs/3dtiles-ngagpm-perf-photogrammetry-classification-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.58 验收完成：高斯溅射分屏 (3D Tiles Gaussian Splatting Comparison)、NYC 瓦片检视器 (3D Tiles Inspector)、三维交互标注 (3D Tiles Interactivity) 与室内漫游 (3D Tiles Interior)
 - **完成配方**（累计推进至 **179 / 309**，剩余 130 个）：

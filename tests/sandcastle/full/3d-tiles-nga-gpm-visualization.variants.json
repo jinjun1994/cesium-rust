@@ -1,0 +1,621 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Default NGA GPM Mesh & Error Covariance",
+      "entities": [
+        {
+          "id": "gpm-reference-datum-cylinder",
+          "name": "NGA GPM Reference Geodetic Datum Cylinder",
+          "show": true,
+          "positionDegrees": [
+            44.385,
+            33.315,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.15,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "specification": "NGA GPM v1.2",
+            "dataProvider": "Maxar Evaluation",
+            "maximumScreenSpaceError": 4
+          }
+        },
+        {
+          "id": "gpm-precision-mesh-box",
+          "name": "Grid Precision Mesh Elevation Matrix Box",
+          "show": true,
+          "positionDegrees": [
+            44.392,
+            33.322,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthPlaneEllipsoidOffset": 10000,
+            "cacheBytesBudget": 2147483648
+          }
+        },
+        {
+          "id": "gpm-covariance-ellipsoid",
+          "name": "1-Sigma Positional Error Covariance Ellipsoid",
+          "show": true,
+          "positionDegrees": [
+            44.378,
+            33.308,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.35,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "errorMetric": "Covariance Matrix [Cxx, Cyy, Czz]",
+            "confidenceLevel": "95%"
+          }
+        },
+        {
+          "id": "gpm-evaluation-survey-rect",
+          "name": "NGA GPM Precision Assessment Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              44.36,
+              33.29,
+              44.41,
+              33.34
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.65,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthPlaneOffsetActive": true,
+            "staticCredit": "Maxar GPM Evaluation"
+          }
+        }
+      ]
+    },
+    {
+      "label": "High Precision Error Ellipsoids (1-Sigma Covariance)",
+      "entities": [
+        {
+          "id": "gpm-reference-datum-cylinder",
+          "name": "NGA GPM Reference Geodetic Datum Cylinder",
+          "show": true,
+          "positionDegrees": [
+            44.385,
+            33.315,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.15,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "specification": "NGA GPM v1.2",
+            "dataProvider": "Maxar Evaluation",
+            "maximumScreenSpaceError": 4
+          }
+        },
+        {
+          "id": "gpm-precision-mesh-box",
+          "name": "Grid Precision Mesh Elevation Matrix Box",
+          "show": true,
+          "positionDegrees": [
+            44.392,
+            33.322,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthPlaneEllipsoidOffset": 10000,
+            "cacheBytesBudget": 2147483648
+          }
+        },
+        {
+          "id": "gpm-covariance-ellipsoid",
+          "name": "1-Sigma Positional Error Covariance Ellipsoid",
+          "show": true,
+          "positionDegrees": [
+            44.378,
+            33.308,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.2,
+            0.95,
+            0.45,
+            0.95
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "errorMetric": "Covariance Matrix [Cxx, Cyy, Czz]",
+            "confidenceLevel": "95%"
+          }
+        },
+        {
+          "id": "gpm-evaluation-survey-rect",
+          "name": "NGA GPM Precision Assessment Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              44.36,
+              33.29,
+              44.41,
+              33.34
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.65,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthPlaneOffsetActive": true,
+            "staticCredit": "Maxar GPM Evaluation"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Maxar High-Resolution Grid Elevation Profile",
+      "entities": [
+        {
+          "id": "gpm-reference-datum-cylinder",
+          "name": "NGA GPM Reference Geodetic Datum Cylinder",
+          "show": true,
+          "positionDegrees": [
+            44.385,
+            33.315,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.15,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "specification": "NGA GPM v1.2",
+            "dataProvider": "Maxar Evaluation",
+            "maximumScreenSpaceError": 4
+          }
+        },
+        {
+          "id": "gpm-precision-mesh-box",
+          "name": "Grid Precision Mesh Elevation Matrix Box",
+          "show": true,
+          "positionDegrees": [
+            44.392,
+            33.322,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.35,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthPlaneEllipsoidOffset": 10000,
+            "cacheBytesBudget": 2147483648
+          }
+        },
+        {
+          "id": "gpm-covariance-ellipsoid",
+          "name": "1-Sigma Positional Error Covariance Ellipsoid",
+          "show": true,
+          "positionDegrees": [
+            44.378,
+            33.308,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.35,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "errorMetric": "Covariance Matrix [Cxx, Cyy, Czz]",
+            "confidenceLevel": "95%"
+          }
+        },
+        {
+          "id": "gpm-evaluation-survey-rect",
+          "name": "NGA GPM Precision Assessment Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              44.36,
+              33.29,
+              44.41,
+              33.34
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.65,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthPlaneOffsetActive": true,
+            "staticCredit": "Maxar GPM Evaluation"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Strict SSE Refinement Mode (SSE = 2.0)",
+      "entities": [
+        {
+          "id": "gpm-reference-datum-cylinder",
+          "name": "NGA GPM Reference Geodetic Datum Cylinder",
+          "show": true,
+          "positionDegrees": [
+            44.385,
+            33.315,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.3,
+            0.85,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.35,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "specification": "NGA GPM v1.2",
+            "dataProvider": "Maxar Evaluation",
+            "maximumScreenSpaceError": 4
+          }
+        },
+        {
+          "id": "gpm-precision-mesh-box",
+          "name": "Grid Precision Mesh Elevation Matrix Box",
+          "show": true,
+          "positionDegrees": [
+            44.392,
+            33.322,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.15,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.75,
+            0.35,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthPlaneEllipsoidOffset": 10000,
+            "cacheBytesBudget": 2147483648
+          }
+        },
+        {
+          "id": "gpm-covariance-ellipsoid",
+          "name": "1-Sigma Positional Error Covariance Ellipsoid",
+          "show": true,
+          "positionDegrees": [
+            44.378,
+            33.308,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.35,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "errorMetric": "Covariance Matrix [Cxx, Cyy, Czz]",
+            "confidenceLevel": "95%"
+          }
+        },
+        {
+          "id": "gpm-evaluation-survey-rect",
+          "name": "NGA GPM Precision Assessment Extent Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              44.36,
+              33.29,
+              44.41,
+              33.34
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.65,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "depthPlaneOffsetActive": true,
+            "staticCredit": "Maxar GPM Evaluation"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,621 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Ion Asset 40866 Photogrammetry Mesh",
+      "entities": [
+        {
+          "id": "photogrammetry-mesh-core-cylinder",
+          "name": "Photogrammetric Mesh Center Landmark Cylinder",
+          "show": true,
+          "positionDegrees": [
+            144.963,
+            -37.813,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 40866,
+            "meshProvider": "Aerometrex Melbourne Photogrammetry",
+            "worldTerrainDraped": true
+          }
+        },
+        {
+          "id": "photogrammetry-textured-block-box",
+          "name": "High-Fidelity PBR Texture Mapping Sample Block",
+          "show": true,
+          "positionDegrees": [
+            144.97,
+            -37.808,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.65,
+            0.25,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "diffuseTextureChannel": true,
+            "ambientOcclusionDraped": true
+          }
+        },
+        {
+          "id": "photogrammetry-drone-survey-sphere",
+          "name": "Aerial Drone Survey Radiance Dome Sphere",
+          "show": true,
+          "positionDegrees": [
+            144.956,
+            -37.818,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.45,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sensorType": "Oblique Multi-Camera Aerial Rig",
+            "groundSamplingDistance": "2.5cm/pixel"
+          }
+        },
+        {
+          "id": "photogrammetry-flight-corridor-rect",
+          "name": "Metropolitan Aerial Survey Flight Corridor Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              144.94,
+              -37.83,
+              144.99,
+              -37.79
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.75,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "zoomToTargetActive": true,
+            "coordinateSystem": "MGA Zone 55 / GDA2020"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Photorealistic PBR Sunlight & Shadow Draping",
+      "entities": [
+        {
+          "id": "photogrammetry-mesh-core-cylinder",
+          "name": "Photogrammetric Mesh Center Landmark Cylinder",
+          "show": true,
+          "positionDegrees": [
+            144.963,
+            -37.813,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 40866,
+            "meshProvider": "Aerometrex Melbourne Photogrammetry",
+            "worldTerrainDraped": true
+          }
+        },
+        {
+          "id": "photogrammetry-textured-block-box",
+          "name": "High-Fidelity PBR Texture Mapping Sample Block",
+          "show": true,
+          "positionDegrees": [
+            144.97,
+            -37.808,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            1,
+            0.8,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "diffuseTextureChannel": true,
+            "ambientOcclusionDraped": true
+          }
+        },
+        {
+          "id": "photogrammetry-drone-survey-sphere",
+          "name": "Aerial Drone Survey Radiance Dome Sphere",
+          "show": true,
+          "positionDegrees": [
+            144.956,
+            -37.818,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.45,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sensorType": "Oblique Multi-Camera Aerial Rig",
+            "groundSamplingDistance": "2.5cm/pixel"
+          }
+        },
+        {
+          "id": "photogrammetry-flight-corridor-rect",
+          "name": "Metropolitan Aerial Survey Flight Corridor Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              144.94,
+              -37.83,
+              144.99,
+              -37.79
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.75,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "zoomToTargetActive": true,
+            "coordinateSystem": "MGA Zone 55 / GDA2020"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Wireframe Mesh Geometry Accents",
+      "entities": [
+        {
+          "id": "photogrammetry-mesh-core-cylinder",
+          "name": "Photogrammetric Mesh Center Landmark Cylinder",
+          "show": true,
+          "positionDegrees": [
+            144.963,
+            -37.813,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.2,
+            0.95,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 40866,
+            "meshProvider": "Aerometrex Melbourne Photogrammetry",
+            "worldTerrainDraped": true
+          }
+        },
+        {
+          "id": "photogrammetry-textured-block-box",
+          "name": "High-Fidelity PBR Texture Mapping Sample Block",
+          "show": true,
+          "positionDegrees": [
+            144.97,
+            -37.808,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.65,
+            0.25,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "diffuseTextureChannel": true,
+            "ambientOcclusionDraped": true
+          }
+        },
+        {
+          "id": "photogrammetry-drone-survey-sphere",
+          "name": "Aerial Drone Survey Radiance Dome Sphere",
+          "show": true,
+          "positionDegrees": [
+            144.956,
+            -37.818,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.45,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sensorType": "Oblique Multi-Camera Aerial Rig",
+            "groundSamplingDistance": "2.5cm/pixel"
+          }
+        },
+        {
+          "id": "photogrammetry-flight-corridor-rect",
+          "name": "Metropolitan Aerial Survey Flight Corridor Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              144.94,
+              -37.83,
+              144.99,
+              -37.79
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.75,
+            0.35,
+            0.85,
+            0.7
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "zoomToTargetActive": true,
+            "coordinateSystem": "MGA Zone 55 / GDA2020"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Macro Panoramic City Overview Perspective",
+      "entities": [
+        {
+          "id": "photogrammetry-mesh-core-cylinder",
+          "name": "Photogrammetric Mesh Center Landmark Cylinder",
+          "show": true,
+          "positionDegrees": [
+            144.963,
+            -37.813,
+            2500
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 5000,
+            "topRadius": 1500,
+            "bottomRadius": 1500
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "ionAssetId": 40866,
+            "meshProvider": "Aerometrex Melbourne Photogrammetry",
+            "worldTerrainDraped": true
+          }
+        },
+        {
+          "id": "photogrammetry-textured-block-box",
+          "name": "High-Fidelity PBR Texture Mapping Sample Block",
+          "show": true,
+          "positionDegrees": [
+            144.97,
+            -37.808,
+            2000
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              2500,
+              2500,
+              2200
+            ]
+          },
+          "color": [
+            0.95,
+            0.65,
+            0.25,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.45,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "diffuseTextureChannel": true,
+            "ambientOcclusionDraped": true
+          }
+        },
+        {
+          "id": "photogrammetry-drone-survey-sphere",
+          "name": "Aerial Drone Survey Radiance Dome Sphere",
+          "show": true,
+          "positionDegrees": [
+            144.956,
+            -37.818,
+            2200
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              2000,
+              2000,
+              1800
+            ],
+            "slicePartitions": 24,
+            "stackPartitions": 24
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.45,
+            0.85
+          ],
+          "fill": true,
+          "outline": false,
+          "outlineColor": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "sensorType": "Oblique Multi-Camera Aerial Rig",
+            "groundSamplingDistance": "2.5cm/pixel"
+          }
+        },
+        {
+          "id": "photogrammetry-flight-corridor-rect",
+          "name": "Metropolitan Aerial Survey Flight Corridor Footprint",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              144.94,
+              -37.83,
+              144.99,
+              -37.79
+            ],
+            "height": 2000,
+            "extrudedHeight": 4000,
+            "rotation": 0
+          },
+          "color": [
+            0.85,
+            0.2,
+            0.4,
+            0.8
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.55,
+            1,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "zoomToTargetActive": true,
+            "coordinateSystem": "MGA Zone 55 / GDA2020"
+          }
+        }
+      ]
+    }
+  ]
+}

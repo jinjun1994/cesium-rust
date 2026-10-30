@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "3d-tiles-gaussian-splatting-comparison",
+      "id": "3d-tiles-nga-gpm-visualization",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "98136d5a0ffc4d92f71472f8d3664edf171fc7ef3cd3c682dcab719bd1fc2d2f",
-      "inputSha256": "5b968d86f4830ea69d67c53ca461ba98d68e892c06e53c64c2144492c68fa4f5",
-      "fixtureSha256": "80b00ae72200c3e9a17e81ad7e189c494637fea4328a5fc84e02cd88f77f1783",
+      "sourceSha256": "d0838199a45b178302a49e840ee39568b40d360f802487506a350e9507cedcc4",
+      "inputSha256": "5c514eb13fc3ea77ece5c0dfeb2dc7dfd17eeff538fc46a1bd3cdba32356c78c",
+      "fixtureSha256": "beeddfad16643323fef609b83b734916bbea4c6443f072a5a369454e6650173d",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,37 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "gs-compare-left-pivot-cylinder",
-        "gs-compare-split-divider-box",
-        "gs-compare-right-kernel-sphere",
-        "gs-compare-coverage-rect"
+        "gpm-reference-datum-cylinder",
+        "gpm-precision-mesh-box",
+        "gpm-covariance-ellipsoid",
+        "gpm-evaluation-survey-rect"
       ],
       "pixelCounts": [
         {
-          "id": "gs-compare-left-pivot-cylinder",
+          "id": "gpm-reference-datum-cylinder",
           "pixels": 87505
         },
         {
-          "id": "gs-compare-split-divider-box",
+          "id": "gpm-precision-mesh-box",
           "pixels": 103808
         },
         {
-          "id": "gs-compare-right-kernel-sphere",
+          "id": "gpm-covariance-ellipsoid",
           "pixels": 152594
         },
         {
-          "id": "gs-compare-coverage-rect",
-          "pixels": 96414
+          "id": "gpm-evaluation-survey-rect",
+          "pixels": 92007
         }
       ]
     },
     {
-      "id": "3d-tiles-inspector",
+      "id": "3d-tiles-performance-testing-dev",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "f279f3493d1b5cfba013c03d6b4f95c74892a230e29567d769c07e2b8bac10d9",
-      "inputSha256": "dcade798f567afbb0462bb271405d04339ebf47790acc5b0d002b1d387507e2a",
-      "fixtureSha256": "da9ef8ae9962eda80d9f397fcd1ec1f4bdbc4c4a98e624cdd0b968ec8e9fdb3f",
+      "sourceSha256": "60a7edcb2666e07c3190084c7b22cda8f93e83198e2dacfebbe401ecb49636a9",
+      "inputSha256": "ffa16d646cc9d6c71da1ed8855ae583a20d516a0293df8aa692ac6720a2361b1",
+      "fixtureSha256": "ee0701798e50fd95a4fb00853be4e887a6b4b929455df994daeefe9d04f5be1a",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -63,78 +63,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "inspector-wireframe-cylinder",
-        "inspector-bounding-box",
-        "inspector-tile-colorize-sphere",
-        "inspector-nyc-downtown-rect"
+        "perf-benchmark-origin-cylinder",
+        "perf-benchmark-tour-waypoint-box",
+        "perf-heatmap-property-sphere",
+        "perf-streaming-boundary-rect"
       ],
       "pixelCounts": [
         {
-          "id": "inspector-wireframe-cylinder",
+          "id": "perf-benchmark-origin-cylinder",
           "pixels": 87505
         },
         {
-          "id": "inspector-bounding-box",
+          "id": "perf-benchmark-tour-waypoint-box",
           "pixels": 103808
         },
         {
-          "id": "inspector-tile-colorize-sphere",
+          "id": "perf-heatmap-property-sphere",
           "pixels": 152594
         },
         {
-          "id": "inspector-nyc-downtown-rect",
-          "pixels": 96298
-        }
-      ]
-    },
-    {
-      "id": "3d-tiles-interactivity",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "3c136009bab2d06580e47d71dc7c041814ef32c0c3cd6796db4ee3e74f348d58",
-      "inputSha256": "bb38d8abe25954632fc531161548d9fb69e3d59ea481d5cde826d97a3eeab843",
-      "fixtureSha256": "8b781bfcf44cac0c8089f2f78516bc751dc16d7dd688f8deda8c79be351059fd",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "interactivity-selected-pin-cylinder",
-        "interactivity-hover-bbox",
-        "interactivity-annotation-sphere",
-        "interactivity-survey-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "interactivity-selected-pin-cylinder",
-          "pixels": 87505
-        },
-        {
-          "id": "interactivity-hover-bbox",
-          "pixels": 103808
-        },
-        {
-          "id": "interactivity-annotation-sphere",
-          "pixels": 152594
-        },
-        {
-          "id": "interactivity-survey-rect",
+          "id": "perf-streaming-boundary-rect",
           "pixels": 101065
         }
       ]
     },
     {
-      "id": "3d-tiles-interior",
+      "id": "3d-tiles-photogrammetry",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "97f9877fb47193bc1548f47ecf926bf783042744e163a5ebb851011cb83d7fec",
-      "inputSha256": "d5c02eed5e8495c736e0d9a3426a6328ef318610b2211842a7f3de073d360a61",
-      "fixtureSha256": "dcfa02841117bfde65e9dd750fcaf64e1dcc8335417d1b80c816fc931c83e46e",
+      "sourceSha256": "8a84512ffcfb6798b06f6839fff6b80397736dec0780393b69c9720c6dcf69a9",
+      "inputSha256": "76c8e95929356d3c173a2f5217ba4e9e5cb1e62a7c4c0dd7280a800c1a5d588f",
+      "fixtureSha256": "e3d68299311cdfd9589a84605e90a73ff50dde909a2f5229c41ef28ae4f261c7",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -145,27 +104,68 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "interior-san-miguel-pillar-cylinder",
-        "interior-courtyard-room-box",
-        "interior-spatial-light-sphere",
-        "interior-architectural-floor-rect"
+        "photogrammetry-mesh-core-cylinder",
+        "photogrammetry-textured-block-box",
+        "photogrammetry-drone-survey-sphere",
+        "photogrammetry-flight-corridor-rect"
       ],
       "pixelCounts": [
         {
-          "id": "interior-san-miguel-pillar-cylinder",
+          "id": "photogrammetry-mesh-core-cylinder",
           "pixels": 87505
         },
         {
-          "id": "interior-courtyard-room-box",
+          "id": "photogrammetry-textured-block-box",
           "pixels": 103808
         },
         {
-          "id": "interior-spatial-light-sphere",
+          "id": "photogrammetry-drone-survey-sphere",
           "pixels": 152594
         },
         {
-          "id": "interior-architectural-floor-rect",
-          "pixels": 98419
+          "id": "photogrammetry-flight-corridor-rect",
+          "pixels": 96400
+        }
+      ]
+    },
+    {
+      "id": "3d-tiles-photogrammetry-classification",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "967720a28a4036400389e935b41f7bc2ac3d324c35c7974572cf0a9b45932449",
+      "inputSha256": "dc21162cc102edfccc3a1e9bf4f77990a18a8957d9498e59a95fbbd5b6fb409d",
+      "fixtureSha256": "5633b1cadd9812285e790d2fd655e64f0483b75f08b53da38bbafc3e596c625c",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "photo-class-parcel-pillar-cylinder",
+        "photo-class-volume-box",
+        "photo-class-semantic-zone-sphere",
+        "photo-class-draped-boundary-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "photo-class-parcel-pillar-cylinder",
+          "pixels": 87505
+        },
+        {
+          "id": "photo-class-volume-box",
+          "pixels": 103808
+        },
+        {
+          "id": "photo-class-semantic-zone-sphere",
+          "pixels": 152594
+        },
+        {
+          "id": "photo-class-draped-boundary-rect",
+          "pixels": 96400
         }
       ]
     }
