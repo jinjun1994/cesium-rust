@@ -266,6 +266,10 @@ $('fullNew228').onclick=guarded(()=>runFull('ion-snapping-dev'));
 $('fullNew229').onclick=guarded(()=>runFull('itwin-feature-service'));
 $('fullNew230').onclick=guarded(()=>runFull('itwin-gaussian-splats'));
 $('fullNew231').onclick=guarded(()=>runFull('japan-buildings'));
+$('fullNew232').onclick=guarded(()=>runFull('khr-mesh-primitive-restart-dev'));
+$('fullNew233').onclick=guarded(()=>runFull('lensflare'));
+$('fullNew234').onclick=guarded(()=>runFull('many-clipping-planes-dev'));
+$('fullNew235').onclick=guarded(()=>runFull('mars'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

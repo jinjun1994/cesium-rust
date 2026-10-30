@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.77（已通过 255 / 309 个完整案例，剩余 54 个）
+- **当前版本**：v0.0.78（已通过 259 / 309 个完整案例，剩余 50 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.78 验收完成：KHR_mesh_primitive_restart - Dev、LensFlare、Many Clipping Planes - Dev 与 Mars
+- **完成配方**（累计推进至 **259 / 309**，剩余 50 个）：
+  1. `khr-mesh-primitive-restart-dev`（glTF KHR_mesh_primitive_restart 图元内联重启索引批处理、Hilbert 空间填充曲线与 WebGL 2 原生管线：基准希尔伯特空间填充曲线图元重启、线环多不相交拓扑模式、三角带批处理几何模式、三角扇不相交拓扑检视模式 4 种变体）
+  2. `lensflare`（相机镜头眩光后处理全屏阶段、彩虹色散光环、光学镜片污迹与深空天体观察：基准太阳镜头眩光后处理阶段、高色散彩虹光环模式、高强度光学表面污渍模拟模式、微光大气边缘眩光模式 4 种变体）
+  3. `many-clipping-planes-dev`（大数量径向剖切面几何裁剪、32/64 面圆柱剖开剖切体与多类型图元裁剪适配：基准 32 径向剖切面、高密度 64 剖切面多面体高精竖井钻孔模式、并集外壳反向剖切模式、地下地形径向扇区剖切包络模式 4 种变体）
+  4. `mars`（火星全境 3D 瓦片地形、火星大气散射参数、好奇号与毅力号漫游车实迹交互：基准火星 3D 瓦片实景地形与火星大气层、盖尔撞击坑好奇号漫游车穿越轨迹、毅力号与机智号直升机侦察飞行范围、《火星救援》跨大陆远征路线 4 种变体）
+- **核心研发突破**：
+  1. **glTF 图元内联索引重启管线（Primitive Restart Indices & WebGL 2 Buffer Binding）**：支持 `KHR_mesh_primitive_restart` 规范，实现基于 `0xFF / 0xFFFF / 0xFFFFFFFF` 重启值的线/带/扇多拓扑单图元高效批处理渲染。
+  2. **全屏镜头眩光后处理与天际光晕（Lens Flare Post-Process & Optical Dispersion）**：集成 `PostProcessStageLibrary.createLensFlareStage`，支持彩虹鬼影色散、光环宽度与镜面污迹多参数着色器 Uniforms 实时联动。
+  3. **大数量径向剖切面几何裁剪系统（Radial Multi-Plane Clipping & Excavation）**：支持 32/64 面大数量剖切平面数组批处理生成，结合距离矩阵与反向裁剪实现任意半径圆柱井筒精准掏空开挖。
+  4. **火星天体全域地形与物理散射大气（Mars Ellipsoid & Planetary Atmospheric Scattering）**：集成 `Ellipsoid.MARS` 与 3D 瓦片实景三维，精确配置火星特有瑞利/米氏大气光学散射系数，结合时态 CZML 实现多漫游车火星表面全地形时空回放。
+- **验证结果**：
+  - **普通 Rust 单元测试**：138 项全部通过（含 `batch78_restart_lensflare_clipping_mars`）。
+  - **真实 GPU 离屏渲染测试**：260 / 260 项全数通过（`260 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，259 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：259 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [KHR_mesh_primitive_restart - Dev、LensFlare、Many Clipping Planes - Dev 与 Mars 验证文档](docs/khrrestart-lensflare-clipping-mars-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.77 验收完成：Ion Snapping - Dev、iTwin Feature Service、iTwin Gaussian Splats 与 Japan Buildings
 - **完成配方**（累计推进至 **255 / 309**，剩余 54 个）：

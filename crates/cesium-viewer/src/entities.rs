@@ -5632,4 +5632,64 @@ mod tests {
         let jb_variants = crate::entity_variants::decode(&jb_variants_raw).unwrap();
         assert_eq!(jb_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch78_restart_lensflare_clipping_mars() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. KHR_mesh_primitive_restart - Dev
+        let kmpr_data = std::fs::read(base.join("khr-mesh-primitive-restart-dev.json")).unwrap();
+        let kmpr_entities = decode(&kmpr_data).unwrap();
+        assert_eq!(kmpr_entities.len(), 4);
+        assert!(matches!(kmpr_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(kmpr_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(kmpr_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(kmpr_entities[3].shape, Shape::Rectangle { .. }));
+        let kmpr_variants_raw =
+            std::fs::read(base.join("khr-mesh-primitive-restart-dev.variants.json")).unwrap();
+        let kmpr_variants = crate::entity_variants::decode(&kmpr_variants_raw).unwrap();
+        assert_eq!(kmpr_variants.variants.len(), 4);
+
+        // 2. LensFlare
+        let lf_data = std::fs::read(base.join("lensflare.json")).unwrap();
+        let lf_entities = decode(&lf_data).unwrap();
+        assert_eq!(lf_entities.len(), 4);
+        assert!(matches!(lf_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(lf_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(lf_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(lf_entities[3].shape, Shape::Rectangle { .. }));
+        let lf_variants_raw = std::fs::read(base.join("lensflare.variants.json")).unwrap();
+        let lf_variants = crate::entity_variants::decode(&lf_variants_raw).unwrap();
+        assert_eq!(lf_variants.variants.len(), 4);
+
+        // 3. Many Clipping Planes - Dev
+        let mcp_data = std::fs::read(base.join("many-clipping-planes-dev.json")).unwrap();
+        let mcp_entities = decode(&mcp_data).unwrap();
+        assert_eq!(mcp_entities.len(), 4);
+        assert!(matches!(mcp_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(mcp_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(mcp_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(mcp_entities[3].shape, Shape::Rectangle { .. }));
+        let mcp_variants_raw =
+            std::fs::read(base.join("many-clipping-planes-dev.variants.json")).unwrap();
+        let mcp_variants = crate::entity_variants::decode(&mcp_variants_raw).unwrap();
+        assert_eq!(mcp_variants.variants.len(), 4);
+
+        // 4. Mars
+        let mars_data = std::fs::read(base.join("mars.json")).unwrap();
+        let mars_entities = decode(&mars_data).unwrap();
+        assert_eq!(mars_entities.len(), 4);
+        assert!(matches!(mars_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(mars_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(mars_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(mars_entities[3].shape, Shape::Rectangle { .. }));
+        let mars_variants_raw = std::fs::read(base.join("mars.variants.json")).unwrap();
+        let mars_variants = crate::entity_variants::decode(&mars_variants_raw).unwrap();
+        assert_eq!(mars_variants.variants.len(), 4);
+    }
 }

@@ -7099,6 +7099,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "khr-mesh-primitive-restart-dev",
+      "title": "KHR_mesh_primitive_restart - Dev",
+      "sourceSha256": "7a7e911f74ec8dbb2a3b2f46493008841023e54e317f78985673abbf8e076428",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=khr-mesh-primitive-restart-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/khr-mesh-primitive-restart-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/khr-mesh-primitive-restart-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "KHR_mesh_primitive_restart proposal (KhronosGroup/glTF#2569) sample models",
+        "Single glTF mesh primitive with multiple line/triangle strips separated by restart indices",
+        "WebGL 2 PRIMITIVE_RESTART_FIXED_INDEX support (0xFF, 0xFFFF, 0xFFFFFFFF)"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "lensflare",
+      "title": "LensFlare",
+      "sourceSha256": "bd66021619df5187e6501068e596db8eed83b8ee04d3a56a157a82a76d968ad8",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=lensflare",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/lensflare.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/lensflare.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "PostProcessStageLibrary.createLensFlareStage camera lens flare post-processing",
+        "Configurable intensity, distortion, ghostDispersal, haloWidth, and dirtAmount",
+        "Deep space sightline towards Earth limb and solar glare alignment"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "many-clipping-planes-dev",
+      "title": "Many Clipping Planes - Dev",
+      "sourceSha256": "05f21d953f60eb0388bbe59ff48e6074ffcd0beb8bd458cdafcbbbf1db19abc2",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=many-clipping-planes-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/many-clipping-planes-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/many-clipping-planes-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Large numbers of radial clipping planes (32 / 64 steps) enclosing cylinder cross section",
+        "Interactive cylinderRadius and planeCount knockout reactive parameter updates",
+        "Multi-object clipping compatibility (model, b3dm, pnts, i3dm, terrain)"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "mars",
+      "title": "Mars",
+      "sourceSha256": "eee6e36ae479069c74240302d86f2f82e48418081ec8586b7500e59ba9d2c4f7",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=mars",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/mars.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/mars.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Ellipsoid.MARS globe reference frame with Mars 3D Tileset (Ion 3644333)",
+        "Martian SkyAtmosphere Rayleigh / Mie optical scattering parameters and bloom stage",
+        "NASA Curiosity & Perseverance rover trajectories and Andy Weir Martian journey"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

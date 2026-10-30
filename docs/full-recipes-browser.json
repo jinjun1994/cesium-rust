@@ -1,5 +1,5 @@
 {
-  "version": "0.0.77",
+  "version": "0.0.78",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -10104,10 +10104,174 @@
           "pixels": 30492
         }
       ]
+    },
+    {
+      "id": "khr-mesh-primitive-restart-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "7a7e911f74ec8dbb2a3b2f46493008841023e54e317f78985673abbf8e076428",
+      "inputSha256": "28dbd55d7f7aefc3c3b481940a0424ee00f9e1cde66827f56aa967066232351c",
+      "fixtureSha256": "3cc5130713424ac5002b3744976f47944a804ca5efa9ecd60d0757df2f88f3b4",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "khr-restart-hilbert-box",
+        "khr-restart-strip-cylinder",
+        "khr-restart-fan-sphere",
+        "khr-restart-bounds-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "khr-restart-hilbert-box",
+          "pixels": 474
+        },
+        {
+          "id": "khr-restart-strip-cylinder",
+          "pixels": 152
+        },
+        {
+          "id": "khr-restart-fan-sphere",
+          "pixels": 26
+        },
+        {
+          "id": "khr-restart-bounds-rect",
+          "pixels": 66811
+        }
+      ]
+    },
+    {
+      "id": "lensflare",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "bd66021619df5187e6501068e596db8eed83b8ee04d3a56a157a82a76d968ad8",
+      "inputSha256": "9c418eb851dacf9432899dd4f0f701e96c522dabf2d30df883854bc3a52a7801",
+      "fixtureSha256": "db3822225b590a539ac8381642012105dab38536195b83294eb592712fef5b5a",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "lensflare-sun-anchor-box",
+        "lensflare-halo-dispersion-cylinder",
+        "lensflare-optical-dirt-sphere",
+        "lensflare-celestial-view-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "lensflare-sun-anchor-box",
+          "pixels": 103076
+        },
+        {
+          "id": "lensflare-halo-dispersion-cylinder",
+          "pixels": 62356
+        },
+        {
+          "id": "lensflare-optical-dirt-sphere",
+          "pixels": 166022
+        },
+        {
+          "id": "lensflare-celestial-view-rect",
+          "pixels": 66311
+        }
+      ]
+    },
+    {
+      "id": "many-clipping-planes-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "05f21d953f60eb0388bbe59ff48e6074ffcd0beb8bd458cdafcbbbf1db19abc2",
+      "inputSha256": "5f8aedd5f943fd9203ebe265e9199ab24ddc055c3b285bb073f57058c964867b",
+      "fixtureSha256": "42a219961583eb503bf6856a6f1ae79d5aac38eab85de31adf6eee4e9b735fed",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "many-clip-center-model-box",
+        "many-clip-radial-cylinder",
+        "many-clip-normal-sphere",
+        "many-clip-cadastral-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "many-clip-center-model-box",
+          "pixels": 569
+        },
+        {
+          "id": "many-clip-radial-cylinder",
+          "pixels": 567
+        },
+        {
+          "id": "many-clip-normal-sphere",
+          "pixels": 26
+        },
+        {
+          "id": "many-clip-cadastral-rect",
+          "pixels": 66867
+        }
+      ]
+    },
+    {
+      "id": "mars",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "eee6e36ae479069c74240302d86f2f82e48418081ec8586b7500e59ba9d2c4f7",
+      "inputSha256": "02f3fac041a9b55829a0a0ffe722b7fe6a60ca964f809b521dbb3503038b86d1",
+      "fixtureSha256": "ad5a266b9781344d1982a93da5bb2b7bec7b94e638cef76f2bf113d673ce6785",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "mars-jezero-crater-box",
+        "mars-atmosphere-datum-cylinder",
+        "mars-gale-curiosity-sphere",
+        "mars-equatorial-survey-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "mars-jezero-crater-box",
+          "pixels": 715
+        },
+        {
+          "id": "mars-atmosphere-datum-cylinder",
+          "pixels": 236
+        },
+        {
+          "id": "mars-gale-curiosity-sphere",
+          "pixels": 41
+        },
+        {
+          "id": "mars-equatorial-survey-rect",
+          "pixels": 61153
+        }
+      ]
     }
   ],
   "browser": "151.0.7922.34",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed",
-  "totalCases": 255
+  "totalCases": 259
 }
