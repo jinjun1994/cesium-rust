@@ -7659,6 +7659,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "pick-from-ray-dev",
+      "title": "Pick From Ray - Dev",
+      "sourceSha256": "ad6681509062d0f970b726172af86cb989991daf57fc8e6f026b1ee938d90f77",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=pick-from-ray-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/pick-from-ray-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/pick-from-ray-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Scene.pickFromRay and Scene.drillPickFromRay line-of-sight raycast intersection",
+        "3D Tileset styling with alpha transparency and objectsToExclude filtering",
+        "Polyline arrow ray visualization and intersection point marker spheres"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "picking-dev",
+      "title": "Picking - Dev",
+      "sourceSha256": "9ef1d33d60d21ff053f099a5867726a23bfe06b85f8bdf4d6ff700fb57a374e3",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=picking-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/picking-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/picking-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Comprehensive interactive picking across Billboards, Labels, Points, and Polyline collections",
+        "GeometryInstance and Primitive color attribute manipulation on mouse hover",
+        "ScreenSpaceEventHandler MOUSE_MOVE event handling with yellow color feedback"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "polylines-on-3d-tiles",
+      "title": "Polylines on 3D Tiles",
+      "sourceSha256": "7afec578763ee24b23b414c96caef9be2bd5ede14c2c12c83422c369116823bc",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=polylines-on-3d-tiles",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/polylines-on-3d-tiles.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/polylines-on-3d-tiles.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Clamp-to-ground polylines classified against Cesium 3D Tilesets (ClassificationType.CESIUM_3D_TILE)",
+        "BIM power plant and photogrammetry building tile feature processing and duplicate floor filtering",
+        "PolylineDashMaterialProperty styling with custom dash length and color uniforms"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "post-processing",
+      "title": "Post Processing",
+      "sourceSha256": "54deb9679a83ca5575e19d5541cec44a24ddd1401245f42e31f28db5dda33c53",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=post-processing",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/post-processing.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/post-processing.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Full-screen post-process stage chain: Silhouette, Black and White, Brightness, and Night Vision",
+        "Knockout view model two-way data binding for dynamic stage toggling and uniform adjustment",
+        "PostProcessStageLibrary stage composition with hardware capability checks"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

@@ -5950,4 +5950,63 @@ mod tests {
         let pbm_variants = crate::entity_variants::decode(&pbm_variants_raw).unwrap();
         assert_eq!(pbm_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch83_raypick_picking_polylines3d_postprocess() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Pick From Ray - Dev
+        let ray_data = std::fs::read(base.join("pick-from-ray-dev.json")).unwrap();
+        let ray_entities = decode(&ray_data).unwrap();
+        assert_eq!(ray_entities.len(), 4);
+        assert!(matches!(ray_entities[0].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ray_entities[1].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ray_entities[2].shape, Shape::Box { .. }));
+        assert!(matches!(ray_entities[3].shape, Shape::Rectangle { .. }));
+        let ray_variants_raw = std::fs::read(base.join("pick-from-ray-dev.variants.json")).unwrap();
+        let ray_variants = crate::entity_variants::decode(&ray_variants_raw).unwrap();
+        assert_eq!(ray_variants.variants.len(), 4);
+
+        // 2. Picking - Dev
+        let picking_data = std::fs::read(base.join("picking-dev.json")).unwrap();
+        let picking_entities = decode(&picking_data).unwrap();
+        assert_eq!(picking_entities.len(), 4);
+        assert!(matches!(picking_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(picking_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(picking_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(picking_entities[3].shape, Shape::Rectangle { .. }));
+        let picking_variants_raw = std::fs::read(base.join("picking-dev.variants.json")).unwrap();
+        let picking_variants = crate::entity_variants::decode(&picking_variants_raw).unwrap();
+        assert_eq!(picking_variants.variants.len(), 4);
+
+        // 3. Polylines on 3D Tiles
+        let poly3d_data = std::fs::read(base.join("polylines-on-3d-tiles.json")).unwrap();
+        let poly3d_entities = decode(&poly3d_data).unwrap();
+        assert_eq!(poly3d_entities.len(), 4);
+        assert!(matches!(poly3d_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(poly3d_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(poly3d_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(poly3d_entities[3].shape, Shape::Rectangle { .. }));
+        let poly3d_variants_raw =
+            std::fs::read(base.join("polylines-on-3d-tiles.variants.json")).unwrap();
+        let poly3d_variants = crate::entity_variants::decode(&poly3d_variants_raw).unwrap();
+        assert_eq!(poly3d_variants.variants.len(), 4);
+
+        // 4. Post-Processing
+        let post_data = std::fs::read(base.join("post-processing.json")).unwrap();
+        let post_entities = decode(&post_data).unwrap();
+        assert_eq!(post_entities.len(), 4);
+        assert!(matches!(post_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(post_entities[1].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(post_entities[2].shape, Shape::Cylinder { .. }));
+        assert!(matches!(post_entities[3].shape, Shape::Rectangle { .. }));
+        let post_variants_raw = std::fs::read(base.join("post-processing.variants.json")).unwrap();
+        let post_variants = crate::entity_variants::decode(&post_variants_raw).unwrap();
+        assert_eq!(post_variants.variants.len(), 4);
+    }
 }

@@ -1,0 +1,146 @@
+[
+  {
+    "id": "postprocess-character-box",
+    "name": "Sample Cesium_Man Animated Model Bounding Hull",
+    "show": true,
+    "positionDegrees": [
+      -123.0744619,
+      44.0503706,
+      10
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        8,
+        6,
+        18
+      ]
+    },
+    "color": [
+      0.35,
+      0.75,
+      0.85,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.7,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "modelUri": "Cesium_Man.glb",
+      "trackedEntity": true
+    }
+  },
+  {
+    "id": "postprocess-silhouette-halo-ellipsoid",
+    "name": "Full Screen Silhouette Edge Highlight Outer Shell",
+    "show": true,
+    "positionDegrees": [
+      -123.0741,
+      44.0506,
+      14
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        12,
+        12,
+        15
+      ]
+    },
+    "color": [
+      1,
+      0.9,
+      0.1,
+      0.85
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      0.5,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "stage": "Silhouette",
+      "color": "#ffff00",
+      "enabled": true
+    }
+  },
+  {
+    "id": "postprocess-nightvision-cylinder",
+    "name": "Night Vision Phosphor & Vignette Stage Datum Column",
+    "show": true,
+    "positionDegrees": [
+      -123.0748,
+      44.0501,
+      8
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 22,
+      "topRadius": 4,
+      "bottomRadius": 4
+    },
+    "color": [
+      0.15,
+      0.95,
+      0.35,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.5,
+      1,
+      0.6,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "stage": "NightVision",
+      "brightness": 0.5,
+      "gradations": 5
+    }
+  },
+  {
+    "id": "postprocess-inspection-rect",
+    "name": "Post Process Stage Stage Pipeline Cadastral Bounds",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -123.084,
+        44.043,
+        -123.064,
+        44.057
+      ]
+    },
+    "color": [
+      0.2,
+      0.25,
+      0.35,
+      0.25
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.5,
+      0.7,
+      1,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "multiStageComposite": true
+    }
+  }
+]

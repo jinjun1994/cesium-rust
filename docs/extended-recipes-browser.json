@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "particle-system-weather",
+      "id": "pick-from-ray-dev",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "00f31304c83948b8483ccea29333f1659809fc97fb308e20e0b05abf8fcf4b47",
-      "inputSha256": "2e7945dc762d7a65a085d477e4570a60fb9e637935737fcb054d2566e55d8051",
-      "fixtureSha256": "56e35f9540990e3db94e7ad8c6876f31a2942586cf9bb8b0a007b00bf82697e4",
+      "sourceSha256": "ad6681509062d0f970b726172af86cb989991daf57fc8e6f026b1ee938d90f77",
+      "inputSha256": "5b0a2219597a6766656ad0bc54bcb03c6c431d21ea0b5450d510746493a0b478",
+      "fixtureSha256": "39e7166cac7794a69f2c557121b25bb240a3558e9c542ab604fd777ae87f4bed",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,78 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "weather-snow-cloud-dome",
-        "weather-rain-curtain-box",
-        "weather-camera-mount-cylinder",
-        "weather-extent-rect"
+        "raypick-start-blue-sphere",
+        "raypick-target-red-sphere",
+        "raypick-intersection-box",
+        "raypick-extent-rect"
       ],
       "pixelCounts": [
         {
-          "id": "weather-snow-cloud-dome",
-          "pixels": 1358
-        },
-        {
-          "id": "weather-rain-curtain-box",
-          "pixels": 1214
-        },
-        {
-          "id": "weather-camera-mount-cylinder",
-          "pixels": 121
-        },
-        {
-          "id": "weather-extent-rect",
-          "pixels": 66915
-        }
-      ]
-    },
-    {
-      "id": "pbr-lighting-dev",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "8b4bbd018bba8ed36d746dd54bb40c79ff2a4f436913864c84ed45f1490e73aa",
-      "inputSha256": "94e6766d318f1a003a75d6284c7861f2a8861599ae6a6f3ce94e042c4f2d2f56",
-      "fixtureSha256": "d1aedb473415085a05ba6c67ea2de1c084fc72a95bac2315afb34782554db6b8",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "pbr-helmet-model-box",
-        "pbr-environment-specular-sphere",
-        "pbr-lighting-rig-cylinder",
-        "pbr-inspection-platform-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "pbr-helmet-model-box",
-          "pixels": 70
-        },
-        {
-          "id": "pbr-environment-specular-sphere",
+          "id": "raypick-start-blue-sphere",
           "pixels": 77
         },
         {
-          "id": "pbr-lighting-rig-cylinder",
-          "pixels": 61
+          "id": "raypick-target-red-sphere",
+          "pixels": 77
         },
         {
-          "id": "pbr-inspection-platform-rect",
-          "pixels": 66867
+          "id": "raypick-intersection-box",
+          "pixels": 30
+        },
+        {
+          "id": "raypick-extent-rect",
+          "pixels": 66413
         }
       ]
     },
     {
-      "id": "per-feature-post-processing",
+      "id": "picking-dev",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "759c85b24edf2afaeefac3dbf0cf59f6e82d090a5a5ac5c82e141500be7c733b",
-      "inputSha256": "d0e9210f4b4c13b838e22cedc5860a43661d3f13a315ca6934a90cfa2e22517d",
-      "fixtureSha256": "d562d4c9717316f127f721659db15670c8ca70d4c8ac7bd108b319fa71dcfeea",
+      "sourceSha256": "9ef1d33d60d21ff053f099a5867726a23bfe06b85f8bdf4d6ff700fb57a374e3",
+      "inputSha256": "4e159d2329c1cde9d74d7442fce8d0e6b7eb3261a8d3194867590d910f4da8be",
+      "fixtureSha256": "b604f69fd156c50fd31f94c6bec40903f04fd3cf9143a19a1a284fd642a4e12d",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -104,37 +63,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "perfeature-model-character-box",
-        "perfeature-silhouette-halo-ellipsoid",
-        "perfeature-tonal-cylinder",
-        "perfeature-bounds-rect"
+        "pickingdev-target-box",
+        "pickingdev-vector-cylinder",
+        "pickingdev-screen-point-sphere",
+        "pickingdev-bounds-rect"
       ],
       "pixelCounts": [
         {
-          "id": "perfeature-model-character-box",
-          "pixels": 40
+          "id": "pickingdev-target-box",
+          "pixels": 70
         },
         {
-          "id": "perfeature-silhouette-halo-ellipsoid",
-          "pixels": 120
+          "id": "pickingdev-vector-cylinder",
+          "pixels": 66
         },
         {
-          "id": "perfeature-tonal-cylinder",
+          "id": "pickingdev-screen-point-sphere",
           "pixels": 44
         },
         {
-          "id": "perfeature-bounds-rect",
-          "pixels": 66080
+          "id": "pickingdev-bounds-rect",
+          "pixels": 66606
         }
       ]
     },
     {
-      "id": "physically-based-materials",
+      "id": "polylines-on-3d-tiles",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "48f7d144dfd3f51de193234dd7bb9092cab38d3e9d8cb8d54c7fdd221faa5c5c",
-      "inputSha256": "38479e73e45bc690ecb3a37957dcae586c98596fe20273eddb17ce924f4ee0c5",
-      "fixtureSha256": "e98b3dbdab47344854c822b8e667b4635da8229559f20b37b047d86311232758",
+      "sourceSha256": "7afec578763ee24b23b414c96caef9be2bd5ede14c2c12c83422c369116823bc",
+      "inputSha256": "571a9d2d9ca5e8ed65059adc806e126ba5422234ed2a3e249659df43a8684460",
+      "fixtureSha256": "3f56191ab0ec1fe80b639936387122a99e3dbfebc1e19899ad9181935a18bfc7",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -145,27 +104,68 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "pbm-ground-vehicle-box",
-        "pbm-sun-reflection-cylinder",
-        "pbm-roughness-probe-sphere",
-        "pbm-terrain-corridor-rect"
+        "polylines3d-powerplant-box",
+        "polylines3d-clamped-pipe-cylinder",
+        "polylines3d-photogrammetry-sphere",
+        "polylines3d-corridor-rect"
       ],
       "pixelCounts": [
         {
-          "id": "pbm-ground-vehicle-box",
-          "pixels": 54
+          "id": "polylines3d-powerplant-box",
+          "pixels": 156
         },
         {
-          "id": "pbm-sun-reflection-cylinder",
-          "pixels": 52
+          "id": "polylines3d-clamped-pipe-cylinder",
+          "pixels": 40
         },
         {
-          "id": "pbm-roughness-probe-sphere",
-          "pixels": 56
+          "id": "polylines3d-photogrammetry-sphere",
+          "pixels": 77
         },
         {
-          "id": "pbm-terrain-corridor-rect",
-          "pixels": 65151
+          "id": "polylines3d-corridor-rect",
+          "pixels": 66039
+        }
+      ]
+    },
+    {
+      "id": "post-processing",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "54deb9679a83ca5575e19d5541cec44a24ddd1401245f42e31f28db5dda33c53",
+      "inputSha256": "5b9aff43981d25c3dfbe5dbfc8b129ba4923b4754c9d9d1d805c84b57f93e853",
+      "fixtureSha256": "22b661b0363cb8811c9adec0760cb4482fa06ba335211a274c0fdb6358194d29",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "postprocess-character-box",
+        "postprocess-silhouette-halo-ellipsoid",
+        "postprocess-nightvision-cylinder",
+        "postprocess-inspection-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "postprocess-character-box",
+          "pixels": 40
+        },
+        {
+          "id": "postprocess-silhouette-halo-ellipsoid",
+          "pixels": 120
+        },
+        {
+          "id": "postprocess-nightvision-cylinder",
+          "pixels": 46
+        },
+        {
+          "id": "postprocess-inspection-rect",
+          "pixels": 66080
         }
       ]
     }

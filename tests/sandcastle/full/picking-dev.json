@@ -1,0 +1,144 @@
+[
+  {
+    "id": "pickingdev-target-box",
+    "name": "Primitive and GeometryInstance Target Hull",
+    "show": true,
+    "positionDegrees": [
+      -75.59777,
+      40.03883,
+      25
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        15,
+        15,
+        15
+      ]
+    },
+    "color": [
+      0.25,
+      0.75,
+      0.95,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.6,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveType": "BoxGeometry",
+      "highlightColor": "#ffff00"
+    }
+  },
+  {
+    "id": "pickingdev-vector-cylinder",
+    "name": "Polyline Collection Linear Vector Datum Column",
+    "show": true,
+    "positionDegrees": [
+      -75.5972,
+      40.0392,
+      20
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 30,
+      "topRadius": 5,
+      "bottomRadius": 5
+    },
+    "color": [
+      0.95,
+      0.85,
+      0.2,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      0.6,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "primitiveType": "PolylineCollection",
+      "width": 5
+    }
+  },
+  {
+    "id": "pickingdev-screen-point-sphere",
+    "name": "Screen Space Point and Billboard Interactive Probe",
+    "show": true,
+    "positionDegrees": [
+      -75.5982,
+      40.0383,
+      18
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        7.5,
+        7.5,
+        7.5
+      ]
+    },
+    "color": [
+      0.85,
+      0.25,
+      0.85,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.6,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "pixelSize": 15,
+      "hoverHighlight": true
+    }
+  },
+  {
+    "id": "pickingdev-bounds-rect",
+    "name": "Multi-Primitive Interactive Picking Ground Extent",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -75.608,
+        40.03,
+        -75.588,
+        40.047
+      ]
+    },
+    "color": [
+      0.2,
+      0.35,
+      0.3,
+      0.25
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.5,
+      0.9,
+      0.7,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "mouseMovePick": true
+    }
+  }
+]

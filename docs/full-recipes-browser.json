@@ -1,5 +1,5 @@
 {
-  "version": "0.0.82",
+  "version": "0.0.83",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -10924,10 +10924,174 @@
           "pixels": 65151
         }
       ]
+    },
+    {
+      "id": "pick-from-ray-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "ad6681509062d0f970b726172af86cb989991daf57fc8e6f026b1ee938d90f77",
+      "inputSha256": "5b0a2219597a6766656ad0bc54bcb03c6c431d21ea0b5450d510746493a0b478",
+      "fixtureSha256": "39e7166cac7794a69f2c557121b25bb240a3558e9c542ab604fd777ae87f4bed",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "raypick-start-blue-sphere",
+        "raypick-target-red-sphere",
+        "raypick-intersection-box",
+        "raypick-extent-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "raypick-start-blue-sphere",
+          "pixels": 77
+        },
+        {
+          "id": "raypick-target-red-sphere",
+          "pixels": 77
+        },
+        {
+          "id": "raypick-intersection-box",
+          "pixels": 30
+        },
+        {
+          "id": "raypick-extent-rect",
+          "pixels": 66413
+        }
+      ]
+    },
+    {
+      "id": "picking-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "9ef1d33d60d21ff053f099a5867726a23bfe06b85f8bdf4d6ff700fb57a374e3",
+      "inputSha256": "4e159d2329c1cde9d74d7442fce8d0e6b7eb3261a8d3194867590d910f4da8be",
+      "fixtureSha256": "b604f69fd156c50fd31f94c6bec40903f04fd3cf9143a19a1a284fd642a4e12d",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "pickingdev-target-box",
+        "pickingdev-vector-cylinder",
+        "pickingdev-screen-point-sphere",
+        "pickingdev-bounds-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "pickingdev-target-box",
+          "pixels": 70
+        },
+        {
+          "id": "pickingdev-vector-cylinder",
+          "pixels": 66
+        },
+        {
+          "id": "pickingdev-screen-point-sphere",
+          "pixels": 44
+        },
+        {
+          "id": "pickingdev-bounds-rect",
+          "pixels": 66606
+        }
+      ]
+    },
+    {
+      "id": "polylines-on-3d-tiles",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "7afec578763ee24b23b414c96caef9be2bd5ede14c2c12c83422c369116823bc",
+      "inputSha256": "571a9d2d9ca5e8ed65059adc806e126ba5422234ed2a3e249659df43a8684460",
+      "fixtureSha256": "3f56191ab0ec1fe80b639936387122a99e3dbfebc1e19899ad9181935a18bfc7",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "polylines3d-powerplant-box",
+        "polylines3d-clamped-pipe-cylinder",
+        "polylines3d-photogrammetry-sphere",
+        "polylines3d-corridor-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "polylines3d-powerplant-box",
+          "pixels": 156
+        },
+        {
+          "id": "polylines3d-clamped-pipe-cylinder",
+          "pixels": 40
+        },
+        {
+          "id": "polylines3d-photogrammetry-sphere",
+          "pixels": 77
+        },
+        {
+          "id": "polylines3d-corridor-rect",
+          "pixels": 66039
+        }
+      ]
+    },
+    {
+      "id": "post-processing",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "54deb9679a83ca5575e19d5541cec44a24ddd1401245f42e31f28db5dda33c53",
+      "inputSha256": "5b9aff43981d25c3dfbe5dbfc8b129ba4923b4754c9d9d1d805c84b57f93e853",
+      "fixtureSha256": "22b661b0363cb8811c9adec0760cb4482fa06ba335211a274c0fdb6358194d29",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "postprocess-character-box",
+        "postprocess-silhouette-halo-ellipsoid",
+        "postprocess-nightvision-cylinder",
+        "postprocess-inspection-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "postprocess-character-box",
+          "pixels": 40
+        },
+        {
+          "id": "postprocess-silhouette-halo-ellipsoid",
+          "pixels": 120
+        },
+        {
+          "id": "postprocess-nightvision-cylinder",
+          "pixels": 46
+        },
+        {
+          "id": "postprocess-inspection-rect",
+          "pixels": 66080
+        }
+      ]
     }
   ],
   "browser": "151.0.7922.34",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed",
-  "totalCases": 275
+  "totalCases": 279
 }

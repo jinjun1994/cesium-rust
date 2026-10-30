@@ -1,0 +1,151 @@
+[
+  {
+    "id": "raypick-start-blue-sphere",
+    "name": "Raycast Source Blue Anchor Origin Sphere",
+    "show": true,
+    "positionDegrees": [
+      -75.612,
+      40.041,
+      30
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        10,
+        10,
+        10
+      ]
+    },
+    "color": [
+      0,
+      0,
+      1,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.5,
+      0.7,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "role": "RayOrigin",
+      "radiiMeters": 10
+    }
+  },
+  {
+    "id": "raypick-target-red-sphere",
+    "name": "Raycast Target Red Destination Sphere",
+    "show": true,
+    "positionDegrees": [
+      -75.611,
+      40.045,
+      30
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        10,
+        10,
+        10
+      ]
+    },
+    "color": [
+      1,
+      0,
+      0,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.6,
+      0.6,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "role": "RayTarget",
+      "radiiMeters": 10
+    }
+  },
+  {
+    "id": "raypick-intersection-box",
+    "name": "3D Tileset Raycast Intersection Marker Volume",
+    "show": true,
+    "positionDegrees": [
+      -75.6115,
+      40.043,
+      30
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        8,
+        8,
+        8
+      ]
+    },
+    "color": [
+      1,
+      0.9,
+      0.1,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      0.5,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "intersectionPoint": [
+        -75.6115,
+        40.043,
+        30
+      ],
+      "drillPick": false
+    }
+  },
+  {
+    "id": "raypick-extent-rect",
+    "name": "Pick From Ray Inspection Cadastral Bounds",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -75.62,
+        40.035,
+        -75.602,
+        40.052
+      ]
+    },
+    "color": [
+      0.2,
+      0.3,
+      0.45,
+      0.25
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.6,
+      0.8,
+      1,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "tileset": "Tileset.json",
+      "depthTestAgainstTerrain": true
+    }
+  }
+]

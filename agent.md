@@ -1252,3 +1252,21 @@
 
 
 
+
+---
+
+### [2026-10-30] v0.0.83 验收完成：Pick From Ray - Dev、Picking - Dev、Polylines on 3D Tiles 与 Post Processing 体系全面打通
+- **完成配方**（累计推进至 **279 / 309**，剩余 30 个）：
+  1. `pick-from-ray-dev`（三维空间射线拾取、视线遮挡通视求交与多图元穿透探测：4 个变体，涵盖基准单次射线求交模式、穿透式多层图元探测模式、视线通视遮挡模式与无障碍直达射线模式）
+  2. `picking-dev`（图元实例层级综合拾取开发套件、广告牌/文字/点云/折线几何图元交互：4 个变体，涵盖基准图元与几何实例拾取、广告牌与文字标签集合拾取模式、点图元集合与宽折线图元拾取模式与穿透深度层级拾取检查模式）
+  3. `polylines-on-3d-tiles`（3D Tiles 瓦片分类贴模型折线、工业管道布线与倾斜摄影地物包络：4 个变体，涵盖基准 BIM 工业管道模式、倾斜摄影山地道路模式、地形与 3D 瓦片双重贴地模式与地下综合管廊布线模式）
+  4. `post-processing`（多阶段全屏后处理滤镜链、轮廓/黑白/亮度/夜视管线组合：4 个变体，涵盖基准轮廓边缘检测阶段、黑白单色滤镜阶段、亮度与对比度增强阶段与夜视光学模拟阶段）
+- **验证结果**：
+  - **普通 Rust 单元测试**：143 / 143 项全部通过（新增 `batch83_raypick_picking_polylines3d_postprocess`）。
+  - **真实 GPU 离屏渲染测试**：280 / 280 项全部通过（包含 279 个完整案例 + 1 个材质拾取测试）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 279 个固定案例哈希与实体结构精准契合）。
+  - **浏览器真实 WebGPU 端到端**：279 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Pick From Ray - Dev、Picking - Dev、Polylines on 3D Tiles 与 Post Processing 验证文档](docs/raypick-picking-polylines3d-postprocess-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。

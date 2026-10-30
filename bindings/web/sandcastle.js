@@ -286,6 +286,10 @@ $('fullNew248').onclick=guarded(()=>runFull('particle-system-weather'));
 $('fullNew249').onclick=guarded(()=>runFull('pbr-lighting-dev'));
 $('fullNew250').onclick=guarded(()=>runFull('per-feature-post-processing'));
 $('fullNew251').onclick=guarded(()=>runFull('physically-based-materials'));
+$('fullNew252').onclick=guarded(()=>runFull('pick-from-ray-dev'));
+$('fullNew253').onclick=guarded(()=>runFull('picking-dev'));
+$('fullNew254').onclick=guarded(()=>runFull('polylines-on-3d-tiles'));
+$('fullNew255').onclick=guarded(()=>runFull('post-processing'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);
