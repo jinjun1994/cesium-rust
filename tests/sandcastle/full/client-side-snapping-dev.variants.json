@@ -1,0 +1,597 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Edges Only Snapping (Yellow Snap Anchors)",
+      "entities": [
+        {
+          "id": "client-snap-anchor-point",
+          "name": "First Snap Measurement Anchor Pin",
+          "show": true,
+          "positionDegrees": [
+            -122.3845,
+            37.7882,
+            35
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              16,
+              16,
+              16
+            ]
+          },
+          "color": [
+            1,
+            0.9,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "VERTEX",
+            "state": "MEASURING_START"
+          }
+        },
+        {
+          "id": "client-snap-target-point",
+          "name": "Second Snap Measurement Target Column",
+          "show": true,
+          "positionDegrees": [
+            -122.3832,
+            37.789,
+            42
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 45,
+            "topRadius": 15,
+            "bottomRadius": 15
+          },
+          "color": [
+            1,
+            0.55,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.8,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "SURFACE_NORMAL",
+            "state": "MEASURING_END"
+          }
+        },
+        {
+          "id": "client-snap-edge-guide",
+          "name": "Structural Edge Snapping Guide Member",
+          "show": true,
+          "positionDegrees": [
+            -122.3838,
+            37.7886,
+            38
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              70,
+              18,
+              18
+            ]
+          },
+          "color": [
+            0.3,
+            0.9,
+            0.3,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "EDGE_ONLY",
+            "edgeTolerancePixels": 6
+          }
+        },
+        {
+          "id": "client-snap-mesh-extent",
+          "name": "Snapping Search Boundary Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.386,
+              37.787,
+              -122.382,
+              37.79
+            ]
+          },
+          "color": [
+            0.2,
+            0.3,
+            0.5,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            1,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "assetId": 4665927,
+            "debugShowBoundingVolume": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Surfaces + Edges Snapping (Cyan Surface & Yellow Edges)",
+      "entities": [
+        {
+          "id": "client-snap-anchor-point",
+          "name": "First Snap Measurement Anchor Pin",
+          "show": true,
+          "positionDegrees": [
+            -122.3845,
+            37.7882,
+            35
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              16,
+              16,
+              16
+            ]
+          },
+          "color": [
+            1,
+            0.9,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "VERTEX",
+            "state": "MEASURING_START"
+          }
+        },
+        {
+          "id": "client-snap-target-point",
+          "name": "Second Snap Measurement Target Column",
+          "show": true,
+          "positionDegrees": [
+            -122.3832,
+            37.789,
+            42
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 45,
+            "topRadius": 15,
+            "bottomRadius": 15
+          },
+          "color": [
+            0.15,
+            0.85,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "SURFACE_NORMAL",
+            "state": "MEASURING_END"
+          }
+        },
+        {
+          "id": "client-snap-edge-guide",
+          "name": "Structural Edge Snapping Guide Member",
+          "show": true,
+          "positionDegrees": [
+            -122.3838,
+            37.7886,
+            38
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              70,
+              18,
+              18
+            ]
+          },
+          "color": [
+            0.3,
+            0.9,
+            0.3,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "EDGE_ONLY",
+            "edgeTolerancePixels": 6
+          }
+        },
+        {
+          "id": "client-snap-mesh-extent",
+          "name": "Snapping Search Boundary Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.386,
+              37.787,
+              -122.382,
+              37.79
+            ]
+          },
+          "color": [
+            0.2,
+            0.3,
+            0.5,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            1,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "assetId": 4665927,
+            "debugShowBoundingVolume": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Surfaces Only Snapping (Orange Surface Projection)",
+      "entities": [
+        {
+          "id": "client-snap-anchor-point",
+          "name": "First Snap Measurement Anchor Pin",
+          "show": true,
+          "positionDegrees": [
+            -122.3845,
+            37.7882,
+            35
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              16,
+              16,
+              16
+            ]
+          },
+          "color": [
+            1,
+            0.9,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "VERTEX",
+            "state": "MEASURING_START"
+          }
+        },
+        {
+          "id": "client-snap-target-point",
+          "name": "Second Snap Measurement Target Column",
+          "show": true,
+          "positionDegrees": [
+            -122.3832,
+            37.789,
+            42
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 45,
+            "topRadius": 15,
+            "bottomRadius": 15
+          },
+          "color": [
+            1,
+            0.55,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.8,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "SURFACE_NORMAL",
+            "state": "MEASURING_END"
+          }
+        },
+        {
+          "id": "client-snap-edge-guide",
+          "name": "Structural Edge Snapping Guide Member",
+          "show": true,
+          "positionDegrees": [
+            -122.3838,
+            37.7886,
+            38
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              70,
+              18,
+              18
+            ]
+          },
+          "color": [
+            0.95,
+            0.45,
+            0.1,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.3,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "EDGE_ONLY",
+            "edgeTolerancePixels": 6
+          }
+        },
+        {
+          "id": "client-snap-mesh-extent",
+          "name": "Snapping Search Boundary Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.386,
+              37.787,
+              -122.382,
+              37.79
+            ]
+          },
+          "color": [
+            0.2,
+            0.3,
+            0.5,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.7,
+            1,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "assetId": 4665927,
+            "debugShowBoundingVolume": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Show Tile Bounds Active (Neon Green Bounding Extents)",
+      "entities": [
+        {
+          "id": "client-snap-anchor-point",
+          "name": "First Snap Measurement Anchor Pin",
+          "show": true,
+          "positionDegrees": [
+            -122.3845,
+            37.7882,
+            35
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              16,
+              16,
+              16
+            ]
+          },
+          "color": [
+            1,
+            0.9,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "VERTEX",
+            "state": "MEASURING_START"
+          }
+        },
+        {
+          "id": "client-snap-target-point",
+          "name": "Second Snap Measurement Target Column",
+          "show": true,
+          "positionDegrees": [
+            -122.3832,
+            37.789,
+            42
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 45,
+            "topRadius": 15,
+            "bottomRadius": 15
+          },
+          "color": [
+            1,
+            0.55,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.8,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "SURFACE_NORMAL",
+            "state": "MEASURING_END"
+          }
+        },
+        {
+          "id": "client-snap-edge-guide",
+          "name": "Structural Edge Snapping Guide Member",
+          "show": true,
+          "positionDegrees": [
+            -122.3838,
+            37.7886,
+            38
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              70,
+              18,
+              18
+            ]
+          },
+          "color": [
+            0.3,
+            0.9,
+            0.3,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "snapMode": "EDGE_ONLY",
+            "edgeTolerancePixels": 6
+          }
+        },
+        {
+          "id": "client-snap-mesh-extent",
+          "name": "Snapping Search Boundary Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.386,
+              37.787,
+              -122.382,
+              37.79
+            ]
+          },
+          "color": [
+            0.25,
+            0.75,
+            0.35,
+            0.5
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            1,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "assetId": 4665927,
+            "debugShowBoundingVolume": true
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.65（已通过 207 / 309 个完整案例，剩余 102 个）
+- **当前版本**：v0.0.66（已通过 211 / 309 个完整案例，剩余 98 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.66 验收完成：Classification Types、Client-side Snapping - Dev、Clipping Performance - Dev 与 Clipping Regions
+- **完成配方**（累计推进至 **211 / 309**，剩余 98 个）：
+  1. `classification-types`（多目标分类类型 ClassificationType 与半透明/纹理材质覆写：基准双重分类：同时对地表地形与 3D Tiles 实景建筑进行多边形与折线空间覆写、仅分类地形模式：绿色与大地色调高亮多边形、仅分类 3D 瓦片网格模式：电光青色建筑分类填充、棋盘金纹理材质模拟模式 4 种变体）
+  2. `client-side-snapping-dev`（三维瓦片网格边缘与表面客户端实时几何捕捉测距：仅边缘模式捕捉：黄色测量锚点与端点拾取、表面与边缘混合捕捉：青色表面垂足与黄色轮廓边缘、仅表面几何投影捕捉：橙色表面法线垂足对齐、显示瓦片包围盒调试荧光绿空间包围体积 4 种变体）
+  3. `clipping-performance-dev`（参数化多边形阵列开挖裁剪与距离纹理性能诊断：地形目标裁剪基准：深红与琥珀色圆形多边形阵列、3D Tiles 目标裁剪模式：电青色高精实景体量遮罩、距离纹理调试模式：高对比紫色有向距离场深度检视、高密度精密模式：黄金高精度参数化圆形边缘 4 种变体）
+  4. `clipping-regions`（任意多边形地块开挖裁剪与拟建建筑瓦片集嵌合：3D Tiles 地块开挖基准：丹佛市中心地块裁剪与拟建大楼嵌合、地表地形开挖模式：祖母绿核心筒深基坑钻孔轴、反向裁剪模式：反转保留地块内部并剔除外部空腔、拟建建筑独立特写模式：高对比天际线建筑轮廓 4 种变体）
+- **核心研发突破**：
+  1. **多目标分类调度机制（ClassificationType Multi-Target Routing）**：支持对地形（`TERRAIN`）、3D Tiles（`CESIUM_3D_TILE`）以及同时对两者（`BOTH`）进行空间多边形与贴地折线的动态分类与材质实时覆写。
+  2. **客户端网格捕捉与拓扑显示（Client-side Snapping & EdgeDisplayMode）**：构建基于三维瓦片边缘（`EDGES_ONLY`）与表面（`SURFACES_ONLY`）的客户端实时垂足求交与动态测量折线渲染流水线。
+  3. **参数化多边形开挖裁剪（ClippingPolygonCollection & Distance Texture Debug）**：支持大量圆形与复杂多边形开挖组合，集成距离纹理调试与多目标裁剪质量调谐。
+  4. **城市地块开挖与方案嵌合（Lot Excavation & Architectural Inset Integration）**：实现任意多边形边界内的开挖剖切与 `inverse` 逆向空腔剔除，支持拟建三维瓦片建筑无缝嵌套与可视化对比。
+- **验证结果**：
+  - **普通 Rust 单元测试**：126 项全部通过（含 `batch66_classificationtypes_clientsnapping_clippingperf_clippingregions`）。
+  - **真实 GPU 离屏渲染测试**：212 / 212 项全数通过（`212 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，211 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：211 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Classification Types、Client-side Snapping - Dev、Clipping Performance - Dev 与 Clipping Regions 验证文档](docs/classificationtypes-clientsnapping-clippingperf-clippingregions-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.65 验收完成：Cesium OSM Buildings、Cesium World Terrain、Clamp to 3D Model 与 Classification
 - **完成配方**（累计推进至 **207 / 309**，剩余 102 个）：

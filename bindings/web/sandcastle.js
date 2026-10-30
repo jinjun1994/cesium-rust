@@ -218,6 +218,10 @@ $('fullNew180').onclick=guarded(()=>runFull('cesium-osm-buildings'));
 $('fullNew181').onclick=guarded(()=>runFull('cesium-world-terrain'));
 $('fullNew182').onclick=guarded(()=>runFull('clamp-to-3d-model'));
 $('fullNew183').onclick=guarded(()=>runFull('classification'));
+$('fullNew184').onclick=guarded(()=>runFull('classification-types'));
+$('fullNew185').onclick=guarded(()=>runFull('client-side-snapping-dev'));
+$('fullNew186').onclick=guarded(()=>runFull('clipping-performance-dev'));
+$('fullNew187').onclick=guarded(()=>runFull('clipping-regions'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

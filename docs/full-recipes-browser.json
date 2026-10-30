@@ -8136,10 +8136,174 @@
           "pixels": 3756
         }
       ]
+    },
+    {
+      "id": "classification-types",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "6a759b44a5d7aeab7405be4eb414dd3b9eabd0d86f5ecf92f43e3747dd4e7fec",
+      "inputSha256": "70ee03a3e94518625b368d04b30223627a6d998b0ea7cbf5c9b7cbc3dfe1a5f1",
+      "fixtureSha256": "35646c5932981809b9d68e78c067c4917d7a7bba0b52373e78d5ae8588f86758",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "class-types-volume-box",
+        "class-types-corridor-pillar",
+        "class-types-centroid-sphere",
+        "class-types-boundary-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "class-types-volume-box",
+          "pixels": 1156
+        },
+        {
+          "id": "class-types-corridor-pillar",
+          "pixels": 440
+        },
+        {
+          "id": "class-types-centroid-sphere",
+          "pixels": 333
+        },
+        {
+          "id": "class-types-boundary-rect",
+          "pixels": 66482
+        }
+      ]
+    },
+    {
+      "id": "client-side-snapping-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "8deae5d6639cf269e201b29b872220c0a4c32ceb3ec5bb0af057c57eb2f2eb06",
+      "inputSha256": "918b2de7f8db870e38f5bc514815e969f1e8d7d25b453c968e338d952142533b",
+      "fixtureSha256": "7cbdde8789fba02caaddeecbdc426aa8c7e55c06005d136ebeee9afd4c8fd0c6",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "client-snap-anchor-point",
+        "client-snap-target-point",
+        "client-snap-edge-guide",
+        "client-snap-mesh-extent"
+      ],
+      "pixelCounts": [
+        {
+          "id": "client-snap-anchor-point",
+          "pixels": 188
+        },
+        {
+          "id": "client-snap-target-point",
+          "pixels": 333
+        },
+        {
+          "id": "client-snap-edge-guide",
+          "pixels": 396
+        },
+        {
+          "id": "client-snap-mesh-extent",
+          "pixels": 17484
+        }
+      ]
+    },
+    {
+      "id": "clipping-performance-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "5f95dad8f2d6c5db2f0c3e55f5ae2a23f0aa505ce10d45196323d7a4e1bc4510",
+      "inputSha256": "aa12a5c3c6f53a028fa5119a5980d9bbdf33191fa074368effba1608ed298127",
+      "fixtureSha256": "da70862d4758e87753c39956cea96ee75c3db6123c3ed83570c8cd696565b659",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "clip-perf-center-cylinder",
+        "clip-perf-grid-box-1",
+        "clip-perf-grid-marker",
+        "clip-perf-extent-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "clip-perf-center-cylinder",
+          "pixels": 896
+        },
+        {
+          "id": "clip-perf-grid-box-1",
+          "pixels": 900
+        },
+        {
+          "id": "clip-perf-grid-marker",
+          "pixels": 277
+        },
+        {
+          "id": "clip-perf-extent-rect",
+          "pixels": 65920
+        }
+      ]
+    },
+    {
+      "id": "clipping-regions",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "fab5a5fd20abecf18d78cf056b24111cf96e15e4b1b572751fca5c1852f7af2e",
+      "inputSha256": "6686fef8c2346265705b4a2dc072e3f1677204da8c69a072acd4e4e0b5ba60d0",
+      "fixtureSha256": "3fb94a90cf639e7407ecf53cddc1ef5c0500d2e120fb915d3b472510ee3bbbd0",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "clip-reg-building-inset",
+        "clip-reg-core-cylinder",
+        "clip-reg-survey-benchmark",
+        "clip-reg-lot-polygon-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "clip-reg-building-inset",
+          "pixels": 1216
+        },
+        {
+          "id": "clip-reg-core-cylinder",
+          "pixels": 650
+        },
+        {
+          "id": "clip-reg-survey-benchmark",
+          "pixels": 225
+        },
+        {
+          "id": "clip-reg-lot-polygon-rect",
+          "pixels": 12788
+        }
+      ]
     }
   ],
   "browser": "156.0.8078.75",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed",
-  "totalCases": 207
+  "totalCases": 211
 }

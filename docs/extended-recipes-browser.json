@@ -6,58 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "cesium-osm-buildings",
-      "status": "passed",
-      "entities": 5,
-      "sourceSha256": "8df14cdd2ee1b5bbdaa16944f8217af2277835d2c47f73d7d635233ea8c030f5",
-      "inputSha256": "4591143cd9108c85bb1c9e4ca179c529f7abf9dbb3ab80bbcb2b760c3fa2c919",
-      "fixtureSha256": "e8388ed0cef2112dcff25d0daace0f3d7ef79bfb5c2447ae0a81715df90d31c5",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "osm-1wtc-tower",
-        "osm-battery-park-pillar",
-        "osm-brooklyn-bridge-tower",
-        "osm-liberty-island-marker",
-        "osm-manhattan-bounds-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "osm-1wtc-tower",
-          "pixels": 4632
-        },
-        {
-          "id": "osm-battery-park-pillar",
-          "pixels": 754
-        },
-        {
-          "id": "osm-brooklyn-bridge-tower",
-          "pixels": 1092
-        },
-        {
-          "id": "osm-liberty-island-marker",
-          "pixels": 1169
-        },
-        {
-          "id": "osm-manhattan-bounds-rect",
-          "pixels": 64663
-        }
-      ]
-    },
-    {
-      "id": "cesium-world-terrain",
+      "id": "classification-types",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "446161a5db608cf961865cd1f94bbfe9e316ac6b2b373ce433d619b21162414c",
-      "inputSha256": "45bb9975c220fd0940de018c493b78a558222114b4d1583d551b0283f938c2c4",
-      "fixtureSha256": "7316e3247fbf6889caea169882077d6debeb7a5e1cb5e4bad6ff73a440bb0b6c",
+      "sourceSha256": "6a759b44a5d7aeab7405be4eb414dd3b9eabd0d86f5ecf92f43e3747dd4e7fec",
+      "inputSha256": "70ee03a3e94518625b368d04b30223627a6d998b0ea7cbf5c9b7cbc3dfe1a5f1",
+      "fixtureSha256": "35646c5932981809b9d68e78c067c4917d7a7bba0b52373e78d5ae8588f86758",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -68,37 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "cwt-halfdome-monolith",
-        "cwt-elcapitan-cliff",
-        "cwt-merced-river-basin",
-        "cwt-yosemite-boundary-rect"
+        "class-types-volume-box",
+        "class-types-corridor-pillar",
+        "class-types-centroid-sphere",
+        "class-types-boundary-rect"
       ],
       "pixelCounts": [
         {
-          "id": "cwt-halfdome-monolith",
-          "pixels": 49160
+          "id": "class-types-volume-box",
+          "pixels": 1156
         },
         {
-          "id": "cwt-elcapitan-cliff",
-          "pixels": 81859
+          "id": "class-types-corridor-pillar",
+          "pixels": 440
         },
         {
-          "id": "cwt-merced-river-basin",
-          "pixels": 34611
+          "id": "class-types-centroid-sphere",
+          "pixels": 333
         },
         {
-          "id": "cwt-yosemite-boundary-rect",
-          "pixels": 55937
+          "id": "class-types-boundary-rect",
+          "pixels": 66482
         }
       ]
     },
     {
-      "id": "clamp-to-3d-model",
+      "id": "client-side-snapping-dev",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "e87e29b6f1e502928423fd631a7e47ab75e3368ffcf502b8e3673d8f6ddc10f5",
-      "inputSha256": "91ba5dcf4da40778dedabc2e3cee14b0d5d60bf29140994ef601872fcdf80ab9",
-      "fixtureSha256": "16b5bc336248ff528d7b70397432827324e6e135c39886c84eecdbfb2e3da5e7",
+      "sourceSha256": "8deae5d6639cf269e201b29b872220c0a4c32ceb3ec5bb0af057c57eb2f2eb06",
+      "inputSha256": "918b2de7f8db870e38f5bc514815e969f1e8d7d25b453c968e338d952142533b",
+      "fixtureSha256": "7cbdde8789fba02caaddeecbdc426aa8c7e55c06005d136ebeee9afd4c8fd0c6",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -109,37 +63,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "clamp-vehicle-chassis",
-        "clamp-sample-height-point",
-        "clamp-reference-mast",
-        "clamp-test-ground-bounds"
+        "client-snap-anchor-point",
+        "client-snap-target-point",
+        "client-snap-edge-guide",
+        "client-snap-mesh-extent"
       ],
       "pixelCounts": [
         {
-          "id": "clamp-vehicle-chassis",
-          "pixels": 126
+          "id": "client-snap-anchor-point",
+          "pixels": 188
         },
         {
-          "id": "clamp-sample-height-point",
-          "pixels": 77
+          "id": "client-snap-target-point",
+          "pixels": 333
         },
         {
-          "id": "clamp-reference-mast",
-          "pixels": 125
+          "id": "client-snap-edge-guide",
+          "pixels": 396
         },
         {
-          "id": "clamp-test-ground-bounds",
-          "pixels": 52024
+          "id": "client-snap-mesh-extent",
+          "pixels": 17484
         }
       ]
     },
     {
-      "id": "classification",
+      "id": "clipping-performance-dev",
       "status": "passed",
-      "entities": 5,
-      "sourceSha256": "a69202016a31e7ee402f5e6c8e268b62696efcd11fb813463c8790b519ba2190",
-      "inputSha256": "81a029744151b9852dd4391eda9fd1b53af1b3cdf42e80e5f17a6ee8b3420032",
-      "fixtureSha256": "325442c5b8a3955eab10e62a367470e605e7531c3f928ac52228da10809abe58",
+      "entities": 4,
+      "sourceSha256": "5f95dad8f2d6c5db2f0c3e55f5ae2a23f0aa505ce10d45196323d7a4e1bc4510",
+      "inputSha256": "aa12a5c3c6f53a028fa5119a5980d9bbdf33191fa074368effba1608ed298127",
+      "fixtureSha256": "da70862d4758e87753c39956cea96ee75c3db6123c3ed83570c8cd696565b659",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -150,32 +104,68 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "class-building-volume",
-        "class-tree-volume-1",
-        "class-tree-volume-2",
-        "class-survey-marker",
-        "class-site-footprint-rect"
+        "clip-perf-center-cylinder",
+        "clip-perf-grid-box-1",
+        "clip-perf-grid-marker",
+        "clip-perf-extent-rect"
       ],
       "pixelCounts": [
         {
-          "id": "class-building-volume",
-          "pixels": 154
+          "id": "clip-perf-center-cylinder",
+          "pixels": 896
         },
         {
-          "id": "class-tree-volume-1",
-          "pixels": 125
+          "id": "clip-perf-grid-box-1",
+          "pixels": 900
         },
         {
-          "id": "class-tree-volume-2",
-          "pixels": 125
+          "id": "clip-perf-grid-marker",
+          "pixels": 277
         },
         {
-          "id": "class-survey-marker",
-          "pixels": 126
+          "id": "clip-perf-extent-rect",
+          "pixels": 65920
+        }
+      ]
+    },
+    {
+      "id": "clipping-regions",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "fab5a5fd20abecf18d78cf056b24111cf96e15e4b1b572751fca5c1852f7af2e",
+      "inputSha256": "6686fef8c2346265705b4a2dc072e3f1677204da8c69a072acd4e4e0b5ba60d0",
+      "fixtureSha256": "3fb94a90cf639e7407ecf53cddc1ef5c0500d2e120fb915d3b472510ee3bbbd0",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "clip-reg-building-inset",
+        "clip-reg-core-cylinder",
+        "clip-reg-survey-benchmark",
+        "clip-reg-lot-polygon-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "clip-reg-building-inset",
+          "pixels": 1216
         },
         {
-          "id": "class-site-footprint-rect",
-          "pixels": 3756
+          "id": "clip-reg-core-cylinder",
+          "pixels": 650
+        },
+        {
+          "id": "clip-reg-survey-benchmark",
+          "pixels": 225
+        },
+        {
+          "id": "clip-reg-lot-polygon-rect",
+          "pixels": 12788
         }
       ]
     }

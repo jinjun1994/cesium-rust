@@ -1,0 +1,144 @@
+[
+  {
+    "id": "clip-reg-building-inset",
+    "name": "Proposed Architectural Development Tower Inset",
+    "show": true,
+    "positionDegrees": [
+      -105.0085,
+      39.7505,
+      45
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        50,
+        65,
+        90
+      ]
+    },
+    "color": [
+      0.3,
+      0.65,
+      0.95,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.8,
+      0.9,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "ionAssetId": 1670818,
+      "status": "proposed"
+    }
+  },
+  {
+    "id": "clip-reg-core-cylinder",
+    "name": "Excavation Core Foundation Shaft",
+    "show": true,
+    "positionDegrees": [
+      -105.008,
+      39.751,
+      30
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 60,
+      "topRadius": 22,
+      "bottomRadius": 22
+    },
+    "color": [
+      0.2,
+      0.8,
+      0.45,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.6,
+      1,
+      0.8,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "depthMeters": 45,
+      "foundation": "drilledShaft"
+    }
+  },
+  {
+    "id": "clip-reg-survey-benchmark",
+    "name": "Denver Urban Lot Survey Control Mon",
+    "show": true,
+    "positionDegrees": [
+      -105.0092,
+      39.7498,
+      20
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        18,
+        18,
+        18
+      ]
+    },
+    "color": [
+      1,
+      0.7,
+      0.15,
+      0.9
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.9,
+      0.6,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "controlPoint": "CO-DEN-LOT-29"
+    }
+  },
+  {
+    "id": "clip-reg-lot-polygon-rect",
+    "name": "Denver Downtown Lot Excavation Boundary",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -105.01,
+        39.749,
+        -105.007,
+        39.752
+      ]
+    },
+    "color": [
+      0.55,
+      0.15,
+      0.25,
+      0.4
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.9,
+      0.4,
+      0.5,
+      0.85
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "clippingEnabled": true,
+      "inverse": false
+    }
+  }
+]

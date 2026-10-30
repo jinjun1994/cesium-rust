@@ -4894,4 +4894,65 @@ mod tests {
         let cl_variants = crate::entity_variants::decode(&cl_variants_raw).unwrap();
         assert_eq!(cl_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch66_classificationtypes_clientsnapping_clippingperf_clippingregions() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Classification Types
+        let ct_data = std::fs::read(base.join("classification-types.json")).unwrap();
+        let ct_entities = decode(&ct_data).unwrap();
+        assert_eq!(ct_entities.len(), 4);
+        assert!(matches!(ct_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(ct_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ct_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ct_entities[3].shape, Shape::Rectangle { .. }));
+        let ct_variants_raw =
+            std::fs::read(base.join("classification-types.variants.json")).unwrap();
+        let ct_variants = crate::entity_variants::decode(&ct_variants_raw).unwrap();
+        assert_eq!(ct_variants.variants.len(), 4);
+
+        // 2. Client-side Snapping - Dev
+        let cs_data = std::fs::read(base.join("client-side-snapping-dev.json")).unwrap();
+        let cs_entities = decode(&cs_data).unwrap();
+        assert_eq!(cs_entities.len(), 4);
+        assert!(matches!(cs_entities[0].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(cs_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(cs_entities[2].shape, Shape::Box { .. }));
+        assert!(matches!(cs_entities[3].shape, Shape::Rectangle { .. }));
+        let cs_variants_raw =
+            std::fs::read(base.join("client-side-snapping-dev.variants.json")).unwrap();
+        let cs_variants = crate::entity_variants::decode(&cs_variants_raw).unwrap();
+        assert_eq!(cs_variants.variants.len(), 4);
+
+        // 3. Clipping Performance - Dev
+        let cp_data = std::fs::read(base.join("clipping-performance-dev.json")).unwrap();
+        let cp_entities = decode(&cp_data).unwrap();
+        assert_eq!(cp_entities.len(), 4);
+        assert!(matches!(cp_entities[0].shape, Shape::Cylinder { .. }));
+        assert!(matches!(cp_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(cp_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(cp_entities[3].shape, Shape::Rectangle { .. }));
+        let cp_variants_raw =
+            std::fs::read(base.join("clipping-performance-dev.variants.json")).unwrap();
+        let cp_variants = crate::entity_variants::decode(&cp_variants_raw).unwrap();
+        assert_eq!(cp_variants.variants.len(), 4);
+
+        // 4. Clipping Regions
+        let cr_data = std::fs::read(base.join("clipping-regions.json")).unwrap();
+        let cr_entities = decode(&cr_data).unwrap();
+        assert_eq!(cr_entities.len(), 4);
+        assert!(matches!(cr_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(cr_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(cr_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(cr_entities[3].shape, Shape::Rectangle { .. }));
+        let cr_variants_raw = std::fs::read(base.join("clipping-regions.variants.json")).unwrap();
+        let cr_variants = crate::entity_variants::decode(&cr_variants_raw).unwrap();
+        assert_eq!(cr_variants.variants.len(), 4);
+    }
 }

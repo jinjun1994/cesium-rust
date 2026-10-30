@@ -1,0 +1,146 @@
+[
+  {
+    "id": "clip-perf-center-cylinder",
+    "name": "Central Circular Excavation Clipping Zone",
+    "show": true,
+    "positionDegrees": [
+      -75.1524,
+      39.947,
+      30
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 60,
+      "topRadius": 28,
+      "bottomRadius": 28
+    },
+    "color": [
+      0.95,
+      0.2,
+      0.3,
+      0.85
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.7,
+      0.7,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "numPoints": 16,
+      "spacing": 0.21,
+      "target": "Terrain"
+    }
+  },
+  {
+    "id": "clip-perf-grid-box-1",
+    "name": "Parametric Array Excavation Cell Box",
+    "show": true,
+    "positionDegrees": [
+      -75.148,
+      39.951,
+      25
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        55,
+        55,
+        50
+      ]
+    },
+    "color": [
+      0.98,
+      0.65,
+      0.1,
+      0.85
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.9,
+      0.5,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "gridIndex": 1,
+      "quality": 1
+    }
+  },
+  {
+    "id": "clip-perf-grid-marker",
+    "name": "Performance Telemetry Sampling Probe",
+    "show": true,
+    "positionDegrees": [
+      -75.156,
+      39.943,
+      20
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        20,
+        20,
+        20
+      ]
+    },
+    "color": [
+      0.65,
+      0.25,
+      0.9,
+      0.85
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.9,
+      0.7,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "fpsDisplay": true,
+      "debugDistanceTexture": false
+    }
+  },
+  {
+    "id": "clip-perf-extent-rect",
+    "name": "Parametric Clipping Coverage Extent",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -75.165,
+        39.935,
+        -75.14,
+        39.96
+      ]
+    },
+    "color": [
+      0.15,
+      0.45,
+      0.5,
+      0.35
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.3,
+      0.8,
+      0.9,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "gridSize": 2,
+      "scale": 1
+    }
+  }
+]

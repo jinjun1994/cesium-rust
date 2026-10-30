@@ -5791,6 +5791,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "classification-types",
+      "title": "Classification Types",
+      "sourceSha256": "6a759b44a5d7aeab7405be4eb414dd3b9eabd0d86f5ecf92f43e3747dd4e7fec",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=classification-types",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/classification-types.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/classification-types.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "ClassificationType support: BOTH, TERRAIN, and CESIUM_3D_TILE classification targets",
+        "Polygon and polyline geometry classification on world terrain and Chester County 3D tiles"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "client-side-snapping-dev",
+      "title": "Client-side Snapping - Dev",
+      "sourceSha256": "8deae5d6639cf269e201b29b872220c0a4c32ceb3ec5bb0af057c57eb2f2eb06",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=client-side-snapping-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/client-side-snapping-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/client-side-snapping-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Client-side snapping to 3D tileset edges and surfaces with point and polyline measurement",
+        "EdgeDisplayMode transitions: EDGES_ONLY, SURFACES_AND_EDGES, and SURFACES_ONLY with bounding volumes"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "clipping-performance-dev",
+      "title": "Clipping Performance - Dev",
+      "sourceSha256": "5f95dad8f2d6c5db2f0c3e55f5ae2a23f0aa505ce10d45196323d7a4e1bc4510",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=clipping-performance-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/clipping-performance-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/clipping-performance-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "ClippingPolygonCollection parametric circular array clipping on terrain and 3D tiles",
+        "Real-time distance texture debugging, quality scaling, and frame rate metrics inspection"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "clipping-regions",
+      "title": "Clipping Regions",
+      "sourceSha256": "fab5a5fd20abecf18d78cf056b24111cf96e15e4b1b572751fca5c1852f7af2e",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=clipping-regions",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/clipping-regions.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/clipping-regions.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Arbitrary lot polygon excavation clipping region on terrain and Google Photorealistic 3D Tiles",
+        "Proposed building tileset inset integration, inverse clipping toggling, and interactive drawing"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

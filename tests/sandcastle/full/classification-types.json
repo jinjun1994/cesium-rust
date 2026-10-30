@@ -1,0 +1,145 @@
+[
+  {
+    "id": "class-types-volume-box",
+    "name": "Classified Building Volume Prism",
+    "show": true,
+    "positionDegrees": [
+      -75.5965,
+      40.0395,
+      30
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        60,
+        60,
+        60
+      ]
+    },
+    "color": [
+      0.9,
+      0.2,
+      0.2,
+      0.75
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.8,
+      0.8,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "classificationType": "BOTH",
+      "facility": "Chester Industrial Facility",
+      "status": "active"
+    }
+  },
+  {
+    "id": "class-types-corridor-pillar",
+    "name": "Right-of-Way Corridor Benchmark Pillar",
+    "show": true,
+    "positionDegrees": [
+      -75.5985,
+      40.0405,
+      25
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 50,
+      "topRadius": 18,
+      "bottomRadius": 18
+    },
+    "color": [
+      0.95,
+      0.85,
+      0.15,
+      0.85
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      0.5,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "classificationType": "TERRAIN",
+      "corridor": "Main Line Transit Alignment"
+    }
+  },
+  {
+    "id": "class-types-centroid-sphere",
+    "name": "Classified Parcel Centroid Marker",
+    "show": true,
+    "positionDegrees": [
+      -75.5945,
+      40.038,
+      20
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        22,
+        22,
+        22
+      ]
+    },
+    "color": [
+      0.2,
+      0.8,
+      0.9,
+      0.85
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.6,
+      1,
+      1,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "classificationType": "CESIUM_3D_TILE",
+      "node": "Survey Control Mon 408"
+    }
+  },
+  {
+    "id": "class-types-boundary-rect",
+    "name": "Classification Boundary Footprint",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -75.602,
+        40.035,
+        -75.593,
+        40.042
+      ]
+    },
+    "color": [
+      0.25,
+      0.25,
+      0.6,
+      0.35
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.5,
+      0.6,
+      1,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "zone": "Chester County Special Planning District"
+    }
+  }
+]
