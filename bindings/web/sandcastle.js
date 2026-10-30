@@ -238,6 +238,10 @@ $('fullNew200').onclick=guarded(()=>runFull('edge-visibility-dev'));
 $('fullNew201').onclick=guarded(()=>runFull('fxaa'));
 $('fullNew202').onclick=guarded(()=>runFull('geometry-and-appearances-dev'));
 $('fullNew203').onclick=guarded(()=>runFull('globe-interior'));
+$('fullNew204').onclick=guarded(()=>runFull('globe-materials-3d-tiles-terrain'));
+$('fullNew205').onclick=guarded(()=>runFull('globe-materials-water-mask-elevation-map'));
+$('fullNew206').onclick=guarded(()=>runFull('globe-translucency'));
+$('fullNew207').onclick=guarded(()=>runFull('gltf-pbr-extensions'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

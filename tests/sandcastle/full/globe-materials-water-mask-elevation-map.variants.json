@@ -1,0 +1,593 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Elevation Land Color Ramp with Ocean Alpha Masking",
+      "entities": [
+        {
+          "id": "globe-water-plateau-box",
+          "name": "Colorado Plateau Hypsometric Anchor",
+          "show": true,
+          "positionDegrees": [
+            -112.112,
+            36.054,
+            2150
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              36,
+              36,
+              50
+            ]
+          },
+          "color": [
+            0.85,
+            0.45,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "minHeight": -414,
+            "maxHeight": 8777
+          }
+        },
+        {
+          "id": "globe-water-river-cylinder",
+          "name": "Colorado River Water Mask Channel Column",
+          "show": true,
+          "positionDegrees": [
+            -112.111,
+            36.055,
+            750
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 16,
+            "bottomRadius": 16
+          },
+          "color": [
+            0.15,
+            0.65,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "riverWaterMask": true,
+            "landAlpha": 1
+          }
+        },
+        {
+          "id": "globe-water-hypsometric-probe",
+          "name": "Hypsometric Elevation Ramp Calibration Probe",
+          "show": true,
+          "positionDegrees": [
+            -112.1132,
+            36.0532,
+            1500
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              15,
+              15,
+              15
+            ]
+          },
+          "color": [
+            0.9,
+            0.8,
+            0.3,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "linearGradientRamp": 6
+          }
+        },
+        {
+          "id": "globe-water-canyon-rect",
+          "name": "Grand Canyon Hypsometric Inspection Area",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -112.118,
+              36.05,
+              -112.106,
+              36.058
+            ]
+          },
+          "color": [
+            0.25,
+            0.2,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.5,
+            0.8,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrain": "WorldTerrain",
+            "requestWaterMask": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Hypsometric Tinting Mode (Vibrant Continental Gradient)",
+      "entities": [
+        {
+          "id": "globe-water-plateau-box",
+          "name": "Colorado Plateau Hypsometric Anchor",
+          "show": true,
+          "positionDegrees": [
+            -112.112,
+            36.054,
+            2150
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              36,
+              36,
+              50
+            ]
+          },
+          "color": [
+            0.95,
+            0.3,
+            0.45,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "minHeight": -414,
+            "maxHeight": 8777
+          }
+        },
+        {
+          "id": "globe-water-river-cylinder",
+          "name": "Colorado River Water Mask Channel Column",
+          "show": true,
+          "positionDegrees": [
+            -112.111,
+            36.055,
+            750
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 16,
+            "bottomRadius": 16
+          },
+          "color": [
+            0.15,
+            0.65,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "riverWaterMask": true,
+            "landAlpha": 1
+          }
+        },
+        {
+          "id": "globe-water-hypsometric-probe",
+          "name": "Hypsometric Elevation Ramp Calibration Probe",
+          "show": true,
+          "positionDegrees": [
+            -112.1132,
+            36.0532,
+            1500
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              15,
+              15,
+              15
+            ]
+          },
+          "color": [
+            0.9,
+            0.8,
+            0.3,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "linearGradientRamp": 6
+          }
+        },
+        {
+          "id": "globe-water-canyon-rect",
+          "name": "Grand Canyon Hypsometric Inspection Area",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -112.118,
+              36.05,
+              -112.106,
+              36.058
+            ]
+          },
+          "color": [
+            0.25,
+            0.2,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.5,
+            0.8,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrain": "WorldTerrain",
+            "requestWaterMask": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "High-Altitude Snowcap Isolation (Alpine White Peak Infill)",
+      "entities": [
+        {
+          "id": "globe-water-plateau-box",
+          "name": "Colorado Plateau Hypsometric Anchor",
+          "show": true,
+          "positionDegrees": [
+            -112.112,
+            36.054,
+            2150
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              36,
+              36,
+              50
+            ]
+          },
+          "color": [
+            0.85,
+            0.45,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "minHeight": -414,
+            "maxHeight": 8777
+          }
+        },
+        {
+          "id": "globe-water-river-cylinder",
+          "name": "Colorado River Water Mask Channel Column",
+          "show": true,
+          "positionDegrees": [
+            -112.111,
+            36.055,
+            750
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 16,
+            "bottomRadius": 16
+          },
+          "color": [
+            0.85,
+            0.95,
+            1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "riverWaterMask": true,
+            "landAlpha": 1
+          }
+        },
+        {
+          "id": "globe-water-hypsometric-probe",
+          "name": "Hypsometric Elevation Ramp Calibration Probe",
+          "show": true,
+          "positionDegrees": [
+            -112.1132,
+            36.0532,
+            1500
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              15,
+              15,
+              15
+            ]
+          },
+          "color": [
+            0.9,
+            0.8,
+            0.3,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.95,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "linearGradientRamp": 6
+          }
+        },
+        {
+          "id": "globe-water-canyon-rect",
+          "name": "Grand Canyon Hypsometric Inspection Area",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -112.118,
+              36.05,
+              -112.106,
+              36.058
+            ]
+          },
+          "color": [
+            0.25,
+            0.2,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.5,
+            0.8,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrain": "WorldTerrain",
+            "requestWaterMask": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Coastal Bathymetry & Water Surface Boundary (Cyan Shoreline)",
+      "entities": [
+        {
+          "id": "globe-water-plateau-box",
+          "name": "Colorado Plateau Hypsometric Anchor",
+          "show": true,
+          "positionDegrees": [
+            -112.112,
+            36.054,
+            2150
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              36,
+              36,
+              50
+            ]
+          },
+          "color": [
+            0.85,
+            0.45,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "minHeight": -414,
+            "maxHeight": 8777
+          }
+        },
+        {
+          "id": "globe-water-river-cylinder",
+          "name": "Colorado River Water Mask Channel Column",
+          "show": true,
+          "positionDegrees": [
+            -112.111,
+            36.055,
+            750
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 16,
+            "bottomRadius": 16
+          },
+          "color": [
+            0.15,
+            0.65,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "riverWaterMask": true,
+            "landAlpha": 1
+          }
+        },
+        {
+          "id": "globe-water-hypsometric-probe",
+          "name": "Hypsometric Elevation Ramp Calibration Probe",
+          "show": true,
+          "positionDegrees": [
+            -112.1132,
+            36.0532,
+            1500
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              15,
+              15,
+              15
+            ]
+          },
+          "color": [
+            0.15,
+            0.85,
+            0.75,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            1,
+            0.95,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "linearGradientRamp": 6
+          }
+        },
+        {
+          "id": "globe-water-canyon-rect",
+          "name": "Grand Canyon Hypsometric Inspection Area",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -112.118,
+              36.05,
+              -112.106,
+              36.058
+            ]
+          },
+          "color": [
+            0.1,
+            0.25,
+            0.4,
+            0.3
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.5,
+            0.8,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "terrain": "WorldTerrain",
+            "requestWaterMask": true
+          }
+        }
+      ]
+    }
+  ]
+}

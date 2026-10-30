@@ -1,0 +1,589 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Semi-Transparent Globe Surface (50% Alpha Subsurface)",
+      "entities": [
+        {
+          "id": "globe-trans-station-box",
+          "name": "Underground Transit Terminal Vault",
+          "show": true,
+          "positionDegrees": [
+            -122.332,
+            47.606,
+            -25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30,
+              30,
+              24
+            ]
+          },
+          "color": [
+            0.95,
+            0.3,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "subsurfaceDepth": -25,
+            "frontFaceAlpha": 0.5
+          }
+        },
+        {
+          "id": "globe-trans-tunnel-cylinder",
+          "name": "Deep Tunnel Utility Corridor Anchor",
+          "show": true,
+          "positionDegrees": [
+            -122.3312,
+            47.6068,
+            -40
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 45,
+            "topRadius": 12,
+            "bottomRadius": 12
+          },
+          "color": [
+            0.2,
+            0.75,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "backFaceAlpha": 0.5,
+            "undergroundColor": "transparent"
+          }
+        },
+        {
+          "id": "globe-trans-shaft-probe",
+          "name": "Vertical Geotechnical Access Shaft Probe",
+          "show": true,
+          "positionDegrees": [
+            -122.3328,
+            47.6052,
+            -15
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              12,
+              12
+            ]
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "collisionDetection": false
+          }
+        },
+        {
+          "id": "globe-trans-corridor-rect",
+          "name": "Seattle Translucent Surface Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.336,
+              47.602,
+              -122.328,
+              47.61
+            ]
+          },
+          "color": [
+            0.15,
+            0.3,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.65,
+            0.9,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "translucencyEnabled": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Near-Surface Inspection Window (High-Alpha Crust Translucency)",
+      "entities": [
+        {
+          "id": "globe-trans-station-box",
+          "name": "Underground Transit Terminal Vault",
+          "show": true,
+          "positionDegrees": [
+            -122.332,
+            47.606,
+            -25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30,
+              30,
+              24
+            ]
+          },
+          "color": [
+            0.85,
+            0.2,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "subsurfaceDepth": -25,
+            "frontFaceAlpha": 0.5
+          }
+        },
+        {
+          "id": "globe-trans-tunnel-cylinder",
+          "name": "Deep Tunnel Utility Corridor Anchor",
+          "show": true,
+          "positionDegrees": [
+            -122.3312,
+            47.6068,
+            -40
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 45,
+            "topRadius": 12,
+            "bottomRadius": 12
+          },
+          "color": [
+            0.2,
+            0.75,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "backFaceAlpha": 0.5,
+            "undergroundColor": "transparent"
+          }
+        },
+        {
+          "id": "globe-trans-shaft-probe",
+          "name": "Vertical Geotechnical Access Shaft Probe",
+          "show": true,
+          "positionDegrees": [
+            -122.3328,
+            47.6052,
+            -15
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              12,
+              12
+            ]
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "collisionDetection": false
+          }
+        },
+        {
+          "id": "globe-trans-corridor-rect",
+          "name": "Seattle Translucent Surface Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.336,
+              47.602,
+              -122.328,
+              47.61
+            ]
+          },
+          "color": [
+            0.15,
+            0.3,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.65,
+            0.9,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "translucencyEnabled": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Deep Underground Borehole Projection (Neon Amber Core)",
+      "entities": [
+        {
+          "id": "globe-trans-station-box",
+          "name": "Underground Transit Terminal Vault",
+          "show": true,
+          "positionDegrees": [
+            -122.332,
+            47.606,
+            -25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30,
+              30,
+              24
+            ]
+          },
+          "color": [
+            0.95,
+            0.3,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "subsurfaceDepth": -25,
+            "frontFaceAlpha": 0.5
+          }
+        },
+        {
+          "id": "globe-trans-tunnel-cylinder",
+          "name": "Deep Tunnel Utility Corridor Anchor",
+          "show": true,
+          "positionDegrees": [
+            -122.3312,
+            47.6068,
+            -40
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 45,
+            "topRadius": 12,
+            "bottomRadius": 12
+          },
+          "color": [
+            0.95,
+            0.55,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.4,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "backFaceAlpha": 0.5,
+            "undergroundColor": "transparent"
+          }
+        },
+        {
+          "id": "globe-trans-shaft-probe",
+          "name": "Vertical Geotechnical Access Shaft Probe",
+          "show": true,
+          "positionDegrees": [
+            -122.3328,
+            47.6052,
+            -15
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              12,
+              12
+            ]
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.15,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "collisionDetection": false
+          }
+        },
+        {
+          "id": "globe-trans-corridor-rect",
+          "name": "Seattle Translucent Surface Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.336,
+              47.602,
+              -122.328,
+              47.61
+            ]
+          },
+          "color": [
+            0.15,
+            0.3,
+            0.45,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.65,
+            0.9,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "translucencyEnabled": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Opaque Surface Default View (Solid Terrain Boundary)",
+      "entities": [
+        {
+          "id": "globe-trans-station-box",
+          "name": "Underground Transit Terminal Vault",
+          "show": true,
+          "positionDegrees": [
+            -122.332,
+            47.606,
+            -25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              30,
+              30,
+              24
+            ]
+          },
+          "color": [
+            0.95,
+            0.3,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "subsurfaceDepth": -25,
+            "frontFaceAlpha": 0.5
+          }
+        },
+        {
+          "id": "globe-trans-tunnel-cylinder",
+          "name": "Deep Tunnel Utility Corridor Anchor",
+          "show": true,
+          "positionDegrees": [
+            -122.3312,
+            47.6068,
+            -40
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 45,
+            "topRadius": 12,
+            "bottomRadius": 12
+          },
+          "color": [
+            0.2,
+            0.75,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "backFaceAlpha": 0.5,
+            "undergroundColor": "transparent"
+          }
+        },
+        {
+          "id": "globe-trans-shaft-probe",
+          "name": "Vertical Geotechnical Access Shaft Probe",
+          "show": true,
+          "positionDegrees": [
+            -122.3328,
+            47.6052,
+            -15
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              12,
+              12,
+              12
+            ]
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.45,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            1,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "collisionDetection": false
+          }
+        },
+        {
+          "id": "globe-trans-corridor-rect",
+          "name": "Seattle Translucent Surface Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.336,
+              47.602,
+              -122.328,
+              47.61
+            ]
+          },
+          "color": [
+            0.2,
+            0.35,
+            0.2,
+            0.3
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.45,
+            0.65,
+            0.9,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "translucencyEnabled": true
+          }
+        }
+      ]
+    }
+  ]
+}

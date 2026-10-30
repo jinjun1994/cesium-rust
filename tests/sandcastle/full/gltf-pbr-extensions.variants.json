@@ -1,0 +1,597 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Clear Coat PBR Next Material (Spherical Harmonics IBL)",
+      "entities": [
+        {
+          "id": "gltf-pbr-clearcoat-box",
+          "name": "Clear Coat Multilayer Varnish Structural Box",
+          "show": true,
+          "positionDegrees": [
+            -123.074,
+            44.0504,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              28,
+              28,
+              36
+            ]
+          },
+          "color": [
+            0.85,
+            0.6,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "extension": "KHR_materials_clearcoat",
+            "assetId": 2584329
+          }
+        },
+        {
+          "id": "gltf-pbr-anisotropy-cylinder",
+          "name": "Brushed Metal Anisotropic Microfacet Pillar",
+          "show": true,
+          "positionDegrees": [
+            -123.0732,
+            44.051,
+            20
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 35,
+            "topRadius": 14,
+            "bottomRadius": 14
+          },
+          "color": [
+            0.3,
+            0.85,
+            0.75,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            1,
+            0.95,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "extension": "KHR_materials_anisotropy",
+            "iblCoefficients": 9
+          }
+        },
+        {
+          "id": "gltf-pbr-specular-sphere",
+          "name": "Dielectric Specular Transmission Test Sphere",
+          "show": true,
+          "positionDegrees": [
+            -123.0748,
+            44.0498,
+            18
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              14,
+              14,
+              14
+            ]
+          },
+          "color": [
+            0.8,
+            0.3,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "extension": "KHR_materials_specular",
+            "environmentMap": true
+          }
+        },
+        {
+          "id": "gltf-pbr-studio-rect",
+          "name": "PBR Next Material Calibration Studio Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.078,
+              44.047,
+              -123.07,
+              44.054
+            ]
+          },
+          "color": [
+            0.2,
+            0.25,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.65,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "lighting": "ImageBasedLighting",
+            "sphericalHarmonics": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Specular Environment Refraction Mode (Vibrant Gloss Profile)",
+      "entities": [
+        {
+          "id": "gltf-pbr-clearcoat-box",
+          "name": "Clear Coat Multilayer Varnish Structural Box",
+          "show": true,
+          "positionDegrees": [
+            -123.074,
+            44.0504,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              28,
+              28,
+              36
+            ]
+          },
+          "color": [
+            0.95,
+            0.4,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "extension": "KHR_materials_clearcoat",
+            "assetId": 2584329
+          }
+        },
+        {
+          "id": "gltf-pbr-anisotropy-cylinder",
+          "name": "Brushed Metal Anisotropic Microfacet Pillar",
+          "show": true,
+          "positionDegrees": [
+            -123.0732,
+            44.051,
+            20
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 35,
+            "topRadius": 14,
+            "bottomRadius": 14
+          },
+          "color": [
+            0.3,
+            0.85,
+            0.75,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            1,
+            0.95,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "extension": "KHR_materials_anisotropy",
+            "iblCoefficients": 9
+          }
+        },
+        {
+          "id": "gltf-pbr-specular-sphere",
+          "name": "Dielectric Specular Transmission Test Sphere",
+          "show": true,
+          "positionDegrees": [
+            -123.0748,
+            44.0498,
+            18
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              14,
+              14,
+              14
+            ]
+          },
+          "color": [
+            0.8,
+            0.3,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "extension": "KHR_materials_specular",
+            "environmentMap": true
+          }
+        },
+        {
+          "id": "gltf-pbr-studio-rect",
+          "name": "PBR Next Material Calibration Studio Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.078,
+              44.047,
+              -123.07,
+              44.054
+            ]
+          },
+          "color": [
+            0.2,
+            0.25,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.65,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "lighting": "ImageBasedLighting",
+            "sphericalHarmonics": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Metallic Anisotropy Brushed Surface (Amber Radiant Highlight)",
+      "entities": [
+        {
+          "id": "gltf-pbr-clearcoat-box",
+          "name": "Clear Coat Multilayer Varnish Structural Box",
+          "show": true,
+          "positionDegrees": [
+            -123.074,
+            44.0504,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              28,
+              28,
+              36
+            ]
+          },
+          "color": [
+            0.85,
+            0.6,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "extension": "KHR_materials_clearcoat",
+            "assetId": 2584329
+          }
+        },
+        {
+          "id": "gltf-pbr-anisotropy-cylinder",
+          "name": "Brushed Metal Anisotropic Microfacet Pillar",
+          "show": true,
+          "positionDegrees": [
+            -123.0732,
+            44.051,
+            20
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 35,
+            "topRadius": 14,
+            "bottomRadius": 14
+          },
+          "color": [
+            0.95,
+            0.7,
+            0.1,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "extension": "KHR_materials_anisotropy",
+            "iblCoefficients": 9
+          }
+        },
+        {
+          "id": "gltf-pbr-specular-sphere",
+          "name": "Dielectric Specular Transmission Test Sphere",
+          "show": true,
+          "positionDegrees": [
+            -123.0748,
+            44.0498,
+            18
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              14,
+              14,
+              14
+            ]
+          },
+          "color": [
+            0.8,
+            0.3,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.95,
+            0.65,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "extension": "KHR_materials_specular",
+            "environmentMap": true
+          }
+        },
+        {
+          "id": "gltf-pbr-studio-rect",
+          "name": "PBR Next Material Calibration Studio Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.078,
+              44.047,
+              -123.07,
+              44.054
+            ]
+          },
+          "color": [
+            0.2,
+            0.25,
+            0.35,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.65,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "lighting": "ImageBasedLighting",
+            "sphericalHarmonics": true
+          }
+        }
+      ]
+    },
+    {
+      "label": "Direct Sunlight Only Lighting Mode (High-Contrast Facet Shading)",
+      "entities": [
+        {
+          "id": "gltf-pbr-clearcoat-box",
+          "name": "Clear Coat Multilayer Varnish Structural Box",
+          "show": true,
+          "positionDegrees": [
+            -123.074,
+            44.0504,
+            25
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              28,
+              28,
+              36
+            ]
+          },
+          "color": [
+            0.85,
+            0.6,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.55,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "extension": "KHR_materials_clearcoat",
+            "assetId": 2584329
+          }
+        },
+        {
+          "id": "gltf-pbr-anisotropy-cylinder",
+          "name": "Brushed Metal Anisotropic Microfacet Pillar",
+          "show": true,
+          "positionDegrees": [
+            -123.0732,
+            44.051,
+            20
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 35,
+            "topRadius": 14,
+            "bottomRadius": 14
+          },
+          "color": [
+            0.3,
+            0.85,
+            0.75,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            1,
+            0.95,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "extension": "KHR_materials_anisotropy",
+            "iblCoefficients": 9
+          }
+        },
+        {
+          "id": "gltf-pbr-specular-sphere",
+          "name": "Dielectric Specular Transmission Test Sphere",
+          "show": true,
+          "positionDegrees": [
+            -123.0748,
+            44.0498,
+            18
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              14,
+              14,
+              14
+            ]
+          },
+          "color": [
+            0.2,
+            0.7,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "extension": "KHR_materials_specular",
+            "environmentMap": true
+          }
+        },
+        {
+          "id": "gltf-pbr-studio-rect",
+          "name": "PBR Next Material Calibration Studio Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -123.078,
+              44.047,
+              -123.07,
+              44.054
+            ]
+          },
+          "color": [
+            0.35,
+            0.25,
+            0.2,
+            0.3
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.55,
+            0.65,
+            0.85,
+            0.8
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "lighting": "ImageBasedLighting",
+            "sphericalHarmonics": true
+          }
+        }
+      ]
+    }
+  ]
+}

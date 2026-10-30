@@ -5196,4 +5196,67 @@ mod tests {
         let gi_variants = crate::entity_variants::decode(&gi_variants_raw).unwrap();
         assert_eq!(gi_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch71_globematerials_watermask_translucency_gltfpbr() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Globe Materials – 3D Tiles Terrain
+        let gt_data = std::fs::read(base.join("globe-materials-3d-tiles-terrain.json")).unwrap();
+        let gt_entities = decode(&gt_data).unwrap();
+        assert_eq!(gt_entities.len(), 4);
+        assert!(matches!(gt_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(gt_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(gt_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(gt_entities[3].shape, Shape::Rectangle { .. }));
+        let gt_variants_raw =
+            std::fs::read(base.join("globe-materials-3d-tiles-terrain.variants.json")).unwrap();
+        let gt_variants = crate::entity_variants::decode(&gt_variants_raw).unwrap();
+        assert_eq!(gt_variants.variants.len(), 4);
+
+        // 2. Globe Materials – Water Mask Elevation Map
+        let gw_data =
+            std::fs::read(base.join("globe-materials-water-mask-elevation-map.json")).unwrap();
+        let gw_entities = decode(&gw_data).unwrap();
+        assert_eq!(gw_entities.len(), 4);
+        assert!(matches!(gw_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(gw_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(gw_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(gw_entities[3].shape, Shape::Rectangle { .. }));
+        let gw_variants_raw =
+            std::fs::read(base.join("globe-materials-water-mask-elevation-map.variants.json"))
+                .unwrap();
+        let gw_variants = crate::entity_variants::decode(&gw_variants_raw).unwrap();
+        assert_eq!(gw_variants.variants.len(), 4);
+
+        // 3. Globe Translucency
+        let gl_data = std::fs::read(base.join("globe-translucency.json")).unwrap();
+        let gl_entities = decode(&gl_data).unwrap();
+        assert_eq!(gl_entities.len(), 4);
+        assert!(matches!(gl_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(gl_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(gl_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(gl_entities[3].shape, Shape::Rectangle { .. }));
+        let gl_variants_raw = std::fs::read(base.join("globe-translucency.variants.json")).unwrap();
+        let gl_variants = crate::entity_variants::decode(&gl_variants_raw).unwrap();
+        assert_eq!(gl_variants.variants.len(), 4);
+
+        // 4. glTF PBR Next
+        let gp_data = std::fs::read(base.join("gltf-pbr-extensions.json")).unwrap();
+        let gp_entities = decode(&gp_data).unwrap();
+        assert_eq!(gp_entities.len(), 4);
+        assert!(matches!(gp_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(gp_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(gp_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(gp_entities[3].shape, Shape::Rectangle { .. }));
+        let gp_variants_raw =
+            std::fs::read(base.join("gltf-pbr-extensions.variants.json")).unwrap();
+        let gp_variants = crate::entity_variants::decode(&gp_variants_raw).unwrap();
+        assert_eq!(gp_variants.variants.len(), 4);
+    }
 }

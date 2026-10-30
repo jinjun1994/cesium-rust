@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.71
+
+新增 Globe Materials 3D Tiles Terrain、Globe Materials Water Mask Elevation Map、Globe Translucency、glTF PBR Extensions 四个完整案例，累计 **231 / 309**，剩余 78 个。131 项普通 Rust、232 项实际 GPU、8 组 Node、231 个浏览器 WebGPU 案例通过。验证包含地球材质与 3D Tiles 地形等高线/坡度坡向着色器组合（基准高程等高线与坡度坡向着色、分层设色高程带模式、坡度倾角分析材质、高对比复合地形诊断模式 4 种变体）、地球水体掩膜与全球高程纹理设色动态光照（基准水体掩膜镜面反射与高程图、纯水体掩膜反射诊断、全球高程分级着色、高对比海岸陆海过渡融合 4 种变体）、地球全域半透明度、地下管网透视与距离淡入淡出调谐（基准地下半透明混合、视距渐变衰减模式、高对比地下深层管廊模式、全域开窗透视天际模式 4 种变体）、以及 glTF 2.0 PBR 扩展材质微表面物理渲染：清漆层、各向异性与镜面光泽（基准多扩展 PBR 影棚模式、纯清漆汽车面漆模式、纯各向异性拉丝金属诊断、镜面反射权重与色彩实验室 4 种变体）。详见 [本批验证](globemat-watermask-translucency-gltfpbr-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.70
 
 新增 Edge Visibility - Dev、FXAA、Geometry and Appearances - Dev、Globe Interior 四个完整案例，累计 **227 / 309**，剩余 82 个。130 项普通 Rust、228 项实际 GPU、8 组 Node、227 个浏览器 WebGPU 案例通过。验证包含 EXT_mesh_primitive_edge_visibility 扩展三维模型表面/边缘独立显隐调度（双模型基准表面与边缘共显模式、纯表面模式、纯边缘线框模式、双模型非对称混合模式 4 种变体）、全屏快速近似抗锯齿后处理阶段、亚像素几何边缘平滑与建筑天际线对比（基准 FXAA 开启模式、FXAA 直通停用模式、高对比建筑天际线剪影填充模式、城市地平线与地形平滑模式 4 种变体）、底层 Primitive 与 GeometryInstance 组合、星形/圆形拉伸与色彩外观（基准每实例色彩外观、半透明外观覆写模式、平面纯色线框诊断模式、高对比复合截面填充模式 4 种变体）、以及地球同心圈层内地核/外核/地幔结构、地表半透明度开窗与海洋色彩透明过滤（基准内地核聚焦模式、外核地磁发电机壳层模式、地幔圈层展示模式、地表半透明矩形窗口模式 4 种变体）。详见 [本批验证](edgevis-fxaa-geomapp-globeinterior-validation.md)。以下保留历史记录。

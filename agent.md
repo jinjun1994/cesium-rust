@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.70（已通过 227 / 309 个完整案例，剩余 82 个）
+- **当前版本**：v0.0.71（已通过 231 / 309 个完整案例，剩余 78 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.71 验收完成：Globe Materials 3D Tiles Terrain、Globe Materials Water Mask Elevation Map、Globe Translucency 与 glTF PBR Extensions
+- **完成配方**（累计推进至 **231 / 309**，剩余 78 个）：
+  1. `globe-materials-3d-tiles-terrain`（地球材质与 3D Tiles 地形等高线/坡度坡向着色器组合：基准高程等高线与坡度坡向着色、分层设色高程带模式、坡度倾角分析材质、高对比复合地形诊断模式 4 种变体）
+  2. `globe-materials-water-mask-elevation-map`（地球水体掩膜与全球高程纹理设色动态光照：基准水体掩膜镜面反射与高程图、纯水体掩膜反射诊断、全球高程分级着色、高对比海岸陆海过渡融合 4 种变体）
+  3. `globe-translucency`（地球全域半透明度、地下管网透视与距离淡入淡出调谐：基准地下半透明混合、视距渐变衰减模式、高对比地下深层管廊模式、全域开窗透视天际模式 4 种变体）
+  4. `gltf-pbr-extensions`（glTF 2.0 PBR 扩展材质微表面物理渲染：清漆层、各向异性与镜面光泽：基准多扩展 PBR 影棚模式、纯清漆汽车面漆模式、纯各向异性拉丝金属诊断、镜面反射权重与色彩实验室 4 种变体）
+- **核心研发突破**：
+  1. **地球多级材质与地形高程着色器融合（Globe Materials & 3D Tiles Terrain Shading）**：支持 `Globe.material` 挂接 `ElevationContour`、`SlopeRamp`、`AspectRamp` 等高级分析材质，实现 3D Tiles 地形高程、坡度与坡向的实时着色。
+  2. **全球水体掩膜与高程贴图动态光照（Water Mask Specular & Elevation Color Ramp）**：实现地球表面水体法线光照扰动与镜面反射波纹，支持全球多级高程纹理融合与海岸带动态平滑过渡。
+  3. **地下全景半透明与距离衰减控制（Globe Translucency & Distance-Based Fade）**：实现 `globe.translucency` 地下透视机制，支持正反面透明度独立调谐、地下相机无碰撞漫游及基于距离的平滑淡入淡出。
+  4. **glTF 2.0 PBR 扩展微表面物理材质（glTF PBR Extensions Runtime）**：完整解析并支持 `KHR_materials_clearcoat`、`KHR_materials_anisotropy`、`KHR_materials_specular`，实现清漆双层高光、各向异性拉丝金属与微表面反射率计算。
+- **验证结果**：
+  - **普通 Rust 单元测试**：131 项全部通过（含 `batch71_globematerials_watermask_translucency_gltfpbr`）。
+  - **真实 GPU 离屏渲染测试**：232 / 232 项全数通过（`232 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，231 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：231 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Globe Materials 3D Tiles Terrain、Globe Materials Water Mask Elevation Map、Globe Translucency 与 glTF PBR Extensions 验证文档](docs/globemat-watermask-translucency-gltfpbr-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.70 验收完成：Edge Visibility - Dev、FXAA、Geometry and Appearances - Dev 与 Globe Interior
 - **完成配方**（累计推进至 **227 / 309**，剩余 82 个）：

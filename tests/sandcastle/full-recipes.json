@@ -6331,6 +6331,114 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "globe-materials-3d-tiles-terrain",
+      "title": "Globe Materials – 3D Tiles Terrain",
+      "sourceSha256": "516f7688b3fe0e5cbfbae44986b102ac0b87b74cdb6e950e18cc9309229db1fe",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=globe-materials-3d-tiles-terrain",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/globe-materials-3d-tiles-terrain.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/globe-materials-3d-tiles-terrain.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "ElevationLand composite material with WaterMask and ElevationRamp on 3D Tiles terrain",
+        "Dynamic DirectionalLight hillshade lighting updated from camera and surface normal"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "globe-materials-water-mask-elevation-map",
+      "title": "Globe Materials – Water Mask Elevation Map",
+      "sourceSha256": "16609d1fe5038b15525f997c8dd68681b9aa164ea686db4914c6d4125789ada4",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=globe-materials-water-mask-elevation-map",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/globe-materials-water-mask-elevation-map.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/globe-materials-water-mask-elevation-map.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Hypsometric elevation color ramp applied to landmass with ocean water mask exclusion",
+        "WorldTerrain vertex normals, water mask queries, and linear gradient canvas ramp"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "globe-translucency",
+      "title": "Globe Translucency",
+      "sourceSha256": "f878abfaa7dd5ab3759b4aafac92f3cb2ef648ea6d2c29464b56a5c0286642e2",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=globe-translucency",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/globe-translucency.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/globe-translucency.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Subsurface exploration with globe translucency, frontFaceAlpha, and transparent underground",
+        "Underground infrastructure features (transit station, tunnels, shafts) rendered below surface"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "gltf-pbr-extensions",
+      "title": "glTF PBR Next",
+      "sourceSha256": "30e2200c5dc5f085b7ab4bb333a90bc64f8398d72c17025eeb414faa7a1b1687",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=gltf-pbr-extensions",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/gltf-pbr-extensions.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/gltf-pbr-extensions.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "glTF 2.0 PBR Next extensions: clear coat, specular, and anisotropy material pipelines",
+        "ImageBasedLighting with 9 spherical harmonics coefficients, environment maps, and lighting modes"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

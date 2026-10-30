@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "edge-visibility-dev",
+      "id": "globe-materials-3d-tiles-terrain",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "fe996a7bc7d6903575aa5615f32506cd7b99ea08b4ce56b4a752377a07cb5850",
-      "inputSha256": "844a9a1b86b378b205742d84117f7eebb70e0c74b5ee3ec76bce7f33897d911d",
-      "fixtureSha256": "93f91f5ed22409467233bda4503b27efef3e43eb60c15e9ebc3e933cddd1fcdf",
+      "sourceSha256": "516f7688b3fe0e5cbfbae44986b102ac0b87b74cdb6e950e18cc9309229db1fe",
+      "inputSha256": "224dbaaf79884aa852da08ed5b5e3a3dc0b5bcf086acf2991c80410f837155a5",
+      "fixtureSha256": "2f366f0f537f77071cd98e541b9b1627bdf713a185f1266b2e3e99404bda5325",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,78 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "edge-vis-model1-box",
-        "edge-vis-model2-cylinder",
-        "edge-vis-midpoint-probe",
-        "edge-vis-arena-rect"
+        "globe-mat-3dtiles-summit-box",
+        "globe-mat-3dtiles-valley-cylinder",
+        "globe-mat-3dtiles-hillshade-probe",
+        "globe-mat-3dtiles-extent-rect"
       ],
       "pixelCounts": [
         {
-          "id": "edge-vis-model1-box",
-          "pixels": 150
+          "id": "globe-mat-3dtiles-summit-box",
+          "pixels": 390
         },
         {
-          "id": "edge-vis-model2-cylinder",
-          "pixels": 127
+          "id": "globe-mat-3dtiles-valley-cylinder",
+          "pixels": 494
         },
         {
-          "id": "edge-vis-midpoint-probe",
-          "pixels": 56
-        },
-        {
-          "id": "edge-vis-arena-rect",
-          "pixels": 27949
-        }
-      ]
-    },
-    {
-      "id": "fxaa",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "f62c7569d5111c7b75fec5d52b03467ce14473c8ff39fb80fa6c1552b9ca9fb1",
-      "inputSha256": "9f9cde36fb13d8ebf69cc5f0f3a526ccb4d56a8b6117c2452bba84048a3e42fc",
-      "fixtureSha256": "28b00d93b4cb63e552aa68cec04c57602cfafb9e37f4d38d48046106cde13e96",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "fxaa-building-box",
-        "fxaa-edge-detector-pillar",
-        "fxaa-sample-sphere",
-        "fxaa-viewport-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "fxaa-building-box",
-          "pixels": 474
-        },
-        {
-          "id": "fxaa-edge-detector-pillar",
-          "pixels": 333
-        },
-        {
-          "id": "fxaa-sample-sphere",
+          "id": "globe-mat-3dtiles-hillshade-probe",
           "pixels": 139
         },
         {
-          "id": "fxaa-viewport-rect",
-          "pixels": 67056
+          "id": "globe-mat-3dtiles-extent-rect",
+          "pixels": 65312
         }
       ]
     },
     {
-      "id": "geometry-and-appearances-dev",
+      "id": "globe-materials-water-mask-elevation-map",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "d30d485ea18d46118c32139fdf42ba401dc1b1c3682ab16586075907254237cb",
-      "inputSha256": "e399971421028d391c476ae8ad9f20552a6799449582732eadb636242dfc13ef",
-      "fixtureSha256": "5768b8609240fba6c407db986b8101f80b3d6e0fd24f4902e6fe2c519c8437bc",
+      "sourceSha256": "16609d1fe5038b15525f997c8dd68681b9aa164ea686db4914c6d4125789ada4",
+      "inputSha256": "2354d361ca6c0739a6888ec569b4c96327f025f4c79bd8218b47efad7ed5e928",
+      "fixtureSha256": "646c1c02747d550156c09242c96f0ec68710202ae3ced3dfc5ef465460c999d5",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -104,37 +63,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "geom-app-star-box",
-        "geom-app-tube-cylinder",
-        "geom-app-coplanar-sphere",
-        "geom-app-showcase-rect"
+        "globe-water-plateau-box",
+        "globe-water-river-cylinder",
+        "globe-water-hypsometric-probe",
+        "globe-water-canyon-rect"
       ],
       "pixelCounts": [
         {
-          "id": "geom-app-star-box",
-          "pixels": 96701
+          "id": "globe-water-plateau-box",
+          "pixels": 476
         },
         {
-          "id": "geom-app-tube-cylinder",
-          "pixels": 99268
+          "id": "globe-water-river-cylinder",
+          "pixels": 373
         },
         {
-          "id": "geom-app-coplanar-sphere",
-          "pixels": 166025
+          "id": "globe-water-hypsometric-probe",
+          "pixels": 163
         },
         {
-          "id": "geom-app-showcase-rect",
-          "pixels": 63950
+          "id": "globe-water-canyon-rect",
+          "pixels": 63935
         }
       ]
     },
     {
-      "id": "globe-interior",
+      "id": "globe-translucency",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "a92a25c1d3b1a5636890aaef35dacf9f3d637cdd84e2eff2b62bf96d816528a6",
-      "inputSha256": "f0a9c3278acab2a637f1df8d1215102732cfdfc86a2a17c7c4f2ed4f52482c06",
-      "fixtureSha256": "ad348eb479e3abce3dd85240cabdc9f957725642cf5772fcd6d4583368b22001",
+      "sourceSha256": "f878abfaa7dd5ab3759b4aafac92f3cb2ef648ea6d2c29464b56a5c0286642e2",
+      "inputSha256": "732ec69989116548e988c402d388a425b2f741603626fbbe8270a674276f1f1b",
+      "fixtureSha256": "3909a44653a7023deb3cf237705ec006da6bf6acc9c0c04eb992ed61eda58b1a",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -145,27 +104,68 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "globe-interior-core-box",
-        "globe-interior-axis-cylinder",
-        "globe-interior-mantle-sphere",
-        "globe-interior-window-rect"
+        "globe-trans-station-box",
+        "globe-trans-tunnel-cylinder",
+        "globe-trans-shaft-probe",
+        "globe-trans-corridor-rect"
       ],
       "pixelCounts": [
         {
-          "id": "globe-interior-core-box",
-          "pixels": 92610
+          "id": "globe-trans-station-box",
+          "pixels": 132
         },
         {
-          "id": "globe-interior-axis-cylinder",
-          "pixels": 69233
+          "id": "globe-trans-tunnel-cylinder",
+          "pixels": 132
         },
         {
-          "id": "globe-interior-mantle-sphere",
-          "pixels": 166025
+          "id": "globe-trans-shaft-probe",
+          "pixels": 56
         },
         {
-          "id": "globe-interior-window-rect",
-          "pixels": 63564
+          "id": "globe-trans-corridor-rect",
+          "pixels": 64253
+        }
+      ]
+    },
+    {
+      "id": "gltf-pbr-extensions",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "30e2200c5dc5f085b7ab4bb333a90bc64f8398d72c17025eeb414faa7a1b1687",
+      "inputSha256": "c054aff72fe1ddf9c1d8f7c27e9b74c69b732ff13ca971b06c2b45a0f633a302",
+      "fixtureSha256": "dd53ac20e7815cad17dcec983b35ba21a876115f80a11fe59051566b1e77e9d2",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "gltf-pbr-clearcoat-box",
+        "gltf-pbr-anisotropy-cylinder",
+        "gltf-pbr-specular-sphere",
+        "gltf-pbr-studio-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "gltf-pbr-clearcoat-box",
+          "pixels": 286
+        },
+        {
+          "id": "gltf-pbr-anisotropy-cylinder",
+          "pixels": 249
+        },
+        {
+          "id": "gltf-pbr-specular-sphere",
+          "pixels": 139
+        },
+        {
+          "id": "gltf-pbr-studio-rect",
+          "pixels": 66597
         }
       ]
     }
