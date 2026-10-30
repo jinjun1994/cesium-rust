@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.76（已通过 251 / 309 个完整案例，剩余 58 个）
+- **当前版本**：v0.0.77（已通过 255 / 309 个完整案例，剩余 54 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.77 验收完成：Ion Snapping - Dev、iTwin Feature Service、iTwin Gaussian Splats 与 Japan Buildings
+- **完成配方**（累计推进至 **255 / 309**，剩余 54 个）：
+  1. `ion-snapping-dev`（Cesium ion 服务端几何对齐吸附、最近/关键点/中心多模式吸附与交互容差孔径：基准 Ion BIM/CAD 服务端几何吸附、关键点吸附模式、中心吸附模式、高容差搜索孔径模式 4 种变体）
+  2. `itwin-feature-service`（Bentley iTwin 地理要素服务、点线面多尺度现实数据分类渲染与图层控制台：基准 Bentley iTwin 要素服务、点状基础设施隔离模式、线性工程标线模式、鸟瞰航拍地籍多边形区域 4 种变体）
+  3. `itwin-gaussian-splats`（Bentley iTwin 3D 高斯泼溅真实感模型、模型矩阵高程微调与全球地形结合：基准 3D 高斯泼溅真实数据、大坝坝顶近景巡检模式、地形基底矩阵偏移校准、勘测外包范围边界模式 4 种变体）
+  4. `japan-buildings`（日本全境 3D 建筑物大数据集、局部地形加载、多地标漫游与动态相机光源：基准日本 3D 建筑大数据集与区域地形、京都二条城文化遗产地标视角、相机动态平行光源、富士山-御殿场地势高程模式 4 种变体）
+- **核心研发突破**：
+  1. **Ion 服务端高精几何吸附对齐（Ion Snap Service & Topo Alignment）**：集成 `IonSnapService.fromAssetId` 与 `IonSnapMode`，支持最近点、顶点/边缘关键点与形心多模式几何捕捉对齐与像素级动态容差搜索。
+  2. **iTwin 地理要素服务与多源图层控制（iTwin Geospatial Features & Layer Management）**：支持 `ITwinData.loadGeospatialFeatures` 异步批量加载点/线/面要素，结合 Maki 图标 PinBuilder 与独立分类控制台动态切换。
+  3. **3D 高斯泼溅网格与全球地形贴合（3D Gaussian Splats & World Terrain Registration）**：集成 `ITwinData.createTilesetForRealityDataId`，支持高斯核协方差投影与模型矩阵平移贴合 Cesium 全球地形。
+  4. **全境建筑大数据集与相机动态平行光（Japan 3D Buildings & Camera Light Tracking）**：支持加载海量城市建筑（Ion 2602291）与区域地形（Ion 2767062），实现 `DirectionalLight` 与 `scene.camera.directionWC` 每帧强耦合跟踪。
+- **验证结果**：
+  - **普通 Rust 单元测试**：137 项全部通过（含 `batch77_ionsnap_itwin_splats_japan`）。
+  - **真实 GPU 离屏渲染测试**：256 / 256 项全数通过（`256 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，255 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：255 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Ion Snapping - Dev、iTwin Feature Service、iTwin Gaussian Splats 与 Japan Buildings 验证文档](docs/ionsnap-itwin-splats-japan-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.76 验收完成：Imagery Assets available from ion、Imagery Layers Split、Imagery Layers Texture Filters 与 iModel Mesh Export Service
 - **完成配方**（累计推进至 **251 / 309**，剩余 58 个）：

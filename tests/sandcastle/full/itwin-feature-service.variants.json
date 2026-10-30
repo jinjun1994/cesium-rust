@@ -1,0 +1,609 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Bentley iTwin Feature Service (Points, Lines, Areas & Mesh)",
+      "entities": [
+        {
+          "id": "itwin-reality-mesh-box",
+          "name": "Reality Mesh AI-Derived Feature Extraction Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            -122.419,
+            37.774,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              60
+            ]
+          },
+          "color": [
+            0.2,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "iTwinId": "04ba725f-f3c0-4f30-8014-a4488cbd612d",
+            "featureService": "GeospatialFeatures"
+          }
+        },
+        {
+          "id": "itwin-lamp-post-cylinder",
+          "name": "Lamp Post Geospatial Feature Vector Column",
+          "show": true,
+          "positionDegrees": [
+            -122.417,
+            37.776,
+            40
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 6,
+            "bottomRadius": 6
+          },
+          "color": [
+            0.95,
+            0.95,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            0.8,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "featureType": "Lamp_post",
+            "icon": "lighthouse"
+          }
+        },
+        {
+          "id": "itwin-traffic-light-sphere",
+          "name": "Traffic Light Sensor Node Spatial Probe",
+          "show": true,
+          "positionDegrees": [
+            -122.421,
+            37.772,
+            45
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              5.5,
+              5.5,
+              5.5
+            ]
+          },
+          "color": [
+            0.86,
+            0.08,
+            0.24,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "featureType": "Traffic_light",
+            "icon": "circle-stroked"
+          }
+        },
+        {
+          "id": "itwin-feature-extent-rect",
+          "name": "iTwin Reality Survey Geospatial Area Extent Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.43,
+              37.765,
+              -122.405,
+              37.785
+            ]
+          },
+          "color": [
+            0.25,
+            0.45,
+            0.35,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.95,
+            0.6,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "collections": [
+              "points",
+              "lines",
+              "areas"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Point Features Isolation Mode (Trees, Lamps, Traffic Signals)",
+      "entities": [
+        {
+          "id": "itwin-reality-mesh-box",
+          "name": "Reality Mesh AI-Derived Feature Extraction Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            -122.419,
+            37.774,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              60
+            ]
+          },
+          "color": [
+            0.35,
+            0.85,
+            0.45,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            1,
+            0.85,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "iTwinId": "04ba725f-f3c0-4f30-8014-a4488cbd612d",
+            "featureService": "GeospatialFeatures"
+          }
+        },
+        {
+          "id": "itwin-lamp-post-cylinder",
+          "name": "Lamp Post Geospatial Feature Vector Column",
+          "show": true,
+          "positionDegrees": [
+            -122.417,
+            37.776,
+            40
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 6,
+            "bottomRadius": 6
+          },
+          "color": [
+            0.95,
+            0.95,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            0.8,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "featureType": "Lamp_post",
+            "icon": "lighthouse"
+          }
+        },
+        {
+          "id": "itwin-traffic-light-sphere",
+          "name": "Traffic Light Sensor Node Spatial Probe",
+          "show": true,
+          "positionDegrees": [
+            -122.421,
+            37.772,
+            45
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              5.5,
+              5.5,
+              5.5
+            ]
+          },
+          "color": [
+            0.86,
+            0.08,
+            0.24,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "featureType": "Traffic_light",
+            "icon": "circle-stroked"
+          }
+        },
+        {
+          "id": "itwin-feature-extent-rect",
+          "name": "iTwin Reality Survey Geospatial Area Extent Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.43,
+              37.765,
+              -122.405,
+              37.785
+            ]
+          },
+          "color": [
+            0.25,
+            0.45,
+            0.35,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.95,
+            0.6,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "collections": [
+              "points",
+              "lines",
+              "areas"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Linear Infrastructure Markings Mode (Contours, Lane Markings, Kerbs)",
+      "entities": [
+        {
+          "id": "itwin-reality-mesh-box",
+          "name": "Reality Mesh AI-Derived Feature Extraction Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            -122.419,
+            37.774,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              60
+            ]
+          },
+          "color": [
+            0.2,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "iTwinId": "04ba725f-f3c0-4f30-8014-a4488cbd612d",
+            "featureService": "GeospatialFeatures"
+          }
+        },
+        {
+          "id": "itwin-lamp-post-cylinder",
+          "name": "Lamp Post Geospatial Feature Vector Column",
+          "show": true,
+          "positionDegrees": [
+            -122.417,
+            37.776,
+            40
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 6,
+            "bottomRadius": 6
+          },
+          "color": [
+            0.15,
+            0.85,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "featureType": "Lamp_post",
+            "icon": "lighthouse"
+          }
+        },
+        {
+          "id": "itwin-traffic-light-sphere",
+          "name": "Traffic Light Sensor Node Spatial Probe",
+          "show": true,
+          "positionDegrees": [
+            -122.421,
+            37.772,
+            45
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              5.5,
+              5.5,
+              5.5
+            ]
+          },
+          "color": [
+            0.86,
+            0.08,
+            0.24,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            0.7,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "featureType": "Traffic_light",
+            "icon": "circle-stroked"
+          }
+        },
+        {
+          "id": "itwin-feature-extent-rect",
+          "name": "iTwin Reality Survey Geospatial Area Extent Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.43,
+              37.765,
+              -122.405,
+              37.785
+            ]
+          },
+          "color": [
+            0.25,
+            0.45,
+            0.35,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.95,
+            0.6,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "collections": [
+              "points",
+              "lines",
+              "areas"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Birdseye Viewpoint Aerial Survey Extent (Cadastral Zoned Boundaries)",
+      "entities": [
+        {
+          "id": "itwin-reality-mesh-box",
+          "name": "Reality Mesh AI-Derived Feature Extraction Bounding Box",
+          "show": true,
+          "positionDegrees": [
+            -122.419,
+            37.774,
+            50
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              40,
+              40,
+              60
+            ]
+          },
+          "color": [
+            0.2,
+            0.65,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.65,
+            0.9,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "iTwinId": "04ba725f-f3c0-4f30-8014-a4488cbd612d",
+            "featureService": "GeospatialFeatures"
+          }
+        },
+        {
+          "id": "itwin-lamp-post-cylinder",
+          "name": "Lamp Post Geospatial Feature Vector Column",
+          "show": true,
+          "positionDegrees": [
+            -122.417,
+            37.776,
+            40
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 50,
+            "topRadius": 6,
+            "bottomRadius": 6
+          },
+          "color": [
+            0.95,
+            0.95,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            0.8,
+            0.8,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "featureType": "Lamp_post",
+            "icon": "lighthouse"
+          }
+        },
+        {
+          "id": "itwin-traffic-light-sphere",
+          "name": "Traffic Light Sensor Node Spatial Probe",
+          "show": true,
+          "positionDegrees": [
+            -122.421,
+            37.772,
+            45
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              5.5,
+              5.5,
+              5.5
+            ]
+          },
+          "color": [
+            0.95,
+            0.6,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.8,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "featureType": "Traffic_light",
+            "icon": "circle-stroked"
+          }
+        },
+        {
+          "id": "itwin-feature-extent-rect",
+          "name": "iTwin Reality Survey Geospatial Area Extent Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.43,
+              37.765,
+              -122.405,
+              37.785
+            ]
+          },
+          "color": [
+            0.35,
+            0.3,
+            0.2,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.4,
+            0.95,
+            0.6,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "collections": [
+              "points",
+              "lines",
+              "areas"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

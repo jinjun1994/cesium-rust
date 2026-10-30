@@ -5572,4 +5572,64 @@ mod tests {
         let im_variants = crate::entity_variants::decode(&im_variants_raw).unwrap();
         assert_eq!(im_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch77_ionsnap_itwin_splats_japan() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Ion Snapping - Dev
+        let is_data = std::fs::read(base.join("ion-snapping-dev.json")).unwrap();
+        let is_entities = decode(&is_data).unwrap();
+        assert_eq!(is_entities.len(), 4);
+        assert!(matches!(is_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(is_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(is_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(is_entities[3].shape, Shape::Rectangle { .. }));
+        let is_variants_raw = std::fs::read(base.join("ion-snapping-dev.variants.json")).unwrap();
+        let is_variants = crate::entity_variants::decode(&is_variants_raw).unwrap();
+        assert_eq!(is_variants.variants.len(), 4);
+
+        // 2. iTwin Feature Service
+        let ifs_data = std::fs::read(base.join("itwin-feature-service.json")).unwrap();
+        let ifs_entities = decode(&ifs_data).unwrap();
+        assert_eq!(ifs_entities.len(), 4);
+        assert!(matches!(ifs_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(ifs_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(ifs_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(ifs_entities[3].shape, Shape::Rectangle { .. }));
+        let ifs_variants_raw =
+            std::fs::read(base.join("itwin-feature-service.variants.json")).unwrap();
+        let ifs_variants = crate::entity_variants::decode(&ifs_variants_raw).unwrap();
+        assert_eq!(ifs_variants.variants.len(), 4);
+
+        // 3. iTwin Gaussian Splats
+        let igs_data = std::fs::read(base.join("itwin-gaussian-splats.json")).unwrap();
+        let igs_entities = decode(&igs_data).unwrap();
+        assert_eq!(igs_entities.len(), 4);
+        assert!(matches!(igs_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(igs_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(igs_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(igs_entities[3].shape, Shape::Rectangle { .. }));
+        let igs_variants_raw =
+            std::fs::read(base.join("itwin-gaussian-splats.variants.json")).unwrap();
+        let igs_variants = crate::entity_variants::decode(&igs_variants_raw).unwrap();
+        assert_eq!(igs_variants.variants.len(), 4);
+
+        // 4. Japan Buildings
+        let jb_data = std::fs::read(base.join("japan-buildings.json")).unwrap();
+        let jb_entities = decode(&jb_data).unwrap();
+        assert_eq!(jb_entities.len(), 4);
+        assert!(matches!(jb_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(jb_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(jb_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(jb_entities[3].shape, Shape::Rectangle { .. }));
+        let jb_variants_raw = std::fs::read(base.join("japan-buildings.variants.json")).unwrap();
+        let jb_variants = crate::entity_variants::decode(&jb_variants_raw).unwrap();
+        assert_eq!(jb_variants.variants.len(), 4);
+    }
 }

@@ -1,0 +1,146 @@
+[
+  {
+    "id": "ion-snap-bim-column-box",
+    "name": "BIM CAD Database Structural Element Snapping Target",
+    "show": true,
+    "positionDegrees": [
+      -75.165,
+      39.952,
+      60
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        30,
+        30,
+        80
+      ]
+    },
+    "color": [
+      0,
+      0.9,
+      0.2,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.6,
+      1,
+      0.7,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "assetId": 5161569,
+      "snapMode": "NEAREST",
+      "snapAperture": 16
+    }
+  },
+  {
+    "id": "ion-snap-aperture-cylinder",
+    "name": "Screen Space Snap Aperture Search Cylinder Probe",
+    "show": true,
+    "positionDegrees": [
+      -75.162,
+      39.955,
+      45
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 60,
+      "topRadius": 8,
+      "bottomRadius": 8
+    },
+    "color": [
+      0.95,
+      0.2,
+      0.2,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.7,
+      0.7,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "snapTolerancePixels": 16,
+      "surfaceSnapping": true
+    }
+  },
+  {
+    "id": "ion-snap-hitpoint-sphere",
+    "name": "Snapped Element Geometry Hit Marker Screen Probe",
+    "show": true,
+    "positionDegrees": [
+      -75.168,
+      39.95,
+      50
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        5,
+        5,
+        5
+      ]
+    },
+    "color": [
+      1,
+      0.75,
+      0.8,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.9,
+      0.95,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "pickedSwatch": "#00ff00",
+      "snapSwatch": "#ff0000"
+    }
+  },
+  {
+    "id": "ion-snap-bim-envelope-rect",
+    "name": "BIM Facility Cadastral Snapping Bounds Envelope",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -75.175,
+        39.945,
+        -75.155,
+        39.96
+      ]
+    },
+    "color": [
+      0.25,
+      0.35,
+      0.45,
+      0.25
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.75,
+      0.95,
+      0.75,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "depthTestAgainstTerrain": true,
+      "pickTranslucentDepth": true
+    }
+  }
+]

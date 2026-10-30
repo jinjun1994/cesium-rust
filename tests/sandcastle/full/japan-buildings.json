@@ -1,0 +1,146 @@
+[
+  {
+    "id": "japan-tokyo-tower-box",
+    "name": "Tokyo Tower 3D Building Dataset Landmark Anchor Box",
+    "show": true,
+    "positionDegrees": [
+      139.745,
+      35.658,
+      120
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        45,
+        45,
+        150
+      ]
+    },
+    "color": [
+      0.95,
+      0.25,
+      0.2,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.7,
+      0.65,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "landmark": "Tokyo Tower",
+      "buildingAssetId": 2602291,
+      "terrainAssetId": 2767062
+    }
+  },
+  {
+    "id": "japan-camera-light-cylinder",
+    "name": "Camera-Aligned Directional Light Vector Calibration Column",
+    "show": true,
+    "positionDegrees": [
+      139.748,
+      35.661,
+      80
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 70,
+      "topRadius": 8,
+      "bottomRadius": 8
+    },
+    "color": [
+      0.95,
+      0.9,
+      0.3,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.95,
+      0.7,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "lightType": "DirectionalLight",
+      "intensity": 2,
+      "cameraSync": true
+    }
+  },
+  {
+    "id": "japan-nijo-castle-sphere",
+    "name": "Kyoto Nijo Castle Landmark Geolocation Sensor Probe",
+    "show": true,
+    "positionDegrees": [
+      135.748,
+      35.014,
+      60
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        6.5,
+        6.5,
+        6.5
+      ]
+    },
+    "color": [
+      0.3,
+      0.85,
+      0.6,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.75,
+      1,
+      0.85,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "poi": "Kyoto Nijo Castle",
+      "osmMetadata": true
+    }
+  },
+  {
+    "id": "japan-metropolitan-extent-rect",
+    "name": "Japan Regional Building Survey Cadastral Footprint Envelope",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        135.5,
+        34.8,
+        140,
+        35.8
+      ]
+    },
+    "color": [
+      0.3,
+      0.25,
+      0.35,
+      0.25
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.9,
+      0.6,
+      0.6,
+      0.9
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "coverage": "Metropolitan Japan (Tokyo - Kyoto)"
+    }
+  }
+]

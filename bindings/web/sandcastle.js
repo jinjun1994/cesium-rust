@@ -262,6 +262,10 @@ $('fullNew224').onclick=guarded(()=>runFull('imagery-assets-available-from-ion')
 $('fullNew225').onclick=guarded(()=>runFull('imagery-layers-split'));
 $('fullNew226').onclick=guarded(()=>runFull('imagery-layers-texture-filters'));
 $('fullNew227').onclick=guarded(()=>runFull('imodel-mesh-export-service'));
+$('fullNew228').onclick=guarded(()=>runFull('ion-snapping-dev'));
+$('fullNew229').onclick=guarded(()=>runFull('itwin-feature-service'));
+$('fullNew230').onclick=guarded(()=>runFull('itwin-gaussian-splats'));
+$('fullNew231').onclick=guarded(()=>runFull('japan-buildings'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

@@ -1,3 +1,7 @@
+# 最新完整案例进度：0.0.77
+
+新增 Ion Snapping - Dev、iTwin Feature Service、iTwin Gaussian Splats、Japan Buildings 四个完整案例，累计 **255 / 309**，剩余 54 个。137 项普通 Rust、256 项实际 GPU、8 组 Node、255 个浏览器 WebGPU 案例通过。验证包含 Cesium ion 服务端几何对齐吸附、最近/关键点/中心多模式吸附与交互容差孔径（基准 Ion BIM/CAD 服务端几何吸附、关键点吸附模式、中心吸附模式、高容差搜索孔径模式 4 种变体）、Bentley iTwin 地理要素服务、点线面多尺度现实数据分类渲染与图层控制台（基准 Bentley iTwin 要素服务、点状基础设施隔离模式、线性工程标线模式、鸟瞰航拍地籍多边形区域 4 种变体）、Bentley iTwin 3D 高斯泼溅真实感模型、模型矩阵高程微调与全球地形结合（基准 3D 高斯泼溅真实数据、大坝坝顶近景巡检模式、地形基底矩阵偏移校准、勘测外包范围边界模式 4 种变体）、以及日本全境 3D 建筑物大数据集、局部地形加载、多地标漫游与动态相机光源（基准日本 3D 建筑大数据集与区域地形、京都二条城文化遗产地标视角、相机动态平行光源、富士山-御殿场地势高程模式 4 种变体）。详见 [本批验证](ionsnap-itwin-splats-japan-validation.md)。以下保留历史记录。
+
 # 最新完整案例进度：0.0.76
 
 新增 Imagery Assets available from ion、Imagery Layers Split、Imagery Layers Texture Filters、iModel Mesh Export Service 四个完整案例，累计 **251 / 309**，剩余 58 个。136 项普通 Rust、252 项实际 GPU、8 组 Node、251 个浏览器 WebGPU 案例通过。验证包含 Cesium ion 影像资产目录、多源航拍遥感图层与费城多图层动态切换（基准谷歌 2D 卫星正射影像、微软 Azure 航拍高精巡检模式、欧空局 Sentinel-2 全球多光谱地表覆盖、谷歌 2D 地形等高线专题图 4 种变体）、影像图层卷帘分屏对齐、日夜双底图对比与屏幕空间交互滑块（基准日夜影像卷帘对比、夜间灯光辐射主导左侧分割、日间制图街道地图主导、高对比大陆海岸线边界 4 种变体）、影像纹理过滤、双线性插值平滑与最近邻像素化放大走样对比（基准双线性平滑与最近邻像素过滤卷帘对比、纯最近邻像素艺术制图模式、纯双线性滤波平滑渐变模式、五大湖水岸高对比模式 4 种变体）、以及 Bentley iTwin / iModel 基础设施工程网格导出服务、要素悬停黄色高亮与属性标签遮罩（基准 Bentley iModel 基础设施网格、鼠标悬停黄色高亮模式、结构钢构架独立隔离模式、空间包围体量范围模式 4 种变体）。详见 [本批验证](ionassets-split-filters-imodel-validation.md)。以下保留历史记录。

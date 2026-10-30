@@ -1,5 +1,5 @@
 {
-  "version": "0.0.76",
+  "version": "0.0.77",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -9940,10 +9940,174 @@
           "pixels": 64946
         }
       ]
+    },
+    {
+      "id": "ion-snapping-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "d8a43830d89a61501f2d8a1cfdf4e71bb90b217289eede1b7c68bb884c10fd30",
+      "inputSha256": "c897574d107751c7a99486eb964e658df8247545ca835d91013ac47295458685",
+      "fixtureSha256": "9f5538977bfb3c4ef74ee0d136b5c9fa268df29b393ee98801ba9e792f1b88bb",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "ion-snap-bim-column-box",
+        "ion-snap-aperture-cylinder",
+        "ion-snap-hitpoint-sphere",
+        "ion-snap-bim-envelope-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "ion-snap-bim-column-box",
+          "pixels": 538
+        },
+        {
+          "id": "ion-snap-aperture-cylinder",
+          "pixels": 210
+        },
+        {
+          "id": "ion-snap-hitpoint-sphere",
+          "pixels": 26
+        },
+        {
+          "id": "ion-snap-bim-envelope-rect",
+          "pixels": 66323
+        }
+      ]
+    },
+    {
+      "id": "itwin-feature-service",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "6c332adbc262bf1252cff76d57428de1fc4f4a27ade002a229d9bf710bf20fed",
+      "inputSha256": "3f26cecf618abe7dd45f14412befb49e1fb74149edddb53e5a4eed6163403da0",
+      "fixtureSha256": "b72a2c914f7b28b250ce1dea0cd2474bc14b514e004f47910034ada159b2de8a",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "itwin-reality-mesh-box",
+        "itwin-lamp-post-cylinder",
+        "itwin-traffic-light-sphere",
+        "itwin-feature-extent-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "itwin-reality-mesh-box",
+          "pixels": 627
+        },
+        {
+          "id": "itwin-lamp-post-cylinder",
+          "pixels": 137
+        },
+        {
+          "id": "itwin-traffic-light-sphere",
+          "pixels": 26
+        },
+        {
+          "id": "itwin-feature-extent-rect",
+          "pixels": 66594
+        }
+      ]
+    },
+    {
+      "id": "itwin-gaussian-splats",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "444d3242312c0ff06057514e5e6cceb1164722327044adfa5ed2e44de9b0c7fe",
+      "inputSha256": "9ec205abd6070bbb559b3ce0a7b81f175ba71780990d36e7d66b76869dda73d2",
+      "fixtureSha256": "341e2a43565721fc24ae7ccaa1a51da7edbb182d42f8b33548904b40fa27c4f8",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "splats-dam-cluster-box",
+        "splats-alignment-cylinder",
+        "splats-centroid-sphere",
+        "splats-survey-envelope-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "splats-dam-cluster-box",
+          "pixels": 956
+        },
+        {
+          "id": "splats-alignment-cylinder",
+          "pixels": 177
+        },
+        {
+          "id": "splats-centroid-sphere",
+          "pixels": 30
+        },
+        {
+          "id": "splats-survey-envelope-rect",
+          "pixels": 66677
+        }
+      ]
+    },
+    {
+      "id": "japan-buildings",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "084fb633b3052796d971707c5cbcfe6ad230e480a4a1d3cabcf3643eb8849f1c",
+      "inputSha256": "26a151d5331f535890d749853f98ee6101ffb5878e5e3becef91287c88277ea3",
+      "fixtureSha256": "6d3381238cd0b45f9cb3c3537d1db6bbacc017490b6ec6aa75d1588aa9e637ed",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "japan-tokyo-tower-box",
+        "japan-camera-light-cylinder",
+        "japan-nijo-castle-sphere",
+        "japan-metropolitan-extent-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "japan-tokyo-tower-box",
+          "pixels": 1383
+        },
+        {
+          "id": "japan-camera-light-cylinder",
+          "pixels": 236
+        },
+        {
+          "id": "japan-nijo-castle-sphere",
+          "pixels": 36
+        },
+        {
+          "id": "japan-metropolitan-extent-rect",
+          "pixels": 30492
+        }
+      ]
     }
   ],
   "browser": "151.0.7922.34",
   "imageryFixtureSha256": "653137484021606764e90e02b3aae5457300f4a359f183af0959eb77a94db3f2",
   "destroy": "passed",
-  "totalCases": 251
+  "totalCases": 255
 }

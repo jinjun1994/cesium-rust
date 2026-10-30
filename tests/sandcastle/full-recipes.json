@@ -6987,6 +6987,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "ion-snapping-dev",
+      "title": "Ion Snapping - Dev",
+      "sourceSha256": "d8a43830d89a61501f2d8a1cfdf4e71bb90b217289eede1b7c68bb884c10fd30",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=ion-snapping-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/ion-snapping-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/ion-snapping-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Cesium.IonSnapService assetId 5161569 server-side snapping",
+        "Cesium.IonSnapMode NEAREST / KEYPOINTS / CENTER selector",
+        "Snap aperture slider and picked/snap/hit points visualization"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "itwin-feature-service",
+      "title": "iTwin Feature Service",
+      "sourceSha256": "6c332adbc262bf1252cff76d57428de1fc4f4a27ade002a229d9bf710bf20fed",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=itwin-feature-service",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/itwin-feature-service.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/itwin-feature-service.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Cesium.ITwinData loadGeospatialFeatures for points, lines, areas",
+        "PinBuilder Maki icons and feature color classification styling",
+        "Reality mesh and point cloud layer visibility toggle toolbar"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "itwin-gaussian-splats",
+      "title": "iTwin Gaussian Splats",
+      "sourceSha256": "444d3242312c0ff06057514e5e6cceb1164722327044adfa5ed2e44de9b0c7fe",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=itwin-gaussian-splats",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/itwin-gaussian-splats.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/itwin-gaussian-splats.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Cesium.ITwinData createTilesetForRealityDataId Gaussian Splats mesh",
+        "Translation modelMatrix alignment with Cesium World Terrain",
+        "HeadingPitchRange camera zoomTo dam facing inspection orientation"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "japan-buildings",
+      "title": "Japan Buildings",
+      "sourceSha256": "084fb633b3052796d971707c5cbcfe6ad230e480a4a1d3cabcf3643eb8849f1c",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=japan-buildings",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/japan-buildings.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/japan-buildings.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Japan 3D Buildings ion asset 2602291 & Regional Terrain 2767062",
+        "DirectionalLight synchronized with camera.directionWC on every frame",
+        "Multi-city POI flyTo toolbar (Tokyo, Kyoto, Hakone, Mt. Fuji, Sapporo)"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

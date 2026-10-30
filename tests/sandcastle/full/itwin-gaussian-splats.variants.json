@@ -1,0 +1,625 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: 3D Gaussian Splats Reality Data on Cesium World Terrain",
+      "entities": [
+        {
+          "id": "splats-dam-cluster-box",
+          "name": "3D Gaussian Splatting Dam Reality Mesh Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -121.285,
+            37.957,
+            70
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              55,
+              45,
+              65
+            ]
+          },
+          "color": [
+            0.9,
+            0.55,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.8,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "realityDataId": "4afd5d69-3ba7-491d-86cd-3d86d43db907",
+            "type": "GaussianSplats"
+          }
+        },
+        {
+          "id": "splats-alignment-cylinder",
+          "name": "Model Matrix World Terrain Alignment Datum Column",
+          "show": true,
+          "positionDegrees": [
+            -121.282,
+            37.96,
+            55
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 65,
+            "topRadius": 7.5,
+            "bottomRadius": 7.5
+          },
+          "color": [
+            0.3,
+            0.75,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "translationOffset": [
+              -1,
+              9,
+              -8
+            ],
+            "terrainAlignment": "WorldTerrain"
+          }
+        },
+        {
+          "id": "splats-centroid-sphere",
+          "name": "Gaussian Covariance Centroid Kernel Spatial Probe",
+          "show": true,
+          "positionDegrees": [
+            -121.288,
+            37.954,
+            60
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              6,
+              6,
+              6
+            ]
+          },
+          "color": [
+            0.85,
+            0.3,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splatKernel": "3D_Gaussian",
+            "headingPitchRange": [
+              0,
+              -0.5,
+              100
+            ]
+          }
+        },
+        {
+          "id": "splats-survey-envelope-rect",
+          "name": "Bentley Reality Data Geographic Extent Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -121.3,
+              37.945,
+              -121.27,
+              37.97
+            ]
+          },
+          "color": [
+            0.35,
+            0.3,
+            0.45,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.75,
+            0.95,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "surveyArea": "Dam_Infrastructure"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Dam Crest Close Inspection Mode (Heading Pitch Range Zoom)",
+      "entities": [
+        {
+          "id": "splats-dam-cluster-box",
+          "name": "3D Gaussian Splatting Dam Reality Mesh Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -121.285,
+            37.957,
+            70
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              55,
+              45,
+              65
+            ]
+          },
+          "color": [
+            0.95,
+            0.75,
+            0.25,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.9,
+            0.65,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "realityDataId": "4afd5d69-3ba7-491d-86cd-3d86d43db907",
+            "type": "GaussianSplats"
+          }
+        },
+        {
+          "id": "splats-alignment-cylinder",
+          "name": "Model Matrix World Terrain Alignment Datum Column",
+          "show": true,
+          "positionDegrees": [
+            -121.282,
+            37.96,
+            55
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 65,
+            "topRadius": 7.5,
+            "bottomRadius": 7.5
+          },
+          "color": [
+            0.3,
+            0.75,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "translationOffset": [
+              -1,
+              9,
+              -8
+            ],
+            "terrainAlignment": "WorldTerrain"
+          }
+        },
+        {
+          "id": "splats-centroid-sphere",
+          "name": "Gaussian Covariance Centroid Kernel Spatial Probe",
+          "show": true,
+          "positionDegrees": [
+            -121.288,
+            37.954,
+            60
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              6,
+              6,
+              6
+            ]
+          },
+          "color": [
+            0.85,
+            0.3,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splatKernel": "3D_Gaussian",
+            "headingPitchRange": [
+              0,
+              -0.5,
+              100
+            ]
+          }
+        },
+        {
+          "id": "splats-survey-envelope-rect",
+          "name": "Bentley Reality Data Geographic Extent Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -121.3,
+              37.945,
+              -121.27,
+              37.97
+            ]
+          },
+          "color": [
+            0.35,
+            0.3,
+            0.45,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.75,
+            0.95,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "surveyArea": "Dam_Infrastructure"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Terrain Subsurface Matrix Offset Calibration (Z-Offset -8m Mode)",
+      "entities": [
+        {
+          "id": "splats-dam-cluster-box",
+          "name": "3D Gaussian Splatting Dam Reality Mesh Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -121.285,
+            37.957,
+            70
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              55,
+              45,
+              65
+            ]
+          },
+          "color": [
+            0.9,
+            0.55,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.8,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "realityDataId": "4afd5d69-3ba7-491d-86cd-3d86d43db907",
+            "type": "GaussianSplats"
+          }
+        },
+        {
+          "id": "splats-alignment-cylinder",
+          "name": "Model Matrix World Terrain Alignment Datum Column",
+          "show": true,
+          "positionDegrees": [
+            -121.282,
+            37.96,
+            55
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 65,
+            "topRadius": 7.5,
+            "bottomRadius": 7.5
+          },
+          "color": [
+            0.25,
+            0.85,
+            0.55,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            1,
+            0.85,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "translationOffset": [
+              -1,
+              9,
+              -8
+            ],
+            "terrainAlignment": "WorldTerrain"
+          }
+        },
+        {
+          "id": "splats-centroid-sphere",
+          "name": "Gaussian Covariance Centroid Kernel Spatial Probe",
+          "show": true,
+          "positionDegrees": [
+            -121.288,
+            37.954,
+            60
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              6,
+              6,
+              6
+            ]
+          },
+          "color": [
+            0.85,
+            0.3,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.7,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splatKernel": "3D_Gaussian",
+            "headingPitchRange": [
+              0,
+              -0.5,
+              100
+            ]
+          }
+        },
+        {
+          "id": "splats-survey-envelope-rect",
+          "name": "Bentley Reality Data Geographic Extent Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -121.3,
+              37.945,
+              -121.27,
+              37.97
+            ]
+          },
+          "color": [
+            0.35,
+            0.3,
+            0.45,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.75,
+            0.95,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "surveyArea": "Dam_Infrastructure"
+          }
+        }
+      ]
+    },
+    {
+      "label": "Survey Footprint Cadastral Boundary Mode (High-Density Splat Area)",
+      "entities": [
+        {
+          "id": "splats-dam-cluster-box",
+          "name": "3D Gaussian Splatting Dam Reality Mesh Anchor Box",
+          "show": true,
+          "positionDegrees": [
+            -121.285,
+            37.957,
+            70
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              55,
+              45,
+              65
+            ]
+          },
+          "color": [
+            0.9,
+            0.55,
+            0.2,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.8,
+            0.6,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "realityDataId": "4afd5d69-3ba7-491d-86cd-3d86d43db907",
+            "type": "GaussianSplats"
+          }
+        },
+        {
+          "id": "splats-alignment-cylinder",
+          "name": "Model Matrix World Terrain Alignment Datum Column",
+          "show": true,
+          "positionDegrees": [
+            -121.282,
+            37.96,
+            55
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 65,
+            "topRadius": 7.5,
+            "bottomRadius": 7.5
+          },
+          "color": [
+            0.3,
+            0.75,
+            0.9,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.7,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "translationOffset": [
+              -1,
+              9,
+              -8
+            ],
+            "terrainAlignment": "WorldTerrain"
+          }
+        },
+        {
+          "id": "splats-centroid-sphere",
+          "name": "Gaussian Covariance Centroid Kernel Spatial Probe",
+          "show": true,
+          "positionDegrees": [
+            -121.288,
+            37.954,
+            60
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              6,
+              6,
+              6
+            ]
+          },
+          "color": [
+            0.35,
+            0.55,
+            0.95,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.75,
+            0.85,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "splatKernel": "3D_Gaussian",
+            "headingPitchRange": [
+              0,
+              -0.5,
+              100
+            ]
+          }
+        },
+        {
+          "id": "splats-survey-envelope-rect",
+          "name": "Bentley Reality Data Geographic Extent Envelope",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -121.3,
+              37.945,
+              -121.27,
+              37.97
+            ]
+          },
+          "color": [
+            0.25,
+            0.35,
+            0.25,
+            0.35
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.85,
+            0.75,
+            0.95,
+            0.9
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "surveyArea": "Dam_Infrastructure"
+          }
+        }
+      ]
+    }
+  ]
+}
