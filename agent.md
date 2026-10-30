@@ -4,11 +4,32 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.80（已通过 267 / 309 个完整案例，剩余 42 个）
+- **当前版本**：v0.0.81（已通过 271 / 309 个完整案例，剩余 38 个）
 
 ---
 
 ## 开发批次演进记录
+
+### [2026-10-30] v0.0.81 验收完成：Panorama、Particle System、Particle System Fireworks 与 Particle System Tails
+- **完成配方**（累计推进至 **271 / 309**，剩余 38 个）：
+  1. `panorama`（360 度全景沉浸式球体/立方体贴图漫游、相机 lookAt 姿态锁定与鼠标滚轮视场 FOV 缩放：基准等距长方圆柱 360 全景、六面成立方体天空盒全景模式、望远长焦光学变焦模式、超广角沉浸式全景模式 4 种变体）
+  2. `particle-system`（运奶车运动轨迹跟踪、Circle/Sphere/Cone 多型发射器与局部引力扰动：基准圆形发射器尾气烟流、球形发射器全向膨胀模式、高速方向性锥体喷流、重力偏转下沉烟羽模式 4 种变体）
+  3. `particle-system-fireworks`（夜空多级爆裂烟花、随机三维空间偏移与径向速度衰减截止：基准多级烟花齐射、高空翡翠与青蓝星芒、极速连发压轴华章模式、近地超重型礼炮单团绽放 4 种变体）
+  4. `particle-system-tails`（超音速客机尾迹、彗尾冰晶流与火箭热能喷注双模切换：基准彗尾深冷粒子飘带、火箭助推热力加力模式、双翼尖对称空气动力学涡流凝结尾迹模式、低速大气烟带宽幅漂移弥散模式 4 种变体）
+- **核心研发突破**：
+  1. **沉浸式 360 全景渲染与视场交互（Equirectangular & Cubemap Panoramas & Dynamic FOV）**：支持 `EquirectangularPanorama` 与 `CubeMapPanorama` 局部定向变换矩阵装配，解算 lookAt 观察点与滚轮视场平滑缩放。
+  2. **物理引力粒子动力学管线（Physics-Based Particle Emitters & Local Gravity Field）**：集成 `CircleEmitter` / `SphereEmitter` / `ConeEmitter` / `BoxEmitter` 多几何发射器与 `ParticleBurst` 脉冲爆发，支持以地心法向单位向量实施局部引力速度场动态解算。
+  3. **大规模多级烟火粒子散布与截止截断（Multi-Stage Firework Salvos & Velocity Cutoff Force）**：支持 20 组随机空间三维偏移矩阵与色彩生成，结合 `updateCallback` 在达到爆心半径阈值时强行衰减截断速度。
+  4. **大数量超音速尾流粒子群与微分螺旋发散（High-Density Contrail Swarms & Cartographic Spiral Integration）**：支持 50 ~ 100 组微型粒子发射器级联阵列，实现基于大地经纬度步长与局部速度切向混合的动态尾迹流淌。
+- **验证结果**：
+  - **普通 Rust 单元测试**：141 项全部通过（含 `batch81_panorama_particles_fireworks_tails`）。
+  - **真实 GPU 离屏渲染测试**：272 / 272 项全数通过（`272 passed; 0 failed`）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，271 个完整案例源码执行）。
+  - **浏览器真实 WebGPU 端到端**：271 个完整案例在真实 Google Chrome 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Panorama、Particle System、Particle System Fireworks 与 Particle System Tails 验证文档](docs/panorama-particles-fireworks-tails-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md)。
 
 ### [2026-10-30] v0.0.80 验收完成：Multifrustum Snapping - Dev、Multiple Shadows - Dev、Multiple Synced Views 与 PAMAP Terrain
 - **完成配方**（累计推进至 **267 / 309**，剩余 42 个）：

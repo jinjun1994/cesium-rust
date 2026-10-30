@@ -278,6 +278,10 @@ $('fullNew240').onclick=guarded(()=>runFull('multifrustum-snapping-dev'));
 $('fullNew241').onclick=guarded(()=>runFull('multiple-shadows-dev'));
 $('fullNew242').onclick=guarded(()=>runFull('multiple-synced-views'));
 $('fullNew243').onclick=guarded(()=>runFull('pamap-terrain'));
+$('fullNew244').onclick=guarded(()=>runFull('panorama'));
+$('fullNew245').onclick=guarded(()=>runFull('particle-system'));
+$('fullNew246').onclick=guarded(()=>runFull('particle-system-fireworks'));
+$('fullNew247').onclick=guarded(()=>runFull('particle-system-tails'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

@@ -5813,4 +5813,80 @@ mod tests {
         let pamap_variants = crate::entity_variants::decode(&pamap_variants_raw).unwrap();
         assert_eq!(pamap_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch81_panorama_particles_fireworks_tails() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Panorama
+        let pano_data = std::fs::read(base.join("panorama.json")).unwrap();
+        let pano_entities = decode(&pano_data).unwrap();
+        assert_eq!(pano_entities.len(), 4);
+        assert!(matches!(pano_entities[0].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(pano_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(pano_entities[2].shape, Shape::Cylinder { .. }));
+        assert!(matches!(pano_entities[3].shape, Shape::Rectangle { .. }));
+        let pano_variants_raw = std::fs::read(base.join("panorama.variants.json")).unwrap();
+        let pano_variants = crate::entity_variants::decode(&pano_variants_raw).unwrap();
+        assert_eq!(pano_variants.variants.len(), 4);
+
+        // 2. Particle System
+        let particle_data = std::fs::read(base.join("particle-system.json")).unwrap();
+        let particle_entities = decode(&particle_data).unwrap();
+        assert_eq!(particle_entities.len(), 4);
+        assert!(matches!(particle_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(particle_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(
+            particle_entities[2].shape,
+            Shape::Ellipsoid { .. }
+        ));
+        assert!(matches!(
+            particle_entities[3].shape,
+            Shape::Rectangle { .. }
+        ));
+        let particle_variants_raw =
+            std::fs::read(base.join("particle-system.variants.json")).unwrap();
+        let particle_variants = crate::entity_variants::decode(&particle_variants_raw).unwrap();
+        assert_eq!(particle_variants.variants.len(), 4);
+
+        // 3. Particle System Fireworks
+        let fireworks_data = std::fs::read(base.join("particle-system-fireworks.json")).unwrap();
+        let fireworks_entities = decode(&fireworks_data).unwrap();
+        assert_eq!(fireworks_entities.len(), 4);
+        assert!(matches!(
+            fireworks_entities[0].shape,
+            Shape::Ellipsoid { .. }
+        ));
+        assert!(matches!(fireworks_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(
+            fireworks_entities[2].shape,
+            Shape::Cylinder { .. }
+        ));
+        assert!(matches!(
+            fireworks_entities[3].shape,
+            Shape::Rectangle { .. }
+        ));
+        let fireworks_variants_raw =
+            std::fs::read(base.join("particle-system-fireworks.variants.json")).unwrap();
+        let fireworks_variants = crate::entity_variants::decode(&fireworks_variants_raw).unwrap();
+        assert_eq!(fireworks_variants.variants.len(), 4);
+
+        // 4. Particle System Tails
+        let tails_data = std::fs::read(base.join("particle-system-tails.json")).unwrap();
+        let tails_entities = decode(&tails_data).unwrap();
+        assert_eq!(tails_entities.len(), 4);
+        assert!(matches!(tails_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(tails_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(tails_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(tails_entities[3].shape, Shape::Rectangle { .. }));
+        let tails_variants_raw =
+            std::fs::read(base.join("particle-system-tails.variants.json")).unwrap();
+        let tails_variants = crate::entity_variants::decode(&tails_variants_raw).unwrap();
+        assert_eq!(tails_variants.variants.len(), 4);
+    }
 }

@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "multifrustum-snapping-dev",
+      "id": "panorama",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "988a873c7463f501a3229260ab0b02ab4410a54f32defcb8a69eb56ba5e91e24",
-      "inputSha256": "985b7501f83ff4adefc781b03f60d66a95aa9e6884ca31b4252a66288ddafa35",
-      "fixtureSha256": "dd1db8a8f1865bd04fc59aa066636d8dbb41a363fca002b67925e4f006c15a36",
+      "sourceSha256": "9939c026ad9b327b4ec35ef4d8998effd224844739728c734bb400384f6a2358",
+      "inputSha256": "af4a4ae42aa59eb5d687fd3ccdf962bd22f8cf8596f4210b938542c097616679",
+      "fixtureSha256": "7f270985139a2914b21a72395c9adbff0992ca988fe674d99ef92d3d5041d486",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,37 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "snap-far-tileset-box",
-        "snap-near-model-cylinder",
-        "snap-marker-probe-sphere",
-        "snap-multifrustum-bounds-rect"
+        "panorama-equirectangular-dome",
+        "panorama-cubemap-box",
+        "panorama-camera-target-marker",
+        "panorama-extent-envelope-rect"
       ],
       "pixelCounts": [
         {
-          "id": "snap-far-tileset-box",
-          "pixels": 741
+          "id": "panorama-equirectangular-dome",
+          "pixels": 1061
         },
         {
-          "id": "snap-near-model-cylinder",
-          "pixels": 152
+          "id": "panorama-cubemap-box",
+          "pixels": 764
         },
         {
-          "id": "snap-marker-probe-sphere",
-          "pixels": 26
+          "id": "panorama-camera-target-marker",
+          "pixels": 61
         },
         {
-          "id": "snap-multifrustum-bounds-rect",
-          "pixels": 66323
+          "id": "panorama-extent-envelope-rect",
+          "pixels": 66272
         }
       ]
     },
     {
-      "id": "multiple-shadows-dev",
+      "id": "particle-system",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "854cc1ff2f63cef58b3cb12567f2a08e719868db74ab7d165a4e279857f099c9",
-      "inputSha256": "41c8dbd120e94641036ddb2d2566106ce8f625dabc43bbea245dada8e96ea0e2",
-      "fixtureSha256": "dd4ecdecdb6552c0ff39b30db987ca26ad5cd040a62b73d8afb72ba7f19d6791",
+      "sourceSha256": "7f3f056a8e42474b036cb6d6a07e906eb4c032fa07172048d63b2e87001fc979",
+      "inputSha256": "d40ccd0e0ffc00cc4bb5eb00f7725d97da45f58ea574f880c20e0338620b4660",
+      "fixtureSha256": "2b12ee96c8aeacdb730a83b6ea4d43b49c51ef3b8f4119e90d3ddc93eb87a16f",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -63,37 +63,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "shadow-model-caster-box",
-        "shadow-point-light-1-cylinder",
-        "shadow-point-light-2-sphere",
-        "shadow-scene-bounds-rect"
+        "particle-milktruck-carrier-box",
+        "particle-emitter-circle-cylinder",
+        "particle-burst-plume-sphere",
+        "particle-truck-trajectory-rect"
       ],
       "pixelCounts": [
         {
-          "id": "shadow-model-caster-box",
-          "pixels": 448
+          "id": "particle-milktruck-carrier-box",
+          "pixels": 38
         },
         {
-          "id": "shadow-point-light-1-cylinder",
-          "pixels": 139
-        },
-        {
-          "id": "shadow-point-light-2-sphere",
+          "id": "particle-emitter-circle-cylinder",
           "pixels": 26
         },
         {
-          "id": "shadow-scene-bounds-rect",
-          "pixels": 65983
+          "id": "particle-burst-plume-sphere",
+          "pixels": 188
+        },
+        {
+          "id": "particle-truck-trajectory-rect",
+          "pixels": 55654
         }
       ]
     },
     {
-      "id": "multiple-synced-views",
+      "id": "particle-system-fireworks",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "8756119108f87742a46a731177d1bc2e45a0813cfdb0cf2c237092bfbb507eaa",
-      "inputSha256": "a18cc9b0953e610d261d62ecff7b978575e0393ea50662d333c39f4531051b45",
-      "fixtureSha256": "6bcab9e16e064c112316c93e521d3e2b9caa991ca7eb266f6aa4c93aa5ed636d",
+      "sourceSha256": "58744a84f55cf32f12a3b68797aa7998ef6d84452a4e4d3e9943aee578086923",
+      "inputSha256": "4da515050714ec42e656a7d2d3ee18174b87f90e85a36a309b9171dd5276e42e",
+      "fixtureSha256": "7ca9d2998c8b3e4b0675e71a956ca60f9dfd38343d5269f0a922e7b0d134f8e5",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -104,37 +104,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "sync-3d-perspective-box",
-        "sync-2d-ortho-cylinder",
-        "sync-focal-pick-sphere",
-        "sync-viewport-extent-rect"
+        "fireworks-core-explosion-sphere",
+        "fireworks-salvo-cluster-box",
+        "fireworks-launch-pad-cylinder",
+        "fireworks-firing-zone-rect"
       ],
       "pixelCounts": [
         {
-          "id": "sync-3d-perspective-box",
-          "pixels": 576
+          "id": "fireworks-core-explosion-sphere",
+          "pixels": 610
         },
         {
-          "id": "sync-2d-ortho-cylinder",
-          "pixels": 139
+          "id": "fireworks-salvo-cluster-box",
+          "pixels": 952
         },
         {
-          "id": "sync-focal-pick-sphere",
-          "pixels": 26
+          "id": "fireworks-launch-pad-cylinder",
+          "pixels": 165
         },
         {
-          "id": "sync-viewport-extent-rect",
-          "pixels": 66323
+          "id": "fireworks-firing-zone-rect",
+          "pixels": 66837
         }
       ]
     },
     {
-      "id": "pamap-terrain",
+      "id": "particle-system-tails",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "f9d4369d475978c07f88851d9634d919ed9ba668c2c0b96b50bbe969e696ae77",
-      "inputSha256": "e4a71acab663527514afba43bca454d154953259e8da44b1a5cb008d7206efa8",
-      "fixtureSha256": "5cc66730a3fdc665f651f8fcdb6173a38ec7b8e6cc54360951420b70ef12e2fa",
+      "sourceSha256": "0e36ea429e00a79828c092ef6e19fb6ae022dce6b690fb2453b489ddc80683cf",
+      "inputSha256": "3ea4bbbbcccdebced78dcfacd9eb37cce138f0b04d5688fbf2f7818ea3e9dbcd",
+      "fixtureSha256": "e779cc022a88f3a8cadfc3ffea3444d284a99037288d19efe4646cc1f684122a",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -145,27 +145,27 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "pamap-pinnacle-anchor-box",
-        "pamap-mount-nittany-cylinder",
-        "pamap-elevation-survey-sphere",
-        "pamap-pennsylvania-bounds-rect"
+        "tails-aircraft-model-box",
+        "tails-comet-stream-cylinder",
+        "tails-rocket-thruster-sphere",
+        "tails-flight-corridor-rect"
       ],
       "pixelCounts": [
         {
-          "id": "pamap-pinnacle-anchor-box",
-          "pixels": 627
+          "id": "tails-aircraft-model-box",
+          "pixels": 110
         },
         {
-          "id": "pamap-mount-nittany-cylinder",
-          "pixels": 236
+          "id": "tails-comet-stream-cylinder",
+          "pixels": 255
         },
         {
-          "id": "pamap-elevation-survey-sphere",
-          "pixels": 30
+          "id": "tails-rocket-thruster-sphere",
+          "pixels": 219
         },
         {
-          "id": "pamap-pennsylvania-bounds-rect",
-          "pixels": 65983
+          "id": "tails-flight-corridor-rect",
+          "pixels": 66547
         }
       ]
     }

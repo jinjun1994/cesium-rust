@@ -1,0 +1,151 @@
+[
+  {
+    "id": "fireworks-core-explosion-sphere",
+    "name": "Multi-Burst Golden Firework Explosion Core Sphere",
+    "show": true,
+    "positionDegrees": [
+      -75.59777,
+      40.03883,
+      110
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        30,
+        30,
+        30
+      ]
+    },
+    "color": [
+      1,
+      0.85,
+      0.15,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      1,
+      0.6,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "burstCount": 20,
+      "burstSize": 400,
+      "particlePixelSize": [
+        7,
+        7
+      ],
+      "lifetime": 10
+    }
+  },
+  {
+    "id": "fireworks-salvo-cluster-box",
+    "name": "High-Altitude Emerald and Cyan Salvo Cluster Box",
+    "show": true,
+    "positionDegrees": [
+      -75.5968,
+      40.0395,
+      135
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        55,
+        55,
+        55
+      ]
+    },
+    "color": [
+      0.15,
+      0.95,
+      0.75,
+      0.85
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.6,
+      1,
+      0.9,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "colorPalette": "EmeraldCyan",
+      "minLife": 0.3,
+      "maxLife": 1
+    }
+  },
+  {
+    "id": "fireworks-launch-pad-cylinder",
+    "name": "Ground Level Pyrotechnic Mortar Battery Column",
+    "show": true,
+    "positionDegrees": [
+      -75.59777,
+      40.03883,
+      20
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 40,
+      "topRadius": 8,
+      "bottomRadius": 10
+    },
+    "color": [
+      0.85,
+      0.25,
+      0.35,
+      0.95
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      1,
+      0.5,
+      0.6,
+      1
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "launchAngleRad": 1.57,
+      "mortarCount": 20,
+      "cameraLookAtDistance": 300
+    }
+  },
+  {
+    "id": "fireworks-firing-zone-rect",
+    "name": "Pyrotechnic Safety Exclusion Cadastral Zone",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -75.605,
+        40.032,
+        -75.59,
+        40.045
+      ]
+    },
+    "color": [
+      0.25,
+      0.15,
+      0.35,
+      0.25
+    ],
+    "fill": true,
+    "outline": true,
+    "outlineColor": [
+      0.9,
+      0.5,
+      1,
+      0.8
+    ],
+    "outlineWidth": 1,
+    "properties": {
+      "exclusionRadiusMeters": 500
+    }
+  }
+]

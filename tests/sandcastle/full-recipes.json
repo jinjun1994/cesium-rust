@@ -7435,6 +7435,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "panorama",
+      "title": "Panorama",
+      "sourceSha256": "9939c026ad9b327b4ec35ef4d8998effd224844739728c734bb400384f6a2358",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=panorama",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/panorama.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/panorama.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Cesium.EquirectangularPanorama and Cesium.CubeMapPanorama 360 degree panoramic scene backgrounds",
+        "Camera lookAtTransform coordinate orientation and mouse wheel field-of-view (FOV) interactive zoom",
+        "Dynamic primitive switching between single 360x180 texture and 6-sided cubic skybox faces"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "particle-system",
+      "title": "Particle System",
+      "sourceSha256": "7f3f056a8e42474b036cb6d6a07e906eb4c032fa07172048d63b2e87001fc979",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=particle-system",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/particle-system.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/particle-system.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Cesium.ParticleSystem simulation with CircleEmitter, SphereEmitter, ConeEmitter, and BoxEmitter",
+        "Moving vehicle model coordinate tracking with SampledPositionProperty and VelocityOrientationProperty",
+        "Local geocentric gravity vector updateCallback and Knockout reactive parameter synchronization"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "particle-system-fireworks",
+      "title": "Particle System Fireworks",
+      "sourceSha256": "58744a84f55cf32f12a3b68797aa7998ef6d84452a4e4d3e9943aee578086923",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=particle-system-fireworks",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/particle-system-fireworks.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/particle-system-fireworks.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Multi-burst pyrotechnic particle display with randomized 3D Cartesian offsets and vibrant color palettes",
+        "Radial velocity cutoff force function based on explosion radius size threshold",
+        "Nighttime camera lookUp orientation and frame rate performance overlay diagnostics"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "particle-system-tails",
+      "title": "Particle System Tails",
+      "sourceSha256": "0e36ea429e00a79828c092ef6e19fb6ae022dce6b690fb2453b489ddc80683cf",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=particle-system-tails",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/particle-system-tails.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/particle-system-tails.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Dual-mode aircraft particle tails (Comet Tail icy ribbon vs Rocket Thruster thermal afterburner)",
+        "Cartographic spiral dispersion force integration along velocity and local tangent vectors",
+        "High-density multi-system particle primitive orchestration with synchronized camera view tracking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

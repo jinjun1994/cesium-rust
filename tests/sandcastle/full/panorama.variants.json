@@ -1,0 +1,657 @@
+{
+  "initial": 0,
+  "variants": [
+    {
+      "label": "Baseline: Equirectangular 360 Panorama (Laon Cathedral Interior, Standard 60° FOV)",
+      "entities": [
+        {
+          "id": "panorama-equirectangular-dome",
+          "name": "Equirectangular 360 Panoramic Projection Sphere",
+          "show": true,
+          "positionDegrees": [
+            -122.4175,
+            37.655,
+            100
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              40,
+              40,
+              40
+            ]
+          },
+          "color": [
+            0.35,
+            0.75,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "panoramaType": "EQUIRECTANGULAR",
+            "sourceImage": "Laon_Cathedral_Interior_360x180.jpg",
+            "fovDegrees": 60
+          }
+        },
+        {
+          "id": "panorama-cubemap-box",
+          "name": "CubeMap 6-Sided Cubic Skybox Projection Volume",
+          "show": false,
+          "positionDegrees": [
+            -122.4168,
+            37.6558,
+            95
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              50
+            ]
+          },
+          "color": [
+            0.95,
+            0.65,
+            0.25,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "panoramaType": "CUBEMAP",
+            "faces": [
+              "positiveX",
+              "negativeX",
+              "positiveY",
+              "negativeY",
+              "positiveZ",
+              "negativeZ"
+            ],
+            "location": "Phnom Penh Central Market"
+          }
+        },
+        {
+          "id": "panorama-camera-target-marker",
+          "name": "Panorama Camera Center Azimuth Datum Column",
+          "show": true,
+          "positionDegrees": [
+            -122.4172,
+            37.6553,
+            90
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 30,
+            "topRadius": 4,
+            "bottomRadius": 4
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cameraPitchRange": [
+              0,
+              0,
+              2
+            ],
+            "zoomSpeed": 0.05,
+            "minFov": 20,
+            "maxFov": 100
+          }
+        },
+        {
+          "id": "panorama-extent-envelope-rect",
+          "name": "Panorama Interactive Inspection Cadastral Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.43,
+              37.645,
+              -122.405,
+              37.665
+            ]
+          },
+          "color": [
+            0.2,
+            0.3,
+            0.45,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.8,
+            1,
+            0.85
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "enableZoomControl": true,
+            "enableTranslateControl": false
+          }
+        }
+      ]
+    },
+    {
+      "label": "Cube Map Skybox Panorama Mode (Phnom Penh Central Market, 6-Sided Cubic Frame)",
+      "entities": [
+        {
+          "id": "panorama-equirectangular-dome",
+          "name": "Equirectangular 360 Panoramic Projection Sphere",
+          "show": false,
+          "positionDegrees": [
+            -122.4175,
+            37.655,
+            100
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              40,
+              40,
+              40
+            ]
+          },
+          "color": [
+            0.35,
+            0.75,
+            0.95,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "panoramaType": "EQUIRECTANGULAR",
+            "sourceImage": "Laon_Cathedral_Interior_360x180.jpg",
+            "fovDegrees": 60
+          }
+        },
+        {
+          "id": "panorama-cubemap-box",
+          "name": "CubeMap 6-Sided Cubic Skybox Projection Volume",
+          "show": true,
+          "positionDegrees": [
+            -122.4168,
+            37.6558,
+            95
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              50
+            ]
+          },
+          "color": [
+            1,
+            0.75,
+            0.35,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "panoramaType": "CUBEMAP",
+            "faces": [
+              "positiveX",
+              "negativeX",
+              "positiveY",
+              "negativeY",
+              "positiveZ",
+              "negativeZ"
+            ],
+            "location": "Phnom Penh Central Market"
+          }
+        },
+        {
+          "id": "panorama-camera-target-marker",
+          "name": "Panorama Camera Center Azimuth Datum Column",
+          "show": true,
+          "positionDegrees": [
+            -122.4172,
+            37.6553,
+            90
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 30,
+            "topRadius": 4,
+            "bottomRadius": 4
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cameraPitchRange": [
+              0,
+              0,
+              2
+            ],
+            "zoomSpeed": 0.05,
+            "minFov": 20,
+            "maxFov": 100
+          }
+        },
+        {
+          "id": "panorama-extent-envelope-rect",
+          "name": "Panorama Interactive Inspection Cadastral Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.43,
+              37.645,
+              -122.405,
+              37.665
+            ]
+          },
+          "color": [
+            0.2,
+            0.3,
+            0.45,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.8,
+            1,
+            0.85
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "enableZoomControl": true,
+            "enableTranslateControl": false
+          }
+        }
+      ]
+    },
+    {
+      "label": "Narrow Telephoto Optical Zoom Mode (FOV 25°, High-Precision Architectural Detail)",
+      "entities": [
+        {
+          "id": "panorama-equirectangular-dome",
+          "name": "Equirectangular 360 Panoramic Projection Sphere",
+          "show": true,
+          "positionDegrees": [
+            -122.4175,
+            37.655,
+            100
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              25,
+              25,
+              25
+            ]
+          },
+          "color": [
+            0.25,
+            0.95,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "panoramaType": "EQUIRECTANGULAR",
+            "sourceImage": "Laon_Cathedral_Interior_360x180.jpg",
+            "fovDegrees": 60
+          }
+        },
+        {
+          "id": "panorama-cubemap-box",
+          "name": "CubeMap 6-Sided Cubic Skybox Projection Volume",
+          "show": false,
+          "positionDegrees": [
+            -122.4168,
+            37.6558,
+            95
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              50
+            ]
+          },
+          "color": [
+            0.95,
+            0.65,
+            0.25,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "panoramaType": "CUBEMAP",
+            "faces": [
+              "positiveX",
+              "negativeX",
+              "positiveY",
+              "negativeY",
+              "positiveZ",
+              "negativeZ"
+            ],
+            "location": "Phnom Penh Central Market"
+          }
+        },
+        {
+          "id": "panorama-camera-target-marker",
+          "name": "Panorama Camera Center Azimuth Datum Column",
+          "show": true,
+          "positionDegrees": [
+            -122.4172,
+            37.6553,
+            90
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 30,
+            "topRadius": 4,
+            "bottomRadius": 4
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cameraPitchRange": [
+              0,
+              0,
+              2
+            ],
+            "zoomSpeed": 0.05,
+            "minFov": 20,
+            "maxFov": 100
+          }
+        },
+        {
+          "id": "panorama-extent-envelope-rect",
+          "name": "Panorama Interactive Inspection Cadastral Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.43,
+              37.645,
+              -122.405,
+              37.665
+            ]
+          },
+          "color": [
+            0.2,
+            0.3,
+            0.45,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.8,
+            1,
+            0.85
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "enableZoomControl": true,
+            "enableTranslateControl": false
+          }
+        }
+      ]
+    },
+    {
+      "label": "Ultra-Wide Immersive Panorama Mode (FOV 95°, Expanded Environmental Peripheral View)",
+      "entities": [
+        {
+          "id": "panorama-equirectangular-dome",
+          "name": "Equirectangular 360 Panoramic Projection Sphere",
+          "show": true,
+          "positionDegrees": [
+            -122.4175,
+            37.655,
+            100
+          ],
+          "shape": {
+            "type": "ellipsoid",
+            "radii": [
+              55,
+              55,
+              55
+            ]
+          },
+          "color": [
+            0.45,
+            0.65,
+            1,
+            0.9
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.8,
+            0.95,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "panoramaType": "EQUIRECTANGULAR",
+            "sourceImage": "Laon_Cathedral_Interior_360x180.jpg",
+            "fovDegrees": 60
+          }
+        },
+        {
+          "id": "panorama-cubemap-box",
+          "name": "CubeMap 6-Sided Cubic Skybox Projection Volume",
+          "show": true,
+          "positionDegrees": [
+            -122.4168,
+            37.6558,
+            95
+          ],
+          "shape": {
+            "type": "box",
+            "dimensions": [
+              50,
+              50,
+              50
+            ]
+          },
+          "color": [
+            0.95,
+            0.65,
+            0.25,
+            0.85
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.85,
+            0.5,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "panoramaType": "CUBEMAP",
+            "faces": [
+              "positiveX",
+              "negativeX",
+              "positiveY",
+              "negativeY",
+              "positiveZ",
+              "negativeZ"
+            ],
+            "location": "Phnom Penh Central Market"
+          }
+        },
+        {
+          "id": "panorama-camera-target-marker",
+          "name": "Panorama Camera Center Azimuth Datum Column",
+          "show": true,
+          "positionDegrees": [
+            -122.4172,
+            37.6553,
+            90
+          ],
+          "shape": {
+            "type": "cylinder",
+            "length": 30,
+            "topRadius": 4,
+            "bottomRadius": 4
+          },
+          "color": [
+            0.85,
+            0.25,
+            0.85,
+            0.95
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            1,
+            0.6,
+            1,
+            1
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "cameraPitchRange": [
+              0,
+              0,
+              2
+            ],
+            "zoomSpeed": 0.05,
+            "minFov": 20,
+            "maxFov": 100
+          }
+        },
+        {
+          "id": "panorama-extent-envelope-rect",
+          "name": "Panorama Interactive Inspection Cadastral Extent",
+          "show": true,
+          "positionDegrees": null,
+          "shape": {
+            "type": "rectangle",
+            "coordinatesDegrees": [
+              -122.43,
+              37.645,
+              -122.405,
+              37.665
+            ]
+          },
+          "color": [
+            0.2,
+            0.3,
+            0.45,
+            0.25
+          ],
+          "fill": true,
+          "outline": true,
+          "outlineColor": [
+            0.6,
+            0.8,
+            1,
+            0.85
+          ],
+          "outlineWidth": 1,
+          "properties": {
+            "enableZoomControl": true,
+            "enableTranslateControl": false
+          }
+        }
+      ]
+    }
+  ]
+}
