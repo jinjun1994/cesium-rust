@@ -4,7 +4,7 @@
 - **工作区路径**：`/Users/jinjun/study/cesium-rust/cesium-rust`
 - **远程仓库**：`https://github.com/jinjun1994/cesium-rust.git` (`main` 分支)
 - **目标里程碑**：M1/M2 推进实体与属性图谱，M3 聚焦 G05 地形、材质与贴地渲染，完成 Sandcastle 309 个全量官方配方移植验收。
-- **当前版本**：v0.0.86（已通过 291 / 309 个完整案例，剩余 18 个）
+- **当前版本**：v0.0.87（已通过 295 / 309 个完整案例，剩余 14 个）
 
 ---
 
@@ -1323,4 +1323,22 @@
   - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` 零告警、零报错。
 - **文档晋升**：
   - 产出 [Styled glTF Lines - Dev、Styled glTF Points - Dev、Terrain 与 Terrain Clipping Planes 验证文档](docs/lines-points-terrain-terrainclip-validation.md)。
+  - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。
+
+---
+
+### [2026-10-30] v0.0.87 验收完成：Terrain Entity Batching - Dev、Terrain Exaggeration、Terrain Performance - Dev 与 Terrain Tweaks - Dev 体系全面打通
+- **完成配方**（累计推进至 **295 / 309**，剩余 14 个）：
+  1. `terrain-entity-batching-dev`（多类型实体地形表面批处理、10x10 网格 100 要素分类覆层、st 纹理旋转与贴地椭圆：4 个变体，涵盖基准 10x10 表面网格与贴地混合图元模式、高密度 100 要素表面网格压力测试模式、高对比橙黄双色棋盘格覆层模式与 45 度纹理旋转贴地椭圆形变模式）
+  2. `terrain-exaggeration`（场景垂向高程比例动态夸张放大、基准高程基准面绑定与 createElevationBandMaterial 高程带：4 个变体，涵盖基准 2.0x 垂向夸张与 2400m 相对基准面高程带模式、4.0x 极限高陡峻峭阿尔卑斯地形夸张模式、1.0x 真实物理未缩放基准对照模式与 0m 海平面基准 2.5x 夸张模式）
+  3. `terrain-performance-dev`（珠穆朗玛峰 8848m 全空域飞行轨迹性能基准套件、多视角相机巡检与帧率/瓦片队列监控：4 个变体，涵盖基准珠峰水平巡航飞行性能模式、正射垂直俯视瓦片流式加载模式、45度大倾角斜向多层 LOD 视锥负荷模式与高通量快速缩放极限压力测试）
+  4. `terrain-tweaks-dev`（全球地形瓦片流式加载参数微调、深度子级/祖先/兄弟预加载与填充高亮调试着色：4 个变体，涵盖基准标准 20 深度子级限制与平衡预加载模式、40 深度激进预加载与青色填充高亮模式、5 深度低延迟保守预加载与洋红高亮模式与生产环境纯净地表模式）
+- **验证结果**：
+  - **普通 Rust 单元测试**：147 / 147 项全部通过（新增 `batch87_batching_exaggeration_perf_tweaks`）。
+  - **真实 GPU 离屏渲染测试**：296 / 296 项全部通过（包含 295 个完整案例 + 1 个材质拾取测试）。
+  - **Node 测试套件**：8 / 8 组全部通过（`npm test` 零报错，全部 295 个固定案例哈希与实体结构精准契合）。
+  - **浏览器真实 WebGPU 端到端**：295 个完整案例在真实 Chromium 环境下全部通过（`full-recipes-browser.cjs`）。
+  - **代码规范**：`cargo fmt --check` 与 `cargo clippy --workspace --all-targets -- -D warnings` 零告警、零报错。
+- **文档晋升**：
+  - 产出 [Terrain Entity Batching - Dev、Terrain Exaggeration、Terrain Performance - Dev 与 Terrain Tweaks - Dev 验证文档](docs/terrain-batching-exaggeration-perf-tweaks-validation.md)。
   - 更新 [完整配方验证总览](docs/full-recipes-validation.md)、[Sandcastle 验证总览](docs/sandcastle-validation.md)、[开发状态](docs/development-status.md) 与 [机读结果清单](docs/full-recipes-validation.json)。

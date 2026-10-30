@@ -1,0 +1,127 @@
+[
+  {
+    "id": "batching-concave-polygon-box",
+    "name": "Concave Surface Polygon Bounding Hull",
+    "show": true,
+    "positionDegrees": [
+      -122.18,
+      46.22,
+      1200
+    ],
+    "shape": {
+      "type": "box",
+      "dimensions": [
+        4500,
+        4500,
+        600
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.2,
+      0.7,
+      0.95,
+      0.85
+    ],
+    "outlineColor": [
+      0.05,
+      0.35,
+      0.55,
+      1
+    ]
+  },
+  {
+    "id": "batching-grid-cluster-anchor",
+    "name": "10x10 Batched Classification Squares Anchor",
+    "show": true,
+    "positionDegrees": [
+      -122.2534,
+      46.2522,
+      1000
+    ],
+    "shape": {
+      "type": "cylinder",
+      "length": 800,
+      "topRadius": 1500,
+      "bottomRadius": 1500
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.95,
+      0.55,
+      0.15,
+      0.75
+    ],
+    "outlineColor": [
+      0.55,
+      0.25,
+      0.05,
+      1
+    ]
+  },
+  {
+    "id": "batching-checkerboard-rect",
+    "name": "Checkerboard Surface Material Extent",
+    "show": true,
+    "positionDegrees": null,
+    "shape": {
+      "type": "rectangle",
+      "coordinatesDegrees": [
+        -122.17778,
+        46.36169,
+        -120.17778,
+        48.36169
+      ],
+      "height": 800,
+      "extrudedHeight": 1200
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.95,
+      0.85,
+      0.2,
+      0.65
+    ],
+    "outlineColor": [
+      0.65,
+      0.45,
+      0.05,
+      1
+    ]
+  },
+  {
+    "id": "batching-textured-ellipse-cylinder",
+    "name": "Rotated Texture Classification Ellipse Column",
+    "show": true,
+    "positionDegrees": [
+      -121.7071,
+      45.9438,
+      900
+    ],
+    "shape": {
+      "type": "ellipsoid",
+      "radii": [
+        1500,
+        3000,
+        900
+      ]
+    },
+    "fill": true,
+    "outline": true,
+    "color": [
+      0.35,
+      0.85,
+      0.45,
+      0.8
+    ],
+    "outlineColor": [
+      0.1,
+      0.45,
+      0.15,
+      1
+    ]
+  }
+]

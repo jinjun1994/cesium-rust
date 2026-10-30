@@ -8107,6 +8107,118 @@
         "browserReport": "../../docs/full-recipes-browser.json",
         "nativeScope": "actual source geometry and rendering"
       }
+    },
+    {
+      "id": "terrain-entity-batching-dev",
+      "title": "Terrain Entity Batching - Dev",
+      "sourceSha256": "ec7f0f253a4df76eba2d043f99f38997b0b854e04756d70a383f33a7fa7fd4d0",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=terrain-entity-batching-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/terrain-entity-batching-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/terrain-entity-batching-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Batching of multiple polygon, rectangle, and ellipse entities on terrain",
+        "ClassificationType.TERRAIN surface geometry classification batching",
+        "Texture rotation, repetition, and checkerboard material evaluation on terrain"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "terrain-exaggeration",
+      "title": "Terrain Exaggeration",
+      "sourceSha256": "21b39c0ec728e838116a9522fb41252eab14400c4e0d7569095a7028602ea2e1",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=terrain-exaggeration",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/terrain-exaggeration.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/terrain-exaggeration.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Scene verticalExaggeration and verticalExaggerationRelativeHeight terrain scaling",
+        "createElevationBandMaterial visualization anchored to relative datum height",
+        "Clamped ellipsoid entity tracking terrain vertical displacement"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "terrain-performance-dev",
+      "title": "Terrain Performance - Dev",
+      "sourceSha256": "5986df63b1a2d4edba39b45eb66ddaa3b7a8cdbf78c20f32147de355206c35d3",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=terrain-performance-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/terrain-performance-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/terrain-performance-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Terrain rendering performance benchmark suite around Mount Everest",
+        "Multi-angle camera flight paths: horizontal, top-down, and 45-degree oblique sweeps",
+        "FrameRateMonitor integration and globe tile queue load tracking"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
+    },
+    {
+      "id": "terrain-tweaks-dev",
+      "title": "Terrain Tweaks - Dev",
+      "sourceSha256": "5d2c8c8161fa90d34ca60cb3f2f1a7e71b8d27eb066bdfd21dfc0480bd1ab01f",
+      "referenceUrl": "https://sandcastle.cesium.com/?id=terrain-tweaks-dev",
+      "format": "variants",
+      "path": "../../tests/sandcastle/full/terrain-tweaks-dev.variants.json",
+      "expectedPath": "../../tests/sandcastle/full/terrain-tweaks-dev.json",
+      "entityCount": 4,
+      "variantCount": 4,
+      "framing": "zoomToEntities",
+      "shouldAnimate": false,
+      "requirements": [
+        "Globe streaming tuning: loadingDescendantLimit, preloadAncestors, and preloadSiblings",
+        "Globe fillHighlightColor and fillHighlightEnabled tile debugging",
+        "Dynamic knockout observable subscription binding for streaming controls"
+      ],
+      "status": "functional-passed",
+      "validation": {
+        "source": "passed",
+        "gpu": "passed",
+        "browser": "passed",
+        "nativeSmoke": "passed",
+        "pixelExactReference": "not-claimed",
+        "browserReport": "../../docs/full-recipes-browser.json",
+        "nativeScope": "actual source geometry and rendering"
+      }
     }
   ],
   "webSceneNativeScope": "HTML Overlays, Resolution Scaling and Hello World native smokes cover the shared globe/projection kernel; their DOM/DPR behavior is browser-only. Offline native smoke loads real local TMS images.",

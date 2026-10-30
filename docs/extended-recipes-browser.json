@@ -6,12 +6,12 @@
   "externalImagery": "local deterministic 256x256 neutral raster",
   "cases": [
     {
-      "id": "styled-gltf-lines-dev",
+      "id": "terrain-entity-batching-dev",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "e784cb906aac714f254aafabff901cf804e5632a5977ea9c0580e45a3fbc7fb1",
-      "inputSha256": "0c0d4a5d2fa1118551053be65fb7ae22f98e1452b5ab838266eff1d1533071fe",
-      "fixtureSha256": "05c518517d51aa4247cd86b73d430142ec47d3e1e7d0ca665fda703f68a0c4d7",
+      "sourceSha256": "ec7f0f253a4df76eba2d043f99f38997b0b854e04756d70a383f33a7fa7fd4d0",
+      "inputSha256": "23582fd4fbaab8031adb826e58adac5afaedc87a44c57bd069f2b5c52baf8fc2",
+      "fixtureSha256": "35dc5c90d0a18dcce3038799dd464e608bfeef63959af8f0fd18f26719f4f05f",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -22,37 +22,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "styledlines-bounding-box",
-        "styledlines-vector-cylinder",
-        "styledlines-anchor-sphere",
-        "styledlines-staging-rect"
+        "batching-concave-polygon-box",
+        "batching-grid-cluster-anchor",
+        "batching-checkerboard-rect",
+        "batching-textured-ellipse-cylinder"
       ],
       "pixelCounts": [
         {
-          "id": "styledlines-bounding-box",
-          "pixels": 494
+          "id": "batching-concave-polygon-box",
+          "pixels": 77437
         },
         {
-          "id": "styledlines-vector-cylinder",
-          "pixels": 292
+          "id": "batching-grid-cluster-anchor",
+          "pixels": 132215
         },
         {
-          "id": "styledlines-anchor-sphere",
-          "pixels": 47
+          "id": "batching-checkerboard-rect",
+          "pixels": 63998
         },
         {
-          "id": "styledlines-staging-rect",
-          "pixels": 7451
+          "id": "batching-textured-ellipse-cylinder",
+          "pixels": 57219
         }
       ]
     },
     {
-      "id": "styled-gltf-points-dev",
+      "id": "terrain-exaggeration",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "8ad6353c986bb9b3ce2b1dc542adfb91a8d68b6e6daff29916a1c865cf6da8de",
-      "inputSha256": "0c8f2dd324c376e46c2186b1e3d82b14089dfc3fc9850069f23f68e7f790114d",
-      "fixtureSha256": "5c7eeefab80e63d4813bc9475ac1e00d5667e22d6662705b5082d6cb13ebfa56",
+      "sourceSha256": "21b39c0ec728e838116a9522fb41252eab14400c4e0d7569095a7028602ea2e1",
+      "inputSha256": "08d65720047baaddade357f00452bb21355a4b86b41466d5c1706ddc3117500a",
+      "fixtureSha256": "c80acdf700f4729651a6c59b794a3b43ddac1812710f0a37a80efbf2ca54540a",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -63,37 +63,37 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "styledpoints-bounding-box",
-        "styledpoints-vector-cylinder",
-        "styledpoints-anchor-sphere",
-        "styledpoints-staging-rect"
+        "exaggeration-target-ellipsoid",
+        "exaggeration-datum-plane",
+        "exaggeration-band-indicator",
+        "exaggeration-region-rect"
       ],
       "pixelCounts": [
         {
-          "id": "styledpoints-bounding-box",
-          "pixels": 764
+          "id": "exaggeration-target-ellipsoid",
+          "pixels": 121449
         },
         {
-          "id": "styledpoints-vector-cylinder",
-          "pixels": 456
+          "id": "exaggeration-datum-plane",
+          "pixels": 67329
         },
         {
-          "id": "styledpoints-anchor-sphere",
-          "pixels": 77
+          "id": "exaggeration-band-indicator",
+          "pixels": 77461
         },
         {
-          "id": "styledpoints-staging-rect",
-          "pixels": 12101
+          "id": "exaggeration-region-rect",
+          "pixels": 68357
         }
       ]
     },
     {
-      "id": "terrain",
+      "id": "terrain-performance-dev",
       "status": "passed",
       "entities": 4,
-      "sourceSha256": "1cb93bb20b4bd2c50e58ab97b3577f8f7d29dddf17378f6f2c5347ffa2e6510d",
-      "inputSha256": "e3ebf57fc943caddff12d435a8570412ceaa303388af2884345d23914364eb0c",
-      "fixtureSha256": "50a51e4750968fe5aacd24760f31a7eb3fcc5fa66ac3c34247f8b2d0caef99d3",
+      "sourceSha256": "5986df63b1a2d4edba39b45eb66ddaa3b7a8cdbf78c20f32147de355206c35d3",
+      "inputSha256": "7f8d34fc2c014c4a036bb9d30b73fb1fe3e0362832fe78314b79dc55ac997731",
+      "fixtureSha256": "549deffe13e782322568e12d97a01a3bc9b30d6a8d7c56e82243a9f03574c398",
       "checks": [
         "all source parameters",
         "source framing and shouldAnimate",
@@ -104,68 +104,68 @@
         "resize and manual fit"
       ],
       "pickedEntities": [
-        "terrain-elevation-box",
-        "terrain-ridge-cylinder",
-        "terrain-water-sphere",
-        "terrain-fuji-rect"
+        "everest-summit-marker",
+        "everest-horizontal-flight-box",
+        "everest-khumbu-corridor-cylinder",
+        "everest-base-camp-staging-rect"
       ],
       "pixelCounts": [
         {
-          "id": "terrain-elevation-box",
-          "pixels": 101946
+          "id": "everest-summit-marker",
+          "pixels": 95070
         },
         {
-          "id": "terrain-ridge-cylinder",
-          "pixels": 94891
+          "id": "everest-horizontal-flight-box",
+          "pixels": 52790
         },
         {
-          "id": "terrain-water-sphere",
+          "id": "everest-khumbu-corridor-cylinder",
+          "pixels": 117796
+        },
+        {
+          "id": "everest-base-camp-staging-rect",
+          "pixels": 58271
+        }
+      ]
+    },
+    {
+      "id": "terrain-tweaks-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "5d2c8c8161fa90d34ca60cb3f2f1a7e71b8d27eb066bdfd21dfc0480bd1ab01f",
+      "inputSha256": "55a993dab3f498cbeb398a1a79b07aabc0f22fa97cc5b60b209a7dd7241139fa",
+      "fixtureSha256": "055b31f82004015ac2b7cea2ea639f2f224ae5b31ccb36c9d616e99bd88b33b1",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "tweaks-descendant-limit-box",
+        "tweaks-ancestor-preload-column",
+        "tweaks-sibling-preload-sphere",
+        "tweaks-fill-highlight-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "tweaks-descendant-limit-box",
+          "pixels": 86939
+        },
+        {
+          "id": "tweaks-ancestor-preload-column",
+          "pixels": 94040
+        },
+        {
+          "id": "tweaks-sibling-preload-sphere",
           "pixels": 166025
         },
         {
-          "id": "terrain-fuji-rect",
-          "pixels": 68005
-        }
-      ]
-    },
-    {
-      "id": "terrain-clipping-planes",
-      "status": "passed",
-      "entities": 4,
-      "sourceSha256": "41b60df45bc0828fda05047a4f65f74520d02ab6da12f8a830a88587bcad686a",
-      "inputSha256": "4fdd6018f41c4a8014224ee337912af4082e1e840174678187f59f454ce9c298",
-      "fixtureSha256": "2e8900af24882e32065fcaeff40b4d95085a57c37780c709326d2b42d0fd0362",
-      "checks": [
-        "all source parameters",
-        "source framing and shouldAnimate",
-        "isolated real pixels for every instance",
-        "every instance ID picking",
-        "hide/show",
-        "wheel zoom",
-        "resize and manual fit"
-      ],
-      "pickedEntities": [
-        "terrainclip-excavation-box",
-        "terrainclip-character-cylinder",
-        "terrainclip-depth-sphere",
-        "terrainclip-envelope-rect"
-      ],
-      "pixelCounts": [
-        {
-          "id": "terrainclip-excavation-box",
-          "pixels": 79361
-        },
-        {
-          "id": "terrainclip-character-cylinder",
-          "pixels": 5228
-        },
-        {
-          "id": "terrainclip-depth-sphere",
-          "pixels": 14799
-        },
-        {
-          "id": "terrainclip-envelope-rect",
-          "pixels": 72791
+          "id": "tweaks-fill-highlight-rect",
+          "pixels": 67719
         }
       ]
     }

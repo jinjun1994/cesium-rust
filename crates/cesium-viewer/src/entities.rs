@@ -6189,4 +6189,82 @@ mod tests {
         let clip_variants = crate::entity_variants::decode(&clip_variants_raw).unwrap();
         assert_eq!(clip_variants.variants.len(), 4);
     }
+
+    #[test]
+    fn batch87_batching_exaggeration_perf_tweaks() {
+        let base = std::path::Path::new(env!("CARGO_MANIFEST_DIR"))
+            .parent()
+            .unwrap()
+            .parent()
+            .unwrap()
+            .join("tests/sandcastle/full");
+
+        // 1. Terrain Entity Batching - Dev
+        let batching_data = std::fs::read(base.join("terrain-entity-batching-dev.json")).unwrap();
+        let batching_entities = decode(&batching_data).unwrap();
+        assert_eq!(batching_entities.len(), 4);
+        assert!(matches!(batching_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(batching_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(
+            batching_entities[2].shape,
+            Shape::Rectangle { .. }
+        ));
+        assert!(matches!(
+            batching_entities[3].shape,
+            Shape::Ellipsoid { .. }
+        ));
+        let batching_variants_raw =
+            std::fs::read(base.join("terrain-entity-batching-dev.variants.json")).unwrap();
+        let batching_variants = crate::entity_variants::decode(&batching_variants_raw).unwrap();
+        assert_eq!(batching_variants.variants.len(), 4);
+
+        // 2. Terrain Exaggeration
+        let exaggeration_data = std::fs::read(base.join("terrain-exaggeration.json")).unwrap();
+        let exaggeration_entities = decode(&exaggeration_data).unwrap();
+        assert_eq!(exaggeration_entities.len(), 4);
+        assert!(matches!(
+            exaggeration_entities[0].shape,
+            Shape::Ellipsoid { .. }
+        ));
+        assert!(matches!(exaggeration_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(
+            exaggeration_entities[2].shape,
+            Shape::Cylinder { .. }
+        ));
+        assert!(matches!(
+            exaggeration_entities[3].shape,
+            Shape::Rectangle { .. }
+        ));
+        let exaggeration_variants_raw =
+            std::fs::read(base.join("terrain-exaggeration.variants.json")).unwrap();
+        let exaggeration_variants =
+            crate::entity_variants::decode(&exaggeration_variants_raw).unwrap();
+        assert_eq!(exaggeration_variants.variants.len(), 4);
+
+        // 3. Terrain Performance - Dev
+        let perf_data = std::fs::read(base.join("terrain-performance-dev.json")).unwrap();
+        let perf_entities = decode(&perf_data).unwrap();
+        assert_eq!(perf_entities.len(), 4);
+        assert!(matches!(perf_entities[0].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(perf_entities[1].shape, Shape::Box { .. }));
+        assert!(matches!(perf_entities[2].shape, Shape::Cylinder { .. }));
+        assert!(matches!(perf_entities[3].shape, Shape::Rectangle { .. }));
+        let perf_variants_raw =
+            std::fs::read(base.join("terrain-performance-dev.variants.json")).unwrap();
+        let perf_variants = crate::entity_variants::decode(&perf_variants_raw).unwrap();
+        assert_eq!(perf_variants.variants.len(), 4);
+
+        // 4. Terrain Tweaks - Dev
+        let tweaks_data = std::fs::read(base.join("terrain-tweaks-dev.json")).unwrap();
+        let tweaks_entities = decode(&tweaks_data).unwrap();
+        assert_eq!(tweaks_entities.len(), 4);
+        assert!(matches!(tweaks_entities[0].shape, Shape::Box { .. }));
+        assert!(matches!(tweaks_entities[1].shape, Shape::Cylinder { .. }));
+        assert!(matches!(tweaks_entities[2].shape, Shape::Ellipsoid { .. }));
+        assert!(matches!(tweaks_entities[3].shape, Shape::Rectangle { .. }));
+        let tweaks_variants_raw =
+            std::fs::read(base.join("terrain-tweaks-dev.variants.json")).unwrap();
+        let tweaks_variants = crate::entity_variants::decode(&tweaks_variants_raw).unwrap();
+        assert_eq!(tweaks_variants.variants.len(), 4);
+    }
 }

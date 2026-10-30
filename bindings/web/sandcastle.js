@@ -302,6 +302,10 @@ $('fullNew264').onclick=guarded(()=>runFull('styled-gltf-lines-dev'));
 $('fullNew265').onclick=guarded(()=>runFull('styled-gltf-points-dev'));
 $('fullNew266').onclick=guarded(()=>runFull('terrain'));
 $('fullNew267').onclick=guarded(()=>runFull('terrain-clipping-planes'));
+$('fullNew268').onclick=guarded(()=>runFull('terrain-entity-batching-dev'));
+$('fullNew269').onclick=guarded(()=>runFull('terrain-exaggeration'));
+$('fullNew270').onclick=guarded(()=>runFull('terrain-performance-dev'));
+$('fullNew271').onclick=guarded(()=>runFull('terrain-tweaks-dev'));
 
 function applyFullVariant(){if(!activeVariants)return;const index=Number($('fullVariantSelect').value),v=activeVariants.variants[index];if(!v)throw Error('无效示例');sdk.setEntities(v.entities);refreshEntities();}
 $('fullVariantSelect').onchange=guarded(applyFullVariant);$('resetFullVariant').onclick=guarded(applyFullVariant);

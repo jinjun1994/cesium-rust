@@ -1,5 +1,5 @@
 {
-  "version": "0.0.86",
+  "version": "0.0.87",
   "wasmSha256": "a85bd6be9eefb1e8c3cb98059417a072f5a8843aba75200221bc051d670d7136",
   "backend": "Rust WASM / real browser WebGPU",
   "gpuConfiguration": "Vulkan / SwiftShader; explicit browser flags",
@@ -11578,6 +11578,170 @@
         {
           "id": "terrainclip-envelope-rect",
           "pixels": 72791
+        }
+      ]
+    },
+    {
+      "id": "terrain-entity-batching-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "ec7f0f253a4df76eba2d043f99f38997b0b854e04756d70a383f33a7fa7fd4d0",
+      "inputSha256": "23582fd4fbaab8031adb826e58adac5afaedc87a44c57bd069f2b5c52baf8fc2",
+      "fixtureSha256": "35dc5c90d0a18dcce3038799dd464e608bfeef63959af8f0fd18f26719f4f05f",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "batching-concave-polygon-box",
+        "batching-grid-cluster-anchor",
+        "batching-checkerboard-rect",
+        "batching-textured-ellipse-cylinder"
+      ],
+      "pixelCounts": [
+        {
+          "id": "batching-concave-polygon-box",
+          "pixels": 77437
+        },
+        {
+          "id": "batching-grid-cluster-anchor",
+          "pixels": 132215
+        },
+        {
+          "id": "batching-checkerboard-rect",
+          "pixels": 63998
+        },
+        {
+          "id": "batching-textured-ellipse-cylinder",
+          "pixels": 57219
+        }
+      ]
+    },
+    {
+      "id": "terrain-exaggeration",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "21b39c0ec728e838116a9522fb41252eab14400c4e0d7569095a7028602ea2e1",
+      "inputSha256": "08d65720047baaddade357f00452bb21355a4b86b41466d5c1706ddc3117500a",
+      "fixtureSha256": "c80acdf700f4729651a6c59b794a3b43ddac1812710f0a37a80efbf2ca54540a",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "exaggeration-target-ellipsoid",
+        "exaggeration-datum-plane",
+        "exaggeration-band-indicator",
+        "exaggeration-region-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "exaggeration-target-ellipsoid",
+          "pixels": 121449
+        },
+        {
+          "id": "exaggeration-datum-plane",
+          "pixels": 67329
+        },
+        {
+          "id": "exaggeration-band-indicator",
+          "pixels": 77461
+        },
+        {
+          "id": "exaggeration-region-rect",
+          "pixels": 68357
+        }
+      ]
+    },
+    {
+      "id": "terrain-performance-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "5986df63b1a2d4edba39b45eb66ddaa3b7a8cdbf78c20f32147de355206c35d3",
+      "inputSha256": "7f8d34fc2c014c4a036bb9d30b73fb1fe3e0362832fe78314b79dc55ac997731",
+      "fixtureSha256": "549deffe13e782322568e12d97a01a3bc9b30d6a8d7c56e82243a9f03574c398",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "everest-summit-marker",
+        "everest-horizontal-flight-box",
+        "everest-khumbu-corridor-cylinder",
+        "everest-base-camp-staging-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "everest-summit-marker",
+          "pixels": 95070
+        },
+        {
+          "id": "everest-horizontal-flight-box",
+          "pixels": 52790
+        },
+        {
+          "id": "everest-khumbu-corridor-cylinder",
+          "pixels": 117796
+        },
+        {
+          "id": "everest-base-camp-staging-rect",
+          "pixels": 58271
+        }
+      ]
+    },
+    {
+      "id": "terrain-tweaks-dev",
+      "status": "passed",
+      "entities": 4,
+      "sourceSha256": "5d2c8c8161fa90d34ca60cb3f2f1a7e71b8d27eb066bdfd21dfc0480bd1ab01f",
+      "inputSha256": "55a993dab3f498cbeb398a1a79b07aabc0f22fa97cc5b60b209a7dd7241139fa",
+      "fixtureSha256": "055b31f82004015ac2b7cea2ea639f2f224ae5b31ccb36c9d616e99bd88b33b1",
+      "checks": [
+        "all source parameters",
+        "source framing and shouldAnimate",
+        "isolated real pixels for every instance",
+        "every instance ID picking",
+        "hide/show",
+        "wheel zoom",
+        "resize and manual fit"
+      ],
+      "pickedEntities": [
+        "tweaks-descendant-limit-box",
+        "tweaks-ancestor-preload-column",
+        "tweaks-sibling-preload-sphere",
+        "tweaks-fill-highlight-rect"
+      ],
+      "pixelCounts": [
+        {
+          "id": "tweaks-descendant-limit-box",
+          "pixels": 86939
+        },
+        {
+          "id": "tweaks-ancestor-preload-column",
+          "pixels": 94040
+        },
+        {
+          "id": "tweaks-sibling-preload-sphere",
+          "pixels": 166025
+        },
+        {
+          "id": "tweaks-fill-highlight-rect",
+          "pixels": 67719
         }
       ]
     }
