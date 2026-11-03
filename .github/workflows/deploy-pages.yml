@@ -1,0 +1,76 @@
+name: Deploy GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: '1.99.0'
+          targets: wasm32-unknown-unknown
+
+      - name: Cache Rust dependencies
+        uses: Swatinem/rust-cache@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install wasm-bindgen-cli
+        run: cargo install wasm-bindgen-cli --version 0.2.129 --locked
+
+      - name: Build WebAssembly and package web assets
+        run: python3 scripts/build-web.py
+
+      - name: Prepare GitHub Pages staging directory
+        run: |
+          mkdir -p _site
+          cp -r bindings _site/
+          cp -r tests _site/
+          cat << 'EOF' > _site/index.html
+          <!DOCTYPE html>
+          <html lang="zh-CN">
+          <head>
+            <meta charset="utf-8">
+            <meta http-equiv="refresh" content="0; url=bindings/web/sandcastle.html">
+            <title>Cesium Rust Sandcastle 309 案例</title>
+          </head>
+          <body>
+            <p>正在跳转至 <a href="bindings/web/sandcastle.html">Cesium Rust Sandcastle 309 完整案例测试台</a>...</p>
+          </body>
+          </html>
+          EOF
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_site'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
