@@ -19,6 +19,7 @@ mod coplanar_polygon_geometry;
 mod core_math;
 mod corridor_geometry;
 mod corridor_geometry_library;
+mod create_guid;
 mod culling_volume;
 mod cylinder_geometry;
 mod distance_display_condition;
@@ -44,11 +45,13 @@ mod hilbert_order;
 mod index_datatype;
 mod intersections;
 mod intersections_2d;
+mod is_leap_year;
 mod julian_date;
 mod lagrange_polynomial_approximation;
 mod linear_approximation;
 mod linear_spline;
 mod matrices;
+mod merge_sort;
 mod occluder;
 mod oriented_bounding_box;
 mod plane;
@@ -91,6 +94,7 @@ mod tiling;
 mod tipsify;
 mod tridiagonal_system_solver;
 mod translation_rotation_scale;
+mod uri_helpers;
 mod vertex_format;
 mod vertical_exaggeration;
 mod wall_geometry;
@@ -122,6 +126,7 @@ pub use corridor_geometry::{
 pub use corridor_geometry_library::{
     CorridorCorner, CorridorGeometryLibrary, CorridorParameters, CorridorPositions,
 };
+pub use create_guid::create_guid;
 pub use culling_volume::{BoundingVolume, CullingVolume, Intersect};
 pub use cylinder_geometry::{CylinderGeometry, CylinderOutlineGeometry};
 pub use distance_display_condition::DistanceDisplayCondition;
@@ -157,11 +162,13 @@ pub use intersections::{
     triangle_plane_intersection, TrianglePlaneIntersection,
 };
 pub use intersections_2d::Intersections2D;
+pub use is_leap_year::is_leap_year;
 pub use julian_date::{GregorianDate, JulianDate, LeapSecond, TimeStandard, LEAP_SECONDS};
 pub use lagrange_polynomial_approximation::LagrangePolynomialApproximation;
 pub use linear_approximation::LinearApproximation;
 pub use linear_spline::{LinearSpline, SplineInterpolate};
 pub use matrices::{Matrix2, Matrix3, Matrix4};
+pub use merge_sort::merge_sort;
 pub use occluder::{Occluder, Visibility};
 pub use oriented_bounding_box::OrientedBoundingBox;
 pub use plane::Plane;
@@ -223,6 +230,10 @@ pub use tiling::{GeographicTilingScheme, NativeRectangle, TilingScheme, WebMerca
 pub use tipsify::Tipsify;
 pub use tridiagonal_system_solver::TridiagonalSystemSolver;
 pub use translation_rotation_scale::TranslationRotationScale;
+pub use uri_helpers::{
+    get_base_uri, get_extension_from_uri, get_filename_from_uri, object_to_query, percent_decode,
+    percent_encode, query_to_object,
+};
 pub use vertex_format::VertexFormat;
 pub use vertical_exaggeration::VerticalExaggeration;
 pub use wall_geometry::{WallGeometry, WallOutlineGeometry};
