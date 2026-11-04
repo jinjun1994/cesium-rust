@@ -113,7 +113,7 @@
 | [packages/core/Specs/CullingVolumeSpec.js](../../cesium/packages/core/Specs/CullingVolumeSpec.js) | 部分：球/盒分类、球构造六平面、父掩码；透视视锥接口和 JS 语义待核对 |
 | [packages/core/Specs/CylinderGeometrySpec.js](../../cesium/packages/core/Specs/CylinderGeometrySpec.js) | 已移植：参数化圆柱/圆台圆周分片、网格顶点、侧面与上下底三角形索引、退化参数校验（cylinder_geometry_spec.rs） |
 | [packages/core/Specs/CylinderOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CylinderOutlineGeometrySpec.js) | 已移植：圆柱顶底圆周与垂直线段线框图元顶点与索引生成（cylinder_geometry_spec.rs） |
-| [packages/core/Specs/DeveloperErrorSpec.js](../../cesium/packages/core/Specs/DeveloperErrorSpec.js) | 待逐项核对 |
+| [packages/core/Specs/DeveloperErrorSpec.js](../../cesium/packages/core/Specs/DeveloperErrorSpec.js) | 已移植：开发期错误类型、类名、异常消息与字符串格式化输出（developer_error_spec.rs） |
 | [packages/core/Specs/DistanceDisplayConditionGeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/DistanceDisplayConditionGeometryInstanceAttributeSpec.js) | 已移植：距离显示条件实例属性构造、近远距有效性校验与 Float32Array 映射（distance_display_condition_geometry_instance_attribute_spec.rs） |
 | [packages/core/Specs/DistanceDisplayConditionSpec.js](../../cesium/packages/core/Specs/DistanceDisplayConditionSpec.js) | 已移植：视距显示条件默认构造、近远距范围判等与定长打包/解包（distance_display_condition_spec.rs） |
 | [packages/core/Specs/EllipseGeometrySpec.js](../../cesium/packages/core/Specs/EllipseGeometrySpec.js) | 已移植：椭球表面椭圆扇形网格剖分、顶点与法线生成、长短半轴校验（ellipse_geometry_spec.rs） |
@@ -183,7 +183,7 @@
 | [packages/core/Specs/RectangleGeometrySpec.js](../../cesium/packages/core/Specs/RectangleGeometrySpec.js) | 待逐项核对 |
 | [packages/core/Specs/RectangleOutlineGeometrySpec.js](../../cesium/packages/core/Specs/RectangleOutlineGeometrySpec.js) | 待逐项核对 |
 | [packages/core/Specs/RectangleSpec.js](../../cesium/packages/core/Specs/RectangleSpec.js) | 部分：角点、宽高、点集、包围球、交并、包含、子区域与采样；其余待核对 |
-| [packages/core/Specs/RuntimeErrorSpec.js](../../cesium/packages/core/Specs/RuntimeErrorSpec.js) | 待逐项核对 |
+| [packages/core/Specs/RuntimeErrorSpec.js](../../cesium/packages/core/Specs/RuntimeErrorSpec.js) | 已移植：运行时错误类型、类名、异常消息与字符串格式化输出（runtime_error_spec.rs） |
 | [packages/core/Specs/ShowGeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/ShowGeometryInstanceAttributeSpec.js) | 已移植：显隐几何体实例属性构造、布尔值字节映射与数组填充（show_geometry_instance_attribute_spec.rs） |
 | [packages/core/Specs/SimplePolylineGeometrySpec.js](../../cesium/packages/core/Specs/SimplePolylineGeometrySpec.js) | 已移植：单像素折线图元生成、测地线/恒向线细分、逐段颜色（顶点拆分）与逐顶点颜色映射、线段索引构建（simple_polyline_geometry_spec.rs） |
 | [packages/core/Specs/SphereGeometrySpec.js](../../cesium/packages/core/Specs/SphereGeometrySpec.js) | 已移植：等半径球体网格、分片划分（3x3 -> 36 顶点 18 三角形）、零半径退化（sphere_geometry_spec.rs） |

@@ -26,6 +26,7 @@ mod ellipsoid_tangent_plane;
 mod ellipsoidal_occluder;
 mod ellipse_geometry;
 mod encoded_cartesian;
+mod errors;
 mod frustum;
 mod frustum_geometry;
 mod geometry;
@@ -86,6 +87,7 @@ pub use ellipsoid_tangent_plane::EllipsoidTangentPlane;
 pub use ellipsoidal_occluder::EllipsoidalOccluder;
 pub use ellipse_geometry::{EllipseGeometry, EllipseOutlineGeometry};
 pub use encoded_cartesian::EncodedCartesian3;
+pub use errors::{DeveloperError, RuntimeError};
 pub use frustum::{
     OrthographicFrustum, OrthographicOffCenterFrustum, PerspectiveFrustum,
     PerspectiveOffCenterFrustum,
