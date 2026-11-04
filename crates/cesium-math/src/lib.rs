@@ -50,6 +50,7 @@ mod errors;
 mod event;
 mod feature_detection;
 mod fixed_frame_transforms;
+mod fullscreen;
 mod frustum;
 mod frustum_geometry;
 mod geometry;
@@ -202,6 +203,7 @@ pub use errors::{DeveloperError, RuntimeError};
 pub use event::{Event, ListenerId};
 pub use feature_detection::{FeatureDetection, UserAgentInfo, WebkitVersion};
 pub use fixed_frame_transforms::{FixedFrameTransforms, LocalFrameAxis, LocalFrameToFixedFrameFn};
+pub use fullscreen::Fullscreen;
 pub use frustum::{
     OrthographicFrustum, OrthographicOffCenterFrustum, PerspectiveFrustum,
     PerspectiveOffCenterFrustum,

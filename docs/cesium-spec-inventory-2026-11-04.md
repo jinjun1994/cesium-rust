@@ -264,7 +264,7 @@
 | [packages/engine/Specs/Core/FeatureDetectionSpec.js](../../cesium/packages/engine/Specs/Core/FeatureDetectionSpec.js) | 已移植：浏览器与硬件特性检测（全屏、WebWorker、类型化数组 TypedArrays、BigInt64/Uint64、WebAssembly、WebP支持异步初始化与状态捕获、Chrome/Safari/Webkit/Edge/Firefox/iOS 浏览器与内核版本号精准解析提取）（feature_detection_spec.rs） |
 | [packages/engine/Specs/Core/FrustumGeometrySpec.js](../../cesium/packages/engine/Specs/Core/FrustumGeometrySpec.js) | 已移植：视锥体六表面 24 独立顶点生成、法线切线副切线纹理坐标、12 三角形索引与包围球计算（frustum_geometry_spec.rs） |
 | [packages/engine/Specs/Core/FrustumOutlineGeometrySpec.js](../../cesium/packages/engine/Specs/Core/FrustumOutlineGeometrySpec.js) | 已移植：视锥体 8 角点框线、近/远平面边框与连接线索引、包围球计算（frustum_geometry_spec.rs） |
-| [packages/engine/Specs/Core/FullscreenSpec.js](../../cesium/packages/engine/Specs/Core/FullscreenSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/FullscreenSpec.js](../../cesium/packages/engine/Specs/Core/FullscreenSpec.js) | 已移植：全屏 API 支持检测、启用状态判断、全屏元素获取、进入/退出全屏状态请求与事件名（fullscreenchange/fullscreenerror）映射（fullscreen_spec.rs） |
 | [packages/engine/Specs/Core/GeographicTilingSchemeSpec.js](../../cesium/packages/engine/Specs/Core/GeographicTilingSchemeSpec.js) | 已移植：地理瓦片方案接口、瓦片范围索引计算、NW原点方向、相邻边界贴合、弧度/度数转换及四角与中心定位（geographic_tiling_scheme_spec.rs） |
 | [packages/engine/Specs/Core/GoogleEarthEnterpriseMetadataSpec.js](../../cesium/packages/engine/Specs/Core/GoogleEarthEnterpriseMetadataSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainDataSpec.js](../../cesium/packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainDataSpec.js) | 待逐项核对 |
