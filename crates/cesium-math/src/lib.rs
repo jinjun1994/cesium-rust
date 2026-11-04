@@ -8,6 +8,7 @@ mod box_geometry;
 mod cartesian;
 mod circle_geometry;
 mod color;
+mod coplanar_polygon_geometry;
 mod core_math;
 mod culling_volume;
 mod cylinder_geometry;
@@ -51,6 +52,9 @@ pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
 pub use cartesian::{Cartesian2, Cartesian3, Cartesian4};
 pub use circle_geometry::{CircleGeometry, CircleOutlineGeometry};
 pub use color::Color;
+pub use coplanar_polygon_geometry::{
+    CoplanarPolygonGeometry, CoplanarPolygonOutlineGeometry, PolygonHierarchy,
+};
 pub use core_math::*;
 pub use culling_volume::{BoundingVolume, CullingVolume};
 pub use cylinder_geometry::{CylinderGeometry, CylinderOutlineGeometry};

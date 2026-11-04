@@ -104,8 +104,8 @@
 | [packages/core/Specs/ColorSpec.js](../../cesium/packages/core/Specs/ColorSpec.js) | 已移植：常量色表、RGBA/Bytes 转换、CSS 解析、亮暗调整与打包（color_spec.rs） |
 | [packages/core/Specs/ComponentDatatypeSpec.js](../../cesium/packages/core/Specs/ComponentDatatypeSpec.js) | 待逐项核对 |
 | [packages/core/Specs/ConstantSplineSpec.js](../../cesium/packages/core/Specs/ConstantSplineSpec.js) | 待逐项核对 |
-| [packages/core/Specs/CoplanarPolygonGeometrySpec.js](../../cesium/packages/core/Specs/CoplanarPolygonGeometrySpec.js) | 待逐项核对 |
-| [packages/core/Specs/CoplanarPolygonOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CoplanarPolygonOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/CoplanarPolygonGeometrySpec.js](../../cesium/packages/core/Specs/CoplanarPolygonGeometrySpec.js) | 已移植：共面任意多边形三角剖分、顶点属性（法线/切线/副切线/ST）、退化与重复点滤除及包围球计算（coplanar_polygon_geometry_spec.rs） |
+| [packages/core/Specs/CoplanarPolygonOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CoplanarPolygonOutlineGeometrySpec.js) | 已移植：共面多边形轮廓线段索引提取、闭合环线框生成与退化校验（coplanar_polygon_geometry_spec.rs） |
 | [packages/core/Specs/CorridorGeometryLibrarySpec.js](../../cesium/packages/core/Specs/CorridorGeometryLibrarySpec.js) | 待逐项核对 |
 | [packages/core/Specs/CorridorGeometrySpec.js](../../cesium/packages/core/Specs/CorridorGeometrySpec.js) | 待逐项核对 |
 | [packages/core/Specs/CorridorOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CorridorOutlineGeometrySpec.js) | 待逐项核对 |
