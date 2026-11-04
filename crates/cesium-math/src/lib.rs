@@ -37,6 +37,7 @@ mod ellipsoidal_occluder;
 mod ellipse_geometry;
 mod encoded_cartesian;
 mod errors;
+mod fixed_frame_transforms;
 mod frustum;
 mod frustum_geometry;
 mod geometry;
@@ -149,6 +150,7 @@ pub use ellipsoidal_occluder::EllipsoidalOccluder;
 pub use ellipse_geometry::{EllipseGeometry, EllipseOutlineGeometry};
 pub use encoded_cartesian::EncodedCartesian3;
 pub use errors::{DeveloperError, RuntimeError};
+pub use fixed_frame_transforms::{FixedFrameTransforms, LocalFrameAxis, LocalFrameToFixedFrameFn};
 pub use frustum::{
     OrthographicFrustum, OrthographicOffCenterFrustum, PerspectiveFrustum,
     PerspectiveOffCenterFrustum,

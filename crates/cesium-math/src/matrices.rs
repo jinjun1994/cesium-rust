@@ -798,6 +798,26 @@ impl Matrix4 {
     }
 
     #[inline]
+    pub fn set_translation(&mut self, translation: Cartesian3) {
+        self.values[12] = translation.x;
+        self.values[13] = translation.y;
+        self.values[14] = translation.z;
+    }
+
+    #[inline]
+    pub fn set_scale(&mut self, scale: Cartesian3) {
+        let current_scale = self.get_scale();
+        if current_scale.x != 0.0 && current_scale.y != 0.0 && current_scale.z != 0.0 {
+            let factor = Cartesian3::new(
+                scale.x / current_scale.x,
+                scale.y / current_scale.y,
+                scale.z / current_scale.z,
+            );
+            *self = self.multiply_by_scale(factor);
+        }
+    }
+
+    #[inline]
     pub fn get_translation(&self) -> Cartesian3 {
         Cartesian3::new(self.values[12], self.values[13], self.values[14])
     }
@@ -910,6 +930,12 @@ impl Matrix4 {
         let v = DVec4::new(vector.x, vector.y, vector.z, vector.w);
         let r = m * v;
         Cartesian4::new(r.x, r.y, r.z, r.w)
+    }
+
+    #[inline]
+    pub fn multiply_by_matrix3(&self, matrix: &Matrix3) -> Self {
+        let m4 = Self::from_rotation_translation(matrix, Cartesian3::ZERO);
+        self.multiply(&m4)
     }
 
     #[inline]
