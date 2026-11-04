@@ -233,8 +233,8 @@
 | [packages/engine/Specs/Core/Cesium3DTilesTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/Cesium3DTilesTerrainProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/CesiumTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/CesiumTerrainProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/CustomHeightmapTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/CustomHeightmapTerrainProviderSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/DoubleEndedPriorityQueueSpec.js](../../cesium/packages/engine/Specs/Core/DoubleEndedPriorityQueueSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/DoublyLinkedListSpec.js](../../cesium/packages/engine/Specs/Core/DoublyLinkedListSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/DoubleEndedPriorityQueueSpec.js](../../cesium/packages/engine/Specs/Core/DoubleEndedPriorityQueueSpec.js) | 已移植：基于 Min-Max 堆的双端优先队列、最值检索与移除、最大容量满额淘汰与就地重新堆化（double_ended_priority_queue_spec.rs） |
+| [packages/engine/Specs/Core/DoublyLinkedListSpec.js](../../cesium/packages/engine/Specs/Core/DoublyLinkedListSpec.js) | 已移植：双向链表增删、指定节点拼接 splice 迁移、头尾指针及长度维护（doubly_linked_list_spec.rs） |
 | [packages/engine/Specs/Core/EarthOrientationParametersSpec.js](../../cesium/packages/engine/Specs/Core/EarthOrientationParametersSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/EllipsoidTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/EllipsoidTerrainProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/FeatureDetectionSpec.js](../../cesium/packages/engine/Specs/Core/FeatureDetectionSpec.js) | 待逐项核对 |
