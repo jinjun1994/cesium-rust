@@ -48,6 +48,7 @@
 - `encoded_cartesian` 及 `encoded_cartesian3_spec.rs`：对齐 `EncodedCartesian3` 高精度拆分编码（`encode` 65536 阶跃）、从 `Cartesian3` 生成高低位向量及向顶点属性交错写入浮点数组（`write_elements`）。
 - `geometry`、`vertex_format`、`box_geometry` 及 `vertex_format_spec.rs`、`box_geometry_spec.rs`、`box_outline_geometry_spec.rs`：对齐 `VertexFormat` 顶点属性位掩码与常量/打包解包；对齐几何属性缓冲（`GeometryAttribute`、`Geometry`、`PrimitiveType`）；对齐 `BoxGeometry`（仅位置 8 顶点与全属性 24 独立顶点网格生成）和 `BoxOutlineGeometry`（12 边线框图元）。
 - `plane_geometry`、`ellipsoid_geometry`、`sphere_geometry` 及 `plane_geometry_spec.rs`、`sphere_geometry_spec.rs`、`ellipsoid_geometry_spec.rs`：对齐 `PlaneGeometry`（4 顶点 2 三角形网格、法线/切线/纹理属性）与 `PlaneOutlineGeometry`（4 边线框）；对齐 `EllipsoidGeometry`（参数化三轴椭球分片堆栈划分、三角形网格与法线/纹理属性生成）与 `EllipsoidOutlineGeometry`（经纬度分段线框）；对齐 `SphereGeometry` 与 `SphereOutlineGeometry`（等半径球体及其线框图元）。
+- `cylinder_geometry` 及 `cylinder_geometry_spec.rs`：对齐 `CylinderGeometry`（参数化圆柱/圆台圆周分片、侧面与上下底面三角形索引、退化参数校验）与 `CylinderOutlineGeometry`（顶底圆周与垂直线段线框图元生成）。
 全部通过 `cargo test -p cesium-math` 真实测试，Clippy 无警告，支持 `wasm32-unknown-unknown` 编译。
 
 新增 `EllipsoidTangentPlane`，支持由原点或点集构造、径向和法向投影、批量投影及径向投回椭球；`ellipsoid_tangent_plane_spec.rs` 覆盖上游单位球和 WGS84 往返用例。非有限输入使用 `Option`/`Result`，空点集或无法投影到地表时构造失败；上游零半径椭球用例及对象复用行为尚未等价验证。
@@ -110,8 +111,8 @@
 | [packages/core/Specs/CorridorOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CorridorOutlineGeometrySpec.js) | 待逐项核对 |
 | [packages/core/Specs/CubicRealPolynomialSpec.js](../../cesium/packages/core/Specs/CubicRealPolynomialSpec.js) | 部分：判别式及有限输入实根场景；JS 参数异常不适用 |
 | [packages/core/Specs/CullingVolumeSpec.js](../../cesium/packages/core/Specs/CullingVolumeSpec.js) | 部分：球/盒分类、球构造六平面、父掩码；透视视锥接口和 JS 语义待核对 |
-| [packages/core/Specs/CylinderGeometrySpec.js](../../cesium/packages/core/Specs/CylinderGeometrySpec.js) | 待逐项核对 |
-| [packages/core/Specs/CylinderOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CylinderOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/CylinderGeometrySpec.js](../../cesium/packages/core/Specs/CylinderGeometrySpec.js) | 已移植：参数化圆柱/圆台圆周分片、网格顶点、侧面与上下底三角形索引、退化参数校验（cylinder_geometry_spec.rs） |
+| [packages/core/Specs/CylinderOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CylinderOutlineGeometrySpec.js) | 已移植：圆柱顶底圆周与垂直线段线框图元顶点与索引生成（cylinder_geometry_spec.rs） |
 | [packages/core/Specs/DeveloperErrorSpec.js](../../cesium/packages/core/Specs/DeveloperErrorSpec.js) | 待逐项核对 |
 | [packages/core/Specs/DistanceDisplayConditionGeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/DistanceDisplayConditionGeometryInstanceAttributeSpec.js) | 待逐项核对 |
 | [packages/core/Specs/DistanceDisplayConditionSpec.js](../../cesium/packages/core/Specs/DistanceDisplayConditionSpec.js) | 待逐项核对 |
