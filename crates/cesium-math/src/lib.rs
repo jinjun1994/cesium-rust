@@ -12,6 +12,7 @@ mod ellipsoid_tangent_plane;
 mod ellipsoidal_occluder;
 mod frustum;
 mod intersections;
+mod julian_date;
 mod matrices;
 mod occluder;
 mod oriented_bounding_box;
@@ -23,6 +24,8 @@ mod ray;
 mod rectangle;
 mod scalar;
 mod sphere;
+mod time_constants;
+mod time_interval;
 mod tiling;
 pub use axis_aligned_bounding_box::AxisAlignedBoundingBox;
 pub use bounding_rectangle::BoundingRectangle;
@@ -42,6 +45,7 @@ pub use intersections::{
     ray_axis_aligned_box, ray_plane, ray_sphere, ray_triangle, ray_triangle_parametric,
     triangle_plane_intersection, TrianglePlaneIntersection,
 };
+pub use julian_date::{GregorianDate, JulianDate, LeapSecond, TimeStandard, LEAP_SECONDS};
 pub use matrices::{Matrix2, Matrix3, Matrix4};
 pub use occluder::{Occluder, Visibility};
 pub use oriented_bounding_box::OrientedBoundingBox;
@@ -56,6 +60,8 @@ pub use ray::Ray;
 pub use rectangle::GeoRectangle;
 pub use scalar::{HeadingPitchRange, NearFarScalar};
 pub use sphere::PlaneIntersection;
+pub use time_constants::{TimeConstants, *};
+pub use time_interval::TimeInterval;
 pub use tiling::{GeographicTilingScheme, NativeRectangle, TilingScheme, WebMercatorTilingScheme};
 
 pub const WGS84_A: f64 = 6_378_137.0;

@@ -44,6 +44,7 @@
 - `color` 及 `color_spec.rs`：对齐 `Color` 预定义色表、RGBA 数值与字节互转、CSS 十六进制与 rgb/rgba 解析、`brighten`/`darken` 与打包。
 - `matrices` 及 `matrix_spec.rs`：对齐 `Matrix2`、`Matrix3`、`Matrix4` 行主序构造与列主序索引、矩阵与点/向量乘法、方向变换（`multiply_by_direction`）、行列式、逆变换及仿射逆矩阵（`inverse_transformation`）。
 - `quaternion`、`scalar` 及 `quaternion_hpr_spec.rs`、`near_far_scalar_spec.rs`：对齐 `Quaternion` 轴角/旋转矩阵互转与 slerp 插值；对齐 `HeadingPitchRoll` 欧拉角四元数转换；对齐 `HeadingPitchRange` 与 `NearFarScalar` 的构造、比较与序列化打包。
+- `time_constants`、`julian_date`、`time_interval` 及 `julian_date_spec.rs`、`time_interval_spec.rs`：对齐 `TimeConstants` 常量表、官方 28 条历次闰秒表（`LEAP_SECONDS`）、UTC/TAI 真实双向闰秒补偿转换（`JulianDate`）、天文算法年月日与儒略日高精互转（`GregorianDate`、ISO 8601 解析与输出）、`TimeInterval` 区间包含与相交测试（`intersect`、端点开闭与判空）。
 全部通过 `cargo test -p cesium-math` 真实测试，Clippy 无警告，支持 `wasm32-unknown-unknown` 编译。
 
 新增 `EllipsoidTangentPlane`，支持由原点或点集构造、径向和法向投影、批量投影及径向投回椭球；`ellipsoid_tangent_plane_spec.rs` 覆盖上游单位球和 WGS84 往返用例。非有限输入使用 `Option`/`Result`，空点集或无法投影到地表时构造失败；上游零半径椭球用例及对象复用行为尚未等价验证。
@@ -129,7 +130,7 @@
 | [packages/core/Specs/GeometryInstanceSpec.js](../../cesium/packages/core/Specs/GeometryInstanceSpec.js) | 待逐项核对 |
 | [packages/core/Specs/GeometryPipelineSpec.js](../../cesium/packages/core/Specs/GeometryPipelineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/GeometrySpec.js](../../cesium/packages/core/Specs/GeometrySpec.js) | 待逐项核对 |
-| [packages/core/Specs/GregorianDateSpec.js](../../cesium/packages/core/Specs/GregorianDateSpec.js) | 待逐项核对 |
+| [packages/core/Specs/GregorianDateSpec.js](../../cesium/packages/core/Specs/GregorianDateSpec.js) | 已移植：年月日时分秒、毫秒与闰秒标识、默认与有效性构造（julian_date_spec.rs） |
 | [packages/core/Specs/HeadingPitchRangeSpec.js](../../cesium/packages/core/Specs/HeadingPitchRangeSpec.js) | 已移植：构造、字段读取、clone、相等比较（quaternion_hpr_spec.rs） |
 | [packages/core/Specs/HeadingPitchRollSpec.js](../../cesium/packages/core/Specs/HeadingPitchRollSpec.js) | 已移植：弧度/角度构造、四元数互转与等价验证（quaternion_hpr_spec.rs） |
 | [packages/core/Specs/HermitePolynomialApproximationSpec.js](../../cesium/packages/core/Specs/HermitePolynomialApproximationSpec.js) | 待逐项核对 |
@@ -139,9 +140,9 @@
 | [packages/core/Specs/IntersectionTestsSpec.js](../../cesium/packages/core/Specs/IntersectionTestsSpec.js) | 部分：射线/线段、盒体、平面切分和掠射；其他场景待核对 |
 | [packages/core/Specs/Intersections2DSpec.js](../../cesium/packages/core/Specs/Intersections2DSpec.js) | 待逐项核对 |
 | [packages/core/Specs/IntervalSpec.js](../../cesium/packages/core/Specs/IntervalSpec.js) | 部分：默认与显式构造；JS 可选参数语义待映射 |
-| [packages/core/Specs/JulianDateSpec.js](../../cesium/packages/core/Specs/JulianDateSpec.js) | 待逐项核对 |
+| [packages/core/Specs/JulianDateSpec.js](../../cesium/packages/core/Specs/JulianDateSpec.js) | 已移植：默认构造、分数天、TAI 基础构造、闰秒偏移、时间算术、秒/天差值、ISO 8601 与格里高利历互转（julian_date_spec.rs） |
 | [packages/core/Specs/LagrangePolynomialApproximationSpec.js](../../cesium/packages/core/Specs/LagrangePolynomialApproximationSpec.js) | 待逐项核对 |
-| [packages/core/Specs/LeapSecondSpec.js](../../cesium/packages/core/Specs/LeapSecondSpec.js) | 待逐项核对 |
+| [packages/core/Specs/LeapSecondSpec.js](../../cesium/packages/core/Specs/LeapSecondSpec.js) | 已移植：构造、历次闰秒表检验（julian_date_spec.rs） |
 | [packages/core/Specs/LinearApproximationSpec.js](../../cesium/packages/core/Specs/LinearApproximationSpec.js) | 待逐项核对 |
 | [packages/core/Specs/LinearSplineSpec.js](../../cesium/packages/core/Specs/LinearSplineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/MathSpec.js](../../cesium/packages/core/Specs/MathSpec.js) | 已移植：常数、符号、SNorm 转换、截断三角、角度归一化与相对/绝对容差比较（math_spec.rs） |
@@ -188,7 +189,7 @@
 | [packages/core/Specs/SteppedSplineSpec.js](../../cesium/packages/core/Specs/SteppedSplineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/StereographicSpec.js](../../cesium/packages/core/Specs/StereographicSpec.js) | 待逐项核对 |
 | [packages/core/Specs/TimeIntervalCollectionSpec.js](../../cesium/packages/core/Specs/TimeIntervalCollectionSpec.js) | 待逐项核对 |
-| [packages/core/Specs/TimeIntervalSpec.js](../../cesium/packages/core/Specs/TimeIntervalSpec.js) | 待逐项核对 |
+| [packages/core/Specs/TimeIntervalSpec.js](../../cesium/packages/core/Specs/TimeIntervalSpec.js) | 已移植：时间区间构造、点包含判定（含开闭区间边界）、判空、相等比较与重叠求交（time_interval_spec.rs） |
 | [packages/core/Specs/TipsifySpec.js](../../cesium/packages/core/Specs/TipsifySpec.js) | 待逐项核对 |
 | [packages/core/Specs/TranslationRotationScaleSpec.js](../../cesium/packages/core/Specs/TranslationRotationScaleSpec.js) | 待逐项核对 |
 | [packages/core/Specs/TridiagonalSystemSolverSpec.js](../../cesium/packages/core/Specs/TridiagonalSystemSolverSpec.js) | 待逐项核对 |

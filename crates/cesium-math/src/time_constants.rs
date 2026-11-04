@@ -1,0 +1,30 @@
+//! Constants for time conversions matching CesiumJS `Core/TimeConstants`.
+//! Adapted from CesiumJS (Apache-2.0).
+
+pub const SECONDS_PER_MILLISECOND: f64 = 0.001;
+pub const SECONDS_PER_MINUTE: f64 = 60.0;
+pub const MINUTES_PER_HOUR: f64 = 60.0;
+pub const HOURS_PER_DAY: f64 = 24.0;
+pub const SECONDS_PER_HOUR: f64 = 3600.0;
+pub const MINUTES_PER_DAY: f64 = 1440.0;
+pub const SECONDS_PER_DAY: f64 = 86400.0;
+pub const DAYS_PER_JULIAN_CENTURY: f64 = 36525.0;
+pub const SECONDS_PER_JULIAN_CENTURY: f64 = 3155760000.0;
+pub const PICOSECOND: f64 = 0.000000001;
+pub const MODIFIED_JULIAN_DATE_DIFFERENCE: f64 = 2400000.5;
+
+pub struct TimeConstants;
+
+impl TimeConstants {
+    pub const SECONDS_PER_MILLISECOND: f64 = SECONDS_PER_MILLISECOND;
+    pub const SECONDS_PER_MINUTE: f64 = SECONDS_PER_MINUTE;
+    pub const MINUTES_PER_HOUR: f64 = MINUTES_PER_HOUR;
+    pub const HOURS_PER_DAY: f64 = HOURS_PER_DAY;
+    pub const SECONDS_PER_HOUR: f64 = SECONDS_PER_HOUR;
+    pub const MINUTES_PER_DAY: f64 = MINUTES_PER_DAY;
+    pub const SECONDS_PER_DAY: f64 = SECONDS_PER_DAY;
+    pub const DAYS_PER_JULIAN_CENTURY: f64 = DAYS_PER_JULIAN_CENTURY;
+    pub const SECONDS_PER_JULIAN_CENTURY: f64 = SECONDS_PER_JULIAN_CENTURY;
+    pub const PICOSECOND: f64 = PICOSECOND;
+    pub const MODIFIED_JULIAN_DATE_DIFFERENCE: f64 = MODIFIED_JULIAN_DATE_DIFFERENCE;
+}
