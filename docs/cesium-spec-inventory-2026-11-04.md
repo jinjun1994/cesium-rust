@@ -199,8 +199,8 @@
 | [packages/core/Specs/TridiagonalSystemSolverSpec.js](../../cesium/packages/core/Specs/TridiagonalSystemSolverSpec.js) | 待逐项核对 |
 | [packages/core/Specs/VertexFormatSpec.js](../../cesium/packages/core/Specs/VertexFormatSpec.js) | 已移植：格式位掩码、常量定义、clone、pack/unpack（vertex_format_spec.rs） |
 | [packages/core/Specs/VerticalExaggerationSpec.js](../../cesium/packages/core/Specs/VerticalExaggerationSpec.js) | 待逐项核对 |
-| [packages/core/Specs/WallGeometrySpec.js](../../cesium/packages/core/Specs/WallGeometrySpec.js) | 待逐项核对 |
-| [packages/core/Specs/WallOutlineGeometrySpec.js](../../cesium/packages/core/Specs/WallOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/WallGeometrySpec.js](../../cesium/packages/core/Specs/WallGeometrySpec.js) | 已移植：墙体几何顶点交错排布、高程拉伸、折线插值采样、退化参数校验与三角形剖分（wall_geometry_spec.rs） |
+| [packages/core/Specs/WallOutlineGeometrySpec.js](../../cesium/packages/core/Specs/WallOutlineGeometrySpec.js) | 已移植：墙体轮廓线框顶点生成、顶底水平与侧面垂直线条索引及退化参数校验（wall_geometry_spec.rs） |
 | [packages/core/Specs/WebMercatorProjectionSpec.js](../../cesium/packages/core/Specs/WebMercatorProjectionSpec.js) | 部分：正反投影、极区裁剪；结果对象及其他语义待核对 |
 | [packages/core/Specs/arrayRemoveDuplicatesSpec.js](../../cesium/packages/core/Specs/arrayRemoveDuplicatesSpec.js) | 待逐项核对 |
 | [packages/core/Specs/barycentricCoordinatesSpec.js](../../cesium/packages/core/Specs/barycentricCoordinatesSpec.js) | 待逐项核对 |

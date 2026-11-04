@@ -42,6 +42,7 @@ mod time_interval;
 mod time_interval_collection;
 mod tiling;
 mod vertex_format;
+mod wall_geometry;
 pub use associative_array::AssociativeArray;
 pub use axis_aligned_bounding_box::AxisAlignedBoundingBox;
 pub use bounding_rectangle::BoundingRectangle;
@@ -95,6 +96,7 @@ pub use time_interval::TimeInterval;
 pub use time_interval_collection::TimeIntervalCollection;
 pub use tiling::{GeographicTilingScheme, NativeRectangle, TilingScheme, WebMercatorTilingScheme};
 pub use vertex_format::VertexFormat;
+pub use wall_geometry::{WallGeometry, WallOutlineGeometry};
 
 pub const WGS84_A: f64 = 6_378_137.0;
 pub const WGS84_B: f64 = 6_356_752.314_245_179;
