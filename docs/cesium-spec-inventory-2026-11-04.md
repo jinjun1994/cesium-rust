@@ -188,7 +188,7 @@
 | [packages/core/Specs/SimplePolylineGeometrySpec.js](../../cesium/packages/core/Specs/SimplePolylineGeometrySpec.js) | 已移植：单像素折线图元生成、测地线/恒向线细分、逐段颜色（顶点拆分）与逐顶点颜色映射、线段索引构建（simple_polyline_geometry_spec.rs） |
 | [packages/core/Specs/SphereGeometrySpec.js](../../cesium/packages/core/Specs/SphereGeometrySpec.js) | 已移植：等半径球体网格、分片划分（3x3 -> 36 顶点 18 三角形）、零半径退化（sphere_geometry_spec.rs） |
 | [packages/core/Specs/SphereOutlineGeometrySpec.js](../../cesium/packages/core/Specs/SphereOutlineGeometrySpec.js) | 已移植：等半径球体经纬线框（2x2x2 -> 12 顶点 6 线段）、零半径退化（sphere_geometry_spec.rs） |
-| [packages/core/Specs/SphericalSpec.js](../../cesium/packages/core/Specs/SphericalSpec.js) | 待逐项核对 |
+| [packages/core/Specs/SphericalSpec.js](../../cesium/packages/core/Specs/SphericalSpec.js) | 已全量移植：球坐标系统（方位角clock、天顶角cone、距离magnitude、Cartesian3互转、向量归一化、容差比较与字符串序列化）（spherical_spec.rs） |
 | [packages/core/Specs/SplineSpec.js](../../cesium/packages/core/Specs/SplineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/SteppedSplineSpec.js](../../cesium/packages/core/Specs/SteppedSplineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/StereographicSpec.js](../../cesium/packages/core/Specs/StereographicSpec.js) | 已全量移植：极射赤平投影（半球/两极投影切平面、地心表面投影、共形纬度、经纬度往返转换、批量投影）（stereographic_spec.rs） |

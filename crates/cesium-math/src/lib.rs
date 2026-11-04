@@ -67,6 +67,7 @@ mod simple_polyline_geometry;
 mod spline_common;
 mod sphere;
 mod sphere_geometry;
+mod spherical;
 mod stereographic;
 mod time_constants;
 mod time_interval;
@@ -171,6 +172,7 @@ pub use show_geometry_instance_attribute::ShowGeometryInstanceAttribute;
 pub use simple_polyline_geometry::{SimplePolylineGeometry, SimplePolylineGeometryOptions};
 pub use sphere::PlaneIntersection;
 pub use sphere_geometry::{SphereGeometry, SphereOutlineGeometry};
+pub use spherical::Spherical;
 pub use stereographic::{
     Stereographic, HALF_UNIT_SPHERE, NORTH_POLE, NORTH_POLE_TANGENT_PLANE, SOUTH_POLE,
     SOUTH_POLE_TANGENT_PLANE,
