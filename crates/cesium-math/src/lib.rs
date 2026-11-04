@@ -7,6 +7,7 @@ mod axis_aligned_bounding_box;
 mod bounding_rectangle;
 mod box_geometry;
 mod cartesian;
+mod catmull_rom_spline;
 mod circle_geometry;
 mod color;
 mod color_geometry_instance_attribute;
@@ -31,9 +32,11 @@ mod errors;
 mod frustum;
 mod frustum_geometry;
 mod geometry;
+mod hermite_spline;
 mod index_datatype;
 mod intersections;
 mod julian_date;
+mod linear_spline;
 mod matrices;
 mod occluder;
 mod oriented_bounding_box;
@@ -50,12 +53,14 @@ mod rectangle;
 mod scalar;
 mod show_geometry_instance_attribute;
 mod simple_polyline_geometry;
+mod spline_common;
 mod sphere;
 mod sphere_geometry;
 mod time_constants;
 mod time_interval;
 mod time_interval_collection;
 mod tiling;
+mod tridiagonal_system_solver;
 mod vertex_format;
 mod wall_geometry;
 pub use associative_array::AssociativeArray;
@@ -64,6 +69,7 @@ pub use axis_aligned_bounding_box::AxisAlignedBoundingBox;
 pub use bounding_rectangle::BoundingRectangle;
 pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
 pub use cartesian::{Cartesian2, Cartesian3, Cartesian4};
+pub use catmull_rom_spline::CatmullRomSpline;
 pub use circle_geometry::{CircleGeometry, CircleOutlineGeometry};
 pub use color::Color;
 pub use color_geometry_instance_attribute::ColorGeometryInstanceAttribute;
@@ -97,6 +103,7 @@ pub use frustum::{
     PerspectiveOffCenterFrustum,
 };
 pub use frustum_geometry::{AnyFrustum, FrustumGeometry, FrustumOutlineGeometry};
+pub use hermite_spline::HermiteSpline;
 pub use geometry::{
     ArcType, ComponentDatatype, CornerType, Geometry, GeometryAttribute, GeometryAttributes,
     GeometryOffsetAttribute, PrimitiveType,
@@ -108,6 +115,7 @@ pub use intersections::{
     triangle_plane_intersection, TrianglePlaneIntersection,
 };
 pub use julian_date::{GregorianDate, JulianDate, LeapSecond, TimeStandard, LEAP_SECONDS};
+pub use linear_spline::{LinearSpline, SplineInterpolate};
 pub use matrices::{Matrix2, Matrix3, Matrix4};
 pub use occluder::{Occluder, Visibility};
 pub use oriented_bounding_box::OrientedBoundingBox;
@@ -134,6 +142,7 @@ pub use time_constants::{TimeConstants, *};
 pub use time_interval::TimeInterval;
 pub use time_interval_collection::TimeIntervalCollection;
 pub use tiling::{GeographicTilingScheme, NativeRectangle, TilingScheme, WebMercatorTilingScheme};
+pub use tridiagonal_system_solver::TridiagonalSystemSolver;
 pub use vertex_format::VertexFormat;
 pub use wall_geometry::{WallGeometry, WallOutlineGeometry};
 

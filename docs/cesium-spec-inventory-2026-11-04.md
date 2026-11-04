@@ -95,7 +95,7 @@
 | [packages/core/Specs/Cartesian3Spec.js](../../cesium/packages/core/Specs/Cartesian3Spec.js) | 已移植：构造、打包、四则运算、点叉乘、模长、距离、正交轴、投影、WGS84 椭球转换（cartesian_spec.rs） |
 | [packages/core/Specs/Cartesian4Spec.js](../../cesium/packages/core/Specs/Cartesian4Spec.js) | 已移植：构造、打包、四则运算、模长、Color 互转与插值（cartesian_spec.rs） |
 | [packages/core/Specs/CartographicSpec.js](../../cesium/packages/core/Specs/CartographicSpec.js) | 部分：WGS84 参考点及正负高度；其余待核对 |
-| [packages/core/Specs/CatmullRomSplineSpec.js](../../cesium/packages/core/Specs/CatmullRomSplineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/CatmullRomSplineSpec.js](../../cesium/packages/core/Specs/CatmullRomSplineSpec.js) | 已移植：Catmull-Rom 三次样条曲线、端点切线自动推导与外部注入、Hermite 混合边界求值（catmull_rom_spline_spec.rs） |
 | [packages/core/Specs/CheckSpec.js](../../cesium/packages/core/Specs/CheckSpec.js) | 待逐项核对 |
 | [packages/core/Specs/CircleGeometrySpec.js](../../cesium/packages/core/Specs/CircleGeometrySpec.js) | 已移植：圆几何多边形剖分、顶点属性生成、退化参数校验与包围球计算（circle_geometry_spec.rs） |
 | [packages/core/Specs/CircleOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CircleOutlineGeometrySpec.js) | 已移植：圆周线框、拉伸圆柱线框、垂直连接线定制与退化参数校验（circle_geometry_spec.rs） |
@@ -138,7 +138,7 @@
 | [packages/core/Specs/HeadingPitchRangeSpec.js](../../cesium/packages/core/Specs/HeadingPitchRangeSpec.js) | 已移植：构造、字段读取、clone、相等比较（quaternion_hpr_spec.rs） |
 | [packages/core/Specs/HeadingPitchRollSpec.js](../../cesium/packages/core/Specs/HeadingPitchRollSpec.js) | 已移植：弧度/角度构造、四元数互转与等价验证（quaternion_hpr_spec.rs） |
 | [packages/core/Specs/HermitePolynomialApproximationSpec.js](../../cesium/packages/core/Specs/HermitePolynomialApproximationSpec.js) | 待逐项核对 |
-| [packages/core/Specs/HermiteSplineSpec.js](../../cesium/packages/core/Specs/HermiteSplineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/HermiteSplineSpec.js](../../cesium/packages/core/Specs/HermiteSplineSpec.js) | 已移植：Hermite 三次样条曲线、自然样条与夹紧样条构造、三对角方程求解与基函数插值求值（hermite_spline_spec.rs） |
 | [packages/core/Specs/HilbertOrderSpec.js](../../cesium/packages/core/Specs/HilbertOrderSpec.js) | 待逐项核对 |
 | [packages/core/Specs/IndexDatatypeSpec.js](../../cesium/packages/core/Specs/IndexDatatypeSpec.js) | 已移植：索引数据类型（8/16/32位无符号整型）、字节大小、顶点数自动选型（64KB阈值）及ArrayBuffer重构（index_datatype_spec.rs） |
 | [packages/core/Specs/IntersectionTestsSpec.js](../../cesium/packages/core/Specs/IntersectionTestsSpec.js) | 部分：射线/线段、盒体、平面切分和掠射；其他场景待核对 |
@@ -148,7 +148,7 @@
 | [packages/core/Specs/LagrangePolynomialApproximationSpec.js](../../cesium/packages/core/Specs/LagrangePolynomialApproximationSpec.js) | 待逐项核对 |
 | [packages/core/Specs/LeapSecondSpec.js](../../cesium/packages/core/Specs/LeapSecondSpec.js) | 已移植：构造、历次闰秒表检验（julian_date_spec.rs） |
 | [packages/core/Specs/LinearApproximationSpec.js](../../cesium/packages/core/Specs/LinearApproximationSpec.js) | 待逐项核对 |
-| [packages/core/Specs/LinearSplineSpec.js](../../cesium/packages/core/Specs/LinearSplineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/LinearSplineSpec.js](../../cesium/packages/core/Specs/LinearSplineSpec.js) | 已移植：分段线性样条曲线、泛型数值与Cartesian3支持、周期时间环绕与夹紧（linear_spline_spec.rs） |
 | [packages/core/Specs/MathSpec.js](../../cesium/packages/core/Specs/MathSpec.js) | 已移植：常数、符号、SNorm 转换、截断三角、角度归一化与相对/绝对容差比较（math_spec.rs） |
 | [packages/core/Specs/Matrix2Spec.js](../../cesium/packages/core/Specs/Matrix2Spec.js) | 已移植：行主序构造、列主序存储、矩阵与向量乘法、转置与打包（matrix_spec.rs） |
 | [packages/core/Specs/Matrix3Spec.js](../../cesium/packages/core/Specs/Matrix3Spec.js) | 已移植：行主序构造、缩放/旋转矩阵、乘法、逆矩阵与打包（matrix_spec.rs） |
@@ -196,7 +196,7 @@
 | [packages/core/Specs/TimeIntervalSpec.js](../../cesium/packages/core/Specs/TimeIntervalSpec.js) | 已移植：时间区间构造、点包含判定（含开闭区间边界）、判空、相等比较与重叠求交（time_interval_spec.rs） |
 | [packages/core/Specs/TipsifySpec.js](../../cesium/packages/core/Specs/TipsifySpec.js) | 待逐项核对 |
 | [packages/core/Specs/TranslationRotationScaleSpec.js](../../cesium/packages/core/Specs/TranslationRotationScaleSpec.js) | 待逐项核对 |
-| [packages/core/Specs/TridiagonalSystemSolverSpec.js](../../cesium/packages/core/Specs/TridiagonalSystemSolverSpec.js) | 待逐项核对 |
+| [packages/core/Specs/TridiagonalSystemSolverSpec.js](../../cesium/packages/core/Specs/TridiagonalSystemSolverSpec.js) | 已移植：Thomas 三对角线性方程组求解器、Cartesian3 向量右端项回代计算（tridiagonal_system_solver_spec.rs） |
 | [packages/core/Specs/VertexFormatSpec.js](../../cesium/packages/core/Specs/VertexFormatSpec.js) | 已移植：格式位掩码、常量定义、clone、pack/unpack（vertex_format_spec.rs） |
 | [packages/core/Specs/VerticalExaggerationSpec.js](../../cesium/packages/core/Specs/VerticalExaggerationSpec.js) | 待逐项核对 |
 | [packages/core/Specs/WallGeometrySpec.js](../../cesium/packages/core/Specs/WallGeometrySpec.js) | 已移植：墙体几何顶点交错排布、高程拉伸、折线插值采样、退化参数校验与三角形剖分（wall_geometry_spec.rs） |
