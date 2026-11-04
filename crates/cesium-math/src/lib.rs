@@ -125,6 +125,7 @@ mod vertical_exaggeration;
 mod wall_geometry;
 mod warnings;
 mod winding_order;
+mod wireframe_index_generator;
 pub use approximate_terrain_heights::{ApproximateTerrainHeights, TerrainHeights, TileXYLevel};
 pub use array_remove_duplicates::array_remove_duplicates;
 pub use associative_array::AssociativeArray;
@@ -295,6 +296,7 @@ pub use vertical_exaggeration::VerticalExaggeration;
 pub use wall_geometry::{WallGeometry, WallOutlineGeometry};
 pub use warnings::{deprecation_warning, one_time_warning, reset_warnings};
 pub use winding_order::WindingOrder;
+pub use wireframe_index_generator::WireframeIndexGenerator;
 
 pub const WGS84_A: f64 = 6_378_137.0;
 pub const WGS84_B: f64 = 6_356_752.314_245_179;

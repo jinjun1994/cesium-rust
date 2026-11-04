@@ -42,6 +42,20 @@ impl IndexBuffer {
             Self::U32(v) => v.get(index).copied(),
         }
     }
+
+    pub fn set(&mut self, index: usize, value: u32) {
+        match self {
+            Self::U16(v) => v[index] = value as u16,
+            Self::U32(v) => v[index] = value,
+        }
+    }
+
+    pub fn to_vec_u32(&self) -> Vec<u32> {
+        match self {
+            Self::U16(v) => v.iter().map(|&x| x as u32).collect(),
+            Self::U32(v) => v.clone(),
+        }
+    }
 }
 
 impl IndexDatatype {

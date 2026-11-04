@@ -306,7 +306,7 @@
 | [packages/engine/Specs/Core/VectorProviderSpec.js](../../cesium/packages/engine/Specs/Core/VectorProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/VideoSynchronizerSpec.js](../../cesium/packages/engine/Specs/Core/VideoSynchronizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/WebMercatorTilingSchemeSpec.js](../../cesium/packages/engine/Specs/Core/WebMercatorTilingSchemeSpec.js) | 已移植：Web 墨卡托瓦片方案、单根瓦片全域覆盖、瓦片索引与原生米坐标映射、极区裁剪与多层级瓦片定位（web_mercator_tiling_scheme_spec.rs） |
-| [packages/engine/Specs/Core/WireframeIndexGeneratorSpec.js](../../cesium/packages/engine/Specs/Core/WireframeIndexGeneratorSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/WireframeIndexGeneratorSpec.js](../../cesium/packages/engine/Specs/Core/WireframeIndexGeneratorSpec.js) | 已移植：网格线框索引生成器，支持三角形/三角带/三角扇（Triangles/TriangleStrip/TriangleFan）索引重排与线段缓冲生成、非三角形图元过滤、线框索引容量计算（wireframe_index_generator_spec.rs） |
 | [packages/engine/Specs/Core/addAllSpec.js](../../cesium/packages/engine/Specs/Core/addAllSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/appendForwardSlashSpec.js](../../cesium/packages/engine/Specs/Core/appendForwardSlashSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/buildModuleUrlSpec.js](../../cesium/packages/engine/Specs/Core/buildModuleUrlSpec.js) | 待逐项核对 |
