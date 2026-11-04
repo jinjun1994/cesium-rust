@@ -248,7 +248,7 @@
 | [packages/core/Specs/queryToObjectSpec.js](../../cesium/packages/core/Specs/queryToObjectSpec.js) | 已移植：URL 查询字符串解析反序列化为键值/列表映射、支持分号分隔与百分比解码（object_to_query_spec.rs） |
 | [packages/core/Specs/srgbToLinearSpec.js](../../cesium/packages/core/Specs/srgbToLinearSpec.js) | 已移植：sRGB 颜色空间到线性色彩空间非线性转换（srgb_to_linear_spec.rs） |
 | [packages/core/Specs/subdivideArraySpec.js](../../cesium/packages/core/Specs/subdivideArraySpec.js) | 已移植：数组均分/非均分分块切分、边界校验（subdivide_array_spec.rs） |
-| [packages/engine/Specs/Core/ApproximateTerrainHeightsSpec.js](../../cesium/packages/engine/Specs/Core/ApproximateTerrainHeightsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/ApproximateTerrainHeightsSpec.js](../../cesium/packages/engine/Specs/Core/ApproximateTerrainHeightsSpec.js) | 已移植：粗略地形高程查找表、地理瓦片矩形层级检索、经纬度矩形最小/最大高度估算与对角线弦长修正、包围球计算（approximate_terrain_heights_spec.rs） |
 | [packages/engine/Specs/Core/ArcGISTiledElevationTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/ArcGISTiledElevationTerrainProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/BingMapsGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/BingMapsGeocoderServiceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/CartographicGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/CartographicGeocoderServiceSpec.js) | 待逐项核对 |

@@ -1,6 +1,7 @@
 //! Column vectors, metres, radians, right-handed ECEF and negative-Z eye space.
 use glam::{DMat3, DMat4, DVec3, Mat4, Vec4};
 use thiserror::Error;
+mod approximate_terrain_heights;
 mod array_remove_duplicates;
 mod associative_array;
 mod attribute_compression;
@@ -116,6 +117,7 @@ mod vertical_exaggeration;
 mod wall_geometry;
 mod warnings;
 mod winding_order;
+pub use approximate_terrain_heights::{ApproximateTerrainHeights, TerrainHeights, TileXYLevel};
 pub use array_remove_duplicates::array_remove_duplicates;
 pub use associative_array::AssociativeArray;
 pub use attribute_compression::AttributeCompression;
