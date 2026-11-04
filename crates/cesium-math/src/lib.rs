@@ -110,6 +110,7 @@ mod sphere_geometry;
 mod spherical;
 mod stereographic;
 mod subdivide_array;
+mod terrain_encoding;
 mod time_constants;
 mod time_interval;
 mod time_interval_collection;
@@ -274,6 +275,9 @@ pub use stereographic::{
     SOUTH_POLE_TANGENT_PLANE,
 };
 pub use subdivide_array::subdivide_array;
+pub use terrain_encoding::{
+    TerrainAttribute, TerrainAttributeLocations, TerrainEncoding, TerrainQuantization,
+};
 pub use time_constants::{TimeConstants, *};
 pub use time_interval::TimeInterval;
 pub use time_interval_collection::TimeIntervalCollection;

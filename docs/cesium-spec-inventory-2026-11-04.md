@@ -297,7 +297,7 @@
 | [packages/engine/Specs/Core/Simon1994PlanetaryPositionsSpec.js](../../cesium/packages/engine/Specs/Core/Simon1994PlanetaryPositionsSpec.js) | 已移植：Simon 1994 太阳与月球地心惯性系（J2000/GCRF）行星轨道摄动级数解算、Delaunay变量与Kepler偏近点角迭代、地固系东升西落方位角验证（simon1994_planetary_positions_spec.rs） |
 | [packages/engine/Specs/Core/SnapServiceSpec.js](../../cesium/packages/engine/Specs/Core/SnapServiceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/TaskProcessorSpec.js](../../cesium/packages/engine/Specs/Core/TaskProcessorSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/TerrainEncodingSpec.js](../../cesium/packages/engine/Specs/Core/TerrainEncodingSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/TerrainEncodingSpec.js](../../cesium/packages/engine/Specs/Core/TerrainEncodingSpec.js) | 已移植：地形顶点量化（NONE/BITS12）、顶点编码/解码、纹理坐标压缩、高程夸大、八面体法线打包与大地水准面法线增删、着色器顶点属性布局（terrain_encoding_spec.rs） |
 | [packages/engine/Specs/Core/TerrainMeshSpec.js](../../cesium/packages/engine/Specs/Core/TerrainMeshSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/TerrainPickerSpec.js](../../cesium/packages/engine/Specs/Core/TerrainPickerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/TileAvailabilitySpec.js](../../cesium/packages/engine/Specs/Core/TileAvailabilitySpec.js) | 待逐项核对 |
