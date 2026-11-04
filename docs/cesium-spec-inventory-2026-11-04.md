@@ -173,7 +173,7 @@
 | [packages/core/Specs/PolylineVolumeGeometryLibrarySpec.js](../../cesium/packages/core/Specs/PolylineVolumeGeometryLibrarySpec.js) | 已全量移植：多段线体几何库（共线点边界平滑挤出、拐角方向与切平面转角判定、2D截面环绕去重与切平面投影）（polyline_volume_geometry_library_spec.rs） |
 | [packages/core/Specs/PolylineVolumeGeometrySpec.js](../../cesium/packages/core/Specs/PolylineVolumeGeometrySpec.js) | 已全量移植：折线体积几何体（圆角/斜角/尖角侧壁四边形与端面剖分盖子、全顶点属性[法线/切线/副切线/ST]、顺逆时针截面自适应、Pack/Unpack 序列化）（polyline_volume_geometry_spec.rs） |
 | [packages/core/Specs/PolylineVolumeOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PolylineVolumeOutlineGeometrySpec.js) | 已全量移植：折线体轮廓线框几何体（端面闭合环框与纵向骨干棱线索引、Pack/Unpack 序列化）（polyline_volume_outline_geometry_spec.rs） |
-| [packages/core/Specs/PrimitiveTypeSpec.js](../../cesium/packages/core/Specs/PrimitiveTypeSpec.js) | 待逐项核对 |
+| [packages/core/Specs/PrimitiveTypeSpec.js](../../cesium/packages/core/Specs/PrimitiveTypeSpec.js) | 已全量移植：图元拓扑类型枚举与校验（点/线/三角形拓扑分类、validate合法性检查、isLines与isTriangles拓扑判定）（primitive_type_spec.rs） |
 | [packages/core/Specs/QuadraticRealPolynomialSpec.js](../../cesium/packages/core/Specs/QuadraticRealPolynomialSpec.js) | 部分：判别式及有限输入实根场景；JS 参数异常不适用 |
 | [packages/core/Specs/QuarticRealPolynomialSpec.js](../../cesium/packages/core/Specs/QuarticRealPolynomialSpec.js) | 部分：判别式与有限输入求根场景；JS 参数异常不适用 |
 | [packages/core/Specs/QuaternionSpec.js](../../cesium/packages/core/Specs/QuaternionSpec.js) | 已移植：单位四元数、轴角构造、旋转矩阵互转与 slerp 球面插值（quaternion_hpr_spec.rs） |

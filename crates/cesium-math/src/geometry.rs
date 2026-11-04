@@ -14,6 +14,36 @@ pub enum PrimitiveType {
     TriangleFan = 6,
 }
 
+impl PrimitiveType {
+    pub const fn is_lines(&self) -> bool {
+        matches!(self, Self::Lines | Self::LineLoop | Self::LineStrip)
+    }
+
+    pub const fn is_triangles(&self) -> bool {
+        matches!(self, Self::Triangles | Self::TriangleStrip | Self::TriangleFan)
+    }
+
+    pub fn validate(value: Option<i32>) -> bool {
+        match value {
+            Some(v) => (0..=6).contains(&v),
+            None => false,
+        }
+    }
+
+    pub const fn from_i32(value: i32) -> Option<Self> {
+        match value {
+            0 => Some(Self::Points),
+            1 => Some(Self::Lines),
+            2 => Some(Self::LineLoop),
+            3 => Some(Self::LineStrip),
+            4 => Some(Self::Triangles),
+            5 => Some(Self::TriangleStrip),
+            6 => Some(Self::TriangleFan),
+            _ => None,
+        }
+    }
+}
+
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum ComponentDatatype {
     Byte = 5120,
