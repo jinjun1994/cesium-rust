@@ -284,7 +284,7 @@
 | [packages/engine/Specs/Core/MortonOrderSpec.js](../../cesium/packages/engine/Specs/Core/MortonOrderSpec.js) | 已移植：2D/3D 莫顿空间填充曲线编码与解码、位交错与反交错、边界值与越界校验（morton_order_spec.rs） |
 | [packages/engine/Specs/Core/OpenCageGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/OpenCageGeocoderServiceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/PeliasGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/PeliasGeocoderServiceSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/PinBuilderSpec.js](../../cesium/packages/engine/Specs/Core/PinBuilderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/PinBuilderSpec.js](../../cesium/packages/engine/Specs/Core/PinBuilderSpec.js) | 已补齐（`crates/cesium-math/tests/pin_builder_spec.rs`，覆盖纯色、文字、URL 图标、Maki 图标生成、尺寸/颜色校验及缓存复用） |
 | [packages/engine/Specs/Core/PixelDatatypeSpec.js](../../cesium/packages/engine/Specs/Core/PixelDatatypeSpec.js) | 已移植：像素数据类型枚举、分量与浮点格式判断、字节大小校验与数值转换（pixel_datatype_spec.rs） |
 | [packages/engine/Specs/Core/QuantizedMeshTerrainDataSpec.js](../../cesium/packages/engine/Specs/Core/QuantizedMeshTerrainDataSpec.js) | 已移植：量子化网格地形数据构建、createMesh 网格生成与裙边顶点/索引扩展、高程夸大编码传递、重心坐标高度插值与越界 Clamping、四边形与带额外顶点的子瓦片几何裁剪分割升采样（upsampleQuantizedTerrainMesh）、八面体法线保留、子瓦片掩码可用性解算（quantized_mesh_terrain_data_spec.rs） |
 | [packages/engine/Specs/Core/RectangleCollisionCheckerSpec.js](../../cesium/packages/engine/Specs/Core/RectangleCollisionCheckerSpec.js) | 已移植：2D 矩形碰撞判定树、重叠检测、动态插入与删除（rectangle_collision_checker_spec.rs） |

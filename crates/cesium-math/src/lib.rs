@@ -80,6 +80,7 @@ mod oriented_bounding_box;
 mod plane;
 mod plane_geometry;
 mod pixel_format;
+mod pin_builder;
 mod point_inside_triangle;
 mod polygon_geometry;
 mod polygon_geometry_library;
@@ -247,6 +248,7 @@ pub use oriented_bounding_box::OrientedBoundingBox;
 pub use plane::Plane;
 pub use plane_geometry::{PlaneGeometry, PlaneOutlineGeometry};
 pub use pixel_format::{PixelDatatype, PixelFormat};
+pub use pin_builder::{PinBuilder, PinImage};
 pub use point_inside_triangle::{
     point_inside_triangle, point_inside_triangle_2d, point_inside_triangle_3d,
 };
