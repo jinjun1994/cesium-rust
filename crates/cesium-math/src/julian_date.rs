@@ -8,6 +8,9 @@
 
 use crate::{time_constants::*, MathError};
 use std::cmp::Ordering;
+use std::sync::RwLock;
+
+static DYNAMIC_LEAP_SECONDS: RwLock<Option<Vec<LeapSecond>>> = RwLock::new(None);
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 pub enum TimeStandard {
@@ -61,49 +64,62 @@ pub static LEAP_SECONDS: [LeapSecond; 28] = [
     LeapSecond::new(JulianDate::new_tai(2457754, 43237.0), 37.0), // January 1, 2017 00:00:00 UTC
 ];
 
+fn with_leap_seconds<R>(f: impl FnOnce(&[LeapSecond]) -> R) -> R {
+    if let Ok(lock) = DYNAMIC_LEAP_SECONDS.read() {
+        if let Some(ref list) = *lock {
+            return f(list);
+        }
+    }
+    f(&LEAP_SECONDS)
+}
+
 fn binary_search_leap_second(date: &JulianDate) -> Result<usize, usize> {
-    LEAP_SECONDS.binary_search_by(|ls| ls.julian_date.compare(date))
+    with_leap_seconds(|ls| ls.binary_search_by(|s| s.julian_date.compare(date)))
 }
 
 fn convert_utc_to_tai(jd: JulianDate) -> JulianDate {
-    let mut index = match binary_search_leap_second(&jd) {
-        Ok(i) => i,
-        Err(i) => i,
-    };
-    if index >= LEAP_SECONDS.len() {
-        index = LEAP_SECONDS.len() - 1;
-    }
-    let mut offset = LEAP_SECONDS[index].offset;
-    if index > 0 {
-        let diff = LEAP_SECONDS[index].julian_date.seconds_difference(&jd);
-        if diff > offset {
-            index -= 1;
-            offset = LEAP_SECONDS[index].offset;
+    with_leap_seconds(|leap_seconds| {
+        let mut index = match leap_seconds.binary_search_by(|s| s.julian_date.compare(&jd)) {
+            Ok(i) => i,
+            Err(i) => i,
+        };
+        if index >= leap_seconds.len() {
+            index = leap_seconds.len().saturating_sub(1);
         }
-    }
-    jd.add_seconds(offset)
+        let mut offset = leap_seconds[index].offset;
+        if index > 0 {
+            let diff = leap_seconds[index].julian_date.seconds_difference(&jd);
+            if diff > offset {
+                index -= 1;
+                offset = leap_seconds[index].offset;
+            }
+        }
+        jd.add_seconds(offset)
+    })
 }
 
 fn convert_tai_to_utc(jd: &JulianDate) -> Option<JulianDate> {
-    let index = match binary_search_leap_second(jd) {
-        Ok(i) => i,
-        Err(i) => i,
-    };
-    if index == 0 {
-        return Some(jd.add_seconds(-LEAP_SECONDS[0].offset));
-    }
-    if index >= LEAP_SECONDS.len() {
-        return Some(jd.add_seconds(-LEAP_SECONDS[LEAP_SECONDS.len() - 1].offset));
-    }
-    let diff = LEAP_SECONDS[index].julian_date.seconds_difference(jd);
-    if diff == 0.0 {
-        return Some(jd.add_seconds(-LEAP_SECONDS[index].offset));
-    }
-    if diff <= 1.0 {
-        // during leap second moment
-        return None;
-    }
-    Some(jd.add_seconds(-LEAP_SECONDS[index - 1].offset))
+    with_leap_seconds(|leap_seconds| {
+        let index = match leap_seconds.binary_search_by(|s| s.julian_date.compare(jd)) {
+            Ok(i) => i,
+            Err(i) => i,
+        };
+        if index == 0 {
+            return Some(jd.add_seconds(-leap_seconds[0].offset));
+        }
+        if index >= leap_seconds.len() {
+            return Some(jd.add_seconds(-leap_seconds[leap_seconds.len() - 1].offset));
+        }
+        let diff = leap_seconds[index].julian_date.seconds_difference(jd);
+        if diff == 0.0 {
+            return Some(jd.add_seconds(-leap_seconds[index].offset));
+        }
+        if diff <= 1.0 {
+            // during leap second moment
+            return None;
+        }
+        Some(jd.add_seconds(-leap_seconds[index - 1].offset))
+    })
 }
 
 fn normalize_components(mut whole_days: i32, mut seconds_of_day: f64) -> (i32, f64) {
@@ -199,6 +215,32 @@ impl Default for JulianDate {
 }
 
 impl JulianDate {
+    pub fn leap_seconds() -> Vec<LeapSecond> {
+        with_leap_seconds(|ls| ls.to_vec())
+    }
+
+    pub fn set_leap_seconds(list: Vec<LeapSecond>) {
+        if let Ok(mut lock) = DYNAMIC_LEAP_SECONDS.write() {
+            *lock = Some(list);
+        }
+    }
+
+    pub fn reset_leap_seconds() {
+        if let Ok(mut lock) = DYNAMIC_LEAP_SECONDS.write() {
+            *lock = None;
+        }
+    }
+
+    pub fn add_leap_second(leap_second: LeapSecond) {
+        let mut list = Self::leap_seconds();
+        let idx = match list.binary_search_by(|ls| ls.julian_date.compare(&leap_second.julian_date)) {
+            Ok(_) => return,
+            Err(i) => i,
+        };
+        list.insert(idx, leap_second);
+        Self::set_leap_seconds(list);
+    }
+
     #[inline]
     pub const fn new_tai(day_number: i32, seconds_of_day: f64) -> Self {
         Self {

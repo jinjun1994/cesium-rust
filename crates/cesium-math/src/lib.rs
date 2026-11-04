@@ -37,6 +37,7 @@ mod distance_display_condition;
 mod distance_display_condition_geometry_instance_attribute;
 mod double_ended_priority_queue;
 mod doubly_linked_list;
+mod earth_orientation_parameters;
 mod ellipsoid;
 mod ellipsoid_geodesic;
 mod ellipsoid_geometry;
@@ -178,6 +179,9 @@ pub use distance_display_condition::DistanceDisplayCondition;
 pub use distance_display_condition_geometry_instance_attribute::DistanceDisplayConditionGeometryInstanceAttribute;
 pub use double_ended_priority_queue::DoubleEndedPriorityQueue;
 pub use doubly_linked_list::{DoublyLinkedList, DoublyLinkedListNode, NodeId};
+pub use earth_orientation_parameters::{
+    EarthOrientationParameters, EarthOrientationParametersData, EarthOrientationParametersSample,
+};
 pub use ellipsoid::Ellipsoid;
 pub use ellipsoid_geodesic::EllipsoidGeodesic;
 pub use ellipsoid_geometry::{EllipsoidGeometry, EllipsoidOutlineGeometry};

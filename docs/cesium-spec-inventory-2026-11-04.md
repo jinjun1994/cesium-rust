@@ -259,7 +259,7 @@
 | [packages/engine/Specs/Core/CustomHeightmapTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/CustomHeightmapTerrainProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/DoubleEndedPriorityQueueSpec.js](../../cesium/packages/engine/Specs/Core/DoubleEndedPriorityQueueSpec.js) | 已移植：基于 Min-Max 堆的双端优先队列、最值检索与移除、最大容量满额淘汰与就地重新堆化（double_ended_priority_queue_spec.rs） |
 | [packages/engine/Specs/Core/DoublyLinkedListSpec.js](../../cesium/packages/engine/Specs/Core/DoublyLinkedListSpec.js) | 已移植：双向链表增删、指定节点拼接 splice 迁移、头尾指针及长度维护（doubly_linked_list_spec.rs） |
-| [packages/engine/Specs/Core/EarthOrientationParametersSpec.js](../../cesium/packages/engine/Specs/Core/EarthOrientationParametersSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/EarthOrientationParametersSpec.js](../../cesium/packages/engine/Specs/Core/EarthOrientationParametersSpec.js) | 已移植：地球定向参数 (EOP) 反序列化、动态闰秒检测与注册、常规时间区间线性插值、跨闰秒 UT1-UTC 跳变补偿与不连续性插值、本地真实 JSON 文件加载解析（earth_orientation_parameters_spec.rs） |
 | [packages/engine/Specs/Core/EllipsoidTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/EllipsoidTerrainProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/FeatureDetectionSpec.js](../../cesium/packages/engine/Specs/Core/FeatureDetectionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/FrustumGeometrySpec.js](../../cesium/packages/engine/Specs/Core/FrustumGeometrySpec.js) | 已移植：视锥体六表面 24 独立顶点生成、法线切线副切线纹理坐标、12 三角形索引与包围球计算（frustum_geometry_spec.rs） |
