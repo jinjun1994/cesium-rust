@@ -177,11 +177,11 @@ impl RectangleOutlineGeometry {
                     GeometryOffsetAttribute::None => 0u8,
                     _ => 1u8,
                 };
-                g.attributes.apply_offset = Some(GeometryAttribute {
-                    component_datatype: ComponentDatatype::UnsignedByte,
-                    components_per_attribute: 1,
-                    values: vec![val as f64; count],
-                });
+                g.attributes.apply_offset = Some(GeometryAttribute::new(
+                    ComponentDatatype::UnsignedByte,
+                    1,
+                    vec![val as f64; count],
+                ));
             }
             let bs = BoundingSphere::from_rectangle_3d(
                 Some(rectangle),
@@ -301,11 +301,11 @@ fn construct_rectangle(
 
     Geometry {
         attributes: GeometryAttributes {
-            position: Some(GeometryAttribute {
-                component_datatype: ComponentDatatype::Double,
-                components_per_attribute: 3,
-                values: positions,
-            }),
+            position: Some(GeometryAttribute::new(
+                ComponentDatatype::Double,
+                3,
+                positions,
+            )),
             ..Default::default()
         },
         indices,
@@ -409,11 +409,11 @@ fn construct_extruded_rectangle(
             };
             vals.fill(fill_val);
         }
-        apply_offset = Some(GeometryAttribute {
-            component_datatype: ComponentDatatype::UnsignedByte,
-            components_per_attribute: 1,
-            values: vals,
-        });
+        apply_offset = Some(GeometryAttribute::new(
+            ComponentDatatype::UnsignedByte,
+            1,
+            vals,
+        ));
     }
 
     let top_bs =
@@ -427,11 +427,11 @@ fn construct_extruded_rectangle(
         (None, None) => None,
     };
 
-    geo.attributes.position = Some(GeometryAttribute {
-        component_datatype: ComponentDatatype::Double,
-        components_per_attribute: 3,
-        values: positions,
-    });
+    geo.attributes.position = Some(GeometryAttribute::new(
+        ComponentDatatype::Double,
+        3,
+        positions,
+    ));
     geo.attributes.apply_offset = apply_offset;
     geo.indices = indices;
     geo.primitive_type = PrimitiveType::Lines;

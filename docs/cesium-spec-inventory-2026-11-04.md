@@ -153,11 +153,11 @@
 | [packages/core/Specs/EventSpec.js](../../cesium/packages/core/Specs/EventSpec.js) | 已移植：通用事件发布订阅模式、回调重入动态增删（支持在回调内部安全注册与移除监听器）、监听器计数（event_spec.rs） |
 | [packages/core/Specs/FixedFrameTransformsSpec.js](../../cesium/packages/core/Specs/FixedFrameTransformsSpec.js) | 已移植：局部坐标系到椭球固定参考系变换（ENU/NED/NUE/NWU与通用正交轴生成器）、极点与原点退化处理、HPR变换互转与四元数提取、视口窗口坐标映射、位置速度旋转矩阵、2D地图投影模型矩阵转换（fixed_frame_transforms_spec.rs） |
 | [packages/core/Specs/GeographicProjectionSpec.js](../../cesium/packages/core/Specs/GeographicProjectionSpec.js) | 部分：WGS84/单位球正反投影；JS 参数/结果对象语义待核对 |
-| [packages/core/Specs/GeometryAttributeSpec.js](../../cesium/packages/core/Specs/GeometryAttributeSpec.js) | 待逐项核对 |
-| [packages/core/Specs/GeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/GeometryInstanceAttributeSpec.js) | 待逐项核对 |
-| [packages/core/Specs/GeometryInstanceSpec.js](../../cesium/packages/core/Specs/GeometryInstanceSpec.js) | 待逐项核对 |
+| [packages/core/Specs/GeometryAttributeSpec.js](../../cesium/packages/core/Specs/GeometryAttributeSpec.js) | 已移植：几何顶点属性构造、ComponentDatatype、分量数与归一化标识校验、非法分量数抛错（geometry_attribute_spec.rs） |
+| [packages/core/Specs/GeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/GeometryInstanceAttributeSpec.js) | 已移植：几何实例属性构造、数据类型/分量数/归一化属性、TypedArray 映射与非法分量校验（geometry_instance_attribute_spec.rs） |
+| [packages/core/Specs/GeometryInstanceSpec.js](../../cesium/packages/core/Specs/GeometryInstanceSpec.js) | 已移植：几何实例构造、模型变换矩阵、标识符 id 与动态单体实例属性映射传递（geometry_instance_spec.rs） |
 | [packages/core/Specs/GeometryPipelineSpec.js](../../cesium/packages/core/Specs/GeometryPipelineSpec.js) | 待逐项核对 |
-| [packages/core/Specs/GeometrySpec.js](../../cesium/packages/core/Specs/GeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/GeometrySpec.js](../../cesium/packages/core/Specs/GeometrySpec.js) | 已移植：通用几何体包装容器构造、属性集/索引缓冲/图元拓扑类型/包围球封装（geometry_spec.rs） |
 | [packages/core/Specs/GregorianDateSpec.js](../../cesium/packages/core/Specs/GregorianDateSpec.js) | 已移植：年月日时分秒、毫秒与闰秒标识、默认与有效性构造（julian_date_spec.rs） |
 | [packages/core/Specs/HeadingPitchRangeSpec.js](../../cesium/packages/core/Specs/HeadingPitchRangeSpec.js) | 已移植：构造、字段读取、clone、相等比较（quaternion_hpr_spec.rs） |
 | [packages/core/Specs/HeadingPitchRollSpec.js](../../cesium/packages/core/Specs/HeadingPitchRollSpec.js) | 已移植：弧度/角度构造、四元数互转与等价验证（quaternion_hpr_spec.rs） |

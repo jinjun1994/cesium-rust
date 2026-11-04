@@ -1,7 +1,8 @@
 //! Core geometry representations matching CesiumJS `Core/Geometry`, `Core/GeometryAttribute`, `Core/PrimitiveType`, and `Core/ComponentDatatype`.
 //! Adapted from CesiumJS (Apache-2.0).
 
-use crate::BoundingSphere;
+use crate::{BoundingSphere, DeveloperError, Matrix4};
+use std::collections::HashMap;
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PrimitiveType {
@@ -103,17 +104,80 @@ impl ComponentDatatype {
 pub struct GeometryAttribute {
     pub component_datatype: ComponentDatatype,
     pub components_per_attribute: u8,
+    pub normalize: bool,
     pub values: Vec<f64>,
 }
 
 impl GeometryAttribute {
-    pub fn new(component_datatype: ComponentDatatype, components_per_attribute: u8, values: Vec<f64>) -> Self {
+    pub fn new(
+        component_datatype: ComponentDatatype,
+        components_per_attribute: u8,
+        values: Vec<f64>,
+    ) -> Self {
         Self {
             component_datatype,
             components_per_attribute,
+            normalize: false,
             values,
         }
     }
+
+    pub fn with_normalize(
+        component_datatype: ComponentDatatype,
+        components_per_attribute: u8,
+        normalize: bool,
+        values: Vec<f64>,
+    ) -> Result<Self, DeveloperError> {
+        if !(1..=4).contains(&components_per_attribute) {
+            return Err(DeveloperError::new(
+                "componentsPerAttribute must be between 1 and 4.",
+            ));
+        }
+        Ok(Self {
+            component_datatype,
+            components_per_attribute,
+            normalize,
+            values,
+        })
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct GeometryInstanceAttribute {
+    pub component_datatype: ComponentDatatype,
+    pub components_per_attribute: u8,
+    pub normalize: bool,
+    pub value: Vec<f64>,
+}
+
+impl GeometryInstanceAttribute {
+    pub fn new(
+        component_datatype: ComponentDatatype,
+        components_per_attribute: u8,
+        normalize: bool,
+        value: Vec<f64>,
+    ) -> Result<Self, DeveloperError> {
+        if !(1..=4).contains(&components_per_attribute) {
+            return Err(DeveloperError::new(
+                "componentsPerAttribute must be between 1 and 4.",
+            ));
+        }
+        Ok(Self {
+            component_datatype,
+            components_per_attribute,
+            normalize,
+            value,
+        })
+    }
+}
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub enum GeometryType {
+    #[default]
+    None = 0,
+    Triangles = 1,
+    Lines = 2,
+    Polylines = 3,
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
@@ -160,4 +224,44 @@ pub struct Geometry {
     pub indices: Vec<u32>,
     pub primitive_type: PrimitiveType,
     pub bounding_sphere: Option<BoundingSphere>,
+}
+
+impl Geometry {
+    pub fn new(
+        attributes: GeometryAttributes,
+        indices: Vec<u32>,
+        primitive_type: PrimitiveType,
+        bounding_sphere: Option<BoundingSphere>,
+    ) -> Self {
+        Self {
+            attributes,
+            indices,
+            primitive_type,
+            bounding_sphere,
+        }
+    }
+}
+
+#[derive(Clone, Debug, PartialEq)]
+pub struct GeometryInstance {
+    pub geometry: Geometry,
+    pub model_matrix: Matrix4,
+    pub id: Option<String>,
+    pub attributes: HashMap<String, GeometryInstanceAttribute>,
+}
+
+impl GeometryInstance {
+    pub fn new(
+        geometry: Geometry,
+        model_matrix: Option<Matrix4>,
+        id: Option<String>,
+        attributes: Option<HashMap<String, GeometryInstanceAttribute>>,
+    ) -> Self {
+        Self {
+            geometry,
+            model_matrix: model_matrix.unwrap_or(Matrix4::IDENTITY),
+            id,
+            attributes: attributes.unwrap_or_default(),
+        }
+    }
 }

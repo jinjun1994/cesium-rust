@@ -298,11 +298,11 @@ impl RectangleGeometry {
                     GeometryOffsetAttribute::None => 0.0,
                     _ => 1.0,
                 };
-                g.attributes.apply_offset = Some(GeometryAttribute {
-                    component_datatype: ComponentDatatype::UnsignedByte,
-                    components_per_attribute: 1,
-                    values: vec![val; count],
-                });
+                g.attributes.apply_offset = Some(GeometryAttribute::new(
+                    ComponentDatatype::UnsignedByte,
+                    1,
+                    vec![val; count],
+                ));
             }
             let bs = BoundingSphere::from_rectangle_3d(
                 Some(rectangle),
@@ -436,25 +436,19 @@ fn calculate_attributes(
     }
 
     GeometryAttributes {
-        position: Some(GeometryAttribute {
-            component_datatype: ComponentDatatype::Double,
-            components_per_attribute: 3,
-            values: positions.to_vec(),
+        position: Some(GeometryAttribute::new(
+            ComponentDatatype::Double,
+            3,
+            positions.to_vec(),
+        )),
+        normal: normals.map(|values| {
+            GeometryAttribute::new(ComponentDatatype::Float, 3, values)
         }),
-        normal: normals.map(|values| GeometryAttribute {
-            component_datatype: ComponentDatatype::Float,
-            components_per_attribute: 3,
-            values,
+        tangent: tangents.map(|values| {
+            GeometryAttribute::new(ComponentDatatype::Float, 3, values)
         }),
-        tangent: tangents.map(|values| GeometryAttribute {
-            component_datatype: ComponentDatatype::Float,
-            components_per_attribute: 3,
-            values,
-        }),
-        bitangent: bitangents.map(|values| GeometryAttribute {
-            component_datatype: ComponentDatatype::Float,
-            components_per_attribute: 3,
-            values,
+        bitangent: bitangents.map(|values| {
+            GeometryAttribute::new(ComponentDatatype::Float, 3, values)
         }),
         ..Default::default()
     }
@@ -538,25 +532,19 @@ fn calculate_attributes_wall(
     }
 
     GeometryAttributes {
-        position: Some(GeometryAttribute {
-            component_datatype: ComponentDatatype::Double,
-            components_per_attribute: 3,
-            values: positions.to_vec(),
+        position: Some(GeometryAttribute::new(
+            ComponentDatatype::Double,
+            3,
+            positions.to_vec(),
+        )),
+        normal: normals.map(|values| {
+            GeometryAttribute::new(ComponentDatatype::Float, 3, values)
         }),
-        normal: normals.map(|values| GeometryAttribute {
-            component_datatype: ComponentDatatype::Float,
-            components_per_attribute: 3,
-            values,
+        tangent: tangents.map(|values| {
+            GeometryAttribute::new(ComponentDatatype::Float, 3, values)
         }),
-        tangent: tangents.map(|values| GeometryAttribute {
-            component_datatype: ComponentDatatype::Float,
-            components_per_attribute: 3,
-            values,
-        }),
-        bitangent: bitangents.map(|values| GeometryAttribute {
-            component_datatype: ComponentDatatype::Float,
-            components_per_attribute: 3,
-            values,
+        bitangent: bitangents.map(|values| {
+            GeometryAttribute::new(ComponentDatatype::Float, 3, values)
         }),
         ..Default::default()
     }
@@ -740,11 +728,11 @@ fn construct_rectangle(
 
     if vertex_format.st {
         if let Some(tc) = texture_coordinates {
-            attributes.st = Some(GeometryAttribute {
-                component_datatype: ComponentDatatype::Float,
-                components_per_attribute: 2,
-                values: tc,
-                });
+            attributes.st = Some(GeometryAttribute::new(
+                ComponentDatatype::Float,
+                2,
+                tc,
+            ));
         }
     }
 
@@ -1068,36 +1056,36 @@ fn construct_extruded_rectangle(
 
     Geometry {
         attributes: GeometryAttributes {
-            position: Some(GeometryAttribute {
-                component_datatype: ComponentDatatype::Double,
-                components_per_attribute: 3,
-                values: positions,
-                }),
-            normal: normals.map(|v| GeometryAttribute {
-                component_datatype: ComponentDatatype::Float,
-                components_per_attribute: 3,
-                values: v,
-                }),
-            tangent: tangents.map(|v| GeometryAttribute {
-                component_datatype: ComponentDatatype::Float,
-                components_per_attribute: 3,
-                values: v,
-                }),
-            bitangent: bitangents.map(|v| GeometryAttribute {
-                component_datatype: ComponentDatatype::Float,
-                components_per_attribute: 3,
-                values: v,
-                }),
-            st: textures.map(|v| GeometryAttribute {
-                component_datatype: ComponentDatatype::Float,
-                components_per_attribute: 2,
-                values: v,
-                }),
-            apply_offset: apply_offset.map(|v| GeometryAttribute {
-                component_datatype: ComponentDatatype::UnsignedByte,
-                components_per_attribute: 1,
-                values: v,
-                }),
+            position: Some(GeometryAttribute::new(
+                ComponentDatatype::Double,
+                3,
+                positions,
+            )),
+            normal: normals.map(|v| GeometryAttribute::new(
+                ComponentDatatype::Float,
+                3,
+                v,
+            )),
+            tangent: tangents.map(|v| GeometryAttribute::new(
+                ComponentDatatype::Float,
+                3,
+                v,
+            )),
+            bitangent: bitangents.map(|v| GeometryAttribute::new(
+                ComponentDatatype::Float,
+                3,
+                v,
+            )),
+            st: textures.map(|v| GeometryAttribute::new(
+                ComponentDatatype::Float,
+                2,
+                v,
+            )),
+            apply_offset: apply_offset.map(|v| GeometryAttribute::new(
+                ComponentDatatype::UnsignedByte,
+                1,
+                v,
+            )),
             ..Default::default()
         },
         indices,

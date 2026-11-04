@@ -170,7 +170,8 @@ pub use hermite_spline::HermiteSpline;
 pub use hilbert_order::HilbertOrder;
 pub use geometry::{
     ArcType, ComponentDatatype, CornerType, Geometry, GeometryAttribute, GeometryAttributes,
-    GeometryOffsetAttribute, PrimitiveType,
+    GeometryInstance, GeometryInstanceAttribute, GeometryOffsetAttribute, GeometryType,
+    PrimitiveType,
 };
 pub use geometry_pipeline::GeometryPipeline;
 pub use index_datatype::{IndexBuffer, IndexDatatype};
