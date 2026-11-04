@@ -207,6 +207,20 @@ impl JulianDate {
         }
     }
 
+    pub fn compute_tai_minus_utc(&self) -> f64 {
+        let index = match binary_search_leap_second(self) {
+            Ok(idx) => idx,
+            Err(idx) => {
+                if idx == 0 {
+                    0
+                } else {
+                    idx - 1
+                }
+            }
+        };
+        LEAP_SECONDS[index].offset
+    }
+
     pub fn new(day_number: f64, mut seconds_of_day: f64, standard: TimeStandard) -> Self {
         let whole_days = day_number.floor() as i32;
         let frac_day = day_number - whole_days as f64;

@@ -316,6 +316,15 @@ impl Quaternion {
             && (self.z - other.z).abs() <= epsilon
             && (self.w - other.w).abs() <= epsilon
     }
+
+    #[inline]
+    pub fn compute_angle(&self) -> f64 {
+        if (self.w - 1.0).abs() < EPSILON6 {
+            0.0
+        } else {
+            2.0 * self.w.clamp(-1.0, 1.0).acos()
+        }
+    }
 }
 
 impl From<DQuat> for Quaternion {
