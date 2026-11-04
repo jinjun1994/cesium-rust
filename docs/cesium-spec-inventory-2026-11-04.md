@@ -156,7 +156,7 @@
 | [packages/core/Specs/GeometryAttributeSpec.js](../../cesium/packages/core/Specs/GeometryAttributeSpec.js) | 已移植：几何顶点属性构造、ComponentDatatype、分量数与归一化标识校验、非法分量数抛错（geometry_attribute_spec.rs） |
 | [packages/core/Specs/GeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/GeometryInstanceAttributeSpec.js) | 已移植：几何实例属性构造、数据类型/分量数/归一化属性、TypedArray 映射与非法分量校验（geometry_instance_attribute_spec.rs） |
 | [packages/core/Specs/GeometryInstanceSpec.js](../../cesium/packages/core/Specs/GeometryInstanceSpec.js) | 已移植：几何实例构造、模型变换矩阵、标识符 id 与动态单体实例属性映射传递（geometry_instance_spec.rs） |
-| [packages/core/Specs/GeometryPipelineSpec.js](../../cesium/packages/core/Specs/GeometryPipelineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/GeometryPipelineSpec.js](../../cesium/packages/core/Specs/GeometryPipelineSpec.js) | 已补齐（`crates/cesium-math/tests/geometry_pipeline_spec.rs`，覆盖 toWireframe, createLineSegmentsForVectors, createAttributeLocations, reorderForPre/PostVertexCache, fitToUnsignedShortIndices, encodeAttribute, projectTo2D, transformToWorldCoordinates, combineInstances, computeNormal, computeTangentAndBitangent, compressVertices, splitLongitude） |
 | [packages/core/Specs/GeometrySpec.js](../../cesium/packages/core/Specs/GeometrySpec.js) | 已移植：通用几何体包装容器构造、属性集/索引缓冲/图元拓扑类型/包围球封装（geometry_spec.rs） |
 | [packages/core/Specs/GregorianDateSpec.js](../../cesium/packages/core/Specs/GregorianDateSpec.js) | 已移植：年月日时分秒、毫秒与闰秒标识、默认与有效性构造（julian_date_spec.rs） |
 | [packages/core/Specs/HeadingPitchRangeSpec.js](../../cesium/packages/core/Specs/HeadingPitchRangeSpec.js) | 已移植：构造、字段读取、clone、相等比较（quaternion_hpr_spec.rs） |

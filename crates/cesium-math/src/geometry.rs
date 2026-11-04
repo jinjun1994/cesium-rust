@@ -216,6 +216,117 @@ pub struct GeometryAttributes {
     pub prev_position: Option<GeometryAttribute>,
     pub next_position: Option<GeometryAttribute>,
     pub expand_and_width: Option<GeometryAttribute>,
+    pub custom: HashMap<String, GeometryAttribute>,
+}
+
+impl GeometryAttributes {
+    pub fn get(&self, name: &str) -> Option<&GeometryAttribute> {
+        match name {
+            "position" => self.position.as_ref(),
+            "normal" => self.normal.as_ref(),
+            "st" => self.st.as_ref(),
+            "tangent" => self.tangent.as_ref(),
+            "bitangent" => self.bitangent.as_ref(),
+            "color" => self.color.as_ref(),
+            "apply_offset" | "applyOffset" => self.apply_offset.as_ref(),
+            "prev_position" | "prevPosition" => self.prev_position.as_ref(),
+            "next_position" | "nextPosition" => self.next_position.as_ref(),
+            "expand_and_width" | "expandAndWidth" => self.expand_and_width.as_ref(),
+            _ => self.custom.get(name),
+        }
+    }
+
+    pub fn get_mut(&mut self, name: &str) -> Option<&mut GeometryAttribute> {
+        match name {
+            "position" => self.position.as_mut(),
+            "normal" => self.normal.as_mut(),
+            "st" => self.st.as_mut(),
+            "tangent" => self.tangent.as_mut(),
+            "bitangent" => self.bitangent.as_mut(),
+            "color" => self.color.as_mut(),
+            "apply_offset" | "applyOffset" => self.apply_offset.as_mut(),
+            "prev_position" | "prevPosition" => self.prev_position.as_mut(),
+            "next_position" | "nextPosition" => self.next_position.as_mut(),
+            "expand_and_width" | "expandAndWidth" => self.expand_and_width.as_mut(),
+            _ => self.custom.get_mut(name),
+        }
+    }
+
+    pub fn set(&mut self, name: &str, attr: GeometryAttribute) {
+        match name {
+            "position" => self.position = Some(attr),
+            "normal" => self.normal = Some(attr),
+            "st" => self.st = Some(attr),
+            "tangent" => self.tangent = Some(attr),
+            "bitangent" => self.bitangent = Some(attr),
+            "color" => self.color = Some(attr),
+            "apply_offset" | "applyOffset" => self.apply_offset = Some(attr),
+            "prev_position" | "prevPosition" => self.prev_position = Some(attr),
+            "next_position" | "nextPosition" => self.next_position = Some(attr),
+            "expand_and_width" | "expandAndWidth" => self.expand_and_width = Some(attr),
+            _ => {
+                self.custom.insert(name.to_string(), attr);
+            }
+        }
+    }
+
+    pub fn remove(&mut self, name: &str) -> Option<GeometryAttribute> {
+        match name {
+            "position" => self.position.take(),
+            "normal" => self.normal.take(),
+            "st" => self.st.take(),
+            "tangent" => self.tangent.take(),
+            "bitangent" => self.bitangent.take(),
+            "color" => self.color.take(),
+            "apply_offset" | "applyOffset" => self.apply_offset.take(),
+            "prev_position" | "prevPosition" => self.prev_position.take(),
+            "next_position" | "nextPosition" => self.next_position.take(),
+            "expand_and_width" | "expandAndWidth" => self.expand_and_width.take(),
+            _ => self.custom.remove(name),
+        }
+    }
+
+    pub fn contains_key(&self, name: &str) -> bool {
+        self.get(name).is_some()
+    }
+
+    pub fn iter(&self) -> Vec<(&str, &GeometryAttribute)> {
+        let mut list = Vec::new();
+        if let Some(a) = &self.position {
+            list.push(("position", a));
+        }
+        if let Some(a) = &self.normal {
+            list.push(("normal", a));
+        }
+        if let Some(a) = &self.st {
+            list.push(("st", a));
+        }
+        if let Some(a) = &self.tangent {
+            list.push(("tangent", a));
+        }
+        if let Some(a) = &self.bitangent {
+            list.push(("bitangent", a));
+        }
+        if let Some(a) = &self.color {
+            list.push(("color", a));
+        }
+        if let Some(a) = &self.apply_offset {
+            list.push(("applyOffset", a));
+        }
+        if let Some(a) = &self.prev_position {
+            list.push(("prevPosition", a));
+        }
+        if let Some(a) = &self.next_position {
+            list.push(("nextPosition", a));
+        }
+        if let Some(a) = &self.expand_and_width {
+            list.push(("expandAndWidth", a));
+        }
+        for (k, v) in &self.custom {
+            list.push((k.as_str(), v));
+        }
+        list
+    }
 }
 
 #[derive(Clone, Debug, PartialEq)]
@@ -239,6 +350,34 @@ impl Geometry {
             primitive_type,
             bounding_sphere,
         }
+    }
+
+    pub fn compute_number_of_vertices(&self) -> Result<usize, DeveloperError> {
+        let mut count: Option<usize> = None;
+        for (_name, attr) in self.attributes.iter() {
+            let components = attr.components_per_attribute as usize;
+            if components == 0 {
+                return Err(DeveloperError::new(
+                    "componentsPerAttribute must be greater than zero.",
+                ));
+            }
+            if !attr.values.len().is_multiple_of(components) {
+                return Err(DeveloperError::new(
+                    "Attribute values length is not a multiple of componentsPerAttribute.",
+                ));
+            }
+            let num = attr.values.len() / components;
+            if let Some(c) = count {
+                if c != num {
+                    return Err(DeveloperError::new(
+                        "All attribute lists must have the same number of attributes.",
+                    ));
+                }
+            } else {
+                count = Some(num);
+            }
+        }
+        Ok(count.unwrap_or(0))
     }
 }
 

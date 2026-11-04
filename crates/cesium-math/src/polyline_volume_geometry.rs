@@ -278,11 +278,11 @@ impl PolylineVolumeGeometry {
         };
 
         if self.vertex_format.normal {
-            GeometryPipeline::compute_normal(&mut geometry);
+            let _ = GeometryPipeline::compute_normal(&mut geometry);
         }
 
         if self.vertex_format.tangent || self.vertex_format.bitangent {
-            GeometryPipeline::compute_tangent_and_bitangent(&mut geometry);
+            let _ = GeometryPipeline::compute_tangent_and_bitangent(&mut geometry);
 
             if !self.vertex_format.tangent {
                 geometry.attributes.tangent = None;
