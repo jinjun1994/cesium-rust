@@ -122,6 +122,7 @@ mod spherical;
 mod stereographic;
 mod subdivide_array;
 mod terrain_encoding;
+mod arcgis_terrain_provider;
 mod terrain_mesh;
 mod terrain_picker;
 mod terrain_provider;
@@ -312,6 +313,10 @@ pub use stereographic::{
 pub use subdivide_array::subdivide_array;
 pub use terrain_encoding::{
     TerrainAttribute, TerrainAttributeLocations, TerrainEncoding, TerrainQuantization,
+};
+pub use arcgis_terrain_provider::{
+    ArcGISMetadata, ArcGISMetadataExtent, ArcGISMetadataLod, ArcGISMetadataSpatialReference,
+    ArcGISMetadataTileInfo, ArcGISTiledElevationTerrainProvider, ArcGISTilingScheme,
 };
 pub use terrain_mesh::TerrainMesh;
 pub use terrain_picker::{TerrainPicker, TerrainPickerNode};

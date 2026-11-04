@@ -249,7 +249,7 @@
 | [packages/core/Specs/srgbToLinearSpec.js](../../cesium/packages/core/Specs/srgbToLinearSpec.js) | 已移植：sRGB 颜色空间到线性色彩空间非线性转换（srgb_to_linear_spec.rs） |
 | [packages/core/Specs/subdivideArraySpec.js](../../cesium/packages/core/Specs/subdivideArraySpec.js) | 已移植：数组均分/非均分分块切分、边界校验（subdivide_array_spec.rs） |
 | [packages/engine/Specs/Core/ApproximateTerrainHeightsSpec.js](../../cesium/packages/engine/Specs/Core/ApproximateTerrainHeightsSpec.js) | 已移植：粗略地形高程查找表、地理瓦片矩形层级检索、经纬度矩形最小/最大高度估算与对角线弦长修正、包围球计算（approximate_terrain_heights_spec.rs） |
-| [packages/engine/Specs/Core/ArcGISTiledElevationTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/ArcGISTiledElevationTerrainProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/ArcGISTiledElevationTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/ArcGISTiledElevationTerrainProviderSpec.js) | 已补齐（`crates/cesium-math/tests/arcgis_tiled_elevation_terrain_provider_spec.rs`，覆盖元数据解析、EPSG:3857/4326 切片方案推导与范围截断、几何误差计算、瓦片可用性检测、LERC 编码与 HeightmapTerrainData 生成） |
 | [packages/engine/Specs/Core/BingMapsGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/BingMapsGeocoderServiceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/CartographicGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/CartographicGeocoderServiceSpec.js) | 已移植：地理经纬度坐标地理编码器服务、NSEW 与度数格式解析、默认高度与笛卡尔空间坐标映射（cartographic_geocoder_service_spec.rs） |
 | [packages/engine/Specs/Core/CelestialFrameTransformsSpec.js](../../cesium/packages/engine/Specs/Core/CelestialFrameTransformsSpec.js) | 已移植：天球参考系变换（TEME到伪地固系旋转矩阵、GMST自转角、ICRF到月球固连系Moon-Fixed旋转矩阵与NASA/STK高精度匹配、恒星日与恒星月周期验证）（celestial_frame_transforms_spec.rs） |
