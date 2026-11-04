@@ -267,7 +267,7 @@ pub use rectangle_collision_checker::RectangleCollisionChecker;
 pub use request::{Request, RequestOptions, RequestState, RequestType};
 pub use request_error_event::{parse_response_headers, RequestErrorEvent};
 pub use request_scheduler::{
-    get_server_key, is_blob_uri, is_data_uri, RequestScheduler, RequestSchedulerStatistics,
+    get_server_key, RequestScheduler, RequestSchedulerStatistics,
 };
 pub use s2_cell::S2Cell;
 pub use scalar::{HeadingPitchRange, NearFarScalar};
@@ -298,7 +298,8 @@ pub use translation_rotation_scale::TranslationRotationScale;
 pub use typed_array_helpers::{get_json_from_typed_array, get_string_from_typed_array};
 pub use uri_helpers::{
     get_absolute_uri, get_base_uri, get_extension_from_uri, get_filename_from_uri,
-    object_to_query, percent_decode, percent_encode, query_to_object,
+    get_page_location, is_blob_uri, is_cross_origin_url, is_data_uri, object_to_query,
+    percent_decode, percent_encode, query_to_object, set_page_location,
 };
 pub use vertex_format::VertexFormat;
 pub use vertical_exaggeration::VerticalExaggeration;

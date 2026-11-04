@@ -18,15 +18,7 @@ pub struct RequestSchedulerStatistics {
     pub last_number_of_active_requests: usize,
 }
 
-#[inline]
-pub fn is_data_uri(url: &str) -> bool {
-    url.starts_with("data:")
-}
-
-#[inline]
-pub fn is_blob_uri(url: &str) -> bool {
-    url.starts_with("blob:")
-}
+pub use crate::uri_helpers::{is_blob_uri, is_data_uri};
 
 /// Derive the server key (`host:port`) from a given URL.
 pub fn get_server_key(url_str: &str) -> Result<String, &'static str> {

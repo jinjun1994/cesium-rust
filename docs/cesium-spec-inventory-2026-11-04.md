@@ -313,9 +313,9 @@
 | [packages/engine/Specs/Core/createWorldBathymetryAsyncSpec.js](../../cesium/packages/engine/Specs/Core/createWorldBathymetryAsyncSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/createWorldTerrainAsyncSpec.js](../../cesium/packages/engine/Specs/Core/createWorldTerrainAsyncSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/getImageFromTypedArraySpec.js](../../cesium/packages/engine/Specs/Core/getImageFromTypedArraySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/isBlobUriSpec.js](../../cesium/packages/engine/Specs/Core/isBlobUriSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/isCrossOriginUrlSpec.js](../../cesium/packages/engine/Specs/Core/isCrossOriginUrlSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/isDataUriSpec.js](../../cesium/packages/engine/Specs/Core/isDataUriSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/isBlobUriSpec.js](../../cesium/packages/engine/Specs/Core/isBlobUriSpec.js) | 已移植：Blob URI 前缀判定、大小写不敏感解析与普通 URL 过滤（is_blob_uri_spec.rs） |
+| [packages/engine/Specs/Core/isCrossOriginUrlSpec.js](../../cesium/packages/engine/Specs/Core/isCrossOriginUrlSpec.js) | 已移植：跨域 URL 判定、相对路径同源直通、协议/主机/端口差异比对（is_cross_origin_url_spec.rs） |
+| [packages/engine/Specs/Core/isDataUriSpec.js](../../cesium/packages/engine/Specs/Core/isDataUriSpec.js) | 已移植：Data URI 协议前缀判定、Base64 数据标识检测与普通 URL 过滤（is_data_uri_spec.rs） |
 | [packages/engine/Specs/Core/loadImageFromTypedArraySpec.js](../../cesium/packages/engine/Specs/Core/loadImageFromTypedArraySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/loadKTX2Spec.js](../../cesium/packages/engine/Specs/Core/loadKTX2Spec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/parseResponseHeadersSpec.js](../../cesium/packages/engine/Specs/Core/parseResponseHeadersSpec.js) | 待逐项核对 |

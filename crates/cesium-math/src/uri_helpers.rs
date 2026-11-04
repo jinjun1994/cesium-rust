@@ -170,3 +170,57 @@ pub fn query_to_object(query: &str) -> BTreeMap<String, Vec<String>> {
 
     map
 }
+
+/// Determines if the specified URI is a blob URI (`^blob:` case-insensitive).
+pub fn is_blob_uri(uri: &str) -> bool {
+    if uri.len() < 5 {
+        return false;
+    }
+    uri[..5].eq_ignore_ascii_case("blob:")
+}
+
+/// Determines if the specified URI is a data URI (`^data:` case-insensitive).
+pub fn is_data_uri(uri: &str) -> bool {
+    if uri.len() < 5 {
+        return false;
+    }
+    uri[..5].eq_ignore_ascii_case("data:")
+}
+
+use std::sync::RwLock;
+
+static PAGE_LOCATION: RwLock<Option<String>> = RwLock::new(None);
+
+/// Sets the current page location used for origin comparison in `is_cross_origin_url`.
+pub fn set_page_location(url: &str) {
+    if let Ok(mut lock) = PAGE_LOCATION.write() {
+        *lock = Some(url.to_string());
+    }
+}
+
+/// Gets the current page location.
+pub fn get_page_location() -> String {
+    PAGE_LOCATION
+        .read()
+        .ok()
+        .and_then(|lock| lock.clone())
+        .unwrap_or_else(|| "http://localhost:8080/index.html".to_string())
+}
+
+/// Determines whether a URL is considered cross-origin to the current page.
+pub fn is_cross_origin_url(url: &str) -> bool {
+    let target_url = match Url::parse(url) {
+        Ok(u) => u,
+        Err(_) => return false, // Relative URLs are not cross-origin
+    };
+
+    let page_str = get_page_location();
+    let page_url = match Url::parse(&page_str) {
+        Ok(u) => u,
+        Err(_) => return true,
+    };
+
+    target_url.scheme() != page_url.scheme()
+        || target_url.host_str() != page_url.host_str()
+        || target_url.port_or_known_default() != page_url.port_or_known_default()
+}
