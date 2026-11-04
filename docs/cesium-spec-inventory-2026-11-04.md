@@ -98,6 +98,11 @@
 - `binary_search.rs` 及 `binary_search_spec.rs`：对齐 CesiumJS `binarySearch`，支持自定义比较器，提供返回命中索引或按位取反（`~index`）插入位置的 Cesium 规范语义及 Rust 标准 `Result<usize, usize>` 接口。
 - 相应 22 项单元测试全部通过，workspace Clippy 静态检查零警告，通过 `wasm32-unknown-unknown` 构建。
 
+新增空间索引与 GPU 顶点缓存优化模块（`cesium-math`）：
+- `hilbert_order.rs` 及 `hilbert_order_spec.rs`：对齐 CesiumJS `HilbertOrder`，支持 2D 希尔伯特空间填充曲线正向编码（`encode_2d`）与反向解码（`decode_2d`），支持任意层级（1..31）与超大整数索引计算，严格处理层级与坐标越界错误。
+- `tipsify.rs` 及 `tipsify_spec.rs`：对齐 CesiumJS `Tipsify`，支持根据 2007 SIGGRAPH 经典论文算法进行后顶点着色器（post-vertex-shader）缓存优化（`tipsify`），自动维护一环邻域、死胡同栈回退与游标扫描；支持计算平均缓存未命中率（`calculate_acmr`），在大规模网格三角形拓扑重排序中显著降低 GPU 顶点着色器 ACMR。
+- 相应 12 项单元测试全部通过，workspace Clippy 静态检查零警告，通过 `wasm32-unknown-unknown` 构建。
+
 后续逐个登记：上游测试名称和源码哈希、Rust 测试路径与名称、适用平台、通过证据、未实现能力及差异。图形测试须在原生 wgpu 与浏览器 WebGPU 上保留截图、参数和设备信息；上游 WebGL 实现细节需按可观察行为验证。
 
 | 上游 Spec 文件 | 状态 |
@@ -158,7 +163,7 @@
 | [packages/core/Specs/HeadingPitchRollSpec.js](../../cesium/packages/core/Specs/HeadingPitchRollSpec.js) | 已移植：弧度/角度构造、四元数互转与等价验证（quaternion_hpr_spec.rs） |
 | [packages/core/Specs/HermitePolynomialApproximationSpec.js](../../cesium/packages/core/Specs/HermitePolynomialApproximationSpec.js) | 已移植：Hermite 多项式逼近（0阶/高阶导数混合差商插值、阶乘、STK Components航天基准数值）（hermite_polynomial_approximation_spec.rs） |
 | [packages/core/Specs/HermiteSplineSpec.js](../../cesium/packages/core/Specs/HermiteSplineSpec.js) | 已移植：Hermite 三次样条曲线、自然样条与夹紧样条构造、三对角方程求解与基函数插值求值（hermite_spline_spec.rs） |
-| [packages/core/Specs/HilbertOrderSpec.js](../../cesium/packages/core/Specs/HilbertOrderSpec.js) | 待逐项核对 |
+| [packages/core/Specs/HilbertOrderSpec.js](../../cesium/packages/core/Specs/HilbertOrderSpec.js) | 已移植：2D 希尔伯特空间填充曲线正反编解码（encode2D/decode2D、支持大整型索引与层级越界校验）（hilbert_order_spec.rs） |
 | [packages/core/Specs/IndexDatatypeSpec.js](../../cesium/packages/core/Specs/IndexDatatypeSpec.js) | 已移植：索引数据类型（8/16/32位无符号整型）、字节大小、顶点数自动选型（64KB阈值）及ArrayBuffer重构（index_datatype_spec.rs） |
 | [packages/core/Specs/IntersectionTestsSpec.js](../../cesium/packages/core/Specs/IntersectionTestsSpec.js) | 部分：射线/线段、盒体、平面切分和掠射；其他场景待核对 |
 | [packages/core/Specs/Intersections2DSpec.js](../../cesium/packages/core/Specs/Intersections2DSpec.js) | 已移植：轴对齐阈值2D三角形切割（多边形顶点与生成比例）、2D重心坐标与线段求交（intersections_2d_spec.rs） |
@@ -213,7 +218,7 @@
 | [packages/core/Specs/StereographicSpec.js](../../cesium/packages/core/Specs/StereographicSpec.js) | 已全量移植：极射赤平投影（半球/两极投影切平面、地心表面投影、共形纬度、经纬度往返转换、批量投影）（stereographic_spec.rs） |
 | [packages/core/Specs/TimeIntervalCollectionSpec.js](../../cesium/packages/core/Specs/TimeIntervalCollectionSpec.js) | 已移植：非重叠时间区间集合、同数据区间自动合并、异数据区间重叠裁切与拆分、区间挖洞移除与时间二分查找（time_interval_collection_spec.rs） |
 | [packages/core/Specs/TimeIntervalSpec.js](../../cesium/packages/core/Specs/TimeIntervalSpec.js) | 已移植：时间区间构造、点包含判定（含开闭区间边界）、判空、相等比较与重叠求交（time_interval_spec.rs） |
-| [packages/core/Specs/TipsifySpec.js](../../cesium/packages/core/Specs/TipsifySpec.js) | 待逐项核对 |
+| [packages/core/Specs/TipsifySpec.js](../../cesium/packages/core/Specs/TipsifySpec.js) | 已移植：后顶点着色器缓存三角形优化与ACMR未命中率计算（tipsify/calculateACMR、deadEnd回退与邻域跳跃）（tipsify_spec.rs） |
 | [packages/core/Specs/TranslationRotationScaleSpec.js](../../cesium/packages/core/Specs/TranslationRotationScaleSpec.js) | 已移植：仿射变换平移/四元数旋转/缩放结构体、默认值、判等与仿射Matrix4生成（translation_rotation_scale_spec.rs） |
 | [packages/core/Specs/TridiagonalSystemSolverSpec.js](../../cesium/packages/core/Specs/TridiagonalSystemSolverSpec.js) | 已移植：Thomas 三对角线性方程组求解器、Cartesian3 向量右端项回代计算（tridiagonal_system_solver_spec.rs） |
 | [packages/core/Specs/VertexFormatSpec.js](../../cesium/packages/core/Specs/VertexFormatSpec.js) | 已移植：格式位掩码、常量定义、clone、pack/unpack（vertex_format_spec.rs） |

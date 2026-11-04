@@ -40,6 +40,7 @@ mod geometry;
 mod geometry_pipeline;
 mod hermite_polynomial_approximation;
 mod hermite_spline;
+mod hilbert_order;
 mod index_datatype;
 mod intersections;
 mod intersections_2d;
@@ -87,6 +88,7 @@ mod time_constants;
 mod time_interval;
 mod time_interval_collection;
 mod tiling;
+mod tipsify;
 mod tridiagonal_system_solver;
 mod translation_rotation_scale;
 mod vertex_format;
@@ -142,6 +144,7 @@ pub use frustum::{
 pub use frustum_geometry::{AnyFrustum, FrustumGeometry, FrustumOutlineGeometry};
 pub use hermite_polynomial_approximation::HermitePolynomialApproximation;
 pub use hermite_spline::HermiteSpline;
+pub use hilbert_order::HilbertOrder;
 pub use geometry::{
     ArcType, ComponentDatatype, CornerType, Geometry, GeometryAttribute, GeometryAttributes,
     GeometryOffsetAttribute, PrimitiveType,
@@ -217,6 +220,7 @@ pub use time_constants::{TimeConstants, *};
 pub use time_interval::TimeInterval;
 pub use time_interval_collection::TimeIntervalCollection;
 pub use tiling::{GeographicTilingScheme, NativeRectangle, TilingScheme, WebMercatorTilingScheme};
+pub use tipsify::Tipsify;
 pub use tridiagonal_system_solver::TridiagonalSystemSolver;
 pub use translation_rotation_scale::TranslationRotationScale;
 pub use vertex_format::VertexFormat;
