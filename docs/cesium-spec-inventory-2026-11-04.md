@@ -150,7 +150,7 @@
 | [packages/core/Specs/EllipsoidTangentPlaneSpec.js](../../cesium/packages/core/Specs/EllipsoidTangentPlaneSpec.js) | 部分：构造、单点/批量投影及 WGS84 往返；零半径及 JS 对象语义待核对 |
 | [packages/core/Specs/EllipsoidalOccluderSpec.js](../../cesium/packages/core/Specs/EllipsoidalOccluderSpec.js) | 部分：可见性、地下椭球、剔除点和顶点；其余数值与错误语义待核对 |
 | [packages/core/Specs/EncodedCartesian3Spec.js](../../cesium/packages/core/Specs/EncodedCartesian3Spec.js) | 已移植：高低位拆分编码、从 Cartesian3 构造、顶点属性数组交错写入（encoded_cartesian3_spec.rs） |
-| [packages/core/Specs/EventSpec.js](../../cesium/packages/core/Specs/EventSpec.js) | 待逐项核对 |
+| [packages/core/Specs/EventSpec.js](../../cesium/packages/core/Specs/EventSpec.js) | 已移植：通用事件发布订阅模式、回调重入动态增删（支持在回调内部安全注册与移除监听器）、监听器计数（event_spec.rs） |
 | [packages/core/Specs/FixedFrameTransformsSpec.js](../../cesium/packages/core/Specs/FixedFrameTransformsSpec.js) | 已移植：局部坐标系到椭球固定参考系变换（ENU/NED/NUE/NWU与通用正交轴生成器）、极点与原点退化处理、HPR变换互转与四元数提取、视口窗口坐标映射、位置速度旋转矩阵、2D地图投影模型矩阵转换（fixed_frame_transforms_spec.rs） |
 | [packages/core/Specs/GeographicProjectionSpec.js](../../cesium/packages/core/Specs/GeographicProjectionSpec.js) | 部分：WGS84/单位球正反投影；JS 参数/结果对象语义待核对 |
 | [packages/core/Specs/GeometryAttributeSpec.js](../../cesium/packages/core/Specs/GeometryAttributeSpec.js) | 待逐项核对 |
