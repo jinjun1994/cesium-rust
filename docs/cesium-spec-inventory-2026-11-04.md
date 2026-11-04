@@ -292,7 +292,7 @@
 | [packages/engine/Specs/Core/RequestSchedulerSpec.js](../../cesium/packages/engine/Specs/Core/RequestSchedulerSpec.js) | 已移植：异步请求优先级调度器、服务器并发限制与分流、动态优先级更新与重排、请求淘汰与取消统计、完成事件通知（request_scheduler_spec.rs） |
 | [packages/engine/Specs/Core/RequestSpec.js](../../cesium/packages/engine/Specs/Core/RequestSpec.js) | 已移植：资源请求任务封装、优先级与取消处理、请求状态流转与克隆（request_spec.rs） |
 | [packages/engine/Specs/Core/ResourceSpec.js](../../cesium/packages/engine/Specs/Core/ResourceSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/S2CellSpec.js](../../cesium/packages/engine/Specs/Core/S2CellSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/S2CellSpec.js](../../cesium/packages/engine/Specs/Core/S2CellSpec.js) | 已移植：S2 空间球面四叉分片与希尔伯特曲线索引、64位CellID与十六进制Token互转、父子层级解算、中心与CCW顶点椭球地理坐标投影（s2_cell_spec.rs） |
 | [packages/engine/Specs/Core/ScreenSpaceEventHandlerSpec.js](../../cesium/packages/engine/Specs/Core/ScreenSpaceEventHandlerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/Simon1994PlanetaryPositionsSpec.js](../../cesium/packages/engine/Specs/Core/Simon1994PlanetaryPositionsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/SnapServiceSpec.js](../../cesium/packages/engine/Specs/Core/SnapServiceSpec.js) | 待逐项核对 |

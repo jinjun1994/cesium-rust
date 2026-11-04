@@ -96,6 +96,7 @@ mod rectangle_collision_checker;
 mod request;
 mod request_error_event;
 mod request_scheduler;
+mod s2_cell;
 mod scalar;
 mod show_geometry_instance_attribute;
 mod simple_polyline_geometry;
@@ -256,6 +257,7 @@ pub use request_error_event::{parse_response_headers, RequestErrorEvent};
 pub use request_scheduler::{
     get_server_key, is_blob_uri, is_data_uri, RequestScheduler, RequestSchedulerStatistics,
 };
+pub use s2_cell::S2Cell;
 pub use scalar::{HeadingPitchRange, NearFarScalar};
 pub use show_geometry_instance_attribute::ShowGeometryInstanceAttribute;
 pub use simple_polyline_geometry::{SimplePolylineGeometry, SimplePolylineGeometryOptions};
