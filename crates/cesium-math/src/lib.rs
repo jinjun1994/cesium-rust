@@ -45,6 +45,7 @@ mod oriented_bounding_box;
 mod plane;
 mod plane_geometry;
 mod pixel_format;
+mod polygon_geometry;
 mod polygon_geometry_library;
 mod polygon_outline_geometry;
 mod polygon_pipeline;
@@ -131,6 +132,9 @@ pub use oriented_bounding_box::OrientedBoundingBox;
 pub use plane::Plane;
 pub use plane_geometry::{PlaneGeometry, PlaneOutlineGeometry};
 pub use pixel_format::{PixelDatatype, PixelFormat};
+pub use polygon_geometry::{
+    PolygonGeometry, PolygonGeometryFromPositionsOptions, PolygonGeometryOptions,
+};
 pub use polygon_geometry_library::PolygonGeometryLibrary;
 pub use polygon_outline_geometry::{
     PolygonOutlineGeometry, PolygonOutlineGeometryFromPositionsOptions,
