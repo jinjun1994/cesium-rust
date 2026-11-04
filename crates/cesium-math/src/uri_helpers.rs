@@ -1,5 +1,30 @@
+use crate::DeveloperError;
 use std::collections::BTreeMap;
 use std::fmt::Write;
+use url::Url;
+
+/// Given a relative Uri and a base Uri, returns the absolute Uri of the relative Uri.
+pub fn get_absolute_uri(relative: &str, base: Option<&str>) -> Result<String, DeveloperError> {
+    if relative.is_empty() {
+        return Ok(String::new());
+    }
+    if let Ok(parsed) = Url::parse(relative) {
+        if !parsed.scheme().is_empty() {
+            return Ok(parsed.to_string());
+        }
+    }
+
+    if let Some(base_str) = base {
+        let base_url = Url::parse(base_str)
+            .map_err(|_| DeveloperError::new("Invalid base URI"))?;
+        let joined = base_url
+            .join(relative)
+            .map_err(|_| DeveloperError::new("Failed to resolve relative URI"))?;
+        Ok(joined.to_string())
+    } else {
+        Ok(relative.to_string())
+    }
+}
 
 /// Given a URI, returns the base path of the URI.
 pub fn get_base_uri(uri: &str, include_query: bool) -> String {

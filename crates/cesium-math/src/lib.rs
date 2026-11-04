@@ -12,7 +12,9 @@ mod bounding_rectangle;
 mod box_geometry;
 mod cartesian;
 mod catmull_rom_spline;
+mod check;
 mod circle_geometry;
+mod clone_util;
 mod color;
 mod color_geometry_instance_attribute;
 mod combine;
@@ -24,6 +26,7 @@ mod corridor_geometry_library;
 mod create_guid;
 mod culling_volume;
 mod cylinder_geometry;
+mod defined;
 mod distance_display_condition;
 mod distance_display_condition_geometry_instance_attribute;
 mod double_ended_priority_queue;
@@ -105,6 +108,7 @@ mod uri_helpers;
 mod vertex_format;
 mod vertical_exaggeration;
 mod wall_geometry;
+mod warnings;
 mod winding_order;
 pub use array_remove_duplicates::array_remove_duplicates;
 pub use associative_array::AssociativeArray;
@@ -119,7 +123,9 @@ pub use bounding_rectangle::BoundingRectangle;
 pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
 pub use cartesian::{Cartesian2, Cartesian3, Cartesian4};
 pub use catmull_rom_spline::CatmullRomSpline;
+pub use check::Check;
 pub use circle_geometry::{CircleGeometry, CircleOutlineGeometry};
+pub use clone_util::clone_value;
 pub use color::Color;
 pub use color_geometry_instance_attribute::ColorGeometryInstanceAttribute;
 pub use combine::combine;
@@ -138,6 +144,7 @@ pub use corridor_geometry_library::{
 pub use create_guid::create_guid;
 pub use culling_volume::{BoundingVolume, CullingVolume, Intersect};
 pub use cylinder_geometry::{CylinderGeometry, CylinderOutlineGeometry};
+pub use defined::defined;
 pub use distance_display_condition::DistanceDisplayCondition;
 pub use distance_display_condition_geometry_instance_attribute::DistanceDisplayConditionGeometryInstanceAttribute;
 pub use double_ended_priority_queue::DoubleEndedPriorityQueue;
@@ -245,12 +252,13 @@ pub use tridiagonal_system_solver::TridiagonalSystemSolver;
 pub use translation_rotation_scale::TranslationRotationScale;
 pub use typed_array_helpers::{get_json_from_typed_array, get_string_from_typed_array};
 pub use uri_helpers::{
-    get_base_uri, get_extension_from_uri, get_filename_from_uri, object_to_query, percent_decode,
-    percent_encode, query_to_object,
+    get_absolute_uri, get_base_uri, get_extension_from_uri, get_filename_from_uri,
+    object_to_query, percent_decode, percent_encode, query_to_object,
 };
 pub use vertex_format::VertexFormat;
 pub use vertical_exaggeration::VerticalExaggeration;
 pub use wall_geometry::{WallGeometry, WallOutlineGeometry};
+pub use warnings::{deprecation_warning, one_time_warning, reset_warnings};
 pub use winding_order::WindingOrder;
 
 pub const WGS84_A: f64 = 6_378_137.0;

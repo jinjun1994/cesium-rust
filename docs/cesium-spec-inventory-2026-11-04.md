@@ -120,7 +120,7 @@
 | [packages/core/Specs/Cartesian4Spec.js](../../cesium/packages/core/Specs/Cartesian4Spec.js) | 已移植：构造、打包、四则运算、模长、Color 互转与插值（cartesian_spec.rs） |
 | [packages/core/Specs/CartographicSpec.js](../../cesium/packages/core/Specs/CartographicSpec.js) | 部分：WGS84 参考点及正负高度；其余待核对 |
 | [packages/core/Specs/CatmullRomSplineSpec.js](../../cesium/packages/core/Specs/CatmullRomSplineSpec.js) | 已移植：Catmull-Rom 三次样条曲线、端点切线自动推导与外部注入、Hermite 混合边界求值（catmull_rom_spline_spec.rs） |
-| [packages/core/Specs/CheckSpec.js](../../cesium/packages/core/Specs/CheckSpec.js) | 待逐项核对 |
+| [packages/core/Specs/CheckSpec.js](../../cesium/packages/core/Specs/CheckSpec.js) | 已移植：参数前置条件类型检查（Check::defined, Check::type_of_number, Check::type_of_bool）（check_spec.rs） |
 | [packages/core/Specs/CircleGeometrySpec.js](../../cesium/packages/core/Specs/CircleGeometrySpec.js) | 已移植：圆几何多边形剖分、顶点属性生成、退化参数校验与包围球计算（circle_geometry_spec.rs） |
 | [packages/core/Specs/CircleOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CircleOutlineGeometrySpec.js) | 已移植：圆周线框、拉伸圆柱线框、垂直连接线定制与退化参数校验（circle_geometry_spec.rs） |
 | [packages/core/Specs/ClockSpec.js](../../cesium/packages/core/Specs/ClockSpec.js) | 部分：时间范围和暂停；JulianDate、ClockStep、事件等待实现 |
@@ -229,12 +229,12 @@
 | [packages/core/Specs/arrayRemoveDuplicatesSpec.js](../../cesium/packages/core/Specs/arrayRemoveDuplicatesSpec.js) | 已移植：数组相邻重复项去除（ε容差去重、首尾闭合环绕去重与删除索引数组追踪）（array_remove_duplicates_spec.rs） |
 | [packages/core/Specs/barycentricCoordinatesSpec.js](../../cesium/packages/core/Specs/barycentricCoordinatesSpec.js) | 已移植：2D/3D 三角形顶点、边缘与内部重心坐标计算、退化共线判定（barycentric_coordinates_spec.rs） |
 | [packages/core/Specs/binarySearchSpec.js](../../cesium/packages/core/Specs/binarySearchSpec.js) | 已移植：有序序列二分查找（命中索引、未命中按按位取反~返回插入点、支持自定义比较器）（binary_search_spec.rs） |
-| [packages/core/Specs/cloneSpec.js](../../cesium/packages/core/Specs/cloneSpec.js) | 待逐项核对 |
+| [packages/core/Specs/cloneSpec.js](../../cesium/packages/core/Specs/cloneSpec.js) | 已移植：JSON 结构深克隆与浅克隆（clone_spec.rs） |
 | [packages/core/Specs/combineSpec.js](../../cesium/packages/core/Specs/combineSpec.js) | 已移植：JSON 对象浅层/深层递归合并，冲突键优先级与空值处理（combine_spec.rs） |
 | [packages/core/Specs/createGuidSpec.js](../../cesium/packages/core/Specs/createGuidSpec.js) | 已移植：RFC 4122 v4 UUID 生成器与格式校验（create_guid_spec.rs） |
-| [packages/core/Specs/definedSpec.js](../../cesium/packages/core/Specs/definedSpec.js) | 待逐项核对 |
-| [packages/core/Specs/deprecationWarningSpec.js](../../cesium/packages/core/Specs/deprecationWarningSpec.js) | 待逐项核对 |
-| [packages/core/Specs/getAbsoluteUriSpec.js](../../cesium/packages/core/Specs/getAbsoluteUriSpec.js) | 待逐项核对 |
+| [packages/core/Specs/definedSpec.js](../../cesium/packages/core/Specs/definedSpec.js) | 已移植：变量是否已定义判定（defined_spec.rs） |
+| [packages/core/Specs/deprecationWarningSpec.js](../../cesium/packages/core/Specs/deprecationWarningSpec.js) | 已移植：废弃接口警告单次输出机制与防重复计数（deprecation_warning_spec.rs） |
+| [packages/core/Specs/getAbsoluteUriSpec.js](../../cesium/packages/core/Specs/getAbsoluteUriSpec.js) | 已移植：相对 URI 基于 Base URI 转换为绝对 URI（get_absolute_uri_spec.rs） |
 | [packages/core/Specs/getBaseUriSpec.js](../../cesium/packages/core/Specs/getBaseUriSpec.js) | 已移植：基础 URI 路径提取、查询参数与锚点分离保留（get_base_uri_spec.rs） |
 | [packages/core/Specs/getExtensionFromUriSpec.js](../../cesium/packages/core/Specs/getExtensionFromUriSpec.js) | 已移植：URI 扩展名解析与小写化、忽略查询参数与片段（get_extension_from_uri_spec.rs） |
 | [packages/core/Specs/getFilenameFromUriSpec.js](../../cesium/packages/core/Specs/getFilenameFromUriSpec.js) | 已移植：URI 文件名提取、斜杠结尾与参数清洗（get_filename_from_uri_spec.rs） |
@@ -243,7 +243,7 @@
 | [packages/core/Specs/isLeapYearSpec.js](../../cesium/packages/core/Specs/isLeapYearSpec.js) | 已移植：公历闰年判定（4年一闰、百年不闰、四百年又闰）（is_leap_year_spec.rs） |
 | [packages/core/Specs/mergeSortSpec.js](../../cesium/packages/core/Specs/mergeSortSpec.js) | 已移植：稳定归并排序（数值排序、同键稳定性、自定义对象包围球距离排序）（merge_sort_spec.rs） |
 | [packages/core/Specs/objectToQuerySpec.js](../../cesium/packages/core/Specs/objectToQuerySpec.js) | 已移植：URL 查询参数序列化、空值跳过与数组多值编码（object_to_query_spec.rs） |
-| [packages/core/Specs/oneTimeWarningSpec.js](../../cesium/packages/core/Specs/oneTimeWarningSpec.js) | 待逐项核对 |
+| [packages/core/Specs/oneTimeWarningSpec.js](../../cesium/packages/core/Specs/oneTimeWarningSpec.js) | 已移植：一次性警告去重触发器与标识符校验（one_time_warning_spec.rs） |
 | [packages/core/Specs/pointInsideTriangleSpec.js](../../cesium/packages/core/Specs/pointInsideTriangleSpec.js) | 已移植：2D/3D 点在三角形内部判定（严格内部/顶点/边线边界测试）（point_inside_triangle_spec.rs） |
 | [packages/core/Specs/queryToObjectSpec.js](../../cesium/packages/core/Specs/queryToObjectSpec.js) | 已移植：URL 查询字符串解析反序列化为键值/列表映射、支持分号分隔与百分比解码（object_to_query_spec.rs） |
 | [packages/core/Specs/srgbToLinearSpec.js](../../cesium/packages/core/Specs/srgbToLinearSpec.js) | 已移植：sRGB 颜色空间到线性色彩空间非线性转换（srgb_to_linear_spec.rs） |
