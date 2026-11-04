@@ -134,6 +134,7 @@ impl BoxGeometry {
                 attributes,
                 indices,
                 primitive_type: PrimitiveType::Triangles,
+                bounding_sphere: None,
             })
         } else {
             // Optimized position only: 8 corners, 12 triangles
@@ -168,6 +169,7 @@ impl BoxGeometry {
                 attributes,
                 indices,
                 primitive_type: PrimitiveType::Triangles,
+                bounding_sphere: None,
             })
         }
     }
@@ -236,6 +238,7 @@ impl BoxOutlineGeometry {
             attributes,
             indices,
             primitive_type: PrimitiveType::Lines,
+            bounding_sphere: None,
         })
     }
 }

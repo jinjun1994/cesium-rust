@@ -1,6 +1,8 @@
 //! Core geometry representations matching CesiumJS `Core/Geometry`, `Core/GeometryAttribute`, `Core/PrimitiveType`, and `Core/ComponentDatatype`.
 //! Adapted from CesiumJS (Apache-2.0).
 
+use crate::BoundingSphere;
+
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub enum PrimitiveType {
     Points = 0,
@@ -56,4 +58,5 @@ pub struct Geometry {
     pub attributes: GeometryAttributes,
     pub indices: Vec<u32>,
     pub primitive_type: PrimitiveType,
+    pub bounding_sphere: Option<BoundingSphere>,
 }

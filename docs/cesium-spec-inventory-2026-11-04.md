@@ -97,8 +97,8 @@
 | [packages/core/Specs/CartographicSpec.js](../../cesium/packages/core/Specs/CartographicSpec.js) | 部分：WGS84 参考点及正负高度；其余待核对 |
 | [packages/core/Specs/CatmullRomSplineSpec.js](../../cesium/packages/core/Specs/CatmullRomSplineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/CheckSpec.js](../../cesium/packages/core/Specs/CheckSpec.js) | 待逐项核对 |
-| [packages/core/Specs/CircleGeometrySpec.js](../../cesium/packages/core/Specs/CircleGeometrySpec.js) | 待逐项核对 |
-| [packages/core/Specs/CircleOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CircleOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/CircleGeometrySpec.js](../../cesium/packages/core/Specs/CircleGeometrySpec.js) | 已移植：圆几何多边形剖分、顶点属性生成、退化参数校验与包围球计算（circle_geometry_spec.rs） |
+| [packages/core/Specs/CircleOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CircleOutlineGeometrySpec.js) | 已移植：圆周线框、拉伸圆柱线框、垂直连接线定制与退化参数校验（circle_geometry_spec.rs） |
 | [packages/core/Specs/ClockSpec.js](../../cesium/packages/core/Specs/ClockSpec.js) | 部分：时间范围和暂停；JulianDate、ClockStep、事件等待实现 |
 | [packages/core/Specs/ColorGeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/ColorGeometryInstanceAttributeSpec.js) | 待逐项核对 |
 | [packages/core/Specs/ColorSpec.js](../../cesium/packages/core/Specs/ColorSpec.js) | 已移植：常量色表、RGBA/Bytes 转换、CSS 解析、亮暗调整与打包（color_spec.rs） |
@@ -116,8 +116,8 @@
 | [packages/core/Specs/DeveloperErrorSpec.js](../../cesium/packages/core/Specs/DeveloperErrorSpec.js) | 待逐项核对 |
 | [packages/core/Specs/DistanceDisplayConditionGeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/DistanceDisplayConditionGeometryInstanceAttributeSpec.js) | 待逐项核对 |
 | [packages/core/Specs/DistanceDisplayConditionSpec.js](../../cesium/packages/core/Specs/DistanceDisplayConditionSpec.js) | 待逐项核对 |
-| [packages/core/Specs/EllipseGeometrySpec.js](../../cesium/packages/core/Specs/EllipseGeometrySpec.js) | 待逐项核对 |
-| [packages/core/Specs/EllipseOutlineGeometrySpec.js](../../cesium/packages/core/Specs/EllipseOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/EllipseGeometrySpec.js](../../cesium/packages/core/Specs/EllipseGeometrySpec.js) | 已移植：椭球表面椭圆扇形网格剖分、顶点与法线生成、长短半轴校验（ellipse_geometry_spec.rs） |
+| [packages/core/Specs/EllipseOutlineGeometrySpec.js](../../cesium/packages/core/Specs/EllipseOutlineGeometrySpec.js) | 已移植：椭圆轮廓采样、拉伸轮廓、线框图元顶点与索引生成（ellipse_geometry_spec.rs） |
 | [packages/core/Specs/EllipsoidGeodesicSpec.js](../../cesium/packages/core/Specs/EllipsoidGeodesicSpec.js) | 待逐项核对 |
 | [packages/core/Specs/EllipsoidGeometrySpec.js](../../cesium/packages/core/Specs/EllipsoidGeometrySpec.js) | 已移植：三轴椭球分片网格生成、顶点与三角形索引、负/零半径校验（ellipsoid_geometry_spec.rs） |
 | [packages/core/Specs/EllipsoidOutlineGeometrySpec.js](../../cesium/packages/core/Specs/EllipsoidOutlineGeometrySpec.js) | 已移植：三轴椭球经纬线框顶点与索引生成（ellipsoid_geometry_spec.rs） |

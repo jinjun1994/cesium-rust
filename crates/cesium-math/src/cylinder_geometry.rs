@@ -134,6 +134,7 @@ impl CylinderGeometry {
             attributes,
             indices,
             primitive_type: PrimitiveType::Triangles,
+            bounding_sphere: None,
         })
     }
 }
@@ -248,6 +249,7 @@ impl CylinderOutlineGeometry {
             attributes,
             indices,
             primitive_type: PrimitiveType::Lines,
+            bounding_sphere: None,
         })
     }
 }

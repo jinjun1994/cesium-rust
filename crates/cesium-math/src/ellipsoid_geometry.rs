@@ -195,6 +195,7 @@ impl EllipsoidGeometry {
             attributes,
             indices,
             primitive_type: PrimitiveType::Triangles,
+            bounding_sphere: None,
         })
     }
 }
@@ -369,6 +370,7 @@ impl EllipsoidOutlineGeometry {
             attributes,
             indices,
             primitive_type: PrimitiveType::Lines,
+            bounding_sphere: None,
         })
     }
 }

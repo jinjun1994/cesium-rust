@@ -5,6 +5,7 @@ mod axis_aligned_bounding_box;
 mod bounding_rectangle;
 mod box_geometry;
 mod cartesian;
+mod circle_geometry;
 mod color;
 mod core_math;
 mod culling_volume;
@@ -13,6 +14,7 @@ mod ellipsoid;
 mod ellipsoid_geometry;
 mod ellipsoid_tangent_plane;
 mod ellipsoidal_occluder;
+mod ellipse_geometry;
 mod encoded_cartesian;
 mod frustum;
 mod geometry;
@@ -39,6 +41,7 @@ pub use axis_aligned_bounding_box::AxisAlignedBoundingBox;
 pub use bounding_rectangle::BoundingRectangle;
 pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
 pub use cartesian::{Cartesian2, Cartesian3, Cartesian4};
+pub use circle_geometry::{CircleGeometry, CircleOutlineGeometry};
 pub use color::Color;
 pub use core_math::*;
 pub use culling_volume::{BoundingVolume, CullingVolume};
@@ -47,6 +50,7 @@ pub use ellipsoid::Ellipsoid;
 pub use ellipsoid_geometry::{EllipsoidGeometry, EllipsoidOutlineGeometry};
 pub use ellipsoid_tangent_plane::EllipsoidTangentPlane;
 pub use ellipsoidal_occluder::EllipsoidalOccluder;
+pub use ellipse_geometry::{EllipseGeometry, EllipseOutlineGeometry};
 pub use encoded_cartesian::EncodedCartesian3;
 pub use frustum::{
     OrthographicFrustum, OrthographicOffCenterFrustum, PerspectiveFrustum,
@@ -318,12 +322,21 @@ pub fn reverse_z(fovy: f64, aspect: f64, near: f64) -> Result<Mat4, MathError> {
     ))
 }
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Sphere {
     pub center: DVec3,
     pub radius: f64,
 }
+
+pub type BoundingSphere = Sphere;
+
 impl Sphere {
+    pub fn new(center: impl Into<DVec3>, radius: f64) -> Self {
+        Self {
+            center: center.into(),
+            radius,
+        }
+    }
     pub fn transformed(self, m: DMat4) -> Self {
         Self {
             center: m.transform_point3(self.center),

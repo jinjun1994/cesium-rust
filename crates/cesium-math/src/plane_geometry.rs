@@ -120,6 +120,7 @@ impl PlaneGeometry {
             attributes,
             indices,
             primitive_type: PrimitiveType::Triangles,
+            bounding_sphere: None,
         })
     }
 }
@@ -163,6 +164,7 @@ impl PlaneOutlineGeometry {
             attributes,
             indices,
             primitive_type: PrimitiveType::Lines,
+            bounding_sphere: None,
         })
     }
 }
