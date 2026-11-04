@@ -289,7 +289,7 @@
 | [packages/engine/Specs/Core/QuantizedMeshTerrainDataSpec.js](../../cesium/packages/engine/Specs/Core/QuantizedMeshTerrainDataSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/RectangleCollisionCheckerSpec.js](../../cesium/packages/engine/Specs/Core/RectangleCollisionCheckerSpec.js) | 已移植：2D 矩形碰撞判定树、重叠检测、动态插入与删除（rectangle_collision_checker_spec.rs） |
 | [packages/engine/Specs/Core/RequestErrorEventSpec.js](../../cesium/packages/engine/Specs/Core/RequestErrorEventSpec.js) | 已移植：请求错误事件封装、响应头与状态码解析、克隆与字符串格式化（request_error_event_spec.rs） |
-| [packages/engine/Specs/Core/RequestSchedulerSpec.js](../../cesium/packages/engine/Specs/Core/RequestSchedulerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/RequestSchedulerSpec.js](../../cesium/packages/engine/Specs/Core/RequestSchedulerSpec.js) | 已移植：异步请求优先级调度器、服务器并发限制与分流、动态优先级更新与重排、请求淘汰与取消统计、完成事件通知（request_scheduler_spec.rs） |
 | [packages/engine/Specs/Core/RequestSpec.js](../../cesium/packages/engine/Specs/Core/RequestSpec.js) | 已移植：资源请求任务封装、优先级与取消处理、请求状态流转与克隆（request_spec.rs） |
 | [packages/engine/Specs/Core/ResourceSpec.js](../../cesium/packages/engine/Specs/Core/ResourceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/S2CellSpec.js](../../cesium/packages/engine/Specs/Core/S2CellSpec.js) | 待逐项核对 |

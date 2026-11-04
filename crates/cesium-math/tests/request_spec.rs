@@ -9,6 +9,7 @@ fn test_request_constructor_properties() {
         throttle_by_server: true,
         request_type: RequestType::IMAGERY,
         server_key: Some("customKey".to_string()),
+        ..Default::default()
     };
 
     let request = Request::new(options);
@@ -40,6 +41,7 @@ fn test_request_clone() {
         throttle_by_server: true,
         request_type: RequestType::IMAGERY,
         server_key: Some("customKey".to_string()),
+        ..Default::default()
     };
 
     let request = Request::new(options);
@@ -62,6 +64,7 @@ fn test_request_clone_into() {
         throttle_by_server: true,
         request_type: RequestType::IMAGERY,
         server_key: Some("customKey".to_string()),
+        ..Default::default()
     };
 
     let options2 = RequestOptions {
@@ -71,6 +74,7 @@ fn test_request_clone_into() {
         throttle_by_server: false,
         request_type: RequestType::TERRAIN,
         server_key: Some("updatedKey".to_string()),
+        ..Default::default()
     };
 
     let mut request1 = Request::new(options1);
