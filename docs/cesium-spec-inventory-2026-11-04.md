@@ -47,6 +47,7 @@
 - `time_constants`、`julian_date`、`time_interval` 及 `julian_date_spec.rs`、`time_interval_spec.rs`：对齐 `TimeConstants` 常量表、官方 28 条历次闰秒表（`LEAP_SECONDS`）、UTC/TAI 真实双向闰秒补偿转换（`JulianDate`）、天文算法年月日与儒略日高精互转（`GregorianDate`、ISO 8601 解析与输出）、`TimeInterval` 区间包含与相交测试（`intersect`、端点开闭与判空）。
 - `encoded_cartesian` 及 `encoded_cartesian3_spec.rs`：对齐 `EncodedCartesian3` 高精度拆分编码（`encode` 65536 阶跃）、从 `Cartesian3` 生成高低位向量及向顶点属性交错写入浮点数组（`write_elements`）。
 - `geometry`、`vertex_format`、`box_geometry` 及 `vertex_format_spec.rs`、`box_geometry_spec.rs`、`box_outline_geometry_spec.rs`：对齐 `VertexFormat` 顶点属性位掩码与常量/打包解包；对齐几何属性缓冲（`GeometryAttribute`、`Geometry`、`PrimitiveType`）；对齐 `BoxGeometry`（仅位置 8 顶点与全属性 24 独立顶点网格生成）和 `BoxOutlineGeometry`（12 边线框图元）。
+- `plane_geometry`、`ellipsoid_geometry`、`sphere_geometry` 及 `plane_geometry_spec.rs`、`sphere_geometry_spec.rs`、`ellipsoid_geometry_spec.rs`：对齐 `PlaneGeometry`（4 顶点 2 三角形网格、法线/切线/纹理属性）与 `PlaneOutlineGeometry`（4 边线框）；对齐 `EllipsoidGeometry`（参数化三轴椭球分片堆栈划分、三角形网格与法线/纹理属性生成）与 `EllipsoidOutlineGeometry`（经纬度分段线框）；对齐 `SphereGeometry` 与 `SphereOutlineGeometry`（等半径球体及其线框图元）。
 全部通过 `cargo test -p cesium-math` 真实测试，Clippy 无警告，支持 `wasm32-unknown-unknown` 编译。
 
 新增 `EllipsoidTangentPlane`，支持由原点或点集构造、径向和法向投影、批量投影及径向投回椭球；`ellipsoid_tangent_plane_spec.rs` 覆盖上游单位球和 WGS84 往返用例。非有限输入使用 `Option`/`Result`，空点集或无法投影到地表时构造失败；上游零半径椭球用例及对象复用行为尚未等价验证。
@@ -117,8 +118,8 @@
 | [packages/core/Specs/EllipseGeometrySpec.js](../../cesium/packages/core/Specs/EllipseGeometrySpec.js) | 待逐项核对 |
 | [packages/core/Specs/EllipseOutlineGeometrySpec.js](../../cesium/packages/core/Specs/EllipseOutlineGeometrySpec.js) | 待逐项核对 |
 | [packages/core/Specs/EllipsoidGeodesicSpec.js](../../cesium/packages/core/Specs/EllipsoidGeodesicSpec.js) | 待逐项核对 |
-| [packages/core/Specs/EllipsoidGeometrySpec.js](../../cesium/packages/core/Specs/EllipsoidGeometrySpec.js) | 待逐项核对 |
-| [packages/core/Specs/EllipsoidOutlineGeometrySpec.js](../../cesium/packages/core/Specs/EllipsoidOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/EllipsoidGeometrySpec.js](../../cesium/packages/core/Specs/EllipsoidGeometrySpec.js) | 已移植：三轴椭球分片网格生成、顶点与三角形索引、负/零半径校验（ellipsoid_geometry_spec.rs） |
+| [packages/core/Specs/EllipsoidOutlineGeometrySpec.js](../../cesium/packages/core/Specs/EllipsoidOutlineGeometrySpec.js) | 已移植：三轴椭球经纬线框顶点与索引生成（ellipsoid_geometry_spec.rs） |
 | [packages/core/Specs/EllipsoidRhumbLineSpec.js](../../cesium/packages/core/Specs/EllipsoidRhumbLineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/EllipsoidSpec.js](../../cesium/packages/core/Specs/EllipsoidSpec.js) | 部分：构造、法线、转换、投影、轴交点、曲率及面积；数组/pack 与其他情况待核对 |
 | [packages/core/Specs/EllipsoidTangentPlaneSpec.js](../../cesium/packages/core/Specs/EllipsoidTangentPlaneSpec.js) | 部分：构造、单点/批量投影及 WGS84 往返；零半径及 JS 对象语义待核对 |
@@ -159,8 +160,8 @@
 | [packages/core/Specs/PerspectiveFrustumSpec.js](../../cesium/packages/core/Specs/PerspectiveFrustumSpec.js) | 部分：视角、偏移、投影、像素尺寸与裁剪；pack/比较及 JS 语义待补齐 |
 | [packages/core/Specs/PerspectiveOffCenterFrustumSpec.js](../../cesium/packages/core/Specs/PerspectiveOffCenterFrustumSpec.js) | 部分：投影、像素尺寸与裁剪；比较及 JS 语义待补齐 |
 | [packages/core/Specs/PixelFormatSpec.js](../../cesium/packages/core/Specs/PixelFormatSpec.js) | 待逐项核对 |
-| [packages/core/Specs/PlaneGeometrySpec.js](../../cesium/packages/core/Specs/PlaneGeometrySpec.js) | 待逐项核对 |
-| [packages/core/Specs/PlaneOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PlaneOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/PlaneGeometrySpec.js](../../cesium/packages/core/Specs/PlaneGeometrySpec.js) | 已移植：单面 4 顶点 2 三角形网格、全属性（法线/切线/副切线/纹理）（plane_geometry_spec.rs） |
+| [packages/core/Specs/PlaneOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PlaneOutlineGeometrySpec.js) | 已移植：矩形 4 边线框图元顶点与索引生成（plane_geometry_spec.rs） |
 | [packages/core/Specs/PlaneSpec.js](../../cesium/packages/core/Specs/PlaneSpec.js) | 部分：构造、距离、投影、变换及比较；JS 对象复用和异常语义不同 |
 | [packages/core/Specs/PolygonGeometryLibrarySpec.js](../../cesium/packages/core/Specs/PolygonGeometryLibrarySpec.js) | 待逐项核对 |
 | [packages/core/Specs/PolygonGeometrySpec.js](../../cesium/packages/core/Specs/PolygonGeometrySpec.js) | 待逐项核对 |
@@ -184,8 +185,8 @@
 | [packages/core/Specs/RuntimeErrorSpec.js](../../cesium/packages/core/Specs/RuntimeErrorSpec.js) | 待逐项核对 |
 | [packages/core/Specs/ShowGeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/ShowGeometryInstanceAttributeSpec.js) | 待逐项核对 |
 | [packages/core/Specs/SimplePolylineGeometrySpec.js](../../cesium/packages/core/Specs/SimplePolylineGeometrySpec.js) | 待逐项核对 |
-| [packages/core/Specs/SphereGeometrySpec.js](../../cesium/packages/core/Specs/SphereGeometrySpec.js) | 待逐项核对 |
-| [packages/core/Specs/SphereOutlineGeometrySpec.js](../../cesium/packages/core/Specs/SphereOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/SphereGeometrySpec.js](../../cesium/packages/core/Specs/SphereGeometrySpec.js) | 已移植：等半径球体网格、分片划分（3x3 -> 36 顶点 18 三角形）、零半径退化（sphere_geometry_spec.rs） |
+| [packages/core/Specs/SphereOutlineGeometrySpec.js](../../cesium/packages/core/Specs/SphereOutlineGeometrySpec.js) | 已移植：等半径球体经纬线框（2x2x2 -> 12 顶点 6 线段）、零半径退化（sphere_geometry_spec.rs） |
 | [packages/core/Specs/SphericalSpec.js](../../cesium/packages/core/Specs/SphericalSpec.js) | 待逐项核对 |
 | [packages/core/Specs/SplineSpec.js](../../cesium/packages/core/Specs/SplineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/SteppedSplineSpec.js](../../cesium/packages/core/Specs/SteppedSplineSpec.js) | 待逐项核对 |
