@@ -90,6 +90,7 @@ mod polyline_volume_geometry;
 mod polyline_volume_geometry_library;
 mod polyline_volume_outline_geometry;
 mod projection;
+mod quantized_mesh_terrain_data;
 mod quaternion;
 mod quaternion_spline;
 mod queue;
@@ -268,6 +269,7 @@ pub use polyline_volume_outline_geometry::{
     PolylineVolumeOutlineGeometry, PolylineVolumeOutlineGeometryOptions,
 };
 pub use projection::{GeographicProjection, MapProjection, WebMercatorProjection};
+pub use quantized_mesh_terrain_data::{QuantizedMeshTerrainData, QuantizedMeshTerrainDataOptions};
 pub use quaternion::{HeadingPitchRoll, Quaternion};
 pub use quaternion_spline::QuaternionSpline;
 pub use queue::Queue;
