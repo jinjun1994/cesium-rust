@@ -34,6 +34,7 @@ mod errors;
 mod frustum;
 mod frustum_geometry;
 mod geometry;
+mod geometry_pipeline;
 mod hermite_spline;
 mod index_datatype;
 mod intersections;
@@ -52,6 +53,9 @@ mod polygon_pipeline;
 mod polynomial;
 mod polyline_geometry;
 mod polyline_pipeline;
+mod polyline_volume_geometry;
+mod polyline_volume_geometry_library;
+mod polyline_volume_outline_geometry;
 mod projection;
 mod quaternion;
 mod queue;
@@ -119,6 +123,7 @@ pub use geometry::{
     ArcType, ComponentDatatype, CornerType, Geometry, GeometryAttribute, GeometryAttributes,
     GeometryOffsetAttribute, PrimitiveType,
 };
+pub use geometry_pipeline::GeometryPipeline;
 pub use index_datatype::{IndexBuffer, IndexDatatype};
 pub use intersections::{
     grazing_altitude_location, line_segment_plane, line_segment_sphere, line_segment_triangle,
@@ -150,6 +155,11 @@ pub use polynomial::{
 pub use polyline_geometry::{PolylineGeometry, PolylineGeometryOptions};
 pub use polyline_pipeline::{
     PolylineArcOptions, PolylineHeight, PolylinePipeline, PolylineSegments,
+};
+pub use polyline_volume_geometry::{PolylineVolumeGeometry, PolylineVolumeGeometryOptions};
+pub use polyline_volume_geometry_library::PolylineVolumeGeometryLibrary;
+pub use polyline_volume_outline_geometry::{
+    PolylineVolumeOutlineGeometry, PolylineVolumeOutlineGeometryOptions,
 };
 pub use projection::{GeographicProjection, MapProjection, WebMercatorProjection};
 pub use quaternion::{HeadingPitchRoll, Quaternion};
