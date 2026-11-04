@@ -2,6 +2,7 @@
 use glam::{DMat3, DMat4, DVec3, Mat4, Vec4};
 use thiserror::Error;
 mod associative_array;
+mod attribute_type;
 mod axis_aligned_bounding_box;
 mod bounding_rectangle;
 mod box_geometry;
@@ -30,6 +31,7 @@ mod errors;
 mod frustum;
 mod frustum_geometry;
 mod geometry;
+mod index_datatype;
 mod intersections;
 mod julian_date;
 mod matrices;
@@ -37,6 +39,7 @@ mod occluder;
 mod oriented_bounding_box;
 mod plane;
 mod plane_geometry;
+mod pixel_format;
 mod polynomial;
 mod polyline_geometry;
 mod projection;
@@ -56,6 +59,7 @@ mod tiling;
 mod vertex_format;
 mod wall_geometry;
 pub use associative_array::AssociativeArray;
+pub use attribute_type::AttributeType;
 pub use axis_aligned_bounding_box::AxisAlignedBoundingBox;
 pub use bounding_rectangle::BoundingRectangle;
 pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
@@ -97,6 +101,7 @@ pub use geometry::{
     ArcType, ComponentDatatype, CornerType, Geometry, GeometryAttribute, GeometryAttributes,
     GeometryOffsetAttribute, PrimitiveType,
 };
+pub use index_datatype::{IndexBuffer, IndexDatatype};
 pub use intersections::{
     grazing_altitude_location, line_segment_plane, line_segment_sphere, line_segment_triangle,
     ray_axis_aligned_box, ray_plane, ray_sphere, ray_triangle, ray_triangle_parametric,
@@ -108,6 +113,7 @@ pub use occluder::{Occluder, Visibility};
 pub use oriented_bounding_box::OrientedBoundingBox;
 pub use plane::Plane;
 pub use plane_geometry::{PlaneGeometry, PlaneOutlineGeometry};
+pub use pixel_format::{PixelDatatype, PixelFormat};
 pub use polynomial::{
     cubic_discriminant, cubic_real_roots, quadratic_discriminant, quadratic_real_roots,
     quartic_discriminant, quartic_real_roots, CubicRealPolynomial, QuadraticRealPolynomial,

@@ -129,6 +129,9 @@ pub fn negative_pi_to_pi(angle: f64) -> f64 {
     }
 }
 
+pub const SIXTY_FOUR_KILOBYTES: usize = 65536;
+pub const SIXTY_FOUR_KILOBYTES_F64: f64 = 65536.0;
+
 #[inline]
 pub fn zero_to_two_pi(angle: f64) -> f64 {
     if (0.0..TWO_PI).contains(&angle) {

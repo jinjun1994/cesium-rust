@@ -85,7 +85,7 @@
 | --- | --- |
 | [packages/core/Specs/AssociativeArraySpec.js](../../cesium/packages/core/Specs/AssociativeArraySpec.js) | 已移植：关联数组键值映射、数组高效迭代、增删查改、清空与键存在性校验（associative_array_spec.rs） |
 | [packages/core/Specs/AttributeCompressionSpec.js](../../cesium/packages/core/Specs/AttributeCompressionSpec.js) | 待逐项核对 |
-| [packages/core/Specs/AttributeTypeSpec.js](../../cesium/packages/core/Specs/AttributeTypeSpec.js) | 待逐项核对 |
+| [packages/core/Specs/AttributeTypeSpec.js](../../cesium/packages/core/Specs/AttributeTypeSpec.js) | 已移植：顶点与3D Tiles属性类型（标量/向量/矩阵）、GLSL类型名映射、分量计数及着色器位置数量（attribute_type_spec.rs） |
 | [packages/core/Specs/AxisAlignedBoundingBoxSpec.js](../../cesium/packages/core/Specs/AxisAlignedBoundingBoxSpec.js) | 部分：构造、点集、相等、平面及盒相交；JS 对象复用及异常语义不同 |
 | [packages/core/Specs/BoundingRectangleSpec.js](../../cesium/packages/core/Specs/BoundingRectangleSpec.js) | 部分：构造、投影、合并、扩展、相交、打包；JS 对象复用和异常语义不同 |
 | [packages/core/Specs/BoundingSphereSpec.js](../../cesium/packages/core/Specs/BoundingSphereSpec.js) | 部分：点/顶点/编码/多球/矩形/定向盒/变换构造、合并、平面、距离、projectTo2D；其余待核对 |
@@ -140,7 +140,7 @@
 | [packages/core/Specs/HermitePolynomialApproximationSpec.js](../../cesium/packages/core/Specs/HermitePolynomialApproximationSpec.js) | 待逐项核对 |
 | [packages/core/Specs/HermiteSplineSpec.js](../../cesium/packages/core/Specs/HermiteSplineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/HilbertOrderSpec.js](../../cesium/packages/core/Specs/HilbertOrderSpec.js) | 待逐项核对 |
-| [packages/core/Specs/IndexDatatypeSpec.js](../../cesium/packages/core/Specs/IndexDatatypeSpec.js) | 待逐项核对 |
+| [packages/core/Specs/IndexDatatypeSpec.js](../../cesium/packages/core/Specs/IndexDatatypeSpec.js) | 已移植：索引数据类型（8/16/32位无符号整型）、字节大小、顶点数自动选型（64KB阈值）及ArrayBuffer重构（index_datatype_spec.rs） |
 | [packages/core/Specs/IntersectionTestsSpec.js](../../cesium/packages/core/Specs/IntersectionTestsSpec.js) | 部分：射线/线段、盒体、平面切分和掠射；其他场景待核对 |
 | [packages/core/Specs/Intersections2DSpec.js](../../cesium/packages/core/Specs/Intersections2DSpec.js) | 待逐项核对 |
 | [packages/core/Specs/IntervalSpec.js](../../cesium/packages/core/Specs/IntervalSpec.js) | 已移植：默认闭区间构造 [0, 0] 与显式闭区间构造 [start, stop]（interval_spec.rs） |
@@ -160,7 +160,7 @@
 | [packages/core/Specs/OrthographicOffCenterFrustumSpec.js](../../cesium/packages/core/Specs/OrthographicOffCenterFrustumSpec.js) | 部分：投影、像素尺寸和裁剪；比较及 JS 语义待核对 |
 | [packages/core/Specs/PerspectiveFrustumSpec.js](../../cesium/packages/core/Specs/PerspectiveFrustumSpec.js) | 部分：视角、偏移、投影、像素尺寸与裁剪；pack/比较及 JS 语义待补齐 |
 | [packages/core/Specs/PerspectiveOffCenterFrustumSpec.js](../../cesium/packages/core/Specs/PerspectiveOffCenterFrustumSpec.js) | 部分：投影、像素尺寸与裁剪；比较及 JS 语义待补齐 |
-| [packages/core/Specs/PixelFormatSpec.js](../../cesium/packages/core/Specs/PixelFormatSpec.js) | 待逐项核对 |
+| [packages/core/Specs/PixelFormatSpec.js](../../cesium/packages/core/Specs/PixelFormatSpec.js) | 已移植：像素格式与数据类型枚举、WebGL1/2内部格式转换、多通道垂直反转（flipY）（pixel_format_spec.rs） |
 | [packages/core/Specs/PlaneGeometrySpec.js](../../cesium/packages/core/Specs/PlaneGeometrySpec.js) | 已移植：单面 4 顶点 2 三角形网格、全属性（法线/切线/副切线/纹理）（plane_geometry_spec.rs） |
 | [packages/core/Specs/PlaneOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PlaneOutlineGeometrySpec.js) | 已移植：矩形 4 边线框图元顶点与索引生成（plane_geometry_spec.rs） |
 | [packages/core/Specs/PlaneSpec.js](../../cesium/packages/core/Specs/PlaneSpec.js) | 部分：构造、距离、投影、变换及比较；JS 对象复用和异常语义不同 |
