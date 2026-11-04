@@ -26,6 +26,49 @@ pub enum ComponentDatatype {
     Double = 5130,
 }
 
+impl ComponentDatatype {
+    pub const fn size_in_bytes(&self) -> usize {
+        match self {
+            Self::Byte | Self::UnsignedByte => 1,
+            Self::Short | Self::UnsignedShort => 2,
+            Self::Int | Self::UnsignedInt | Self::Float => 4,
+            Self::Double => 8,
+        }
+    }
+
+    pub fn from_name(name: &str) -> Option<Self> {
+        match name {
+            "BYTE" => Some(Self::Byte),
+            "UNSIGNED_BYTE" => Some(Self::UnsignedByte),
+            "SHORT" => Some(Self::Short),
+            "UNSIGNED_SHORT" => Some(Self::UnsignedShort),
+            "INT" => Some(Self::Int),
+            "UNSIGNED_INT" => Some(Self::UnsignedInt),
+            "FLOAT" => Some(Self::Float),
+            "DOUBLE" => Some(Self::Double),
+            _ => None,
+        }
+    }
+
+    pub fn from_value(value: u32) -> Option<Self> {
+        match value {
+            5120 => Some(Self::Byte),
+            5121 => Some(Self::UnsignedByte),
+            5122 => Some(Self::Short),
+            5123 => Some(Self::UnsignedShort),
+            5124 => Some(Self::Int),
+            5125 => Some(Self::UnsignedInt),
+            5126 => Some(Self::Float),
+            5130 => Some(Self::Double),
+            _ => None,
+        }
+    }
+
+    pub fn validate(value: u32) -> bool {
+        Self::from_value(value).is_some()
+    }
+}
+
 #[derive(Clone, Debug, PartialEq)]
 pub struct GeometryAttribute {
     pub component_datatype: ComponentDatatype,

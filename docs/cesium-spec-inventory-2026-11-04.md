@@ -100,10 +100,10 @@
 | [packages/core/Specs/CircleGeometrySpec.js](../../cesium/packages/core/Specs/CircleGeometrySpec.js) | 已移植：圆几何多边形剖分、顶点属性生成、退化参数校验与包围球计算（circle_geometry_spec.rs） |
 | [packages/core/Specs/CircleOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CircleOutlineGeometrySpec.js) | 已移植：圆周线框、拉伸圆柱线框、垂直连接线定制与退化参数校验（circle_geometry_spec.rs） |
 | [packages/core/Specs/ClockSpec.js](../../cesium/packages/core/Specs/ClockSpec.js) | 部分：时间范围和暂停；JulianDate、ClockStep、事件等待实现 |
-| [packages/core/Specs/ColorGeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/ColorGeometryInstanceAttributeSpec.js) | 待逐项核对 |
+| [packages/core/Specs/ColorGeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/ColorGeometryInstanceAttributeSpec.js) | 已移植：几何实例单体颜色属性、RGBA 字节映射、归一化与比较（color_geometry_instance_attribute_spec.rs） |
 | [packages/core/Specs/ColorSpec.js](../../cesium/packages/core/Specs/ColorSpec.js) | 已移植：常量色表、RGBA/Bytes 转换、CSS 解析、亮暗调整与打包（color_spec.rs） |
-| [packages/core/Specs/ComponentDatatypeSpec.js](../../cesium/packages/core/Specs/ComponentDatatypeSpec.js) | 待逐项核对 |
-| [packages/core/Specs/ConstantSplineSpec.js](../../cesium/packages/core/Specs/ConstantSplineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/ComponentDatatypeSpec.js](../../cesium/packages/core/Specs/ComponentDatatypeSpec.js) | 已移植：WebGL 组件数据类型字节大小、名称解析、值校验与映射（component_datatype_spec.rs） |
+| [packages/core/Specs/ConstantSplineSpec.js](../../cesium/packages/core/Specs/ConstantSplineSpec.js) | 已移植：泛型恒定值样条曲线、插值求值、周期环绕与截断（constant_spline_spec.rs） |
 | [packages/core/Specs/CoplanarPolygonGeometrySpec.js](../../cesium/packages/core/Specs/CoplanarPolygonGeometrySpec.js) | 已移植：共面任意多边形三角剖分、顶点属性（法线/切线/副切线/ST）、退化与重复点滤除及包围球计算（coplanar_polygon_geometry_spec.rs） |
 | [packages/core/Specs/CoplanarPolygonOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CoplanarPolygonOutlineGeometrySpec.js) | 已移植：共面多边形轮廓线段索引提取、闭合环线框生成与退化校验（coplanar_polygon_geometry_spec.rs） |
 | [packages/core/Specs/CorridorGeometryLibrarySpec.js](../../cesium/packages/core/Specs/CorridorGeometryLibrarySpec.js) | 待逐项核对 |
