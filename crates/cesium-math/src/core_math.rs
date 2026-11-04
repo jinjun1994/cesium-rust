@@ -33,6 +33,7 @@ pub const THREE_PI_OVER_TWO: f64 = 3.0 * PI / 2.0;
 
 pub const RADIANS_PER_DEGREE: f64 = PI / 180.0;
 pub const DEGREES_PER_RADIAN: f64 = 180.0 / PI;
+pub const RADIANS_PER_ARCSECOND: f64 = RADIANS_PER_DEGREE / 3600.0;
 
 #[inline]
 pub fn sign(value: f64) -> f64 {

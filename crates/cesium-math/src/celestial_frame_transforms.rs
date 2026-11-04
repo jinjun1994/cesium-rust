@@ -35,14 +35,23 @@ impl CelestialFrameTransforms {
             GMST_CONSTANT0 + t * (GMST_CONSTANT1 + t * (GMST_CONSTANT2 + t * GMST_CONSTANT3));
         let angle = (gmst0 * TWO_PI_OVER_SECONDS_IN_DAY) % std::f64::consts::TAU;
         let ratio = WGS84_WR_PRECESSING + RATE_COEF * (utc_day_number as f64 - 2451545.5);
-        let percent_of_day = if utc_seconds_into_day < 43200.0 {
-            utc_seconds_into_day / 86400.0 + 0.5
-        } else {
-            utc_seconds_into_day / 86400.0 - 0.5
-        };
-        let gmst = (angle + ratio * percent_of_day * 86400.0) % std::f64::consts::TAU;
+        let seconds_since_midnight =
+            (utc_seconds_into_day + 43200.0) % 86400.0;
+        let gha = angle + ratio * seconds_since_midnight;
+        let cos_gha = gha.cos();
+        let sin_gha = gha.sin();
 
-        Matrix3::from_rotation_z(gmst)
+        Matrix3::new(
+            cos_gha,
+            sin_gha,
+            0.0,
+            -sin_gha,
+            cos_gha,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+        )
     }
 
     /// Computes a rotation matrix to transform a point or vector from Moon-Fixed frame axes

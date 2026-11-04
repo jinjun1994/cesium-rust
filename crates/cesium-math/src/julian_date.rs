@@ -221,6 +221,22 @@ impl JulianDate {
         LEAP_SECONDS[index].offset
     }
 
+    pub fn now() -> Self {
+        #[cfg(not(target_arch = "wasm32"))]
+        {
+            let now = std::time::SystemTime::now();
+            let duration = now
+                .duration_since(std::time::UNIX_EPOCH)
+                .unwrap_or_default();
+            let unix_seconds = duration.as_secs_f64();
+            Self::new(2440587.5, unix_seconds, TimeStandard::UTC)
+        }
+        #[cfg(target_arch = "wasm32")]
+        {
+            Self::new(2440587.5, 0.0, TimeStandard::UTC)
+        }
+    }
+
     pub fn new(day_number: f64, mut seconds_of_day: f64, standard: TimeStandard) -> Self {
         let whole_days = day_number.floor() as i32;
         let frac_day = day_number - whole_days as f64;

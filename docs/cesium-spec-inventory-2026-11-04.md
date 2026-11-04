@@ -294,7 +294,7 @@
 | [packages/engine/Specs/Core/ResourceSpec.js](../../cesium/packages/engine/Specs/Core/ResourceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/S2CellSpec.js](../../cesium/packages/engine/Specs/Core/S2CellSpec.js) | 已移植：S2 空间球面四叉分片与希尔伯特曲线索引、64位CellID与十六进制Token互转、父子层级解算、中心与CCW顶点椭球地理坐标投影（s2_cell_spec.rs） |
 | [packages/engine/Specs/Core/ScreenSpaceEventHandlerSpec.js](../../cesium/packages/engine/Specs/Core/ScreenSpaceEventHandlerSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/Simon1994PlanetaryPositionsSpec.js](../../cesium/packages/engine/Specs/Core/Simon1994PlanetaryPositionsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/Simon1994PlanetaryPositionsSpec.js](../../cesium/packages/engine/Specs/Core/Simon1994PlanetaryPositionsSpec.js) | 已移植：Simon 1994 太阳与月球地心惯性系（J2000/GCRF）行星轨道摄动级数解算、Delaunay变量与Kepler偏近点角迭代、地固系东升西落方位角验证（simon1994_planetary_positions_spec.rs） |
 | [packages/engine/Specs/Core/SnapServiceSpec.js](../../cesium/packages/engine/Specs/Core/SnapServiceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/TaskProcessorSpec.js](../../cesium/packages/engine/Specs/Core/TaskProcessorSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/TerrainEncodingSpec.js](../../cesium/packages/engine/Specs/Core/TerrainEncodingSpec.js) | 待逐项核对 |
