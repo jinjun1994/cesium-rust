@@ -14,6 +14,7 @@ mod catmull_rom_spline;
 mod circle_geometry;
 mod color;
 mod color_geometry_instance_attribute;
+mod combine;
 mod constant_spline;
 mod coplanar_polygon_geometry;
 mod core_math;
@@ -82,11 +83,13 @@ mod show_geometry_instance_attribute;
 mod simple_polyline_geometry;
 mod spline;
 mod spline_common;
+mod srgb_to_linear;
 mod stepped_spline;
 mod sphere;
 mod sphere_geometry;
 mod spherical;
 mod stereographic;
+mod subdivide_array;
 mod time_constants;
 mod time_interval;
 mod time_interval_collection;
@@ -94,6 +97,7 @@ mod tiling;
 mod tipsify;
 mod tridiagonal_system_solver;
 mod translation_rotation_scale;
+mod typed_array_helpers;
 mod uri_helpers;
 mod vertex_format;
 mod vertical_exaggeration;
@@ -114,6 +118,7 @@ pub use catmull_rom_spline::CatmullRomSpline;
 pub use circle_geometry::{CircleGeometry, CircleOutlineGeometry};
 pub use color::Color;
 pub use color_geometry_instance_attribute::ColorGeometryInstanceAttribute;
+pub use combine::combine;
 pub use constant_spline::ConstantSpline;
 pub use coplanar_polygon_geometry::{
     CoplanarPolygonGeometry, CoplanarPolygonOutlineGeometry, PolygonHierarchy,
@@ -218,11 +223,13 @@ pub use sphere::PlaneIntersection;
 pub use sphere_geometry::{SphereGeometry, SphereOutlineGeometry};
 pub use spherical::Spherical;
 pub use spline::{InvalidPointType, Spline, SplinePoint, SplinePointType};
+pub use srgb_to_linear::srgb_to_linear;
 pub use stepped_spline::SteppedSpline;
 pub use stereographic::{
     Stereographic, HALF_UNIT_SPHERE, NORTH_POLE, NORTH_POLE_TANGENT_PLANE, SOUTH_POLE,
     SOUTH_POLE_TANGENT_PLANE,
 };
+pub use subdivide_array::subdivide_array;
 pub use time_constants::{TimeConstants, *};
 pub use time_interval::TimeInterval;
 pub use time_interval_collection::TimeIntervalCollection;
@@ -230,6 +237,7 @@ pub use tiling::{GeographicTilingScheme, NativeRectangle, TilingScheme, WebMerca
 pub use tipsify::Tipsify;
 pub use tridiagonal_system_solver::TridiagonalSystemSolver;
 pub use translation_rotation_scale::TranslationRotationScale;
+pub use typed_array_helpers::{get_json_from_typed_array, get_string_from_typed_array};
 pub use uri_helpers::{
     get_base_uri, get_extension_from_uri, get_filename_from_uri, object_to_query, percent_decode,
     percent_encode, query_to_object,

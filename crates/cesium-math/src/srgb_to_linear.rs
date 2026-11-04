@@ -1,0 +1,10 @@
+/// Converts the value from sRGB color space to linear color space.
+#[inline]
+#[allow(clippy::excessive_precision)]
+pub fn srgb_to_linear(value: f64) -> f64 {
+    if value <= 0.04045 {
+        value * 0.07739938080495356037151702786378
+    } else {
+        ((value + 0.055) * 0.94786729857819905213270142180095).powf(2.4)
+    }
+}

@@ -230,7 +230,7 @@
 | [packages/core/Specs/barycentricCoordinatesSpec.js](../../cesium/packages/core/Specs/barycentricCoordinatesSpec.js) | 已移植：2D/3D 三角形顶点、边缘与内部重心坐标计算、退化共线判定（barycentric_coordinates_spec.rs） |
 | [packages/core/Specs/binarySearchSpec.js](../../cesium/packages/core/Specs/binarySearchSpec.js) | 已移植：有序序列二分查找（命中索引、未命中按按位取反~返回插入点、支持自定义比较器）（binary_search_spec.rs） |
 | [packages/core/Specs/cloneSpec.js](../../cesium/packages/core/Specs/cloneSpec.js) | 待逐项核对 |
-| [packages/core/Specs/combineSpec.js](../../cesium/packages/core/Specs/combineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/combineSpec.js](../../cesium/packages/core/Specs/combineSpec.js) | 已移植：JSON 对象浅层/深层递归合并，冲突键优先级与空值处理（combine_spec.rs） |
 | [packages/core/Specs/createGuidSpec.js](../../cesium/packages/core/Specs/createGuidSpec.js) | 已移植：RFC 4122 v4 UUID 生成器与格式校验（create_guid_spec.rs） |
 | [packages/core/Specs/definedSpec.js](../../cesium/packages/core/Specs/definedSpec.js) | 待逐项核对 |
 | [packages/core/Specs/deprecationWarningSpec.js](../../cesium/packages/core/Specs/deprecationWarningSpec.js) | 待逐项核对 |
@@ -238,16 +238,16 @@
 | [packages/core/Specs/getBaseUriSpec.js](../../cesium/packages/core/Specs/getBaseUriSpec.js) | 已移植：基础 URI 路径提取、查询参数与锚点分离保留（get_base_uri_spec.rs） |
 | [packages/core/Specs/getExtensionFromUriSpec.js](../../cesium/packages/core/Specs/getExtensionFromUriSpec.js) | 已移植：URI 扩展名解析与小写化、忽略查询参数与片段（get_extension_from_uri_spec.rs） |
 | [packages/core/Specs/getFilenameFromUriSpec.js](../../cesium/packages/core/Specs/getFilenameFromUriSpec.js) | 已移植：URI 文件名提取、斜杠结尾与参数清洗（get_filename_from_uri_spec.rs） |
-| [packages/core/Specs/getJsonFromTypedArraySpec.js](../../cesium/packages/core/Specs/getJsonFromTypedArraySpec.js) | 待逐项核对 |
-| [packages/core/Specs/getStringFromTypedArraySpec.js](../../cesium/packages/core/Specs/getStringFromTypedArraySpec.js) | 待逐项核对 |
+| [packages/core/Specs/getJsonFromTypedArraySpec.js](../../cesium/packages/core/Specs/getJsonFromTypedArraySpec.js) | 已移植：TypedArray 二进制缓冲区/切片 JSON 解析（get_json_from_typed_array_spec.rs） |
+| [packages/core/Specs/getStringFromTypedArraySpec.js](../../cesium/packages/core/Specs/getStringFromTypedArraySpec.js) | 已移植：TypedArray 字节序列/子区域 UTF-8 字符串解码与越界检查（get_string_from_typed_array_spec.rs） |
 | [packages/core/Specs/isLeapYearSpec.js](../../cesium/packages/core/Specs/isLeapYearSpec.js) | 已移植：公历闰年判定（4年一闰、百年不闰、四百年又闰）（is_leap_year_spec.rs） |
 | [packages/core/Specs/mergeSortSpec.js](../../cesium/packages/core/Specs/mergeSortSpec.js) | 已移植：稳定归并排序（数值排序、同键稳定性、自定义对象包围球距离排序）（merge_sort_spec.rs） |
 | [packages/core/Specs/objectToQuerySpec.js](../../cesium/packages/core/Specs/objectToQuerySpec.js) | 已移植：URL 查询参数序列化、空值跳过与数组多值编码（object_to_query_spec.rs） |
 | [packages/core/Specs/oneTimeWarningSpec.js](../../cesium/packages/core/Specs/oneTimeWarningSpec.js) | 待逐项核对 |
 | [packages/core/Specs/pointInsideTriangleSpec.js](../../cesium/packages/core/Specs/pointInsideTriangleSpec.js) | 已移植：2D/3D 点在三角形内部判定（严格内部/顶点/边线边界测试）（point_inside_triangle_spec.rs） |
 | [packages/core/Specs/queryToObjectSpec.js](../../cesium/packages/core/Specs/queryToObjectSpec.js) | 已移植：URL 查询字符串解析反序列化为键值/列表映射、支持分号分隔与百分比解码（object_to_query_spec.rs） |
-| [packages/core/Specs/srgbToLinearSpec.js](../../cesium/packages/core/Specs/srgbToLinearSpec.js) | 待逐项核对 |
-| [packages/core/Specs/subdivideArraySpec.js](../../cesium/packages/core/Specs/subdivideArraySpec.js) | 待逐项核对 |
+| [packages/core/Specs/srgbToLinearSpec.js](../../cesium/packages/core/Specs/srgbToLinearSpec.js) | 已移植：sRGB 颜色空间到线性色彩空间非线性转换（srgb_to_linear_spec.rs） |
+| [packages/core/Specs/subdivideArraySpec.js](../../cesium/packages/core/Specs/subdivideArraySpec.js) | 已移植：数组均分/非均分分块切分、边界校验（subdivide_array_spec.rs） |
 | [packages/engine/Specs/Core/ApproximateTerrainHeightsSpec.js](../../cesium/packages/engine/Specs/Core/ApproximateTerrainHeightsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/ArcGISTiledElevationTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/ArcGISTiledElevationTerrainProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/BingMapsGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/BingMapsGeocoderServiceSpec.js) | 待逐项核对 |

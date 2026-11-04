@@ -5,7 +5,7 @@ fn test_associative_array_defaults() {
     let array: AssociativeArray<String, i32> = AssociativeArray::new();
     assert_eq!(array.len(), 0);
     assert!(array.is_empty());
-    assert_eq!(array.values(), &[]);
+    assert_eq!(array.values(), &[] as &[i32]);
 }
 
 #[test]

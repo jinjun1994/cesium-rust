@@ -240,6 +240,8 @@ version = "0.0.26"
 dependencies = [
  "earcutr",
  "glam",
+ "serde",
+ "serde_json",
  "thiserror 2.0.21",
 ]
 
