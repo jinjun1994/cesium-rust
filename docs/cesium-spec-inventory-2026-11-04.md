@@ -261,7 +261,7 @@
 | [packages/engine/Specs/Core/DoublyLinkedListSpec.js](../../cesium/packages/engine/Specs/Core/DoublyLinkedListSpec.js) | 已移植：双向链表增删、指定节点拼接 splice 迁移、头尾指针及长度维护（doubly_linked_list_spec.rs） |
 | [packages/engine/Specs/Core/EarthOrientationParametersSpec.js](../../cesium/packages/engine/Specs/Core/EarthOrientationParametersSpec.js) | 已移植：地球定向参数 (EOP) 反序列化、动态闰秒检测与注册、常规时间区间线性插值、跨闰秒 UT1-UTC 跳变补偿与不连续性插值、本地真实 JSON 文件加载解析（earth_orientation_parameters_spec.rs） |
 | [packages/engine/Specs/Core/EllipsoidTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/EllipsoidTerrainProviderSpec.js) | 已移植：纯椭球平坦地形提供器构建、16x16 零高程图数据生成、0 级最大几何误差估计、水面掩码与法线默认关闭状态、数据可用性判定（ellipsoid_terrain_provider_spec.rs） |
-| [packages/engine/Specs/Core/FeatureDetectionSpec.js](../../cesium/packages/engine/Specs/Core/FeatureDetectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/FeatureDetectionSpec.js](../../cesium/packages/engine/Specs/Core/FeatureDetectionSpec.js) | 已移植：浏览器与硬件特性检测（全屏、WebWorker、类型化数组 TypedArrays、BigInt64/Uint64、WebAssembly、WebP支持异步初始化与状态捕获、Chrome/Safari/Webkit/Edge/Firefox/iOS 浏览器与内核版本号精准解析提取）（feature_detection_spec.rs） |
 | [packages/engine/Specs/Core/FrustumGeometrySpec.js](../../cesium/packages/engine/Specs/Core/FrustumGeometrySpec.js) | 已移植：视锥体六表面 24 独立顶点生成、法线切线副切线纹理坐标、12 三角形索引与包围球计算（frustum_geometry_spec.rs） |
 | [packages/engine/Specs/Core/FrustumOutlineGeometrySpec.js](../../cesium/packages/engine/Specs/Core/FrustumOutlineGeometrySpec.js) | 已移植：视锥体 8 角点框线、近/远平面边框与连接线索引、包围球计算（frustum_geometry_spec.rs） |
 | [packages/engine/Specs/Core/FullscreenSpec.js](../../cesium/packages/engine/Specs/Core/FullscreenSpec.js) | 待逐项核对 |

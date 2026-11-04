@@ -48,6 +48,7 @@ mod ellipse_geometry;
 mod encoded_cartesian;
 mod errors;
 mod event;
+mod feature_detection;
 mod fixed_frame_transforms;
 mod frustum;
 mod frustum_geometry;
@@ -199,6 +200,7 @@ pub use ellipse_geometry::{EllipseGeometry, EllipseOutlineGeometry};
 pub use encoded_cartesian::EncodedCartesian3;
 pub use errors::{DeveloperError, RuntimeError};
 pub use event::{Event, ListenerId};
+pub use feature_detection::{FeatureDetection, UserAgentInfo, WebkitVersion};
 pub use fixed_frame_transforms::{FixedFrameTransforms, LocalFrameAxis, LocalFrameToFixedFrameFn};
 pub use frustum::{
     OrthographicFrustum, OrthographicOffCenterFrustum, PerspectiveFrustum,
