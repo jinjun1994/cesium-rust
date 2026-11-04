@@ -86,6 +86,22 @@ impl GeometryAttribute {
     }
 }
 
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub enum CornerType {
+    #[default]
+    Rounded = 0,
+    Mitered = 1,
+    Beveled = 2,
+}
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub enum GeometryOffsetAttribute {
+    #[default]
+    None = 0,
+    Top = 1,
+    All = 2,
+}
+
 #[derive(Clone, Debug, Default, PartialEq)]
 pub struct GeometryAttributes {
     pub position: Option<GeometryAttribute>,
@@ -94,6 +110,7 @@ pub struct GeometryAttributes {
     pub tangent: Option<GeometryAttribute>,
     pub bitangent: Option<GeometryAttribute>,
     pub color: Option<GeometryAttribute>,
+    pub apply_offset: Option<GeometryAttribute>,
 }
 
 #[derive(Clone, Debug, PartialEq)]

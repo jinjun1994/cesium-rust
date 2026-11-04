@@ -106,9 +106,9 @@
 | [packages/core/Specs/ConstantSplineSpec.js](../../cesium/packages/core/Specs/ConstantSplineSpec.js) | 已移植：泛型恒定值样条曲线、插值求值、周期环绕与截断（constant_spline_spec.rs） |
 | [packages/core/Specs/CoplanarPolygonGeometrySpec.js](../../cesium/packages/core/Specs/CoplanarPolygonGeometrySpec.js) | 已移植：共面任意多边形三角剖分、顶点属性（法线/切线/副切线/ST）、退化与重复点滤除及包围球计算（coplanar_polygon_geometry_spec.rs） |
 | [packages/core/Specs/CoplanarPolygonOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CoplanarPolygonOutlineGeometrySpec.js) | 已移植：共面多边形轮廓线段索引提取、闭合环线框生成与退化校验（coplanar_polygon_geometry_spec.rs） |
-| [packages/core/Specs/CorridorGeometryLibrarySpec.js](../../cesium/packages/core/Specs/CorridorGeometryLibrarySpec.js) | 待逐项核对 |
-| [packages/core/Specs/CorridorGeometrySpec.js](../../cesium/packages/core/Specs/CorridorGeometrySpec.js) | 待逐项核对 |
-| [packages/core/Specs/CorridorOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CorridorOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/CorridorGeometryLibrarySpec.js](../../cesium/packages/core/Specs/CorridorGeometryLibrarySpec.js) | 已移植：走廊中心线切平面法向偏移、共线与非共线拐角判定（corridor_geometry_library_spec.rs） |
+| [packages/core/Specs/CorridorGeometrySpec.js](../../cesium/packages/core/Specs/CorridorGeometrySpec.js) | 已移植：走廊网格细分、顶点与法线/切线/ST计算、拉伸挤出网格、偏置属性及退化点校验（corridor_geometry_spec.rs） |
+| [packages/core/Specs/CorridorOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CorridorOutlineGeometrySpec.js) | 已移植：走廊平面与拉伸线框轮廓线提取、顶点偏置与退化校验（corridor_geometry_spec.rs） |
 | [packages/core/Specs/CubicRealPolynomialSpec.js](../../cesium/packages/core/Specs/CubicRealPolynomialSpec.js) | 部分：判别式及有限输入实根场景；JS 参数异常不适用 |
 | [packages/core/Specs/CullingVolumeSpec.js](../../cesium/packages/core/Specs/CullingVolumeSpec.js) | 部分：球/盒分类、球构造六平面、父掩码；透视视锥接口和 JS 语义待核对 |
 | [packages/core/Specs/CylinderGeometrySpec.js](../../cesium/packages/core/Specs/CylinderGeometrySpec.js) | 已移植：参数化圆柱/圆台圆周分片、网格顶点、侧面与上下底三角形索引、退化参数校验（cylinder_geometry_spec.rs） |

@@ -12,6 +12,8 @@ mod color_geometry_instance_attribute;
 mod constant_spline;
 mod coplanar_polygon_geometry;
 mod core_math;
+mod corridor_geometry;
+mod corridor_geometry_library;
 mod culling_volume;
 mod cylinder_geometry;
 mod double_ended_priority_queue;
@@ -60,6 +62,13 @@ pub use coplanar_polygon_geometry::{
     CoplanarPolygonGeometry, CoplanarPolygonOutlineGeometry, PolygonHierarchy,
 };
 pub use core_math::*;
+pub use corridor_geometry::{
+    CorridorGeometry, CorridorGeometryOptions, CorridorOutlineGeometry,
+    CorridorOutlineGeometryOptions,
+};
+pub use corridor_geometry_library::{
+    CorridorCorner, CorridorGeometryLibrary, CorridorParameters, CorridorPositions,
+};
 pub use culling_volume::{BoundingVolume, CullingVolume};
 pub use cylinder_geometry::{CylinderGeometry, CylinderOutlineGeometry};
 pub use double_ended_priority_queue::DoubleEndedPriorityQueue;
@@ -76,7 +85,8 @@ pub use frustum::{
 };
 pub use frustum_geometry::{AnyFrustum, FrustumGeometry, FrustumOutlineGeometry};
 pub use geometry::{
-    ComponentDatatype, Geometry, GeometryAttribute, GeometryAttributes, PrimitiveType,
+    ComponentDatatype, CornerType, Geometry, GeometryAttribute, GeometryAttributes,
+    GeometryOffsetAttribute, PrimitiveType,
 };
 pub use intersections::{
     grazing_altitude_location, line_segment_plane, line_segment_sphere, line_segment_triangle,
