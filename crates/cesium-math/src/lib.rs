@@ -75,7 +75,7 @@ pub use corridor_geometry::{
 pub use corridor_geometry_library::{
     CorridorCorner, CorridorGeometryLibrary, CorridorParameters, CorridorPositions,
 };
-pub use culling_volume::{BoundingVolume, CullingVolume};
+pub use culling_volume::{BoundingVolume, CullingVolume, Intersect};
 pub use cylinder_geometry::{CylinderGeometry, CylinderOutlineGeometry};
 pub use distance_display_condition::DistanceDisplayCondition;
 pub use distance_display_condition_geometry_instance_attribute::DistanceDisplayConditionGeometryInstanceAttribute;
@@ -110,7 +110,8 @@ pub use plane::Plane;
 pub use plane_geometry::{PlaneGeometry, PlaneOutlineGeometry};
 pub use polynomial::{
     cubic_discriminant, cubic_real_roots, quadratic_discriminant, quadratic_real_roots,
-    quartic_discriminant, quartic_real_roots,
+    quartic_discriminant, quartic_real_roots, CubicRealPolynomial, QuadraticRealPolynomial,
+    QuarticRealPolynomial,
 };
 pub use polyline_geometry::{PolylineGeometry, PolylineGeometryOptions};
 pub use projection::{GeographicProjection, MapProjection, WebMercatorProjection};

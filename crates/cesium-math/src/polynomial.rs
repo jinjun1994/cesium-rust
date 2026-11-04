@@ -279,3 +279,42 @@ pub fn quartic_real_roots(a: f64, b: f64, c: f64, d: f64, e: f64) -> Vec<f64> {
         quartic_original(a3, a2, a1, a0)
     }
 }
+
+pub struct QuadraticRealPolynomial;
+impl QuadraticRealPolynomial {
+    #[inline]
+    pub fn compute_discriminant(a: f64, b: f64, c: f64) -> f64 {
+        quadratic_discriminant(a, b, c)
+    }
+
+    #[inline]
+    pub fn compute_real_roots(a: f64, b: f64, c: f64) -> Vec<f64> {
+        quadratic_real_roots(a, b, c)
+    }
+}
+
+pub struct CubicRealPolynomial;
+impl CubicRealPolynomial {
+    #[inline]
+    pub fn compute_discriminant(a: f64, b: f64, c: f64, d: f64) -> f64 {
+        cubic_discriminant(a, b, c, d)
+    }
+
+    #[inline]
+    pub fn compute_real_roots(a: f64, b: f64, c: f64, d: f64) -> Vec<f64> {
+        cubic_real_roots(a, b, c, d)
+    }
+}
+
+pub struct QuarticRealPolynomial;
+impl QuarticRealPolynomial {
+    #[inline]
+    pub fn compute_discriminant(a: f64, b: f64, c: f64, d: f64, e: f64) -> f64 {
+        quartic_discriminant(a, b, c, d, e)
+    }
+
+    #[inline]
+    pub fn compute_real_roots(a: f64, b: f64, c: f64, d: f64, e: f64) -> Vec<f64> {
+        quartic_real_roots(a, b, c, d, e)
+    }
+}

@@ -2,6 +2,8 @@
 use crate::{AxisAlignedBoundingBox, MathError, Plane, PlaneIntersection, Sphere};
 use glam::DVec3;
 
+pub type Intersect = PlaneIntersection;
+
 /// A volume that can classify itself against a clipping plane.
 pub trait BoundingVolume {
     fn intersect_plane(&self, plane: Plane) -> PlaneIntersection;

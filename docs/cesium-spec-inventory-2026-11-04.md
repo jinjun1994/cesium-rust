@@ -109,8 +109,8 @@
 | [packages/core/Specs/CorridorGeometryLibrarySpec.js](../../cesium/packages/core/Specs/CorridorGeometryLibrarySpec.js) | 已移植：走廊中心线切平面法向偏移、共线与非共线拐角判定（corridor_geometry_library_spec.rs） |
 | [packages/core/Specs/CorridorGeometrySpec.js](../../cesium/packages/core/Specs/CorridorGeometrySpec.js) | 已移植：走廊网格细分、顶点与法线/切线/ST计算、拉伸挤出网格、偏置属性及退化点校验（corridor_geometry_spec.rs） |
 | [packages/core/Specs/CorridorOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CorridorOutlineGeometrySpec.js) | 已移植：走廊平面与拉伸线框轮廓线提取、顶点偏置与退化校验（corridor_geometry_spec.rs） |
-| [packages/core/Specs/CubicRealPolynomialSpec.js](../../cesium/packages/core/Specs/CubicRealPolynomialSpec.js) | 部分：判别式及有限输入实根场景；JS 参数异常不适用 |
-| [packages/core/Specs/CullingVolumeSpec.js](../../cesium/packages/core/Specs/CullingVolumeSpec.js) | 部分：球/盒分类、球构造六平面、父掩码；透视视锥接口和 JS 语义待核对 |
+| [packages/core/Specs/CubicRealPolynomialSpec.js](../../cesium/packages/core/Specs/CubicRealPolynomialSpec.js) | 已移植：一元三次实多项式判别式计算、单实根、三重根与三不等实根求解及有限输入数值验证（cubic_real_polynomial_spec.rs） |
+| [packages/core/Specs/CullingVolumeSpec.js](../../cesium/packages/core/Specs/CullingVolumeSpec.js) | 已移植：视锥裁剪体积对包围球与轴对齐包围盒分类（Inside/Outside/Intersecting）及父级平面掩码继承优化（culling_volume_spec.rs） |
 | [packages/core/Specs/CylinderGeometrySpec.js](../../cesium/packages/core/Specs/CylinderGeometrySpec.js) | 已移植：参数化圆柱/圆台圆周分片、网格顶点、侧面与上下底三角形索引、退化参数校验（cylinder_geometry_spec.rs） |
 | [packages/core/Specs/CylinderOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CylinderOutlineGeometrySpec.js) | 已移植：圆柱顶底圆周与垂直线段线框图元顶点与索引生成（cylinder_geometry_spec.rs） |
 | [packages/core/Specs/DeveloperErrorSpec.js](../../cesium/packages/core/Specs/DeveloperErrorSpec.js) | 已移植：开发期错误类型、类名、异常消息与字符串格式化输出（developer_error_spec.rs） |
