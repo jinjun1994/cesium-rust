@@ -1,4 +1,5 @@
 //! Geographic rectangles adapted from CesiumJS Rectangle (Apache-2.0).
+use crate::errors::DeveloperError;
 use crate::{Cartographic, Ellipsoid, MathError, Sphere};
 use glam::DVec3;
 use std::f64::consts::{FRAC_PI_2, PI, TAU};
@@ -326,6 +327,51 @@ impl GeoRectangle {
             south: lat(south),
             east: lon(east),
             north: lat(north),
+        })
+    }
+
+    #[inline]
+    pub const fn new(west: f64, south: f64, east: f64, north: f64) -> Self {
+        Self {
+            west,
+            south,
+            east,
+            north,
+        }
+    }
+
+    #[inline]
+    pub fn from_degrees(west: f64, south: f64, east: f64, north: f64) -> Self {
+        Self {
+            west: west.to_radians(),
+            south: south.to_radians(),
+            east: east.to_radians(),
+            north: north.to_radians(),
+        }
+    }
+
+    pub const PACKED_LENGTH: usize = 4;
+
+    pub fn pack(&self, array: &mut [f64], starting_index: usize) -> Result<(), DeveloperError> {
+        if array.len() < starting_index + Self::PACKED_LENGTH {
+            return Err(DeveloperError::new("Array is too short"));
+        }
+        array[starting_index] = self.west;
+        array[starting_index + 1] = self.south;
+        array[starting_index + 2] = self.east;
+        array[starting_index + 3] = self.north;
+        Ok(())
+    }
+
+    pub fn unpack(array: &[f64], starting_index: usize) -> Result<Self, DeveloperError> {
+        if array.len() < starting_index + Self::PACKED_LENGTH {
+            return Err(DeveloperError::new("Array is too short"));
+        }
+        Ok(Self {
+            west: array[starting_index],
+            south: array[starting_index + 1],
+            east: array[starting_index + 2],
+            north: array[starting_index + 3],
         })
     }
 }

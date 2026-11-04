@@ -61,6 +61,9 @@ mod quaternion;
 mod queue;
 mod ray;
 mod rectangle;
+mod rectangle_geometry;
+mod rectangle_geometry_library;
+mod rectangle_outline_geometry;
 mod scalar;
 mod show_geometry_instance_attribute;
 mod simple_polyline_geometry;
@@ -167,6 +170,11 @@ pub use quaternion::{HeadingPitchRoll, Quaternion};
 pub use queue::Queue;
 pub use ray::Ray;
 pub use rectangle::GeoRectangle;
+pub use rectangle_geometry::{RectangleGeometry, RectangleGeometryOptions};
+pub use rectangle_geometry_library::{RectangleGeometryLibrary, RectangleOptionsComputed};
+pub use rectangle_outline_geometry::{
+    RectangleOutlineGeometry, RectangleOutlineGeometryOptions,
+};
 pub use scalar::{HeadingPitchRange, NearFarScalar};
 pub use show_geometry_instance_attribute::ShowGeometryInstanceAttribute;
 pub use simple_polyline_geometry::{SimplePolylineGeometry, SimplePolylineGeometryOptions};

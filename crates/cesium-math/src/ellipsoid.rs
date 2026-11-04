@@ -1,4 +1,5 @@
 //! Triaxial ellipsoid operations adapted from CesiumJS Ellipsoid (Apache-2.0).
+use crate::errors::DeveloperError;
 use crate::{Cartographic, MathError, WGS84_A, WGS84_B};
 use glam::{DMat4, DVec3};
 
@@ -287,5 +288,29 @@ impl Ellipsoid {
             rectangle.east,
             rectangle.north,
         )
+    }
+
+    pub const PACKED_LENGTH: usize = 3;
+
+    pub fn pack(&self, array: &mut [f64], starting_index: usize) -> Result<(), DeveloperError> {
+        if array.len() < starting_index + Self::PACKED_LENGTH {
+            return Err(DeveloperError::new("Array is too short"));
+        }
+        array[starting_index] = self.radii.x;
+        array[starting_index + 1] = self.radii.y;
+        array[starting_index + 2] = self.radii.z;
+        Ok(())
+    }
+
+    pub fn unpack(array: &[f64], starting_index: usize) -> Result<Self, DeveloperError> {
+        if array.len() < starting_index + Self::PACKED_LENGTH {
+            return Err(DeveloperError::new("Array is too short"));
+        }
+        let radii = DVec3::new(
+            array[starting_index],
+            array[starting_index + 1],
+            array[starting_index + 2],
+        );
+        Self::new(radii).map_err(|_| DeveloperError::new("Failed to unpack Ellipsoid"))
     }
 }
