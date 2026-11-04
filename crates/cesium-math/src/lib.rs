@@ -50,6 +50,8 @@ mod heap;
 mod hermite_polynomial_approximation;
 mod hermite_spline;
 mod hilbert_order;
+mod iau2000_orientation;
+mod iau_orientation_axes;
 mod index_datatype;
 mod intersections;
 mod intersections_2d;
@@ -171,6 +173,8 @@ pub use frustum_geometry::{AnyFrustum, FrustumGeometry, FrustumOutlineGeometry};
 pub use hermite_polynomial_approximation::HermitePolynomialApproximation;
 pub use hermite_spline::HermiteSpline;
 pub use hilbert_order::HilbertOrder;
+pub use iau2000_orientation::{Iau2000Orientation, IauOrientationParameters};
+pub use iau_orientation_axes::IauOrientationAxes;
 pub use geometry::{
     ArcType, ComponentDatatype, CornerType, Geometry, GeometryAttribute, GeometryAttributes,
     GeometryInstance, GeometryInstanceAttribute, GeometryOffsetAttribute, GeometryType,
