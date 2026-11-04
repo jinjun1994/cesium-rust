@@ -103,6 +103,7 @@ mod request_error_event;
 mod request_scheduler;
 mod s2_cell;
 mod scalar;
+mod scene_mode;
 mod show_geometry_instance_attribute;
 mod simple_polyline_geometry;
 mod simon1994_planetary_positions;
@@ -116,6 +117,8 @@ mod spherical;
 mod stereographic;
 mod subdivide_array;
 mod terrain_encoding;
+mod terrain_mesh;
+mod terrain_picker;
 mod time_constants;
 mod time_interval;
 mod time_interval_collection;
@@ -278,6 +281,7 @@ pub use request_scheduler::{
 };
 pub use s2_cell::S2Cell;
 pub use scalar::{HeadingPitchRange, NearFarScalar};
+pub use scene_mode::SceneMode;
 pub use show_geometry_instance_attribute::ShowGeometryInstanceAttribute;
 pub use simple_polyline_geometry::{SimplePolylineGeometry, SimplePolylineGeometryOptions};
 pub use simon1994_planetary_positions::Simon1994PlanetaryPositions;
@@ -295,6 +299,8 @@ pub use subdivide_array::subdivide_array;
 pub use terrain_encoding::{
     TerrainAttribute, TerrainAttributeLocations, TerrainEncoding, TerrainQuantization,
 };
+pub use terrain_mesh::TerrainMesh;
+pub use terrain_picker::{TerrainPicker, TerrainPickerNode};
 pub use time_constants::{TimeConstants, *};
 pub use time_interval::TimeInterval;
 pub use time_interval_collection::TimeIntervalCollection;
