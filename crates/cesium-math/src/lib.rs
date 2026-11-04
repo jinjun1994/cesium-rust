@@ -3,6 +3,7 @@ use glam::{DMat3, DMat4, DVec3, Mat4, Vec4};
 use thiserror::Error;
 mod axis_aligned_bounding_box;
 mod bounding_rectangle;
+mod box_geometry;
 mod cartesian;
 mod color;
 mod core_math;
@@ -12,6 +13,7 @@ mod ellipsoid_tangent_plane;
 mod ellipsoidal_occluder;
 mod encoded_cartesian;
 mod frustum;
+mod geometry;
 mod intersections;
 mod julian_date;
 mod matrices;
@@ -28,8 +30,10 @@ mod sphere;
 mod time_constants;
 mod time_interval;
 mod tiling;
+mod vertex_format;
 pub use axis_aligned_bounding_box::AxisAlignedBoundingBox;
 pub use bounding_rectangle::BoundingRectangle;
+pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
 pub use cartesian::{Cartesian2, Cartesian3, Cartesian4};
 pub use color::Color;
 pub use core_math::*;
@@ -41,6 +45,9 @@ pub use encoded_cartesian::EncodedCartesian3;
 pub use frustum::{
     OrthographicFrustum, OrthographicOffCenterFrustum, PerspectiveFrustum,
     PerspectiveOffCenterFrustum,
+};
+pub use geometry::{
+    ComponentDatatype, Geometry, GeometryAttribute, GeometryAttributes, PrimitiveType,
 };
 pub use intersections::{
     grazing_altitude_location, line_segment_plane, line_segment_sphere, line_segment_triangle,
@@ -65,6 +72,7 @@ pub use sphere::PlaneIntersection;
 pub use time_constants::{TimeConstants, *};
 pub use time_interval::TimeInterval;
 pub use tiling::{GeographicTilingScheme, NativeRectangle, TilingScheme, WebMercatorTilingScheme};
+pub use vertex_format::VertexFormat;
 
 pub const WGS84_A: f64 = 6_378_137.0;
 pub const WGS84_B: f64 = 6_356_752.314_245_179;

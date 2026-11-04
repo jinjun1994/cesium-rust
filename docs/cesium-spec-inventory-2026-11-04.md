@@ -46,6 +46,7 @@
 - `quaternion`、`scalar` 及 `quaternion_hpr_spec.rs`、`near_far_scalar_spec.rs`：对齐 `Quaternion` 轴角/旋转矩阵互转与 slerp 插值；对齐 `HeadingPitchRoll` 欧拉角四元数转换；对齐 `HeadingPitchRange` 与 `NearFarScalar` 的构造、比较与序列化打包。
 - `time_constants`、`julian_date`、`time_interval` 及 `julian_date_spec.rs`、`time_interval_spec.rs`：对齐 `TimeConstants` 常量表、官方 28 条历次闰秒表（`LEAP_SECONDS`）、UTC/TAI 真实双向闰秒补偿转换（`JulianDate`）、天文算法年月日与儒略日高精互转（`GregorianDate`、ISO 8601 解析与输出）、`TimeInterval` 区间包含与相交测试（`intersect`、端点开闭与判空）。
 - `encoded_cartesian` 及 `encoded_cartesian3_spec.rs`：对齐 `EncodedCartesian3` 高精度拆分编码（`encode` 65536 阶跃）、从 `Cartesian3` 生成高低位向量及向顶点属性交错写入浮点数组（`write_elements`）。
+- `geometry`、`vertex_format`、`box_geometry` 及 `vertex_format_spec.rs`、`box_geometry_spec.rs`、`box_outline_geometry_spec.rs`：对齐 `VertexFormat` 顶点属性位掩码与常量/打包解包；对齐几何属性缓冲（`GeometryAttribute`、`Geometry`、`PrimitiveType`）；对齐 `BoxGeometry`（仅位置 8 顶点与全属性 24 独立顶点网格生成）和 `BoxOutlineGeometry`（12 边线框图元）。
 全部通过 `cargo test -p cesium-math` 真实测试，Clippy 无警告，支持 `wasm32-unknown-unknown` 编译。
 
 新增 `EllipsoidTangentPlane`，支持由原点或点集构造、径向和法向投影、批量投影及径向投回椭球；`ellipsoid_tangent_plane_spec.rs` 覆盖上游单位球和 WGS84 往返用例。非有限输入使用 `Option`/`Result`，空点集或无法投影到地表时构造失败；上游零半径椭球用例及对象复用行为尚未等价验证。
@@ -86,8 +87,8 @@
 | [packages/core/Specs/AxisAlignedBoundingBoxSpec.js](../../cesium/packages/core/Specs/AxisAlignedBoundingBoxSpec.js) | 部分：构造、点集、相等、平面及盒相交；JS 对象复用及异常语义不同 |
 | [packages/core/Specs/BoundingRectangleSpec.js](../../cesium/packages/core/Specs/BoundingRectangleSpec.js) | 部分：构造、投影、合并、扩展、相交、打包；JS 对象复用和异常语义不同 |
 | [packages/core/Specs/BoundingSphereSpec.js](../../cesium/packages/core/Specs/BoundingSphereSpec.js) | 部分：点/顶点/编码/多球/矩形/定向盒/变换构造、合并、平面、距离、projectTo2D；其余待核对 |
-| [packages/core/Specs/BoxGeometrySpec.js](../../cesium/packages/core/Specs/BoxGeometrySpec.js) | 待逐项核对 |
-| [packages/core/Specs/BoxOutlineGeometrySpec.js](../../cesium/packages/core/Specs/BoxOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/BoxGeometrySpec.js](../../cesium/packages/core/Specs/BoxGeometrySpec.js) | 已移植：最小最大角点构造、POSITION_ONLY 8 顶点优化网格、ALL 全属性 24 独立顶点与法线/纹理坐标（box_geometry_spec.rs） |
+| [packages/core/Specs/BoxOutlineGeometrySpec.js](../../cesium/packages/core/Specs/BoxOutlineGeometrySpec.js) | 已移植：线框顶点与 12 边索引缓冲生成、尺寸与 AABB 构造（box_outline_geometry_spec.rs） |
 | [packages/core/Specs/Cartesian2Spec.js](../../cesium/packages/core/Specs/Cartesian2Spec.js) | 已移植：构造、打包、四则运算、点叉乘、模长、距离、归一化、夹角与插值（cartesian_spec.rs） |
 | [packages/core/Specs/Cartesian3Spec.js](../../cesium/packages/core/Specs/Cartesian3Spec.js) | 已移植：构造、打包、四则运算、点叉乘、模长、距离、正交轴、投影、WGS84 椭球转换（cartesian_spec.rs） |
 | [packages/core/Specs/Cartesian4Spec.js](../../cesium/packages/core/Specs/Cartesian4Spec.js) | 已移植：构造、打包、四则运算、模长、Color 互转与插值（cartesian_spec.rs） |
@@ -194,7 +195,7 @@
 | [packages/core/Specs/TipsifySpec.js](../../cesium/packages/core/Specs/TipsifySpec.js) | 待逐项核对 |
 | [packages/core/Specs/TranslationRotationScaleSpec.js](../../cesium/packages/core/Specs/TranslationRotationScaleSpec.js) | 待逐项核对 |
 | [packages/core/Specs/TridiagonalSystemSolverSpec.js](../../cesium/packages/core/Specs/TridiagonalSystemSolverSpec.js) | 待逐项核对 |
-| [packages/core/Specs/VertexFormatSpec.js](../../cesium/packages/core/Specs/VertexFormatSpec.js) | 待逐项核对 |
+| [packages/core/Specs/VertexFormatSpec.js](../../cesium/packages/core/Specs/VertexFormatSpec.js) | 已移植：格式位掩码、常量定义、clone、pack/unpack（vertex_format_spec.rs） |
 | [packages/core/Specs/VerticalExaggerationSpec.js](../../cesium/packages/core/Specs/VerticalExaggerationSpec.js) | 待逐项核对 |
 | [packages/core/Specs/WallGeometrySpec.js](../../cesium/packages/core/Specs/WallGeometrySpec.js) | 待逐项核对 |
 | [packages/core/Specs/WallOutlineGeometrySpec.js](../../cesium/packages/core/Specs/WallOutlineGeometrySpec.js) | 待逐项核对 |
