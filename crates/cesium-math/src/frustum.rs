@@ -291,6 +291,17 @@ pub struct OrthographicFrustum {
     pub far: f64,
 }
 
+impl Default for OrthographicFrustum {
+    fn default() -> Self {
+        Self {
+            width: 1.0,
+            aspect_ratio: 1.0,
+            near: 1.0,
+            far: 500000000.0,
+        }
+    }
+}
+
 impl OrthographicFrustum {
     pub const PACKED_LENGTH: usize = 4;
     pub fn equals_epsilon(
@@ -378,6 +389,19 @@ pub struct PerspectiveFrustum {
     pub far: f64,
     pub x_offset: f64,
     pub y_offset: f64,
+}
+
+impl Default for PerspectiveFrustum {
+    fn default() -> Self {
+        Self {
+            fov: std::f64::consts::FRAC_PI_3,
+            aspect_ratio: 1.0,
+            near: 1.0,
+            far: 500000000.0,
+            x_offset: 0.0,
+            y_offset: 0.0,
+        }
+    }
 }
 
 impl PerspectiveFrustum {

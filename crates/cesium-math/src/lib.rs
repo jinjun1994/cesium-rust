@@ -20,6 +20,7 @@ mod ellipsoidal_occluder;
 mod ellipse_geometry;
 mod encoded_cartesian;
 mod frustum;
+mod frustum_geometry;
 mod geometry;
 mod intersections;
 mod julian_date;
@@ -65,6 +66,7 @@ pub use frustum::{
     OrthographicFrustum, OrthographicOffCenterFrustum, PerspectiveFrustum,
     PerspectiveOffCenterFrustum,
 };
+pub use frustum_geometry::{AnyFrustum, FrustumGeometry, FrustumOutlineGeometry};
 pub use geometry::{
     ComponentDatatype, Geometry, GeometryAttribute, GeometryAttributes, PrimitiveType,
 };

@@ -238,8 +238,8 @@
 | [packages/engine/Specs/Core/EarthOrientationParametersSpec.js](../../cesium/packages/engine/Specs/Core/EarthOrientationParametersSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/EllipsoidTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/EllipsoidTerrainProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/FeatureDetectionSpec.js](../../cesium/packages/engine/Specs/Core/FeatureDetectionSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/FrustumGeometrySpec.js](../../cesium/packages/engine/Specs/Core/FrustumGeometrySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/FrustumOutlineGeometrySpec.js](../../cesium/packages/engine/Specs/Core/FrustumOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/FrustumGeometrySpec.js](../../cesium/packages/engine/Specs/Core/FrustumGeometrySpec.js) | 已移植：视锥体六表面 24 独立顶点生成、法线切线副切线纹理坐标、12 三角形索引与包围球计算（frustum_geometry_spec.rs） |
+| [packages/engine/Specs/Core/FrustumOutlineGeometrySpec.js](../../cesium/packages/engine/Specs/Core/FrustumOutlineGeometrySpec.js) | 已移植：视锥体 8 角点框线、近/远平面边框与连接线索引、包围球计算（frustum_geometry_spec.rs） |
 | [packages/engine/Specs/Core/FullscreenSpec.js](../../cesium/packages/engine/Specs/Core/FullscreenSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/GeographicTilingSchemeSpec.js](../../cesium/packages/engine/Specs/Core/GeographicTilingSchemeSpec.js) | 部分：网格、边界、跨日期变更线及原生坐标；其余待核对 |
 | [packages/engine/Specs/Core/GoogleEarthEnterpriseMetadataSpec.js](../../cesium/packages/engine/Specs/Core/GoogleEarthEnterpriseMetadataSpec.js) | 待逐项核对 |
