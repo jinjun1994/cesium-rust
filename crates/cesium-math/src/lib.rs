@@ -23,7 +23,9 @@ mod distance_display_condition_geometry_instance_attribute;
 mod double_ended_priority_queue;
 mod doubly_linked_list;
 mod ellipsoid;
+mod ellipsoid_geodesic;
 mod ellipsoid_geometry;
+mod ellipsoid_rhumb_line;
 mod ellipsoid_tangent_plane;
 mod ellipsoidal_occluder;
 mod ellipse_geometry;
@@ -92,7 +94,9 @@ pub use distance_display_condition_geometry_instance_attribute::DistanceDisplayC
 pub use double_ended_priority_queue::DoubleEndedPriorityQueue;
 pub use doubly_linked_list::{DoublyLinkedList, DoublyLinkedListNode, NodeId};
 pub use ellipsoid::Ellipsoid;
+pub use ellipsoid_geodesic::EllipsoidGeodesic;
 pub use ellipsoid_geometry::{EllipsoidGeometry, EllipsoidOutlineGeometry};
+pub use ellipsoid_rhumb_line::EllipsoidRhumbLine;
 pub use ellipsoid_tangent_plane::EllipsoidTangentPlane;
 pub use ellipsoidal_occluder::EllipsoidalOccluder;
 pub use ellipse_geometry::{EllipseGeometry, EllipseOutlineGeometry};
@@ -154,13 +158,27 @@ const E2: f64 = 1.0 - (WGS84_B * WGS84_B) / (WGS84_A * WGS84_A);
 #[error("invalid coordinate, camera, or degenerate transform")]
 pub struct MathError;
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Cartographic {
     pub longitude: f64,
     pub latitude: f64,
     pub height: f64,
 }
 impl Cartographic {
+    pub const fn new(longitude: f64, latitude: f64, height: f64) -> Self {
+        Self {
+            longitude,
+            latitude,
+            height,
+        }
+    }
+    pub const fn from_radians(longitude: f64, latitude: f64) -> Self {
+        Self {
+            longitude,
+            latitude,
+            height: 0.0,
+        }
+    }
     pub fn radians(longitude: f64, latitude: f64, height: f64) -> Result<Self, MathError> {
         if !longitude.is_finite()
             || !latitude.is_finite()

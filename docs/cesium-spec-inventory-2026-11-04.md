@@ -118,10 +118,10 @@
 | [packages/core/Specs/DistanceDisplayConditionSpec.js](../../cesium/packages/core/Specs/DistanceDisplayConditionSpec.js) | 已移植：视距显示条件默认构造、近远距范围判等与定长打包/解包（distance_display_condition_spec.rs） |
 | [packages/core/Specs/EllipseGeometrySpec.js](../../cesium/packages/core/Specs/EllipseGeometrySpec.js) | 已移植：椭球表面椭圆扇形网格剖分、顶点与法线生成、长短半轴校验（ellipse_geometry_spec.rs） |
 | [packages/core/Specs/EllipseOutlineGeometrySpec.js](../../cesium/packages/core/Specs/EllipseOutlineGeometrySpec.js) | 已移植：椭圆轮廓采样、拉伸轮廓、线框图元顶点与索引生成（ellipse_geometry_spec.rs） |
-| [packages/core/Specs/EllipsoidGeodesicSpec.js](../../cesium/packages/core/Specs/EllipsoidGeodesicSpec.js) | 待逐项核对 |
+| [packages/core/Specs/EllipsoidGeodesicSpec.js](../../cesium/packages/core/Specs/EllipsoidGeodesicSpec.js) | 已移植：Vincenty 测地大圆正反算、起止方位角与表面弧长解算、分段与按距离沿程插值（ellipsoid_geodesic_spec.rs） |
 | [packages/core/Specs/EllipsoidGeometrySpec.js](../../cesium/packages/core/Specs/EllipsoidGeometrySpec.js) | 已移植：三轴椭球分片网格生成、顶点与三角形索引、负/零半径校验（ellipsoid_geometry_spec.rs） |
 | [packages/core/Specs/EllipsoidOutlineGeometrySpec.js](../../cesium/packages/core/Specs/EllipsoidOutlineGeometrySpec.js) | 已移植：三轴椭球经纬线框顶点与索引生成（ellipsoid_geometry_spec.rs） |
-| [packages/core/Specs/EllipsoidRhumbLineSpec.js](../../cesium/packages/core/Specs/EllipsoidRhumbLineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/EllipsoidRhumbLineSpec.js](../../cesium/packages/core/Specs/EllipsoidRhumbLineSpec.js) | 已移植：等角航线/恒向线表面距离计算、墨卡托等量纬度差计算、起始航向与给定航向推算插值（ellipsoid_rhumb_line_spec.rs） |
 | [packages/core/Specs/EllipsoidSpec.js](../../cesium/packages/core/Specs/EllipsoidSpec.js) | 部分：构造、法线、转换、投影、轴交点、曲率及面积；数组/pack 与其他情况待核对 |
 | [packages/core/Specs/EllipsoidTangentPlaneSpec.js](../../cesium/packages/core/Specs/EllipsoidTangentPlaneSpec.js) | 部分：构造、单点/批量投影及 WGS84 往返；零半径及 JS 对象语义待核对 |
 | [packages/core/Specs/EllipsoidalOccluderSpec.js](../../cesium/packages/core/Specs/EllipsoidalOccluderSpec.js) | 部分：可见性、地下椭球、剔除点和顶点；其余数值与错误语义待核对 |
