@@ -121,6 +121,7 @@ mod subdivide_array;
 mod terrain_encoding;
 mod terrain_mesh;
 mod terrain_picker;
+mod terrain_provider;
 mod time_constants;
 mod time_interval;
 mod time_interval_collection;
@@ -308,6 +309,11 @@ pub use terrain_encoding::{
 };
 pub use terrain_mesh::TerrainMesh;
 pub use terrain_picker::{TerrainPicker, TerrainPickerNode};
+pub use terrain_provider::{
+    CustomHeightmapGeometryCallback, CustomHeightmapTerrainProvider,
+    CustomHeightmapTerrainProviderOptions, EllipsoidTerrainProvider, TerrainProvider,
+    HEIGHTMAP_TERRAIN_QUALITY,
+};
 pub use time_constants::{TimeConstants, *};
 pub use time_interval::TimeInterval;
 pub use time_interval_collection::TimeIntervalCollection;
