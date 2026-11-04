@@ -2,7 +2,7 @@
 use crate::{AxisAlignedBoundingBox, Ellipsoid, MathError, Plane};
 use glam::{DVec2, DVec3};
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EllipsoidTangentPlane {
     pub ellipsoid: Ellipsoid,
     pub origin: DVec3,

@@ -191,7 +191,7 @@
 | [packages/core/Specs/SphericalSpec.js](../../cesium/packages/core/Specs/SphericalSpec.js) | 待逐项核对 |
 | [packages/core/Specs/SplineSpec.js](../../cesium/packages/core/Specs/SplineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/SteppedSplineSpec.js](../../cesium/packages/core/Specs/SteppedSplineSpec.js) | 待逐项核对 |
-| [packages/core/Specs/StereographicSpec.js](../../cesium/packages/core/Specs/StereographicSpec.js) | 待逐项核对 |
+| [packages/core/Specs/StereographicSpec.js](../../cesium/packages/core/Specs/StereographicSpec.js) | 已全量移植：极射赤平投影（半球/两极投影切平面、地心表面投影、共形纬度、经纬度往返转换、批量投影）（stereographic_spec.rs） |
 | [packages/core/Specs/TimeIntervalCollectionSpec.js](../../cesium/packages/core/Specs/TimeIntervalCollectionSpec.js) | 已移植：非重叠时间区间集合、同数据区间自动合并、异数据区间重叠裁切与拆分、区间挖洞移除与时间二分查找（time_interval_collection_spec.rs） |
 | [packages/core/Specs/TimeIntervalSpec.js](../../cesium/packages/core/Specs/TimeIntervalSpec.js) | 已移植：时间区间构造、点包含判定（含开闭区间边界）、判空、相等比较与重叠求交（time_interval_spec.rs） |
 | [packages/core/Specs/TipsifySpec.js](../../cesium/packages/core/Specs/TipsifySpec.js) | 待逐项核对 |
