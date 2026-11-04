@@ -54,6 +54,7 @@ mod frustum_geometry;
 mod geometry;
 mod geometry_pipeline;
 mod heap;
+mod heightmap_terrain_data;
 mod hermite_polynomial_approximation;
 mod hermite_spline;
 mod hilbert_order;
@@ -215,6 +216,10 @@ pub use geometry::{
 };
 pub use geometry_pipeline::GeometryPipeline;
 pub use heap::Heap;
+pub use heightmap_terrain_data::{
+    CreateMeshOptions, HeightmapBuffer, HeightmapBufferType, HeightmapEncoding, HeightmapStructure,
+    HeightmapTerrainData, HeightmapTerrainDataOptions, MAXIMUM_ASYNCHRONOUS_TASKS,
+};
 pub use index_datatype::{IndexBuffer, IndexDatatype};
 pub use intersections::{
     grazing_altitude_location, line_segment_plane, line_segment_sphere, line_segment_triangle,
