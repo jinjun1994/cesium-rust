@@ -3,23 +3,32 @@ use glam::{DMat3, DMat4, DVec3, Mat4, Vec4};
 use thiserror::Error;
 mod axis_aligned_bounding_box;
 mod bounding_rectangle;
+mod cartesian;
+mod color;
+mod core_math;
 mod culling_volume;
 mod ellipsoid;
 mod ellipsoid_tangent_plane;
 mod ellipsoidal_occluder;
 mod frustum;
 mod intersections;
+mod matrices;
 mod occluder;
 mod oriented_bounding_box;
 mod plane;
 mod polynomial;
 mod projection;
+mod quaternion;
 mod ray;
 mod rectangle;
+mod scalar;
 mod sphere;
 mod tiling;
 pub use axis_aligned_bounding_box::AxisAlignedBoundingBox;
 pub use bounding_rectangle::BoundingRectangle;
+pub use cartesian::{Cartesian2, Cartesian3, Cartesian4};
+pub use color::Color;
+pub use core_math::*;
 pub use culling_volume::{BoundingVolume, CullingVolume};
 pub use ellipsoid::Ellipsoid;
 pub use ellipsoid_tangent_plane::EllipsoidTangentPlane;
@@ -33,6 +42,7 @@ pub use intersections::{
     ray_axis_aligned_box, ray_plane, ray_sphere, ray_triangle, ray_triangle_parametric,
     triangle_plane_intersection, TrianglePlaneIntersection,
 };
+pub use matrices::{Matrix2, Matrix3, Matrix4};
 pub use occluder::{Occluder, Visibility};
 pub use oriented_bounding_box::OrientedBoundingBox;
 pub use plane::Plane;
@@ -41,8 +51,10 @@ pub use polynomial::{
     quartic_discriminant, quartic_real_roots,
 };
 pub use projection::{GeographicProjection, MapProjection, WebMercatorProjection};
+pub use quaternion::{HeadingPitchRoll, Quaternion};
 pub use ray::Ray;
 pub use rectangle::GeoRectangle;
+pub use scalar::{HeadingPitchRange, NearFarScalar};
 pub use sphere::PlaneIntersection;
 pub use tiling::{GeographicTilingScheme, NativeRectangle, TilingScheme, WebMercatorTilingScheme};
 

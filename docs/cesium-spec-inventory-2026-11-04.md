@@ -38,6 +38,14 @@
 
 新增 `Plane`：点法式、四维系数、点距和投影、逆转置矩阵变换，并提供射线、包围球和包围盒的适配方法；`plane_spec.rs` 覆盖上游参考与非均匀缩放、平移及奇异变换。参数缺失和 result 对象复用由 Rust 类型/值语义替代，非有限输入与不可逆矩阵返回错误；尚需逐条核对其他异常行为。
 
+新增数学核心标量与基础代数模块（`cesium-math`）：
+- `core_math` 及 `math_spec.rs`：对齐 CesiumJS `Math.js` 的常数（EPSILON1..20）、`sign`、`signNotZero`（含 -0.0 语义）、`toSNorm`/`fromSNorm`、`asinClamped`/`acosClamped`、`chordLength`、`negativePiToPi`/`zeroToTwoPi`、`equalsEpsilon`（相对/绝对双容差）。
+- `cartesian` 及 `cartesian_spec.rs`：对齐 `Cartesian2`、`Cartesian3`、`Cartesian4` 的行/数组构造、pack/unpack、基本四则、点乘叉乘、夹角、正交轴选择、投影、WGS84 椭球地表投影、Color 互转与插值。
+- `color` 及 `color_spec.rs`：对齐 `Color` 预定义色表、RGBA 数值与字节互转、CSS 十六进制与 rgb/rgba 解析、`brighten`/`darken` 与打包。
+- `matrices` 及 `matrix_spec.rs`：对齐 `Matrix2`、`Matrix3`、`Matrix4` 行主序构造与列主序索引、矩阵与点/向量乘法、方向变换（`multiply_by_direction`）、行列式、逆变换及仿射逆矩阵（`inverse_transformation`）。
+- `quaternion`、`scalar` 及 `quaternion_hpr_spec.rs`、`near_far_scalar_spec.rs`：对齐 `Quaternion` 轴角/旋转矩阵互转与 slerp 插值；对齐 `HeadingPitchRoll` 欧拉角四元数转换；对齐 `HeadingPitchRange` 与 `NearFarScalar` 的构造、比较与序列化打包。
+全部通过 `cargo test -p cesium-math` 真实测试，Clippy 无警告，支持 `wasm32-unknown-unknown` 编译。
+
 新增 `EllipsoidTangentPlane`，支持由原点或点集构造、径向和法向投影、批量投影及径向投回椭球；`ellipsoid_tangent_plane_spec.rs` 覆盖上游单位球和 WGS84 往返用例。非有限输入使用 `Option`/`Result`，空点集或无法投影到地表时构造失败；上游零半径椭球用例及对象复用行为尚未等价验证。
 
 新增 `BoundingRectangle`，支持点集与地理投影构造、union、expand、边界相交及带偏移 pack/unpack，测试见 `bounding_rectangle_spec.rs`。跨日期变更线沿用上游仅投影西南与东北角的规则，可能得到负宽度；Rust 对非有限点与数组越界返回错误，JS 可选参数和对象复用语义仍需单独映射。
@@ -78,9 +86,9 @@
 | [packages/core/Specs/BoundingSphereSpec.js](../../cesium/packages/core/Specs/BoundingSphereSpec.js) | 部分：点/顶点/编码/多球/矩形/定向盒/变换构造、合并、平面、距离、projectTo2D；其余待核对 |
 | [packages/core/Specs/BoxGeometrySpec.js](../../cesium/packages/core/Specs/BoxGeometrySpec.js) | 待逐项核对 |
 | [packages/core/Specs/BoxOutlineGeometrySpec.js](../../cesium/packages/core/Specs/BoxOutlineGeometrySpec.js) | 待逐项核对 |
-| [packages/core/Specs/Cartesian2Spec.js](../../cesium/packages/core/Specs/Cartesian2Spec.js) | 待逐项核对 |
-| [packages/core/Specs/Cartesian3Spec.js](../../cesium/packages/core/Specs/Cartesian3Spec.js) | 待逐项核对 |
-| [packages/core/Specs/Cartesian4Spec.js](../../cesium/packages/core/Specs/Cartesian4Spec.js) | 待逐项核对 |
+| [packages/core/Specs/Cartesian2Spec.js](../../cesium/packages/core/Specs/Cartesian2Spec.js) | 已移植：构造、打包、四则运算、点叉乘、模长、距离、归一化、夹角与插值（cartesian_spec.rs） |
+| [packages/core/Specs/Cartesian3Spec.js](../../cesium/packages/core/Specs/Cartesian3Spec.js) | 已移植：构造、打包、四则运算、点叉乘、模长、距离、正交轴、投影、WGS84 椭球转换（cartesian_spec.rs） |
+| [packages/core/Specs/Cartesian4Spec.js](../../cesium/packages/core/Specs/Cartesian4Spec.js) | 已移植：构造、打包、四则运算、模长、Color 互转与插值（cartesian_spec.rs） |
 | [packages/core/Specs/CartographicSpec.js](../../cesium/packages/core/Specs/CartographicSpec.js) | 部分：WGS84 参考点及正负高度；其余待核对 |
 | [packages/core/Specs/CatmullRomSplineSpec.js](../../cesium/packages/core/Specs/CatmullRomSplineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/CheckSpec.js](../../cesium/packages/core/Specs/CheckSpec.js) | 待逐项核对 |
@@ -88,7 +96,7 @@
 | [packages/core/Specs/CircleOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CircleOutlineGeometrySpec.js) | 待逐项核对 |
 | [packages/core/Specs/ClockSpec.js](../../cesium/packages/core/Specs/ClockSpec.js) | 部分：时间范围和暂停；JulianDate、ClockStep、事件等待实现 |
 | [packages/core/Specs/ColorGeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/ColorGeometryInstanceAttributeSpec.js) | 待逐项核对 |
-| [packages/core/Specs/ColorSpec.js](../../cesium/packages/core/Specs/ColorSpec.js) | 待逐项核对 |
+| [packages/core/Specs/ColorSpec.js](../../cesium/packages/core/Specs/ColorSpec.js) | 已移植：常量色表、RGBA/Bytes 转换、CSS 解析、亮暗调整与打包（color_spec.rs） |
 | [packages/core/Specs/ComponentDatatypeSpec.js](../../cesium/packages/core/Specs/ComponentDatatypeSpec.js) | 待逐项核对 |
 | [packages/core/Specs/ConstantSplineSpec.js](../../cesium/packages/core/Specs/ConstantSplineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/CoplanarPolygonGeometrySpec.js](../../cesium/packages/core/Specs/CoplanarPolygonGeometrySpec.js) | 待逐项核对 |
@@ -122,8 +130,8 @@
 | [packages/core/Specs/GeometryPipelineSpec.js](../../cesium/packages/core/Specs/GeometryPipelineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/GeometrySpec.js](../../cesium/packages/core/Specs/GeometrySpec.js) | 待逐项核对 |
 | [packages/core/Specs/GregorianDateSpec.js](../../cesium/packages/core/Specs/GregorianDateSpec.js) | 待逐项核对 |
-| [packages/core/Specs/HeadingPitchRangeSpec.js](../../cesium/packages/core/Specs/HeadingPitchRangeSpec.js) | 待逐项核对 |
-| [packages/core/Specs/HeadingPitchRollSpec.js](../../cesium/packages/core/Specs/HeadingPitchRollSpec.js) | 待逐项核对 |
+| [packages/core/Specs/HeadingPitchRangeSpec.js](../../cesium/packages/core/Specs/HeadingPitchRangeSpec.js) | 已移植：构造、字段读取、clone、相等比较（quaternion_hpr_spec.rs） |
+| [packages/core/Specs/HeadingPitchRollSpec.js](../../cesium/packages/core/Specs/HeadingPitchRollSpec.js) | 已移植：弧度/角度构造、四元数互转与等价验证（quaternion_hpr_spec.rs） |
 | [packages/core/Specs/HermitePolynomialApproximationSpec.js](../../cesium/packages/core/Specs/HermitePolynomialApproximationSpec.js) | 待逐项核对 |
 | [packages/core/Specs/HermiteSplineSpec.js](../../cesium/packages/core/Specs/HermiteSplineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/HilbertOrderSpec.js](../../cesium/packages/core/Specs/HilbertOrderSpec.js) | 待逐项核对 |
@@ -136,11 +144,11 @@
 | [packages/core/Specs/LeapSecondSpec.js](../../cesium/packages/core/Specs/LeapSecondSpec.js) | 待逐项核对 |
 | [packages/core/Specs/LinearApproximationSpec.js](../../cesium/packages/core/Specs/LinearApproximationSpec.js) | 待逐项核对 |
 | [packages/core/Specs/LinearSplineSpec.js](../../cesium/packages/core/Specs/LinearSplineSpec.js) | 待逐项核对 |
-| [packages/core/Specs/MathSpec.js](../../cesium/packages/core/Specs/MathSpec.js) | 待逐项核对 |
-| [packages/core/Specs/Matrix2Spec.js](../../cesium/packages/core/Specs/Matrix2Spec.js) | 待逐项核对 |
-| [packages/core/Specs/Matrix3Spec.js](../../cesium/packages/core/Specs/Matrix3Spec.js) | 待逐项核对 |
-| [packages/core/Specs/Matrix4Spec.js](../../cesium/packages/core/Specs/Matrix4Spec.js) | 待逐项核对 |
-| [packages/core/Specs/NearFarScalarSpec.js](../../cesium/packages/core/Specs/NearFarScalarSpec.js) | 待逐项核对 |
+| [packages/core/Specs/MathSpec.js](../../cesium/packages/core/Specs/MathSpec.js) | 已移植：常数、符号、SNorm 转换、截断三角、角度归一化与相对/绝对容差比较（math_spec.rs） |
+| [packages/core/Specs/Matrix2Spec.js](../../cesium/packages/core/Specs/Matrix2Spec.js) | 已移植：行主序构造、列主序存储、矩阵与向量乘法、转置与打包（matrix_spec.rs） |
+| [packages/core/Specs/Matrix3Spec.js](../../cesium/packages/core/Specs/Matrix3Spec.js) | 已移植：行主序构造、缩放/旋转矩阵、乘法、逆矩阵与打包（matrix_spec.rs） |
+| [packages/core/Specs/Matrix4Spec.js](../../cesium/packages/core/Specs/Matrix4Spec.js) | 已移植：平移/旋转、点与方向变换、仿射逆矩阵、打包（matrix_spec.rs） |
+| [packages/core/Specs/NearFarScalarSpec.js](../../cesium/packages/core/Specs/NearFarScalarSpec.js) | 已移植：构造、打包解包、相等与容差比较（near_far_scalar_spec.rs） |
 | [packages/core/Specs/OccluderSpec.js](../../cesium/packages/core/Specs/OccluderSpec.js) | 部分：点和球可见性、点集与矩形剔除点；JS 错误语义等待核对 |
 | [packages/core/Specs/OrientedBoundingBoxSpec.js](../../cesium/packages/core/Specs/OrientedBoundingBoxSpec.js) | 部分：点集、矩形、变换、角点、平面、距离、遮挡、打包；更多边界待移植 |
 | [packages/core/Specs/OrthographicFrustumSpec.js](../../cesium/packages/core/Specs/OrthographicFrustumSpec.js) | 部分：投影、像素尺寸、裁剪、打包；比较及 JS 语义待核对 |
@@ -163,7 +171,7 @@
 | [packages/core/Specs/PrimitiveTypeSpec.js](../../cesium/packages/core/Specs/PrimitiveTypeSpec.js) | 待逐项核对 |
 | [packages/core/Specs/QuadraticRealPolynomialSpec.js](../../cesium/packages/core/Specs/QuadraticRealPolynomialSpec.js) | 部分：判别式及有限输入实根场景；JS 参数异常不适用 |
 | [packages/core/Specs/QuarticRealPolynomialSpec.js](../../cesium/packages/core/Specs/QuarticRealPolynomialSpec.js) | 部分：判别式与有限输入求根场景；JS 参数异常不适用 |
-| [packages/core/Specs/QuaternionSpec.js](../../cesium/packages/core/Specs/QuaternionSpec.js) | 待逐项核对 |
+| [packages/core/Specs/QuaternionSpec.js](../../cesium/packages/core/Specs/QuaternionSpec.js) | 已移植：单位四元数、轴角构造、旋转矩阵互转与 slerp 球面插值（quaternion_hpr_spec.rs） |
 | [packages/core/Specs/QuaternionSplineSpec.js](../../cesium/packages/core/Specs/QuaternionSplineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/QueueSpec.js](../../cesium/packages/core/Specs/QueueSpec.js) | 待逐项核对 |
 | [packages/core/Specs/RaySpec.js](../../cesium/packages/core/Specs/RaySpec.js) | 部分：构造、方向归一化、取点；JS 对象复用语义不同 |
