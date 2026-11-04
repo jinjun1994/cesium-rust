@@ -66,6 +66,28 @@ impl PixelDatatype {
             Self::UnsignedShort5_6_5 => 0x8363,
         }
     }
+
+    pub const fn validate(value: u32) -> bool {
+        matches!(
+            value,
+            5121 | 5123 | 5125 | 5126 | 0x8D61 | 0x84FA | 0x8033 | 0x8034 | 0x8363
+        )
+    }
+
+    pub const fn from_u32(value: u32) -> Option<Self> {
+        match value {
+            5121 => Some(Self::UnsignedByte),
+            5123 => Some(Self::UnsignedShort),
+            5125 => Some(Self::UnsignedInt),
+            5126 => Some(Self::Float),
+            0x8D61 => Some(Self::HalfFloat),
+            0x84FA => Some(Self::UnsignedInt24_8),
+            0x8033 => Some(Self::UnsignedShort4_4_4_4),
+            0x8034 => Some(Self::UnsignedShort5_5_5_1),
+            0x8363 => Some(Self::UnsignedShort5_6_5),
+            _ => None,
+        }
+    }
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
