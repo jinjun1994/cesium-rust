@@ -726,6 +726,17 @@ impl Matrix4 {
     }
 
     #[inline]
+    pub fn from_translation_quaternion_rotation_scale(
+        translation: Cartesian3,
+        rotation: Quaternion,
+        scale: Cartesian3,
+    ) -> Self {
+        let rot = Matrix3::from_quaternion(&rotation);
+        let rot_scale = rot.multiply_by_scale(scale);
+        Self::from_rotation_translation(&rot_scale, translation)
+    }
+
+    #[inline]
     pub fn from_uniform_scale(scale: f64) -> Self {
         Self::from_scale(Cartesian3::new(scale, scale, scale))
     }

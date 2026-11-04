@@ -1,10 +1,12 @@
 //! Column vectors, metres, radians, right-handed ECEF and negative-Z eye space.
 use glam::{DMat3, DMat4, DVec3, Mat4, Vec4};
 use thiserror::Error;
+mod array_remove_duplicates;
 mod associative_array;
 mod attribute_type;
 mod axis_aligned_bounding_box;
 mod barycentric_coordinates;
+mod binary_search;
 mod bounding_rectangle;
 mod box_geometry;
 mod cartesian;
@@ -86,15 +88,19 @@ mod time_interval;
 mod time_interval_collection;
 mod tiling;
 mod tridiagonal_system_solver;
+mod translation_rotation_scale;
 mod vertex_format;
+mod vertical_exaggeration;
 mod wall_geometry;
 mod winding_order;
+pub use array_remove_duplicates::array_remove_duplicates;
 pub use associative_array::AssociativeArray;
 pub use attribute_type::AttributeType;
 pub use axis_aligned_bounding_box::AxisAlignedBoundingBox;
 pub use barycentric_coordinates::{
     barycentric_coordinates, barycentric_coordinates_2d, BarycentricCoordinates,
 };
+pub use binary_search::{binary_search, binary_search_cesium};
 pub use bounding_rectangle::BoundingRectangle;
 pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
 pub use cartesian::{Cartesian2, Cartesian3, Cartesian4};
@@ -212,7 +218,9 @@ pub use time_interval::TimeInterval;
 pub use time_interval_collection::TimeIntervalCollection;
 pub use tiling::{GeographicTilingScheme, NativeRectangle, TilingScheme, WebMercatorTilingScheme};
 pub use tridiagonal_system_solver::TridiagonalSystemSolver;
+pub use translation_rotation_scale::TranslationRotationScale;
 pub use vertex_format::VertexFormat;
+pub use vertical_exaggeration::VerticalExaggeration;
 pub use wall_geometry::{WallGeometry, WallOutlineGeometry};
 pub use winding_order::WindingOrder;
 

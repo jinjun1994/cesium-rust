@@ -91,6 +91,13 @@
 - `hermite_polynomial_approximation.rs` 及 `hermite_polynomial_approximation_spec.rs`：对齐 CesiumJS `HermitePolynomialApproximation`，支持包含导数信息的 Hermite-Newton 均差商三角插值表构造（`fill_coefficient_list`）、递归多项式导数展开项（`calculate_coefficient_term`），支持 0 阶插值与任意高阶导数输出插值（`interpolate`），并在 `core_math.rs` 中补齐 `factorial` 阶乘与 `increment_wrap`。
 - 相应 11 项单元测试全部通过，workspace Clippy 静态检查零警告，通过 `wasm32-unknown-unknown` 构建。
 
+新增仿射变换组合、地形高程垂直夸张、序列容差去重与二分查找核心算法（`cesium-math`）：
+- `translation_rotation_scale.rs` 及 `translation_rotation_scale_spec.rs`：对齐 CesiumJS `TranslationRotationScale`，包含平移（`Cartesian3`）、旋转（`Quaternion`）、缩放（`Cartesian3`）分量，支持默认单位值、相等比较及生成仿射 `Matrix4` 变换矩阵。
+- `vertical_exaggeration.rs` 及 `vertical_exaggeration_spec.rs`：对齐 CesiumJS `VerticalExaggeration`，支持基准高程缩放（`get_height`）与 WGS84 椭球笛卡尔空间坐标的高程垂直夸张（`get_position`），覆盖地表上下基准高程偏移与近地心奇异回退。
+- `array_remove_duplicates.rs` 及 `array_remove_duplicates_spec.rs`：对齐 CesiumJS `arrayRemoveDuplicates`，支持相邻元素的 $\varepsilon$-容差比较去重、首尾闭合线段环绕去重（`wrap_around`）及被移除索引序列记录（`removed_indices`）。
+- `binary_search.rs` 及 `binary_search_spec.rs`：对齐 CesiumJS `binarySearch`，支持自定义比较器，提供返回命中索引或按位取反（`~index`）插入位置的 Cesium 规范语义及 Rust 标准 `Result<usize, usize>` 接口。
+- 相应 22 项单元测试全部通过，workspace Clippy 静态检查零警告，通过 `wasm32-unknown-unknown` 构建。
+
 后续逐个登记：上游测试名称和源码哈希、Rust 测试路径与名称、适用平台、通过证据、未实现能力及差异。图形测试须在原生 wgpu 与浏览器 WebGPU 上保留截图、参数和设备信息；上游 WebGL 实现细节需按可观察行为验证。
 
 | 上游 Spec 文件 | 状态 |
@@ -207,16 +214,16 @@
 | [packages/core/Specs/TimeIntervalCollectionSpec.js](../../cesium/packages/core/Specs/TimeIntervalCollectionSpec.js) | 已移植：非重叠时间区间集合、同数据区间自动合并、异数据区间重叠裁切与拆分、区间挖洞移除与时间二分查找（time_interval_collection_spec.rs） |
 | [packages/core/Specs/TimeIntervalSpec.js](../../cesium/packages/core/Specs/TimeIntervalSpec.js) | 已移植：时间区间构造、点包含判定（含开闭区间边界）、判空、相等比较与重叠求交（time_interval_spec.rs） |
 | [packages/core/Specs/TipsifySpec.js](../../cesium/packages/core/Specs/TipsifySpec.js) | 待逐项核对 |
-| [packages/core/Specs/TranslationRotationScaleSpec.js](../../cesium/packages/core/Specs/TranslationRotationScaleSpec.js) | 待逐项核对 |
+| [packages/core/Specs/TranslationRotationScaleSpec.js](../../cesium/packages/core/Specs/TranslationRotationScaleSpec.js) | 已移植：仿射变换平移/四元数旋转/缩放结构体、默认值、判等与仿射Matrix4生成（translation_rotation_scale_spec.rs） |
 | [packages/core/Specs/TridiagonalSystemSolverSpec.js](../../cesium/packages/core/Specs/TridiagonalSystemSolverSpec.js) | 已移植：Thomas 三对角线性方程组求解器、Cartesian3 向量右端项回代计算（tridiagonal_system_solver_spec.rs） |
 | [packages/core/Specs/VertexFormatSpec.js](../../cesium/packages/core/Specs/VertexFormatSpec.js) | 已移植：格式位掩码、常量定义、clone、pack/unpack（vertex_format_spec.rs） |
-| [packages/core/Specs/VerticalExaggerationSpec.js](../../cesium/packages/core/Specs/VerticalExaggerationSpec.js) | 待逐项核对 |
+| [packages/core/Specs/VerticalExaggerationSpec.js](../../cesium/packages/core/Specs/VerticalExaggerationSpec.js) | 已移植：垂直地形高程夸张计算（getHeight/getPosition、基准高程缩放、WGS84坐标转换）（vertical_exaggeration_spec.rs） |
 | [packages/core/Specs/WallGeometrySpec.js](../../cesium/packages/core/Specs/WallGeometrySpec.js) | 已移植：墙体几何顶点交错排布、高程拉伸、折线插值采样、退化参数校验与三角形剖分（wall_geometry_spec.rs） |
 | [packages/core/Specs/WallOutlineGeometrySpec.js](../../cesium/packages/core/Specs/WallOutlineGeometrySpec.js) | 已移植：墙体轮廓线框顶点生成、顶底水平与侧面垂直线条索引及退化参数校验（wall_geometry_spec.rs） |
 | [packages/core/Specs/WebMercatorProjectionSpec.js](../../cesium/packages/core/Specs/WebMercatorProjectionSpec.js) | 部分：正反投影、极区裁剪；结果对象及其他语义待核对 |
-| [packages/core/Specs/arrayRemoveDuplicatesSpec.js](../../cesium/packages/core/Specs/arrayRemoveDuplicatesSpec.js) | 待逐项核对 |
+| [packages/core/Specs/arrayRemoveDuplicatesSpec.js](../../cesium/packages/core/Specs/arrayRemoveDuplicatesSpec.js) | 已移植：数组相邻重复项去除（ε容差去重、首尾闭合环绕去重与删除索引数组追踪）（array_remove_duplicates_spec.rs） |
 | [packages/core/Specs/barycentricCoordinatesSpec.js](../../cesium/packages/core/Specs/barycentricCoordinatesSpec.js) | 已移植：2D/3D 三角形顶点、边缘与内部重心坐标计算、退化共线判定（barycentric_coordinates_spec.rs） |
-| [packages/core/Specs/binarySearchSpec.js](../../cesium/packages/core/Specs/binarySearchSpec.js) | 待逐项核对 |
+| [packages/core/Specs/binarySearchSpec.js](../../cesium/packages/core/Specs/binarySearchSpec.js) | 已移植：有序序列二分查找（命中索引、未命中按按位取反~返回插入点、支持自定义比较器）（binary_search_spec.rs） |
 | [packages/core/Specs/cloneSpec.js](../../cesium/packages/core/Specs/cloneSpec.js) | 待逐项核对 |
 | [packages/core/Specs/combineSpec.js](../../cesium/packages/core/Specs/combineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/createGuidSpec.js](../../cesium/packages/core/Specs/createGuidSpec.js) | 待逐项核对 |
