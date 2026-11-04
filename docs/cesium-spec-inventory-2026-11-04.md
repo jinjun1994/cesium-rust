@@ -300,7 +300,7 @@
 | [packages/engine/Specs/Core/TerrainEncodingSpec.js](../../cesium/packages/engine/Specs/Core/TerrainEncodingSpec.js) | 已移植：地形顶点量化（NONE/BITS12）、顶点编码/解码、纹理坐标压缩、高程夸大、八面体法线打包与大地水准面法线增删、着色器顶点属性布局（terrain_encoding_spec.rs） |
 | [packages/engine/Specs/Core/TerrainMeshSpec.js](../../cesium/packages/engine/Specs/Core/TerrainMeshSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/TerrainPickerSpec.js](../../cesium/packages/engine/Specs/Core/TerrainPickerSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/TileAvailabilitySpec.js](../../cesium/packages/engine/Specs/Core/TileAvailabilitySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/TileAvailabilitySpec.js](../../cesium/packages/engine/Specs/Core/TileAvailabilitySpec.js) | 已移植：瓦片四叉树可用性索引（TileAvailability）、点处最大可用等级对数查询、矩形区域多层级覆盖差集解算（含180度日界线穿越）、子瓦片掩码计算与矩形排序（tile_availability_spec.rs） |
 | [packages/engine/Specs/Core/TrustedServersSpec.js](../../cesium/packages/engine/Specs/Core/TrustedServersSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/VRTheWorldTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/VRTheWorldTerrainProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/VectorProviderSpec.js](../../cesium/packages/engine/Specs/Core/VectorProviderSpec.js) | 待逐项核对 |

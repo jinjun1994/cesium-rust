@@ -40,7 +40,7 @@ fn normalized_longitude(lon: f64) -> f64 {
     }
 }
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct GeographicTilingScheme {
     ellipsoid: Ellipsoid,
     rectangle: GeoRectangle,
@@ -98,6 +98,15 @@ impl GeographicTilingScheme {
     pub fn tile_counts(self, level: u32) -> Option<(u32, u32)> {
         counts(self.root_x, self.root_y, level)
     }
+    pub fn number_of_x_tiles_at_level(self, level: u32) -> u32 {
+        self.tile_counts(level).map(|(x, _)| x).unwrap_or(0)
+    }
+    pub fn number_of_y_tiles_at_level(self, level: u32) -> u32 {
+        self.tile_counts(level).map(|(_, y)| y).unwrap_or(0)
+    }
+    pub fn tile_xy_to_rectangle(self, x: u32, y: u32, level: u32) -> Option<GeoRectangle> {
+        self.tile_rectangle(x, y, level)
+    }
     pub fn rectangle_to_native(self, r: GeoRectangle) -> NativeRectangle {
         NativeRectangle {
             west: r.west.to_degrees(),
@@ -152,7 +161,7 @@ impl GeographicTilingScheme {
     }
 }
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct WebMercatorTilingScheme {
     projection: WebMercatorProjection,
     rectangle: GeoRectangle,
@@ -216,6 +225,15 @@ impl WebMercatorTilingScheme {
     }
     pub fn tile_counts(self, level: u32) -> Option<(u32, u32)> {
         counts(self.root_x, self.root_y, level)
+    }
+    pub fn number_of_x_tiles_at_level(self, level: u32) -> u32 {
+        self.tile_counts(level).map(|(x, _)| x).unwrap_or(0)
+    }
+    pub fn number_of_y_tiles_at_level(self, level: u32) -> u32 {
+        self.tile_counts(level).map(|(_, y)| y).unwrap_or(0)
+    }
+    pub fn tile_xy_to_rectangle(self, x: u32, y: u32, level: u32) -> Option<GeoRectangle> {
+        self.tile_rectangle(x, y, level)
     }
     pub fn rectangle_to_native(self, r: GeoRectangle) -> Option<NativeRectangle> {
         let sw = self.projection.project(r.southwest())?;

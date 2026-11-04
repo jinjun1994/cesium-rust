@@ -117,6 +117,7 @@ mod terrain_encoding;
 mod time_constants;
 mod time_interval;
 mod time_interval_collection;
+mod tile_availability;
 mod tiling;
 mod tipsify;
 mod tridiagonal_system_solver;
@@ -291,6 +292,9 @@ pub use terrain_encoding::{
 pub use time_constants::{TimeConstants, *};
 pub use time_interval::TimeInterval;
 pub use time_interval_collection::TimeIntervalCollection;
+pub use tile_availability::{
+    QuadtreeNode, RectangleWithLevel, TileAvailability, TileScheme,
+};
 pub use tiling::{GeographicTilingScheme, NativeRectangle, TilingScheme, WebMercatorTilingScheme};
 pub use tipsify::Tipsify;
 pub use tridiagonal_system_solver::TridiagonalSystemSolver;
