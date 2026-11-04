@@ -168,7 +168,7 @@
 | [packages/core/Specs/PolygonGeometrySpec.js](../../cesium/packages/core/Specs/PolygonGeometrySpec.js) | 待逐项核对 |
 | [packages/core/Specs/PolygonOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PolygonOutlineGeometrySpec.js) | 待逐项核对 |
 | [packages/core/Specs/PolygonPipelineSpec.js](../../cesium/packages/core/Specs/PolygonPipelineSpec.js) | 待逐项核对 |
-| [packages/core/Specs/PolylineGeometrySpec.js](../../cesium/packages/core/Specs/PolylineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/PolylineGeometrySpec.js](../../cesium/packages/core/Specs/PolylineGeometrySpec.js) | 已移植：参数化宽折线网格展开（M*4-4 顶点 / M*6-6 索引）、前驱/后继点坐标、展开方向与线宽属性、逐顶点/逐段颜色与重复点去重（polyline_geometry_spec.rs） |
 | [packages/core/Specs/PolylinePipelineSpec.js](../../cesium/packages/core/Specs/PolylinePipelineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/PolylineVolumeGeometryLibrarySpec.js](../../cesium/packages/core/Specs/PolylineVolumeGeometryLibrarySpec.js) | 待逐项核对 |
 | [packages/core/Specs/PolylineVolumeGeometrySpec.js](../../cesium/packages/core/Specs/PolylineVolumeGeometrySpec.js) | 待逐项核对 |
@@ -185,7 +185,7 @@
 | [packages/core/Specs/RectangleSpec.js](../../cesium/packages/core/Specs/RectangleSpec.js) | 部分：角点、宽高、点集、包围球、交并、包含、子区域与采样；其余待核对 |
 | [packages/core/Specs/RuntimeErrorSpec.js](../../cesium/packages/core/Specs/RuntimeErrorSpec.js) | 待逐项核对 |
 | [packages/core/Specs/ShowGeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/ShowGeometryInstanceAttributeSpec.js) | 待逐项核对 |
-| [packages/core/Specs/SimplePolylineGeometrySpec.js](../../cesium/packages/core/Specs/SimplePolylineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/SimplePolylineGeometrySpec.js](../../cesium/packages/core/Specs/SimplePolylineGeometrySpec.js) | 已移植：单像素折线图元生成、测地线/恒向线细分、逐段颜色（顶点拆分）与逐顶点颜色映射、线段索引构建（simple_polyline_geometry_spec.rs） |
 | [packages/core/Specs/SphereGeometrySpec.js](../../cesium/packages/core/Specs/SphereGeometrySpec.js) | 已移植：等半径球体网格、分片划分（3x3 -> 36 顶点 18 三角形）、零半径退化（sphere_geometry_spec.rs） |
 | [packages/core/Specs/SphereOutlineGeometrySpec.js](../../cesium/packages/core/Specs/SphereOutlineGeometrySpec.js) | 已移植：等半径球体经纬线框（2x2x2 -> 12 顶点 6 线段）、零半径退化（sphere_geometry_spec.rs） |
 | [packages/core/Specs/SphericalSpec.js](../../cesium/packages/core/Specs/SphericalSpec.js) | 待逐项核对 |

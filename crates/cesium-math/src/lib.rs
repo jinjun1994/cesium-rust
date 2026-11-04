@@ -35,12 +35,14 @@ mod oriented_bounding_box;
 mod plane;
 mod plane_geometry;
 mod polynomial;
+mod polyline_geometry;
 mod projection;
 mod quaternion;
 mod queue;
 mod ray;
 mod rectangle;
 mod scalar;
+mod simple_polyline_geometry;
 mod sphere;
 mod sphere_geometry;
 mod time_constants;
@@ -85,7 +87,7 @@ pub use frustum::{
 };
 pub use frustum_geometry::{AnyFrustum, FrustumGeometry, FrustumOutlineGeometry};
 pub use geometry::{
-    ComponentDatatype, CornerType, Geometry, GeometryAttribute, GeometryAttributes,
+    ArcType, ComponentDatatype, CornerType, Geometry, GeometryAttribute, GeometryAttributes,
     GeometryOffsetAttribute, PrimitiveType,
 };
 pub use intersections::{
@@ -103,12 +105,14 @@ pub use polynomial::{
     cubic_discriminant, cubic_real_roots, quadratic_discriminant, quadratic_real_roots,
     quartic_discriminant, quartic_real_roots,
 };
+pub use polyline_geometry::{PolylineGeometry, PolylineGeometryOptions};
 pub use projection::{GeographicProjection, MapProjection, WebMercatorProjection};
 pub use quaternion::{HeadingPitchRoll, Quaternion};
 pub use queue::Queue;
 pub use ray::Ray;
 pub use rectangle::GeoRectangle;
 pub use scalar::{HeadingPitchRange, NearFarScalar};
+pub use simple_polyline_geometry::{SimplePolylineGeometry, SimplePolylineGeometryOptions};
 pub use sphere::PlaneIntersection;
 pub use sphere_geometry::{SphereGeometry, SphereOutlineGeometry};
 pub use time_constants::{TimeConstants, *};

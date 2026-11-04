@@ -87,6 +87,14 @@ impl GeometryAttribute {
 }
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
+pub enum ArcType {
+    None = 0,
+    #[default]
+    Geodesic = 1,
+    Rhumb = 2,
+}
+
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
 pub enum CornerType {
     #[default]
     Rounded = 0,
@@ -111,6 +119,9 @@ pub struct GeometryAttributes {
     pub bitangent: Option<GeometryAttribute>,
     pub color: Option<GeometryAttribute>,
     pub apply_offset: Option<GeometryAttribute>,
+    pub prev_position: Option<GeometryAttribute>,
+    pub next_position: Option<GeometryAttribute>,
+    pub expand_and_width: Option<GeometryAttribute>,
 }
 
 #[derive(Clone, Debug, PartialEq)]
