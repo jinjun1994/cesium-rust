@@ -307,9 +307,9 @@
 | [packages/engine/Specs/Core/VideoSynchronizerSpec.js](../../cesium/packages/engine/Specs/Core/VideoSynchronizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/WebMercatorTilingSchemeSpec.js](../../cesium/packages/engine/Specs/Core/WebMercatorTilingSchemeSpec.js) | 已移植：Web 墨卡托瓦片方案、单根瓦片全域覆盖、瓦片索引与原生米坐标映射、极区裁剪与多层级瓦片定位（web_mercator_tiling_scheme_spec.rs） |
 | [packages/engine/Specs/Core/WireframeIndexGeneratorSpec.js](../../cesium/packages/engine/Specs/Core/WireframeIndexGeneratorSpec.js) | 已移植：网格线框索引生成器，支持三角形/三角带/三角扇（Triangles/TriangleStrip/TriangleFan）索引重排与线段缓冲生成、非三角形图元过滤、线框索引容量计算（wireframe_index_generator_spec.rs） |
-| [packages/engine/Specs/Core/addAllSpec.js](../../cesium/packages/engine/Specs/Core/addAllSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/appendForwardSlashSpec.js](../../cesium/packages/engine/Specs/Core/appendForwardSlashSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/buildModuleUrlSpec.js](../../cesium/packages/engine/Specs/Core/buildModuleUrlSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/addAllSpec.js](../../cesium/packages/engine/Specs/Core/addAllSpec.js) | 已移植：数组批量合并、None/空源切片安全过滤、大容量数组扩展（add_all_spec.rs） |
+| [packages/engine/Specs/Core/appendForwardSlashSpec.js](../../cesium/packages/engine/Specs/Core/appendForwardSlashSpec.js) | 已移植：URL 末尾斜杠自动规范化、空字符串与已包含斜杠安全处理（append_forward_slash_spec.rs） |
+| [packages/engine/Specs/Core/buildModuleUrlSpec.js](../../cesium/packages/engine/Specs/Core/buildModuleUrlSpec.js) | 已移植：Cesium 模块相对/绝对 URL 拼接与正则校验、CESIUM_BASE_URL 动态配置与跨平台路径合成（build_module_url_spec.rs） |
 | [packages/engine/Specs/Core/createWorldBathymetryAsyncSpec.js](../../cesium/packages/engine/Specs/Core/createWorldBathymetryAsyncSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/createWorldTerrainAsyncSpec.js](../../cesium/packages/engine/Specs/Core/createWorldTerrainAsyncSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/getImageFromTypedArraySpec.js](../../cesium/packages/engine/Specs/Core/getImageFromTypedArraySpec.js) | 待逐项核对 |

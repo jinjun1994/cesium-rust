@@ -1,6 +1,8 @@
 //! Column vectors, metres, radians, right-handed ECEF and negative-Z eye space.
 use glam::{DMat3, DMat4, DVec3, Mat4, Vec4};
 use thiserror::Error;
+mod add_all_to_array;
+mod append_forward_slash;
 mod approximate_terrain_heights;
 mod array_remove_duplicates;
 mod associative_array;
@@ -11,6 +13,7 @@ mod barycentric_coordinates;
 mod binary_search;
 mod bounding_rectangle;
 mod box_geometry;
+mod build_module_url;
 mod cartesian;
 mod cartographic_geocoder_service;
 mod catmull_rom_spline;
@@ -126,6 +129,8 @@ mod wall_geometry;
 mod warnings;
 mod winding_order;
 mod wireframe_index_generator;
+pub use add_all_to_array::add_all_to_array;
+pub use append_forward_slash::append_forward_slash;
 pub use approximate_terrain_heights::{ApproximateTerrainHeights, TerrainHeights, TileXYLevel};
 pub use array_remove_duplicates::array_remove_duplicates;
 pub use associative_array::AssociativeArray;
@@ -138,6 +143,10 @@ pub use barycentric_coordinates::{
 pub use binary_search::{binary_search, binary_search_cesium};
 pub use bounding_rectangle::BoundingRectangle;
 pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
+pub use build_module_url::{
+    build_module_url, build_module_url_from_base_url, clear_base_url, get_base_url,
+    match_cesium_script_url, set_base_url,
+};
 pub use cartesian::{Cartesian2, Cartesian3, Cartesian4};
 pub use cartographic_geocoder_service::{CartographicGeocoderService, GeocoderResult};
 pub use catmull_rom_spline::CatmullRomSpline;
