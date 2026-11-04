@@ -51,6 +51,7 @@ mod polygon_outline_geometry;
 mod polygon_pipeline;
 mod polynomial;
 mod polyline_geometry;
+mod polyline_pipeline;
 mod projection;
 mod quaternion;
 mod queue;
@@ -147,6 +148,9 @@ pub use polynomial::{
     QuarticRealPolynomial,
 };
 pub use polyline_geometry::{PolylineGeometry, PolylineGeometryOptions};
+pub use polyline_pipeline::{
+    PolylineArcOptions, PolylineHeight, PolylinePipeline, PolylineSegments,
+};
 pub use projection::{GeographicProjection, MapProjection, WebMercatorProjection};
 pub use quaternion::{HeadingPitchRoll, Quaternion};
 pub use queue::Queue;
@@ -185,6 +189,8 @@ pub struct Cartographic {
     pub height: f64,
 }
 impl Cartographic {
+    pub const ZERO: Self = Self::new(0.0, 0.0, 0.0);
+
     pub const fn new(longitude: f64, latitude: f64, height: f64) -> Self {
         Self {
             longitude,

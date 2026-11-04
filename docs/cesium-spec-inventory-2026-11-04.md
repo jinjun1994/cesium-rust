@@ -169,7 +169,7 @@
 | [packages/core/Specs/PolygonOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PolygonOutlineGeometrySpec.js) | 已全量移植：多边形轮廓几何体（测地/恒向线细分、逐点高度、拉伸挤出立体轮廓、嵌套孔洞多边形层级、逆时针绕向保序、高低空包围球、顶点偏移属性 Top/All、Pack/Unpack 序列化）（polygon_outline_geometry_spec.rs） |
 | [packages/core/Specs/PolygonPipelineSpec.js](../../cesium/packages/core/Specs/PolygonPipelineSpec.js) | 已移植：多边形流水线（2D面积与绕向判定、Earcut孔洞剖分、球面/恒向线三角形细分与纹理插值、大地高程缩放）（polygon_pipeline_spec.rs） |
 | [packages/core/Specs/PolylineGeometrySpec.js](../../cesium/packages/core/Specs/PolylineGeometrySpec.js) | 已移植：参数化宽折线网格展开（M*4-4 顶点 / M*6-6 索引）、前驱/后继点坐标、展开方向与线宽属性、逐顶点/逐段颜色与重复点去重（polyline_geometry_spec.rs） |
-| [packages/core/Specs/PolylinePipelineSpec.js](../../cesium/packages/core/Specs/PolylinePipelineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/PolylinePipelineSpec.js](../../cesium/packages/core/Specs/PolylinePipelineSpec.js) | 已全量移植：折线流水线（大地线/恒向线细分采样与高程插值、180度国际日界线跨越分割与模型矩阵局部空间变换、单点/空数组边界处理、高程提取）（polyline_pipeline_spec.rs） |
 | [packages/core/Specs/PolylineVolumeGeometryLibrarySpec.js](../../cesium/packages/core/Specs/PolylineVolumeGeometryLibrarySpec.js) | 待逐项核对 |
 | [packages/core/Specs/PolylineVolumeGeometrySpec.js](../../cesium/packages/core/Specs/PolylineVolumeGeometrySpec.js) | 待逐项核对 |
 | [packages/core/Specs/PolylineVolumeOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PolylineVolumeOutlineGeometrySpec.js) | 待逐项核对 |
