@@ -79,6 +79,12 @@
 
 新增 `3DTILES_draco_point_compression` 扩展支持，接入纯 Rust Draco 解码器（原生及 WebAssembly 均无需本地 C++ 工具链依赖）。支持解压 Draco 编码的位置（POSITION）、法线（NORMAL）、颜色（RGB/RGBA）及批次标识（BATCH_ID），同时支持 Batch Table 中 Draco 压缩的标量与向量元数据属性解压。解码过程严格执行点数上限与重构内存预算限制，防御解压膨胀与截断畸形数据。`pnts_spec.rs` 使用上游真实 Draco 样例（完整 Draco、部分 Draco、带批次元数据 Draco 以及损坏流）验证了坐标精度、法线、颜色及元数据映射；原生加载入口与渲染场景已验证 Draco 批次点云的端到端加载、实例化绘制与基于批次属性的拾取。目前点云逐点样式表达式、EDL 与分类仍待后续实现。
 
+新增 2D/3D 三角形重心坐标、点在三角形内判定与 2D 求交模块（`cesium-math`）：
+- `barycentric_coordinates.rs` 及 `barycentric_coordinates_spec.rs`：对齐 CesiumJS `barycentricCoordinates`，支持 2D（`Cartesian2`）与 3D（`Cartesian3`）重心坐标计算，支持 `BarycentricCoordinates` 泛型 trait，覆盖顶点重合快速判定、各边中点插值、三角形内部测试、共线退化返回 `None` 以及极大尺度等长边数值稳定性测试。
+- `point_inside_triangle.rs` 及 `point_inside_triangle_spec.rs`：对齐 CesiumJS `pointInsideTriangle`，严格判断点是否位于三角形内部（排除顶点与边线接触），支持 2D 与 3D 泛型调用。
+- `intersections_2d.rs` 及 `intersections_2d_spec.rs`：对齐 CesiumJS `Intersections2D`，支持轴对齐阈值 2D 三角形几何切割（`clip_triangle_at_axis_aligned_threshold`，精确生成多边形逆时针顶点序列与边插值距离比例），支持快速 2D 三角形重心坐标计算（`compute_barycentric_coordinates`），以及两线段求交点计算（`compute_line_segment_line_segment_intersection`，覆盖相交、顶点接触、平行与重合线段检测）。
+- 相应 40 项单元测试全部通过，workspace Clippy 静态检查零警告，通过 `wasm32-unknown-unknown` 构建。
+
 后续逐个登记：上游测试名称和源码哈希、Rust 测试路径与名称、适用平台、通过证据、未实现能力及差异。图形测试须在原生 wgpu 与浏览器 WebGPU 上保留截图、参数和设备信息；上游 WebGL 实现细节需按可观察行为验证。
 
 | 上游 Spec 文件 | 状态 |
@@ -142,7 +148,7 @@
 | [packages/core/Specs/HilbertOrderSpec.js](../../cesium/packages/core/Specs/HilbertOrderSpec.js) | 待逐项核对 |
 | [packages/core/Specs/IndexDatatypeSpec.js](../../cesium/packages/core/Specs/IndexDatatypeSpec.js) | 已移植：索引数据类型（8/16/32位无符号整型）、字节大小、顶点数自动选型（64KB阈值）及ArrayBuffer重构（index_datatype_spec.rs） |
 | [packages/core/Specs/IntersectionTestsSpec.js](../../cesium/packages/core/Specs/IntersectionTestsSpec.js) | 部分：射线/线段、盒体、平面切分和掠射；其他场景待核对 |
-| [packages/core/Specs/Intersections2DSpec.js](../../cesium/packages/core/Specs/Intersections2DSpec.js) | 待逐项核对 |
+| [packages/core/Specs/Intersections2DSpec.js](../../cesium/packages/core/Specs/Intersections2DSpec.js) | 已移植：轴对齐阈值2D三角形切割（多边形顶点与生成比例）、2D重心坐标与线段求交（intersections_2d_spec.rs） |
 | [packages/core/Specs/IntervalSpec.js](../../cesium/packages/core/Specs/IntervalSpec.js) | 已移植：默认闭区间构造 [0, 0] 与显式闭区间构造 [start, stop]（interval_spec.rs） |
 | [packages/core/Specs/JulianDateSpec.js](../../cesium/packages/core/Specs/JulianDateSpec.js) | 已移植：默认构造、分数天、TAI 基础构造、闰秒偏移、时间算术、秒/天差值、ISO 8601 与格里高利历互转（julian_date_spec.rs） |
 | [packages/core/Specs/LagrangePolynomialApproximationSpec.js](../../cesium/packages/core/Specs/LagrangePolynomialApproximationSpec.js) | 待逐项核对 |
@@ -203,7 +209,7 @@
 | [packages/core/Specs/WallOutlineGeometrySpec.js](../../cesium/packages/core/Specs/WallOutlineGeometrySpec.js) | 已移植：墙体轮廓线框顶点生成、顶底水平与侧面垂直线条索引及退化参数校验（wall_geometry_spec.rs） |
 | [packages/core/Specs/WebMercatorProjectionSpec.js](../../cesium/packages/core/Specs/WebMercatorProjectionSpec.js) | 部分：正反投影、极区裁剪；结果对象及其他语义待核对 |
 | [packages/core/Specs/arrayRemoveDuplicatesSpec.js](../../cesium/packages/core/Specs/arrayRemoveDuplicatesSpec.js) | 待逐项核对 |
-| [packages/core/Specs/barycentricCoordinatesSpec.js](../../cesium/packages/core/Specs/barycentricCoordinatesSpec.js) | 待逐项核对 |
+| [packages/core/Specs/barycentricCoordinatesSpec.js](../../cesium/packages/core/Specs/barycentricCoordinatesSpec.js) | 已移植：2D/3D 三角形顶点、边缘与内部重心坐标计算、退化共线判定（barycentric_coordinates_spec.rs） |
 | [packages/core/Specs/binarySearchSpec.js](../../cesium/packages/core/Specs/binarySearchSpec.js) | 待逐项核对 |
 | [packages/core/Specs/cloneSpec.js](../../cesium/packages/core/Specs/cloneSpec.js) | 待逐项核对 |
 | [packages/core/Specs/combineSpec.js](../../cesium/packages/core/Specs/combineSpec.js) | 待逐项核对 |
@@ -220,7 +226,7 @@
 | [packages/core/Specs/mergeSortSpec.js](../../cesium/packages/core/Specs/mergeSortSpec.js) | 待逐项核对 |
 | [packages/core/Specs/objectToQuerySpec.js](../../cesium/packages/core/Specs/objectToQuerySpec.js) | 待逐项核对 |
 | [packages/core/Specs/oneTimeWarningSpec.js](../../cesium/packages/core/Specs/oneTimeWarningSpec.js) | 待逐项核对 |
-| [packages/core/Specs/pointInsideTriangleSpec.js](../../cesium/packages/core/Specs/pointInsideTriangleSpec.js) | 待逐项核对 |
+| [packages/core/Specs/pointInsideTriangleSpec.js](../../cesium/packages/core/Specs/pointInsideTriangleSpec.js) | 已移植：2D/3D 点在三角形内部判定（严格内部/顶点/边线边界测试）（point_inside_triangle_spec.rs） |
 | [packages/core/Specs/queryToObjectSpec.js](../../cesium/packages/core/Specs/queryToObjectSpec.js) | 待逐项核对 |
 | [packages/core/Specs/srgbToLinearSpec.js](../../cesium/packages/core/Specs/srgbToLinearSpec.js) | 待逐项核对 |
 | [packages/core/Specs/subdivideArraySpec.js](../../cesium/packages/core/Specs/subdivideArraySpec.js) | 待逐项核对 |

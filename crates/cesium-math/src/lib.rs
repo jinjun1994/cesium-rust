@@ -4,6 +4,7 @@ use thiserror::Error;
 mod associative_array;
 mod attribute_type;
 mod axis_aligned_bounding_box;
+mod barycentric_coordinates;
 mod bounding_rectangle;
 mod box_geometry;
 mod cartesian;
@@ -38,6 +39,7 @@ mod geometry_pipeline;
 mod hermite_spline;
 mod index_datatype;
 mod intersections;
+mod intersections_2d;
 mod julian_date;
 mod linear_spline;
 mod matrices;
@@ -46,6 +48,7 @@ mod oriented_bounding_box;
 mod plane;
 mod plane_geometry;
 mod pixel_format;
+mod point_inside_triangle;
 mod polygon_geometry;
 mod polygon_geometry_library;
 mod polygon_outline_geometry;
@@ -86,6 +89,9 @@ mod winding_order;
 pub use associative_array::AssociativeArray;
 pub use attribute_type::AttributeType;
 pub use axis_aligned_bounding_box::AxisAlignedBoundingBox;
+pub use barycentric_coordinates::{
+    barycentric_coordinates, barycentric_coordinates_2d, BarycentricCoordinates,
+};
 pub use bounding_rectangle::BoundingRectangle;
 pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
 pub use cartesian::{Cartesian2, Cartesian3, Cartesian4};
@@ -137,6 +143,7 @@ pub use intersections::{
     ray_axis_aligned_box, ray_plane, ray_sphere, ray_triangle, ray_triangle_parametric,
     triangle_plane_intersection, TrianglePlaneIntersection,
 };
+pub use intersections_2d::Intersections2D;
 pub use julian_date::{GregorianDate, JulianDate, LeapSecond, TimeStandard, LEAP_SECONDS};
 pub use linear_spline::{LinearSpline, SplineInterpolate};
 pub use matrices::{Matrix2, Matrix3, Matrix4};
@@ -145,6 +152,9 @@ pub use oriented_bounding_box::OrientedBoundingBox;
 pub use plane::Plane;
 pub use plane_geometry::{PlaneGeometry, PlaneOutlineGeometry};
 pub use pixel_format::{PixelDatatype, PixelFormat};
+pub use point_inside_triangle::{
+    point_inside_triangle, point_inside_triangle_2d, point_inside_triangle_3d,
+};
 pub use polygon_geometry::{
     PolygonGeometry, PolygonGeometryFromPositionsOptions, PolygonGeometryOptions,
 };
