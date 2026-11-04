@@ -238,6 +238,7 @@ dependencies = [
 name = "cesium-math"
 version = "0.0.26"
 dependencies = [
+ "earcutr",
  "glam",
  "thiserror 2.0.21",
 ]

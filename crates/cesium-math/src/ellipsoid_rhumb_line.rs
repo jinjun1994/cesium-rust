@@ -426,4 +426,31 @@ impl EllipsoidRhumbLine {
             self.ellipticity,
         ))
     }
+
+    pub fn find_intersection_with_latitude(
+        &self,
+        intersection_latitude: f64,
+    ) -> Option<Cartographic> {
+        let dist = self.surface_distance().ok()?;
+        if dist == 0.0 {
+            return None;
+        }
+        let heading = self.heading().ok()?;
+        let start = self.start?;
+
+        if (heading.abs() - std::f64::consts::FRAC_PI_2).abs() < EPSILON8 {
+            return None;
+        }
+
+        let sigma1 = calculate_sigma(self.ellipticity, start.latitude);
+        let sigma2 = calculate_sigma(self.ellipticity, intersection_latitude);
+        let delta_lon = heading.tan() * (sigma2 - sigma1);
+        let longitude = negative_pi_to_pi(start.longitude + delta_lon);
+
+        Some(Cartographic {
+            longitude,
+            latitude: intersection_latitude,
+            height: 0.0,
+        })
+    }
 }

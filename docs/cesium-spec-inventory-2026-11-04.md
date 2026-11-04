@@ -164,9 +164,9 @@
 | [packages/core/Specs/PlaneGeometrySpec.js](../../cesium/packages/core/Specs/PlaneGeometrySpec.js) | 已移植：单面 4 顶点 2 三角形网格、全属性（法线/切线/副切线/纹理）（plane_geometry_spec.rs） |
 | [packages/core/Specs/PlaneOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PlaneOutlineGeometrySpec.js) | 已移植：矩形 4 边线框图元顶点与索引生成（plane_geometry_spec.rs） |
 | [packages/core/Specs/PlaneSpec.js](../../cesium/packages/core/Specs/PlaneSpec.js) | 部分：构造、距离、投影、变换及比较；JS 对象复用和异常语义不同 |
-| [packages/core/Specs/PolygonGeometryLibrarySpec.js](../../cesium/packages/core/Specs/PolygonGeometryLibrarySpec.js) | 已移植：多边形几何库（恒向线细分采样与顶点打包、赤道多边形相交检测与连线分割重构）（polygon_geometry_library_spec.rs） |
+| [packages/core/Specs/PolygonGeometryLibrarySpec.js](../../cesium/packages/core/Specs/PolygonGeometryLibrarySpec.js) | 已全量移植：多边形几何库（恒向线/大地大圆细分采样与顶点打包、赤道多边形相交检测与连线分割重构、凹多边形、相交与折返边界全用例覆盖）（polygon_geometry_library_spec.rs） |
 | [packages/core/Specs/PolygonGeometrySpec.js](../../cesium/packages/core/Specs/PolygonGeometrySpec.js) | 待逐项核对 |
-| [packages/core/Specs/PolygonOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PolygonOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/PolygonOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PolygonOutlineGeometrySpec.js) | 已全量移植：多边形轮廓几何体（测地/恒向线细分、逐点高度、拉伸挤出立体轮廓、嵌套孔洞多边形层级、逆时针绕向保序、高低空包围球、顶点偏移属性 Top/All、Pack/Unpack 序列化）（polygon_outline_geometry_spec.rs） |
 | [packages/core/Specs/PolygonPipelineSpec.js](../../cesium/packages/core/Specs/PolygonPipelineSpec.js) | 已移植：多边形流水线（2D面积与绕向判定、Earcut孔洞剖分、球面/恒向线三角形细分与纹理插值、大地高程缩放）（polygon_pipeline_spec.rs） |
 | [packages/core/Specs/PolylineGeometrySpec.js](../../cesium/packages/core/Specs/PolylineGeometrySpec.js) | 已移植：参数化宽折线网格展开（M*4-4 顶点 / M*6-6 索引）、前驱/后继点坐标、展开方向与线宽属性、逐顶点/逐段颜色与重复点去重（polyline_geometry_spec.rs） |
 | [packages/core/Specs/PolylinePipelineSpec.js](../../cesium/packages/core/Specs/PolylinePipelineSpec.js) | 待逐项核对 |

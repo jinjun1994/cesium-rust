@@ -3,13 +3,16 @@
 
 use glam::DVec3;
 
+use std::collections::VecDeque;
+
 use crate::cartesian::Cartesian3;
-use crate::core_math::negative_pi_to_pi;
+use crate::coplanar_polygon_geometry::PolygonHierarchy;
+use crate::core_math::EPSILON10;
 use crate::ellipsoid::Ellipsoid;
 use crate::ellipsoid_rhumb_line::EllipsoidRhumbLine;
+use crate::errors::DeveloperError;
 use crate::geometry::ArcType;
 use crate::intersections::line_segment_plane;
-use crate::Cartographic;
 
 pub struct PolygonGeometryLibrary;
 
@@ -35,12 +38,7 @@ fn compute_equator_intersection_rhumb(
     }
 
     let rhumb = EllipsoidRhumbLine::new(Some(c0), Some(c1), Some(*ellipsoid));
-    let heading = rhumb.heading().ok()?;
-
-    // At latitude 0, sigma = 0
-    let sigma1 = (0.5 * (std::f64::consts::FRAC_PI_2 + c0.latitude)).tan().ln();
-    let delta_lon = heading.tan() * (0.0 - sigma1);
-    let intersection_lon = negative_pi_to_pi(c0.longitude + delta_lon);
+    let intersection = rhumb.find_intersection_with_latitude(0.0)?;
 
     let mut min_lon = c0.longitude.min(c1.longitude);
     let mut max_lon = c0.longitude.max(c1.longitude);
@@ -49,16 +47,13 @@ fn compute_equator_intersection_rhumb(
         std::mem::swap(&mut min_lon, &mut max_lon);
     }
 
-    if intersection_lon < min_lon || intersection_lon > max_lon {
+    if intersection.longitude < min_lon || intersection.longitude > max_lon {
         return None;
     }
 
-    let inter_carto = Cartographic {
-        longitude: intersection_lon,
-        latitude: 0.0,
-        height: 0.0,
-    };
-    ellipsoid.cartographic_to_cartesian(inter_carto).map(Cartesian3::from)
+    ellipsoid
+        .cartographic_to_cartesian(intersection)
+        .map(Cartesian3::from)
 }
 
 fn compute_equator_intersection(
@@ -261,6 +256,46 @@ fn wire_polygon(
 }
 
 impl PolygonGeometryLibrary {
+    pub fn subdivide_line_count(p0: Cartesian3, p1: Cartesian3, min_distance: f64) -> usize {
+        let distance = p0.distance(&p1);
+        let n = distance / min_distance;
+        let count_divide = (n.log2().ceil() as i32).max(0);
+        2_usize.pow(count_divide as u32)
+    }
+
+    pub fn subdivide_line(
+        p0: Cartesian3,
+        p1: Cartesian3,
+        min_distance: f64,
+        result: Option<&mut Vec<f64>>,
+    ) -> Vec<f64> {
+        let num_vertices = Self::subdivide_line_count(p0, p1, min_distance);
+        let length = p0.distance(&p1);
+        let distance_between_vertices = length / (num_vertices as f64);
+
+        let mut positions = if let Some(res) = result {
+            res.clear();
+            std::mem::take(res)
+        } else {
+            Vec::with_capacity(num_vertices * 3)
+        };
+
+        let diff = p1 - p0;
+        for i in 0..num_vertices {
+            let ratio = if length > 0.0 {
+                (i as f64 * distance_between_vertices) / length
+            } else {
+                0.0
+            };
+            let pt = p0 + diff * ratio;
+            positions.push(pt.x);
+            positions.push(pt.y);
+            positions.push(pt.z);
+        }
+
+        positions
+    }
+
     pub fn subdivide_rhumb_line_count(
         ellipsoid: &Ellipsoid,
         p0: Cartesian3,
@@ -367,5 +402,194 @@ impl PolygonGeometryLibrary {
         }
 
         result
+    }
+
+    pub fn compute_hierarchy_packed_length(hierarchy: &PolygonHierarchy) -> usize {
+        let mut num_components = 0;
+        let mut stack = vec![hierarchy];
+        while let Some(h) = stack.pop() {
+            num_components += 2;
+            num_components += h.positions.len() * 3;
+            for hole in &h.holes {
+                stack.push(hole);
+            }
+        }
+        num_components
+    }
+
+    pub fn pack_polygon_hierarchy(
+        hierarchy: &PolygonHierarchy,
+        array: &mut [f64],
+        starting_index: &mut usize,
+    ) {
+        let mut stack = vec![hierarchy];
+        while let Some(h) = stack.pop() {
+            array[*starting_index] = h.positions.len() as f64;
+            *starting_index += 1;
+            array[*starting_index] = h.holes.len() as f64;
+            *starting_index += 1;
+
+            for pos in &h.positions {
+                array[*starting_index] = pos.x;
+                array[*starting_index + 1] = pos.y;
+                array[*starting_index + 2] = pos.z;
+                *starting_index += 3;
+            }
+
+            for hole in &h.holes {
+                stack.push(hole);
+            }
+        }
+    }
+
+    pub fn unpack_polygon_hierarchy(
+        array: &[f64],
+        starting_index: &mut usize,
+    ) -> Result<PolygonHierarchy, DeveloperError> {
+        if *starting_index + 2 > array.len() {
+            return Err(DeveloperError::new("Array too short to unpack hierarchy header"));
+        }
+        let positions_length = array[*starting_index] as usize;
+        *starting_index += 1;
+        let holes_length = array[*starting_index] as usize;
+        *starting_index += 1;
+
+        if *starting_index + positions_length * 3 > array.len() {
+            return Err(DeveloperError::new("Array too short to unpack hierarchy positions"));
+        }
+
+        let mut positions = Vec::with_capacity(positions_length);
+        for _ in 0..positions_length {
+            let x = array[*starting_index];
+            let y = array[*starting_index + 1];
+            let z = array[*starting_index + 2];
+            positions.push(Cartesian3::new(x, y, z));
+            *starting_index += 3;
+        }
+
+        let mut holes = Vec::with_capacity(holes_length);
+        for _ in 0..holes_length {
+            let hole = Self::unpack_polygon_hierarchy(array, starting_index)?;
+            holes.push(hole);
+        }
+
+        Ok(PolygonHierarchy { positions, holes })
+    }
+
+    pub fn array_remove_duplicates(
+        values: &[Cartesian3],
+        wrap_around: bool,
+    ) -> Vec<Cartesian3> {
+        if values.len() < 2 {
+            return values.to_vec();
+        }
+        let mut cleaned: Option<Vec<Cartesian3>> = None;
+        let mut v0 = values[0];
+
+        for (i, &v1) in values.iter().enumerate().skip(1) {
+            if v0.equals_epsilon(&v1, Some(EPSILON10), Some(EPSILON10)) {
+                if cleaned.is_none() {
+                    let mut list = Vec::with_capacity(values.len());
+                    list.extend_from_slice(&values[..i]);
+                    cleaned = Some(list);
+                }
+            } else {
+                if let Some(ref mut list) = cleaned {
+                    list.push(v1);
+                }
+                v0 = v1;
+            }
+        }
+
+        let mut result = cleaned.unwrap_or_else(|| values.to_vec());
+
+        if wrap_around
+            && result.len() > 1
+            && result[0].equals_epsilon(result.last().unwrap(), Some(EPSILON10), Some(EPSILON10))
+        {
+            result.pop();
+        }
+
+        result
+    }
+
+    pub fn polygon_outlines_from_hierarchy(
+        hierarchy: &PolygonHierarchy,
+        scale_to_ellipsoid_surface: bool,
+        ellipsoid: &Ellipsoid,
+    ) -> Vec<Vec<Cartesian3>> {
+        let mut polygons = Vec::new();
+        let mut queue = VecDeque::new();
+        queue.push_back(hierarchy);
+
+        while let Some(outer_node) = queue.pop_front() {
+            let mut outer_ring = outer_node.positions.clone();
+            if scale_to_ellipsoid_surface {
+                for pt in &mut outer_ring {
+                    if let Some(scaled) = ellipsoid.scale_to_geodetic_surface((*pt).into()) {
+                        *pt = Cartesian3::from(scaled);
+                    }
+                }
+            }
+            outer_ring = Self::array_remove_duplicates(&outer_ring, true);
+            if outer_ring.len() < 3 {
+                continue;
+            }
+
+            for hole in &outer_node.holes {
+                let mut hole_positions = hole.positions.clone();
+                if scale_to_ellipsoid_surface {
+                    for pt in &mut hole_positions {
+                        if let Some(scaled) = ellipsoid.scale_to_geodetic_surface((*pt).into()) {
+                            *pt = Cartesian3::from(scaled);
+                        }
+                    }
+                }
+                hole_positions = Self::array_remove_duplicates(&hole_positions, true);
+                if hole_positions.len() < 3 {
+                    continue;
+                }
+                polygons.push(hole_positions);
+
+                for child_hole in &hole.holes {
+                    queue.push_back(child_hole);
+                }
+            }
+
+            polygons.push(outer_ring);
+        }
+
+        polygons
+    }
+
+    pub fn scale_to_geodetic_height_extruded(
+        positions: &mut [f64],
+        max_height: f64,
+        min_height: f64,
+        ellipsoid: &Ellipsoid,
+        per_position_height: bool,
+    ) {
+        let length = positions.len() / 2;
+        let mut i = 0;
+        while i < length {
+            let p = Cartesian3::new(positions[i], positions[i + 1], positions[i + 2]);
+            let p_dvec = p.into();
+            let n1 = ellipsoid.geodetic_surface_normal(p_dvec).unwrap_or(DVec3::Z);
+            let mut p2 = ellipsoid.scale_to_geodetic_surface(p_dvec).unwrap_or(p_dvec);
+            let bottom = p2 + n1 * min_height;
+            positions[i + length] = bottom.x;
+            positions[i + 1 + length] = bottom.y;
+            positions[i + 2 + length] = bottom.z;
+
+            if per_position_height {
+                p2 = p_dvec;
+            }
+            let top = p2 + n1 * max_height;
+            positions[i] = top.x;
+            positions[i + 1] = top.y;
+            positions[i + 2] = top.z;
+
+            i += 3;
+        }
     }
 }
