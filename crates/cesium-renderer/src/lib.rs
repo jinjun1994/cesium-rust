@@ -323,8 +323,46 @@ enum UploadMode {
     Screen,
     WideLine,
     Lines,
+    Points,
     Globe,
     Imagery,
+}
+
+/// Point diameter and optional geometric-error attenuation, in framebuffer pixels.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct PointStyle {
+    pub size: f32,
+    /// Geometric error already multiplied by its scale, in world units.
+    pub geometric_error: Option<f32>,
+    pub maximum_attenuation: f32,
+    pub normal_shading: bool,
+    pub back_face_culling: bool,
+}
+impl Default for PointStyle {
+    fn default() -> Self {
+        Self {
+            size: 1.0,
+            geometric_error: None,
+            maximum_attenuation: 16.0,
+            normal_shading: true,
+            back_face_culling: false,
+        }
+    }
+}
+impl PointStyle {
+    fn validate(self) -> Result<(), RenderError> {
+        if !self.size.is_finite()
+            || !(1.0..=4096.0).contains(&self.size)
+            || !self.maximum_attenuation.is_finite()
+            || !(1.0..=4096.0).contains(&self.maximum_attenuation)
+            || self
+                .geometric_error
+                .is_some_and(|v| !v.is_finite() || v < 0.0)
+        {
+            return Err(RenderError("invalid point style".into()));
+        }
+        Ok(())
+    }
 }
 
 pub struct GpuMesh {
@@ -340,6 +378,8 @@ pub struct GpuMesh {
     alpha_blend: bool,
     two_pass: bool,
     line: bool,
+    point: bool,
+    point_style: PointStyle,
     screen: bool,
     wide_line: bool,
     screen_distance: ScreenDistance,
@@ -348,6 +388,13 @@ pub struct GpuMesh {
     center: DVec3,
     feature_count: u32,
     pub z_index: i32,
+}
+
+impl GpuMesh {
+    /// Returns the active style for a point mesh.
+    pub fn point_style(&self) -> Option<PointStyle> {
+        self.point.then_some(self.point_style)
+    }
 }
 
 struct PassOptions<'a> {
@@ -703,6 +750,46 @@ impl Renderer {
         self.upload_material(p, model, pickable, None, UploadMode::Lines)
     }
 
+    /// Upload points once and expand each into a screen-facing instanced quad.
+    pub fn upload_points(
+        &mut self,
+        p: &Primitive,
+        model: DMat4,
+        pickable: bool,
+    ) -> Result<GpuMesh, RenderError> {
+        if p.indices
+            .iter()
+            .enumerate()
+            .all(|(i, &index)| index as usize == i)
+            && p.indices.len() == p.vertices.len()
+        {
+            return self.upload_material(p, model, pickable, None, UploadMode::Points);
+        }
+        let vertices = p
+            .indices
+            .iter()
+            .map(|&i| {
+                p.vertices
+                    .get(i as usize)
+                    .copied()
+                    .ok_or_else(|| RenderError("point index out of range".into()))
+            })
+            .collect::<Result<Vec<_>, _>>()?;
+        let mut expanded = p.clone();
+        expanded.vertices = vertices;
+        self.upload_material(&expanded, model, pickable, None, UploadMode::Points)
+    }
+
+    /// Updates a point mesh without re-uploading its vertex buffer.
+    pub fn configure_points(mesh: &mut GpuMesh, style: PointStyle) -> Result<(), RenderError> {
+        if !mesh.point {
+            return Err(RenderError("point style requires a point mesh".into()));
+        }
+        style.validate()?;
+        mesh.point_style = style;
+        Ok(())
+    }
+
     pub fn upload_globe(
         &mut self,
         p: &Primitive,
@@ -759,6 +846,7 @@ impl Renderer {
         let earth = matches!(mode, UploadMode::Globe | UploadMode::Imagery);
         let tile = matches!(mode, UploadMode::Imagery);
         let line = matches!(mode, UploadMode::Lines);
+        let point = matches!(mode, UploadMode::Points);
         self.check_health()?;
         if p.indices.is_empty() || p.vertices.is_empty() {
             return Err(RenderError("empty primitive".into()));
@@ -826,7 +914,8 @@ impl Renderer {
                 p.material.textures[4].as_ref().map_or(0, |t| t.tex_coord),
                 u32::from(p.material.textures[2].is_some())
                     | (u32::from(p.material.face_forward) << 1)
-                    | (u32::from(p.material.lambert) << 2),
+                    | (u32::from(p.material.lambert) << 2)
+                    | (u32::from(point && p.material.lambert) << 3),
                 u32::from(p.material.unlit),
                 p.material.pattern.as_ref().map_or(0, |p| p.kind),
             ],
@@ -894,7 +983,7 @@ impl Renderer {
             .next_mesh
             .checked_add(1)
             .ok_or_else(|| RenderError("mesh ID overflow".into()))?;
-        let variant = if p.material.double_sided {
+        let variant = if point || p.material.double_sided {
             0
         } else if model.determinant() < 0.0 {
             2
@@ -915,6 +1004,8 @@ impl Renderer {
             alpha_blend: p.material.alpha_blend,
             two_pass: p.material.two_pass,
             line,
+            point,
+            point_style: PointStyle::default(),
             screen: matches!(mode, UploadMode::Screen),
             wide_line: matches!(mode, UploadMode::WideLine),
             screen_distance: ScreenDistance::default(),
@@ -1040,12 +1131,23 @@ impl Renderer {
                 [1.; 3]
             };
             let object = ObjectUniform {
-                screen_params: [
-                    mesh.screen_offset[0],
-                    mesh.screen_offset[1],
-                    mesh.screen_rotation.cos(),
-                    mesh.screen_rotation.sin(),
-                ],
+                screen_params: if mesh.point {
+                    [
+                        mesh.point_style.size,
+                        mesh.point_style.geometric_error.unwrap_or(-1.0),
+                        mesh.point_style.maximum_attenuation,
+                        (u32::from(mesh.point_style.normal_shading)
+                            | (u32::from(mesh.point_style.back_face_culling) << 1))
+                            as f32,
+                    ]
+                } else {
+                    [
+                        mesh.screen_offset[0],
+                        mesh.screen_offset[1],
+                        mesh.screen_rotation.cos(),
+                        mesh.screen_rotation.sin(),
+                    ]
+                },
                 model_view_relative: mv.to_cols_array_2d(),
                 normal_col0: normal.x_axis.as_vec3().extend(screen_factors[0]).to_array(),
                 normal_col1: normal
@@ -1173,14 +1275,14 @@ impl Renderer {
         let mut draw_calls = 0u32;
         let mut mesh_bytes = 0usize;
         for m in draws {
-            draw_calls += if m.two_pass && m.alpha_blend && !m.line {
+            draw_calls += if m.two_pass && m.alpha_blend && !m.line && !m.point {
                 2
             } else {
                 1
             };
             if m.line {
                 lines_count += (m.count / 2) as u64;
-            } else {
+            } else if !m.point {
                 triangles_count += (m.count / 3) as u64;
             }
             mesh_bytes += m.bytes;
@@ -1261,6 +1363,7 @@ impl Renderer {
                 pick,
                 blend: m.alpha_blend,
                 line: m.line,
+                point: m.point,
                 variant: m.variant,
                 overlay: overlays[i],
             };
@@ -1273,11 +1376,12 @@ impl Renderer {
             pass.set_bind_group(2, &m.material, &[]);
             pass.set_vertex_buffer(0, m.vertex.slice(..));
             pass.set_index_buffer(m.index.slice(..), wgpu::IndexFormat::Uint32);
-            if m.two_pass && m.alpha_blend && !m.line {
+            if m.two_pass && m.alpha_blend && !m.line && !m.point {
                 let two_pass_key = PipelineKey {
                     pick,
                     blend: true,
                     line: false,
+                    point: false,
                     variant: if m.variant == 2 { 4 } else { 3 },
                     overlay: overlays[i],
                 };
@@ -1289,7 +1393,11 @@ impl Renderer {
                     pass.set_pipeline(pipeline);
                 }
             }
-            pass.draw_indexed(0..m.count, 0, 0..1);
+            if m.point {
+                pass.draw(0..6, 0..m.count);
+            } else {
+                pass.draw_indexed(0..m.count, 0, 0..1);
+            }
         }
     }
 
@@ -1334,6 +1442,10 @@ mod tests {
     }
 
     fn pixel(r: &Renderer, texture: &wgpu::Texture) -> [u8; 4] {
+        pixel_at(r, texture, 32, 32)
+    }
+
+    fn pixel_at(r: &Renderer, texture: &wgpu::Texture, x: u32, y: u32) -> [u8; 4] {
         let buffer = r.device.create_buffer(&wgpu::BufferDescriptor {
             label: Some("test pixel"),
             size: 256,
@@ -1345,7 +1457,7 @@ mod tests {
             wgpu::TexelCopyTextureInfo {
                 texture,
                 mip_level: 0,
-                origin: wgpu::Origin3d { x: 32, y: 32, z: 0 },
+                origin: wgpu::Origin3d { x, y, z: 0 },
                 aspect: wgpu::TextureAspect::All,
             },
             wgpu::TexelCopyBufferInfo {
@@ -1520,6 +1632,295 @@ mod tests {
             assert!(summary.last_frame.total_cpu_duration.as_nanos() > 0);
             assert!(summary.last_frame.uniform_upload_duration.as_nanos() > 0);
             assert!(summary.last_frame.pass_encode_duration.as_nanos() > 0);
+        });
+    }
+
+    #[test]
+    #[ignore = "requires a native GPU or Mesa Vulkan software adapter"]
+    fn point_list_render_and_pick() {
+        pollster::block_on(async {
+            let inst = instance();
+            let (_, device, queue) = device(&inst, None).await.unwrap();
+            let mut r =
+                Renderer::new(device, queue, wgpu::TextureFormat::Rgba8UnormSrgb, 64, 64).unwrap();
+            let mut p = cesium_formats::decode_content(
+                include_bytes!("../../../tests/fixtures/triangle.glb"),
+                &Default::default(),
+            )
+            .unwrap()
+            .primitives
+            .remove(0);
+            p.vertices.truncate(1);
+            p.vertices[0].position = [0., 20., 0.];
+            p.vertices[0].feature_id = 7;
+            p.vertices[0].color = [0., 1., 0., 1.];
+            p.indices = vec![0];
+            p.material = cesium_formats::Material {
+                unlit: true,
+                ..Default::default()
+            };
+            let mut point = r.upload_points(&p, DMat4::IDENTITY, true).unwrap();
+            let camera = Camera::look_at(
+                DVec3::new(0., 20., 100.),
+                DVec3::new(0., 20., 0.),
+                DVec3::Y,
+                64,
+                64,
+            )
+            .unwrap();
+            let target = attachment(
+                &r.device,
+                64,
+                64,
+                r.format(),
+                wgpu::TextureUsages::RENDER_ATTACHMENT | wgpu::TextureUsages::COPY_SRC,
+            );
+            let mut picked = None;
+            for x in [31, 32] {
+                for y in [31, 32] {
+                    r.render(
+                        &target.create_view(&Default::default()),
+                        camera,
+                        &[&point],
+                        Some((x, y)),
+                    )
+                    .unwrap();
+                    wait(&r);
+                    if let Some(f) = r.poll_pick().unwrap() {
+                        assert_eq!((f.mesh, f.feature), (point.id, 7));
+                        picked = Some((x, y));
+                    }
+                }
+            }
+            let (x, y) = picked.expect("point was not rasterized or pickable");
+            assert_eq!(pixel_at(&r, &target, x, y), [0, 255, 0, 255]);
+            Renderer::configure_points(
+                &mut point,
+                PointStyle {
+                    size: 9.0,
+                    ..Default::default()
+                },
+            )
+            .unwrap();
+            r.render(
+                &target.create_view(&Default::default()),
+                camera,
+                &[&point],
+                Some((x + 3, y)),
+            )
+            .unwrap();
+            wait(&r);
+            assert_eq!(r.poll_pick().unwrap().unwrap().feature, 7);
+            assert_eq!(pixel_at(&r, &target, x + 3, y), [0, 255, 0, 255]);
+            assert_ne!(pixel_at(&r, &target, x + 6, y), [0, 255, 0, 255]);
+            Renderer::configure_points(
+                &mut point,
+                PointStyle {
+                    geometric_error: Some(16.0),
+                    maximum_attenuation: 16.0,
+                    ..Default::default()
+                },
+            )
+            .unwrap();
+            r.render(
+                &target.create_view(&Default::default()),
+                camera,
+                &[&point],
+                Some((x + 3, y)),
+            )
+            .unwrap();
+            wait(&r);
+            assert!(r.poll_pick().unwrap().is_some(), "near attenuated point");
+            let far_camera = Camera::look_at(
+                DVec3::new(0., 20., 200.),
+                DVec3::new(0., 20., 0.),
+                DVec3::Y,
+                64,
+                64,
+            )
+            .unwrap();
+            r.render(
+                &target.create_view(&Default::default()),
+                far_camera,
+                &[&point],
+                Some((x + 3, y)),
+            )
+            .unwrap();
+            wait(&r);
+            assert!(r.poll_pick().unwrap().is_none(), "far point should shrink");
+            assert!(Renderer::configure_points(
+                &mut point,
+                PointStyle {
+                    size: f32::NAN,
+                    ..Default::default()
+                }
+            )
+            .is_err());
+            p.indices = vec![3];
+            assert!(r.upload_points(&p, DMat4::IDENTITY, true).is_err());
+            p.vertices.push(p.vertices[0]);
+            p.vertices[1].feature_id = 9;
+            p.vertices[0].position = [1000., 20., 0.];
+            p.indices = vec![1];
+            let reordered = r.upload_points(&p, DMat4::IDENTITY, true).unwrap();
+            r.render(
+                &target.create_view(&Default::default()),
+                camera,
+                &[&reordered],
+                Some((x, y)),
+            )
+            .unwrap();
+            wait(&r);
+            assert_eq!(r.poll_pick().unwrap().unwrap().feature, 9);
+            p.vertices.truncate(1);
+            p.vertices[0].position = [0., 20., 0.];
+            p.indices = vec![0];
+            p.material.lambert = true;
+            p.vertices[0].normal = (-DVec3::new(1.0, 0.5, 0.8).normalize())
+                .as_vec3()
+                .to_array();
+            let mut shaded = r.upload_points(&p, DMat4::IDENTITY, true).unwrap();
+            r.render(
+                &target.create_view(&Default::default()),
+                camera,
+                &[&shaded],
+                None,
+            )
+            .unwrap();
+            wait(&r);
+            let color = pixel_at(&r, &target, x, y);
+            assert!(
+                (168..=171).contains(&color[1]),
+                "ambient Lambert color: {color:?}"
+            );
+            Renderer::configure_points(
+                &mut shaded,
+                PointStyle {
+                    normal_shading: false,
+                    ..Default::default()
+                },
+            )
+            .unwrap();
+            r.render(
+                &target.create_view(&Default::default()),
+                camera,
+                &[&shaded],
+                Some((x, y)),
+            )
+            .unwrap();
+            wait(&r);
+            assert!(r.poll_pick().unwrap().is_some());
+            assert_eq!(pixel_at(&r, &target, x, y), [0, 255, 0, 255]);
+            Renderer::configure_points(
+                &mut shaded,
+                PointStyle {
+                    normal_shading: false,
+                    back_face_culling: true,
+                    ..Default::default()
+                },
+            )
+            .unwrap();
+            r.render(
+                &target.create_view(&Default::default()),
+                camera,
+                &[&shaded],
+                Some((x, y)),
+            )
+            .unwrap();
+            wait(&r);
+            assert!(
+                r.poll_pick().unwrap().is_none(),
+                "back-facing point must not be picked"
+            );
+            assert_ne!(pixel_at(&r, &target, x, y), [0, 255, 0, 255]);
+            let opposite = Camera::look_at(
+                DVec3::new(0., 20., -100.),
+                DVec3::new(0., 20., 0.),
+                DVec3::Y,
+                64,
+                64,
+            )
+            .unwrap();
+            r.render(
+                &target.create_view(&Default::default()),
+                opposite,
+                &[&shaded],
+                Some((x, y)),
+            )
+            .unwrap();
+            wait(&r);
+            assert_eq!(r.poll_pick().unwrap().unwrap().feature, 7);
+            assert_eq!(pixel_at(&r, &target, x, y), [0, 255, 0, 255]);
+            p.material.lambert = false;
+            let mut without_normals = r.upload_points(&p, DMat4::IDENTITY, true).unwrap();
+            Renderer::configure_points(
+                &mut without_normals,
+                PointStyle {
+                    back_face_culling: true,
+                    ..Default::default()
+                },
+            )
+            .unwrap();
+            r.render(
+                &target.create_view(&Default::default()),
+                camera,
+                &[&without_normals],
+                Some((x, y)),
+            )
+            .unwrap();
+            wait(&r);
+            assert_eq!(
+                r.poll_pick().unwrap().unwrap().feature,
+                7,
+                "no normals means no back-face culling"
+            );
+            let projection = camera.projection().unwrap();
+            p.vertices[0].position = [(100.0 / projection.x_axis.x) * 1.03, 20.0, 0.0];
+            let mut outside = r.upload_points(&p, DMat4::IDENTITY, true).unwrap();
+            Renderer::configure_points(
+                &mut outside,
+                PointStyle {
+                    size: 9.0,
+                    ..Default::default()
+                },
+            )
+            .unwrap();
+            r.render(
+                &target.create_view(&Default::default()),
+                camera,
+                &[&outside],
+                Some((63, y)),
+            )
+            .unwrap();
+            wait(&r);
+            assert!(
+                r.poll_pick().unwrap().is_none(),
+                "point center outside frustum is clipped"
+            );
+            p.vertices[0].position[0] = (100.0 / projection.x_axis.x) * 0.98;
+            let mut inside = r.upload_points(&p, DMat4::IDENTITY, true).unwrap();
+            Renderer::configure_points(
+                &mut inside,
+                PointStyle {
+                    size: 9.0,
+                    ..Default::default()
+                },
+            )
+            .unwrap();
+            r.render(
+                &target.create_view(&Default::default()),
+                camera,
+                &[&inside],
+                Some((63, y)),
+            )
+            .unwrap();
+            wait(&r);
+            assert_eq!(
+                r.poll_pick().unwrap().unwrap().feature,
+                7,
+                "inside point extends to viewport edge"
+            );
+            assert_eq!(r.stats_summary().unwrap().last_frame.triangles_drawn, 0);
         });
     }
 

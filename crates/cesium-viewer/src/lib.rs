@@ -1,7 +1,9 @@
 //! Small viewer SDK. Native streaming and browser static loading share the same renderer.
-use cesium_formats::{globe_mesh, gltf_y_up_to_z_up, Content, DecodeLimits};
+use cesium_formats::{
+    globe_mesh, gltf_y_up_to_z_up, Content, DecodeLimits, Material, PointCloud, Primitive, Vertex,
+};
 use cesium_math::{linear_part, Camera};
-use cesium_renderer::{BaseColorTexture, FeatureRef, GpuMesh, RenderError, Renderer};
+use cesium_renderer::{BaseColorTexture, FeatureRef, GpuMesh, PointStyle, RenderError, Renderer};
 use cesium_streaming::Residency;
 use cesium_tiles::{ContentState, Selection, Tileset};
 use glam::{DMat3, DMat4, DVec3};
@@ -175,6 +177,87 @@ impl Orbit {
 struct ResidentContent {
     meshes: Vec<GpuMesh>,
     metadata: serde_json::Value,
+    point_resolution: Option<f64>,
+}
+
+/// Implemented subset of Cesium point cloud shading options.
+#[derive(Clone, Copy, Debug, PartialEq, serde::Deserialize, serde::Serialize)]
+#[serde(default, deny_unknown_fields, rename_all = "camelCase")]
+pub struct PointCloudOptions {
+    pub point_size: f32,
+    pub attenuation: bool,
+    pub geometric_error_scale: f64,
+    pub maximum_attenuation: Option<f32>,
+    pub base_resolution: Option<f64>,
+    pub normal_shading: bool,
+    pub back_face_culling: bool,
+}
+impl Default for PointCloudOptions {
+    fn default() -> Self {
+        Self {
+            point_size: 1.0,
+            attenuation: false,
+            geometric_error_scale: 1.0,
+            maximum_attenuation: None,
+            base_resolution: None,
+            normal_shading: true,
+            back_face_culling: false,
+        }
+    }
+}
+impl PointCloudOptions {
+    fn style(
+        self,
+        tile_error: Option<f64>,
+        estimate: f64,
+        default_max: f32,
+    ) -> Result<PointStyle, RenderError> {
+        let positive = |v: f64| v.is_finite() && v >= 0.0;
+        if !positive(self.geometric_error_scale)
+            || self.base_resolution.is_some_and(|v| !positive(v))
+        {
+            return Err(RenderError("invalid point cloud options".into()));
+        }
+        let error = tile_error
+            .filter(|&v| v > 0.0)
+            .or(self.base_resolution)
+            .unwrap_or(estimate)
+            * self.geometric_error_scale;
+        if !positive(error) || error > f32::MAX as f64 {
+            return Err(RenderError("point geometric error out of range".into()));
+        }
+        let style = PointStyle {
+            size: self.point_size,
+            geometric_error: self.attenuation.then_some(error as f32),
+            maximum_attenuation: self.maximum_attenuation.unwrap_or(default_max),
+            normal_shading: self.normal_shading,
+            back_face_culling: self.back_face_culling,
+        };
+        // Renderer validates again when the style is applied to an actual mesh.
+        if !style.size.is_finite()
+            || !(1.0..=4096.0).contains(&style.size)
+            || !style.maximum_attenuation.is_finite()
+            || !(1.0..=4096.0).contains(&style.maximum_attenuation)
+        {
+            return Err(RenderError("invalid point cloud size".into()));
+        }
+        Ok(style)
+    }
+}
+
+fn estimated_point_resolution(cloud: &PointCloud) -> f64 {
+    if cloud.points.is_empty() {
+        return 0.0;
+    }
+    let mut min = DVec3::splat(f64::INFINITY);
+    let mut max = DVec3::splat(f64::NEG_INFINITY);
+    for p in &cloud.points {
+        let v = DVec3::from_array(p.position.map(f64::from));
+        min = min.min(v);
+        max = max.max(v);
+    }
+    let d = max - min;
+    (d.x * d.y * d.z / cloud.points.len() as f64).cbrt()
 }
 struct GeoLayer {
     meshes: Vec<GpuMesh>,
@@ -195,6 +278,7 @@ pub struct Scene {
     pub tileset: Option<Tileset>,
     pub orbit: Orbit,
     pub max_sse: f64,
+    point_cloud_options: PointCloudOptions,
     contents: HashMap<usize, ResidentContent>,
     cache: Residency<usize>,
     globe: Option<GpuMesh>,
@@ -240,6 +324,7 @@ impl Scene {
             tileset,
             orbit,
             max_sse: 16.0,
+            point_cloud_options: PointCloudOptions::default(),
             contents: HashMap::new(),
             cache: Residency::new(256 * 1024 * 1024),
             globe,
@@ -627,6 +712,153 @@ impl Scene {
         }
         Ok(())
     }
+    /// Current point cloud shading options, including settings for future tiles.
+    pub fn point_cloud_options(&self) -> PointCloudOptions {
+        self.point_cloud_options
+    }
+
+    /// Apply sizing changes to resident point clouds and future uploads.
+    pub fn set_point_cloud_options(
+        &mut self,
+        options: PointCloudOptions,
+    ) -> Result<(), RenderError> {
+        options.style(None, 0.0, 1.0)?;
+        let is_tileset = self.tileset.is_some();
+        let default_max = if is_tileset { self.max_sse as f32 } else { 1.0 };
+        let styles: Vec<_> = self
+            .contents
+            .iter()
+            .filter_map(|(&id, content)| {
+                content.point_resolution.map(|resolution| {
+                    let error = self
+                        .tileset
+                        .as_ref()
+                        .and_then(|t| t.tiles.get(id))
+                        .map(|t| t.geometric_error);
+                    options
+                        .style(error, resolution, default_max)
+                        .map(|style| (id, style))
+                })
+            })
+            .collect::<Result<_, _>>()?;
+        for (id, style) in styles {
+            for mesh in &mut self.contents.get_mut(&id).unwrap().meshes {
+                Renderer::configure_points(mesh, style)?;
+            }
+        }
+        self.point_cloud_options = options;
+        self.request_render();
+        Ok(())
+    }
+
+    /// Display a standalone PNTS file in its own coordinate frame.
+    pub fn add_static_points(
+        &mut self,
+        renderer: &mut Renderer,
+        cloud: PointCloud,
+    ) -> Result<(), RenderError> {
+        if cloud.points.is_empty() {
+            return Err(RenderError("empty point cloud".into()));
+        }
+        let mut min = DVec3::splat(f64::INFINITY);
+        let mut max = DVec3::splat(f64::NEG_INFINITY);
+        for point in &cloud.points {
+            let position = DVec3::from_array(point.position.map(f64::from));
+            min = min.min(position);
+            max = max.max(position);
+        }
+        let local_center = (min + max) * 0.5;
+        let radius = cloud
+            .points
+            .iter()
+            .map(|point| DVec3::from_array(point.position.map(f64::from)).distance(local_center))
+            .fold(1.0_f64, f64::max);
+        let resolution = estimated_point_resolution(&cloud);
+        let style = self.point_cloud_options.style(None, resolution, 1.0)?;
+        let primitive = point_primitive(&cloud)?;
+        let mut cache = Residency::new(256 * 1024 * 1024);
+        cache
+            .make_room(primitive.gpu_bytes())
+            .map_err(|e| RenderError(e.to_string()))?;
+        let mut mesh =
+            renderer.upload_points(&primitive, DMat4::from_translation(cloud.origin), true)?;
+        Renderer::configure_points(&mut mesh, style)?;
+        cache
+            .insert(0, mesh.bytes)
+            .map_err(|e| RenderError(e.to_string()))?;
+        self.clear_geojson();
+        self.clear_entities();
+        self.globe = None;
+        self.imagery = None;
+        self.terrain = None;
+        self.poles.clear();
+        self.tileset = None;
+        self.contents.clear();
+        self.cache = cache;
+        self.orbit = Orbit::new(cloud.origin + local_center, radius);
+        self.contents.insert(
+            0,
+            ResidentContent {
+                meshes: vec![mesh],
+                metadata: cloud.metadata,
+                point_resolution: Some(resolution),
+            },
+        );
+        self.draws = vec![0];
+        Ok(())
+    }
+
+    /// Upload PNTS content in its native tile coordinate frame, including its RTC origin.
+    pub fn commit_point_tile(
+        &mut self,
+        renderer: &mut Renderer,
+        id: usize,
+        cloud: PointCloud,
+    ) -> Result<(), RenderError> {
+        let world = self
+            .tileset
+            .as_ref()
+            .ok_or_else(|| RenderError("no tileset".into()))?
+            .tiles
+            .get(id)
+            .ok_or_else(|| RenderError("stale tile key".into()))?
+            .world_transform;
+        let model = world * DMat4::from_translation(cloud.origin);
+        let resolution =
+            estimated_point_resolution(&cloud) * cesium_math::scale_bound(linear_part(world));
+        let tile_error = self.tileset.as_ref().unwrap().tiles[id].geometric_error;
+        let style =
+            self.point_cloud_options
+                .style(Some(tile_error), resolution, self.max_sse as f32)?;
+        let primitive = point_primitive(&cloud)?;
+        let evicted = self
+            .cache
+            .make_room(primitive.gpu_bytes())
+            .map_err(|e| RenderError(e.to_string()))?;
+        for key in evicted {
+            self.contents.remove(&key);
+            if let Some(t) = &mut self.tileset {
+                t.tiles[key].state = ContentState::Unrequested;
+            }
+        }
+        let mut mesh = renderer.upload_points(&primitive, model, true)?;
+        Renderer::configure_points(&mut mesh, style)?;
+        self.cache
+            .insert(id, mesh.bytes)
+            .map_err(|e| RenderError(e.to_string()))?;
+        self.contents.insert(
+            id,
+            ResidentContent {
+                meshes: vec![mesh],
+                metadata: cloud.metadata,
+                point_resolution: Some(resolution),
+            },
+        );
+        if let Some(t) = &mut self.tileset {
+            t.tiles[id].state = ContentState::GpuReady;
+        }
+        Ok(())
+    }
     fn commit(
         &mut self,
         renderer: &mut Renderer,
@@ -662,6 +894,7 @@ impl Scene {
             ResidentContent {
                 meshes,
                 metadata: content.metadata,
+                point_resolution: None,
             },
         );
         Ok(())
@@ -1021,6 +1254,7 @@ mod earth_tests {
             tileset: None,
             orbit: Orbit::earth(),
             max_sse: 16.0,
+            point_cloud_options: PointCloudOptions::default(),
             contents: HashMap::new(),
             cache: Residency::new(1024),
             globe: None,
@@ -1064,3 +1298,216 @@ pub mod polygon_surface;
 pub mod polyline_volume;
 
 pub mod entity_variants;
+
+// Reuse the mesh vertex layout while keeping PNTS coordinates in the tile frame.
+fn point_primitive(cloud: &PointCloud) -> Result<Primitive, RenderError> {
+    let count = u32::try_from(cloud.points.len())
+        .map_err(|_| RenderError("point count overflow".into()))?;
+    let vertices = cloud
+        .points
+        .iter()
+        .map(|p| Vertex {
+            position: p.position,
+            normal: p.normal,
+            uv: [0.; 2],
+            feature_id: p.feature_id,
+            uv1: [0.; 2],
+            color: p.color,
+            tangent: [0.; 4],
+        })
+        .collect();
+    let material = Material {
+        unlit: true,
+        lambert: cloud.has_normals,
+        double_sided: true,
+        alpha_blend: cloud.points.iter().any(|p| p.color[3] < 1.),
+        ..Default::default()
+    };
+    Ok(Primitive {
+        vertices,
+        indices: (0..count).collect(),
+        transform: DMat4::IDENTITY,
+        material,
+    })
+}
+
+#[cfg(test)]
+mod point_cloud_render_tests {
+    use super::*;
+
+    #[test]
+    fn sizing_options_follow_geometric_error_and_defaults() {
+        let defaults = PointCloudOptions::default();
+        let style = defaults.style(Some(3.0), 2.0, 16.0).unwrap();
+        assert_eq!(style.size, 1.0);
+        assert_eq!(style.geometric_error, None);
+        assert!(defaults.normal_shading);
+        assert!(!defaults.back_face_culling);
+        let options: PointCloudOptions = serde_json::from_str(r#"{"attenuation":true,"pointSize":3,"geometricErrorScale":2,"baseResolution":0.5,"maximumAttenuation":8,"normalShading":false,"backFaceCulling":true}"#).unwrap();
+        assert!(!options.normal_shading);
+        assert!(options.back_face_culling);
+        assert_eq!(
+            options.style(Some(3.0), 4.0, 16.0).unwrap().geometric_error,
+            Some(6.0)
+        );
+        assert_eq!(
+            options.style(Some(0.0), 4.0, 16.0).unwrap().geometric_error,
+            Some(1.0)
+        );
+        assert_eq!(
+            PointCloudOptions {
+                base_resolution: None,
+                ..options
+            }
+            .style(None, 4.0, 16.0)
+            .unwrap()
+            .geometric_error,
+            Some(8.0)
+        );
+        assert!(PointCloudOptions {
+            point_size: 0.0,
+            ..options
+        }
+        .style(None, 0.0, 1.0)
+        .is_err());
+        assert!(serde_json::from_str::<PointCloudOptions>(r#"{"eyeDomeLighting":true}"#).is_err());
+    }
+
+    #[test]
+    #[ignore = "requires a native GPU or Mesa Vulkan software adapter"]
+    fn standalone_pnts_uploads_renders_and_retains_metadata() {
+        pollster::block_on(async {
+            let inst = cesium_renderer::instance();
+            let (_, device, queue) = cesium_renderer::device(&inst, None).await.unwrap();
+            let mut renderer =
+                Renderer::new(device, queue, wgpu::TextureFormat::Rgba8UnormSrgb, 64, 64).unwrap();
+            let mut scene = Scene::new(&mut renderer, None).unwrap();
+            let cloud = cesium_formats::decode_point_cloud(
+                include_bytes!("../../../tests/fixtures/cesium-pointcloud-batched.pnts"),
+                &DecodeLimits::default(),
+            )
+            .unwrap();
+            let id = cloud.points[0].feature_id;
+            scene.add_static_points(&mut renderer, cloud).unwrap();
+            let options = PointCloudOptions {
+                point_size: 5.0,
+                attenuation: true,
+                base_resolution: Some(2.0),
+                maximum_attenuation: Some(12.0),
+                normal_shading: false,
+                back_face_culling: true,
+                ..Default::default()
+            };
+            scene.set_point_cloud_options(options).unwrap();
+            assert_eq!(scene.point_cloud_options(), options);
+            let style = scene.contents[&0].meshes[0].point_style().unwrap();
+            assert_eq!(style.size, 5.0);
+            assert_eq!(style.geometric_error, Some(2.0));
+            assert_eq!(style.maximum_attenuation, 12.0);
+            assert!(!style.normal_shading);
+            assert!(style.back_face_culling);
+            assert!(scene.tileset.is_none());
+            assert!(scene.globe.is_none());
+            assert_eq!(scene.draws, [0]);
+            let resident = &scene.contents[&0];
+            assert_eq!(resident.metadata["name"][0], "section0");
+            let feature = FeatureRef {
+                mesh: resident.meshes[0].id,
+                feature: id,
+            };
+            assert_eq!(
+                scene.properties(feature).unwrap()["name"],
+                resident.metadata["name"][id as usize]
+            );
+            let target = cesium_renderer::attachment(
+                &renderer.device,
+                64,
+                64,
+                renderer.format(),
+                wgpu::TextureUsages::RENDER_ATTACHMENT,
+            );
+            scene
+                .render(
+                    &mut renderer,
+                    &target.create_view(&Default::default()),
+                    None,
+                )
+                .unwrap();
+            renderer
+                .device
+                .poll(wgpu::PollType::Wait {
+                    submission_index: None,
+                    timeout: Some(std::time::Duration::from_secs(30)),
+                })
+                .unwrap();
+        });
+    }
+
+    #[test]
+    fn scene_renders_draco_point_cloud() {
+        pollster::block_on(async {
+            let inst = cesium_renderer::instance();
+            let (_, device, queue) = cesium_renderer::device(&inst, None).await.unwrap();
+            let mut renderer =
+                Renderer::new(device, queue, wgpu::TextureFormat::Rgba8UnormSrgb, 64, 64).unwrap();
+            let mut scene = Scene::new(&mut renderer, None).unwrap();
+            let cloud = cesium_formats::decode_point_cloud(
+                include_bytes!("../../../tests/fixtures/cesium-pointcloud-draco-batched.pnts"),
+                &DecodeLimits::default(),
+            )
+            .unwrap();
+            let id = cloud.points[0].feature_id;
+            scene.add_static_points(&mut renderer, cloud).unwrap();
+            let target = cesium_renderer::attachment(
+                &renderer.device,
+                64,
+                64,
+                renderer.format(),
+                wgpu::TextureUsages::RENDER_ATTACHMENT,
+            );
+            scene
+                .render(
+                    &mut renderer,
+                    &target.create_view(&Default::default()),
+                    None,
+                )
+                .unwrap();
+            renderer
+                .device
+                .poll(wgpu::PollType::Wait {
+                    submission_index: None,
+                    timeout: Some(std::time::Duration::from_secs(30)),
+                })
+                .unwrap();
+            let resident = &scene.contents[&0];
+            let feature = FeatureRef {
+                mesh: resident.meshes[0].id,
+                feature: id,
+            };
+            assert_eq!(
+                scene.properties(feature).unwrap()["name"],
+                resident.metadata["name"][id as usize]
+            );
+        });
+    }
+
+    #[test]
+    fn upstream_batched_points_preserve_geometry_color_and_feature_ids() {
+        let cloud = cesium_formats::decode_point_cloud(
+            include_bytes!("../../../tests/fixtures/cesium-pointcloud-batched.pnts"),
+            &DecodeLimits::default(),
+        )
+        .unwrap();
+        let p = point_primitive(&cloud).unwrap();
+        assert_eq!(p.vertices.len(), cloud.points.len());
+        assert_eq!(p.indices.len(), cloud.points.len());
+        for (i, (vertex, point)) in p.vertices.iter().zip(&cloud.points).enumerate() {
+            assert_eq!(p.indices[i] as usize, i);
+            assert_eq!(vertex.position, point.position);
+            assert_eq!(vertex.color, point.color);
+            assert_eq!(vertex.feature_id, point.feature_id);
+        }
+        assert!(p.material.unlit);
+        assert_eq!(p.transform, DMat4::IDENTITY);
+    }
+}

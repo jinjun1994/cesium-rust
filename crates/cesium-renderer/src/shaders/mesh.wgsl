@@ -22,7 +22,7 @@ struct VertexOutput {
  @builtin(position) position:vec4<f32>,@location(0) normal:vec3<f32>,@location(1) eye_position:vec3<f32>,
  @location(2) @interpolate(flat) feature_id:u32,@location(3) uv:vec2<f32>,@location(4) uv1:vec2<f32>,@location(5) color:vec4<f32>,@location(6) tangent:vec4<f32>,@location(7) @interpolate(flat) line:vec4<f32>,
 };
-@vertex fn vs_main(v:VertexInput)->VertexOutput {
+fn vertex_main(v:VertexInput)->VertexOutput {
  var out:VertexOutput;var eye=object.model_view_relative*vec4<f32>(v.position,1.0);
  if object.feature_params.w==2u {eye=object.model_view_relative*vec4<f32>(0.0,0.0,0.0,1.0);}
  out.position=global.projection*eye;
@@ -56,6 +56,30 @@ struct VertexOutput {
  out.uv=v.uv;out.uv1=v.uv1;out.color=v.color;
  if object.feature_params.w==2u {out.color.a*=object.normal_col1.w;}
  out.feature_id=v.feature_id;return out;
+}
+@vertex fn vs_main(v:VertexInput)->VertexOutput { return vertex_main(v); }
+// WebGPU point-list primitives have fixed size; expand each point as an instanced quad.
+@vertex fn vs_point(v:VertexInput,@builtin(vertex_index) index:u32)->VertexOutput {
+ var out=vertex_main(v);
+ // WebGL clips a point by its center before expanding its screen-space footprint.
+ if out.position.w<=0.0 || abs(out.position.x)>out.position.w || abs(out.position.y)>out.position.w || out.position.z<0.0 || out.position.z>out.position.w {
+  out.position=vec4<f32>(2.0,2.0,0.0,1.0);
+  return out;
+ }
+ // Cesium keeps points with eye-space normal.z >= 0; without normals culling is disabled.
+ if (u32(object.screen_params.w) & 2u)!=0u && (material.extras.y & 8u)!=0u && out.normal.z<0.0 {
+  out.position=vec4<f32>(2.0,2.0,0.0,1.0);
+  return out;
+ }
+ let corners=array<vec2<f32>,6>(vec2<f32>(-1.0,-1.0),vec2<f32>(1.0,-1.0),vec2<f32>(1.0,1.0),vec2<f32>(-1.0,-1.0),vec2<f32>(1.0,1.0),vec2<f32>(-1.0,1.0));
+ var size=object.screen_params.x;
+ if object.screen_params.y>=0.0 {
+  let depth=max(-out.eye_position.z,0.000001);
+  let multiplier=global.viewport_exposure.y*global.projection[1][1]*0.5;
+  size=clamp(object.screen_params.y*multiplier/depth,1.0,object.screen_params.z);
+ }
+ out.position=vec4<f32>(out.position.xy+corners[index]*size/global.viewport_exposure.xy*out.position.w,out.position.zw);
+ return out;
 }
 fn tex_uv(v:VertexOutput,index:u32)->vec2<f32> {return select(v.uv,v.uv1,index==1u);}
 fn base_color(v:VertexOutput)->vec4<f32> {
@@ -131,6 +155,9 @@ fn surface_normal(v:VertexOutput,sample:vec3<f32>)->vec3<f32> {
  if material.extras.z!=0u {
   if material.factors.z>=0.0 && base.a<material.factors.z {discard;}
   var color=base.rgb;
+  if (material.extras.y & 8u)!=0u && (u32(object.screen_params.w) & 1u)!=0u {
+   color*=max(dot(normalize(v.normal),normalize(global.sun_direction_eye.xyz)),0.4);
+  }
   if object.feature_params.y==v.feature_id {color=mix(color,vec3<f32>(1.0,0.7,0.05),0.7);}
   return vec4<f32>(color*global.viewport_exposure.z,select(1.0,base.a,material.factors.z>=0.0 || material.factors.z== -2.0));
  }

@@ -1,6 +1,50 @@
 //! Column vectors, metres, radians, right-handed ECEF and negative-Z eye space.
 use glam::{DMat3, DMat4, DVec3, Mat4, Vec4};
 use thiserror::Error;
+mod axis_aligned_bounding_box;
+mod bounding_rectangle;
+mod culling_volume;
+mod ellipsoid;
+mod ellipsoid_tangent_plane;
+mod ellipsoidal_occluder;
+mod frustum;
+mod intersections;
+mod occluder;
+mod oriented_bounding_box;
+mod plane;
+mod polynomial;
+mod projection;
+mod ray;
+mod rectangle;
+mod sphere;
+mod tiling;
+pub use axis_aligned_bounding_box::AxisAlignedBoundingBox;
+pub use bounding_rectangle::BoundingRectangle;
+pub use culling_volume::{BoundingVolume, CullingVolume};
+pub use ellipsoid::Ellipsoid;
+pub use ellipsoid_tangent_plane::EllipsoidTangentPlane;
+pub use ellipsoidal_occluder::EllipsoidalOccluder;
+pub use frustum::{
+    OrthographicFrustum, OrthographicOffCenterFrustum, PerspectiveFrustum,
+    PerspectiveOffCenterFrustum,
+};
+pub use intersections::{
+    grazing_altitude_location, line_segment_plane, line_segment_sphere, line_segment_triangle,
+    ray_axis_aligned_box, ray_plane, ray_sphere, ray_triangle, ray_triangle_parametric,
+    triangle_plane_intersection, TrianglePlaneIntersection,
+};
+pub use occluder::{Occluder, Visibility};
+pub use oriented_bounding_box::OrientedBoundingBox;
+pub use plane::Plane;
+pub use polynomial::{
+    cubic_discriminant, cubic_real_roots, quadratic_discriminant, quadratic_real_roots,
+    quartic_discriminant, quartic_real_roots,
+};
+pub use projection::{GeographicProjection, MapProjection, WebMercatorProjection};
+pub use ray::Ray;
+pub use rectangle::GeoRectangle;
+pub use sphere::PlaneIntersection;
+pub use tiling::{GeographicTilingScheme, NativeRectangle, TilingScheme, WebMercatorTilingScheme};
 
 pub const WGS84_A: f64 = 6_378_137.0;
 pub const WGS84_B: f64 = 6_356_752.314_245_179;
@@ -109,6 +153,89 @@ pub fn ray_ellipsoid(origin: DVec3, direction: DVec3) -> Option<f64> {
         .min_by(f64::total_cmp)
 }
 
+/// A numeric interval, including ray intersection parameters.
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct RayInterval {
+    pub start: f64,
+    pub stop: f64,
+}
+
+impl RayInterval {
+    pub const fn new(start: f64, stop: f64) -> Self {
+        Self { start, stop }
+    }
+}
+
+/// Cesium's generic numeric interval, also used for ray intersections.
+pub type Interval = RayInterval;
+
+/// The portion of a ray inside an ellipsoid, expressed in ray parameters.
+/// An origin inside has a start of zero; an origin on the surface pointing
+/// out or tangent has no interval. Direction is not normalized. Radii must
+/// be finite and strictly positive. Adapted from CesiumJS (Apache-2.0).
+pub fn ray_ellipsoid_interval(
+    origin: DVec3,
+    direction: DVec3,
+    radii: DVec3,
+) -> Option<RayInterval> {
+    if !origin.is_finite()
+        || !direction.is_finite()
+        || !radii.is_finite()
+        || radii.min_element() <= 0.0
+        || direction.length_squared() < 1e-30
+    {
+        return None;
+    }
+    let q = origin / radii;
+    let w = direction / radii;
+    let q2 = q.length_squared();
+    let qw = q.dot(w);
+    let w2 = w.length_squared();
+    if !q2.is_finite() || !qw.is_finite() || !w2.is_finite() || w2 == 0.0 {
+        return None;
+    }
+    let interval = if q2 > 1.0 {
+        if qw >= 0.0 {
+            return None;
+        }
+        let difference = q2 - 1.0;
+        let product = w2 * difference;
+        let qw2 = qw * qw;
+        if qw2 < product {
+            return None;
+        }
+        if qw2 == product {
+            let root = (difference / w2).sqrt();
+            RayInterval {
+                start: root,
+                stop: root,
+            }
+        } else {
+            let temp = -qw + (qw2 - product).sqrt();
+            let a = temp / w2;
+            let b = difference / temp;
+            RayInterval {
+                start: a.min(b),
+                stop: a.max(b),
+            }
+        }
+    } else if q2 < 1.0 {
+        let discriminant = qw * qw - w2 * (q2 - 1.0);
+        RayInterval {
+            start: 0.0,
+            stop: (-qw + discriminant.sqrt()) / w2,
+        }
+    } else if qw < 0.0 {
+        RayInterval {
+            start: 0.0,
+            stop: -qw / w2,
+        }
+    } else {
+        return None;
+    };
+    (interval.start.is_finite() && interval.stop.is_finite()).then_some(interval)
+}
+
 pub fn linear_part(m: DMat4) -> DMat3 {
     DMat3::from_cols(
         m.x_axis.truncate(),
@@ -169,6 +296,15 @@ impl Sphere {
     }
     pub fn distance(self, p: DVec3) -> f64 {
         (p.distance(self.center) - self.radius).max(0.0)
+    }
+    /// Squared distance to the sphere, zero for points inside it.
+    pub fn distance_squared_to(self, p: DVec3) -> f64 {
+        self.distance(p).powi(2)
+    }
+    /// Near and far distances along the supplied unit direction.
+    pub fn compute_plane_distances(self, position: DVec3, direction: DVec3) -> (f64, f64) {
+        let center_distance = direction.dot(self.center - position);
+        (center_distance - self.radius, center_distance + self.radius)
     }
 }
 #[derive(Clone, Copy, Debug)]

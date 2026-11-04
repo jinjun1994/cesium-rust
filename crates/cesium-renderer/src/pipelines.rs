@@ -8,6 +8,7 @@ pub struct PipelineKey {
     pub pick: bool,
     pub blend: bool,
     pub line: bool,
+    pub point: bool,
     pub variant: u8,
     pub overlay: bool,
 }
@@ -27,13 +28,17 @@ impl PipelineCache {
         for pick in [false, true] {
             for variant in 0..5 {
                 for blend in [false, true] {
-                    for line in [false, true] {
+                    for (line, point) in [(false, false), (true, false), (false, true)] {
+                        if point && variant != 0 {
+                            continue;
+                        }
                         for overlay in [false, true] {
                             let key = PipelineKey {
                                 pick,
                                 variant,
                                 blend,
                                 line,
+                                point,
                                 overlay,
                             };
                             let target = if pick {
@@ -56,11 +61,19 @@ impl PipelineCache {
                                     layout: Some(layout),
                                     vertex: wgpu::VertexState {
                                         module: shader,
-                                        entry_point: Some("vs_main"),
+                                        entry_point: Some(if point {
+                                            "vs_point"
+                                        } else {
+                                            "vs_main"
+                                        }),
                                         compilation_options: Default::default(),
                                         buffers: &[Some(wgpu::VertexBufferLayout {
                                             array_stride: std::mem::size_of::<Vertex>() as u64,
-                                            step_mode: wgpu::VertexStepMode::Vertex,
+                                            step_mode: if point {
+                                                wgpu::VertexStepMode::Instance
+                                            } else {
+                                                wgpu::VertexStepMode::Vertex
+                                            },
                                             attributes: &attributes,
                                         })],
                                     },
@@ -70,7 +83,7 @@ impl PipelineCache {
                                         } else {
                                             wgpu::PrimitiveTopology::TriangleList
                                         },
-                                        cull_mode: if line || variant == 0 {
+                                        cull_mode: if line || point || variant == 0 {
                                             None
                                         } else {
                                             Some(if variant >= 3 {

@@ -15,3 +15,4 @@ gltf.workspace = true
 cesium-math.workspace = true
 image.workspace = true
 base64 = "0.22"
+draco-core = { version = "=2.3.2", default-features = false, features = ["decoder", "point_cloud_decode", "legacy_bitstream_decode"] }

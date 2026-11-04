@@ -419,7 +419,6 @@ impl WebViewer {
     }
     #[wasm_bindgen(js_name=loadBytes)]
     pub fn load_bytes(&mut self, bytes: &[u8]) -> Result<(), JsValue> {
-        let c = decode_content(bytes, &limits()).map_err(js)?;
         let r = self
             .running
             .as_mut()
@@ -428,7 +427,39 @@ impl WebViewer {
             .resize(r.renderer.width, r.renderer.height)
             .map_err(js)?;
         r.renderer.selected = None;
-        r.scene.add_static(&mut r.renderer, c).map_err(js)?;
+        if bytes.starts_with(b"pnts") {
+            let cloud = cesium_formats::decode_point_cloud(bytes, &limits()).map_err(js)?;
+            r.scene
+                .add_static_points(&mut r.renderer, cloud)
+                .map_err(js)?;
+        } else {
+            let c = decode_content(bytes, &limits()).map_err(js)?;
+            r.scene.add_static(&mut r.renderer, c).map_err(js)?;
+        }
+        self.last_pick = "null".into();
+        Ok(())
+    }
+    #[wasm_bindgen(getter, js_name=pointCloudOptions)]
+    pub fn point_cloud_options(&self) -> String {
+        self.running.as_ref().map_or_else(
+            || "null".into(),
+            |r| {
+                serde_json::to_string(&r.scene.point_cloud_options())
+                    .unwrap_or_else(|_| "null".into())
+            },
+        )
+    }
+
+    /// Set the implemented point shading options using camelCase JSON.
+    #[wasm_bindgen(js_name=setPointCloudOptions)]
+    pub fn set_point_cloud_options(&mut self, json: &str) -> Result<(), JsValue> {
+        let options: crate::PointCloudOptions = serde_json::from_str(json).map_err(js)?;
+        let r = self
+            .running
+            .as_mut()
+            .ok_or_else(|| js("viewer destroyed"))?;
+        r.scene.set_point_cloud_options(options).map_err(js)?;
+        r.renderer.invalidate_pick();
         self.last_pick = "null".into();
         Ok(())
     }
@@ -731,10 +762,17 @@ impl WebViewer {
                 .attach_external(id as usize, bytes, &limits())
                 .map_err(js);
         }
-        let c = decode_content(bytes, &limits()).map_err(js)?;
-        r.scene
-            .commit_tile(&mut r.renderer, id as usize, c)
-            .map_err(js)
+        if bytes.starts_with(b"pnts") {
+            let cloud = cesium_formats::decode_point_cloud(bytes, &limits()).map_err(js)?;
+            r.scene
+                .commit_point_tile(&mut r.renderer, id as usize, cloud)
+                .map_err(js)
+        } else {
+            let c = decode_content(bytes, &limits()).map_err(js)?;
+            r.scene
+                .commit_tile(&mut r.renderer, id as usize, c)
+                .map_err(js)
+        }
     }
     #[wasm_bindgen(js_name=failTile)]
     pub fn fail_tile(&mut self, id: u32) {

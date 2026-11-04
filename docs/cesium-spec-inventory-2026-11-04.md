@@ -1,0 +1,818 @@
+# CesiumJS Spec 测试对照清单（2026-11-04）
+
+该清单按本地 Cesium 源码的 `packages/*/Specs/**/*Spec.js` 枚举，追踪每个上游 Spec 文件；文件不等于单个测试用例。“待逐项核对”不表示 Rust 没有相应测试；“部分”也不表示该文件已全部移植。与 Sandcastle 309 案例验收分开统计。
+
+本地上游 HEAD：`77d30241863d30f299e7271a22f95b7d589c1c75`。Rust 工程对照旧案例基线 `b8d3a36fe98a3e432eb89253c95d5f20e605e0f1`；逐项移植时先冻结对应版本及源码哈希。
+
+共 **746 个 Spec 文件**：core 141、engine 539、gltf 26、widgets 40。本清单不包括 packages 外的 Specs、端到端测试、构建脚本测试和非 `*Spec.js` 测试；它们也需要单独盘点。
+
+本次补充 `cesium-math/tests/cesium_reference.rs`，参考 CartographicSpec 的 WGS84 参考点、地表上下高度，以及 IntersectionTestsSpec 的射线场景；仅覆盖局部语义。原有 Rust `ray_ellipsoid` 返回首个非负表面交点；新增 `ray_ellipsoid_interval` 支持自定义椭球及 Cesium 区间语义。新接口不隐式归一化方向，使用单位方向才能按距离解释参数；其余 IntersectionTests 仍待移植。
+
+另补充 BoundingSphere 的平移、缩放、点距离和投影区间检查，并实现 `distance_squared_to`、`compute_plane_distances`；`cesium-viewer/tests/clock_cesium_reference.rs` 覆盖时钟边界、循环、暂停和继续。后者以显式 elapsed 秒驱动，尚不具备 Cesium 的 JulianDate、ClockStep 或 onEnd 事件；对应 Spec 仍为部分覆盖。
+
+进一步增加 `cesium-math/src/intersections.rs` 和 `tests/intersection_spec.rs`，实现并对照射线与平面、射线/线段与三角形、射线/线段与球体的交点。射线参数使用调用方给出的方向，线段/球体区间使用从线段起点起算的距离。其他相交测试、退化输入的 JS 异常语义及剩余功能仍需逐项核对。
+
+后续补充线段与平面、三角形与平面切分，以及射线所在直线与轴对齐包围盒的区间。三角形六种前后分布核对索引顺序、平面两侧及面积；包围盒的平行轴显式处理以避免除零产生 NaN，返回区间可位于起点之后或之前。零方向和无效包围盒由 Rust 返回 `None`，不声称与 JS 异常/NaN 行为完全一致。
+
+新增二次和三次多项式判别式与实根接口，按上游 Spec 验证重根、降阶、复根与消减误差。三次 `a*x³+d` 保留 Cesium 返回三个相同值的约定；`x*(x²+1)` 则修正上游 `roots.Length` 拼写导致的无效值，返回唯一实根零。Rust 非有限输入返回空集合，JS 缺失参数错误语义由类型系统约束；未宣称这些 Spec 全部通过。
+
+四次多项式已实现判别式与 original/Neumark 求根路径；对照上游重根、不同实根、复根、退化及三组稳定性用例，并验证整数根组合。JS 缺失参数异常与非有限输入仍按 Rust 接口语义分别处理，不能将文件直接标为全部等价。
+
+已新增椭球掠射最低高度接口与球体/WGS84 参考测试。曾发现 WGS84 第二个上游参考点的 X 分量相差约 0.125 mm；通过本地 Cesium 中间数据对照，定位为向量归一化的逐分量除法与倒数相乘产生不同舍入，并在四次求根中放大。现已调整计算顺序并恢复 `wgs84_reference_cases` 的上游逐分量容差测试；其余相交 Spec 仍需逐项核对。
+
+新增 `cesium-math::Ellipsoid`，支持自定义半径、缩放空间、测地法线、双向坐标转换、测地/地心表面投影、旋转椭球法线与 Z 轴交点、局部曲率及矩形范围表面积；上游参考点、近地心、三轴椭球与独立面积积分回归见 `ellipsoid_spec.rs`。零半径保留可构造语义，但需要逆半径的投影返回 `None`；面积采用上游的十点 Gauss-Legendre 近似，Rust 接口验证角度范围。
+
+新增 `GeoRectangle` 地理矩形与 `rectangle_spec.rs`，覆盖角点、宽高、中心、点集构造、跨日期变更线的交并/包含、子区域以及椭球采样。构造时验证坐标范围；空点集返回 `None`，与 JS 对空数组生成极值矩形的行为不同。矩形其他构造方法、pack 及错误语义仍需核对。
+
+已补从包围球计算矩形和通用椭球 ENU 变换，并核对上游中心、赤道与极点用例；对非旋转三轴椭球保留上游以位置计算东向的约定，其 ENU 轴不一定正交。用于包围球采样时按上游单独归一化东向和北向。
+
+包围球增加点集（Ritter/包围盒候选）、带步长顶点、高低位编码、角点、椭球、多球、二维/三维矩形、定向盒和变换构造，以及 union、expand、平面分类和 `project_to_2d`；测试包含地球尺度点集的包含性及上游投影参考。极点额外提供东向降级以避免上游零向量归一化失败。定向盒和变换构造均检查对角线以容纳剪切轴，剪切时可能比上游列长度公式得到更大的保守球。Rust 对无效步长、截断和非有限点返回错误，编码数组长度不匹配也返回错误，与上游空球回退行为的差异待 API 兼容层明确处理。其余断言仍待核对。
+
+新增 `GeographicProjection`，使用椭球最大半径进行正反投影；覆盖上游投影、反投影和单位球用例。Rust 对零半径椭球与非有限坐标显式拒绝，JS 参数异常由类型与结果处理表达。
+
+新增 `WebMercatorProjection`、`GeographicTilingScheme` 和 `WebMercatorTilingScheme`，对应测试见 `cesium-math/tests/tiling_spec.rs`：覆盖极区裁剪、投影往返、默认根网格、四角和边缘瓦片、跨日期变更线、自定义墨卡托范围与原生坐标转换。跨日期变更线瓦片经度归一化和层级溢出返回 `None` 的行为需与上游逐项对照；JS 结果对象复用、异常行为以及其他测试仍待核对。这些公开数学接口尚未接入 viewer 现有影像瓦片路径。
+
+两类瓦片方案现在实现公共 `TilingScheme` trait，投影实现 `MapProjection` trait；泛型测试验证接口、投影往返、相邻边界和自定义范围外的坐标。Rust 以返回值替代 JS 可选 result 参数，接口一致性不表示每条上游断言都已移植。
+
+新增 `AxisAlignedBoundingBox`，包括角点和点集构造、显式中心、相等比较、平面分类与盒间相交；上游正常输入及接触边界的测试见 `axis_aligned_bounding_box_spec.rs`。Rust 的值复制和必填参数替代 JS 的 result/undefined 语义，非有限点返回错误；因此仍列为部分覆盖。
+
+新增 `Plane`：点法式、四维系数、点距和投影、逆转置矩阵变换，并提供射线、包围球和包围盒的适配方法；`plane_spec.rs` 覆盖上游参考与非均匀缩放、平移及奇异变换。参数缺失和 result 对象复用由 Rust 类型/值语义替代，非有限输入与不可逆矩阵返回错误；尚需逐条核对其他异常行为。
+
+新增 `EllipsoidTangentPlane`，支持由原点或点集构造、径向和法向投影、批量投影及径向投回椭球；`ellipsoid_tangent_plane_spec.rs` 覆盖上游单位球和 WGS84 往返用例。非有限输入使用 `Option`/`Result`，空点集或无法投影到地表时构造失败；上游零半径椭球用例及对象复用行为尚未等价验证。
+
+新增 `BoundingRectangle`，支持点集与地理投影构造、union、expand、边界相交及带偏移 pack/unpack，测试见 `bounding_rectangle_spec.rs`。跨日期变更线沿用上游仅投影西南与东北角的规则，可能得到负宽度；Rust 对非有限点与数组越界返回错误，JS 可选参数和对象复用语义仍需单独映射。
+
+新增 `Ray` 和通用 `Interval` 接口，并将射线与现有平面、球体、椭球、包围盒、三角形相交连接；`ray_spec.rs` 对照构造、方向归一化及正负参数。Rust 拒绝非有限输入，使用值复制替代 JS result/undefined 语义；这些差异仍须纳入兼容层。
+
+新增 `EllipsoidalOccluder`，覆盖点和缩放空间可见性、椭球下方收缩、点集/带步长顶点/矩形的地平线剔除点；`ellipsoidal_occluder_spec.rs` 对照可见性、地下和退化方向等用例。要求正半径和显式相机，顶点截断返回 `None`；余下上游数值与错误语义仍待逐项移植。viewer 地形与影像仍使用各自的近似地平线判断，尚未接入本实现，亦未进行渲染或性能验证。
+
+补充上游多点和矩形地平线相切测试，以球面射线最近距离独立验证剔除点，并核对带偏移的七分量顶点与点集结果一致；顶点处理改用迭代器，避免构造临时点数组。该改动尚无性能基准数据。
+
+新增球形 `Occluder`，支持相机更新、点/球可见性及 none/partial/full 分类；`occluder_spec.rs` 对照上游遮挡、相交和较大被遮挡球的用例。相机在遮挡体内且被遮挡球更大时，保留上游两种查询方法的不同结果。已补充点集和矩形的剔除点计算及主要参考用例；退化输入、JS 对象/错误语义及其余断言仍需核对，viewer 尚未接入。
+
+新增 `CullingVolume` 与 `BoundingVolume` trait，支持包围球、轴对齐包围盒、球构造的六平面及父节点掩码，测试见 `culling_volume_spec.rs`。掩码沿用上游只记录前 31 个平面的约定；超过 31 个平面时无法表达后续平面的相交状态，层级裁剪需避免将该结果当作完整的内部判定。
+
+新增 `PerspectiveFrustum` 和 `PerspectiveOffCenterFrustum`：六裁剪平面、OpenGL 深度范围的有限/无限远投影、偏移、屏幕误差分母及像素尺寸；裁剪测试现通过视锥生成平面。矩阵不直接适用于 wgpu 的深度约定；现有 viewer 仍使用独立反向 Z 相机，尚未接入。已补透视视锥 pack/unpack 和四类视锥的近似比较；JS 可选属性/错误语义及其余上游用例待核对，Rust 对退化视锥与非正交相机方向采用更严格验证。
+
+新增 `OrthographicFrustum` 和 `OrthographicOffCenterFrustum`，覆盖正交投影、非对称边界、六裁剪面、像素尺寸及正交视锥 pack/unpack；`orthographic_frustum_spec.rs` 核对投影角点、各平面、近似比较与输入边界。JS 对象/异常语义仍待核对；OpenGL 投影尚未接入 viewer 的 wgpu 相机。
+
+新增 `OrientedBoundingBox`，支持矩阵转换、八角点、平面分类、正交轴（含退化轴）点距、投影区间和打包，并实现 `BoundingVolume` 以供裁剪体使用；`oriented_bounding_box_spec.rs` 验证旋转、退化与矩阵往返。点集 PCA 构造采用上游协方差和 Jacobi 主轴，已测试上游轴顺序、旋转平移与地球尺度线状点集。地理矩形构造已覆盖高度、跨日期变更线和宽度超过半球的密集采样；Rust 要求正半径和有序高度。遮挡接口使用可包围剪切盒的球；点距对剪切轴返回 `None`，大量上游断言仍待移植。
+
+`cesium-formats` 新增 b3dm 20/24 字节历史头兼容和旧 `BATCHID` 语义规范化；使用上游 `B3dmParserSpec` 的两份真实样例验证容器、10 个 feature ID 和元数据的完整 CPU 解码，并测试无效版本、空内容及截断。已补充二进制 Batch Table 的标量、向量和矩阵分量解码，使用上游真实样例验证 feature 属性，并检查长度、对齐及解码预算。元数据保留大小估算现与几何及图像合计，图像解码使用扣除元数据后的预算；该估算不包含分配器和解析过程的临时峰值。样例来源记录在 `tests/fixtures/cesium-legacy-b3dm-source.md`。上游弃用告警、WebGL 渲染、层级元数据与属性修改等仍未覆盖。
+
+新增独立 `parse_pnts`，解析无压缩 PNTS 的分段、坐标（含量化）、RTC、颜色/法线数据范围和 Batch Table；`pnts_spec.rs` 使用上游 RGB、量化法线和批次样例验证坐标及元数据，并核对必需字段、截断和批次索引。已增加 RGB/RGBA/RGB565/常量颜色、浮点/八面体法线及批次索引逐点读取。支持位置、颜色、法线及批次 ID 的 JSON 内联数组，解析时转换为二进制；Rust 对内联整数范围采用严格验证。`decode_point_cloud` 输出 f32 局部点与双精度原点、元数据，并合计估算内联数据、元数据与点数组预算；估算不包含解析临时峰值。原生及 Web viewer 的瓦片加载现已按 PNTS 魔数分派到独立解码路径，wgpu 以实例化四边形绘制点并支持批次 ID 拾取；默认单像素，有法线时使用 Cesium 的 Lambert 强度与 0.4 环境下限，使用瓦片矩阵乘双精度 RTC 平移，不经过 glTF 的 Y-up 转换；新增上游批次样例顶点映射和真实 GPU 点拾取测试。当前并非完整点云渲染：Draco、EDL、逐点样式表达式和分类等仍待实现；`decode_content` 仍不接收 PNTS；原生和 Web 的独立文件入口已分派至 `decode_point_cloud`，并以原始批次样例进行原生 GPU 场景测试。量化局部坐标在加入大偏移前解码，避免加减偏移导致局部细节丢失。点云上传暂会构造一份通用顶点及索引缓冲，峰值 CPU 内存和加载成本需要后续优化。
+
+点云尺寸支持 `PointCloudOptions`：默认 `point_size=1`、`attenuation=false`、`geometric_error_scale=1`；启用衰减时按透视投影和点到相机的深度计算像素大小，几何误差依次取正的瓦片误差、`base_resolution` 或点集包围盒体积估计，限制在 1 像素至 `maximum_attenuation`。场景的 `set_point_cloud_options` 更新已驻留和以后加载的点，Web 暴露 `setPointCloudOptions`（camelCase JSON）和 `pointCloudOptions` 读取接口。支持上游默认值 `normalShading=true`、`backFaceCulling=false`，有法线时按眼坐标法线 Z 分量剔除背面点，无法线数据时不剔除。默认最大值对瓦片取场景 `max_sse`、独立点云取 1。原生 GPU 测试验证固定大小、距离衰减、像素颜色、法线着色切换、双视角背面剔除、缺少法线、中心裁剪及拾取；浏览器仅编译，尚无真实 WebGPU 图像验证。与上游仍有差异：像素比、2D/正交相机、ADD refinement 默认最大值与尺寸小于 1 的语义尚未实现；误差缺省估计对瓦片变换使用保守比例，和上游变换公式不完全一致。当前实例化仍保留通用索引缓冲和 CPU 展开开销，尚无性能基准。`PointCloudShadingSpec.js` 的 EDL 及设备能力判断尚未移植，不能标记为全部通过。
+
+新增 `3DTILES_draco_point_compression` 扩展支持，接入纯 Rust Draco 解码器（原生及 WebAssembly 均无需本地 C++ 工具链依赖）。支持解压 Draco 编码的位置（POSITION）、法线（NORMAL）、颜色（RGB/RGBA）及批次标识（BATCH_ID），同时支持 Batch Table 中 Draco 压缩的标量与向量元数据属性解压。解码过程严格执行点数上限与重构内存预算限制，防御解压膨胀与截断畸形数据。`pnts_spec.rs` 使用上游真实 Draco 样例（完整 Draco、部分 Draco、带批次元数据 Draco 以及损坏流）验证了坐标精度、法线、颜色及元数据映射；原生加载入口与渲染场景已验证 Draco 批次点云的端到端加载、实例化绘制与基于批次属性的拾取。目前点云逐点样式表达式、EDL 与分类仍待后续实现。
+
+后续逐个登记：上游测试名称和源码哈希、Rust 测试路径与名称、适用平台、通过证据、未实现能力及差异。图形测试须在原生 wgpu 与浏览器 WebGPU 上保留截图、参数和设备信息；上游 WebGL 实现细节需按可观察行为验证。
+
+| 上游 Spec 文件 | 状态 |
+| --- | --- |
+| [packages/core/Specs/AssociativeArraySpec.js](../../cesium/packages/core/Specs/AssociativeArraySpec.js) | 待逐项核对 |
+| [packages/core/Specs/AttributeCompressionSpec.js](../../cesium/packages/core/Specs/AttributeCompressionSpec.js) | 待逐项核对 |
+| [packages/core/Specs/AttributeTypeSpec.js](../../cesium/packages/core/Specs/AttributeTypeSpec.js) | 待逐项核对 |
+| [packages/core/Specs/AxisAlignedBoundingBoxSpec.js](../../cesium/packages/core/Specs/AxisAlignedBoundingBoxSpec.js) | 部分：构造、点集、相等、平面及盒相交；JS 对象复用及异常语义不同 |
+| [packages/core/Specs/BoundingRectangleSpec.js](../../cesium/packages/core/Specs/BoundingRectangleSpec.js) | 部分：构造、投影、合并、扩展、相交、打包；JS 对象复用和异常语义不同 |
+| [packages/core/Specs/BoundingSphereSpec.js](../../cesium/packages/core/Specs/BoundingSphereSpec.js) | 部分：点/顶点/编码/多球/矩形/定向盒/变换构造、合并、平面、距离、projectTo2D；其余待核对 |
+| [packages/core/Specs/BoxGeometrySpec.js](../../cesium/packages/core/Specs/BoxGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/BoxOutlineGeometrySpec.js](../../cesium/packages/core/Specs/BoxOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/Cartesian2Spec.js](../../cesium/packages/core/Specs/Cartesian2Spec.js) | 待逐项核对 |
+| [packages/core/Specs/Cartesian3Spec.js](../../cesium/packages/core/Specs/Cartesian3Spec.js) | 待逐项核对 |
+| [packages/core/Specs/Cartesian4Spec.js](../../cesium/packages/core/Specs/Cartesian4Spec.js) | 待逐项核对 |
+| [packages/core/Specs/CartographicSpec.js](../../cesium/packages/core/Specs/CartographicSpec.js) | 部分：WGS84 参考点及正负高度；其余待核对 |
+| [packages/core/Specs/CatmullRomSplineSpec.js](../../cesium/packages/core/Specs/CatmullRomSplineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/CheckSpec.js](../../cesium/packages/core/Specs/CheckSpec.js) | 待逐项核对 |
+| [packages/core/Specs/CircleGeometrySpec.js](../../cesium/packages/core/Specs/CircleGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/CircleOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CircleOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/ClockSpec.js](../../cesium/packages/core/Specs/ClockSpec.js) | 部分：时间范围和暂停；JulianDate、ClockStep、事件等待实现 |
+| [packages/core/Specs/ColorGeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/ColorGeometryInstanceAttributeSpec.js) | 待逐项核对 |
+| [packages/core/Specs/ColorSpec.js](../../cesium/packages/core/Specs/ColorSpec.js) | 待逐项核对 |
+| [packages/core/Specs/ComponentDatatypeSpec.js](../../cesium/packages/core/Specs/ComponentDatatypeSpec.js) | 待逐项核对 |
+| [packages/core/Specs/ConstantSplineSpec.js](../../cesium/packages/core/Specs/ConstantSplineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/CoplanarPolygonGeometrySpec.js](../../cesium/packages/core/Specs/CoplanarPolygonGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/CoplanarPolygonOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CoplanarPolygonOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/CorridorGeometryLibrarySpec.js](../../cesium/packages/core/Specs/CorridorGeometryLibrarySpec.js) | 待逐项核对 |
+| [packages/core/Specs/CorridorGeometrySpec.js](../../cesium/packages/core/Specs/CorridorGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/CorridorOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CorridorOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/CubicRealPolynomialSpec.js](../../cesium/packages/core/Specs/CubicRealPolynomialSpec.js) | 部分：判别式及有限输入实根场景；JS 参数异常不适用 |
+| [packages/core/Specs/CullingVolumeSpec.js](../../cesium/packages/core/Specs/CullingVolumeSpec.js) | 部分：球/盒分类、球构造六平面、父掩码；透视视锥接口和 JS 语义待核对 |
+| [packages/core/Specs/CylinderGeometrySpec.js](../../cesium/packages/core/Specs/CylinderGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/CylinderOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CylinderOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/DeveloperErrorSpec.js](../../cesium/packages/core/Specs/DeveloperErrorSpec.js) | 待逐项核对 |
+| [packages/core/Specs/DistanceDisplayConditionGeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/DistanceDisplayConditionGeometryInstanceAttributeSpec.js) | 待逐项核对 |
+| [packages/core/Specs/DistanceDisplayConditionSpec.js](../../cesium/packages/core/Specs/DistanceDisplayConditionSpec.js) | 待逐项核对 |
+| [packages/core/Specs/EllipseGeometrySpec.js](../../cesium/packages/core/Specs/EllipseGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/EllipseOutlineGeometrySpec.js](../../cesium/packages/core/Specs/EllipseOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/EllipsoidGeodesicSpec.js](../../cesium/packages/core/Specs/EllipsoidGeodesicSpec.js) | 待逐项核对 |
+| [packages/core/Specs/EllipsoidGeometrySpec.js](../../cesium/packages/core/Specs/EllipsoidGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/EllipsoidOutlineGeometrySpec.js](../../cesium/packages/core/Specs/EllipsoidOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/EllipsoidRhumbLineSpec.js](../../cesium/packages/core/Specs/EllipsoidRhumbLineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/EllipsoidSpec.js](../../cesium/packages/core/Specs/EllipsoidSpec.js) | 部分：构造、法线、转换、投影、轴交点、曲率及面积；数组/pack 与其他情况待核对 |
+| [packages/core/Specs/EllipsoidTangentPlaneSpec.js](../../cesium/packages/core/Specs/EllipsoidTangentPlaneSpec.js) | 部分：构造、单点/批量投影及 WGS84 往返；零半径及 JS 对象语义待核对 |
+| [packages/core/Specs/EllipsoidalOccluderSpec.js](../../cesium/packages/core/Specs/EllipsoidalOccluderSpec.js) | 部分：可见性、地下椭球、剔除点和顶点；其余数值与错误语义待核对 |
+| [packages/core/Specs/EncodedCartesian3Spec.js](../../cesium/packages/core/Specs/EncodedCartesian3Spec.js) | 待逐项核对 |
+| [packages/core/Specs/EventSpec.js](../../cesium/packages/core/Specs/EventSpec.js) | 待逐项核对 |
+| [packages/core/Specs/FixedFrameTransformsSpec.js](../../cesium/packages/core/Specs/FixedFrameTransformsSpec.js) | 待逐项核对 |
+| [packages/core/Specs/GeographicProjectionSpec.js](../../cesium/packages/core/Specs/GeographicProjectionSpec.js) | 部分：WGS84/单位球正反投影；JS 参数/结果对象语义待核对 |
+| [packages/core/Specs/GeometryAttributeSpec.js](../../cesium/packages/core/Specs/GeometryAttributeSpec.js) | 待逐项核对 |
+| [packages/core/Specs/GeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/GeometryInstanceAttributeSpec.js) | 待逐项核对 |
+| [packages/core/Specs/GeometryInstanceSpec.js](../../cesium/packages/core/Specs/GeometryInstanceSpec.js) | 待逐项核对 |
+| [packages/core/Specs/GeometryPipelineSpec.js](../../cesium/packages/core/Specs/GeometryPipelineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/GeometrySpec.js](../../cesium/packages/core/Specs/GeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/GregorianDateSpec.js](../../cesium/packages/core/Specs/GregorianDateSpec.js) | 待逐项核对 |
+| [packages/core/Specs/HeadingPitchRangeSpec.js](../../cesium/packages/core/Specs/HeadingPitchRangeSpec.js) | 待逐项核对 |
+| [packages/core/Specs/HeadingPitchRollSpec.js](../../cesium/packages/core/Specs/HeadingPitchRollSpec.js) | 待逐项核对 |
+| [packages/core/Specs/HermitePolynomialApproximationSpec.js](../../cesium/packages/core/Specs/HermitePolynomialApproximationSpec.js) | 待逐项核对 |
+| [packages/core/Specs/HermiteSplineSpec.js](../../cesium/packages/core/Specs/HermiteSplineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/HilbertOrderSpec.js](../../cesium/packages/core/Specs/HilbertOrderSpec.js) | 待逐项核对 |
+| [packages/core/Specs/IndexDatatypeSpec.js](../../cesium/packages/core/Specs/IndexDatatypeSpec.js) | 待逐项核对 |
+| [packages/core/Specs/IntersectionTestsSpec.js](../../cesium/packages/core/Specs/IntersectionTestsSpec.js) | 部分：射线/线段、盒体、平面切分和掠射；其他场景待核对 |
+| [packages/core/Specs/Intersections2DSpec.js](../../cesium/packages/core/Specs/Intersections2DSpec.js) | 待逐项核对 |
+| [packages/core/Specs/IntervalSpec.js](../../cesium/packages/core/Specs/IntervalSpec.js) | 部分：默认与显式构造；JS 可选参数语义待映射 |
+| [packages/core/Specs/JulianDateSpec.js](../../cesium/packages/core/Specs/JulianDateSpec.js) | 待逐项核对 |
+| [packages/core/Specs/LagrangePolynomialApproximationSpec.js](../../cesium/packages/core/Specs/LagrangePolynomialApproximationSpec.js) | 待逐项核对 |
+| [packages/core/Specs/LeapSecondSpec.js](../../cesium/packages/core/Specs/LeapSecondSpec.js) | 待逐项核对 |
+| [packages/core/Specs/LinearApproximationSpec.js](../../cesium/packages/core/Specs/LinearApproximationSpec.js) | 待逐项核对 |
+| [packages/core/Specs/LinearSplineSpec.js](../../cesium/packages/core/Specs/LinearSplineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/MathSpec.js](../../cesium/packages/core/Specs/MathSpec.js) | 待逐项核对 |
+| [packages/core/Specs/Matrix2Spec.js](../../cesium/packages/core/Specs/Matrix2Spec.js) | 待逐项核对 |
+| [packages/core/Specs/Matrix3Spec.js](../../cesium/packages/core/Specs/Matrix3Spec.js) | 待逐项核对 |
+| [packages/core/Specs/Matrix4Spec.js](../../cesium/packages/core/Specs/Matrix4Spec.js) | 待逐项核对 |
+| [packages/core/Specs/NearFarScalarSpec.js](../../cesium/packages/core/Specs/NearFarScalarSpec.js) | 待逐项核对 |
+| [packages/core/Specs/OccluderSpec.js](../../cesium/packages/core/Specs/OccluderSpec.js) | 部分：点和球可见性、点集与矩形剔除点；JS 错误语义等待核对 |
+| [packages/core/Specs/OrientedBoundingBoxSpec.js](../../cesium/packages/core/Specs/OrientedBoundingBoxSpec.js) | 部分：点集、矩形、变换、角点、平面、距离、遮挡、打包；更多边界待移植 |
+| [packages/core/Specs/OrthographicFrustumSpec.js](../../cesium/packages/core/Specs/OrthographicFrustumSpec.js) | 部分：投影、像素尺寸、裁剪、打包；比较及 JS 语义待核对 |
+| [packages/core/Specs/OrthographicOffCenterFrustumSpec.js](../../cesium/packages/core/Specs/OrthographicOffCenterFrustumSpec.js) | 部分：投影、像素尺寸和裁剪；比较及 JS 语义待核对 |
+| [packages/core/Specs/PerspectiveFrustumSpec.js](../../cesium/packages/core/Specs/PerspectiveFrustumSpec.js) | 部分：视角、偏移、投影、像素尺寸与裁剪；pack/比较及 JS 语义待补齐 |
+| [packages/core/Specs/PerspectiveOffCenterFrustumSpec.js](../../cesium/packages/core/Specs/PerspectiveOffCenterFrustumSpec.js) | 部分：投影、像素尺寸与裁剪；比较及 JS 语义待补齐 |
+| [packages/core/Specs/PixelFormatSpec.js](../../cesium/packages/core/Specs/PixelFormatSpec.js) | 待逐项核对 |
+| [packages/core/Specs/PlaneGeometrySpec.js](../../cesium/packages/core/Specs/PlaneGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/PlaneOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PlaneOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/PlaneSpec.js](../../cesium/packages/core/Specs/PlaneSpec.js) | 部分：构造、距离、投影、变换及比较；JS 对象复用和异常语义不同 |
+| [packages/core/Specs/PolygonGeometryLibrarySpec.js](../../cesium/packages/core/Specs/PolygonGeometryLibrarySpec.js) | 待逐项核对 |
+| [packages/core/Specs/PolygonGeometrySpec.js](../../cesium/packages/core/Specs/PolygonGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/PolygonOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PolygonOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/PolygonPipelineSpec.js](../../cesium/packages/core/Specs/PolygonPipelineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/PolylineGeometrySpec.js](../../cesium/packages/core/Specs/PolylineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/PolylinePipelineSpec.js](../../cesium/packages/core/Specs/PolylinePipelineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/PolylineVolumeGeometryLibrarySpec.js](../../cesium/packages/core/Specs/PolylineVolumeGeometryLibrarySpec.js) | 待逐项核对 |
+| [packages/core/Specs/PolylineVolumeGeometrySpec.js](../../cesium/packages/core/Specs/PolylineVolumeGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/PolylineVolumeOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PolylineVolumeOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/PrimitiveTypeSpec.js](../../cesium/packages/core/Specs/PrimitiveTypeSpec.js) | 待逐项核对 |
+| [packages/core/Specs/QuadraticRealPolynomialSpec.js](../../cesium/packages/core/Specs/QuadraticRealPolynomialSpec.js) | 部分：判别式及有限输入实根场景；JS 参数异常不适用 |
+| [packages/core/Specs/QuarticRealPolynomialSpec.js](../../cesium/packages/core/Specs/QuarticRealPolynomialSpec.js) | 部分：判别式与有限输入求根场景；JS 参数异常不适用 |
+| [packages/core/Specs/QuaternionSpec.js](../../cesium/packages/core/Specs/QuaternionSpec.js) | 待逐项核对 |
+| [packages/core/Specs/QuaternionSplineSpec.js](../../cesium/packages/core/Specs/QuaternionSplineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/QueueSpec.js](../../cesium/packages/core/Specs/QueueSpec.js) | 待逐项核对 |
+| [packages/core/Specs/RaySpec.js](../../cesium/packages/core/Specs/RaySpec.js) | 部分：构造、方向归一化、取点；JS 对象复用语义不同 |
+| [packages/core/Specs/RectangleGeometrySpec.js](../../cesium/packages/core/Specs/RectangleGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/RectangleOutlineGeometrySpec.js](../../cesium/packages/core/Specs/RectangleOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/RectangleSpec.js](../../cesium/packages/core/Specs/RectangleSpec.js) | 部分：角点、宽高、点集、包围球、交并、包含、子区域与采样；其余待核对 |
+| [packages/core/Specs/RuntimeErrorSpec.js](../../cesium/packages/core/Specs/RuntimeErrorSpec.js) | 待逐项核对 |
+| [packages/core/Specs/ShowGeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/ShowGeometryInstanceAttributeSpec.js) | 待逐项核对 |
+| [packages/core/Specs/SimplePolylineGeometrySpec.js](../../cesium/packages/core/Specs/SimplePolylineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/SphereGeometrySpec.js](../../cesium/packages/core/Specs/SphereGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/SphereOutlineGeometrySpec.js](../../cesium/packages/core/Specs/SphereOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/SphericalSpec.js](../../cesium/packages/core/Specs/SphericalSpec.js) | 待逐项核对 |
+| [packages/core/Specs/SplineSpec.js](../../cesium/packages/core/Specs/SplineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/SteppedSplineSpec.js](../../cesium/packages/core/Specs/SteppedSplineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/StereographicSpec.js](../../cesium/packages/core/Specs/StereographicSpec.js) | 待逐项核对 |
+| [packages/core/Specs/TimeIntervalCollectionSpec.js](../../cesium/packages/core/Specs/TimeIntervalCollectionSpec.js) | 待逐项核对 |
+| [packages/core/Specs/TimeIntervalSpec.js](../../cesium/packages/core/Specs/TimeIntervalSpec.js) | 待逐项核对 |
+| [packages/core/Specs/TipsifySpec.js](../../cesium/packages/core/Specs/TipsifySpec.js) | 待逐项核对 |
+| [packages/core/Specs/TranslationRotationScaleSpec.js](../../cesium/packages/core/Specs/TranslationRotationScaleSpec.js) | 待逐项核对 |
+| [packages/core/Specs/TridiagonalSystemSolverSpec.js](../../cesium/packages/core/Specs/TridiagonalSystemSolverSpec.js) | 待逐项核对 |
+| [packages/core/Specs/VertexFormatSpec.js](../../cesium/packages/core/Specs/VertexFormatSpec.js) | 待逐项核对 |
+| [packages/core/Specs/VerticalExaggerationSpec.js](../../cesium/packages/core/Specs/VerticalExaggerationSpec.js) | 待逐项核对 |
+| [packages/core/Specs/WallGeometrySpec.js](../../cesium/packages/core/Specs/WallGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/WallOutlineGeometrySpec.js](../../cesium/packages/core/Specs/WallOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/core/Specs/WebMercatorProjectionSpec.js](../../cesium/packages/core/Specs/WebMercatorProjectionSpec.js) | 部分：正反投影、极区裁剪；结果对象及其他语义待核对 |
+| [packages/core/Specs/arrayRemoveDuplicatesSpec.js](../../cesium/packages/core/Specs/arrayRemoveDuplicatesSpec.js) | 待逐项核对 |
+| [packages/core/Specs/barycentricCoordinatesSpec.js](../../cesium/packages/core/Specs/barycentricCoordinatesSpec.js) | 待逐项核对 |
+| [packages/core/Specs/binarySearchSpec.js](../../cesium/packages/core/Specs/binarySearchSpec.js) | 待逐项核对 |
+| [packages/core/Specs/cloneSpec.js](../../cesium/packages/core/Specs/cloneSpec.js) | 待逐项核对 |
+| [packages/core/Specs/combineSpec.js](../../cesium/packages/core/Specs/combineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/createGuidSpec.js](../../cesium/packages/core/Specs/createGuidSpec.js) | 待逐项核对 |
+| [packages/core/Specs/definedSpec.js](../../cesium/packages/core/Specs/definedSpec.js) | 待逐项核对 |
+| [packages/core/Specs/deprecationWarningSpec.js](../../cesium/packages/core/Specs/deprecationWarningSpec.js) | 待逐项核对 |
+| [packages/core/Specs/getAbsoluteUriSpec.js](../../cesium/packages/core/Specs/getAbsoluteUriSpec.js) | 待逐项核对 |
+| [packages/core/Specs/getBaseUriSpec.js](../../cesium/packages/core/Specs/getBaseUriSpec.js) | 待逐项核对 |
+| [packages/core/Specs/getExtensionFromUriSpec.js](../../cesium/packages/core/Specs/getExtensionFromUriSpec.js) | 待逐项核对 |
+| [packages/core/Specs/getFilenameFromUriSpec.js](../../cesium/packages/core/Specs/getFilenameFromUriSpec.js) | 待逐项核对 |
+| [packages/core/Specs/getJsonFromTypedArraySpec.js](../../cesium/packages/core/Specs/getJsonFromTypedArraySpec.js) | 待逐项核对 |
+| [packages/core/Specs/getStringFromTypedArraySpec.js](../../cesium/packages/core/Specs/getStringFromTypedArraySpec.js) | 待逐项核对 |
+| [packages/core/Specs/isLeapYearSpec.js](../../cesium/packages/core/Specs/isLeapYearSpec.js) | 待逐项核对 |
+| [packages/core/Specs/mergeSortSpec.js](../../cesium/packages/core/Specs/mergeSortSpec.js) | 待逐项核对 |
+| [packages/core/Specs/objectToQuerySpec.js](../../cesium/packages/core/Specs/objectToQuerySpec.js) | 待逐项核对 |
+| [packages/core/Specs/oneTimeWarningSpec.js](../../cesium/packages/core/Specs/oneTimeWarningSpec.js) | 待逐项核对 |
+| [packages/core/Specs/pointInsideTriangleSpec.js](../../cesium/packages/core/Specs/pointInsideTriangleSpec.js) | 待逐项核对 |
+| [packages/core/Specs/queryToObjectSpec.js](../../cesium/packages/core/Specs/queryToObjectSpec.js) | 待逐项核对 |
+| [packages/core/Specs/srgbToLinearSpec.js](../../cesium/packages/core/Specs/srgbToLinearSpec.js) | 待逐项核对 |
+| [packages/core/Specs/subdivideArraySpec.js](../../cesium/packages/core/Specs/subdivideArraySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/ApproximateTerrainHeightsSpec.js](../../cesium/packages/engine/Specs/Core/ApproximateTerrainHeightsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/ArcGISTiledElevationTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/ArcGISTiledElevationTerrainProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/BingMapsGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/BingMapsGeocoderServiceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/CartographicGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/CartographicGeocoderServiceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/CelestialFrameTransformsSpec.js](../../cesium/packages/engine/Specs/Core/CelestialFrameTransformsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/Cesium3DTilesTerrainDataSpec.js](../../cesium/packages/engine/Specs/Core/Cesium3DTilesTerrainDataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/Cesium3DTilesTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/Cesium3DTilesTerrainProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/CesiumTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/CesiumTerrainProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/CustomHeightmapTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/CustomHeightmapTerrainProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/DoubleEndedPriorityQueueSpec.js](../../cesium/packages/engine/Specs/Core/DoubleEndedPriorityQueueSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/DoublyLinkedListSpec.js](../../cesium/packages/engine/Specs/Core/DoublyLinkedListSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/EarthOrientationParametersSpec.js](../../cesium/packages/engine/Specs/Core/EarthOrientationParametersSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/EllipsoidTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/EllipsoidTerrainProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/FeatureDetectionSpec.js](../../cesium/packages/engine/Specs/Core/FeatureDetectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/FrustumGeometrySpec.js](../../cesium/packages/engine/Specs/Core/FrustumGeometrySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/FrustumOutlineGeometrySpec.js](../../cesium/packages/engine/Specs/Core/FrustumOutlineGeometrySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/FullscreenSpec.js](../../cesium/packages/engine/Specs/Core/FullscreenSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/GeographicTilingSchemeSpec.js](../../cesium/packages/engine/Specs/Core/GeographicTilingSchemeSpec.js) | 部分：网格、边界、跨日期变更线及原生坐标；其余待核对 |
+| [packages/engine/Specs/Core/GoogleEarthEnterpriseMetadataSpec.js](../../cesium/packages/engine/Specs/Core/GoogleEarthEnterpriseMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainDataSpec.js](../../cesium/packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainDataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/GoogleGeocoderServicesSpec.js](../../cesium/packages/engine/Specs/Core/GoogleGeocoderServicesSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/GroundPolylineGeometrySpec.js](../../cesium/packages/engine/Specs/Core/GroundPolylineGeometrySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/HeapSpec.js](../../cesium/packages/engine/Specs/Core/HeapSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/HeightmapTerrainDataSpec.js](../../cesium/packages/engine/Specs/Core/HeightmapTerrainDataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/ITwinPlatformSpec.js](../../cesium/packages/engine/Specs/Core/ITwinPlatformSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/Iau2000OrientationSpec.js](../../cesium/packages/engine/Specs/Core/Iau2000OrientationSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/Iau2006XysDataSpec.js](../../cesium/packages/engine/Specs/Core/Iau2006XysDataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/IauOrientationAxesSpec.js](../../cesium/packages/engine/Specs/Core/IauOrientationAxesSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/IonGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/IonGeocoderServiceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/IonResourceSpec.js](../../cesium/packages/engine/Specs/Core/IonResourceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/IonSnapServiceSpec.js](../../cesium/packages/engine/Specs/Core/IonSnapServiceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/ManagedArraySpec.js](../../cesium/packages/engine/Specs/Core/ManagedArraySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/MortonOrderSpec.js](../../cesium/packages/engine/Specs/Core/MortonOrderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/OpenCageGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/OpenCageGeocoderServiceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/PeliasGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/PeliasGeocoderServiceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/PinBuilderSpec.js](../../cesium/packages/engine/Specs/Core/PinBuilderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/PixelDatatypeSpec.js](../../cesium/packages/engine/Specs/Core/PixelDatatypeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/QuantizedMeshTerrainDataSpec.js](../../cesium/packages/engine/Specs/Core/QuantizedMeshTerrainDataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/RectangleCollisionCheckerSpec.js](../../cesium/packages/engine/Specs/Core/RectangleCollisionCheckerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/RequestErrorEventSpec.js](../../cesium/packages/engine/Specs/Core/RequestErrorEventSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/RequestSchedulerSpec.js](../../cesium/packages/engine/Specs/Core/RequestSchedulerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/RequestSpec.js](../../cesium/packages/engine/Specs/Core/RequestSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/ResourceSpec.js](../../cesium/packages/engine/Specs/Core/ResourceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/S2CellSpec.js](../../cesium/packages/engine/Specs/Core/S2CellSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/ScreenSpaceEventHandlerSpec.js](../../cesium/packages/engine/Specs/Core/ScreenSpaceEventHandlerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/Simon1994PlanetaryPositionsSpec.js](../../cesium/packages/engine/Specs/Core/Simon1994PlanetaryPositionsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/SnapServiceSpec.js](../../cesium/packages/engine/Specs/Core/SnapServiceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/TaskProcessorSpec.js](../../cesium/packages/engine/Specs/Core/TaskProcessorSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/TerrainEncodingSpec.js](../../cesium/packages/engine/Specs/Core/TerrainEncodingSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/TerrainMeshSpec.js](../../cesium/packages/engine/Specs/Core/TerrainMeshSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/TerrainPickerSpec.js](../../cesium/packages/engine/Specs/Core/TerrainPickerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/TileAvailabilitySpec.js](../../cesium/packages/engine/Specs/Core/TileAvailabilitySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/TrustedServersSpec.js](../../cesium/packages/engine/Specs/Core/TrustedServersSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/VRTheWorldTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/VRTheWorldTerrainProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/VectorProviderSpec.js](../../cesium/packages/engine/Specs/Core/VectorProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/VideoSynchronizerSpec.js](../../cesium/packages/engine/Specs/Core/VideoSynchronizerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/WebMercatorTilingSchemeSpec.js](../../cesium/packages/engine/Specs/Core/WebMercatorTilingSchemeSpec.js) | 部分：网格、边界、自定义范围及原生坐标；其余待核对 |
+| [packages/engine/Specs/Core/WireframeIndexGeneratorSpec.js](../../cesium/packages/engine/Specs/Core/WireframeIndexGeneratorSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/addAllSpec.js](../../cesium/packages/engine/Specs/Core/addAllSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/appendForwardSlashSpec.js](../../cesium/packages/engine/Specs/Core/appendForwardSlashSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/buildModuleUrlSpec.js](../../cesium/packages/engine/Specs/Core/buildModuleUrlSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/createWorldBathymetryAsyncSpec.js](../../cesium/packages/engine/Specs/Core/createWorldBathymetryAsyncSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/createWorldTerrainAsyncSpec.js](../../cesium/packages/engine/Specs/Core/createWorldTerrainAsyncSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/getImageFromTypedArraySpec.js](../../cesium/packages/engine/Specs/Core/getImageFromTypedArraySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/isBlobUriSpec.js](../../cesium/packages/engine/Specs/Core/isBlobUriSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/isCrossOriginUrlSpec.js](../../cesium/packages/engine/Specs/Core/isCrossOriginUrlSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/isDataUriSpec.js](../../cesium/packages/engine/Specs/Core/isDataUriSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/loadImageFromTypedArraySpec.js](../../cesium/packages/engine/Specs/Core/loadImageFromTypedArraySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/loadKTX2Spec.js](../../cesium/packages/engine/Specs/Core/loadKTX2Spec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/parseResponseHeadersSpec.js](../../cesium/packages/engine/Specs/Core/parseResponseHeadersSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/resizeImageToNextPowerOfTwoSpec.js](../../cesium/packages/engine/Specs/Core/resizeImageToNextPowerOfTwoSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/sampleTerrainMostDetailedSpec.js](../../cesium/packages/engine/Specs/Core/sampleTerrainMostDetailedSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/sampleTerrainSpec.js](../../cesium/packages/engine/Specs/Core/sampleTerrainSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/writeTextToCanvasSpec.js](../../cesium/packages/engine/Specs/Core/writeTextToCanvasSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/BillboardGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/BillboardGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/BillboardVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/BillboardVisualizerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/BoxGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/BoxGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/BoxGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/BoxGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CallbackPositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CallbackPositionPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CallbackPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CallbackPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/Cesium3DTilesetGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/Cesium3DTilesetGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/Cesium3DTilesetVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/Cesium3DTilesetVisualizerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CheckerboardMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CheckerboardMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/ColorMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ColorMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CompositeEntityCollectionSpec.js](../../cesium/packages/engine/Specs/DataSources/CompositeEntityCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CompositeMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CompositeMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CompositePositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CompositePositionPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CompositePropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CompositePropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/ConstantPositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ConstantPositionPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/ConstantPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ConstantPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CorridorGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/CorridorGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CorridorGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/CorridorGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CustomDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/CustomDataSourceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CylinderGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/CylinderGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CylinderGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/CylinderGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CzmlDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/CzmlDataSourceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/DataSourceClockSpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceClockSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/DataSourceCollectionSpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/DataSourceDisplaySpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceDisplaySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/DynamicGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/DynamicGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/EllipseGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipseGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/EllipseGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipseGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/EllipsoidGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipsoidGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/EllipsoidGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipsoidGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/EntityClusterSpec.js](../../cesium/packages/engine/Specs/DataSources/EntityClusterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/EntityCollectionSpec.js](../../cesium/packages/engine/Specs/DataSources/EntityCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/EntitySpec.js](../../cesium/packages/engine/Specs/DataSources/EntitySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/EntityViewSpec.js](../../cesium/packages/engine/Specs/DataSources/EntityViewSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/GeoJsonDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/GeoJsonDataSourceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/GeometryUpdaterSetSpec.js](../../cesium/packages/engine/Specs/DataSources/GeometryUpdaterSetSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/GeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/GeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/GeometryVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/GeometryVisualizerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/GpxDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/GpxDataSourceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/GridMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/GridMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/GroundGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/GroundGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/ImageMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ImageMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/KmlDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/KmlDataSourceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/KmlTourFlyToSpec.js](../../cesium/packages/engine/Specs/DataSources/KmlTourFlyToSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/KmlTourSpec.js](../../cesium/packages/engine/Specs/DataSources/KmlTourSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/LabelGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/LabelGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/LabelVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/LabelVisualizerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/ModelGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/ModelGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/ModelVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/ModelVisualizerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/NodeTransformationPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/NodeTransformationPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PathGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PathGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PathVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/PathVisualizerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PlaneGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/PlaneGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PlaneGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PlaneGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PointGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PointGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PointVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/PointVisualizerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PolygonGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/PolygonGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PolygonGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PolygonGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PolylineArrowMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineArrowMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PolylineDashMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineDashMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PolylineGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PolylineGlowMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineGlowMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PolylineGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PolylineOutlineMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineOutlineMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PolylineVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineVisualizerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PolylineVolumeGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineVolumeGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PolylineVolumeGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineVolumeGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PositionPropertyArraySpec.js](../../cesium/packages/engine/Specs/DataSources/PositionPropertyArraySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PropertyArraySpec.js](../../cesium/packages/engine/Specs/DataSources/PropertyArraySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PropertyBagSpec.js](../../cesium/packages/engine/Specs/DataSources/PropertyBagSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/RectangleGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/RectangleGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/RectangleGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/RectangleGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/ReferencePropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ReferencePropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/RotationSpec.js](../../cesium/packages/engine/Specs/DataSources/RotationSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/SampledPositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/SampledPositionPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/SampledPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/SampledPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/StaticGeometryColorBatchSpec.js](../../cesium/packages/engine/Specs/DataSources/StaticGeometryColorBatchSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/StaticGeometryPerMaterialBatchSpec.js](../../cesium/packages/engine/Specs/DataSources/StaticGeometryPerMaterialBatchSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/StaticGroundGeometryColorBatchSpec.js](../../cesium/packages/engine/Specs/DataSources/StaticGroundGeometryColorBatchSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/StaticGroundGeometryPerMaterialBatchSpec.js](../../cesium/packages/engine/Specs/DataSources/StaticGroundGeometryPerMaterialBatchSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/StaticGroundPolylinePerMaterialBatchSpec.js](../../cesium/packages/engine/Specs/DataSources/StaticGroundPolylinePerMaterialBatchSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/StaticOutlineGeometryBatchSpec.js](../../cesium/packages/engine/Specs/DataSources/StaticOutlineGeometryBatchSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/StripeMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/StripeMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/TerrainOffsetPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/TerrainOffsetPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/TimeIntervalCollectionPositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/TimeIntervalCollectionPositionPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/TimeIntervalCollectionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/TimeIntervalCollectionPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/VelocityOrientationPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/VelocityOrientationPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/VelocityVectorPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/VelocityVectorPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/WallGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/WallGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/WallGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/WallGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/createMaterialPropertyDescriptorSpec.js](../../cesium/packages/engine/Specs/DataSources/createMaterialPropertyDescriptorSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/exportKmlSpec.js](../../cesium/packages/engine/Specs/DataSources/exportKmlSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/AutomaticUniformSpec.js](../../cesium/packages/engine/Specs/Renderer/AutomaticUniformSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/BufferSpec.js](../../cesium/packages/engine/Specs/Renderer/BufferSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/BuiltinFunctionsSpec.js](../../cesium/packages/engine/Specs/Renderer/BuiltinFunctionsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ClearCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/ClearCommandSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ClearSpec.js](../../cesium/packages/engine/Specs/Renderer/ClearSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ComputeCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/ComputeCommandSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ContextSpec.js](../../cesium/packages/engine/Specs/Renderer/ContextSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/CubeMapSpec.js](../../cesium/packages/engine/Specs/Renderer/CubeMapSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/DrawCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/DrawCommandSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/DrawSpec.js](../../cesium/packages/engine/Specs/Renderer/DrawSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/FramebufferManagerSpec.js](../../cesium/packages/engine/Specs/Renderer/FramebufferManagerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/FramebufferSpec.js](../../cesium/packages/engine/Specs/Renderer/FramebufferSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/MultisampleFramebufferSpec.js](../../cesium/packages/engine/Specs/Renderer/MultisampleFramebufferSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/PassStateSpec.js](../../cesium/packages/engine/Specs/Renderer/PassStateSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/PickIdSpec.js](../../cesium/packages/engine/Specs/Renderer/PickIdSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/RenderStateSpec.js](../../cesium/packages/engine/Specs/Renderer/RenderStateSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/RenderbufferSpec.js](../../cesium/packages/engine/Specs/Renderer/RenderbufferSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/SamplerSpec.js](../../cesium/packages/engine/Specs/Renderer/SamplerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ShaderBuilderSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderBuilderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ShaderCacheSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderCacheSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ShaderDestinationSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderDestinationSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ShaderFunctionSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderFunctionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ShaderProgramSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderProgramSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ShaderSourceSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderSourceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ShaderStructSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderStructSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/SharedContextSpec.js](../../cesium/packages/engine/Specs/Renderer/SharedContextSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/SyncSpec.js](../../cesium/packages/engine/Specs/Renderer/SyncSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/Texture3DSpec.js](../../cesium/packages/engine/Specs/Renderer/Texture3DSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/TextureAtlasSpec.js](../../cesium/packages/engine/Specs/Renderer/TextureAtlasSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/TextureCacheSpec.js](../../cesium/packages/engine/Specs/Renderer/TextureCacheSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/TextureSpec.js](../../cesium/packages/engine/Specs/Renderer/TextureSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/UniformSpec.js](../../cesium/packages/engine/Specs/Renderer/UniformSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/VertexArrayFacadeSpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArrayFacadeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/VertexArrayFactorySpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArrayFactorySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/VertexArraySpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArraySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/demodernizeShaderSpec.js](../../cesium/packages/engine/Specs/Renderer/demodernizeShaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/freezeRenderStateSpec.js](../../cesium/packages/engine/Specs/Renderer/freezeRenderStateSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/loadCubeMapSpec.js](../../cesium/packages/engine/Specs/Renderer/loadCubeMapSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/AppearanceSpec.js](../../cesium/packages/engine/Specs/Scene/AppearanceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ArcGisMapServerImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/ArcGisMapServerImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/AxisSpec.js](../../cesium/packages/engine/Specs/Scene/AxisSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Azure2DImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/Azure2DImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/B3dmParserSpec.js](../../cesium/packages/engine/Specs/Scene/B3dmParserSpec.js) | 部分：无效版本/空内容、两种旧头和旧 BATCHID 解码；告警与渲染待验证 |
+| [packages/engine/Specs/Scene/BatchTableHierarchySpec.js](../../cesium/packages/engine/Specs/Scene/BatchTableHierarchySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BatchTableSpec.js](../../cesium/packages/engine/Specs/Scene/BatchTableSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BatchTextureSpec.js](../../cesium/packages/engine/Specs/Scene/BatchTextureSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BillboardCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/BillboardCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BingMapsImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/BingMapsImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BoundingVolumeSemanticsSpec.js](../../cesium/packages/engine/Specs/Scene/BoundingVolumeSemanticsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BoxEmitterSpec.js](../../cesium/packages/engine/Specs/Scene/BoxEmitterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BufferLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/BufferLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BufferPointCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPointCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BufferPointMaterialSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPointMaterialSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BufferPolygonCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPolygonCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BufferPolygonMaterialSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPolygonMaterialSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BufferPolylineCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPolylineCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BufferPolylineMaterialSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPolylineMaterialSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/CameraEventAggregatorSpec.js](../../cesium/packages/engine/Specs/Scene/CameraEventAggregatorSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/CameraFlightPathSpec.js](../../cesium/packages/engine/Specs/Scene/CameraFlightPathSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/CameraSpec.js](../../cesium/packages/engine/Specs/Scene/CameraSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DContentGroupSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DContentGroupSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DTileBatchTableSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTileBatchTableSpec.js) | 部分：二进制标量/向量/矩阵读取及真实样例；属性修改、层级、渲染等待移植 |
+| [packages/engine/Specs/Scene/Cesium3DTileContentTypeSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTileContentTypeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DTileFeatureSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTileFeatureSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DTileFeatureTableSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTileFeatureTableSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DTilePassStateSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTilePassStateSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DTileSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTileSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DTileStyleSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTileStyleSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DTileVectorFeatureSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTileVectorFeatureSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DTilesVoxelProviderSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTilesVoxelProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DTilesetBaseTraversalSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTilesetBaseTraversalSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DTilesetHeatmapSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTilesetHeatmapSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DTilesetMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTilesetMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DTilesetMostDetailedTraversalSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTilesetMostDetailedTraversalSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DTilesetSkipTraversalSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTilesetSkipTraversalSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DTilesetSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTilesetSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/CircleEmitterSpec.js](../../cesium/packages/engine/Specs/Scene/CircleEmitterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ClassificationPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/ClassificationPrimitiveSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ClippingPlaneCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPlaneCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ClippingPlaneSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPlaneSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ClippingPolygonCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPolygonCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ClippingPolygonSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPolygonSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/CloudCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/CloudCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Composite3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Composite3DTileContentSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ConditionsExpressionSpec.js](../../cesium/packages/engine/Specs/Scene/ConditionsExpressionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ConeEmitterSpec.js](../../cesium/packages/engine/Specs/Scene/ConeEmitterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ContentMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/ContentMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/CreditDisplaySpec.js](../../cesium/packages/engine/Specs/Scene/CreditDisplaySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/CubeMapPanoramaSpec.js](../../cesium/packages/engine/Specs/Scene/CubeMapPanoramaSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/DebugAppearanceSpec.js](../../cesium/packages/engine/Specs/Scene/DebugAppearanceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/DebugCameraPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/DebugCameraPrimitiveSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/DebugModelMatrixPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/DebugModelMatrixPrimitiveSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/DepthPlaneSpec.js](../../cesium/packages/engine/Specs/Scene/DepthPlaneSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/DeviceOrientationCameraControllerSpec.js](../../cesium/packages/engine/Specs/Scene/DeviceOrientationCameraControllerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/DirectionalLightSpec.js](../../cesium/packages/engine/Specs/Scene/DirectionalLightSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/DiscardEmptyTileImagePolicySpec.js](../../cesium/packages/engine/Specs/Scene/DiscardEmptyTileImagePolicySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/DiscardMissingTileImagePolicySpec.js](../../cesium/packages/engine/Specs/Scene/DiscardMissingTileImagePolicySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/DynamicAtmosphereLightingTypeSpec.js](../../cesium/packages/engine/Specs/Scene/DynamicAtmosphereLightingTypeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/DynamicEnvironmentMapManagerSpec.js](../../cesium/packages/engine/Specs/Scene/DynamicEnvironmentMapManagerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/EdgeFramebufferSpec.js](../../cesium/packages/engine/Specs/Scene/EdgeFramebufferSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/EllipsoidPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/EllipsoidPrimitiveSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/EllipsoidSurfaceAppearanceSpec.js](../../cesium/packages/engine/Specs/Scene/EllipsoidSurfaceAppearanceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Empty3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Empty3DTileContentSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/EquirectangularPanoramaSpec.js](../../cesium/packages/engine/Specs/Scene/EquirectangularPanoramaSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ExpressionSpec.js](../../cesium/packages/engine/Specs/Scene/ExpressionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/FogSpec.js](../../cesium/packages/engine/Specs/Scene/FogSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/FrameRateMonitorSpec.js](../../cesium/packages/engine/Specs/Scene/FrameRateMonitorSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/FrustumCommandsSpec.js](../../cesium/packages/engine/Specs/Scene/FrustumCommandsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GaussianSplat3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/GaussianSplat3DTileContentSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GaussianSplatPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/GaussianSplatPrimitiveSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GeoJsonPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/GeoJsonPrimitiveSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Geometry3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Geometry3DTileContentSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GeometryRenderingSpec.js](../../cesium/packages/engine/Specs/Scene/GeometryRenderingSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GlobeSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GlobeSurfaceTileProviderSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeSurfaceTileProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GlobeSurfaceTileSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeSurfaceTileSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GlobeTranslucencyFramebufferSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeTranslucencyFramebufferSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GlobeTranslucencyStateSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeTranslucencyStateSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GltfBufferViewLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfBufferViewLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GltfDracoLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfDracoLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GltfImageLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfImageLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GltfIndexBufferLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfIndexBufferLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GltfJsonLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfJsonLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GltfLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GltfLoaderUtilSpec.js](../../cesium/packages/engine/Specs/Scene/GltfLoaderUtilSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GltfSpzLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfSpzLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GltfStructuralMetadataLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfStructuralMetadataLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GltfTextureLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfTextureLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GltfVertexBufferLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfVertexBufferLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Google2DImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/Google2DImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GoogleEarthEnterpriseImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/GoogleEarthEnterpriseImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GoogleEarthEnterpriseMapsProviderSpec.js](../../cesium/packages/engine/Specs/Scene/GoogleEarthEnterpriseMapsProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GoogleStreetViewCubeMapPanoramaProviderSpec.js](../../cesium/packages/engine/Specs/Scene/GoogleStreetViewCubeMapPanoramaProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GridImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/GridImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GroundPolylinePrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/GroundPolylinePrimitiveSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GroundPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/GroundPrimitiveSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GroupMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/GroupMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/HeightmapTessellatorSpec.js](../../cesium/packages/engine/Specs/Scene/HeightmapTessellatorSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/I3SDataProviderSpec.js](../../cesium/packages/engine/Specs/Scene/I3SDataProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/I3SDecoderSpec.js](../../cesium/packages/engine/Specs/Scene/I3SDecoderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/I3SFieldSpec.js](../../cesium/packages/engine/Specs/Scene/I3SFieldSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/I3SLayerSpec.js](../../cesium/packages/engine/Specs/Scene/I3SLayerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/I3SNodeSpec.js](../../cesium/packages/engine/Specs/Scene/I3SNodeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/I3SSymbologySpec.js](../../cesium/packages/engine/Specs/Scene/I3SSymbologySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/I3dmParserSpec.js](../../cesium/packages/engine/Specs/Scene/I3dmParserSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ITwinDataSpec.js](../../cesium/packages/engine/Specs/Scene/ITwinDataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ImageBasedLightingSpec.js](../../cesium/packages/engine/Specs/Scene/ImageBasedLightingSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ImageryLayerCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/ImageryLayerCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ImageryLayerSpec.js](../../cesium/packages/engine/Specs/Scene/ImageryLayerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Implicit3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Implicit3DTileContentSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ImplicitAvailabilityBitstreamSpec.js](../../cesium/packages/engine/Specs/Scene/ImplicitAvailabilityBitstreamSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ImplicitMetadataViewSpec.js](../../cesium/packages/engine/Specs/Scene/ImplicitMetadataViewSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ImplicitSubdivisionSchemeSpec.js](../../cesium/packages/engine/Specs/Scene/ImplicitSubdivisionSchemeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ImplicitSubtreeCacheSpec.js](../../cesium/packages/engine/Specs/Scene/ImplicitSubtreeCacheSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ImplicitSubtreeMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/ImplicitSubtreeMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ImplicitSubtreeSpec.js](../../cesium/packages/engine/Specs/Scene/ImplicitSubtreeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ImplicitTileCoordinatesSpec.js](../../cesium/packages/engine/Specs/Scene/ImplicitTileCoordinatesSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ImplicitTilesetSpec.js](../../cesium/packages/engine/Specs/Scene/ImplicitTilesetSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/InstanceAttributeSemanticSpec.js](../../cesium/packages/engine/Specs/Scene/InstanceAttributeSemanticSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/IonImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/IonImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/JobSchedulerSpec.js](../../cesium/packages/engine/Specs/Scene/JobSchedulerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/JsonMetadataTableSpec.js](../../cesium/packages/engine/Specs/Scene/JsonMetadataTableSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/KeyframeNodeSpec.js](../../cesium/packages/engine/Specs/Scene/KeyframeNodeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/LabelCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/LabelCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/LabelSpec.js](../../cesium/packages/engine/Specs/Scene/LabelSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/LightSpec.js](../../cesium/packages/engine/Specs/Scene/LightSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MapboxImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/MapboxImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MapboxStyleImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/MapboxStyleImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MaterialAppearanceSpec.js](../../cesium/packages/engine/Specs/Scene/MaterialAppearanceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MaterialSpec.js](../../cesium/packages/engine/Specs/Scene/MaterialSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MegatextureSpec.js](../../cesium/packages/engine/Specs/Scene/MegatextureSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MetadataClassPropertySpec.js](../../cesium/packages/engine/Specs/Scene/MetadataClassPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MetadataClassSpec.js](../../cesium/packages/engine/Specs/Scene/MetadataClassSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MetadataComponentTypeSpec.js](../../cesium/packages/engine/Specs/Scene/MetadataComponentTypeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MetadataEntitySpec.js](../../cesium/packages/engine/Specs/Scene/MetadataEntitySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MetadataEnumSpec.js](../../cesium/packages/engine/Specs/Scene/MetadataEnumSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MetadataEnumValueSpec.js](../../cesium/packages/engine/Specs/Scene/MetadataEnumValueSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MetadataPickingSpec.js](../../cesium/packages/engine/Specs/Scene/MetadataPickingSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MetadataSchemaLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/MetadataSchemaLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MetadataSchemaSpec.js](../../cesium/packages/engine/Specs/Scene/MetadataSchemaSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MetadataTablePropertySpec.js](../../cesium/packages/engine/Specs/Scene/MetadataTablePropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MetadataTableSpec.js](../../cesium/packages/engine/Specs/Scene/MetadataTableSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MetadataTypeSpec.js](../../cesium/packages/engine/Specs/Scene/MetadataTypeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/AlphaPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/AlphaPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/AtmospherePipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/AtmospherePipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/B3dmLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/Model/B3dmLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/BatchTexturePipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/BatchTexturePipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/CPUStylingPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/CPUStylingPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ClassificationModelDrawCommandSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ClassificationModelDrawCommandSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ClassificationPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ClassificationPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/CustomShaderPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/CustomShaderPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/CustomShaderSpec.js](../../cesium/packages/engine/Specs/Scene/Model/CustomShaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/DequantizationPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/DequantizationPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/EdgeVisibilityPipelineStageDecodingSpec.js](../../cesium/packages/engine/Specs/Scene/Model/EdgeVisibilityPipelineStageDecodingSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/EdgeVisibilityRenderingSpec.js](../../cesium/packages/engine/Specs/Scene/Model/EdgeVisibilityRenderingSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/Extensions/Gpm/GltfGpmLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/Model/Extensions/Gpm/GltfGpmLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/Extensions/Gpm/GltfMeshPrimitiveGpmLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/Model/Extensions/Gpm/GltfMeshPrimitiveGpmLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/FeatureIdPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/FeatureIdPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/GeoJsonLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/Model/GeoJsonLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/GeometryPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/GeometryPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/I3dmLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/Model/I3dmLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ImageBasedLightingPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ImageBasedLightingPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ImageryPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ImageryPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/InstancingPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/InstancingPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/LightingPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/LightingPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/MappedPositionsSpec.js](../../cesium/packages/engine/Specs/Scene/Model/MappedPositionsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/MaterialPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/MaterialPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/MetadataPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/MetadataPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/Model3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Model/Model3DTileContentSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelAnimationChannelSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelAnimationChannelSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelAnimationCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelAnimationCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelAnimationSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelAnimationSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelArticulationSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelArticulationSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelArticulationStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelArticulationStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelClippingPlanesPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelClippingPlanesPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelClippingPolygonsPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelClippingPolygonsPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelColorPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelColorPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelDrawCommandSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelDrawCommandSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelFeatureSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelFeatureSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelFeatureTableSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelFeatureTableSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelImageryMappingSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelImageryMappingSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelImagerySpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelImagerySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelMatrixUpdateStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelMatrixUpdateStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelNodeSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelNodeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelPrimitiveImagerySpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelPrimitiveImagerySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelReaderSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelReaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelRenderResourcesSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelRenderResourcesSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelRuntimeNodeSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelRuntimeNodeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelRuntimePrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelRuntimePrimitiveSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelSceneGraphSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSceneGraphSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelSilhouettePipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSilhouettePipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelSkinSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSkinSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelSplitterPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSplitterPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelStatisticsSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelStatisticsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelTypeSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelTypeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelUtilitySpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelUtilitySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/MorphTargetsPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/MorphTargetsPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/NodeRenderResourcesSpec.js](../../cesium/packages/engine/Specs/Scene/Model/NodeRenderResourcesSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/NodeStatisticsPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/NodeStatisticsPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/PickingPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PickingPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/PntsLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PntsLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/PointCloudStylingPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PointCloudStylingPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/PrimitiveLoadPlanSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveLoadPlanSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/PrimitiveOutlineGeneratorSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveOutlineGeneratorSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/PrimitiveOutlinePipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveOutlinePipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/PrimitiveRenderResourcesSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveRenderResourcesSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/PrimitiveStatisticsPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveStatisticsPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/SceneMode2DPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/SceneMode2DPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/SelectedFeatureIdPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/SelectedFeatureIdPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/SkinningPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/SkinningPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/TextureManagerSpec.js](../../cesium/packages/engine/Specs/Scene/Model/TextureManagerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/TextureUniformSpec.js](../../cesium/packages/engine/Specs/Scene/Model/TextureUniformSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/TilesetPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/TilesetPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/VerticalExaggerationPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/VerticalExaggerationPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/WireframePipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/WireframePipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/createVectorTileBuffersFromModelComponentsSpec.js](../../cesium/packages/engine/Specs/Scene/Model/createVectorTileBuffersFromModelComponentsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/pickModelSpec.js](../../cesium/packages/engine/Specs/Scene/Model/pickModelSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MoonSpec.js](../../cesium/packages/engine/Specs/Scene/MoonSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MultifrustumSpec.js](../../cesium/packages/engine/Specs/Scene/MultifrustumSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Multiple3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Multiple3DTileContentSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/OpenStreetMapImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/OpenStreetMapImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/OrderedGroundPrimitiveCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/OrderedGroundPrimitiveCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PanoramaSpec.js](../../cesium/packages/engine/Specs/Scene/PanoramaSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ParticleSpec.js](../../cesium/packages/engine/Specs/Scene/ParticleSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ParticleSystemSpec.js](../../cesium/packages/engine/Specs/Scene/ParticleSystemSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PerInstanceColorAppearanceSpec.js](../../cesium/packages/engine/Specs/Scene/PerInstanceColorAppearanceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PickingSpec.js](../../cesium/packages/engine/Specs/Scene/PickingSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PlanarFillIdFramebufferSpec.js](../../cesium/packages/engine/Specs/Scene/PlanarFillIdFramebufferSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PntsParserSpec.js](../../cesium/packages/engine/Specs/Scene/PntsParserSpec.js) | 部分：必需字段、版本、量化位置、批次、内联属性及 Draco 完整/部分/批次点云；其余行为待补 |
+| [packages/engine/Specs/Scene/PointCloudEyeDomeLightingSpec.js](../../cesium/packages/engine/Specs/Scene/PointCloudEyeDomeLightingSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PointCloudShadingSpec.js](../../cesium/packages/engine/Specs/Scene/PointCloudShadingSpec.js) | 部分：尺寸、几何误差缩放、衰减、法线着色及背面剔除；EDL 和支持性检测待实现 |
+| [packages/engine/Specs/Scene/PointPrimitiveCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/PointPrimitiveCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PolylineCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/PolylineCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PolylineColorAppearanceSpec.js](../../cesium/packages/engine/Specs/Scene/PolylineColorAppearanceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PolylineMaterialAppearanceSpec.js](../../cesium/packages/engine/Specs/Scene/PolylineMaterialAppearanceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PostProcessStageCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/PostProcessStageCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PostProcessStageCompositeSpec.js](../../cesium/packages/engine/Specs/Scene/PostProcessStageCompositeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PostProcessStageLibrarySpec.js](../../cesium/packages/engine/Specs/Scene/PostProcessStageLibrarySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PostProcessStageSpec.js](../../cesium/packages/engine/Specs/Scene/PostProcessStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PrimitiveCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/PrimitiveCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PrimitiveCullingSpec.js](../../cesium/packages/engine/Specs/Scene/PrimitiveCullingSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PrimitivePipelineSpec.js](../../cesium/packages/engine/Specs/Scene/PrimitivePipelineSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/PrimitiveSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PropertyAttributePropertySpec.js](../../cesium/packages/engine/Specs/Scene/PropertyAttributePropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PropertyAttributeSpec.js](../../cesium/packages/engine/Specs/Scene/PropertyAttributeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PropertyTableSpec.js](../../cesium/packages/engine/Specs/Scene/PropertyTableSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PropertyTexturePropertySpec.js](../../cesium/packages/engine/Specs/Scene/PropertyTexturePropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/PropertyTextureSpec.js](../../cesium/packages/engine/Specs/Scene/PropertyTextureSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/QuadtreePrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/QuadtreePrimitiveSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/QuadtreeTileSpec.js](../../cesium/packages/engine/Specs/Scene/QuadtreeTileSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ResourceCacheKeySpec.js](../../cesium/packages/engine/Specs/Scene/ResourceCacheKeySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ResourceCacheSpec.js](../../cesium/packages/engine/Specs/Scene/ResourceCacheSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ResourceCacheStatisticsSpec.js](../../cesium/packages/engine/Specs/Scene/ResourceCacheStatisticsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ResourceLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/ResourceLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/SceneSpec.js](../../cesium/packages/engine/Specs/Scene/SceneSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/SceneTransformsSpec.js](../../cesium/packages/engine/Specs/Scene/SceneTransformsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ScreenSpaceCameraControllerSpec.js](../../cesium/packages/engine/Specs/Scene/ScreenSpaceCameraControllerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ShadowMapShaderSpec.js](../../cesium/packages/engine/Specs/Scene/ShadowMapShaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ShadowMapSpec.js](../../cesium/packages/engine/Specs/Scene/ShadowMapSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ShadowVolumeAppearanceSpec.js](../../cesium/packages/engine/Specs/Scene/ShadowVolumeAppearanceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/SingleTileImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/SingleTileImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/SkyAtmosphereSpec.js](../../cesium/packages/engine/Specs/Scene/SkyAtmosphereSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/SkyBoxSpec.js](../../cesium/packages/engine/Specs/Scene/SkyBoxSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/SnappingSpec.js](../../cesium/packages/engine/Specs/Scene/SnappingSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/SpatialNodeSpec.js](../../cesium/packages/engine/Specs/Scene/SpatialNodeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/SpecularEnvironmentCubeMapSpec.js](../../cesium/packages/engine/Specs/Scene/SpecularEnvironmentCubeMapSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/SphereEmitterSpec.js](../../cesium/packages/engine/Specs/Scene/SphereEmitterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/StructuralMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/StructuralMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/StyleExpressionSpec.js](../../cesium/packages/engine/Specs/Scene/StyleExpressionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/SunLightSpec.js](../../cesium/packages/engine/Specs/Scene/SunLightSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/SunSpec.js](../../cesium/packages/engine/Specs/Scene/SunSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/SupportedImageFormatsSpec.js](../../cesium/packages/engine/Specs/Scene/SupportedImageFormatsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TerrainFillMeshSpec.js](../../cesium/packages/engine/Specs/Scene/TerrainFillMeshSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TerrainSpec.js](../../cesium/packages/engine/Specs/Scene/TerrainSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TileBoundingRegionSpec.js](../../cesium/packages/engine/Specs/Scene/TileBoundingRegionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TileBoundingS2CellSpec.js](../../cesium/packages/engine/Specs/Scene/TileBoundingS2CellSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TileBoundingSphereSpec.js](../../cesium/packages/engine/Specs/Scene/TileBoundingSphereSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TileBoundingVolumeSpec.js](../../cesium/packages/engine/Specs/Scene/TileBoundingVolumeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TileCoordinatesImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/TileCoordinatesImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TileImagerySpec.js](../../cesium/packages/engine/Specs/Scene/TileImagerySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TileMapServiceImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/TileMapServiceImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TileMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/TileMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TileOrientedBoundingBoxSpec.js](../../cesium/packages/engine/Specs/Scene/TileOrientedBoundingBoxSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TileReplacementQueueSpec.js](../../cesium/packages/engine/Specs/Scene/TileReplacementQueueSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Tileset3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Tileset3DTileContentSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TilesetMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/TilesetMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TimeDynamicImagerySpec.js](../../cesium/packages/engine/Specs/Scene/TimeDynamicImagerySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TimeDynamicPointCloudSpec.js](../../cesium/packages/engine/Specs/Scene/TimeDynamicPointCloudSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TranslucentTileClassificationSpec.js](../../cesium/packages/engine/Specs/Scene/TranslucentTileClassificationSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TweenCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/TweenCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/UrlTemplateImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/UrlTemplateImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Vector3DTileClampedPolylinesSpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTileClampedPolylinesSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Vector3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTileContentSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Vector3DTileGeometrySpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTileGeometrySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Vector3DTilePointsSpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTilePointsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Vector3DTilePolygonsSpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTilePolygonsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Vector3DTilePolylinesSpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTilePolylinesSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/VectorGltf3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/VectorGltf3DTileContentSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/VertexAttributeSemanticSpec.js](../../cesium/packages/engine/Specs/Scene/VertexAttributeSemanticSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ViewportQuadSpec.js](../../cesium/packages/engine/Specs/Scene/ViewportQuadSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/VoxelBoxShapeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelBoxShapeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/VoxelCellSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelCellSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/VoxelCylinderShapeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelCylinderShapeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/VoxelEllipsoidShapeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelEllipsoidShapeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/VoxelPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelPrimitiveSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/VoxelRenderResourcesSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelRenderResourcesSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/VoxelShapeTypeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelShapeTypeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/VoxelTraversalSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelTraversalSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/WebMapServiceImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/WebMapServiceImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/WebMapTileServiceImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/WebMapTileServiceImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/buildVectorGltfFromMVTSpec.js](../../cesium/packages/engine/Specs/Scene/buildVectorGltfFromMVTSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/buildVoxelDrawCommandsSpec.js](../../cesium/packages/engine/Specs/Scene/buildVoxelDrawCommandsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/computeFlyToLocationForRectangleSpec.js](../../cesium/packages/engine/Specs/Scene/computeFlyToLocationForRectangleSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/createElevationBandMaterialSpec.js](../../cesium/packages/engine/Specs/Scene/createElevationBandMaterialSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/createTangentSpaceDebugPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/createTangentSpaceDebugPrimitiveSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/createWorldImageryAsyncSpec.js](../../cesium/packages/engine/Specs/Scene/createWorldImageryAsyncSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/decodeMVTSpec.js](../../cesium/packages/engine/Specs/Scene/decodeMVTSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/findContentMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/findContentMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/findGroupMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/findGroupMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/findMeshoptExtensionSpec.js](../../cesium/packages/engine/Specs/Scene/findMeshoptExtensionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/findTileMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/findTileMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/hasExtensionSpec.js](../../cesium/packages/engine/Specs/Scene/hasExtensionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/parseBatchTableSpec.js](../../cesium/packages/engine/Specs/Scene/parseBatchTableSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/parseFeatureMetadataLegacySpec.js](../../cesium/packages/engine/Specs/Scene/parseFeatureMetadataLegacySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/parseStructuralMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/parseStructuralMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/preprocess3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/preprocess3DTileContentSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/processVoxelPropertiesSpec.js](../../cesium/packages/engine/Specs/Scene/processVoxelPropertiesSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/renderBufferPointCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/renderBufferPointCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/renderBufferPolygonCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/renderBufferPolygonCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/renderBufferPolylineCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/renderBufferPolylineCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Widget/CesiumWidgetSpec.js](../../cesium/packages/engine/Specs/Widget/CesiumWidgetSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/ForEachSpec.js](../../cesium/packages/gltf/Specs/ForEachSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/addBufferSpec.js](../../cesium/packages/gltf/Specs/addBufferSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/addDefaultsSpec.js](../../cesium/packages/gltf/Specs/addDefaultsSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/addExtensionsRequiredSpec.js](../../cesium/packages/gltf/Specs/addExtensionsRequiredSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/addExtensionsUsedSpec.js](../../cesium/packages/gltf/Specs/addExtensionsUsedSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/addPipelineExtrasSpec.js](../../cesium/packages/gltf/Specs/addPipelineExtrasSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/addToArraySpec.js](../../cesium/packages/gltf/Specs/addToArraySpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/constructBoundingVolumeJsonSpec.js](../../cesium/packages/gltf/Specs/constructBoundingVolumeJsonSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/findAccessorMinMaxSpec.js](../../cesium/packages/gltf/Specs/findAccessorMinMaxSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/forEachTextureInMaterialSpec.js](../../cesium/packages/gltf/Specs/forEachTextureInMaterialSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/getAccessorByteStrideSpec.js](../../cesium/packages/gltf/Specs/getAccessorByteStrideSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/getComponentReaderSpec.js](../../cesium/packages/gltf/Specs/getComponentReaderSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/getNodeTransformSpec.js](../../cesium/packages/gltf/Specs/getNodeTransformSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/moveTechniqueRenderStatesSpec.js](../../cesium/packages/gltf/Specs/moveTechniqueRenderStatesSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/moveTechniquesToExtensionSpec.js](../../cesium/packages/gltf/Specs/moveTechniquesToExtensionSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/numberOfComponentsForTypeSpec.js](../../cesium/packages/gltf/Specs/numberOfComponentsForTypeSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/parseGlbSpec.js](../../cesium/packages/gltf/Specs/parseGlbSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/readAccessorPackedSpec.js](../../cesium/packages/gltf/Specs/readAccessorPackedSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/removeExtensionSpec.js](../../cesium/packages/gltf/Specs/removeExtensionSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/removeExtensionsRequiredSpec.js](../../cesium/packages/gltf/Specs/removeExtensionsRequiredSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/removeExtensionsUsedSpec.js](../../cesium/packages/gltf/Specs/removeExtensionsUsedSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/removePipelineExtrasSpec.js](../../cesium/packages/gltf/Specs/removePipelineExtrasSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/removeUnusedElementsSpec.js](../../cesium/packages/gltf/Specs/removeUnusedElementsSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/updateAccessorComponentTypeSpec.js](../../cesium/packages/gltf/Specs/updateAccessorComponentTypeSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/updateVersionSpec.js](../../cesium/packages/gltf/Specs/updateVersionSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/usesExtensionSpec.js](../../cesium/packages/gltf/Specs/usesExtensionSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/Animation/AnimationSpec.js](../../cesium/packages/widgets/Specs/Animation/AnimationSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/Animation/AnimationViewModelSpec.js](../../cesium/packages/widgets/Specs/Animation/AnimationViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/BaseLayerPicker/BaseLayerPickerSpec.js](../../cesium/packages/widgets/Specs/BaseLayerPicker/BaseLayerPickerSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/BaseLayerPicker/BaseLayerPickerViewModelSpec.js](../../cesium/packages/widgets/Specs/BaseLayerPicker/BaseLayerPickerViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/BaseLayerPicker/ProviderViewModelSpec.js](../../cesium/packages/widgets/Specs/BaseLayerPicker/ProviderViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/Cesium3DTilesInspector/Cesium3DTilesInspectorSpec.js](../../cesium/packages/widgets/Specs/Cesium3DTilesInspector/Cesium3DTilesInspectorSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/Cesium3DTilesInspector/Cesium3DTilesInspectorViewModelSpec.js](../../cesium/packages/widgets/Specs/Cesium3DTilesInspector/Cesium3DTilesInspectorViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/CesiumInspector/CesiumInspectorSpec.js](../../cesium/packages/widgets/Specs/CesiumInspector/CesiumInspectorSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/CesiumInspector/CesiumInspectorViewModelSpec.js](../../cesium/packages/widgets/Specs/CesiumInspector/CesiumInspectorViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/ClockViewModelSpec.js](../../cesium/packages/widgets/Specs/ClockViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/FullscreenButton/FullscreenButtonSpec.js](../../cesium/packages/widgets/Specs/FullscreenButton/FullscreenButtonSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/FullscreenButton/FullscreenButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/FullscreenButton/FullscreenButtonViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/Geocoder/GeocoderSpec.js](../../cesium/packages/widgets/Specs/Geocoder/GeocoderSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/Geocoder/GeocoderViewModelSpec.js](../../cesium/packages/widgets/Specs/Geocoder/GeocoderViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/HomeButton/HomeButtonSpec.js](../../cesium/packages/widgets/Specs/HomeButton/HomeButtonSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/HomeButton/HomeButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/HomeButton/HomeButtonViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/I3SBSLExplorer/I3SBSLExplorerSpec.js](../../cesium/packages/widgets/Specs/I3SBSLExplorer/I3SBSLExplorerSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/I3SBSLExplorer/I3SBSLExplorerViewModelSpec.js](../../cesium/packages/widgets/Specs/I3SBSLExplorer/I3SBSLExplorerViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/InfoBox/InfoBoxSpec.js](../../cesium/packages/widgets/Specs/InfoBox/InfoBoxSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/InfoBox/InfoBoxViewModelSpec.js](../../cesium/packages/widgets/Specs/InfoBox/InfoBoxViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonSpec.js](../../cesium/packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogSpec.js](../../cesium/packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogViewModelSpec.js](../../cesium/packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/ProjectionPicker/ProjectionPickerSpec.js](../../cesium/packages/widgets/Specs/ProjectionPicker/ProjectionPickerSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/ProjectionPicker/ProjectionPickerViewModelSpec.js](../../cesium/packages/widgets/Specs/ProjectionPicker/ProjectionPickerViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/SceneModePicker/SceneModePickerSpec.js](../../cesium/packages/widgets/Specs/SceneModePicker/SceneModePickerSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/SceneModePicker/SceneModePickerViewModelSpec.js](../../cesium/packages/widgets/Specs/SceneModePicker/SceneModePickerViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/SelectionIndicator/SelectionIndicatorSpec.js](../../cesium/packages/widgets/Specs/SelectionIndicator/SelectionIndicatorSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/SelectionIndicator/SelectionIndicatorViewModelSpec.js](../../cesium/packages/widgets/Specs/SelectionIndicator/SelectionIndicatorViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/SvgPathBindingHandlerSpec.js](../../cesium/packages/widgets/Specs/SvgPathBindingHandlerSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/ThirdParty/knockoutSpec.js](../../cesium/packages/widgets/Specs/ThirdParty/knockoutSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/Timeline/TimelineSpec.js](../../cesium/packages/widgets/Specs/Timeline/TimelineSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/VRButton/VRButtonSpec.js](../../cesium/packages/widgets/Specs/VRButton/VRButtonSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/VRButton/VRButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/VRButton/VRButtonViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/Viewer/ViewerSpec.js](../../cesium/packages/widgets/Specs/Viewer/ViewerSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/Viewer/viewerDragDropMixinSpec.js](../../cesium/packages/widgets/Specs/Viewer/viewerDragDropMixinSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/Viewer/viewerPerformanceWatchdogMixinSpec.js](../../cesium/packages/widgets/Specs/Viewer/viewerPerformanceWatchdogMixinSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/VoxelInspector/VoxelInspectorSpec.js](../../cesium/packages/widgets/Specs/VoxelInspector/VoxelInspectorSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/createCommandSpec.js](../../cesium/packages/widgets/Specs/createCommandSpec.js) | 待逐项核对 |

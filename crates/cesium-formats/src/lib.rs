@@ -5,6 +5,10 @@ use serde_json::Value;
 use std::{io::Cursor, sync::Arc};
 use thiserror::Error;
 
+mod pnts;
+mod pnts_draco;
+pub use pnts::{decode_point_cloud, parse_pnts, Pnts, PointCloud, PointVertex, PositionEncoding};
+
 #[derive(Clone, Debug)]
 pub struct DecodeLimits {
     pub max_input_bytes: usize,
@@ -85,12 +89,160 @@ fn finite_vec3(value: &Value) -> Result<DVec3, DecodeError> {
     }
     Ok(DVec3::from_array(out))
 }
+
+// Estimate the retained heap footprint of the decoded metadata tree. This
+// covers values, array elements, object keys and strings, but not allocator or
+// transient parser overhead.
+fn metadata_footprint(value: &Value) -> Result<usize, DecodeError> {
+    fn add(total: &mut usize, n: usize) -> Result<(), DecodeError> {
+        *total = total.checked_add(n).ok_or(DecodeError::Overflow)?;
+        Ok(())
+    }
+    let mut total = 0;
+    let mut pending = vec![value];
+    while let Some(value) = pending.pop() {
+        add(&mut total, std::mem::size_of::<Value>())?;
+        match value {
+            Value::String(s) => add(&mut total, s.len())?,
+            Value::Array(values) => pending.extend(values),
+            Value::Object(values) => {
+                for (key, value) in values {
+                    add(&mut total, std::mem::size_of::<String>())?;
+                    add(&mut total, key.len())?;
+                    pending.push(value);
+                }
+            }
+            _ => {}
+        }
+    }
+    Ok(total)
+}
+
+/// Materialize binary Batch Table properties into per-feature JSON values.
+fn decode_batch_table(
+    mut table: Value,
+    binary: &[u8],
+    count: usize,
+    limits: &DecodeLimits,
+) -> Result<Value, DecodeError> {
+    let properties = table
+        .as_object_mut()
+        .ok_or_else(|| invalid("batch table object"))?;
+    let mut decoded_size = 0usize;
+    for property in properties.values_mut() {
+        if let Some(values) = property.as_array() {
+            if values.len() != count {
+                return Err(invalid("batch property count"));
+            }
+            continue;
+        }
+        let descriptor = property
+            .as_object()
+            .ok_or_else(|| invalid("batch property descriptor"))?;
+        let offset = descriptor
+            .get("byteOffset")
+            .and_then(Value::as_u64)
+            .ok_or_else(|| invalid("batch property byteOffset"))?;
+        let offset = usize::try_from(offset).map_err(|_| DecodeError::Overflow)?;
+        let component = descriptor
+            .get("componentType")
+            .and_then(Value::as_str)
+            .ok_or_else(|| invalid("batch property componentType"))?;
+        let size = match component {
+            "BYTE" | "UNSIGNED_BYTE" => 1,
+            "SHORT" | "UNSIGNED_SHORT" => 2,
+            "INT" | "UNSIGNED_INT" | "FLOAT" => 4,
+            "DOUBLE" => 8,
+            _ => return Err(invalid("batch property componentType")),
+        };
+        let components = match descriptor.get("type").and_then(Value::as_str) {
+            Some("SCALAR") => 1,
+            Some("VEC2") => 2,
+            Some("VEC3") => 3,
+            Some("VEC4" | "MAT2") => 4,
+            Some("MAT3") => 9,
+            Some("MAT4") => 16,
+            _ => return Err(invalid("batch property type")),
+        };
+        if !offset.is_multiple_of(size) {
+            return Err(invalid("batch property alignment"));
+        }
+        let n = count.checked_mul(components).ok_or(DecodeError::Overflow)?;
+        let length = n.checked_mul(size).ok_or(DecodeError::Overflow)?;
+        let bytes = checked_range(binary, offset, length)?;
+        let estimated = n
+            .checked_add(count)
+            .and_then(|n| n.checked_mul(std::mem::size_of::<Value>()))
+            .ok_or(DecodeError::Overflow)?;
+        decoded_size = decoded_size
+            .checked_add(estimated)
+            .ok_or(DecodeError::Overflow)?;
+        if decoded_size > limits.max_decoded_bytes {
+            return Err(DecodeError::Limit("batch metadata"));
+        }
+        let mut values = Vec::with_capacity(count);
+        for feature in 0..count {
+            let mut row = Vec::with_capacity(components);
+            for index in 0..components {
+                let start = (feature * components + index) * size;
+                let b = &bytes[start..start + size];
+                let v = match component {
+                    "BYTE" => Value::from(i8::from_le_bytes([b[0]])),
+                    "UNSIGNED_BYTE" => Value::from(b[0]),
+                    "SHORT" => Value::from(i16::from_le_bytes([b[0], b[1]])),
+                    "UNSIGNED_SHORT" => Value::from(u16::from_le_bytes([b[0], b[1]])),
+                    "INT" => Value::from(i32::from_le_bytes(
+                        b.try_into().map_err(|_| DecodeError::Overflow)?,
+                    )),
+                    "UNSIGNED_INT" => Value::from(u32::from_le_bytes(
+                        b.try_into().map_err(|_| DecodeError::Overflow)?,
+                    )),
+                    "FLOAT" => {
+                        let v =
+                            f32::from_le_bytes(b.try_into().map_err(|_| DecodeError::Overflow)?);
+                        if !v.is_finite() {
+                            return Err(invalid("non-finite batch property"));
+                        }
+                        Value::from(v)
+                    }
+                    "DOUBLE" => {
+                        let v =
+                            f64::from_le_bytes(b.try_into().map_err(|_| DecodeError::Overflow)?);
+                        if !v.is_finite() {
+                            return Err(invalid("non-finite batch property"));
+                        }
+                        Value::from(v)
+                    }
+                    _ => unreachable!(),
+                };
+                row.push(v);
+            }
+            values.push(if components == 1 {
+                row.pop().ok_or_else(|| invalid("batch property"))?
+            } else {
+                Value::Array(row)
+            });
+        }
+        *property = Value::Array(values);
+    }
+    Ok(table)
+}
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum B3dmHeader {
+    Current,
+    Legacy20,
+    Legacy24,
+}
+
 #[derive(Debug)]
 pub struct B3dm<'a> {
+    pub header: B3dmHeader,
     pub batch_length: u32,
     pub rtc_center: DVec3,
     pub feature_table: Value,
     pub batch_table: Value,
+    /// Estimated retained bytes for decoded batch metadata.
+    pub batch_metadata_bytes: usize,
     pub feature_binary: &'a [u8],
     pub batch_binary: &'a [u8],
     pub glb: &'a [u8],
@@ -103,14 +255,31 @@ pub fn parse_b3dm<'a>(data: &'a [u8], limits: &DecodeLimits) -> Result<B3dm<'a>,
     if u32_at(data, 8)? as usize != data.len() {
         return Err(invalid("b3dm byteLength"));
     }
-    let mut cursor = 28usize;
+    // Cesium detects the two historical header layouts using the first
+    // bytes of the following JSON section or embedded glTF as a sentinel.
+    const LEGACY_SENTINEL: u32 = 570_425_344;
+    let a = u32_at(data, 12)?;
+    let b = u32_at(data, 16)?;
+    let c = u32_at(data, 20)?;
+    let d = u32_at(data, 24)?;
+    let (header, mut cursor, lengths, legacy_batch_length) = if c >= LEGACY_SENTINEL {
+        (B3dmHeader::Legacy20, 20usize, [0, 0, b, 0], Some(a))
+    } else if d >= LEGACY_SENTINEL {
+        (B3dmHeader::Legacy24, 24usize, [0, 0, a, b], Some(c))
+    } else {
+        (B3dmHeader::Current, 28usize, [a, b, c, d], None)
+    };
     let mut sections = Vec::new();
-    for offset in [12, 16, 20, 24] {
-        let length = u32_at(data, offset)? as usize;
+    for length in lengths {
+        let length = length as usize;
         sections.push(checked_range(data, cursor, length)?);
         cursor = cursor.checked_add(length).ok_or(DecodeError::Overflow)?;
     }
-    let feature_table = json_section(sections[0])?;
+    let feature_table = if sections[0].is_empty() {
+        serde_json::json!({"BATCH_LENGTH": legacy_batch_length.unwrap_or(0)})
+    } else {
+        json_section(sections[0])?
+    };
     let batch_table = json_section(sections[2])?;
     let count = feature_table
         .get("BATCH_LENGTH")
@@ -149,28 +318,18 @@ pub fn parse_b3dm<'a>(data: &'a [u8], limits: &DecodeLimits) -> Result<B3dm<'a>,
     };
     let glb = checked_range(data, cursor, data.len().saturating_sub(cursor))?;
     parse_glb(glb, limits)?;
-    if !batch_table.is_object() {
-        return Err(invalid("batch table object"));
-    }
-    for (_, property) in batch_table
-        .as_object()
-        .ok_or_else(|| invalid("batch table"))?
-    {
-        if let Some(a) = property.as_array() {
-            if a.len() != batch_length as usize {
-                return Err(invalid("batch property count"));
-            }
-        } else {
-            return Err(DecodeError::Unsupported(
-                "binary Batch Table properties".into(),
-            ));
-        }
+    let batch_table = decode_batch_table(batch_table, sections[3], batch_length as usize, limits)?;
+    let batch_metadata_bytes = metadata_footprint(&batch_table)?;
+    if batch_metadata_bytes > limits.max_decoded_bytes {
+        return Err(DecodeError::Limit("batch metadata"));
     }
     Ok(B3dm {
+        header,
         batch_length,
         rtc_center,
         feature_table,
         batch_table,
+        batch_metadata_bytes,
         feature_binary: sections[1],
         batch_binary: sections[3],
         glb,
@@ -458,14 +617,60 @@ pub fn decode_content(data: &[u8], limits: &DecodeLimits) -> Result<Content, Dec
             String::from_utf8_lossy(&data[..4])
         )));
     }
-    let (glb, rtc_center, metadata, batch_length) = if data.starts_with(b"b3dm") {
+    let (glb, rtc_center, metadata, batch_length, metadata_bytes) = if data.starts_with(b"b3dm") {
         let b = parse_b3dm(data, limits)?;
-        (b.glb, b.rtc_center, b.batch_table, Some(b.batch_length))
+        (
+            b.glb,
+            b.rtc_center,
+            b.batch_table,
+            Some(b.batch_length),
+            b.batch_metadata_bytes,
+        )
     } else {
-        (data, DVec3::ZERO, Value::Object(Default::default()), None)
+        (
+            data,
+            DVec3::ZERO,
+            Value::Object(Default::default()),
+            None,
+            0,
+        )
     };
-    let container = parse_glb(glb, limits)?;
-    let g = gltf::Gltf::from_slice(glb)?;
+    let mut container = parse_glb(glb, limits)?;
+    // Historical b3dm used BATCHID before glTF custom attributes required an
+    // underscore. Normalize only that legacy semantic before glTF validation.
+    let mut normalized = false;
+    if batch_length.is_some() {
+        if let Some(meshes) = container
+            .json
+            .get_mut("meshes")
+            .and_then(Value::as_array_mut)
+        {
+            for mesh in meshes {
+                if let Some(primitives) = mesh.get_mut("primitives").and_then(Value::as_array_mut) {
+                    for primitive in primitives {
+                        if let Some(attributes) = primitive
+                            .get_mut("attributes")
+                            .and_then(Value::as_object_mut)
+                        {
+                            if let Some(value) = attributes.remove("BATCHID") {
+                                if attributes.contains_key("_BATCHID") {
+                                    return Err(invalid("duplicate batch ID semantics"));
+                                }
+                                attributes.insert("_BATCHID".into(), value);
+                                normalized = true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    let normalized_json = if normalized {
+        Some(serde_json::to_vec(&container.json)?)
+    } else {
+        None
+    };
+    let g = gltf::Gltf::from_slice(normalized_json.as_deref().unwrap_or(glb))?;
     if g.extensions_required().next().is_some() {
         return Err(DecodeError::Unsupported("required glTF extensions".into()));
     }
@@ -478,7 +683,12 @@ pub fn decode_content(data: &[u8], limits: &DecodeLimits) -> Result<Content, Dec
         return Err(DecodeError::Unsupported("external/data URI buffers".into()));
     }
     validate_accessors(&g, container.binary, limits)?;
-    let (images, image_bytes) = decode_images(&g, container.binary, limits)?;
+    let mut image_limits = limits.clone();
+    image_limits.max_decoded_bytes = limits
+        .max_decoded_bytes
+        .checked_sub(metadata_bytes)
+        .ok_or(DecodeError::Limit("decoded bytes"))?;
+    let (images, image_bytes) = decode_images(&g, container.binary, &image_limits)?;
     if g.nodes().len() > limits.max_nodes {
         return Err(DecodeError::Limit("nodes"));
     }
@@ -548,6 +758,7 @@ pub fn decode_content(data: &[u8], limits: &DecodeLimits) -> Result<Content, Dec
                     .checked_mul(std::mem::size_of::<Vertex>())
                     .and_then(|v| total_indices.checked_mul(4).and_then(|i| v.checked_add(i)))
                     .and_then(|n| n.checked_add(image_bytes))
+                    .and_then(|n| n.checked_add(metadata_bytes))
                     .ok_or(DecodeError::Overflow)?;
                 if decoded_bytes > limits.max_decoded_bytes {
                     return Err(DecodeError::Limit("decoded bytes"));
@@ -917,6 +1128,179 @@ mod tests {
     use super::*;
     const GLB: &[u8] = include_bytes!("../../../tests/fixtures/triangle.glb");
     const B3DM: &[u8] = include_bytes!("../../../tests/fixtures/triangle.b3dm");
+    #[test]
+    fn cesium_binary_batch_table_reference_asset() {
+        let bytes = include_bytes!("../../../tests/fixtures/cesium-batch-table-binary.b3dm");
+        let content = decode_content(bytes, &DecodeLimits::default()).unwrap();
+        let metadata = &content.metadata;
+        for i in 0..10 {
+            let values = metadata["cartographic"][i].as_array().unwrap();
+            assert_eq!(values[0], metadata["Longitude"][i]);
+            assert_eq!(values[1], metadata["Latitude"][i]);
+            assert_eq!(values[2], metadata["Height"][i]);
+            assert_eq!(metadata["code"][i], 255);
+        }
+        let ids: std::collections::BTreeSet<_> = content
+            .primitives
+            .iter()
+            .flat_map(|p| p.vertices.iter().map(|v| v.feature_id))
+            .collect();
+        assert_eq!(ids, (0..10).collect());
+    }
+
+    #[test]
+    fn metadata_and_geometry_share_decoded_budget() {
+        let bytes = include_bytes!("../../../tests/fixtures/cesium-batch-table-binary.b3dm");
+        let limits = DecodeLimits::default();
+        let metadata_bytes = parse_b3dm(bytes, &limits).unwrap().batch_metadata_bytes;
+        let complete = decode_content(bytes, &limits).unwrap();
+        assert!(metadata_bytes > 0);
+        assert!(complete.decoded_bytes > metadata_bytes + 1);
+        let bounded = DecodeLimits {
+            max_decoded_bytes: complete.decoded_bytes - 1,
+            ..limits
+        };
+        // Each portion fits alone, while their combined retained size does not.
+        assert!(metadata_bytes < bounded.max_decoded_bytes);
+        assert!(complete.decoded_bytes - metadata_bytes < bounded.max_decoded_bytes);
+        assert!(parse_b3dm(bytes, &bounded).is_ok());
+        assert!(matches!(
+            decode_content(bytes, &bounded),
+            Err(DecodeError::Limit(_))
+        ));
+    }
+
+    #[test]
+    fn binary_batch_property_types_and_bounds() {
+        let mut bytes = Vec::new();
+        for v in [0.0_f64, 1.0] {
+            bytes.extend_from_slice(&v.to_le_bytes());
+        }
+        for v in [2.0_f32, 3.0, 4.0, 5.0] {
+            bytes.extend_from_slice(&v.to_le_bytes());
+        }
+        for v in [6_i32, 7, 8, 9, 10, 11] {
+            bytes.extend_from_slice(&v.to_le_bytes());
+        }
+        for v in 12_u32..20 {
+            bytes.extend_from_slice(&v.to_le_bytes());
+        }
+        for v in 20_i16..28 {
+            bytes.extend_from_slice(&v.to_le_bytes());
+        }
+        for v in 28_u16..46 {
+            bytes.extend_from_slice(&v.to_le_bytes());
+        }
+        bytes.extend(46_u8..78);
+        let table = serde_json::json!({
+            "scalar":{"byteOffset":0,"componentType":"DOUBLE","type":"SCALAR"},
+            "vec2":{"byteOffset":16,"componentType":"FLOAT","type":"VEC2"},
+            "vec3":{"byteOffset":32,"componentType":"INT","type":"VEC3"},
+            "vec4":{"byteOffset":56,"componentType":"UNSIGNED_INT","type":"VEC4"},
+            "mat2":{"byteOffset":88,"componentType":"SHORT","type":"MAT2"},
+            "mat3":{"byteOffset":104,"componentType":"UNSIGNED_SHORT","type":"MAT3"},
+            "mat4":{"byteOffset":140,"componentType":"UNSIGNED_BYTE","type":"MAT4"}
+        });
+        let decoded =
+            decode_batch_table(table.clone(), &bytes, 2, &DecodeLimits::default()).unwrap();
+        assert_eq!(decoded["scalar"][1], 1.0);
+        assert_eq!(decoded["vec2"][1], serde_json::json!([4.0, 5.0]));
+        assert_eq!(decoded["vec3"][1], serde_json::json!([9, 10, 11]));
+        assert_eq!(decoded["vec4"][1], serde_json::json!([16, 17, 18, 19]));
+        assert_eq!(decoded["mat2"][1], serde_json::json!([24, 25, 26, 27]));
+        assert_eq!(
+            decoded["mat3"][1],
+            serde_json::json!([37, 38, 39, 40, 41, 42, 43, 44, 45])
+        );
+        assert_eq!(
+            decoded["mat4"][1],
+            serde_json::json!((62..78).collect::<Vec<_>>())
+        );
+        assert!(decode_batch_table(
+            table.clone(),
+            &bytes[..bytes.len() - 1],
+            2,
+            &DecodeLimits::default()
+        )
+        .is_err());
+        let mut bad = table.clone();
+        bad["vec3"]["byteOffset"] = 33.into();
+        assert!(decode_batch_table(bad, &bytes, 2, &DecodeLimits::default()).is_err());
+        let mut bad = table.clone();
+        bad["vec3"].as_object_mut().unwrap().remove("componentType");
+        assert!(decode_batch_table(bad, &bytes, 2, &DecodeLimits::default()).is_err());
+        let limits = DecodeLimits {
+            max_decoded_bytes: 1,
+            ..Default::default()
+        };
+        assert!(decode_batch_table(table, &bytes, 2, &limits).is_err());
+        let signed =
+            serde_json::json!({"x":{"byteOffset":0,"componentType":"BYTE","type":"SCALAR"}});
+        assert_eq!(
+            decode_batch_table(signed, &[255, 127], 2, &DecodeLimits::default()).unwrap()["x"],
+            serde_json::json!([-1, 127])
+        );
+        let floating =
+            serde_json::json!({"x":{"byteOffset":0,"componentType":"FLOAT","type":"SCALAR"}});
+        assert!(decode_batch_table(
+            floating,
+            &f32::NAN.to_le_bytes(),
+            1,
+            &DecodeLimits::default()
+        )
+        .is_err());
+    }
+    #[test]
+    fn cesium_legacy_b3dm_headers_and_reference_content() {
+        let cases: [(&[u8], B3dmHeader); 2] = [
+            (
+                include_bytes!("../../../tests/fixtures/cesium-batched-deprecated-20.b3dm"),
+                B3dmHeader::Legacy20,
+            ),
+            (
+                include_bytes!("../../../tests/fixtures/cesium-batched-deprecated-24.b3dm"),
+                B3dmHeader::Legacy24,
+            ),
+        ];
+        for (data, expected) in cases {
+            let parsed = parse_b3dm(data, &DecodeLimits::default()).unwrap();
+            assert_eq!(parsed.header, expected);
+            assert_eq!(parsed.batch_length, 10);
+            assert_eq!(parsed.feature_table["BATCH_LENGTH"], 10);
+            assert_eq!(parsed.batch_table["id"].as_array().unwrap().len(), 10);
+            assert!(parsed.glb.starts_with(b"glTF"));
+            let content = decode_content(data, &DecodeLimits::default())
+                .expect("decode legacy reference content");
+            assert_eq!(content.metadata["id"].as_array().unwrap().len(), 10);
+            let ids: std::collections::BTreeSet<_> = content
+                .primitives
+                .iter()
+                .flat_map(|p| p.vertices.iter().map(|v| v.feature_id))
+                .collect();
+            assert_eq!(ids, (0..10).collect());
+        }
+    }
+
+    #[test]
+    fn cesium_b3dm_invalid_version_empty_payload_and_truncated_legacy() {
+        let limits = DecodeLimits::default();
+        let mut bad = B3DM.to_vec();
+        bad[4..8].copy_from_slice(&2u32.to_le_bytes());
+        assert!(parse_b3dm(&bad, &limits).is_err());
+        let mut empty = b"b3dm".to_vec();
+        for value in [1u32, 28, 0, 0, 0, 0] {
+            empty.extend_from_slice(&value.to_le_bytes());
+        }
+        assert!(parse_b3dm(&empty, &limits).is_err());
+        for data in [
+            include_bytes!("../../../tests/fixtures/cesium-batched-deprecated-20.b3dm").as_slice(),
+            include_bytes!("../../../tests/fixtures/cesium-batched-deprecated-24.b3dm").as_slice(),
+        ] {
+            for n in 0..data.len() {
+                assert!(parse_b3dm(&data[..n], &limits).is_err());
+            }
+        }
+    }
     #[test]
     fn blend_material_decode() {
         let c = decode_content(

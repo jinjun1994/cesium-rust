@@ -1,5 +1,5 @@
 use crate::{limits, Scene};
-use cesium_formats::{decode_content, Content};
+use cesium_formats::{decode_content, decode_point_cloud, Content, PointCloud};
 use cesium_renderer::{device, instance, RenderError, Renderer};
 use cesium_streaming::{Budget, Epochs, TaskToken};
 use cesium_tiles::{ContentState, Tileset};
@@ -63,6 +63,7 @@ pub fn fetch(url: &Url, client: &reqwest::blocking::Client, max: usize) -> Resul
 }
 enum Downloaded {
     Model(Content),
+    Points(PointCloud),
     External(Vec<u8>),
 }
 struct Completed {
@@ -126,6 +127,8 @@ impl Streamer {
                     .and_then(|b| {
                         if b.iter().find(|v| !v.is_ascii_whitespace()) == Some(&b'{') {
                             Ok(Downloaded::External(b))
+                        } else if b.starts_with(b"pnts") {
+                            Ok(Downloaded::Points(decode_point_cloud(&b, &limits())?))
                         } else {
                             Ok(Downloaded::Model(decode_content(&b, &limits())?))
                         }
@@ -150,6 +153,9 @@ impl Streamer {
                 let result = c.result.and_then(|content| match content {
                     Downloaded::Model(content) => scene
                         .commit_tile(renderer, c.id, content)
+                        .map_err(|e| e.to_string()),
+                    Downloaded::Points(content) => scene
+                        .commit_point_tile(renderer, c.id, content)
                         .map_err(|e| e.to_string()),
                     Downloaded::External(data) => scene
                         .tileset
@@ -470,6 +476,7 @@ pub enum Startup {
     Demo,
     Tileset(Tileset),
     Static(Content),
+    StaticPoints(PointCloud),
     GeoJson(crate::geojson::Data),
     WithGeoJson(Box<Startup>, Vec<crate::geojson::Data>),
 }
@@ -537,23 +544,27 @@ impl Running {
             Startup::GeoJson(data) => (Startup::Globe, Some(data)),
             other => (other, None),
         };
-        let (set, content, demo) = match startup {
-            Startup::Globe => (None, None, false),
+        let (set, content, points, demo) = match startup {
+            Startup::Globe => (None, None, None, false),
             Startup::Demo => {
                 let set = Tileset::parse(
                     include_bytes!("../../../tests/fixtures/tileset.json"),
                     Url::parse("https://fixtures.invalid/tileset.json")?,
                     &limits(),
                 )?;
-                (Some(set), None, true)
+                (Some(set), None, None, true)
             }
-            Startup::Tileset(t) => (Some(t), None, false),
-            Startup::Static(c) => (None, Some(c), false),
+            Startup::Tileset(t) => (Some(t), None, None, false),
+            Startup::Static(c) => (None, Some(c), None, false),
+            Startup::StaticPoints(c) => (None, None, Some(c), false),
             Startup::GeoJson(_) | Startup::WithGeoJson(_, _) => unreachable!(),
         };
         let mut scene = Scene::new(&mut renderer, set)?;
         if let Some(c) = content {
             scene.add_static(&mut renderer, c)?;
+        }
+        if let Some(c) = points {
+            scene.add_static_points(&mut renderer, c)?;
         }
         if demo {
             scene.commit_tile(
@@ -945,7 +956,9 @@ pub fn load_geojson(url: Url) -> Result<crate::geojson::Data> {
 }
 pub fn load(url: Url) -> Result<Startup> {
     let data = fetch(&url, &client()?, limits().max_input_bytes)?;
-    if data.starts_with(b"glTF") || data.starts_with(b"b3dm") {
+    if data.starts_with(b"pnts") {
+        Ok(Startup::StaticPoints(decode_point_cloud(&data, &limits())?))
+    } else if data.starts_with(b"glTF") || data.starts_with(b"b3dm") {
         Ok(Startup::Static(decode_content(&data, &limits())?))
     } else {
         let json: serde_json::Value = serde_json::from_slice(&data)?;
@@ -973,6 +986,35 @@ mod tests {
         assert!(fetch(&url, &client().unwrap(), 10).is_err());
         let bytes = fetch(&url, &client().unwrap(), 65536).unwrap();
         assert!(bytes.starts_with(b"glTF"));
+    }
+    #[test]
+    fn loads_standalone_pnts_by_magic() {
+        let path = concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/../../tests/fixtures/cesium-pointcloud-batched.pnts"
+        );
+        match load(source_url(path).unwrap()).unwrap() {
+            Startup::StaticPoints(cloud) => {
+                assert_eq!(cloud.points.len(), 1000);
+                assert_eq!(cloud.metadata["name"][0], "section0");
+            }
+            _ => panic!("PNTS did not produce static point content"),
+        }
+    }
+    #[test]
+    fn loads_standalone_draco_pnts_by_magic() {
+        let path = concat!(
+            env!("CARGO_MANIFEST_DIR"),
+            "/../../tests/fixtures/cesium-pointcloud-draco-batched.pnts"
+        );
+        match load(source_url(path).unwrap()).unwrap() {
+            Startup::StaticPoints(cloud) => {
+                assert_eq!(cloud.points.len(), 1000);
+                assert_eq!(cloud.metadata["name"][0], "section0");
+                assert!(cloud.has_colors && cloud.has_normals);
+            }
+            _ => panic!("Draco PNTS did not produce static point content"),
+        }
     }
     #[test]
     fn scene_normal_and_orbit() {
