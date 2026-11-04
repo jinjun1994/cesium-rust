@@ -5,25 +5,27 @@ use crate::julian_date::JulianDate;
 use std::cmp::Ordering;
 
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct TimeInterval {
+pub struct TimeInterval<T = ()> {
     pub start: JulianDate,
     pub stop: JulianDate,
     pub is_start_included: bool,
     pub is_stop_included: bool,
+    pub data: Option<T>,
 }
 
-impl Default for TimeInterval {
+impl<T> Default for TimeInterval<T> {
     fn default() -> Self {
         Self {
             start: JulianDate::default(),
             stop: JulianDate::default(),
             is_start_included: true,
             is_stop_included: true,
+            data: None,
         }
     }
 }
 
-impl TimeInterval {
+impl TimeInterval<()> {
     #[inline]
     pub const fn new(
         start: JulianDate,
@@ -36,6 +38,26 @@ impl TimeInterval {
             stop,
             is_start_included,
             is_stop_included,
+            data: None,
+        }
+    }
+}
+
+impl<T> TimeInterval<T> {
+    #[inline]
+    pub const fn with_data(
+        start: JulianDate,
+        stop: JulianDate,
+        is_start_included: bool,
+        is_stop_included: bool,
+        data: T,
+    ) -> Self {
+        Self {
+            start,
+            stop,
+            is_start_included,
+            is_stop_included,
+            data: Some(data),
         }
     }
 
@@ -68,12 +90,15 @@ impl TimeInterval {
         }
         true
     }
+}
 
+impl<T: PartialEq> TimeInterval<T> {
     pub fn equals(&self, other: &Self) -> bool {
         self.start.equals(&other.start)
             && self.stop.equals(&other.stop)
             && self.is_start_included == other.is_start_included
             && self.is_stop_included == other.is_stop_included
+            && self.data == other.data
     }
 
     pub fn equals_epsilon(&self, other: &Self, epsilon: f64) -> bool {
@@ -81,8 +106,11 @@ impl TimeInterval {
             && self.stop.equals_epsilon(&other.stop, epsilon)
             && self.is_start_included == other.is_start_included
             && self.is_stop_included == other.is_stop_included
+            && self.data == other.data
     }
+}
 
+impl<T: Clone> TimeInterval<T> {
     pub fn intersect(&self, other: &Self) -> Option<Self> {
         if self.is_empty() || other.is_empty() {
             return None;
@@ -105,6 +133,7 @@ impl TimeInterval {
             stop,
             is_start_included,
             is_stop_included,
+            data: self.data.clone(),
         };
 
         if result.is_empty() {

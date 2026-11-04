@@ -1,6 +1,7 @@
 //! Column vectors, metres, radians, right-handed ECEF and negative-Z eye space.
 use glam::{DMat3, DMat4, DVec3, Mat4, Vec4};
 use thiserror::Error;
+mod associative_array;
 mod axis_aligned_bounding_box;
 mod bounding_rectangle;
 mod box_geometry;
@@ -28,6 +29,7 @@ mod plane_geometry;
 mod polynomial;
 mod projection;
 mod quaternion;
+mod queue;
 mod ray;
 mod rectangle;
 mod scalar;
@@ -35,8 +37,10 @@ mod sphere;
 mod sphere_geometry;
 mod time_constants;
 mod time_interval;
+mod time_interval_collection;
 mod tiling;
 mod vertex_format;
+pub use associative_array::AssociativeArray;
 pub use axis_aligned_bounding_box::AxisAlignedBoundingBox;
 pub use bounding_rectangle::BoundingRectangle;
 pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
@@ -76,6 +80,7 @@ pub use polynomial::{
 };
 pub use projection::{GeographicProjection, MapProjection, WebMercatorProjection};
 pub use quaternion::{HeadingPitchRoll, Quaternion};
+pub use queue::Queue;
 pub use ray::Ray;
 pub use rectangle::GeoRectangle;
 pub use scalar::{HeadingPitchRange, NearFarScalar};
@@ -83,6 +88,7 @@ pub use sphere::PlaneIntersection;
 pub use sphere_geometry::{SphereGeometry, SphereOutlineGeometry};
 pub use time_constants::{TimeConstants, *};
 pub use time_interval::TimeInterval;
+pub use time_interval_collection::TimeIntervalCollection;
 pub use tiling::{GeographicTilingScheme, NativeRectangle, TilingScheme, WebMercatorTilingScheme};
 pub use vertex_format::VertexFormat;
 

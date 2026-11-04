@@ -83,7 +83,7 @@
 
 | 上游 Spec 文件 | 状态 |
 | --- | --- |
-| [packages/core/Specs/AssociativeArraySpec.js](../../cesium/packages/core/Specs/AssociativeArraySpec.js) | 待逐项核对 |
+| [packages/core/Specs/AssociativeArraySpec.js](../../cesium/packages/core/Specs/AssociativeArraySpec.js) | 已移植：关联数组键值映射、数组高效迭代、增删查改、清空与键存在性校验（associative_array_spec.rs） |
 | [packages/core/Specs/AttributeCompressionSpec.js](../../cesium/packages/core/Specs/AttributeCompressionSpec.js) | 待逐项核对 |
 | [packages/core/Specs/AttributeTypeSpec.js](../../cesium/packages/core/Specs/AttributeTypeSpec.js) | 待逐项核对 |
 | [packages/core/Specs/AxisAlignedBoundingBoxSpec.js](../../cesium/packages/core/Specs/AxisAlignedBoundingBoxSpec.js) | 部分：构造、点集、相等、平面及盒相交；JS 对象复用及异常语义不同 |
@@ -143,7 +143,7 @@
 | [packages/core/Specs/IndexDatatypeSpec.js](../../cesium/packages/core/Specs/IndexDatatypeSpec.js) | 待逐项核对 |
 | [packages/core/Specs/IntersectionTestsSpec.js](../../cesium/packages/core/Specs/IntersectionTestsSpec.js) | 部分：射线/线段、盒体、平面切分和掠射；其他场景待核对 |
 | [packages/core/Specs/Intersections2DSpec.js](../../cesium/packages/core/Specs/Intersections2DSpec.js) | 待逐项核对 |
-| [packages/core/Specs/IntervalSpec.js](../../cesium/packages/core/Specs/IntervalSpec.js) | 部分：默认与显式构造；JS 可选参数语义待映射 |
+| [packages/core/Specs/IntervalSpec.js](../../cesium/packages/core/Specs/IntervalSpec.js) | 已移植：默认闭区间构造 [0, 0] 与显式闭区间构造 [start, stop]（interval_spec.rs） |
 | [packages/core/Specs/JulianDateSpec.js](../../cesium/packages/core/Specs/JulianDateSpec.js) | 已移植：默认构造、分数天、TAI 基础构造、闰秒偏移、时间算术、秒/天差值、ISO 8601 与格里高利历互转（julian_date_spec.rs） |
 | [packages/core/Specs/LagrangePolynomialApproximationSpec.js](../../cesium/packages/core/Specs/LagrangePolynomialApproximationSpec.js) | 待逐项核对 |
 | [packages/core/Specs/LeapSecondSpec.js](../../cesium/packages/core/Specs/LeapSecondSpec.js) | 已移植：构造、历次闰秒表检验（julian_date_spec.rs） |
@@ -178,7 +178,7 @@
 | [packages/core/Specs/QuarticRealPolynomialSpec.js](../../cesium/packages/core/Specs/QuarticRealPolynomialSpec.js) | 部分：判别式与有限输入求根场景；JS 参数异常不适用 |
 | [packages/core/Specs/QuaternionSpec.js](../../cesium/packages/core/Specs/QuaternionSpec.js) | 已移植：单位四元数、轴角构造、旋转矩阵互转与 slerp 球面插值（quaternion_hpr_spec.rs） |
 | [packages/core/Specs/QuaternionSplineSpec.js](../../cesium/packages/core/Specs/QuaternionSplineSpec.js) | 待逐项核对 |
-| [packages/core/Specs/QueueSpec.js](../../cesium/packages/core/Specs/QueueSpec.js) | 待逐项核对 |
+| [packages/core/Specs/QueueSpec.js](../../cesium/packages/core/Specs/QueueSpec.js) | 已移植：队列入队出队、首元素查看 peek、包含性检查、就地排序与清空（queue_spec.rs） |
 | [packages/core/Specs/RaySpec.js](../../cesium/packages/core/Specs/RaySpec.js) | 部分：构造、方向归一化、取点；JS 对象复用语义不同 |
 | [packages/core/Specs/RectangleGeometrySpec.js](../../cesium/packages/core/Specs/RectangleGeometrySpec.js) | 待逐项核对 |
 | [packages/core/Specs/RectangleOutlineGeometrySpec.js](../../cesium/packages/core/Specs/RectangleOutlineGeometrySpec.js) | 待逐项核对 |
@@ -192,7 +192,7 @@
 | [packages/core/Specs/SplineSpec.js](../../cesium/packages/core/Specs/SplineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/SteppedSplineSpec.js](../../cesium/packages/core/Specs/SteppedSplineSpec.js) | 待逐项核对 |
 | [packages/core/Specs/StereographicSpec.js](../../cesium/packages/core/Specs/StereographicSpec.js) | 待逐项核对 |
-| [packages/core/Specs/TimeIntervalCollectionSpec.js](../../cesium/packages/core/Specs/TimeIntervalCollectionSpec.js) | 待逐项核对 |
+| [packages/core/Specs/TimeIntervalCollectionSpec.js](../../cesium/packages/core/Specs/TimeIntervalCollectionSpec.js) | 已移植：非重叠时间区间集合、同数据区间自动合并、异数据区间重叠裁切与拆分、区间挖洞移除与时间二分查找（time_interval_collection_spec.rs） |
 | [packages/core/Specs/TimeIntervalSpec.js](../../cesium/packages/core/Specs/TimeIntervalSpec.js) | 已移植：时间区间构造、点包含判定（含开闭区间边界）、判空、相等比较与重叠求交（time_interval_spec.rs） |
 | [packages/core/Specs/TipsifySpec.js](../../cesium/packages/core/Specs/TipsifySpec.js) | 待逐项核对 |
 | [packages/core/Specs/TranslationRotationScaleSpec.js](../../cesium/packages/core/Specs/TranslationRotationScaleSpec.js) | 待逐项核对 |
