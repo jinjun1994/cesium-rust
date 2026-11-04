@@ -45,6 +45,7 @@ mod oriented_bounding_box;
 mod plane;
 mod plane_geometry;
 mod pixel_format;
+mod polygon_pipeline;
 mod polynomial;
 mod polyline_geometry;
 mod projection;
@@ -65,6 +66,7 @@ mod tiling;
 mod tridiagonal_system_solver;
 mod vertex_format;
 mod wall_geometry;
+mod winding_order;
 pub use associative_array::AssociativeArray;
 pub use attribute_type::AttributeType;
 pub use axis_aligned_bounding_box::AxisAlignedBoundingBox;
@@ -126,6 +128,7 @@ pub use oriented_bounding_box::OrientedBoundingBox;
 pub use plane::Plane;
 pub use plane_geometry::{PlaneGeometry, PlaneOutlineGeometry};
 pub use pixel_format::{PixelDatatype, PixelFormat};
+pub use polygon_pipeline::PolygonPipeline;
 pub use polynomial::{
     cubic_discriminant, cubic_real_roots, quadratic_discriminant, quadratic_real_roots,
     quartic_discriminant, quartic_real_roots, CubicRealPolynomial, QuadraticRealPolynomial,
@@ -149,6 +152,7 @@ pub use tiling::{GeographicTilingScheme, NativeRectangle, TilingScheme, WebMerca
 pub use tridiagonal_system_solver::TridiagonalSystemSolver;
 pub use vertex_format::VertexFormat;
 pub use wall_geometry::{WallGeometry, WallOutlineGeometry};
+pub use winding_order::WindingOrder;
 
 pub const WGS84_A: f64 = 6_378_137.0;
 pub const WGS84_B: f64 = 6_356_752.314_245_179;
