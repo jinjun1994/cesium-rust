@@ -271,7 +271,7 @@
 | [packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/GoogleGeocoderServicesSpec.js](../../cesium/packages/engine/Specs/Core/GoogleGeocoderServicesSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/GroundPolylineGeometrySpec.js](../../cesium/packages/engine/Specs/Core/GroundPolylineGeometrySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/HeapSpec.js](../../cesium/packages/engine/Specs/Core/HeapSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/HeapSpec.js](../../cesium/packages/engine/Specs/Core/HeapSpec.js) | 已移植：基于数组的堆结构、自定义排序比较器、下滤/上浮调整、最大容量上限与溢出剔除、resort 重排（heap_spec.rs） |
 | [packages/engine/Specs/Core/HeightmapTerrainDataSpec.js](../../cesium/packages/engine/Specs/Core/HeightmapTerrainDataSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/ITwinPlatformSpec.js](../../cesium/packages/engine/Specs/Core/ITwinPlatformSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/Iau2000OrientationSpec.js](../../cesium/packages/engine/Specs/Core/Iau2000OrientationSpec.js) | 待逐项核对 |
@@ -280,8 +280,8 @@
 | [packages/engine/Specs/Core/IonGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/IonGeocoderServiceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/IonResourceSpec.js](../../cesium/packages/engine/Specs/Core/IonResourceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/IonSnapServiceSpec.js](../../cesium/packages/engine/Specs/Core/IonSnapServiceSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/ManagedArraySpec.js](../../cesium/packages/engine/Specs/Core/ManagedArraySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/MortonOrderSpec.js](../../cesium/packages/engine/Specs/Core/MortonOrderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/ManagedArraySpec.js](../../cesium/packages/engine/Specs/Core/ManagedArraySpec.js) | 已移植：受管动态数组、显式长度与预留容量管理、动态扩缩容、末尾元素出入栈与引用清理（managed_array_spec.rs） |
+| [packages/engine/Specs/Core/MortonOrderSpec.js](../../cesium/packages/engine/Specs/Core/MortonOrderSpec.js) | 已移植：2D/3D 莫顿空间填充曲线编码与解码、位交错与反交错、边界值与越界校验（morton_order_spec.rs） |
 | [packages/engine/Specs/Core/OpenCageGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/OpenCageGeocoderServiceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/PeliasGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/PeliasGeocoderServiceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/PinBuilderSpec.js](../../cesium/packages/engine/Specs/Core/PinBuilderSpec.js) | 待逐项核对 |

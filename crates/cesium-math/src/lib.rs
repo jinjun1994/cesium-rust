@@ -46,6 +46,7 @@ mod frustum;
 mod frustum_geometry;
 mod geometry;
 mod geometry_pipeline;
+mod heap;
 mod hermite_polynomial_approximation;
 mod hermite_spline;
 mod hilbert_order;
@@ -57,8 +58,10 @@ mod julian_date;
 mod lagrange_polynomial_approximation;
 mod linear_approximation;
 mod linear_spline;
+mod managed_array;
 mod matrices;
 mod merge_sort;
+mod morton_order;
 mod occluder;
 mod oriented_bounding_box;
 mod plane;
@@ -174,6 +177,7 @@ pub use geometry::{
     PrimitiveType,
 };
 pub use geometry_pipeline::GeometryPipeline;
+pub use heap::Heap;
 pub use index_datatype::{IndexBuffer, IndexDatatype};
 pub use intersections::{
     grazing_altitude_location, line_segment_plane, line_segment_sphere, line_segment_triangle,
@@ -186,8 +190,10 @@ pub use julian_date::{GregorianDate, JulianDate, LeapSecond, TimeStandard, LEAP_
 pub use lagrange_polynomial_approximation::LagrangePolynomialApproximation;
 pub use linear_approximation::LinearApproximation;
 pub use linear_spline::{LinearSpline, SplineInterpolate};
+pub use managed_array::ManagedArray;
 pub use matrices::{Matrix2, Matrix3, Matrix4};
 pub use merge_sort::merge_sort;
+pub use morton_order::MortonOrder;
 pub use occluder::{Occluder, Visibility};
 pub use oriented_bounding_box::OrientedBoundingBox;
 pub use plane::Plane;
