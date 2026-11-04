@@ -177,7 +177,7 @@
 | [packages/core/Specs/QuadraticRealPolynomialSpec.js](../../cesium/packages/core/Specs/QuadraticRealPolynomialSpec.js) | 部分：判别式及有限输入实根场景；JS 参数异常不适用 |
 | [packages/core/Specs/QuarticRealPolynomialSpec.js](../../cesium/packages/core/Specs/QuarticRealPolynomialSpec.js) | 部分：判别式与有限输入求根场景；JS 参数异常不适用 |
 | [packages/core/Specs/QuaternionSpec.js](../../cesium/packages/core/Specs/QuaternionSpec.js) | 已移植：单位四元数、轴角构造、旋转矩阵互转与 slerp 球面插值（quaternion_hpr_spec.rs） |
-| [packages/core/Specs/QuaternionSplineSpec.js](../../cesium/packages/core/Specs/QuaternionSplineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/QuaternionSplineSpec.js](../../cesium/packages/core/Specs/QuaternionSplineSpec.js) | 已全量移植：四元数球面线性插值样条曲线（双控制点退化、多点插值、时间区间查找、越界抛错与 slerp 球面平滑求值）（quaternion_spline_spec.rs，4 项测试全部通过） |
 | [packages/core/Specs/QueueSpec.js](../../cesium/packages/core/Specs/QueueSpec.js) | 已移植：队列入队出队、首元素查看 peek、包含性检查、就地排序与清空（queue_spec.rs） |
 | [packages/core/Specs/RaySpec.js](../../cesium/packages/core/Specs/RaySpec.js) | 部分：构造、方向归一化、取点；JS 对象复用语义不同 |
 | [packages/core/Specs/RectangleGeometrySpec.js](../../cesium/packages/core/Specs/RectangleGeometrySpec.js) | 已全量移植：矩形立体几何体（极点退化三角扇、IDL跨越、旋转与ST纹理坐标旋转重映射、拉伸侧壁网格与法线/切线/副切线、顶部/全部applyOffset偏移属性、退化检测与Pack/Unpack序列化）（rectangle_geometry_spec.rs，28 项测试全部通过） |
@@ -189,8 +189,8 @@
 | [packages/core/Specs/SphereGeometrySpec.js](../../cesium/packages/core/Specs/SphereGeometrySpec.js) | 已移植：等半径球体网格、分片划分（3x3 -> 36 顶点 18 三角形）、零半径退化（sphere_geometry_spec.rs） |
 | [packages/core/Specs/SphereOutlineGeometrySpec.js](../../cesium/packages/core/Specs/SphereOutlineGeometrySpec.js) | 已移植：等半径球体经纬线框（2x2x2 -> 12 顶点 6 线段）、零半径退化（sphere_geometry_spec.rs） |
 | [packages/core/Specs/SphericalSpec.js](../../cesium/packages/core/Specs/SphericalSpec.js) | 已全量移植：球坐标系统（方位角clock、天顶角cone、距离magnitude、Cartesian3互转、向量归一化、容差比较与字符串序列化）（spherical_spec.rs） |
-| [packages/core/Specs/SplineSpec.js](../../cesium/packages/core/Specs/SplineSpec.js) | 待逐项核对 |
-| [packages/core/Specs/SteppedSplineSpec.js](../../cesium/packages/core/Specs/SteppedSplineSpec.js) | 待逐项核对 |
+| [packages/core/Specs/SplineSpec.js](../../cesium/packages/core/Specs/SplineSpec.js) | 已全量移植：样条基类与时间区间接口（时间环绕 wrap_time、时间截断 clamp_time、带 startIndex 优化的高效二分/顺序时间区间查找 find_time_interval、点类型提取与非法类型抛错）（spline_spec.rs，7 项测试全部通过） |
+| [packages/core/Specs/SteppedSplineSpec.js](../../cesium/packages/core/Specs/SteppedSplineSpec.js) | 已全量移植：阶梯常数样条曲线（泛型浮点数、Cartesian3、Quaternion 支持、阶跃分段常量求值与边界区间校验）（stepped_spline_spec.rs，5 项测试全部通过） |
 | [packages/core/Specs/StereographicSpec.js](../../cesium/packages/core/Specs/StereographicSpec.js) | 已全量移植：极射赤平投影（半球/两极投影切平面、地心表面投影、共形纬度、经纬度往返转换、批量投影）（stereographic_spec.rs） |
 | [packages/core/Specs/TimeIntervalCollectionSpec.js](../../cesium/packages/core/Specs/TimeIntervalCollectionSpec.js) | 已移植：非重叠时间区间集合、同数据区间自动合并、异数据区间重叠裁切与拆分、区间挖洞移除与时间二分查找（time_interval_collection_spec.rs） |
 | [packages/core/Specs/TimeIntervalSpec.js](../../cesium/packages/core/Specs/TimeIntervalSpec.js) | 已移植：时间区间构造、点包含判定（含开闭区间边界）、判空、相等比较与重叠求交（time_interval_spec.rs） |

@@ -3,7 +3,7 @@
 
 use crate::{
     cartesian::Cartesian3,
-    core_math::{asin_clamped, RADIANS_PER_DEGREE},
+    core_math::{asin_clamped, EPSILON6, RADIANS_PER_DEGREE},
     matrices::Matrix3,
     MathError,
 };
@@ -280,23 +280,21 @@ impl Quaternion {
     }
 
     pub fn slerp(start: &Self, end: &Self, t: f64) -> Self {
-        let mut q1 = DQuat::from_xyzw(start.x, start.y, start.z, start.w);
-        let q2 = DQuat::from_xyzw(end.x, end.y, end.z, end.w);
+        let q1 = DQuat::from_xyzw(start.x, start.y, start.z, start.w);
+        let mut q2 = DQuat::from_xyzw(end.x, end.y, end.z, end.w);
         let mut dot = q1.dot(q2);
         if dot < 0.0 {
-            q1 = -q1;
+            q2 = -q2;
             dot = -dot;
         }
-        if dot > 0.9995 {
-            let r = q1.lerp(q2, t).normalize();
+        if 1.0 - dot < EPSILON6 {
+            let r = q1.lerp(q2, t);
             return Self::new(r.x, r.y, r.z, r.w);
         }
-        let theta_0 = dot.acos();
-        let theta = theta_0 * t;
+        let theta = dot.clamp(-1.0, 1.0).acos();
         let sin_theta = theta.sin();
-        let sin_theta_0 = theta_0.sin();
-        let s0 = (theta_0 - theta).cos() - dot * sin_theta / sin_theta_0;
-        let s1 = sin_theta / sin_theta_0;
+        let s0 = ((1.0 - t) * theta).sin() / sin_theta;
+        let s1 = (t * theta).sin() / sin_theta;
         let r = DQuat::from_xyzw(
             q1.x * s0 + q2.x * s1,
             q1.y * s0 + q2.y * s1,

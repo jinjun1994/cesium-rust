@@ -3,21 +3,50 @@
 
 use crate::errors::DeveloperError;
 
-pub fn find_time_interval(times: &[f64], time: f64) -> Result<usize, DeveloperError> {
-    let len = times.len();
-    if len < 2 {
+pub fn find_time_interval_with_start(
+    times: &[f64],
+    time: f64,
+    start_index: Option<usize>,
+) -> Result<usize, DeveloperError> {
+    let length = times.len();
+    if length < 2 {
         return Err(DeveloperError::new("times must contain at least 2 points."));
     }
-    if time < times[0] || time > times[len - 1] {
+    if time < times[0] || time > times[length - 1] {
         return Err(DeveloperError::new("time is out of range."));
     }
 
-    for i in 0..(len - 1) {
-        if time >= times[i] && time < times[i + 1] {
-            return Ok(i);
+    let start = start_index.unwrap_or(0).min(length - 1);
+
+    if time >= times[start] {
+        if start + 1 < length && time < times[start + 1] {
+            return Ok(start);
+        } else if start + 2 < length && time < times[start + 2] {
+            return Ok(start + 1);
+        }
+    } else if start >= 1 && time >= times[start - 1] {
+        return Ok(start - 1);
+    }
+
+    if time > times[start] {
+        for i in start..(length - 1) {
+            if time >= times[i] && time < times[i + 1] {
+                return Ok(i);
+            }
+        }
+    } else {
+        for i in (0..start).rev() {
+            if time >= times[i] && time < times[i + 1] {
+                return Ok(i);
+            }
         }
     }
-    Ok(len - 2)
+
+    Ok(length - 2)
+}
+
+pub fn find_time_interval(times: &[f64], time: f64) -> Result<usize, DeveloperError> {
+    find_time_interval_with_start(times, time, None)
 }
 
 pub fn wrap_time(times: &[f64], mut time: f64) -> f64 {

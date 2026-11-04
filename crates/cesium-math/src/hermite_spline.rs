@@ -3,7 +3,9 @@
 
 use crate::cartesian::Cartesian3;
 use crate::errors::DeveloperError;
-use crate::spline_common::{clamp_time, find_time_interval, wrap_time};
+use crate::spline_common::{
+    clamp_time, find_time_interval, find_time_interval_with_start, wrap_time,
+};
 use crate::tridiagonal_system_solver::TridiagonalSystemSolver;
 
 #[derive(Clone, Debug, PartialEq)]
@@ -42,6 +44,13 @@ impl HermiteSpline {
             in_tangents,
             out_tangents,
         })
+    }
+
+    pub fn create_natural_cubic(
+        times: Vec<f64>,
+        points: Vec<Cartesian3>,
+    ) -> Result<Self, DeveloperError> {
+        Self::create_natural_spline(times, points)
     }
 
     pub fn create_natural_spline(
@@ -183,6 +192,14 @@ impl HermiteSpline {
 
     pub fn find_time_interval(&self, time: f64) -> Result<usize, DeveloperError> {
         find_time_interval(&self.times, time)
+    }
+
+    pub fn find_time_interval_with_start(
+        &self,
+        time: f64,
+        start_index: Option<usize>,
+    ) -> Result<usize, DeveloperError> {
+        find_time_interval_with_start(&self.times, time, start_index)
     }
 
     pub fn wrap_time(&self, time: f64) -> f64 {

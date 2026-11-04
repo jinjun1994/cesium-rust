@@ -58,6 +58,7 @@ mod polyline_volume_geometry_library;
 mod polyline_volume_outline_geometry;
 mod projection;
 mod quaternion;
+mod quaternion_spline;
 mod queue;
 mod ray;
 mod rectangle;
@@ -67,7 +68,9 @@ mod rectangle_outline_geometry;
 mod scalar;
 mod show_geometry_instance_attribute;
 mod simple_polyline_geometry;
+mod spline;
 mod spline_common;
+mod stepped_spline;
 mod sphere;
 mod sphere_geometry;
 mod spherical;
@@ -167,6 +170,7 @@ pub use polyline_volume_outline_geometry::{
 };
 pub use projection::{GeographicProjection, MapProjection, WebMercatorProjection};
 pub use quaternion::{HeadingPitchRoll, Quaternion};
+pub use quaternion_spline::QuaternionSpline;
 pub use queue::Queue;
 pub use ray::Ray;
 pub use rectangle::GeoRectangle;
@@ -181,6 +185,8 @@ pub use simple_polyline_geometry::{SimplePolylineGeometry, SimplePolylineGeometr
 pub use sphere::PlaneIntersection;
 pub use sphere_geometry::{SphereGeometry, SphereOutlineGeometry};
 pub use spherical::Spherical;
+pub use spline::{InvalidPointType, Spline, SplinePoint, SplinePointType};
+pub use stepped_spline::SteppedSpline;
 pub use stereographic::{
     Stereographic, HALF_UNIT_SPHERE, NORTH_POLE, NORTH_POLE_TANGENT_PLANE, SOUTH_POLE,
     SOUTH_POLE_TANGENT_PLANE,
