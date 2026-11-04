@@ -58,6 +58,7 @@ mod hermite_polynomial_approximation;
 mod hermite_spline;
 mod hilbert_order;
 mod iau2000_orientation;
+mod iau_2006_xys_data;
 mod iau_orientation_axes;
 mod index_datatype;
 mod intersections;
@@ -202,6 +203,7 @@ pub use hermite_polynomial_approximation::HermitePolynomialApproximation;
 pub use hermite_spline::HermiteSpline;
 pub use hilbert_order::HilbertOrder;
 pub use iau2000_orientation::{Iau2000Orientation, IauOrientationParameters};
+pub use iau_2006_xys_data::{Iau2006XysData, Iau2006XysDataOptions, Iau2006XysSample};
 pub use iau_orientation_axes::IauOrientationAxes;
 pub use geometry::{
     ArcType, ComponentDatatype, CornerType, Geometry, GeometryAttribute, GeometryAttributes,

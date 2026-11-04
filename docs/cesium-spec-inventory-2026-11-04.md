@@ -275,7 +275,7 @@
 | [packages/engine/Specs/Core/HeightmapTerrainDataSpec.js](../../cesium/packages/engine/Specs/Core/HeightmapTerrainDataSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/ITwinPlatformSpec.js](../../cesium/packages/engine/Specs/Core/ITwinPlatformSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/Iau2000OrientationSpec.js](../../cesium/packages/engine/Specs/Core/Iau2000OrientationSpec.js) | 已移植：IAU 2000 月球自转与极轴定向参数高精度计算（赤经、赤纬、自转角及瞬时自转角速度）（iau2000_orientation_spec.rs） |
-| [packages/engine/Specs/Core/Iau2006XysDataSpec.js](../../cesium/packages/engine/Specs/Core/Iau2006XysDataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/Iau2006XysDataSpec.js](../../cesium/packages/engine/Specs/Core/Iau2006XysDataSpec.js) | 已移植：IAU 2006 XYS 天球中介极坐标数据分块按需加载与预加载、9 阶 Lagrange 多项式内插、历元边界越界防护、STK Components 高精度比对（iau_2006_xys_data_spec.rs） |
 | [packages/engine/Specs/Core/IauOrientationAxesSpec.js](../../cesium/packages/engine/Specs/Core/IauOrientationAxesSpec.js) | 已移植：国际天球参考系 ICRF 到月球固定系 Moon Fixed 旋转矩阵计算（赤道岁差/章动与自转四元数合成）（iau_orientation_axes_spec.rs） |
 | [packages/engine/Specs/Core/IonGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/IonGeocoderServiceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/IonResourceSpec.js](../../cesium/packages/engine/Specs/Core/IonResourceSpec.js) | 待逐项核对 |
