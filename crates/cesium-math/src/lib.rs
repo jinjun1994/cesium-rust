@@ -10,6 +10,7 @@ mod culling_volume;
 mod ellipsoid;
 mod ellipsoid_tangent_plane;
 mod ellipsoidal_occluder;
+mod encoded_cartesian;
 mod frustum;
 mod intersections;
 mod julian_date;
@@ -36,6 +37,7 @@ pub use culling_volume::{BoundingVolume, CullingVolume};
 pub use ellipsoid::Ellipsoid;
 pub use ellipsoid_tangent_plane::EllipsoidTangentPlane;
 pub use ellipsoidal_occluder::EllipsoidalOccluder;
+pub use encoded_cartesian::EncodedCartesian3;
 pub use frustum::{
     OrthographicFrustum, OrthographicOffCenterFrustum, PerspectiveFrustum,
     PerspectiveOffCenterFrustum,

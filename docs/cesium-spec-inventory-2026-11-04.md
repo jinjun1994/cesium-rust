@@ -45,6 +45,7 @@
 - `matrices` 及 `matrix_spec.rs`：对齐 `Matrix2`、`Matrix3`、`Matrix4` 行主序构造与列主序索引、矩阵与点/向量乘法、方向变换（`multiply_by_direction`）、行列式、逆变换及仿射逆矩阵（`inverse_transformation`）。
 - `quaternion`、`scalar` 及 `quaternion_hpr_spec.rs`、`near_far_scalar_spec.rs`：对齐 `Quaternion` 轴角/旋转矩阵互转与 slerp 插值；对齐 `HeadingPitchRoll` 欧拉角四元数转换；对齐 `HeadingPitchRange` 与 `NearFarScalar` 的构造、比较与序列化打包。
 - `time_constants`、`julian_date`、`time_interval` 及 `julian_date_spec.rs`、`time_interval_spec.rs`：对齐 `TimeConstants` 常量表、官方 28 条历次闰秒表（`LEAP_SECONDS`）、UTC/TAI 真实双向闰秒补偿转换（`JulianDate`）、天文算法年月日与儒略日高精互转（`GregorianDate`、ISO 8601 解析与输出）、`TimeInterval` 区间包含与相交测试（`intersect`、端点开闭与判空）。
+- `encoded_cartesian` 及 `encoded_cartesian3_spec.rs`：对齐 `EncodedCartesian3` 高精度拆分编码（`encode` 65536 阶跃）、从 `Cartesian3` 生成高低位向量及向顶点属性交错写入浮点数组（`write_elements`）。
 全部通过 `cargo test -p cesium-math` 真实测试，Clippy 无警告，支持 `wasm32-unknown-unknown` 编译。
 
 新增 `EllipsoidTangentPlane`，支持由原点或点集构造、径向和法向投影、批量投影及径向投回椭球；`ellipsoid_tangent_plane_spec.rs` 覆盖上游单位球和 WGS84 往返用例。非有限输入使用 `Option`/`Result`，空点集或无法投影到地表时构造失败；上游零半径椭球用例及对象复用行为尚未等价验证。
@@ -121,7 +122,7 @@
 | [packages/core/Specs/EllipsoidSpec.js](../../cesium/packages/core/Specs/EllipsoidSpec.js) | 部分：构造、法线、转换、投影、轴交点、曲率及面积；数组/pack 与其他情况待核对 |
 | [packages/core/Specs/EllipsoidTangentPlaneSpec.js](../../cesium/packages/core/Specs/EllipsoidTangentPlaneSpec.js) | 部分：构造、单点/批量投影及 WGS84 往返；零半径及 JS 对象语义待核对 |
 | [packages/core/Specs/EllipsoidalOccluderSpec.js](../../cesium/packages/core/Specs/EllipsoidalOccluderSpec.js) | 部分：可见性、地下椭球、剔除点和顶点；其余数值与错误语义待核对 |
-| [packages/core/Specs/EncodedCartesian3Spec.js](../../cesium/packages/core/Specs/EncodedCartesian3Spec.js) | 待逐项核对 |
+| [packages/core/Specs/EncodedCartesian3Spec.js](../../cesium/packages/core/Specs/EncodedCartesian3Spec.js) | 已移植：高低位拆分编码、从 Cartesian3 构造、顶点属性数组交错写入（encoded_cartesian3_spec.rs） |
 | [packages/core/Specs/EventSpec.js](../../cesium/packages/core/Specs/EventSpec.js) | 待逐项核对 |
 | [packages/core/Specs/FixedFrameTransformsSpec.js](../../cesium/packages/core/Specs/FixedFrameTransformsSpec.js) | 待逐项核对 |
 | [packages/core/Specs/GeographicProjectionSpec.js](../../cesium/packages/core/Specs/GeographicProjectionSpec.js) | 部分：WGS84/单位球正反投影；JS 参数/结果对象语义待核对 |
