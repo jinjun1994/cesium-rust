@@ -108,7 +108,7 @@
 | 上游 Spec 文件 | 状态 |
 | --- | --- |
 | [packages/core/Specs/AssociativeArraySpec.js](../../cesium/packages/core/Specs/AssociativeArraySpec.js) | 已移植：关联数组键值映射、数组高效迭代、增删查改、清空与键存在性校验（associative_array_spec.rs） |
-| [packages/core/Specs/AttributeCompressionSpec.js](../../cesium/packages/core/Specs/AttributeCompressionSpec.js) | 待逐项核对 |
+| [packages/core/Specs/AttributeCompressionSpec.js](../../cesium/packages/core/Specs/AttributeCompressionSpec.js) | 已移植：八面体法线压缩与解压（2分量/4分量/float/双float打包）、纹理坐标压缩、ZigZag Delta 解码、RGB8/RGB565 编解码、泛型解量化 dequantize（attribute_compression_spec.rs） |
 | [packages/core/Specs/AttributeTypeSpec.js](../../cesium/packages/core/Specs/AttributeTypeSpec.js) | 已移植：顶点与3D Tiles属性类型（标量/向量/矩阵）、GLSL类型名映射、分量计数及着色器位置数量（attribute_type_spec.rs） |
 | [packages/core/Specs/AxisAlignedBoundingBoxSpec.js](../../cesium/packages/core/Specs/AxisAlignedBoundingBoxSpec.js) | 部分：构造、点集、相等、平面及盒相交；JS 对象复用及异常语义不同 |
 | [packages/core/Specs/BoundingRectangleSpec.js](../../cesium/packages/core/Specs/BoundingRectangleSpec.js) | 部分：构造、投影、合并、扩展、相交、打包；JS 对象复用和异常语义不同 |

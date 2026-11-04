@@ -3,6 +3,7 @@ use glam::{DMat3, DMat4, DVec3, Mat4, Vec4};
 use thiserror::Error;
 mod array_remove_duplicates;
 mod associative_array;
+mod attribute_compression;
 mod attribute_type;
 mod axis_aligned_bounding_box;
 mod barycentric_coordinates;
@@ -105,6 +106,7 @@ mod wall_geometry;
 mod winding_order;
 pub use array_remove_duplicates::array_remove_duplicates;
 pub use associative_array::AssociativeArray;
+pub use attribute_compression::AttributeCompression;
 pub use attribute_type::AttributeType;
 pub use axis_aligned_bounding_box::AxisAlignedBoundingBox;
 pub use barycentric_coordinates::{
