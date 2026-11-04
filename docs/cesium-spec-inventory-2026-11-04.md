@@ -241,7 +241,7 @@
 | [packages/engine/Specs/Core/FrustumGeometrySpec.js](../../cesium/packages/engine/Specs/Core/FrustumGeometrySpec.js) | 已移植：视锥体六表面 24 独立顶点生成、法线切线副切线纹理坐标、12 三角形索引与包围球计算（frustum_geometry_spec.rs） |
 | [packages/engine/Specs/Core/FrustumOutlineGeometrySpec.js](../../cesium/packages/engine/Specs/Core/FrustumOutlineGeometrySpec.js) | 已移植：视锥体 8 角点框线、近/远平面边框与连接线索引、包围球计算（frustum_geometry_spec.rs） |
 | [packages/engine/Specs/Core/FullscreenSpec.js](../../cesium/packages/engine/Specs/Core/FullscreenSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/GeographicTilingSchemeSpec.js](../../cesium/packages/engine/Specs/Core/GeographicTilingSchemeSpec.js) | 部分：网格、边界、跨日期变更线及原生坐标；其余待核对 |
+| [packages/engine/Specs/Core/GeographicTilingSchemeSpec.js](../../cesium/packages/engine/Specs/Core/GeographicTilingSchemeSpec.js) | 已移植：地理瓦片方案接口、瓦片范围索引计算、NW原点方向、相邻边界贴合、弧度/度数转换及四角与中心定位（geographic_tiling_scheme_spec.rs） |
 | [packages/engine/Specs/Core/GoogleEarthEnterpriseMetadataSpec.js](../../cesium/packages/engine/Specs/Core/GoogleEarthEnterpriseMetadataSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainDataSpec.js](../../cesium/packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainDataSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainProviderSpec.js) | 待逐项核对 |
@@ -281,7 +281,7 @@
 | [packages/engine/Specs/Core/VRTheWorldTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/VRTheWorldTerrainProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/VectorProviderSpec.js](../../cesium/packages/engine/Specs/Core/VectorProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/VideoSynchronizerSpec.js](../../cesium/packages/engine/Specs/Core/VideoSynchronizerSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/WebMercatorTilingSchemeSpec.js](../../cesium/packages/engine/Specs/Core/WebMercatorTilingSchemeSpec.js) | 部分：网格、边界、自定义范围及原生坐标；其余待核对 |
+| [packages/engine/Specs/Core/WebMercatorTilingSchemeSpec.js](../../cesium/packages/engine/Specs/Core/WebMercatorTilingSchemeSpec.js) | 已移植：Web 墨卡托瓦片方案、单根瓦片全域覆盖、瓦片索引与原生米坐标映射、极区裁剪与多层级瓦片定位（web_mercator_tiling_scheme_spec.rs） |
 | [packages/engine/Specs/Core/WireframeIndexGeneratorSpec.js](../../cesium/packages/engine/Specs/Core/WireframeIndexGeneratorSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/addAllSpec.js](../../cesium/packages/engine/Specs/Core/addAllSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/appendForwardSlashSpec.js](../../cesium/packages/engine/Specs/Core/appendForwardSlashSpec.js) | 待逐项核对 |
