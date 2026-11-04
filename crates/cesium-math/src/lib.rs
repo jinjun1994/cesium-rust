@@ -45,6 +45,7 @@ mod oriented_bounding_box;
 mod plane;
 mod plane_geometry;
 mod pixel_format;
+mod polygon_geometry_library;
 mod polygon_pipeline;
 mod polynomial;
 mod polyline_geometry;
@@ -128,6 +129,7 @@ pub use oriented_bounding_box::OrientedBoundingBox;
 pub use plane::Plane;
 pub use plane_geometry::{PlaneGeometry, PlaneOutlineGeometry};
 pub use pixel_format::{PixelDatatype, PixelFormat};
+pub use polygon_geometry_library::PolygonGeometryLibrary;
 pub use polygon_pipeline::PolygonPipeline;
 pub use polynomial::{
     cubic_discriminant, cubic_real_roots, quadratic_discriminant, quadratic_real_roots,
