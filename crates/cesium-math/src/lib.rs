@@ -36,11 +36,14 @@ mod frustum;
 mod frustum_geometry;
 mod geometry;
 mod geometry_pipeline;
+mod hermite_polynomial_approximation;
 mod hermite_spline;
 mod index_datatype;
 mod intersections;
 mod intersections_2d;
 mod julian_date;
+mod lagrange_polynomial_approximation;
+mod linear_approximation;
 mod linear_spline;
 mod matrices;
 mod occluder;
@@ -131,6 +134,7 @@ pub use frustum::{
     PerspectiveOffCenterFrustum,
 };
 pub use frustum_geometry::{AnyFrustum, FrustumGeometry, FrustumOutlineGeometry};
+pub use hermite_polynomial_approximation::HermitePolynomialApproximation;
 pub use hermite_spline::HermiteSpline;
 pub use geometry::{
     ArcType, ComponentDatatype, CornerType, Geometry, GeometryAttribute, GeometryAttributes,
@@ -145,6 +149,8 @@ pub use intersections::{
 };
 pub use intersections_2d::Intersections2D;
 pub use julian_date::{GregorianDate, JulianDate, LeapSecond, TimeStandard, LEAP_SECONDS};
+pub use lagrange_polynomial_approximation::LagrangePolynomialApproximation;
+pub use linear_approximation::LinearApproximation;
 pub use linear_spline::{LinearSpline, SplineInterpolate};
 pub use matrices::{Matrix2, Matrix3, Matrix4};
 pub use occluder::{Occluder, Visibility};

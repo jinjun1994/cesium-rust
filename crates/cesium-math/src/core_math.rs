@@ -145,3 +145,35 @@ pub fn zero_to_two_pi(angle: f64) -> f64 {
         }
     }
 }
+
+/// Computes the factorial of a non-negative integer.
+#[inline]
+pub fn factorial(n: usize) -> f64 {
+    const FACTORIALS: [f64; 21] = [
+        1.0, 1.0, 2.0, 6.0, 24.0, 120.0, 720.0, 5040.0, 40320.0, 362880.0,
+        3628800.0, 39916800.0, 479001600.0, 6227020800.0, 87178291200.0,
+        1307674368000.0, 20922789888000.0, 355687428096000.0, 6402373705728000.0,
+        121645100408832000.0, 2432902008176640000.0,
+    ];
+    if n < FACTORIALS.len() {
+        FACTORIALS[n]
+    } else {
+        let mut result = FACTORIALS[FACTORIALS.len() - 1];
+        for i in FACTORIALS.len()..=n {
+            result *= i as f64;
+        }
+        result
+    }
+}
+
+/// Increments a number with wrapping to a minimum value if the number exceeds the maximum value.
+#[inline]
+pub fn increment_wrap(n: f64, maximum_value: f64, minimum_value: Option<f64>) -> f64 {
+    let min = minimum_value.unwrap_or(0.0);
+    let mut next = n + 1.0;
+    if next > maximum_value {
+        next = min;
+    }
+    next
+}
+

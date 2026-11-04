@@ -85,6 +85,12 @@
 - `intersections_2d.rs` 及 `intersections_2d_spec.rs`：对齐 CesiumJS `Intersections2D`，支持轴对齐阈值 2D 三角形几何切割（`clip_triangle_at_axis_aligned_threshold`，精确生成多边形逆时针顶点序列与边插值距离比例），支持快速 2D 三角形重心坐标计算（`compute_barycentric_coordinates`），以及两线段求交点计算（`compute_line_segment_line_segment_intersection`，覆盖相交、顶点接触、平行与重合线段检测）。
 - 相应 40 项单元测试全部通过，workspace Clippy 静态检查零警告，通过 `wasm32-unknown-unknown` 构建。
 
+新增通用插值与多项式逼近算法模块（`cesium-math`）：
+- `linear_approximation.rs` 及 `linear_approximation_spec.rs`：对齐 CesiumJS `LinearApproximation`，支持多步长一阶线性逼近与 0 阶插值（`interpolate_order_zero`），覆盖步长合法性检查、除零错误防御以及 STK Components 对应数值校验。
+- `lagrange_polynomial_approximation.rs` 及 `lagrange_polynomial_approximation_spec.rs`：对齐 CesiumJS `LagrangePolynomialApproximation`，支持任意次数 Lagrange 多项式插值、所需数据点计算（`get_required_data_points`），在航天轨道高精基准数据点下达到 $10^{-15}$ 级数值一致性。
+- `hermite_polynomial_approximation.rs` 及 `hermite_polynomial_approximation_spec.rs`：对齐 CesiumJS `HermitePolynomialApproximation`，支持包含导数信息的 Hermite-Newton 均差商三角插值表构造（`fill_coefficient_list`）、递归多项式导数展开项（`calculate_coefficient_term`），支持 0 阶插值与任意高阶导数输出插值（`interpolate`），并在 `core_math.rs` 中补齐 `factorial` 阶乘与 `increment_wrap`。
+- 相应 11 项单元测试全部通过，workspace Clippy 静态检查零警告，通过 `wasm32-unknown-unknown` 构建。
+
 后续逐个登记：上游测试名称和源码哈希、Rust 测试路径与名称、适用平台、通过证据、未实现能力及差异。图形测试须在原生 wgpu 与浏览器 WebGPU 上保留截图、参数和设备信息；上游 WebGL 实现细节需按可观察行为验证。
 
 | 上游 Spec 文件 | 状态 |
@@ -143,7 +149,7 @@
 | [packages/core/Specs/GregorianDateSpec.js](../../cesium/packages/core/Specs/GregorianDateSpec.js) | 已移植：年月日时分秒、毫秒与闰秒标识、默认与有效性构造（julian_date_spec.rs） |
 | [packages/core/Specs/HeadingPitchRangeSpec.js](../../cesium/packages/core/Specs/HeadingPitchRangeSpec.js) | 已移植：构造、字段读取、clone、相等比较（quaternion_hpr_spec.rs） |
 | [packages/core/Specs/HeadingPitchRollSpec.js](../../cesium/packages/core/Specs/HeadingPitchRollSpec.js) | 已移植：弧度/角度构造、四元数互转与等价验证（quaternion_hpr_spec.rs） |
-| [packages/core/Specs/HermitePolynomialApproximationSpec.js](../../cesium/packages/core/Specs/HermitePolynomialApproximationSpec.js) | 待逐项核对 |
+| [packages/core/Specs/HermitePolynomialApproximationSpec.js](../../cesium/packages/core/Specs/HermitePolynomialApproximationSpec.js) | 已移植：Hermite 多项式逼近（0阶/高阶导数混合差商插值、阶乘、STK Components航天基准数值）（hermite_polynomial_approximation_spec.rs） |
 | [packages/core/Specs/HermiteSplineSpec.js](../../cesium/packages/core/Specs/HermiteSplineSpec.js) | 已移植：Hermite 三次样条曲线、自然样条与夹紧样条构造、三对角方程求解与基函数插值求值（hermite_spline_spec.rs） |
 | [packages/core/Specs/HilbertOrderSpec.js](../../cesium/packages/core/Specs/HilbertOrderSpec.js) | 待逐项核对 |
 | [packages/core/Specs/IndexDatatypeSpec.js](../../cesium/packages/core/Specs/IndexDatatypeSpec.js) | 已移植：索引数据类型（8/16/32位无符号整型）、字节大小、顶点数自动选型（64KB阈值）及ArrayBuffer重构（index_datatype_spec.rs） |
@@ -151,9 +157,9 @@
 | [packages/core/Specs/Intersections2DSpec.js](../../cesium/packages/core/Specs/Intersections2DSpec.js) | 已移植：轴对齐阈值2D三角形切割（多边形顶点与生成比例）、2D重心坐标与线段求交（intersections_2d_spec.rs） |
 | [packages/core/Specs/IntervalSpec.js](../../cesium/packages/core/Specs/IntervalSpec.js) | 已移植：默认闭区间构造 [0, 0] 与显式闭区间构造 [start, stop]（interval_spec.rs） |
 | [packages/core/Specs/JulianDateSpec.js](../../cesium/packages/core/Specs/JulianDateSpec.js) | 已移植：默认构造、分数天、TAI 基础构造、闰秒偏移、时间算术、秒/天差值、ISO 8601 与格里高利历互转（julian_date_spec.rs） |
-| [packages/core/Specs/LagrangePolynomialApproximationSpec.js](../../cesium/packages/core/Specs/LagrangePolynomialApproximationSpec.js) | 待逐项核对 |
+| [packages/core/Specs/LagrangePolynomialApproximationSpec.js](../../cesium/packages/core/Specs/LagrangePolynomialApproximationSpec.js) | 已移植：Lagrange 多项式逼近（0阶多维数据插值、所需数据点计算、STK基准高精航天数值）（lagrange_polynomial_approximation_spec.rs） |
 | [packages/core/Specs/LeapSecondSpec.js](../../cesium/packages/core/Specs/LeapSecondSpec.js) | 已移植：构造、历次闰秒表检验（julian_date_spec.rs） |
-| [packages/core/Specs/LinearApproximationSpec.js](../../cesium/packages/core/Specs/LinearApproximationSpec.js) | 待逐项核对 |
+| [packages/core/Specs/LinearApproximationSpec.js](../../cesium/packages/core/Specs/LinearApproximationSpec.js) | 已移植：线性逼近算法（多步长0阶多维数据插值、参数合法性与除零校验、所需数据点）（linear_approximation_spec.rs） |
 | [packages/core/Specs/LinearSplineSpec.js](../../cesium/packages/core/Specs/LinearSplineSpec.js) | 已移植：分段线性样条曲线、泛型数值与Cartesian3支持、周期时间环绕与夹紧（linear_spline_spec.rs） |
 | [packages/core/Specs/MathSpec.js](../../cesium/packages/core/Specs/MathSpec.js) | 已移植：常数、符号、SNorm 转换、截断三角、角度归一化与相对/绝对容差比较（math_spec.rs） |
 | [packages/core/Specs/Matrix2Spec.js](../../cesium/packages/core/Specs/Matrix2Spec.js) | 已移植：行主序构造、列主序存储、矩阵与向量乘法、转置与打包（matrix_spec.rs） |
