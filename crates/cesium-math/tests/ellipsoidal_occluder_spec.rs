@@ -3,6 +3,22 @@ use cesium_math::{Ellipsoid, EllipsoidalOccluder, GeoRectangle, Sphere};
 use glam::DVec3;
 
 #[test]
+fn constructor_uses_ellipsoid_and_equality() {
+    let ellipsoid = Ellipsoid::new(DVec3::new(2.0, 3.0, 4.0)).unwrap();
+    let occluder = EllipsoidalOccluder::from_ellipsoid(ellipsoid).unwrap();
+    assert_eq!(occluder.ellipsoid(), ellipsoid);
+    assert_eq!(occluder.camera_position(), DVec3::ZERO);
+
+    let occ2 = EllipsoidalOccluder::new(ellipsoid, DVec3::new(1.0, 2.0, 3.0)).unwrap();
+    assert_eq!(occ2.ellipsoid(), ellipsoid);
+    assert_eq!(occ2.camera_position(), DVec3::new(1.0, 2.0, 3.0));
+
+    assert!(occ2.equals(Some(&occ2)));
+    assert!(!occ2.equals(Some(&occluder)));
+    assert!(!occ2.equals(None));
+}
+
+#[test]
 fn visibility_above_and_below_surface() {
     let ellipsoid = Ellipsoid::new(DVec3::new(1.0, 1.1, 0.9)).unwrap();
     let occ = EllipsoidalOccluder::new(ellipsoid, DVec3::new(0.0, 0.0, 2.5)).unwrap();

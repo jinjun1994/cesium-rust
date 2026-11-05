@@ -2,7 +2,7 @@
 use crate::{Ellipsoid, GeoRectangle, MathError, Sphere};
 use glam::DVec3;
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EllipsoidalOccluder {
     ellipsoid: Ellipsoid,
     camera: DVec3,
@@ -11,6 +11,10 @@ pub struct EllipsoidalOccluder {
 }
 
 impl EllipsoidalOccluder {
+    pub fn from_ellipsoid(ellipsoid: Ellipsoid) -> Result<Self, MathError> {
+        Self::new(ellipsoid, DVec3::ZERO)
+    }
+
     pub fn new(ellipsoid: Ellipsoid, camera: DVec3) -> Result<Self, MathError> {
         if ellipsoid.minimum_radius() <= 0.0 || !camera.is_finite() {
             return Err(MathError);
@@ -152,5 +156,12 @@ impl EllipsoidalOccluder {
             return None;
         }
         self.compute_horizon_culling_point(center, &points)
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => self.ellipsoid == o.ellipsoid && self.camera == o.camera,
+            None => false,
+        }
     }
 }
