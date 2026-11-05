@@ -97,6 +97,7 @@ mod plane_geometry;
 mod property;
 mod property_bag;
 mod reference_frame;
+mod sampled_property;
 mod pixel_format;
 mod pin_builder;
 mod point_inside_triangle;
@@ -367,6 +368,10 @@ pub use property::{
     TimeIntervalCollectionPositionProperty, TimeIntervalCollectionProperty,
 };
 pub use property_bag::PropertyBag;
+pub use sampled_property::{
+    ExtrapolationType, InterpolationAlgorithm, Rotation, Sampleable, SampledPositionProperty,
+    SampledProperty,
+};
 pub use quantized_mesh_terrain_data::{QuantizedMeshTerrainData, QuantizedMeshTerrainDataOptions};
 pub use quaternion::{HeadingPitchRoll, Quaternion};
 pub use quaternion_spline::QuaternionSpline;

@@ -396,9 +396,9 @@
 | [packages/engine/Specs/DataSources/RectangleGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/RectangleGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/RectangleGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/RectangleGraphicsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/ReferencePropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ReferencePropertySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/RotationSpec.js](../../cesium/packages/engine/Specs/DataSources/RotationSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/SampledPositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/SampledPositionPropertySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/SampledPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/SampledPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/RotationSpec.js](../../cesium/packages/engine/Specs/DataSources/RotationSpec.js) | 已移植：最短圆周角距离插值打包器（Rotation）、弧度区间展开（convertPackedArrayForInterpolation）、解包与边界归一化、结合 SampledProperty 最小角插值（rotation_spec.rs，2 项测试全部通过） |
+| [packages/engine/Specs/DataSources/SampledPositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/SampledPositionPropertySpec.js) | 已移植：时间序列采样位置属性、多参考系（Fixed/Inertial）位置批量/单点采样添加（addSample/addSamples/addSamplesPackedArray）、跨参考系动态坐标插值求值、样本增删（removeSample/removeSamples）与常量性判定（sampled_position_property_spec.rs，9 项测试全部通过） |
+| [packages/engine/Specs/DataSources/SampledPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/SampledPropertySpec.js) | 已移植：时间序列采样属性、支持 Linear / Lagrange / Hermite 插值算法与阶数微调、打包数组合并与二分查找、时间区间样本批量删除、前后外推（None / Hold / Extrapolate）与超时截断（sampled_property_spec.rs，10 项测试全部通过） |
 | [packages/engine/Specs/DataSources/StaticGeometryColorBatchSpec.js](../../cesium/packages/engine/Specs/DataSources/StaticGeometryColorBatchSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/StaticGeometryPerMaterialBatchSpec.js](../../cesium/packages/engine/Specs/DataSources/StaticGeometryPerMaterialBatchSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/StaticGroundGeometryColorBatchSpec.js](../../cesium/packages/engine/Specs/DataSources/StaticGroundGeometryColorBatchSpec.js) | 待逐项核对 |
