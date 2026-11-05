@@ -350,7 +350,7 @@
 | [packages/engine/Specs/DataSources/DataSourceDisplaySpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceDisplaySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/DynamicGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/DynamicGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/EllipseGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipseGeometryUpdaterSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/EllipseGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipseGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/EllipseGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipseGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/ellipse_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/EllipsoidGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipsoidGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/EllipsoidGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipsoidGraphicsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/EntityClusterSpec.js](../../cesium/packages/engine/Specs/DataSources/EntityClusterSpec.js) | 待逐项核对 |

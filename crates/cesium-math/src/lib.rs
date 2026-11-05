@@ -34,6 +34,7 @@ mod catmull_rom_spline;
 mod celestial_frame_transforms;
 mod check;
 mod circle_geometry;
+mod classification_type;
 mod clone_util;
 mod clock;
 mod color;
@@ -61,6 +62,7 @@ mod ellipsoid_rhumb_line;
 mod ellipsoid_tangent_plane;
 mod ellipsoidal_occluder;
 mod ellipse_geometry;
+mod ellipse_graphics;
 mod encoded_cartesian;
 mod errors;
 mod event;
@@ -207,6 +209,8 @@ pub use billboard_graphics::{
 pub use bounding_rectangle::BoundingRectangle;
 pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
 pub use box_graphics::{BoxGraphics, BoxGraphicsOptions, BoxGraphicsValues};
+pub use classification_type::ClassificationType;
+pub use ellipse_graphics::{EllipseGraphics, EllipseGraphicsOptions, EllipseGraphicsValues};
 pub use build_module_url::{
     build_module_url, build_module_url_from_base_url, clear_base_url, get_base_url,
     match_cesium_script_url, set_base_url,
