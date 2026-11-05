@@ -409,3 +409,86 @@ pub fn line_segment_sphere(start: DVec3, end: DVec3, sphere: Sphere) -> Option<R
         stop: hit.stop.min(length),
     })
 }
+
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
+pub struct IntersectionTests;
+
+impl IntersectionTests {
+    pub fn ray_plane(ray: &crate::Ray, plane: &crate::Plane) -> Option<DVec3> {
+        ray_plane(ray.origin, ray.direction, plane.normal, plane.distance)
+    }
+
+    pub fn ray_triangle_parametric(
+        ray: &crate::Ray,
+        p0: DVec3,
+        p1: DVec3,
+        p2: DVec3,
+        cull_back_faces: bool,
+    ) -> Option<f64> {
+        ray_triangle_parametric(ray.origin, ray.direction, [p0, p1, p2], cull_back_faces)
+    }
+
+    pub fn ray_triangle(
+        ray: &crate::Ray,
+        p0: DVec3,
+        p1: DVec3,
+        p2: DVec3,
+        cull_back_faces: bool,
+    ) -> Option<DVec3> {
+        ray_triangle(ray.origin, ray.direction, [p0, p1, p2], cull_back_faces)
+    }
+
+    pub fn line_segment_triangle(
+        v0: DVec3,
+        v1: DVec3,
+        p0: DVec3,
+        p1: DVec3,
+        p2: DVec3,
+        cull_back_faces: bool,
+    ) -> Option<DVec3> {
+        line_segment_triangle(v0, v1, [p0, p1, p2], cull_back_faces)
+    }
+
+    pub fn ray_sphere(ray: &crate::Ray, sphere: &crate::Sphere) -> Option<RayInterval> {
+        ray_sphere(ray.origin, ray.direction, *sphere)
+    }
+
+    pub fn line_segment_sphere(
+        v0: DVec3,
+        v1: DVec3,
+        sphere: &crate::Sphere,
+    ) -> Option<RayInterval> {
+        line_segment_sphere(v0, v1, *sphere)
+    }
+
+    pub fn ray_ellipsoid(ray: &crate::Ray, ellipsoid: &crate::Ellipsoid) -> Option<RayInterval> {
+        crate::ray_ellipsoid_interval(ray.origin, ray.direction, ellipsoid.radii())
+    }
+
+    pub fn grazing_altitude_location(
+        ray: &crate::Ray,
+        ellipsoid: &crate::Ellipsoid,
+    ) -> Option<DVec3> {
+        grazing_altitude_location(ray.origin, ray.direction, ellipsoid.radii())
+    }
+
+    pub fn line_segment_plane(v0: DVec3, v1: DVec3, plane: &crate::Plane) -> Option<DVec3> {
+        line_segment_plane(v0, v1, plane.normal, plane.distance)
+    }
+
+    pub fn triangle_plane_intersection(
+        p0: DVec3,
+        p1: DVec3,
+        p2: DVec3,
+        plane: &crate::Plane,
+    ) -> Option<TrianglePlaneIntersection> {
+        triangle_plane_intersection([p0, p1, p2], plane.normal, plane.distance)
+    }
+
+    pub fn ray_axis_aligned_bounding_box(
+        ray: &crate::Ray,
+        box_: &crate::AxisAlignedBoundingBox,
+    ) -> Option<RayInterval> {
+        ray_axis_aligned_box(ray.origin, ray.direction, box_.minimum, box_.maximum)
+    }
+}

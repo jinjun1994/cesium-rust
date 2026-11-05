@@ -165,7 +165,7 @@
 | [packages/core/Specs/HermiteSplineSpec.js](../../cesium/packages/core/Specs/HermiteSplineSpec.js) | 已移植：Hermite 三次样条曲线、自然样条与夹紧样条构造、三对角方程求解与基函数插值求值（hermite_spline_spec.rs） |
 | [packages/core/Specs/HilbertOrderSpec.js](../../cesium/packages/core/Specs/HilbertOrderSpec.js) | 已移植：2D 希尔伯特空间填充曲线正反编解码（encode2D/decode2D、支持大整型索引与层级越界校验）（hilbert_order_spec.rs） |
 | [packages/core/Specs/IndexDatatypeSpec.js](../../cesium/packages/core/Specs/IndexDatatypeSpec.js) | 已移植：索引数据类型（8/16/32位无符号整型）、字节大小、顶点数自动选型（64KB阈值）及ArrayBuffer重构（index_datatype_spec.rs） |
-| [packages/core/Specs/IntersectionTestsSpec.js](../../cesium/packages/core/Specs/IntersectionTestsSpec.js) | 部分：射线/线段、盒体、平面切分和掠射；其他场景待核对 |
+| [packages/core/Specs/IntersectionTestsSpec.js](../../cesium/packages/core/Specs/IntersectionTestsSpec.js) | 已移植：射线/平面、射线/三角形（正反面及剔除/边外判定）、线段/三角形、射线/球体（内外/切线/偏心）、射线/椭球体、射线掠射高度点（单位球/WGS84内外/反向）、线段/平面、三角形/平面切割、射线/AABB盒及线段/球体（intersection_tests_spec.rs，9 项测试全部通过） |
 | [packages/core/Specs/Intersections2DSpec.js](../../cesium/packages/core/Specs/Intersections2DSpec.js) | 已移植：轴对齐阈值2D三角形切割（多边形顶点与生成比例）、2D重心坐标与线段求交（intersections_2d_spec.rs） |
 | [packages/core/Specs/IntervalSpec.js](../../cesium/packages/core/Specs/IntervalSpec.js) | 已移植：默认闭区间构造 [0, 0] 与显式闭区间构造 [start, stop]（interval_spec.rs） |
 | [packages/core/Specs/JulianDateSpec.js](../../cesium/packages/core/Specs/JulianDateSpec.js) | 已移植：默认构造、分数天、TAI 基础构造、闰秒偏移、时间算术、秒/天差值、ISO 8601 与格里高利历互转（julian_date_spec.rs） |

@@ -304,7 +304,7 @@ pub use index_datatype::{IndexBuffer, IndexDatatype};
 pub use intersections::{
     grazing_altitude_location, line_segment_plane, line_segment_sphere, line_segment_triangle,
     ray_axis_aligned_box, ray_plane, ray_sphere, ray_triangle, ray_triangle_parametric,
-    triangle_plane_intersection, TrianglePlaneIntersection,
+    triangle_plane_intersection, IntersectionTests, TrianglePlaneIntersection,
 };
 pub use intersections_2d::Intersections2D;
 pub use is_leap_year::is_leap_year;
