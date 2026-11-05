@@ -147,6 +147,7 @@ mod resize_image_to_next_power_of_two;
 mod sample_terrain;
 mod write_text_to_canvas;
 mod image_from_typed_array;
+mod ktx2_transcoder;
 mod terrain_mesh;
 mod terrain_picker;
 mod terrain_provider;
@@ -415,6 +416,10 @@ pub use write_text_to_canvas::{
 pub use image_from_typed_array::{
     get_image_from_typed_array, load_image_from_typed_array, load_image_from_typed_array_sync,
     LoadImageFromTypedArrayOptions,
+};
+pub use ktx2_transcoder::{
+    get_ktx2_supported_formats, load_ktx2, load_ktx2_url, set_ktx2_supported_formats,
+    KTX2SupportedFormats, KTX2TranscodeResult, KTX2Transcoder, KTX2_IDENTIFIER,
 };
 pub use terrain_mesh::TerrainMesh;
 pub use terrain_picker::{TerrainPicker, TerrainPickerNode};
