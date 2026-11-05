@@ -273,7 +273,7 @@
 | [packages/engine/Specs/Core/GroundPolylineGeometrySpec.js](../../cesium/packages/engine/Specs/Core/GroundPolylineGeometrySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/HeapSpec.js](../../cesium/packages/engine/Specs/Core/HeapSpec.js) | 已移植：基于数组的堆结构、自定义排序比较器、下滤/上浮调整、最大容量上限与溢出剔除、resort 重排（heap_spec.rs） |
 | [packages/engine/Specs/Core/HeightmapTerrainDataSpec.js](../../cesium/packages/engine/Specs/Core/HeightmapTerrainDataSpec.js) | 已移植：地形高程图数据构建、Lerc 与原生缓冲类型推断、createMesh 网格生成与异步任务节流上限、子瓦片双三角形对角线插值 upsample（含 stride/大小端打包与最高/最低高程截断）、四叉树子瓦片可用性掩码解算（heightmap_terrain_data_spec.rs） |
-| [packages/engine/Specs/Core/ITwinPlatformSpec.js](../../cesium/packages/engine/Specs/Core/ITwinPlatformSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/ITwinPlatformSpec.js](../../cesium/packages/engine/Specs/Core/ITwinPlatformSpec.js) | 已补齐（`crates/cesium-math/tests/itwin_platform_spec.rs`，覆盖 Authorization 请求头生成逻辑与 Basic/Bearer 优先级、realityData 容器 URL 与 rootDocument 相对路径拼接及 query 保留、401/403/404/422/429 HTTP 异常状态码解析与 RuntimeError 映射、ExportStatus 与 RealityDataType 枚举） |
 | [packages/engine/Specs/Core/Iau2000OrientationSpec.js](../../cesium/packages/engine/Specs/Core/Iau2000OrientationSpec.js) | 已移植：IAU 2000 月球自转与极轴定向参数高精度计算（赤经、赤纬、自转角及瞬时自转角速度）（iau2000_orientation_spec.rs） |
 | [packages/engine/Specs/Core/Iau2006XysDataSpec.js](../../cesium/packages/engine/Specs/Core/Iau2006XysDataSpec.js) | 已移植：IAU 2006 XYS 天球中介极坐标数据分块按需加载与预加载、9 阶 Lagrange 多项式内插、历元边界越界防护、STK Components 高精度比对（iau_2006_xys_data_spec.rs） |
 | [packages/engine/Specs/Core/IauOrientationAxesSpec.js](../../cesium/packages/engine/Specs/Core/IauOrientationAxesSpec.js) | 已移植：国际天球参考系 ICRF 到月球固定系 Moon Fixed 旋转矩阵计算（赤道岁差/章动与自转四元数合成）（iau_orientation_axes_spec.rs） |
