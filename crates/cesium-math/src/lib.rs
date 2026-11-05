@@ -145,6 +145,7 @@ mod create_world_bathymetry_async;
 mod create_world_terrain_async;
 mod resize_image_to_next_power_of_two;
 mod sample_terrain;
+mod screen_space_event_handler;
 mod write_text_to_canvas;
 mod image_from_typed_array;
 mod ktx2_transcoder;
@@ -413,6 +414,10 @@ pub use resize_image_to_next_power_of_two::{
 pub use sample_terrain::{
     sample_terrain, sample_terrain_most_detailed, sample_terrain_most_detailed_sync,
     sample_terrain_sync,
+};
+pub use screen_space_event_handler::{
+    get_input_event_key, InputAction, KeyboardEventModifier, MotionEvent, MouseButton,
+    PinchMovementEvent, PositionedEvent, ScreenSpaceEventHandler, ScreenSpaceEventType,
 };
 pub use write_text_to_canvas::{
     write_text_to_canvas, CanvasTextResult, TextDimensions, WriteTextOptions,
