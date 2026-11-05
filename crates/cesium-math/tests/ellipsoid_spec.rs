@@ -253,3 +253,83 @@ fn east_north_up_origin_poles_and_triaxial_surface() {
             < 1e-14
     );
 }
+
+#[test]
+fn upstream_from_cartesian3_equals_and_display() {
+    let default_e = Ellipsoid::from_cartesian3(None).unwrap();
+    assert_eq!(default_e.radii(), DVec3::ZERO);
+    assert_eq!(default_e.radii_squared(), DVec3::ZERO);
+    assert_eq!(default_e.radii_to_fourth(), DVec3::ZERO);
+    assert_eq!(default_e.one_over_radii(), DVec3::ZERO);
+    assert_eq!(default_e.one_over_radii_squared(), DVec3::ZERO);
+    assert_eq!(default_e.minimum_radius(), 0.0);
+    assert_eq!(default_e.maximum_radius(), 0.0);
+
+    let e = Ellipsoid::from_cartesian3(Some(DVec3::new(1.0, 2.0, 3.0))).unwrap();
+    assert_eq!(e.radii(), DVec3::new(1.0, 2.0, 3.0));
+
+    let same = Ellipsoid::new(DVec3::new(1.0, 2.0, 3.0)).unwrap();
+    let diff = Ellipsoid::new(DVec3::new(1.0, 2.0, 4.0)).unwrap();
+    assert!(e.equals(Some(&same)));
+    assert!(!e.equals(Some(&diff)));
+    assert!(!e.equals(None));
+
+    assert_eq!(format!("{e}"), "(1, 2, 3)");
+}
+
+#[test]
+fn upstream_array_conversions_and_scaled_space_aliases() {
+    let e = Ellipsoid::WGS84;
+    let space_cartesian = DVec3::new(4582719.8827300891, -4582719.8827300882, 1725510.4250797231);
+    let space_cartographic = Cartographic::degrees(-45.0, 15.0, 330000.0).unwrap();
+    let surface_cartographic = Cartographic::degrees(-45.0, 15.0, 0.0).unwrap();
+    let surface_cartesian = e.cartographic_to_cartesian(surface_cartographic).unwrap();
+
+    let cartesians = e.cartographic_array_to_cartesian_array(&[space_cartographic, surface_cartographic]);
+    assert_eq!(cartesians.len(), 2);
+    assert!(cartesians[0].unwrap().distance(space_cartesian) < 1e-7);
+    assert!(cartesians[1].unwrap().distance(surface_cartesian) < 1e-7);
+
+    let cartographics = e.cartesian_array_to_cartographic_array(&[space_cartesian, surface_cartesian]);
+    assert_eq!(cartographics.len(), 2);
+    let c0 = cartographics[0].unwrap();
+    let c1 = cartographics[1].unwrap();
+    assert!((c0.longitude - space_cartographic.longitude).abs() < 1e-7);
+    assert!((c0.latitude - space_cartographic.latitude).abs() < 1e-7);
+    assert!((c0.height - space_cartographic.height).abs() < 1e-7);
+    assert!((c1.longitude - surface_cartographic.longitude).abs() < 1e-7);
+    assert!((c1.latitude - surface_cartographic.latitude).abs() < 1e-7);
+
+    let norm = Ellipsoid::geocentric_surface_normal(DVec3::new(2.0, 0.0, 0.0));
+    assert_eq!(norm, DVec3::X);
+
+    let scaled_e = Ellipsoid::new(DVec3::new(2.0, 3.0, 4.0)).unwrap();
+    let p = DVec3::new(4.0, 6.0, 8.0);
+    assert_eq!(scaled_e.transform_position_to_scaled_space(p), DVec3::new(2.0, 2.0, 2.0));
+    assert_eq!(scaled_e.transform_position_from_scaled_space(DVec3::new(2.0, 2.0, 2.0)), p);
+
+    let rev_e = Ellipsoid::new(DVec3::new(4.0, 4.0, 3.0)).unwrap();
+    assert_eq!(rev_e.squared_x_over_squared_z(), 16.0 / 9.0);
+}
+
+#[test]
+fn upstream_pack_unpack_and_get_methods() {
+    let e = Ellipsoid::WGS84;
+    let mut packed = [0.0; 5];
+    e.pack(&mut packed, 1).unwrap();
+    assert_eq!(packed[1], e.radii().x);
+    assert_eq!(packed[2], e.radii().y);
+    assert_eq!(packed[3], e.radii().z);
+
+    let unpacked = Ellipsoid::unpack(&packed, 1).unwrap();
+    assert_eq!(unpacked, e);
+
+    let p = e
+        .cartographic_to_cartesian(Cartographic::degrees(35.23, 33.23, 0.0).unwrap())
+        .unwrap();
+    let z_isect = e.get_surface_normal_intersection_with_z_axis(p, None).unwrap();
+    assert!(z_isect.is_some());
+
+    let curv = e.get_local_curvature(p);
+    assert!(curv.is_some());
+}

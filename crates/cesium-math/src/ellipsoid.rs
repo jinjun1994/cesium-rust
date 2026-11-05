@@ -53,6 +53,24 @@ impl Ellipsoid {
         }
         Ok(Self { radii })
     }
+
+    pub fn from_cartesian3(cartesian: Option<DVec3>) -> Result<Self, MathError> {
+        match cartesian {
+            Some(radii) => Self::new(radii),
+            None => Ok(Self::default()),
+        }
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => self.radii == o.radii,
+            None => false,
+        }
+    }
+
+    pub fn geocentric_surface_normal(cartesian: DVec3) -> DVec3 {
+        cartesian.normalize()
+    }
     pub fn radii(self) -> DVec3 {
         self.radii
     }
@@ -80,6 +98,12 @@ impl Ellipsoid {
     }
     pub fn from_scaled_space(self, p: DVec3) -> DVec3 {
         p * self.radii
+    }
+    pub fn transform_position_to_scaled_space(self, p: DVec3) -> DVec3 {
+        self.to_scaled_space(p)
+    }
+    pub fn transform_position_from_scaled_space(self, p: DVec3) -> DVec3 {
+        self.from_scaled_space(p)
     }
 
     /// East, north and up basis at an ECEF origin, with Cesium's pole and
@@ -290,6 +314,43 @@ impl Ellipsoid {
         )
     }
 
+    pub fn squared_x_over_squared_z(self) -> f64 {
+        let r2 = self.radii_squared();
+        r2.x / r2.z
+    }
+
+    pub fn cartographic_array_to_cartesian_array(
+        &self,
+        cartographics: &[Cartographic],
+    ) -> Vec<Option<DVec3>> {
+        cartographics
+            .iter()
+            .map(|&c| self.cartographic_to_cartesian(c))
+            .collect()
+    }
+
+    pub fn cartesian_array_to_cartographic_array(
+        &self,
+        cartesians: &[DVec3],
+    ) -> Vec<Option<Cartographic>> {
+        cartesians
+            .iter()
+            .map(|&p| self.cartesian_to_cartographic(p))
+            .collect()
+    }
+
+    pub fn get_surface_normal_intersection_with_z_axis(
+        self,
+        position: DVec3,
+        buffer: Option<f64>,
+    ) -> Result<Option<DVec3>, MathError> {
+        self.surface_normal_intersection_with_z_axis(position, buffer.unwrap_or(0.0))
+    }
+
+    pub fn get_local_curvature(self, surface_position: DVec3) -> Option<(f64, f64)> {
+        self.local_curvature(surface_position)
+    }
+
     pub const PACKED_LENGTH: usize = 3;
 
     pub fn pack(&self, array: &mut [f64], starting_index: usize) -> Result<(), DeveloperError> {
@@ -312,5 +373,11 @@ impl Ellipsoid {
             array[starting_index + 2],
         );
         Self::new(radii).map_err(|_| DeveloperError::new("Failed to unpack Ellipsoid"))
+    }
+}
+
+impl std::fmt::Display for Ellipsoid {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "({}, {}, {})", self.radii.x, self.radii.y, self.radii.z)
     }
 }
