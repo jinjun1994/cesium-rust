@@ -282,7 +282,7 @@
 | [packages/engine/Specs/Core/IonSnapServiceSpec.js](../../cesium/packages/engine/Specs/Core/IonSnapServiceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/ManagedArraySpec.js](../../cesium/packages/engine/Specs/Core/ManagedArraySpec.js) | 已移植：受管动态数组、显式长度与预留容量管理、动态扩缩容、末尾元素出入栈与引用清理（managed_array_spec.rs） |
 | [packages/engine/Specs/Core/MortonOrderSpec.js](../../cesium/packages/engine/Specs/Core/MortonOrderSpec.js) | 已移植：2D/3D 莫顿空间填充曲线编码与解码、位交错与反交错、边界值与越界校验（morton_order_spec.rs） |
-| [packages/engine/Specs/Core/OpenCageGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/OpenCageGeocoderServiceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/OpenCageGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/OpenCageGeocoderServiceSpec.js) | 已补齐（`crates/cesium-math/tests/open_cage_geocoder_service_spec.rs`，覆盖 URL 与 API Key 构造校验、query 与 params URL 拼接、带 bounds 的经纬度矩形映射、无 bounds 的笛卡尔空间点 Cartesian3 映射、空结果处理及 OpenStreetMap Credit 版权信息） |
 | [packages/engine/Specs/Core/PeliasGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/PeliasGeocoderServiceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/PinBuilderSpec.js](../../cesium/packages/engine/Specs/Core/PinBuilderSpec.js) | 已补齐（`crates/cesium-math/tests/pin_builder_spec.rs`，覆盖纯色、文字、URL 图标、Maki 图标生成、尺寸/颜色校验及缓存复用） |
 | [packages/engine/Specs/Core/PixelDatatypeSpec.js](../../cesium/packages/engine/Specs/Core/PixelDatatypeSpec.js) | 已移植：像素数据类型枚举、分量与浮点格式判断、字节大小校验与数值转换（pixel_datatype_spec.rs） |

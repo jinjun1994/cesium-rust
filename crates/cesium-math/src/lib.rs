@@ -19,6 +19,7 @@ mod cartographic_geocoder_service;
 mod credit;
 mod bing_maps_geocoder_service;
 mod google_geocoder_service;
+mod open_cage_geocoder_service;
 mod catmull_rom_spline;
 mod celestial_frame_transforms;
 mod check;
@@ -178,6 +179,9 @@ pub use bing_maps_geocoder_service::{
 pub use google_geocoder_service::{
     GoogleGeocoderAttribution, GoogleGeocoderResult, GoogleGeocoderService,
     GoogleGeocoderServiceOptions,
+};
+pub use open_cage_geocoder_service::{
+    GeocoderDestination, OpenCageGeocoderResult, OpenCageGeocoderService,
 };
 pub use catmull_rom_spline::CatmullRomSpline;
 pub use celestial_frame_transforms::CelestialFrameTransforms;
