@@ -359,7 +359,7 @@
 | [packages/engine/Specs/DataSources/EntityViewSpec.js](../../cesium/packages/engine/Specs/DataSources/EntityViewSpec.js) | 全绿通过 (crates/cesium-math/tests/entity_view_spec.rs，实现 EntityView、相机追踪视角、defaultOffset3D 静态偏移原子存取、viewFrom 计算、包围球整合与基于 TrackingReferenceFrame 的参考系变换矩阵求解) |
 | [packages/engine/Specs/DataSources/GeoJsonDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/GeoJsonDataSourceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/GeometryUpdaterSetSpec.js](../../cesium/packages/engine/Specs/DataSources/GeometryUpdaterSetSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/GeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/GeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/GeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/GeometryUpdaterSpec.js) | 已移植：基础几何更新器选项校验、实体关联、常量与动态填充/轮廓判定、dynamicUpdater创建校验与事件调度（geometry_updater_spec.rs，4 项测试全部通过） |
 | [packages/engine/Specs/DataSources/GeometryVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/GeometryVisualizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/GpxDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/GpxDataSourceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/GridMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/GridMaterialPropertySpec.js) | 已移植：网格材质属性封装、默认白色/0.1单元透明度/8x8线数/1.0线宽/0.0偏移回退、常量与动态属性求值、isConstant联合判定及equals属性比较（grid_material_property_spec.rs，3 项测试全部通过） |
