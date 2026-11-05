@@ -167,3 +167,139 @@ impl ConstantPositionProperty {
         }
     }
 }
+
+pub type PropertyCallback<T> = std::rc::Rc<dyn Fn(&JulianDate) -> Option<T>>;
+
+/// A Property whose value is produced by a callback function.
+#[derive(Clone)]
+pub struct CallbackProperty<T: Clone> {
+    callback: PropertyCallback<T>,
+    is_constant: bool,
+    definition_changed: Event<()>,
+}
+
+impl<T: Clone> CallbackProperty<T> {
+    pub fn new(callback: PropertyCallback<T>, is_constant: bool) -> Self {
+        Self {
+            callback,
+            is_constant,
+            definition_changed: Event::new(),
+        }
+    }
+
+    pub fn is_constant(&self) -> bool {
+        self.is_constant
+    }
+
+    pub fn definition_changed(&self) -> &Event<()> {
+        &self.definition_changed
+    }
+
+    pub fn get_value(&self, time: Option<&JulianDate>) -> Option<T> {
+        let default_time;
+        let t = match time {
+            Some(t) => t,
+            None => {
+                default_time = JulianDate::now();
+                &default_time
+            }
+        };
+        (self.callback)(t)
+    }
+
+    pub fn set_callback(&mut self, callback: PropertyCallback<T>, is_constant: bool) {
+        self.callback = callback;
+        self.is_constant = is_constant;
+        self.definition_changed.raise_event(&());
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => {
+                self.is_constant == o.is_constant
+                    && std::rc::Rc::ptr_eq(&self.callback, &o.callback)
+            }
+            None => false,
+        }
+    }
+}
+
+/// A PositionProperty whose value is produced by a callback function.
+#[derive(Clone)]
+pub struct CallbackPositionProperty {
+    callback: PropertyCallback<Cartesian3>,
+    is_constant: bool,
+    reference_frame: ReferenceFrame,
+    definition_changed: Event<()>,
+}
+
+impl CallbackPositionProperty {
+    pub fn new(
+        callback: PropertyCallback<Cartesian3>,
+        is_constant: bool,
+        reference_frame: Option<ReferenceFrame>,
+    ) -> Self {
+        Self {
+            callback,
+            is_constant,
+            reference_frame: reference_frame.unwrap_or(ReferenceFrame::Fixed),
+            definition_changed: Event::new(),
+        }
+    }
+
+    pub fn reference_frame(&self) -> ReferenceFrame {
+        self.reference_frame
+    }
+
+    pub fn is_constant(&self) -> bool {
+        self.is_constant
+    }
+
+    pub fn definition_changed(&self) -> &Event<()> {
+        &self.definition_changed
+    }
+
+    pub fn get_value(&self, time: Option<&JulianDate>) -> Option<Cartesian3> {
+        let default_time;
+        let t = match time {
+            Some(t) => t,
+            None => {
+                default_time = JulianDate::now();
+                &default_time
+            }
+        };
+        self.get_value_in_reference_frame(Some(t), ReferenceFrame::Fixed)
+    }
+
+    pub fn get_value_in_reference_frame(
+        &self,
+        time: Option<&JulianDate>,
+        target_frame: ReferenceFrame,
+    ) -> Option<Cartesian3> {
+        let t = time?;
+        let raw = (self.callback)(t)?;
+        PositionProperty::convert_to_reference_frame(
+            Some(t),
+            Some(raw),
+            self.reference_frame,
+            target_frame,
+        )
+    }
+
+    pub fn set_callback(&mut self, callback: PropertyCallback<Cartesian3>, is_constant: bool) {
+        self.callback = callback;
+        self.is_constant = is_constant;
+        self.definition_changed.raise_event(&());
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => {
+                self.is_constant == o.is_constant
+                    && self.reference_frame == o.reference_frame
+                    && std::rc::Rc::ptr_eq(&self.callback, &o.callback)
+            }
+            None => false,
+        }
+    }
+}

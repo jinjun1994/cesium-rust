@@ -351,7 +351,10 @@ pub use polyline_volume_outline_geometry::{
     PolylineVolumeOutlineGeometry, PolylineVolumeOutlineGeometryOptions,
 };
 pub use projection::{GeographicProjection, MapProjection, WebMercatorProjection};
-pub use property::{ConstantPositionProperty, ConstantProperty, PositionProperty, Property};
+pub use property::{
+    CallbackPositionProperty, CallbackProperty, ConstantPositionProperty, ConstantProperty,
+    PositionProperty, Property, PropertyCallback,
+};
 pub use quantized_mesh_terrain_data::{QuantizedMeshTerrainData, QuantizedMeshTerrainDataOptions};
 pub use quaternion::{HeadingPitchRoll, Quaternion};
 pub use quaternion_spline::QuaternionSpline;

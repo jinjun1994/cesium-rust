@@ -327,8 +327,8 @@
 | [packages/engine/Specs/DataSources/BillboardVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/BillboardVisualizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/BoxGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/BoxGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/BoxGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/BoxGraphicsSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/CallbackPositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CallbackPositionPropertySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/CallbackPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CallbackPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CallbackPositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CallbackPositionPropertySpec.js) | 已移植：动态回调闭包位置求值、参考系默认与显式设定、缺省时间自动采用JulianDate::now、跨参考系矩阵转换求值、setCallback更新与isConstant状态切换、definitionChanged事件通知及equals函数指针与参考系比较（callback_position_property_spec.rs，6 项测试全部通过） |
+| [packages/engine/Specs/DataSources/CallbackPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CallbackPropertySpec.js) | 已移植：动态回调闭包属性求值、缺省时间自动采用JulianDate::now、isConstant常量标志、setCallback更新与isConstant切换、definitionChanged事件通知及equals函数指针比较（callback_property_spec.rs，5 项测试全部通过） |
 | [packages/engine/Specs/DataSources/Cesium3DTilesetGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/Cesium3DTilesetGraphicsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/Cesium3DTilesetVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/Cesium3DTilesetVisualizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/CheckerboardMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CheckerboardMaterialPropertySpec.js) | 待逐项核对 |
