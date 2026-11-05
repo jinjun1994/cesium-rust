@@ -146,6 +146,7 @@ mod create_world_terrain_async;
 mod resize_image_to_next_power_of_two;
 mod sample_terrain;
 mod screen_space_event_handler;
+mod task_processor;
 mod write_text_to_canvas;
 mod image_from_typed_array;
 mod ktx2_transcoder;
@@ -418,6 +419,10 @@ pub use sample_terrain::{
 pub use screen_space_event_handler::{
     get_input_event_key, InputAction, KeyboardEventModifier, MotionEvent, MouseButton,
     PinchMovementEvent, PositionedEvent, ScreenSpaceEventHandler, ScreenSpaceEventType,
+};
+pub use task_processor::{
+    DEFAULT_WORKER_MODULE_PREFIX, TaskCompletedCallback, TaskError, TaskProcessor, WasmLoaderConfig,
+    WasmOptions, WorkerHandler,
 };
 pub use write_text_to_canvas::{
     write_text_to_canvas, CanvasTextResult, TextDimensions, WriteTextOptions,
