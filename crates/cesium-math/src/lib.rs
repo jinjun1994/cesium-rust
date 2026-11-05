@@ -344,7 +344,7 @@ pub use rectangle_outline_geometry::{
 };
 pub use rectangle_collision_checker::RectangleCollisionChecker;
 pub use request::{Request, RequestOptions, RequestState, RequestType};
-pub use request_error_event::{parse_response_headers, RequestErrorEvent};
+pub use request_error_event::{parse_response_headers, IntoHeaderStr, RequestErrorEvent};
 pub use request_scheduler::{
     get_server_key, RequestScheduler, RequestSchedulerStatistics,
 };

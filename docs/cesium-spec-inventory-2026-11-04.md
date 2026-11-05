@@ -318,7 +318,7 @@
 | [packages/engine/Specs/Core/isDataUriSpec.js](../../cesium/packages/engine/Specs/Core/isDataUriSpec.js) | 已移植：Data URI 协议前缀判定、Base64 数据标识检测与普通 URL 过滤（is_data_uri_spec.rs） |
 | [packages/engine/Specs/Core/loadImageFromTypedArraySpec.js](../../cesium/packages/engine/Specs/Core/loadImageFromTypedArraySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/loadKTX2Spec.js](../../cesium/packages/engine/Specs/Core/loadKTX2Spec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/parseResponseHeadersSpec.js](../../cesium/packages/engine/Specs/Core/parseResponseHeadersSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/parseResponseHeadersSpec.js](../../cesium/packages/engine/Specs/Core/parseResponseHeadersSpec.js) | 已补齐（`crates/cesium-math/tests/parse_response_headers_spec.rs`，覆盖 null/None/空字符串假值安全处理、CRLF 响应头分割、键值冒号解析及特殊值含冒号保持） |
 | [packages/engine/Specs/Core/resizeImageToNextPowerOfTwoSpec.js](../../cesium/packages/engine/Specs/Core/resizeImageToNextPowerOfTwoSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/sampleTerrainMostDetailedSpec.js](../../cesium/packages/engine/Specs/Core/sampleTerrainMostDetailedSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/sampleTerrainSpec.js](../../cesium/packages/engine/Specs/Core/sampleTerrainSpec.js) | 待逐项核对 |
