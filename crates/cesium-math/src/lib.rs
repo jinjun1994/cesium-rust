@@ -55,6 +55,8 @@ mod culling_volume;
 mod cylinder_geometry;
 mod cylinder_graphics;
 mod data_source_clock;
+mod custom_data_source;
+mod data_source_collection;
 mod defined;
 mod distance_display_condition;
 mod distance_display_condition_geometry_instance_attribute;
@@ -247,6 +249,8 @@ pub use cylinder_graphics::{
     CylinderGraphics, CylinderGraphicsOptions, CylinderGraphicsValues,
 };
 pub use data_source_clock::DataSourceClock;
+pub use custom_data_source::CustomDataSource;
+pub use data_source_collection::DataSourceCollection;
 pub use ellipse_graphics::{EllipseGraphics, EllipseGraphicsOptions, EllipseGraphicsValues};
 pub use ellipsoid_graphics::{
     EllipsoidGraphics, EllipsoidGraphicsOptions, EllipsoidGraphicsValues,

@@ -341,12 +341,12 @@
 | [packages/engine/Specs/DataSources/ConstantPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ConstantPropertySpec.js) | 已移植：基础标量/复合对象属性值封装、getValue时间无关常数求值、Display字符串格式化、setValue更新与definitionChanged事件通知（仅数据变动触发）、undefined值处理与equals全场景比较（constant_property_spec.rs，7 项测试全部通过） |
 | [packages/engine/Specs/DataSources/CorridorGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/CorridorGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/CorridorGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/CorridorGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/corridor_graphics_spec.rs) |
-| [packages/engine/Specs/DataSources/CustomDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/CustomDataSourceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CustomDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/CustomDataSourceSpec.js) | 全绿通过 (crates/cesium-math/tests/custom_data_source_spec.rs，实现 CustomDataSource、时钟与实体集合集成、isLoading 与 show 状态派发、changedEvent/loadingEvent/errorEvent 响应) |
 | [packages/engine/Specs/DataSources/CylinderGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/CylinderGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/CylinderGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/CylinderGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/cylinder_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/CzmlDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/CzmlDataSourceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/DataSourceClockSpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceClockSpec.js) | 全绿通过 (crates/cesium-math/tests/data_source_clock_spec.rs，实现 DataSourceClock、时钟参数配置、merge 属性合并、clone/clone_to 复制及 get_value 实例化为 Clock 与默认行为回退) |
-| [packages/engine/Specs/DataSources/DataSourceCollectionSpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/DataSourceCollectionSpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceCollectionSpec.js) | 全绿通过 (crates/cesium-math/tests/data_source_collection_spec.rs，实现 DataSourceCollection、多数据源增删查、按名检索 get_by_name、raise/lower/raise_to_top/lower_to_bottom 层级移动与 dataSourceAdded/Removed/Moved 事件监听) |
 | [packages/engine/Specs/DataSources/DataSourceDisplaySpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceDisplaySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/DynamicGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/DynamicGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/EllipseGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipseGeometryUpdaterSpec.js) | 待逐项核对 |
