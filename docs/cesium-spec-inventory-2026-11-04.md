@@ -111,7 +111,7 @@
 | [packages/core/Specs/AttributeCompressionSpec.js](../../cesium/packages/core/Specs/AttributeCompressionSpec.js) | 已移植：八面体法线压缩与解压（2分量/4分量/float/双float打包）、纹理坐标压缩、ZigZag Delta 解码、RGB8/RGB565 编解码、泛型解量化 dequantize（attribute_compression_spec.rs） |
 | [packages/core/Specs/AttributeTypeSpec.js](../../cesium/packages/core/Specs/AttributeTypeSpec.js) | 已移植：顶点与3D Tiles属性类型（标量/向量/矩阵）、GLSL类型名映射、分量计数及着色器位置数量（attribute_type_spec.rs） |
 | [packages/core/Specs/AxisAlignedBoundingBoxSpec.js](../../cesium/packages/core/Specs/AxisAlignedBoundingBoxSpec.js) | 已移植：角点构造、点集（空/单点/多点）、克隆、相等比较、平面相交分类（INSIDE/OUTSIDE/INTERSECTING）与盒相交（axis_aligned_bounding_box_spec.rs） |
-| [packages/core/Specs/BoundingRectangleSpec.js](../../cesium/packages/core/Specs/BoundingRectangleSpec.js) | 部分：构造、投影、合并、扩展、相交、打包；JS 对象复用和异常语义不同 |
+| [packages/core/Specs/BoundingRectangleSpec.js](../../cesium/packages/core/Specs/BoundingRectangleSpec.js) | 已移植：默认/参数构造、克隆/全等判断、点集、矩形投影（Geographic/WebMercator）、相交分类（Intersect::INTERSECTING/OUTSIDE）、并集、扩展及打包（bounding_rectangle_spec.rs） |
 | [packages/core/Specs/BoundingSphereSpec.js](../../cesium/packages/core/Specs/BoundingSphereSpec.js) | 部分：点/顶点/编码/多球/矩形/定向盒/变换构造、合并、平面、距离、projectTo2D；其余待核对 |
 | [packages/core/Specs/BoxGeometrySpec.js](../../cesium/packages/core/Specs/BoxGeometrySpec.js) | 已移植：最小最大角点构造、POSITION_ONLY 8 顶点优化网格、ALL 全属性 24 独立顶点与法线/纹理坐标（box_geometry_spec.rs） |
 | [packages/core/Specs/BoxOutlineGeometrySpec.js](../../cesium/packages/core/Specs/BoxOutlineGeometrySpec.js) | 已移植：线框顶点与 12 边索引缓冲生成、尺寸与 AABB 构造（box_outline_geometry_spec.rs） |

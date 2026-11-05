@@ -1,5 +1,5 @@
 //! Two-dimensional bounding rectangles adapted from CesiumJS (Apache-2.0).
-use crate::{GeoRectangle, MapProjection, MathError};
+use crate::{GeoRectangle, Intersect, MapProjection, MathError};
 use glam::DVec2;
 
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
@@ -56,6 +56,24 @@ impl BoundingRectangle {
         Some(Self::new(sw.x, sw.y, ne.x - sw.x, ne.y - sw.y))
     }
 
+    /// Computes a bounding rectangle from a geographic rectangle.
+    /// If rectangle is None, returns default (all zeros).
+    /// If projection is None, defaults to GeographicProjection.
+    pub fn from_rectangle(
+        rectangle: Option<&GeoRectangle>,
+        projection: Option<&impl MapProjection>,
+    ) -> Self {
+        let Some(rect) = rectangle else {
+            return Self::default();
+        };
+        let default_proj = crate::GeographicProjection::default();
+        let proj: &dyn MapProjection = match projection {
+            Some(p) => p,
+            None => &default_proj,
+        };
+        Self::from_geographic(*rect, proj).unwrap_or_default()
+    }
+
     pub fn union(self, other: Self) -> Self {
         let x = self.x.min(other.x);
         let y = self.y.min(other.y);
@@ -91,6 +109,30 @@ impl BoundingRectangle {
             || self.x + self.width < other.x
             || self.y > other.y + other.height
             || self.y + self.height < other.y)
+    }
+
+    /// Determines whether two bounding rectangles intersect.
+    pub fn intersect(&self, other: &Self) -> Intersect {
+        if self.intersects(*other) {
+            Intersect::INTERSECTING
+        } else {
+            Intersect::OUTSIDE
+        }
+    }
+
+    /// Associated function for intersecting two bounding rectangles.
+    pub fn intersect_rectangles(left: &Self, right: &Self) -> Intersect {
+        left.intersect(right)
+    }
+
+    /// Compares two bounding rectangles for equality.
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => {
+                self.x == o.x && self.y == o.y && self.width == o.width && self.height == o.height
+            }
+            None => false,
+        }
     }
 
     pub fn pack(self, output: &mut [f64], offset: usize) -> Result<(), MathError> {
