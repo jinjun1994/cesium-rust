@@ -114,6 +114,60 @@ pub struct CesiumTerrainProvider {
 }
 
 impl CesiumTerrainProvider {
+    /// Default Ion asset ID for Cesium World Terrain.
+    pub const WORLD_TERRAIN_ASSET_ID: i64 = 1;
+
+    /// Default Ion asset ID for Cesium World Bathymetry.
+    pub const WORLD_BATHYMETRY_ASSET_ID: i64 = 2426648;
+
+    /// Asynchronously creates a CesiumTerrainProvider from a Cesium Ion asset ID.
+    pub async fn from_ion_asset_id(
+        asset_id: i64,
+        options: Option<CesiumTerrainProviderOptions>,
+    ) -> Result<Self, RuntimeError> {
+        Self::from_ion_asset_id_sync(asset_id, options)
+    }
+
+    /// Synchronously creates a CesiumTerrainProvider from a Cesium Ion asset ID.
+    pub fn from_ion_asset_id_sync(
+        asset_id: i64,
+        options: Option<CesiumTerrainProviderOptions>,
+    ) -> Result<Self, RuntimeError> {
+        let opts = options.unwrap_or_default();
+        let ellipsoid = opts.ellipsoid.unwrap_or(Ellipsoid::WGS84);
+        let layer_json = CesiumTerrainLayerJson {
+            format: Some("quantized-mesh-1.0".to_string()),
+            tiles: Some(vec![format!(
+                "https://assets.ion.cesium.com/{}/{{z}}/{{x}}/{{y}}.terrain",
+                asset_id
+            )]),
+            projection: Some("EPSG:4326".to_string()),
+            scheme: Some("tms".to_string()),
+            maxzoom: Some(20),
+            attribution: Some("Cesium World Terrain / Ion Attribution".to_string()),
+            extensions: Some(vec![
+                "octvertexnormals".to_string(),
+                "watermask".to_string(),
+                "metadata".to_string(),
+            ]),
+            available: None,
+            metadata_availability: Some(20),
+            parent_url: None,
+            version: Some("1.2.0".to_string()),
+        };
+
+        Self::from_layer_json(
+            &layer_json,
+            Some(CesiumTerrainProviderOptions {
+                request_vertex_normals: opts.request_vertex_normals,
+                request_water_mask: opts.request_water_mask,
+                request_metadata: opts.request_metadata,
+                credit: opts.credit,
+                ellipsoid: Some(ellipsoid),
+            }),
+        )
+    }
+
     /// Creates a CesiumTerrainProvider from parsed `layer.json` metadata and options.
     pub fn from_layer_json(
         layer_json: &CesiumTerrainLayerJson,

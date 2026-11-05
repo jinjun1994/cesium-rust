@@ -141,6 +141,8 @@ mod google_earth_enterprise_metadata;
 mod google_earth_enterprise_terrain_data;
 mod google_earth_enterprise_terrain_provider;
 mod cesium_terrain_provider;
+mod create_world_bathymetry_async;
+mod create_world_terrain_async;
 mod terrain_mesh;
 mod terrain_picker;
 mod terrain_provider;
@@ -389,6 +391,12 @@ pub use google_earth_enterprise_terrain_provider::{
 pub use cesium_terrain_provider::{
     CesiumTerrainFormat, CesiumTerrainLayerJson, CesiumTerrainProvider,
     CesiumTerrainProviderOptions, CesiumTerrainTilingScheme, TileRange,
+};
+pub use create_world_bathymetry_async::{
+    create_world_bathymetry_async, CreateWorldBathymetryOptions,
+};
+pub use create_world_terrain_async::{
+    create_world_terrain_async, CreateWorldTerrainOptions,
 };
 pub use terrain_mesh::TerrainMesh;
 pub use terrain_picker::{TerrainPicker, TerrainPickerNode};

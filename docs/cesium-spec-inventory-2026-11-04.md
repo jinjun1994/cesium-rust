@@ -310,8 +310,8 @@
 | [packages/engine/Specs/Core/addAllSpec.js](../../cesium/packages/engine/Specs/Core/addAllSpec.js) | 已移植：数组批量合并、None/空源切片安全过滤、大容量数组扩展（add_all_spec.rs） |
 | [packages/engine/Specs/Core/appendForwardSlashSpec.js](../../cesium/packages/engine/Specs/Core/appendForwardSlashSpec.js) | 已移植：URL 末尾斜杠自动规范化、空字符串与已包含斜杠安全处理（append_forward_slash_spec.rs） |
 | [packages/engine/Specs/Core/buildModuleUrlSpec.js](../../cesium/packages/engine/Specs/Core/buildModuleUrlSpec.js) | 已移植：Cesium 模块相对/绝对 URL 拼接与正则校验、CESIUM_BASE_URL 动态配置与跨平台路径合成（build_module_url_spec.rs） |
-| [packages/engine/Specs/Core/createWorldBathymetryAsyncSpec.js](../../cesium/packages/engine/Specs/Core/createWorldBathymetryAsyncSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/createWorldTerrainAsyncSpec.js](../../cesium/packages/engine/Specs/Core/createWorldTerrainAsyncSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/createWorldBathymetryAsyncSpec.js](../../cesium/packages/engine/Specs/Core/createWorldBathymetryAsyncSpec.js) | 已补齐（`crates/cesium-math/tests/create_world_bathymetry_async_spec.rs`，覆盖 Cesium World Bathymetry Ion 资产 ID 2426648 实例化、requestVertexNormals 标志透传及 CesiumTerrainProvider 解析） |
+| [packages/engine/Specs/Core/createWorldTerrainAsyncSpec.js](../../cesium/packages/engine/Specs/Core/createWorldTerrainAsyncSpec.js) | 已补齐（`crates/cesium-math/tests/create_world_terrain_async_spec.rs`，覆盖 Cesium World Terrain Ion 资产 ID 1 实例化、requestVertexNormals 与 requestWaterMask 标志透传、默认 WGS84 椭球体与自定义椭球体配置及 CesiumTerrainProvider 解析） |
 | [packages/engine/Specs/Core/getImageFromTypedArraySpec.js](../../cesium/packages/engine/Specs/Core/getImageFromTypedArraySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/isBlobUriSpec.js](../../cesium/packages/engine/Specs/Core/isBlobUriSpec.js) | 已移植：Blob URI 前缀判定、大小写不敏感解析与普通 URL 过滤（is_blob_uri_spec.rs） |
 | [packages/engine/Specs/Core/isCrossOriginUrlSpec.js](../../cesium/packages/engine/Specs/Core/isCrossOriginUrlSpec.js) | 已移植：跨域 URL 判定、相对路径同源直通、协议/主机/端口差异比对（is_cross_origin_url_spec.rs） |
