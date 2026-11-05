@@ -266,7 +266,7 @@
 | [packages/engine/Specs/Core/FrustumOutlineGeometrySpec.js](../../cesium/packages/engine/Specs/Core/FrustumOutlineGeometrySpec.js) | 已移植：视锥体 8 角点框线、近/远平面边框与连接线索引、包围球计算（frustum_geometry_spec.rs） |
 | [packages/engine/Specs/Core/FullscreenSpec.js](../../cesium/packages/engine/Specs/Core/FullscreenSpec.js) | 已移植：全屏 API 支持检测、启用状态判断、全屏元素获取、进入/退出全屏状态请求与事件名（fullscreenchange/fullscreenerror）映射（fullscreen_spec.rs） |
 | [packages/engine/Specs/Core/GeographicTilingSchemeSpec.js](../../cesium/packages/engine/Specs/Core/GeographicTilingSchemeSpec.js) | 已移植：地理瓦片方案接口、瓦片范围索引计算、NW原点方向、相邻边界贴合、弧度/度数转换及四角与中心定位（geographic_tiling_scheme_spec.rs） |
-| [packages/engine/Specs/Core/GoogleEarthEnterpriseMetadataSpec.js](../../cesium/packages/engine/Specs/Core/GoogleEarthEnterpriseMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/GoogleEarthEnterpriseMetadataSpec.js](../../cesium/packages/engine/Specs/Core/GoogleEarthEnterpriseMetadataSpec.js) | 已补齐（`crates/cesium-math/tests/google_earth_enterprise_metadata_spec.rs`，覆盖 tileXY 与 QuadKey 双向互转、decode 数据对称加解密与 key 长度校验、TileInformation 四叉树位掩码与属性继承、子树元数据查询与 populateSubtree） |
 | [packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainDataSpec.js](../../cesium/packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainDataSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/GoogleEarthEnterpriseTerrainProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/GoogleGeocoderServicesSpec.js](../../cesium/packages/engine/Specs/Core/GoogleGeocoderServicesSpec.js) | 待逐项核对 |
