@@ -255,7 +255,7 @@
 | [packages/engine/Specs/Core/CelestialFrameTransformsSpec.js](../../cesium/packages/engine/Specs/Core/CelestialFrameTransformsSpec.js) | 已移植：天球参考系变换（TEME到伪地固系旋转矩阵、GMST自转角、ICRF到月球固连系Moon-Fixed旋转矩阵与NASA/STK高精度匹配、恒星日与恒星月周期验证）（celestial_frame_transforms_spec.rs） |
 | [packages/engine/Specs/Core/Cesium3DTilesTerrainDataSpec.js](../../cesium/packages/engine/Specs/Core/Cesium3DTilesTerrainDataSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/Cesium3DTilesTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/Cesium3DTilesTerrainProviderSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/CesiumTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/CesiumTerrainProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/CesiumTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/CesiumTerrainProviderSpec.js) | 已补齐（`crates/cesium-math/tests/cesium_terrain_provider_spec.rs`，覆盖 layer.json 解析与版本校验、EPSG:4326/3857 切片方案、TMS y 坐标转换与 availability 解算、Heightmap/QuantizedMesh 瓦片请求、水面与法线掩码标志等） |
 | [packages/engine/Specs/Core/CustomHeightmapTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/CustomHeightmapTerrainProviderSpec.js) | 已移植：自定义高程图地形提供器构建、宽度/高度/回调参数校验、信用信息/投影切分方案绑定、0 级最大几何误差与逐级误差减半解算、多类型高程图缓冲加载与回调返回空判定（custom_heightmap_terrain_provider_spec.rs） |
 | [packages/engine/Specs/Core/DoubleEndedPriorityQueueSpec.js](../../cesium/packages/engine/Specs/Core/DoubleEndedPriorityQueueSpec.js) | 已移植：基于 Min-Max 堆的双端优先队列、最值检索与移除、最大容量满额淘汰与就地重新堆化（double_ended_priority_queue_spec.rs） |
 | [packages/engine/Specs/Core/DoublyLinkedListSpec.js](../../cesium/packages/engine/Specs/Core/DoublyLinkedListSpec.js) | 已移植：双向链表增删、指定节点拼接 splice 迁移、头尾指针及长度维护（doubly_linked_list_spec.rs） |

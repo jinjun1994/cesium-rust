@@ -192,6 +192,18 @@ impl QuantizedMeshTerrainData {
         self.encoded_normals.as_deref()
     }
 
+    pub fn water_mask(&self) -> Option<&[u8]> {
+        self.water_mask.as_deref()
+    }
+
+    pub fn has_vertex_normals(&self) -> bool {
+        self.encoded_normals.is_some()
+    }
+
+    pub fn has_water_mask(&self) -> bool {
+        self.water_mask.is_some()
+    }
+
     pub fn west_indices(&self) -> &[u32] {
         &self.west_indices
     }

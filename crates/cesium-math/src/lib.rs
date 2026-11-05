@@ -123,6 +123,7 @@ mod stereographic;
 mod subdivide_array;
 mod terrain_encoding;
 mod arcgis_terrain_provider;
+mod cesium_terrain_provider;
 mod terrain_mesh;
 mod terrain_picker;
 mod terrain_provider;
@@ -317,6 +318,10 @@ pub use terrain_encoding::{
 pub use arcgis_terrain_provider::{
     ArcGISMetadata, ArcGISMetadataExtent, ArcGISMetadataLod, ArcGISMetadataSpatialReference,
     ArcGISMetadataTileInfo, ArcGISTiledElevationTerrainProvider, ArcGISTilingScheme,
+};
+pub use cesium_terrain_provider::{
+    CesiumTerrainFormat, CesiumTerrainLayerJson, CesiumTerrainProvider,
+    CesiumTerrainProviderOptions, CesiumTerrainTilingScheme, TileRange,
 };
 pub use terrain_mesh::TerrainMesh;
 pub use terrain_picker::{TerrainPicker, TerrainPickerNode};
