@@ -43,12 +43,35 @@ impl Plane {
         Self::new(coefficients.truncate(), coefficients.w)
     }
 
+    pub fn from_cartesian4(coefficients: DVec4) -> Result<Self, MathError> {
+        Self::from_coefficients(coefficients)
+    }
+
     pub fn point_distance(self, point: DVec3) -> f64 {
         self.normal.dot(point) + self.distance
     }
 
+    pub fn get_point_distance(self, point: DVec3) -> f64 {
+        self.point_distance(point)
+    }
+
     pub fn project_point(self, point: DVec3) -> DVec3 {
         point - self.normal * self.point_distance(point)
+    }
+
+    pub fn project_point_onto_plane(self, point: DVec3) -> DVec3 {
+        self.project_point(point)
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => self.normal == o.normal && self.distance == o.distance,
+            None => false,
+        }
+    }
+
+    pub fn equals_planes(left: &Self, right: &Self) -> bool {
+        left.normal == right.normal && left.distance == right.distance
     }
 
     /// Transform the plane by the inverse transpose and restore unit normal.

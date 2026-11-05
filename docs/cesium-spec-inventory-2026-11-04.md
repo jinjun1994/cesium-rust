@@ -187,7 +187,7 @@
 | [packages/core/Specs/PixelFormatSpec.js](../../cesium/packages/core/Specs/PixelFormatSpec.js) | 已移植：像素格式与数据类型枚举、WebGL1/2内部格式转换、多通道垂直反转（flipY）（pixel_format_spec.rs） |
 | [packages/core/Specs/PlaneGeometrySpec.js](../../cesium/packages/core/Specs/PlaneGeometrySpec.js) | 已移植：单面 4 顶点 2 三角形网格、全属性（法线/切线/副切线/纹理）（plane_geometry_spec.rs） |
 | [packages/core/Specs/PlaneOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PlaneOutlineGeometrySpec.js) | 已移植：矩形 4 边线框图元顶点与索引生成（plane_geometry_spec.rs） |
-| [packages/core/Specs/PlaneSpec.js](../../cesium/packages/core/Specs/PlaneSpec.js) | 部分：构造、距离、投影、变换及比较；JS 对象复用和异常语义不同 |
+| [packages/core/Specs/PlaneSpec.js](../../cesium/packages/core/Specs/PlaneSpec.js) | 已移植：点法式/四维系数/已知距离构造、点到平面距离、点投影、克隆与相等比较、均匀/非均匀缩放/旋转变换及奇异矩阵/非法法线拒绝（plane_spec.rs） |
 | [packages/core/Specs/PolygonGeometryLibrarySpec.js](../../cesium/packages/core/Specs/PolygonGeometryLibrarySpec.js) | 已全量移植：多边形几何库（恒向线/大地大圆细分采样与顶点打包、赤道多边形相交检测与连线分割重构、凹多边形、相交与折返边界全用例覆盖）（polygon_geometry_library_spec.rs） |
 | [packages/core/Specs/PolygonGeometrySpec.js](../../cesium/packages/core/Specs/PolygonGeometrySpec.js) | 已全量移植：多边形立体几何体（Earcut三角剖分、测地/恒向线细分、逐点高度、拉伸与侧壁挤出闭合、嵌套多层孔洞、经纬度矩形包围盒极射赤平算法[南北半球/赤道跨越/日界线跨越/包围极点]、全顶点属性法线/切线/副切线/ST、顶点偏移属性、Pack/Unpack 序列化）（polygon_geometry_spec.rs） |
 | [packages/core/Specs/PolygonOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PolygonOutlineGeometrySpec.js) | 已全量移植：多边形轮廓几何体（测地/恒向线细分、逐点高度、拉伸挤出立体轮廓、嵌套孔洞多边形层级、逆时针绕向保序、高低空包围球、顶点偏移属性 Top/All、Pack/Unpack 序列化）（polygon_outline_geometry_spec.rs） |
