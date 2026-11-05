@@ -320,8 +320,8 @@
 | [packages/engine/Specs/Core/loadKTX2Spec.js](../../cesium/packages/engine/Specs/Core/loadKTX2Spec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/parseResponseHeadersSpec.js](../../cesium/packages/engine/Specs/Core/parseResponseHeadersSpec.js) | 已补齐（`crates/cesium-math/tests/parse_response_headers_spec.rs`，覆盖 null/None/空字符串假值安全处理、CRLF 响应头分割、键值冒号解析及特殊值含冒号保持） |
 | [packages/engine/Specs/Core/resizeImageToNextPowerOfTwoSpec.js](../../cesium/packages/engine/Specs/Core/resizeImageToNextPowerOfTwoSpec.js) | 已补齐（`crates/cesium-math/tests/resize_image_to_next_power_of_two_spec.rs`，覆盖非2次幂宽/高单轴与双轴向上取整2次幂、已经是2次幂保持不变、带像素缓冲双线性重采样及 Math.nextPowerOfTwo / isPowerOfTwo 数学规范） |
-| [packages/engine/Specs/Core/sampleTerrainMostDetailedSpec.js](../../cesium/packages/engine/Specs/Core/sampleTerrainMostDetailedSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/sampleTerrainSpec.js](../../cesium/packages/engine/Specs/Core/sampleTerrainSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/sampleTerrainMostDetailedSpec.js](../../cesium/packages/engine/Specs/Core/sampleTerrainMostDetailedSpec.js) | 已补齐（`crates/cesium-math/tests/sample_terrain_most_detailed_spec.rs`，覆盖缺少 availability 异常拦截、各经纬度点最大可用层级动态求取及最高 LOD 瓦片几何高程采样） |
+| [packages/engine/Specs/Core/sampleTerrainSpec.js](../../cesium/packages/engine/Specs/Core/sampleTerrainSpec.js) | 已补齐（`crates/cesium-math/tests/sample_terrain_spec.rs`，覆盖指定层级瓦片聚类请求、真实网格三角形高程双线性插值、未覆盖瓦片 NaN 回退、rejectOnTileFail 异常控制及混合有效点填充） |
 | [packages/engine/Specs/Core/writeTextToCanvasSpec.js](../../cesium/packages/engine/Specs/Core/writeTextToCanvasSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/BillboardGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/BillboardGraphicsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/BillboardVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/BillboardVisualizerSpec.js) | 待逐项核对 |

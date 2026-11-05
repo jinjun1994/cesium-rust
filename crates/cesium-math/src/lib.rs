@@ -144,6 +144,7 @@ mod cesium_terrain_provider;
 mod create_world_bathymetry_async;
 mod create_world_terrain_async;
 mod resize_image_to_next_power_of_two;
+mod sample_terrain;
 mod terrain_mesh;
 mod terrain_picker;
 mod terrain_provider;
@@ -390,7 +391,7 @@ pub use google_earth_enterprise_terrain_provider::{
     GoogleEarthEnterpriseTerrainProvider, GoogleEarthEnterpriseTerrainProviderOptions,
 };
 pub use cesium_terrain_provider::{
-    CesiumTerrainFormat, CesiumTerrainLayerJson, CesiumTerrainProvider,
+    CesiumTerrainData, CesiumTerrainFormat, CesiumTerrainLayerJson, CesiumTerrainProvider,
     CesiumTerrainProviderOptions, CesiumTerrainTilingScheme, TileRange,
 };
 pub use create_world_bathymetry_async::{
@@ -401,6 +402,10 @@ pub use create_world_terrain_async::{
 };
 pub use resize_image_to_next_power_of_two::{
     resize_image_to_next_power_of_two, ImageBuffer, ImageDimensions,
+};
+pub use sample_terrain::{
+    sample_terrain, sample_terrain_most_detailed, sample_terrain_most_detailed_sync,
+    sample_terrain_sync,
 };
 pub use terrain_mesh::TerrainMesh;
 pub use terrain_picker::{TerrainPicker, TerrainPickerNode};
@@ -462,6 +467,19 @@ impl Cartographic {
             latitude,
             height: 0.0,
         }
+    }
+    pub const fn from_degrees(longitude: f64, latitude: f64, height: Option<f64>) -> Self {
+        Self {
+            longitude: longitude.to_radians(),
+            latitude: latitude.to_radians(),
+            height: match height {
+                Some(h) => h,
+                None => 0.0,
+            },
+        }
+    }
+    pub fn is_valid_height(&self) -> bool {
+        !self.height.is_nan()
     }
     pub fn radians(longitude: f64, latitude: f64, height: f64) -> Result<Self, MathError> {
         if !longitude.is_finite()

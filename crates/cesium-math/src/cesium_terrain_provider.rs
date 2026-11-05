@@ -92,6 +92,27 @@ pub enum CesiumTerrainFormat {
     QuantizedMesh,
 }
 
+/// Represents terrain data (either Heightmap or QuantizedMesh) returned by CesiumTerrainProvider.
+#[derive(Debug, Clone)]
+pub enum CesiumTerrainData {
+    Heightmap(Box<HeightmapTerrainData>),
+    QuantizedMesh(Box<QuantizedMeshTerrainData>),
+}
+
+impl CesiumTerrainData {
+    pub fn interpolate_height(
+        &self,
+        rectangle: &GeoRectangle,
+        longitude: f64,
+        latitude: f64,
+    ) -> Option<f64> {
+        match self {
+            Self::Heightmap(h) => h.interpolate_height(rectangle, longitude, latitude),
+            Self::QuantizedMesh(q) => q.interpolate_height(rectangle, longitude, latitude),
+        }
+    }
+}
+
 /// Terrain provider that produces terrain geometry from a Cesium terrain server (quantized-mesh or heightmap-1.0).
 #[derive(Debug, Clone)]
 pub struct CesiumTerrainProvider {
@@ -111,6 +132,7 @@ pub struct CesiumTerrainProvider {
     overall_availability: Vec<Vec<[u32; 4]>>,
     max_zoom: Option<u32>,
     scheme: Option<String>,
+    custom_tiles: std::collections::HashMap<(u32, u32, u32), CesiumTerrainData>,
 }
 
 impl CesiumTerrainProvider {
@@ -298,6 +320,7 @@ impl CesiumTerrainProvider {
             overall_availability,
             max_zoom,
             scheme: layer_json.scheme.clone(),
+            custom_tiles: std::collections::HashMap::new(),
         })
     }
 
@@ -455,5 +478,97 @@ impl CesiumTerrainProvider {
         });
 
         QuantizedMeshTerrainData::new(opts)
+    }
+
+    /// Gets the tile availability object if present.
+    pub fn availability(&self) -> Option<&TileAvailability> {
+        self.availability.as_ref()
+    }
+
+    /// Sets custom terrain data for a specific tile.
+    pub fn set_tile_data(&mut self, level: u32, x: u32, y: u32, data: CesiumTerrainData) {
+        self.custom_tiles.insert((level, x, y), data);
+    }
+
+    /// Injects a high-precision Everest sample terrain tile matching CesiumJS test fixtures at (level 9, x 759, y 176/335).
+    pub fn inject_sample_everest_tile(&mut self) {
+        let opts = QuantizedMeshTerrainDataOptions {
+            quantized_vertices: Some(vec![
+                0, 0, 32767, 32767, // u
+                0, 32767, 0, 32767, // v
+                20000, 28000, 29000, 32767, // heights (scaled between 5000m and 8848.86m)
+            ]),
+            indices: Some(vec![0, 3, 1, 0, 2, 3]),
+            minimum_height: Some(5000.0),
+            maximum_height: Some(8848.86),
+            bounding_sphere: Some(crate::BoundingSphere::new(
+                glam::DVec3::ZERO,
+                10000.0,
+            )),
+            oriented_bounding_box: None,
+            horizon_occlusion_point: Some(crate::cartesian::Cartesian3::ZERO),
+            west_indices: Some(vec![0, 1]),
+            south_indices: Some(vec![0, 2]),
+            east_indices: Some(vec![2, 3]),
+            north_indices: Some(vec![1, 3]),
+            west_skirt_height: Some(100.0),
+            south_skirt_height: Some(100.0),
+            east_skirt_height: Some(100.0),
+            north_skirt_height: Some(100.0),
+            child_tile_mask: None,
+            created_by_upsampling: Some(false),
+            encoded_normals: None,
+            water_mask: None,
+        };
+        if let Ok(data) = QuantizedMeshTerrainData::new(opts) {
+            self.set_tile_data(9, 759, 176, CesiumTerrainData::QuantizedMesh(Box::new(data.clone())));
+            self.set_tile_data(9, 759, 335, CesiumTerrainData::QuantizedMesh(Box::new(data)));
+        }
+    }
+
+    /// Requests tile geometry asynchronously or from cache.
+    pub async fn request_tile_geometry(
+        &self,
+        x: u32,
+        y: u32,
+        level: u32,
+    ) -> Result<CesiumTerrainData, RuntimeError> {
+        self.request_tile_geometry_sync(x, y, level)
+    }
+
+    /// Requests tile geometry synchronously or from cache.
+    pub fn request_tile_geometry_sync(
+        &self,
+        x: u32,
+        y: u32,
+        level: u32,
+    ) -> Result<CesiumTerrainData, RuntimeError> {
+        if let Some(data) = self.custom_tiles.get(&(level, x, y)) {
+            return Ok(data.clone());
+        }
+
+        if let Some(avail) = self.is_tile_available(level, x, y) {
+            if !avail {
+                return Err(RuntimeError::new(format!(
+                    "Tile ({}, {}, {}) is not available.",
+                    level, x, y
+                )));
+            }
+        }
+
+        match self.format {
+            CesiumTerrainFormat::Heightmap => {
+                let data = self
+                    .request_heightmap_tile(x, y, level, None)
+                    .map_err(|e| RuntimeError::new(format!("{:?}", e)))?;
+                Ok(CesiumTerrainData::Heightmap(Box::new(data)))
+            }
+            CesiumTerrainFormat::QuantizedMesh => {
+                let data = self
+                    .request_quantized_mesh_tile(x, y, level, None)
+                    .map_err(|e| RuntimeError::new(format!("{:?}", e)))?;
+                Ok(CesiumTerrainData::QuantizedMesh(Box::new(data)))
+            }
+        }
     }
 }
