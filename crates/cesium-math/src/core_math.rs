@@ -178,3 +178,31 @@ pub fn increment_wrap(n: f64, maximum_value: f64, minimum_value: Option<f64>) ->
     next
 }
 
+/// Determines whether a number is a power of two.
+#[inline]
+pub fn is_power_of_two(n: u32) -> bool {
+    n != 0 && (n & (n - 1)) == 0
+}
+
+/// Finds the next power of two for an integer value up to 2^31, matching CesiumJS `Core/Math.nextPowerOfTwo`.
+#[inline]
+pub fn next_power_of_two(n: f64) -> Result<u32, crate::errors::DeveloperError> {
+    if n.is_nan() || n < 0.0 || n > 2147483648.0 {
+        return Err(crate::errors::DeveloperError::new(
+            "n must be a non-negative number less than or equal to 2147483648",
+        ));
+    }
+    let n_u64 = n as u64;
+    if n_u64 == 0 {
+        return Ok(0);
+    }
+    let mut val = (n_u64 - 1) as u32;
+    val |= val >> 1;
+    val |= val >> 2;
+    val |= val >> 4;
+    val |= val >> 8;
+    val |= val >> 16;
+    Ok(val.wrapping_add(1))
+}
+
+

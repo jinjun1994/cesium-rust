@@ -319,7 +319,7 @@
 | [packages/engine/Specs/Core/loadImageFromTypedArraySpec.js](../../cesium/packages/engine/Specs/Core/loadImageFromTypedArraySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/loadKTX2Spec.js](../../cesium/packages/engine/Specs/Core/loadKTX2Spec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/parseResponseHeadersSpec.js](../../cesium/packages/engine/Specs/Core/parseResponseHeadersSpec.js) | 已补齐（`crates/cesium-math/tests/parse_response_headers_spec.rs`，覆盖 null/None/空字符串假值安全处理、CRLF 响应头分割、键值冒号解析及特殊值含冒号保持） |
-| [packages/engine/Specs/Core/resizeImageToNextPowerOfTwoSpec.js](../../cesium/packages/engine/Specs/Core/resizeImageToNextPowerOfTwoSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/resizeImageToNextPowerOfTwoSpec.js](../../cesium/packages/engine/Specs/Core/resizeImageToNextPowerOfTwoSpec.js) | 已补齐（`crates/cesium-math/tests/resize_image_to_next_power_of_two_spec.rs`，覆盖非2次幂宽/高单轴与双轴向上取整2次幂、已经是2次幂保持不变、带像素缓冲双线性重采样及 Math.nextPowerOfTwo / isPowerOfTwo 数学规范） |
 | [packages/engine/Specs/Core/sampleTerrainMostDetailedSpec.js](../../cesium/packages/engine/Specs/Core/sampleTerrainMostDetailedSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/sampleTerrainSpec.js](../../cesium/packages/engine/Specs/Core/sampleTerrainSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/writeTextToCanvasSpec.js](../../cesium/packages/engine/Specs/Core/writeTextToCanvasSpec.js) | 待逐项核对 |

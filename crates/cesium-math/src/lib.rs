@@ -143,6 +143,7 @@ mod google_earth_enterprise_terrain_provider;
 mod cesium_terrain_provider;
 mod create_world_bathymetry_async;
 mod create_world_terrain_async;
+mod resize_image_to_next_power_of_two;
 mod terrain_mesh;
 mod terrain_picker;
 mod terrain_provider;
@@ -397,6 +398,9 @@ pub use create_world_bathymetry_async::{
 };
 pub use create_world_terrain_async::{
     create_world_terrain_async, CreateWorldTerrainOptions,
+};
+pub use resize_image_to_next_power_of_two::{
+    resize_image_to_next_power_of_two, ImageBuffer, ImageDimensions,
 };
 pub use terrain_mesh::TerrainMesh;
 pub use terrain_picker::{TerrainPicker, TerrainPickerNode};
