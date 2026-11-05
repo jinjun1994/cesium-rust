@@ -196,6 +196,7 @@ mod vertex_format;
 mod vertical_exaggeration;
 mod vector_provider;
 mod wall_geometry;
+mod wall_graphics;
 mod warnings;
 mod winding_order;
 mod wireframe_index_generator;
@@ -565,6 +566,7 @@ pub use vector_provider::{
     MAXIMUM_GROUND_WIDTH_ANGLE,
 };
 pub use wall_geometry::{WallGeometry, WallOutlineGeometry};
+pub use wall_graphics::{WallGraphics, WallGraphicsOptions, WallGraphicsValues};
 pub use warnings::{deprecation_warning, one_time_warning, reset_warnings};
 pub use winding_order::WindingOrder;
 pub use wireframe_index_generator::WireframeIndexGenerator;

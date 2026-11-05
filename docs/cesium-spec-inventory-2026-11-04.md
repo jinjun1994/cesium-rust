@@ -412,7 +412,7 @@
 | [packages/engine/Specs/DataSources/VelocityOrientationPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/VelocityOrientationPropertySpec.js) | 已移植：基于速度矢量与参考椭球（WGS84）的动态四元数朝向计算、位置变化订阅联动、零速度回退、equals 比较（velocity_orientation_property_spec.rs，10 项测试全部通过） |
 | [packages/engine/Specs/DataSources/VelocityVectorPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/VelocityVectorPropertySpec.js) | 已移植：基于有限差分微商（step=1/60s）的速度矢量动态求导计算、归一化方向/非归一化速度切换、常量位置零速度回退、definitionChanged 级联监听与 equals 比对（velocity_vector_property_spec.rs，11 项测试全部通过） |
 | [packages/engine/Specs/DataSources/WallGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/WallGeometryUpdaterSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/WallGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/WallGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/WallGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/WallGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/wall_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/createMaterialPropertyDescriptorSpec.js](../../cesium/packages/engine/Specs/DataSources/createMaterialPropertyDescriptorSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/exportKmlSpec.js](../../cesium/packages/engine/Specs/DataSources/exportKmlSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/AutomaticUniformSpec.js](../../cesium/packages/engine/Specs/Renderer/AutomaticUniformSpec.js) | 待逐项核对 |
