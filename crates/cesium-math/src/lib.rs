@@ -116,6 +116,7 @@ mod pin_builder;
 mod point_inside_triangle;
 mod polygon_geometry;
 mod polygon_geometry_library;
+mod polygon_graphics;
 mod polygon_outline_geometry;
 mod polygon_pipeline;
 mod polynomial;
@@ -374,6 +375,9 @@ pub use polygon_geometry::{
     PolygonGeometry, PolygonGeometryFromPositionsOptions, PolygonGeometryOptions,
 };
 pub use polygon_geometry_library::PolygonGeometryLibrary;
+pub use polygon_graphics::{
+    PolygonGraphics, PolygonGraphicsOptions, PolygonGraphicsValues,
+};
 pub use polygon_outline_geometry::{
     PolygonOutlineGeometry, PolygonOutlineGeometryFromPositionsOptions,
     PolygonOutlineGeometryOptions,

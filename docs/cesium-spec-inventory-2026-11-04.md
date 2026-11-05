@@ -380,7 +380,7 @@
 | [packages/engine/Specs/DataSources/PointGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PointGraphicsSpec.js) | 已移植：点图元图形描述类、支持Color/pixelSize/outline/show/scaleByDistance/heightReference/distanceDisplayCondition/disableDepthTestDistance/splitDirection动态属性包装与字面量构造、merge未分配属性合并与既有属性保留、clone深拷贝、definitionChanged通知（point_graphics_spec.rs，4 项测试全部通过） |
 | [packages/engine/Specs/DataSources/PointVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/PointVisualizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/PolygonGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/PolygonGeometryUpdaterSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/PolygonGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PolygonGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PolygonGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PolygonGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/polygon_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/PolylineArrowMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineArrowMaterialPropertySpec.js) | 已移植：折线箭头材质属性封装、默认白色回退、常量与动态属性求值、isConstant判定及equals属性比较（polyline_arrow_material_property_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/DataSources/PolylineDashMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineDashMaterialPropertySpec.js) | 已移植：虚线折线材质属性封装、默认白色/透明间隙/16.0虚线长/255.0图案回退、常量与动态属性求值、isConstant联合判定及equals属性比对（polyline_dash_material_property_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/DataSources/PolylineGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineGeometryUpdaterSpec.js) | 待逐项核对 |
