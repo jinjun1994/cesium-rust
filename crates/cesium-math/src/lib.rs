@@ -174,6 +174,7 @@ mod google_earth_enterprise_metadata;
 mod google_earth_enterprise_terrain_data;
 mod google_earth_enterprise_terrain_provider;
 mod cesium_terrain_provider;
+mod cesium_3dtileset_graphics;
 mod create_world_bathymetry_async;
 mod create_world_terrain_async;
 mod resize_image_to_next_power_of_two;
@@ -235,6 +236,9 @@ pub use classification_type::ClassificationType;
 pub use clipping_plane_collection::ClippingPlaneCollection;
 pub use color_blend_mode::ColorBlendMode;
 pub use custom_shader::CustomShader;
+pub use cesium_3dtileset_graphics::{
+    Cesium3DTilesetGraphics, Cesium3DTilesetGraphicsOptions, Cesium3DTilesetGraphicsValues,
+};
 pub use corridor_graphics::{
     CorridorGraphics, CorridorGraphicsOptions, CorridorGraphicsValues,
 };

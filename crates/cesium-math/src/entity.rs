@@ -6,12 +6,12 @@ use std::fmt;
 use std::rc::Rc;
 
 use crate::{
-    create_guid, BillboardGraphics, BoxGraphics, Cartesian3, ConstantPositionProperty,
-    ConstantProperty, CorridorGraphics, CylinderGraphics, DeveloperError, EllipseGraphics,
-    EllipsoidGraphics, FixedFrameTransforms, JulianDate, LabelGraphics, Matrix3, Matrix4,
-    ModelGraphics, PathGraphics, PlaneGraphics, PointGraphics, PolygonGraphics, PolylineGraphics,
-    PolylineVolumeGraphics, PropertyBag, Quaternion, RectangleGraphics, TimeIntervalCollection,
-    TrackingReferenceFrame, WallGraphics,
+    create_guid, BillboardGraphics, BoxGraphics, Cartesian3, Cesium3DTilesetGraphics,
+    ConstantPositionProperty, ConstantProperty, CorridorGraphics, CylinderGraphics, DeveloperError,
+    EllipseGraphics, EllipsoidGraphics, FixedFrameTransforms, JulianDate, LabelGraphics, Matrix3,
+    Matrix4, ModelGraphics, PathGraphics, PlaneGraphics, PointGraphics, PolygonGraphics,
+    PolylineGraphics, PolylineVolumeGraphics, PropertyBag, Quaternion, RectangleGraphics,
+    TimeIntervalCollection, TrackingReferenceFrame, WallGraphics,
 };
 
 /// Trait for objects that can be merged with another object of the same type.
@@ -66,6 +66,7 @@ const RESERVED_PROPERTY_NAMES: &[&str] = &[
     "ellipsoid",
     "label",
     "model",
+    "tileset",
     "path",
     "plane",
     "point",
@@ -104,6 +105,7 @@ pub struct Entity {
     pub ellipsoid: Option<EllipsoidGraphics>,
     pub label: Option<LabelGraphics>,
     pub model: Option<ModelGraphics>,
+    pub tileset: Option<Cesium3DTilesetGraphics>,
     pub path: Option<PathGraphics>,
     pub plane: Option<PlaneGraphics>,
     pub point: Option<PointGraphics>,
@@ -154,6 +156,7 @@ impl Entity {
             ellipsoid: None,
             label: None,
             model: None,
+            tileset: None,
             path: None,
             plane: None,
             point: None,
@@ -234,6 +237,7 @@ impl Entity {
         Self::merge_item(&mut self.ellipsoid, &source.ellipsoid);
         Self::merge_item(&mut self.label, &source.label);
         Self::merge_item(&mut self.model, &source.model);
+        Self::merge_item(&mut self.tileset, &source.tileset);
         Self::merge_item(&mut self.path, &source.path);
         Self::merge_item(&mut self.plane, &source.plane);
         Self::merge_item(&mut self.point, &source.point);
@@ -323,6 +327,7 @@ impl Entity {
             "ellipsoid".to_string(),
             "label".to_string(),
             "model".to_string(),
+            "tileset".to_string(),
             "orientation".to_string(),
             "path".to_string(),
             "plane".to_string(),
