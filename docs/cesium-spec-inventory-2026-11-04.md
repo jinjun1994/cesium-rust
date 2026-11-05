@@ -279,7 +279,7 @@
 | [packages/engine/Specs/Core/IauOrientationAxesSpec.js](../../cesium/packages/engine/Specs/Core/IauOrientationAxesSpec.js) | 已移植：国际天球参考系 ICRF 到月球固定系 Moon Fixed 旋转矩阵计算（赤道岁差/章动与自转四元数合成）（iau_orientation_axes_spec.rs） |
 | [packages/engine/Specs/Core/IonGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/IonGeocoderServiceSpec.js) | 已补齐（`crates/cesium-math/tests/ion_geocoder_service_spec.rs`，覆盖默认 access token 与 server 端点、IonGeocodeProviderType 校验及枚举解析、动态切换 Google/Bing/Default geocoder 查询参数、委托底层 Pelias 地理编码请求与结果反序列化） |
 | [packages/engine/Specs/Core/IonResourceSpec.js](../../cesium/packages/engine/Specs/Core/IonResourceSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/IonSnapServiceSpec.js](../../cesium/packages/engine/Specs/Core/IonSnapServiceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/IonSnapServiceSpec.js](../../cesium/packages/engine/Specs/Core/IonSnapServiceSpec.js) | 已补齐（`crates/cesium-math/tests/ion_snap_service_spec.rs`，覆盖 DEFAULT_SNAP_APERTURE 常量、IonSnapMode/IonSnapHeat/IonSnapGeometryType 枚举值、NDC 到视口像素空间投影矩阵计算、ECEF 行优先变换矩阵反序列化与吸附请求接口） |
 | [packages/engine/Specs/Core/ManagedArraySpec.js](../../cesium/packages/engine/Specs/Core/ManagedArraySpec.js) | 已移植：受管动态数组、显式长度与预留容量管理、动态扩缩容、末尾元素出入栈与引用清理（managed_array_spec.rs） |
 | [packages/engine/Specs/Core/MortonOrderSpec.js](../../cesium/packages/engine/Specs/Core/MortonOrderSpec.js) | 已移植：2D/3D 莫顿空间填充曲线编码与解码、位交错与反交错、边界值与越界校验（morton_order_spec.rs） |
 | [packages/engine/Specs/Core/OpenCageGeocoderServiceSpec.js](../../cesium/packages/engine/Specs/Core/OpenCageGeocoderServiceSpec.js) | 已补齐（`crates/cesium-math/tests/open_cage_geocoder_service_spec.rs`，覆盖 URL 与 API Key 构造校验、query 与 params URL 拼接、带 bounds 的经纬度矩形映射、无 bounds 的笛卡尔空间点 Cartesian3 映射、空结果处理及 OpenStreetMap Credit 版权信息） |
@@ -295,7 +295,7 @@
 | [packages/engine/Specs/Core/S2CellSpec.js](../../cesium/packages/engine/Specs/Core/S2CellSpec.js) | 已移植：S2 空间球面四叉分片与希尔伯特曲线索引、64位CellID与十六进制Token互转、父子层级解算、中心与CCW顶点椭球地理坐标投影（s2_cell_spec.rs） |
 | [packages/engine/Specs/Core/ScreenSpaceEventHandlerSpec.js](../../cesium/packages/engine/Specs/Core/ScreenSpaceEventHandlerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/Simon1994PlanetaryPositionsSpec.js](../../cesium/packages/engine/Specs/Core/Simon1994PlanetaryPositionsSpec.js) | 已移植：Simon 1994 太阳与月球地心惯性系（J2000/GCRF）行星轨道摄动级数解算、Delaunay变量与Kepler偏近点角迭代、地固系东升西落方位角验证（simon1994_planetary_positions_spec.rs） |
-| [packages/engine/Specs/Core/SnapServiceSpec.js](../../cesium/packages/engine/Specs/Core/SnapServiceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/SnapServiceSpec.js](../../cesium/packages/engine/Specs/Core/SnapServiceSpec.js) | 已补齐（`crates/cesium-math/tests/snap_service_spec.rs`，覆盖 SnapService 基础 trait 定义、DEFAULT_SNAP_APERTURE 默认声明及基类未实现 snap 报错逻辑） |
 | [packages/engine/Specs/Core/TaskProcessorSpec.js](../../cesium/packages/engine/Specs/Core/TaskProcessorSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/TerrainEncodingSpec.js](../../cesium/packages/engine/Specs/Core/TerrainEncodingSpec.js) | 已移植：地形顶点量化（NONE/BITS12）、顶点编码/解码、纹理坐标压缩、高程夸大、八面体法线打包与大地水准面法线增删、着色器顶点属性布局（terrain_encoding_spec.rs） |
 | [packages/engine/Specs/Core/TerrainMeshSpec.js](../../cesium/packages/engine/Specs/Core/TerrainMeshSpec.js) | 已移植：地形网格结构（TerrainMesh）元数据封装、3D/2D/ColumbusView 模型到世界坐标变换（OrientedBoundingBox 投影与 Swizzle 3D 到 2D 变换）、高程夸大动态重算、场景模式切换感知与拾取变换维护（terrain_mesh_spec.rs） |
