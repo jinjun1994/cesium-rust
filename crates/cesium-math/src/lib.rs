@@ -23,6 +23,7 @@ mod open_cage_geocoder_service;
 mod pelias_geocoder_service;
 mod ion_geocoder_service;
 mod vr_the_world_terrain_provider;
+mod trusted_servers;
 mod catmull_rom_spline;
 mod celestial_frame_transforms;
 mod check;
@@ -196,6 +197,7 @@ pub use ion_geocoder_service::{
 pub use vr_the_world_terrain_provider::{
     VRTheWorldDataRectangle, VRTheWorldTerrainProvider, VRTheWorldTerrainProviderOptions,
 };
+pub use trusted_servers::TrustedServers;
 pub use catmull_rom_spline::CatmullRomSpline;
 pub use celestial_frame_transforms::CelestialFrameTransforms;
 pub use check::Check;
