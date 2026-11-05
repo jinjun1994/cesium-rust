@@ -337,8 +337,8 @@
 | [packages/engine/Specs/DataSources/CompositeMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CompositeMaterialPropertySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/CompositePositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CompositePositionPropertySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/CompositePropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CompositePropertySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/ConstantPositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ConstantPositionPropertySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/ConstantPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ConstantPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/ConstantPositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ConstantPositionPropertySpec.js) | 已移植：参考系设定（Fixed/Inertial默认与显式设定）、Fixed参考系默认求值、指定参考系（PositionProperty.convertToReferenceFrame）跨参考系（ICRF与Fixed矩阵转换）求值、setValue更新与definitionChanged事件通知（仅数据变动触发）、equals容差与参考系比较（constant_position_property_spec.rs，6 项测试全部通过） |
+| [packages/engine/Specs/DataSources/ConstantPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ConstantPropertySpec.js) | 已移植：基础标量/复合对象属性值封装、getValue时间无关常数求值、Display字符串格式化、setValue更新与definitionChanged事件通知（仅数据变动触发）、undefined值处理与equals全场景比较（constant_property_spec.rs，7 项测试全部通过） |
 | [packages/engine/Specs/DataSources/CorridorGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/CorridorGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/CorridorGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/CorridorGraphicsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/CustomDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/CustomDataSourceSpec.js) | 待逐项核对 |

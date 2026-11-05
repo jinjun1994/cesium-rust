@@ -93,6 +93,8 @@ mod occluder;
 mod oriented_bounding_box;
 mod plane;
 mod plane_geometry;
+mod property;
+mod reference_frame;
 mod pixel_format;
 mod pin_builder;
 mod point_inside_triangle;
@@ -349,11 +351,13 @@ pub use polyline_volume_outline_geometry::{
     PolylineVolumeOutlineGeometry, PolylineVolumeOutlineGeometryOptions,
 };
 pub use projection::{GeographicProjection, MapProjection, WebMercatorProjection};
+pub use property::{ConstantPositionProperty, ConstantProperty, PositionProperty, Property};
 pub use quantized_mesh_terrain_data::{QuantizedMeshTerrainData, QuantizedMeshTerrainDataOptions};
 pub use quaternion::{HeadingPitchRoll, Quaternion};
 pub use quaternion_spline::QuaternionSpline;
 pub use queue::Queue;
 pub use ray::Ray;
+pub use reference_frame::ReferenceFrame;
 pub use rectangle::GeoRectangle;
 pub use rectangle_geometry::{RectangleGeometry, RectangleGeometryOptions};
 pub use rectangle_geometry_library::{RectangleGeometryLibrary, RectangleOptionsComputed};
