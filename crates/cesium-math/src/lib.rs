@@ -148,6 +148,10 @@ mod sample_terrain;
 mod write_text_to_canvas;
 mod image_from_typed_array;
 mod ktx2_transcoder;
+mod default_proxy;
+mod resource;
+mod ion;
+mod ion_resource;
 mod terrain_mesh;
 mod terrain_picker;
 mod terrain_provider;
@@ -420,6 +424,16 @@ pub use image_from_typed_array::{
 pub use ktx2_transcoder::{
     get_ktx2_supported_formats, load_ktx2, load_ktx2_url, set_ktx2_supported_formats,
     KTX2SupportedFormats, KTX2TranscodeResult, KTX2Transcoder, KTX2_IDENTIFIER,
+};
+pub use default_proxy::{DefaultProxy, Proxy};
+pub use resource::{
+    Blob, DataUriPayload, DerivedResourceOptions, QueryValue, Resource, ResourceOptions,
+    RetryCallback,
+};
+pub use ion::Ion;
+pub use ion_resource::{
+    IonAttribution, IonEndpoint, IonEndpointOptions, IonRefreshCallback, IonResource,
+    IonResourceOptions,
 };
 pub use terrain_mesh::TerrainMesh;
 pub use terrain_picker::{TerrainPicker, TerrainPickerNode};

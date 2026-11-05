@@ -4,9 +4,7 @@ use crate::{
     Credit, DeveloperError, GeocodeType, PeliasGeocoderResult, PeliasGeocoderService,
 };
 
-pub const DEFAULT_ION_SERVER: &str = "https://api.cesium.com/";
-pub const DEFAULT_ION_ACCESS_TOKEN: &str =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6Im01MDBjRTVZclBWTmwycGsiLCJqdGkiOiI3NGFjZmI5MS01MDAwLTQwZTktOTlkMC01OTJkN2E2MmQ5OTgiLCJpZCI6MjU5LCJzdWIiOiJDZXNpdW1KUyIsImlzcyI6Imh0dHBzOi8vYXBpLmNlc2l1bS5jb20iLCJhdWQiOiIxLjE0NiBSZWxlYXNlIC0gRGVsZXRlIG9uIERlY2VtYmVyIDEsIDIwMjYiLCJpYXQiOjE3OTAzMTMyMTJ9.4CskcFdVNW5VgLW2iBnYt2GIW2Yl9Q5u6T8gSRK4rkU";
+pub use crate::ion::{DEFAULT_ION_ACCESS_TOKEN, DEFAULT_ION_SERVER};
 
 /// Underlying geocoding services that can be used via Cesium ion.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]

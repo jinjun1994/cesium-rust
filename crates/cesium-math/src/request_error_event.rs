@@ -67,6 +67,18 @@ pub struct RequestErrorEvent {
 }
 
 impl RequestErrorEvent {
+    pub fn new(
+        status_code: Option<u16>,
+        response: Option<String>,
+        headers: Option<HashMap<String, String>>,
+    ) -> Self {
+        Self {
+            status_code,
+            response,
+            response_headers: headers.unwrap_or_default(),
+        }
+    }
+
     pub fn from_raw_headers(
         status_code: Option<u16>,
         response: Option<String>,

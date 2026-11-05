@@ -238,8 +238,10 @@ dependencies = [
 name = "cesium-math"
 version = "0.0.26"
 dependencies = [
+ "base64 0.22.1",
  "earcutr",
  "glam",
+ "image",
  "serde",
  "serde_json",
  "thiserror 2.0.21",
