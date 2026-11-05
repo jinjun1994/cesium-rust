@@ -319,7 +319,9 @@ pub use managed_array::ManagedArray;
 pub use material_property::{
     CheckerboardMaterialProperty, CheckerboardMaterialValue, ColorMaterialProperty,
     GridMaterialProperty, GridMaterialValue, ImageMaterialProperty, ImageMaterialValue,
-    StripeMaterialProperty, StripeMaterialValue, StripeOrientation,
+    PolylineArrowMaterialProperty, PolylineDashMaterialProperty, PolylineDashMaterialValue,
+    PolylineGlowMaterialProperty, PolylineGlowMaterialValue, PolylineOutlineMaterialProperty,
+    PolylineOutlineMaterialValue, StripeMaterialProperty, StripeMaterialValue, StripeOrientation,
 };
 pub use matrices::{Matrix2, Matrix3, Matrix4};
 pub use merge_sort::merge_sort;

@@ -431,3 +431,301 @@ impl ImageMaterialProperty {
         }
     }
 }
+
+/// The evaluated value of a PolylineGlowMaterialProperty.
+#[derive(Clone, Debug, PartialEq)]
+pub struct PolylineGlowMaterialValue {
+    pub color: Color,
+    pub glow_power: f64,
+    pub taper_power: f64,
+}
+
+/// A MaterialProperty that maps to polyline glow materials.
+#[derive(Clone, Debug, Default)]
+pub struct PolylineGlowMaterialProperty {
+    pub color: Option<ConstantProperty<Color>>,
+    pub glow_power: Option<ConstantProperty<f64>>,
+    pub taper_power: Option<ConstantProperty<f64>>,
+    definition_changed: Event<()>,
+}
+
+impl PolylineGlowMaterialProperty {
+    pub fn new(
+        color: Option<ConstantProperty<Color>>,
+        glow_power: Option<ConstantProperty<f64>>,
+        taper_power: Option<ConstantProperty<f64>>,
+    ) -> Self {
+        Self {
+            color,
+            glow_power,
+            taper_power,
+            definition_changed: Event::new(),
+        }
+    }
+
+    pub fn get_type(&self) -> &'static str {
+        "PolylineGlow"
+    }
+
+    pub fn is_constant(&self) -> bool {
+        self.color.as_ref().is_none_or(|c| c.is_constant())
+            && self.glow_power.as_ref().is_none_or(|c| c.is_constant())
+            && self.taper_power.as_ref().is_none_or(|c| c.is_constant())
+    }
+
+    pub fn definition_changed(&self) -> &Event<()> {
+        &self.definition_changed
+    }
+
+    pub fn get_value(&self, time: Option<&JulianDate>) -> PolylineGlowMaterialValue {
+        let color = self
+            .color
+            .as_ref()
+            .and_then(|c| c.get_value(time))
+            .unwrap_or(Color::WHITE);
+        let glow_power = self
+            .glow_power
+            .as_ref()
+            .and_then(|c| c.get_value(time))
+            .unwrap_or(0.25);
+        let taper_power = self
+            .taper_power
+            .as_ref()
+            .and_then(|c| c.get_value(time))
+            .unwrap_or(1.0);
+        PolylineGlowMaterialValue {
+            color,
+            glow_power,
+            taper_power,
+        }
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => {
+                self.color == o.color
+                    && self.glow_power == o.glow_power
+                    && self.taper_power == o.taper_power
+            }
+            None => false,
+        }
+    }
+}
+
+/// The evaluated value of a PolylineOutlineMaterialProperty.
+#[derive(Clone, Debug, PartialEq)]
+pub struct PolylineOutlineMaterialValue {
+    pub color: Color,
+    pub outline_color: Color,
+    pub outline_width: f64,
+}
+
+/// A MaterialProperty that maps to polyline outline materials.
+#[derive(Clone, Debug, Default)]
+pub struct PolylineOutlineMaterialProperty {
+    pub color: Option<ConstantProperty<Color>>,
+    pub outline_color: Option<ConstantProperty<Color>>,
+    pub outline_width: Option<ConstantProperty<f64>>,
+    definition_changed: Event<()>,
+}
+
+impl PolylineOutlineMaterialProperty {
+    pub fn new(
+        color: Option<ConstantProperty<Color>>,
+        outline_color: Option<ConstantProperty<Color>>,
+        outline_width: Option<ConstantProperty<f64>>,
+    ) -> Self {
+        Self {
+            color,
+            outline_color,
+            outline_width,
+            definition_changed: Event::new(),
+        }
+    }
+
+    pub fn get_type(&self) -> &'static str {
+        "PolylineOutline"
+    }
+
+    pub fn is_constant(&self) -> bool {
+        self.color.as_ref().is_none_or(|c| c.is_constant())
+            && self.outline_color.as_ref().is_none_or(|c| c.is_constant())
+            && self.outline_width.as_ref().is_none_or(|c| c.is_constant())
+    }
+
+    pub fn definition_changed(&self) -> &Event<()> {
+        &self.definition_changed
+    }
+
+    pub fn get_value(&self, time: Option<&JulianDate>) -> PolylineOutlineMaterialValue {
+        let color = self
+            .color
+            .as_ref()
+            .and_then(|c| c.get_value(time))
+            .unwrap_or(Color::WHITE);
+        let outline_color = self
+            .outline_color
+            .as_ref()
+            .and_then(|c| c.get_value(time))
+            .unwrap_or(Color::BLACK);
+        let outline_width = self
+            .outline_width
+            .as_ref()
+            .and_then(|c| c.get_value(time))
+            .unwrap_or(1.0);
+        PolylineOutlineMaterialValue {
+            color,
+            outline_color,
+            outline_width,
+        }
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => {
+                self.color == o.color
+                    && self.outline_color == o.outline_color
+                    && self.outline_width == o.outline_width
+            }
+            None => false,
+        }
+    }
+}
+
+/// A MaterialProperty that maps to polyline arrow materials.
+#[derive(Clone, Debug, Default)]
+pub struct PolylineArrowMaterialProperty {
+    pub color: Option<ConstantProperty<Color>>,
+    definition_changed: Event<()>,
+}
+
+impl PolylineArrowMaterialProperty {
+    pub fn new(color: Option<ConstantProperty<Color>>) -> Self {
+        Self {
+            color,
+            definition_changed: Event::new(),
+        }
+    }
+
+    pub fn from_color(color: Color) -> Self {
+        Self::new(Some(ConstantProperty::from_value(color)))
+    }
+
+    pub fn get_type(&self) -> &'static str {
+        "PolylineArrow"
+    }
+
+    pub fn is_constant(&self) -> bool {
+        self.color.as_ref().is_none_or(|c| c.is_constant())
+    }
+
+    pub fn definition_changed(&self) -> &Event<()> {
+        &self.definition_changed
+    }
+
+    pub fn get_value(&self, time: Option<&JulianDate>) -> Color {
+        self.color
+            .as_ref()
+            .and_then(|c| c.get_value(time))
+            .unwrap_or(Color::WHITE)
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => self.color == o.color,
+            None => false,
+        }
+    }
+}
+
+/// The evaluated value of a PolylineDashMaterialProperty.
+#[derive(Clone, Debug, PartialEq)]
+pub struct PolylineDashMaterialValue {
+    pub color: Color,
+    pub gap_color: Color,
+    pub dash_length: f64,
+    pub dash_pattern: f64,
+}
+
+/// A MaterialProperty that maps to dashed polyline materials.
+#[derive(Clone, Debug, Default)]
+pub struct PolylineDashMaterialProperty {
+    pub color: Option<ConstantProperty<Color>>,
+    pub gap_color: Option<ConstantProperty<Color>>,
+    pub dash_length: Option<ConstantProperty<f64>>,
+    pub dash_pattern: Option<ConstantProperty<f64>>,
+    definition_changed: Event<()>,
+}
+
+impl PolylineDashMaterialProperty {
+    pub fn new(
+        color: Option<ConstantProperty<Color>>,
+        gap_color: Option<ConstantProperty<Color>>,
+        dash_length: Option<ConstantProperty<f64>>,
+        dash_pattern: Option<ConstantProperty<f64>>,
+    ) -> Self {
+        Self {
+            color,
+            gap_color,
+            dash_length,
+            dash_pattern,
+            definition_changed: Event::new(),
+        }
+    }
+
+    pub fn get_type(&self) -> &'static str {
+        "PolylineDash"
+    }
+
+    pub fn is_constant(&self) -> bool {
+        self.color.as_ref().is_none_or(|c| c.is_constant())
+            && self.gap_color.as_ref().is_none_or(|c| c.is_constant())
+            && self.dash_length.as_ref().is_none_or(|c| c.is_constant())
+            && self.dash_pattern.as_ref().is_none_or(|c| c.is_constant())
+    }
+
+    pub fn definition_changed(&self) -> &Event<()> {
+        &self.definition_changed
+    }
+
+    pub fn get_value(&self, time: Option<&JulianDate>) -> PolylineDashMaterialValue {
+        let color = self
+            .color
+            .as_ref()
+            .and_then(|c| c.get_value(time))
+            .unwrap_or(Color::WHITE);
+        let gap_color = self
+            .gap_color
+            .as_ref()
+            .and_then(|c| c.get_value(time))
+            .unwrap_or(Color::TRANSPARENT);
+        let dash_length = self
+            .dash_length
+            .as_ref()
+            .and_then(|c| c.get_value(time))
+            .unwrap_or(16.0);
+        let dash_pattern = self
+            .dash_pattern
+            .as_ref()
+            .and_then(|c| c.get_value(time))
+            .unwrap_or(255.0);
+        PolylineDashMaterialValue {
+            color,
+            gap_color,
+            dash_length,
+            dash_pattern,
+        }
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => {
+                self.color == o.color
+                    && self.gap_color == o.gap_color
+                    && self.dash_length == o.dash_length
+                    && self.dash_pattern == o.dash_pattern
+            }
+            None => false,
+        }
+    }
+}

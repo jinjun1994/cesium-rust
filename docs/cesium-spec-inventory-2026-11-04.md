@@ -381,12 +381,12 @@
 | [packages/engine/Specs/DataSources/PointVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/PointVisualizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/PolygonGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/PolygonGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/PolygonGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PolygonGraphicsSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/PolylineArrowMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineArrowMaterialPropertySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/PolylineDashMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineDashMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PolylineArrowMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineArrowMaterialPropertySpec.js) | 已移植：折线箭头材质属性封装、默认白色回退、常量与动态属性求值、isConstant判定及equals属性比较（polyline_arrow_material_property_spec.rs，3 项测试全部通过） |
+| [packages/engine/Specs/DataSources/PolylineDashMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineDashMaterialPropertySpec.js) | 已移植：虚线折线材质属性封装、默认白色/透明间隙/16.0虚线长/255.0图案回退、常量与动态属性求值、isConstant联合判定及equals属性比对（polyline_dash_material_property_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/DataSources/PolylineGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineGeometryUpdaterSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/PolylineGlowMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineGlowMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PolylineGlowMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineGlowMaterialPropertySpec.js) | 已移植：发光折线材质属性封装、默认白色/0.25发光强度/1.0锥度回退、常量与动态属性求值、isConstant联合判定及equals属性比对（polyline_glow_material_property_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/DataSources/PolylineGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineGraphicsSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/PolylineOutlineMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineOutlineMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PolylineOutlineMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineOutlineMaterialPropertySpec.js) | 已移植：带轮廓折线材质属性封装、默认白色主色/黑色轮廓/1.0线宽回退、常量与动态属性求值、isConstant联合判定及equals属性比对（polyline_outline_material_property_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/DataSources/PolylineVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineVisualizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/PolylineVolumeGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineVolumeGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/PolylineVolumeGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineVolumeGraphicsSpec.js) | 待逐项核对 |
