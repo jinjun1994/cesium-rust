@@ -118,7 +118,7 @@
 | [packages/core/Specs/Cartesian2Spec.js](../../cesium/packages/core/Specs/Cartesian2Spec.js) | 已移植：构造、打包、四则运算、点叉乘、模长、距离、归一化、夹角与插值（cartesian_spec.rs） |
 | [packages/core/Specs/Cartesian3Spec.js](../../cesium/packages/core/Specs/Cartesian3Spec.js) | 已移植：构造、打包、四则运算、点叉乘、模长、距离、正交轴、投影、WGS84 椭球转换（cartesian_spec.rs） |
 | [packages/core/Specs/Cartesian4Spec.js](../../cesium/packages/core/Specs/Cartesian4Spec.js) | 已移植：构造、打包、四则运算、模长、Color 互转与插值（cartesian_spec.rs） |
-| [packages/core/Specs/CartographicSpec.js](../../cesium/packages/core/Specs/CartographicSpec.js) | 部分：WGS84 参考点及正负高度；其余待核对 |
+| [packages/core/Specs/CartographicSpec.js](../../cesium/packages/core/Specs/CartographicSpec.js) | 已补齐（`crates/cesium-math/tests/cartographic_spec.rs`，覆盖默认构造、参数构造、to_cartesian / from_cartesian 在 WGS84 与 MOON 椭球体正反投影转换、正负高程（高于/低于椭球表面）可逆重构、from_radians / from_degrees 缺省高程推导、clone / equals / equals_epsilon 及 to_string 格式化，13 项测试全部通过） |
 | [packages/core/Specs/CatmullRomSplineSpec.js](../../cesium/packages/core/Specs/CatmullRomSplineSpec.js) | 已移植：Catmull-Rom 三次样条曲线、端点切线自动推导与外部注入、Hermite 混合边界求值（catmull_rom_spline_spec.rs） |
 | [packages/core/Specs/CheckSpec.js](../../cesium/packages/core/Specs/CheckSpec.js) | 已移植：参数前置条件类型检查（Check::defined, Check::type_of_number, Check::type_of_bool）（check_spec.rs） |
 | [packages/core/Specs/CircleGeometrySpec.js](../../cesium/packages/core/Specs/CircleGeometrySpec.js) | 已移植：圆几何多边形剖分、顶点属性生成、退化参数校验与包围球计算（circle_geometry_spec.rs） |

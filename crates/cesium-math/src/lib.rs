@@ -497,11 +497,17 @@ const E2: f64 = 1.0 - (WGS84_B * WGS84_B) / (WGS84_A * WGS84_A);
 #[error("invalid coordinate, camera, or degenerate transform")]
 pub struct MathError;
 
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, PartialEq, Default)]
 pub struct Cartographic {
     pub longitude: f64,
     pub latitude: f64,
     pub height: f64,
+}
+
+impl std::fmt::Display for Cartographic {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "({}, {}, {})", self.longitude, self.latitude, self.height)
+    }
 }
 impl Cartographic {
     pub const ZERO: Self = Self::new(0.0, 0.0, 0.0);
@@ -518,6 +524,50 @@ impl Cartographic {
             longitude,
             latitude,
             height: 0.0,
+        }
+    }
+    pub const fn from_radians_with_height(
+        longitude: f64,
+        latitude: f64,
+        height: Option<f64>,
+    ) -> Self {
+        Self {
+            longitude,
+            latitude,
+            height: match height {
+                Some(h) => h,
+                None => 0.0,
+            },
+        }
+    }
+    pub fn to_cartesian(&self, ellipsoid: Option<&Ellipsoid>) -> Cartesian3 {
+        let e = ellipsoid.copied().unwrap_or(Ellipsoid::WGS84);
+        e.cartographic_to_cartesian(*self)
+            .map(Cartesian3::from)
+            .unwrap_or(Cartesian3::ZERO)
+    }
+    pub fn from_cartesian(cartesian: Cartesian3, ellipsoid: Option<&Ellipsoid>) -> Option<Self> {
+        let e = ellipsoid.copied().unwrap_or(Ellipsoid::WGS84);
+        e.cartesian_to_cartographic(DVec3::from(cartesian))
+    }
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => {
+                self.longitude == o.longitude
+                    && self.latitude == o.latitude
+                    && self.height == o.height
+            }
+            None => false,
+        }
+    }
+    pub fn equals_epsilon(&self, other: Option<&Self>, epsilon: f64) -> bool {
+        match other {
+            Some(o) => {
+                (self.longitude - o.longitude).abs() <= epsilon
+                    && (self.latitude - o.latitude).abs() <= epsilon
+                    && (self.height - o.height).abs() <= epsilon
+            }
+            None => false,
         }
     }
     pub const fn from_degrees(longitude: f64, latitude: f64, height: Option<f64>) -> Self {
