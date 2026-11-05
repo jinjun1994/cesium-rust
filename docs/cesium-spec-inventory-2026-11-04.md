@@ -302,7 +302,7 @@
 | [packages/engine/Specs/Core/TerrainPickerSpec.js](../../cesium/packages/engine/Specs/Core/TerrainPickerSpec.js) | 已移植：地形四叉树空间拾取器（TerrainPicker）、包围盒与光线求交过滤、多重三角形沿光线最近点解算、光线反向三角形剔除与背面剔除判定（cullBackFaces）、多次拾取幂等稳定性（terrain_picker_spec.rs） |
 | [packages/engine/Specs/Core/TileAvailabilitySpec.js](../../cesium/packages/engine/Specs/Core/TileAvailabilitySpec.js) | 已移植：瓦片四叉树可用性索引（TileAvailability）、点处最大可用等级对数查询、矩形区域多层级覆盖差集解算（含180度日界线穿越）、子瓦片掩码计算与矩形排序（tile_availability_spec.rs） |
 | [packages/engine/Specs/Core/TrustedServersSpec.js](../../cesium/packages/engine/Specs/Core/TrustedServersSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/VRTheWorldTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/VRTheWorldTerrainProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/VRTheWorldTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/VRTheWorldTerrainProviderSpec.js) | 已补齐（`crates/cesium-math/tests/vr_the_world_terrain_provider_spec.rs`，覆盖 TileMap XML 元数据解析与 EPSG:4326 SRS 校验、各级几何误差推导与折半计算、DataExtents 范围子瓦片可用性掩码解算、TMS y 坐标翻转瓦片 URL 构造与 HeightmapTerrainData 瓦片几何请求） |
 | [packages/engine/Specs/Core/VectorProviderSpec.js](../../cesium/packages/engine/Specs/Core/VectorProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/VideoSynchronizerSpec.js](../../cesium/packages/engine/Specs/Core/VideoSynchronizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Core/WebMercatorTilingSchemeSpec.js](../../cesium/packages/engine/Specs/Core/WebMercatorTilingSchemeSpec.js) | 已移植：Web 墨卡托瓦片方案、单根瓦片全域覆盖、瓦片索引与原生米坐标映射、极区裁剪与多层级瓦片定位（web_mercator_tiling_scheme_spec.rs） |
