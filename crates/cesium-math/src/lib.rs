@@ -41,6 +41,7 @@ mod coplanar_polygon_geometry;
 mod core_math;
 mod corridor_geometry;
 mod corridor_geometry_library;
+mod ground_polyline_geometry;
 mod create_guid;
 mod culling_volume;
 mod cylinder_geometry;
@@ -246,6 +247,9 @@ pub use corridor_geometry::{
 };
 pub use corridor_geometry_library::{
     CorridorCorner, CorridorGeometryLibrary, CorridorParameters, CorridorPositions,
+};
+pub use ground_polyline_geometry::{
+    GroundPolylineGeometry, GroundPolylineGeometryOptions,
 };
 pub use create_guid::create_guid;
 pub use culling_volume::{BoundingVolume, CullingVolume, Intersect};
