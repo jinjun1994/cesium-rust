@@ -147,7 +147,7 @@
 | [packages/core/Specs/EllipsoidOutlineGeometrySpec.js](../../cesium/packages/core/Specs/EllipsoidOutlineGeometrySpec.js) | 已移植：三轴椭球经纬线框顶点与索引生成（ellipsoid_geometry_spec.rs） |
 | [packages/core/Specs/EllipsoidRhumbLineSpec.js](../../cesium/packages/core/Specs/EllipsoidRhumbLineSpec.js) | 已移植：等角航线/恒向线表面距离计算、墨卡托等量纬度差计算、起始航向与给定航向推算插值（ellipsoid_rhumb_line_spec.rs） |
 | [packages/core/Specs/EllipsoidSpec.js](../../cesium/packages/core/Specs/EllipsoidSpec.js) | 部分：构造、法线、转换、投影、轴交点、曲率及面积；数组/pack 与其他情况待核对 |
-| [packages/core/Specs/EllipsoidTangentPlaneSpec.js](../../cesium/packages/core/Specs/EllipsoidTangentPlaneSpec.js) | 部分：构造、单点/批量投影及 WGS84 往返；零半径及 JS 对象语义待核对 |
+| [packages/core/Specs/EllipsoidTangentPlaneSpec.js](../../cesium/packages/core/Specs/EllipsoidTangentPlaneSpec.js) | 已移植：WGS84默认/自定义椭球构造、点集原点推导、单点/批量射线投影、最近点正交投影、椭球反投影往返、克隆与相等比较及非法原点拒绝（ellipsoid_tangent_plane_spec.rs） |
 | [packages/core/Specs/EllipsoidalOccluderSpec.js](../../cesium/packages/core/Specs/EllipsoidalOccluderSpec.js) | 部分：可见性、地下椭球、剔除点和顶点；其余数值与错误语义待核对 |
 | [packages/core/Specs/EncodedCartesian3Spec.js](../../cesium/packages/core/Specs/EncodedCartesian3Spec.js) | 已移植：高低位拆分编码、从 Cartesian3 构造、顶点属性数组交错写入（encoded_cartesian3_spec.rs） |
 | [packages/core/Specs/EventSpec.js](../../cesium/packages/core/Specs/EventSpec.js) | 已移植：通用事件发布订阅模式、回调重入动态增删（支持在回调内部安全注册与移除监听器）、监听器计数（event_spec.rs） |

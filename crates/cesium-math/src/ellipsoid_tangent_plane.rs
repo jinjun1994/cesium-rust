@@ -12,6 +12,10 @@ pub struct EllipsoidTangentPlane {
 }
 
 impl EllipsoidTangentPlane {
+    pub fn from_origin(origin: DVec3) -> Result<Self, MathError> {
+        Self::new(origin, Ellipsoid::WGS84)
+    }
+
     pub fn new(origin: DVec3, ellipsoid: Ellipsoid) -> Result<Self, MathError> {
         let origin = ellipsoid
             .scale_to_geodetic_surface(origin)
@@ -92,5 +96,18 @@ impl EllipsoidTangentPlane {
             .iter()
             .map(|&point| self.project_point_onto_ellipsoid(point))
             .collect()
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => {
+                self.ellipsoid == o.ellipsoid
+                    && self.origin == o.origin
+                    && self.plane == o.plane
+                    && self.x_axis == o.x_axis
+                    && self.y_axis == o.y_axis
+            }
+            None => false,
+        }
     }
 }
