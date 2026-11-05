@@ -123,7 +123,7 @@
 | [packages/core/Specs/CheckSpec.js](../../cesium/packages/core/Specs/CheckSpec.js) | 已移植：参数前置条件类型检查（Check::defined, Check::type_of_number, Check::type_of_bool）（check_spec.rs） |
 | [packages/core/Specs/CircleGeometrySpec.js](../../cesium/packages/core/Specs/CircleGeometrySpec.js) | 已移植：圆几何多边形剖分、顶点属性生成、退化参数校验与包围球计算（circle_geometry_spec.rs） |
 | [packages/core/Specs/CircleOutlineGeometrySpec.js](../../cesium/packages/core/Specs/CircleOutlineGeometrySpec.js) | 已移植：圆周线框、拉伸圆柱线框、垂直连接线定制与退化参数校验（circle_geometry_spec.rs） |
-| [packages/core/Specs/ClockSpec.js](../../cesium/packages/core/Specs/ClockSpec.js) | 部分：时间范围和暂停；JulianDate、ClockStep、事件等待实现 |
+| [packages/core/Specs/ClockSpec.js](../../cesium/packages/core/Specs/ClockSpec.js) | 已补齐（`crates/cesium-math/tests/clock_spec.rs`，覆盖构造参数缺省与智能推导、startTime > stopTime 校验、TICK_DEPENDENT 正反向多倍率仿真推进、UNBOUNDED / CLAMPED / LOOP_STOP 边界与模区间循环计算、onStop / onTick 事件发布、SYSTEM_CLOCK 实时时钟、SYSTEM_CLOCK_MULTIPLIER 动态倍率时间同步推进及模式状态迁移切换，27 项测试全部通过） |
 | [packages/core/Specs/ColorGeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/ColorGeometryInstanceAttributeSpec.js) | 已移植：几何实例单体颜色属性、RGBA 字节映射、归一化与比较（color_geometry_instance_attribute_spec.rs） |
 | [packages/core/Specs/ColorSpec.js](../../cesium/packages/core/Specs/ColorSpec.js) | 已移植：常量色表、RGBA/Bytes 转换、CSS 解析、亮暗调整与打包（color_spec.rs） |
 | [packages/core/Specs/ComponentDatatypeSpec.js](../../cesium/packages/core/Specs/ComponentDatatypeSpec.js) | 已移植：WebGL 组件数据类型字节大小、名称解析、值校验与映射（component_datatype_spec.rs） |

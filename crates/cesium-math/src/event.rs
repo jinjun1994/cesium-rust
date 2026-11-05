@@ -27,6 +27,12 @@ pub struct Event<T = ()> {
     inner: Rc<RefCell<EventInner<T>>>,
 }
 
+impl<T> std::fmt::Debug for Event<T> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "Event(...)")
+    }
+}
+
 impl<T: 'static> Default for Event<T> {
     fn default() -> Self {
         Self::new()
