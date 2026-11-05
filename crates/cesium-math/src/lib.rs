@@ -16,6 +16,8 @@ mod box_geometry;
 mod build_module_url;
 mod cartesian;
 mod cartographic_geocoder_service;
+mod credit;
+mod bing_maps_geocoder_service;
 mod catmull_rom_spline;
 mod celestial_frame_transforms;
 mod check;
@@ -168,6 +170,10 @@ pub use build_module_url::{
 };
 pub use cartesian::{Cartesian2, Cartesian3, Cartesian4};
 pub use cartographic_geocoder_service::{CartographicGeocoderService, GeocoderResult};
+pub use credit::Credit;
+pub use bing_maps_geocoder_service::{
+    BingMapsGeocoderResult, BingMapsGeocoderService, BingMapsGeocoderServiceOptions,
+};
 pub use catmull_rom_spline::CatmullRomSpline;
 pub use celestial_frame_transforms::CelestialFrameTransforms;
 pub use check::Check;
