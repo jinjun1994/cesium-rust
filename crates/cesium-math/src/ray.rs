@@ -30,6 +30,17 @@ impl Ray {
         self.origin + self.direction * t
     }
 
+    pub fn get_point(&self, t: f64) -> DVec3 {
+        self.point_at(t)
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => self.origin == o.origin && self.direction == o.direction,
+            None => false,
+        }
+    }
+
     pub fn intersect_plane(self, plane: Plane) -> Option<DVec3> {
         plane.intersect_ray(self.origin, self.direction)
     }

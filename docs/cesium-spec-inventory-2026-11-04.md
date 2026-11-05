@@ -203,7 +203,7 @@
 | [packages/core/Specs/QuaternionSpec.js](../../cesium/packages/core/Specs/QuaternionSpec.js) | 已移植：单位四元数、轴角构造、旋转矩阵互转与 slerp 球面插值（quaternion_hpr_spec.rs） |
 | [packages/core/Specs/QuaternionSplineSpec.js](../../cesium/packages/core/Specs/QuaternionSplineSpec.js) | 已全量移植：四元数球面线性插值样条曲线（双控制点退化、多点插值、时间区间查找、越界抛错与 slerp 球面平滑求值）（quaternion_spline_spec.rs，4 项测试全部通过） |
 | [packages/core/Specs/QueueSpec.js](../../cesium/packages/core/Specs/QueueSpec.js) | 已移植：队列入队出队、首元素查看 peek、包含性检查、就地排序与清空（queue_spec.rs） |
-| [packages/core/Specs/RaySpec.js](../../cesium/packages/core/Specs/RaySpec.js) | 部分：构造、方向归一化、取点；JS 对象复用语义不同 |
+| [packages/core/Specs/RaySpec.js](../../cesium/packages/core/Specs/RaySpec.js) | 已移植：默认/参数构造、方向自动归一化、克隆与相等比较、get_point/point_at取点、求交（平面/球/椭球/盒/三角形）与非法输入拒绝（ray_spec.rs） |
 | [packages/core/Specs/RectangleGeometrySpec.js](../../cesium/packages/core/Specs/RectangleGeometrySpec.js) | 已全量移植：矩形立体几何体（极点退化三角扇、IDL跨越、旋转与ST纹理坐标旋转重映射、拉伸侧壁网格与法线/切线/副切线、顶部/全部applyOffset偏移属性、退化检测与Pack/Unpack序列化）（rectangle_geometry_spec.rs，28 项测试全部通过） |
 | [packages/core/Specs/RectangleOutlineGeometrySpec.js](../../cesium/packages/core/Specs/RectangleOutlineGeometrySpec.js) | 已全量移植：矩形轮廓线框几何体（经纬线圈环绕索引、极点边退化、高度拉伸四角与极点柱边线框、顶部/全部applyOffset偏移属性、退化检测与Pack/Unpack序列化）（rectangle_outline_geometry_spec.rs，18 项测试全部通过） |
 | [packages/core/Specs/RectangleSpec.js](../../cesium/packages/core/Specs/RectangleSpec.js) | 部分：角点、宽高、点集、包围球、交并、包含、子区域与采样；其余待核对 |

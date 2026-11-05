@@ -3,14 +3,55 @@ use cesium_math::{AxisAlignedBoundingBox, Ellipsoid, Interval, Plane, Ray, Spher
 use glam::DVec3;
 
 #[test]
-fn upstream_construction_and_points() {
-    assert_eq!(Ray::default(), Ray::new(DVec3::ZERO, DVec3::ZERO).unwrap());
-    let ray = Ray::new(DVec3::Y, DVec3::X * 18.0).unwrap();
-    assert_eq!((ray.origin, ray.direction), (DVec3::Y, DVec3::X));
-    let ray = Ray::new(DVec3::X, DVec3::new(1.0, 2.0, 3.0)).unwrap();
-    for t in -10..=10 {
-        assert_eq!(ray.point_at(t as f64), DVec3::X + ray.direction * t as f64);
+fn default_constructor_creates_zero_valued_ray() {
+    let ray = Ray::default();
+    assert_eq!(ray.origin, DVec3::ZERO);
+    assert_eq!(ray.direction, DVec3::ZERO);
+}
+
+#[test]
+fn constructor_sets_expected_properties() {
+    let origin = DVec3::Y;
+    let direction = DVec3::X;
+    let ray = Ray::new(origin, direction).unwrap();
+    assert_eq!(ray.origin, origin);
+    assert_eq!(ray.direction, direction);
+}
+
+#[test]
+fn constructor_normalizes_direction() {
+    let origin = DVec3::Y;
+    let direction = DVec3::X * 18.0;
+    let ray = Ray::new(origin, direction).unwrap();
+    assert_eq!(ray.origin, origin);
+    assert_eq!(ray.direction, DVec3::X);
+}
+
+#[test]
+fn clone_and_equality() {
+    let direction = DVec3::new(1.0, 2.0, 3.0).normalize();
+    let ray = Ray::new(DVec3::X, direction).unwrap();
+    let cloned = ray;
+    assert_eq!(ray, cloned);
+    assert!(ray.equals(Some(&cloned)));
+    assert!(!ray.equals(Some(&Ray::new(DVec3::Y, direction).unwrap())));
+    assert!(!ray.equals(Some(&Ray::new(DVec3::X, DVec3::Y).unwrap())));
+    assert!(!ray.equals(None));
+}
+
+#[test]
+fn get_point_along_ray_works() {
+    let direction = DVec3::new(1.0, 2.0, 3.0).normalize();
+    let ray = Ray::new(DVec3::X, direction).unwrap();
+    for i in -10..=10 {
+        let expected = DVec3::X + direction * (i as f64);
+        assert_eq!(ray.point_at(i as f64), expected);
+        assert_eq!(ray.get_point(i as f64), expected);
     }
+}
+
+#[test]
+fn rejects_invalid_inputs() {
     assert!(Ray::new(DVec3::splat(f64::NAN), DVec3::X).is_err());
     assert!(Ray::new(DVec3::ZERO, DVec3::splat(f64::INFINITY)).is_err());
 }
