@@ -390,8 +390,8 @@
 | [packages/engine/Specs/DataSources/PolylineVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineVisualizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/PolylineVolumeGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineVolumeGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/PolylineVolumeGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PolylineVolumeGraphicsSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/PositionPropertyArraySpec.js](../../cesium/packages/engine/Specs/DataSources/PositionPropertyArraySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/PropertyArraySpec.js](../../cesium/packages/engine/Specs/DataSources/PropertyArraySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PositionPropertyArraySpec.js](../../cesium/packages/engine/Specs/DataSources/PositionPropertyArraySpec.js) | 已移植：位置属性数组容器、多参考系（Fixed/Inertial）位置批量求值与坐标转换、子属性 definitionChanged 事件聚合广播、未定义值过滤、equals 逐项比对（position_property_array_spec.rs，10 项测试全部通过） |
+| [packages/engine/Specs/DataSources/PropertyArraySpec.js](../../cesium/packages/engine/Specs/DataSources/PropertyArraySpec.js) | 已移植：通用属性数组容器、批量属性求值、子属性 definitionChanged 事件聚合广播、未定义值过滤、全项常量性判定、equals 逐项比对（property_array_spec.rs，9 项测试全部通过） |
 | [packages/engine/Specs/DataSources/PropertyBagSpec.js](../../cesium/packages/engine/Specs/DataSources/PropertyBagSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/RectangleGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/RectangleGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/RectangleGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/RectangleGraphicsSpec.js) | 待逐项核对 |

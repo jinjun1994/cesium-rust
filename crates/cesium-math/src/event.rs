@@ -152,4 +152,52 @@ impl<T: 'static> Event<T> {
         let mut additions = std::mem::take(&mut inner.to_add);
         inner.listeners.append(&mut additions);
     }
+
+    /// Registers a callback and returns a boxed closure that removes the listener when called.
+    pub fn add_listener_scoped<F>(&self, callback: F) -> Box<dyn FnOnce() + 'static>
+    where
+        T: 'static,
+        F: Fn(&T) + 'static,
+    {
+        let id = self.add_listener(callback);
+        let inner = Rc::clone(&self.inner);
+        Box::new(move || {
+            let mut inner = inner.borrow_mut();
+            if !inner.to_remove.contains(&id) {
+                if inner.invoking {
+                    inner.to_remove.push(id);
+                } else {
+                    inner.listeners.retain(|e| e.id != id);
+                    inner.to_add.retain(|e| e.id != id);
+                }
+            }
+        })
+    }
 }
+
+/// A convenience object that simplifies the common pattern of attaching event listeners
+/// to several events, then removing all those listeners at once later.
+#[derive(Default)]
+pub struct EventHelper {
+    removals: Vec<Box<dyn FnOnce() + 'static>>,
+}
+
+impl EventHelper {
+    pub fn new() -> Self {
+        Self {
+            removals: Vec::new(),
+        }
+    }
+
+    pub fn add<T: 'static, F: Fn(&T) + 'static>(&mut self, event: &Event<T>, callback: F) {
+        let removal = event.add_listener_scoped(callback);
+        self.removals.push(removal);
+    }
+
+    pub fn remove_all(&mut self) {
+        for removal in self.removals.drain(..) {
+            removal();
+        }
+    }
+}
+

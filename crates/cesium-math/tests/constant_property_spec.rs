@@ -25,7 +25,7 @@ fn works_with_objects() {
 
 #[test]
 fn set_value_raises_definition_changed_event() {
-    let mut property = ConstantProperty::new(None);
+    let property = ConstantProperty::new(None);
     let called = Rc::new(Cell::new(0));
     let called_clone = called.clone();
 
@@ -39,7 +39,7 @@ fn set_value_raises_definition_changed_event() {
 
 #[test]
 fn set_value_does_not_raise_definition_changed_event_with_equal_data() {
-    let mut property = ConstantProperty::from_value(Cartesian3::new(0.0, 0.0, 0.0));
+    let property = ConstantProperty::from_value(Cartesian3::new(0.0, 0.0, 0.0));
     let called = Rc::new(Cell::new(0));
     let called_clone = called.clone();
 

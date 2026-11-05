@@ -59,7 +59,7 @@ fn get_value_in_reference_frame_works() {
 
 #[test]
 fn set_value_raises_definition_changed_event() {
-    let mut property = ConstantPositionProperty::new(None, None);
+    let property = ConstantPositionProperty::new(None, None);
     let called = Rc::new(Cell::new(0));
     let called_clone = called.clone();
 
@@ -80,7 +80,7 @@ fn set_value_raises_definition_changed_event() {
 
 #[test]
 fn set_value_does_not_raise_definition_changed_event_with_equal_data() {
-    let mut property = ConstantPositionProperty::new(
+    let property = ConstantPositionProperty::new(
         Some(Cartesian3::new(1.0, 2.0, 3.0)),
         Some(ReferenceFrame::Fixed),
     );

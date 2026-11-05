@@ -1,7 +1,11 @@
 //! Property interfaces and implementations matching CesiumJS `DataSources/Property.js` (Apache-2.0).
 
+use std::cell::{Cell, RefCell};
+use std::rc::Rc;
+
 use crate::{
-    Cartesian3, CelestialFrameTransforms, Event, JulianDate, ReferenceFrame, TimeIntervalCollection,
+    Cartesian3, CelestialFrameTransforms, Event, EventHelper, JulianDate, ReferenceFrame,
+    TimeIntervalCollection,
 };
 
 /// The interface for all properties, which represent a value that can optionally vary over time.
@@ -20,16 +24,25 @@ pub trait Property<T: Clone> {
 }
 
 /// A Property whose value does not change with respect to simulation time.
-#[derive(Clone, Debug)]
+#[derive(Debug)]
 pub struct ConstantProperty<T: Clone + PartialEq> {
-    value: Option<T>,
+    value: RefCell<Option<T>>,
     definition_changed: Event<()>,
+}
+
+impl<T: Clone + PartialEq> Clone for ConstantProperty<T> {
+    fn clone(&self) -> Self {
+        Self {
+            value: RefCell::new(self.value.borrow().clone()),
+            definition_changed: self.definition_changed.clone(),
+        }
+    }
 }
 
 impl<T: Clone + PartialEq> ConstantProperty<T> {
     pub fn new(value: Option<T>) -> Self {
         Self {
-            value,
+            value: RefCell::new(value),
             definition_changed: Event::new(),
         }
     }
@@ -47,19 +60,21 @@ impl<T: Clone + PartialEq> ConstantProperty<T> {
     }
 
     pub fn get_value(&self, _time: Option<&JulianDate>) -> Option<T> {
-        self.value.clone()
+        self.value.borrow().clone()
     }
 
-    pub fn set_value(&mut self, value: Option<T>) {
-        if self.value != value {
-            self.value = value;
+    pub fn set_value(&self, value: Option<T>) {
+        let mut val = self.value.borrow_mut();
+        if *val != value {
+            *val = value;
+            drop(val);
             self.definition_changed.raise_event(&());
         }
     }
 
     pub fn equals(&self, other: Option<&Self>) -> bool {
         match other {
-            Some(o) => self.value == o.value,
+            Some(o) => *self.value.borrow() == *o.value.borrow(),
             None => false,
         }
     }
@@ -67,13 +82,13 @@ impl<T: Clone + PartialEq> ConstantProperty<T> {
 
 impl<T: Clone + PartialEq> PartialEq for ConstantProperty<T> {
     fn eq(&self, other: &Self) -> bool {
-        self.value == other.value
+        *self.value.borrow() == *other.value.borrow()
     }
 }
 
 impl<T: Clone + PartialEq + std::fmt::Display> std::fmt::Display for ConstantProperty<T> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
-        match &self.value {
+        match &*self.value.borrow() {
             Some(v) => write!(f, "{v}"),
             None => write!(f, "undefined"),
         }
@@ -107,24 +122,34 @@ impl PositionProperty {
 }
 
 /// A PositionProperty whose value does not change with respect to simulation time.
-#[derive(Clone, Debug)]
+#[derive(Debug)]
 pub struct ConstantPositionProperty {
-    value: Option<Cartesian3>,
-    reference_frame: ReferenceFrame,
+    value: RefCell<Option<Cartesian3>>,
+    reference_frame: Cell<ReferenceFrame>,
     definition_changed: Event<()>,
+}
+
+impl Clone for ConstantPositionProperty {
+    fn clone(&self) -> Self {
+        Self {
+            value: RefCell::new(*self.value.borrow()),
+            reference_frame: Cell::new(self.reference_frame.get()),
+            definition_changed: self.definition_changed.clone(),
+        }
+    }
 }
 
 impl ConstantPositionProperty {
     pub fn new(value: Option<Cartesian3>, reference_frame: Option<ReferenceFrame>) -> Self {
         Self {
-            value,
-            reference_frame: reference_frame.unwrap_or(ReferenceFrame::Fixed),
+            value: RefCell::new(value),
+            reference_frame: Cell::new(reference_frame.unwrap_or(ReferenceFrame::Fixed)),
             definition_changed: Event::new(),
         }
     }
 
     pub fn reference_frame(&self) -> ReferenceFrame {
-        self.reference_frame
+        self.reference_frame.get()
     }
 
     pub fn is_constant(&self) -> bool {
@@ -146,29 +171,34 @@ impl ConstantPositionProperty {
     ) -> Option<Cartesian3> {
         PositionProperty::convert_to_reference_frame(
             time,
-            self.value,
-            self.reference_frame,
+            *self.value.borrow(),
+            self.reference_frame.get(),
             target_frame,
         )
     }
 
     pub fn set_value(
-        &mut self,
+        &self,
         value: Option<Cartesian3>,
         reference_frame: Option<ReferenceFrame>,
     ) {
-        let new_frame = reference_frame.unwrap_or(self.reference_frame);
-        let changed = self.value != value || self.reference_frame != new_frame;
+        let new_frame = reference_frame.unwrap_or(self.reference_frame.get());
+        let mut val = self.value.borrow_mut();
+        let changed = *val != value || self.reference_frame.get() != new_frame;
         if changed {
-            self.value = value;
-            self.reference_frame = new_frame;
+            *val = value;
+            self.reference_frame.set(new_frame);
+            drop(val);
             self.definition_changed.raise_event(&());
         }
     }
 
     pub fn equals(&self, other: Option<&Self>) -> bool {
         match other {
-            Some(o) => self.reference_frame == o.reference_frame && self.value == o.value,
+            Some(o) => {
+                self.reference_frame.get() == o.reference_frame.get()
+                    && *self.value.borrow() == *o.value.borrow()
+            }
             None => false,
         }
     }
@@ -176,7 +206,8 @@ impl ConstantPositionProperty {
 
 impl PartialEq for ConstantPositionProperty {
     fn eq(&self, other: &Self) -> bool {
-        self.reference_frame == other.reference_frame && self.value == other.value
+        self.reference_frame.get() == other.reference_frame.get()
+            && *self.value.borrow() == *other.value.borrow()
     }
 }
 
@@ -561,3 +592,470 @@ impl TimeIntervalCollectionPositionProperty {
         self.definition_changed.raise_event(&());
     }
 }
+
+/// Dynamic trait object interface for generic Property evaluation and comparison.
+pub trait DynProperty<T: Clone>: std::any::Any {
+    fn is_constant(&self) -> bool;
+    fn definition_changed(&self) -> &Event<()>;
+    fn get_value(&self, time: Option<&JulianDate>) -> Option<T>;
+    fn as_any(&self) -> &dyn std::any::Any;
+    fn equals_dyn(&self, other: &dyn DynProperty<T>) -> bool;
+}
+
+impl<T: Clone + PartialEq + 'static> DynProperty<T> for ConstantProperty<T> {
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn get_value(&self, time: Option<&JulianDate>) -> Option<T> {
+        self.get_value(time)
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn equals_dyn(&self, other: &dyn DynProperty<T>) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+}
+
+impl<T: Clone + 'static> DynProperty<T> for CallbackProperty<T> {
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn get_value(&self, time: Option<&JulianDate>) -> Option<T> {
+        self.get_value(time)
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn equals_dyn(&self, other: &dyn DynProperty<T>) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+}
+
+impl<T: Clone + PartialEq + 'static> DynProperty<T> for CompositeProperty<T> {
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn get_value(&self, time: Option<&JulianDate>) -> Option<T> {
+        self.get_value(time)
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn equals_dyn(&self, other: &dyn DynProperty<T>) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+}
+
+impl<T: Clone + PartialEq + 'static> DynProperty<T> for TimeIntervalCollectionProperty<T> {
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn get_value(&self, time: Option<&JulianDate>) -> Option<T> {
+        self.get_value(time)
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn equals_dyn(&self, other: &dyn DynProperty<T>) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+}
+
+/// Dynamic trait object interface for PositionProperty instances.
+pub trait DynPositionProperty: std::any::Any {
+    fn is_constant(&self) -> bool;
+    fn definition_changed(&self) -> &Event<()>;
+    fn get_value(&self, time: Option<&JulianDate>) -> Option<Cartesian3>;
+    fn get_value_in_reference_frame(
+        &self,
+        time: Option<&JulianDate>,
+        target_frame: ReferenceFrame,
+    ) -> Option<Cartesian3>;
+    fn as_any(&self) -> &dyn std::any::Any;
+    fn equals_dyn(&self, other: &dyn DynPositionProperty) -> bool;
+}
+
+impl DynPositionProperty for ConstantPositionProperty {
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn get_value(&self, time: Option<&JulianDate>) -> Option<Cartesian3> {
+        self.get_value(time)
+    }
+    fn get_value_in_reference_frame(
+        &self,
+        time: Option<&JulianDate>,
+        target_frame: ReferenceFrame,
+    ) -> Option<Cartesian3> {
+        self.get_value_in_reference_frame(time, target_frame)
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn equals_dyn(&self, other: &dyn DynPositionProperty) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+}
+
+impl DynPositionProperty for CallbackPositionProperty {
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn get_value(&self, time: Option<&JulianDate>) -> Option<Cartesian3> {
+        self.get_value(time)
+    }
+    fn get_value_in_reference_frame(
+        &self,
+        time: Option<&JulianDate>,
+        target_frame: ReferenceFrame,
+    ) -> Option<Cartesian3> {
+        self.get_value_in_reference_frame(time, target_frame)
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn equals_dyn(&self, other: &dyn DynPositionProperty) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+}
+
+impl DynPositionProperty for CompositePositionProperty {
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn get_value(&self, time: Option<&JulianDate>) -> Option<Cartesian3> {
+        self.get_value(time)
+    }
+    fn get_value_in_reference_frame(
+        &self,
+        time: Option<&JulianDate>,
+        target_frame: ReferenceFrame,
+    ) -> Option<Cartesian3> {
+        self.get_value_in_reference_frame(time, target_frame)
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn equals_dyn(&self, other: &dyn DynPositionProperty) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+}
+
+impl DynPositionProperty for TimeIntervalCollectionPositionProperty {
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn get_value(&self, time: Option<&JulianDate>) -> Option<Cartesian3> {
+        self.get_value(time)
+    }
+    fn get_value_in_reference_frame(
+        &self,
+        time: Option<&JulianDate>,
+        target_frame: ReferenceFrame,
+    ) -> Option<Cartesian3> {
+        self.get_value_in_reference_frame(time, target_frame)
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn equals_dyn(&self, other: &dyn DynPositionProperty) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+}
+
+/// A Property whose value is an array whose items are the computed value of other property instances.
+#[derive(Clone)]
+pub struct PropertyArray<T: Clone + 'static> {
+    value: Option<Vec<Rc<dyn DynProperty<T>>>>,
+    definition_changed: Event<()>,
+    event_helper: Rc<RefCell<EventHelper>>,
+}
+
+impl<T: Clone + PartialEq + 'static> Default for PropertyArray<T> {
+    fn default() -> Self {
+        Self::new(None)
+    }
+}
+
+impl<T: Clone + PartialEq + 'static> PropertyArray<T> {
+    pub fn new(value: Option<Vec<Rc<dyn DynProperty<T>>>>) -> Self {
+        let mut slf = Self {
+            value: None,
+            definition_changed: Event::new(),
+            event_helper: Rc::new(RefCell::new(EventHelper::new())),
+        };
+        slf.set_value(value);
+        slf
+    }
+
+    pub fn from_rc_properties(props: Vec<Rc<dyn DynProperty<T>>>) -> Self {
+        Self::new(Some(props))
+    }
+
+    pub fn is_constant(&self) -> bool {
+        match &self.value {
+            None => true,
+            Some(items) => items.iter().all(|item| item.is_constant()),
+        }
+    }
+
+    pub fn definition_changed(&self) -> &Event<()> {
+        &self.definition_changed
+    }
+
+    pub fn get_value(&self, time: Option<&JulianDate>) -> Option<Vec<T>> {
+        let default_time;
+        let t = match time {
+            Some(time) => time,
+            None => {
+                default_time = JulianDate::now();
+                &default_time
+            }
+        };
+
+        let items = self.value.as_ref()?;
+        let mut result = Vec::with_capacity(items.len());
+        for item in items {
+            if let Some(v) = item.get_value(Some(t)) {
+                result.push(v);
+            }
+        }
+        Some(result)
+    }
+
+    pub fn set_value(&mut self, value: Option<Vec<Rc<dyn DynProperty<T>>>>) {
+        self.event_helper.borrow_mut().remove_all();
+
+        if let Some(items) = &value {
+            let dc = self.definition_changed.clone();
+            for item in items {
+                self.event_helper.borrow_mut().add(item.definition_changed(), {
+                    let ev = dc.clone();
+                    move |_| ev.raise_event(&())
+                });
+            }
+            self.value = Some(items.clone());
+        } else {
+            self.value = None;
+        }
+
+        self.definition_changed.raise_event(&());
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        let other = match other {
+            Some(o) => o,
+            None => return false,
+        };
+        match (&self.value, &other.value) {
+            (None, None) => true,
+            (Some(a), Some(b)) => {
+                if a.len() != b.len() {
+                    return false;
+                }
+                a.iter().zip(b.iter()).all(|(x, y)| x.equals_dyn(&**y))
+            }
+            _ => false,
+        }
+    }
+}
+
+impl<T: Clone + PartialEq + 'static> DynProperty<Vec<T>> for PropertyArray<T> {
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn get_value(&self, time: Option<&JulianDate>) -> Option<Vec<T>> {
+        self.get_value(time)
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn equals_dyn(&self, other: &dyn DynProperty<Vec<T>>) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+}
+
+/// A PositionProperty whose value is an array whose items are the computed value of other PositionProperty instances.
+#[derive(Clone)]
+pub struct PositionPropertyArray {
+    value: Option<Vec<Rc<dyn DynPositionProperty>>>,
+    reference_frame: ReferenceFrame,
+    definition_changed: Event<()>,
+    event_helper: Rc<RefCell<EventHelper>>,
+}
+
+impl Default for PositionPropertyArray {
+    fn default() -> Self {
+        Self::new(None, None)
+    }
+}
+
+impl PositionPropertyArray {
+    pub fn new(
+        value: Option<Vec<Rc<dyn DynPositionProperty>>>,
+        reference_frame: Option<ReferenceFrame>,
+    ) -> Self {
+        let mut slf = Self {
+            value: None,
+            reference_frame: reference_frame.unwrap_or(ReferenceFrame::Fixed),
+            definition_changed: Event::new(),
+            event_helper: Rc::new(RefCell::new(EventHelper::new())),
+        };
+        slf.set_value(value);
+        slf
+    }
+
+    pub fn from_rc_properties(
+        props: Vec<Rc<dyn DynPositionProperty>>,
+        reference_frame: Option<ReferenceFrame>,
+    ) -> Self {
+        Self::new(Some(props), reference_frame)
+    }
+
+    pub fn reference_frame(&self) -> ReferenceFrame {
+        self.reference_frame
+    }
+
+    pub fn is_constant(&self) -> bool {
+        match &self.value {
+            None => true,
+            Some(items) => items.iter().all(|item| item.is_constant()),
+        }
+    }
+
+    pub fn definition_changed(&self) -> &Event<()> {
+        &self.definition_changed
+    }
+
+    pub fn get_value(&self, time: Option<&JulianDate>) -> Option<Vec<Cartesian3>> {
+        let default_time;
+        let t = match time {
+            Some(time) => time,
+            None => {
+                default_time = JulianDate::now();
+                &default_time
+            }
+        };
+        self.get_value_in_reference_frame(Some(t), ReferenceFrame::Fixed)
+    }
+
+    pub fn get_value_in_reference_frame(
+        &self,
+        time: Option<&JulianDate>,
+        target_frame: ReferenceFrame,
+    ) -> Option<Vec<Cartesian3>> {
+        let t = time?;
+        let items = self.value.as_ref()?;
+        let mut result = Vec::with_capacity(items.len());
+        for item in items {
+            if let Some(v) = item.get_value_in_reference_frame(Some(t), target_frame) {
+                result.push(v);
+            }
+        }
+        Some(result)
+    }
+
+    pub fn set_value(&mut self, value: Option<Vec<Rc<dyn DynPositionProperty>>>) {
+        self.event_helper.borrow_mut().remove_all();
+
+        if let Some(items) = &value {
+            let dc = self.definition_changed.clone();
+            for item in items {
+                self.event_helper.borrow_mut().add(item.definition_changed(), {
+                    let ev = dc.clone();
+                    move |_| ev.raise_event(&())
+                });
+            }
+            self.value = Some(items.clone());
+        } else {
+            self.value = None;
+        }
+
+        self.definition_changed.raise_event(&());
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        let other = match other {
+            Some(o) => o,
+            None => return false,
+        };
+        if self.reference_frame != other.reference_frame {
+            return false;
+        }
+        match (&self.value, &other.value) {
+            (None, None) => true,
+            (Some(a), Some(b)) => {
+                if a.len() != b.len() {
+                    return false;
+                }
+                a.iter().zip(b.iter()).all(|(x, y)| x.equals_dyn(&**y))
+            }
+            _ => false,
+        }
+    }
+}
+

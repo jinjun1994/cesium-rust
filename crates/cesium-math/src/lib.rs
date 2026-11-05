@@ -277,7 +277,7 @@ pub use ellipsoidal_occluder::EllipsoidalOccluder;
 pub use ellipse_geometry::{EllipseGeometry, EllipseOutlineGeometry};
 pub use encoded_cartesian::EncodedCartesian3;
 pub use errors::{DeveloperError, RuntimeError};
-pub use event::{Event, ListenerId};
+pub use event::{Event, EventHelper, ListenerId};
 pub use feature_detection::{FeatureDetection, UserAgentInfo, WebkitVersion};
 pub use fixed_frame_transforms::{FixedFrameTransforms, LocalFrameAxis, LocalFrameToFixedFrameFn};
 pub use fullscreen::Fullscreen;
@@ -361,7 +361,8 @@ pub use polyline_volume_outline_geometry::{
 pub use projection::{GeographicProjection, MapProjection, WebMercatorProjection};
 pub use property::{
     CallbackPositionProperty, CallbackProperty, CompositePositionProperty, CompositeProperty,
-    ConstantPositionProperty, ConstantProperty, PositionProperty, Property, PropertyCallback,
+    ConstantPositionProperty, ConstantProperty, DynPositionProperty, DynProperty,
+    PositionProperty, PositionPropertyArray, Property, PropertyArray, PropertyCallback,
     TimeIntervalCollectionPositionProperty, TimeIntervalCollectionProperty,
 };
 pub use quantized_mesh_terrain_data::{QuantizedMeshTerrainData, QuantizedMeshTerrainDataOptions};
