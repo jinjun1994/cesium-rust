@@ -368,7 +368,7 @@
 | [packages/engine/Specs/DataSources/KmlDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/KmlDataSourceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/KmlTourFlyToSpec.js](../../cesium/packages/engine/Specs/DataSources/KmlTourFlyToSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/KmlTourSpec.js](../../cesium/packages/engine/Specs/DataSources/KmlTourSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/LabelGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/LabelGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/LabelGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/LabelGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/label_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/LabelVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/LabelVisualizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/ModelGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/ModelGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/model_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/ModelVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/ModelVisualizerSpec.js) | 待逐项核对 |

@@ -92,6 +92,8 @@ mod intersections;
 mod intersections_2d;
 mod is_leap_year;
 mod julian_date;
+mod label_graphics;
+mod label_style;
 mod lagrange_polynomial_approximation;
 mod linear_approximation;
 mod linear_spline;
@@ -355,6 +357,8 @@ pub use intersections::{
 pub use intersections_2d::Intersections2D;
 pub use is_leap_year::is_leap_year;
 pub use julian_date::{GregorianDate, JulianDate, LeapSecond, TimeStandard, LEAP_SECONDS};
+pub use label_graphics::{LabelGraphics, LabelGraphicsOptions, LabelGraphicsValues};
+pub use label_style::LabelStyle;
 pub use lagrange_polynomial_approximation::LagrangePolynomialApproximation;
 pub use linear_approximation::LinearApproximation;
 pub use linear_spline::{LinearSpline, SplineInterpolate};
