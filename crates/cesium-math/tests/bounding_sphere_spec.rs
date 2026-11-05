@@ -237,3 +237,96 @@ fn transformed_cube_sphere_encloses_all_sheared_corners() {
     let upstream_radius = 0.5 * 4.0_f64.sqrt();
     assert!(sphere.radius > upstream_radius);
 }
+
+#[test]
+fn default_and_parameter_constructors_and_equality() {
+    let default_sphere = Sphere::default();
+    assert_eq!(default_sphere.center, DVec3::ZERO);
+    assert_eq!(default_sphere.radius, 0.0);
+
+    let s = Sphere::new(DVec3::new(1.0, 2.0, 3.0), 4.0);
+    assert_eq!(s.center, DVec3::new(1.0, 2.0, 3.0));
+    assert_eq!(s.radius, 4.0);
+
+    assert!(s.equals(Some(&Sphere::new(DVec3::new(1.0, 2.0, 3.0), 4.0))));
+    assert!(!s.equals(Some(&Sphere::new(DVec3::new(5.0, 2.0, 3.0), 4.0))));
+    assert!(!s.equals(Some(&Sphere::new(DVec3::new(1.0, 6.0, 3.0), 4.0))));
+    assert!(!s.equals(Some(&Sphere::new(DVec3::new(1.0, 2.0, 7.0), 4.0))));
+    assert!(!s.equals(Some(&Sphere::new(DVec3::new(1.0, 2.0, 3.0), 8.0))));
+    assert!(!s.equals(None));
+}
+
+#[test]
+fn from_oriented_bounding_box_and_pack_unpack() {
+    let obb = cesium_math::OrientedBoundingBox {
+        center: DVec3::new(1.0, 2.0, 3.0),
+        half_axes: DMat3::from_diagonal(DVec3::new(1.0, 2.0, 3.0)),
+    };
+    let bs = Sphere::from_oriented_bounding_box(&obb).unwrap();
+    assert_eq!(bs.center, DVec3::new(1.0, 2.0, 3.0));
+    assert!((bs.radius - 14.0_f64.sqrt()).abs() < 1e-12);
+
+    let mut packed = [0.0; 6];
+    bs.pack(&mut packed, 1).unwrap();
+    assert_eq!(packed[0], 0.0);
+    assert_eq!(packed[1], 1.0);
+    assert_eq!(packed[2], 2.0);
+    assert_eq!(packed[3], 3.0);
+    assert!((packed[4] - 14.0_f64.sqrt()).abs() < 1e-12);
+    assert_eq!(packed[5], 0.0);
+
+    let unpacked = Sphere::unpack(&packed, 1).unwrap();
+    assert!(bs.equals(Some(&unpacked)));
+}
+
+#[test]
+fn transform_and_distances_and_volume() {
+    let bs = Sphere::new(DVec3::ZERO, 1.0);
+    let translation = DMat4::from_translation(DVec3::new(1.0, 2.0, 3.0));
+    let translated = bs.transform(translation).unwrap();
+    assert_eq!(translated.center, DVec3::new(1.0, 2.0, 3.0));
+    assert_eq!(translated.radius, 1.0);
+
+    let scale = DMat4::from_scale(DVec3::new(1.0, 2.0, 3.0));
+    let scaled = bs.transform(scale).unwrap();
+    assert_eq!(scaled.center, DVec3::ZERO);
+    assert_eq!(scaled.radius, 3.0);
+
+    let without_scale = bs.transform_without_scale(scale).unwrap();
+    assert_eq!(without_scale.center, DVec3::ZERO);
+    assert_eq!(without_scale.radius, 1.0);
+
+    let position = DVec3::new(-2.0, 1.0, 0.0);
+    let direction = DVec3::X;
+    let (d_min, d_max) = bs.compute_plane_distances(position, direction);
+    assert!((d_min - 1.0).abs() < 1e-12);
+    assert!((d_max - 3.0).abs() < 1e-12);
+
+    let d_sq = bs.distance_squared_to(position);
+    assert!((d_sq - 1.52786405).abs() < 1e-6);
+
+    let inside = DVec3::new(-0.5, 0.5, 0.0);
+    assert_eq!(bs.distance_squared_to(inside), 0.0);
+
+    let expected_vol = (4.0 / 3.0) * std::f64::consts::PI;
+    assert!((bs.volume() - expected_vol).abs() < 1e-12);
+}
+
+#[test]
+fn occluder_visibility_and_plane_struct() {
+    let occluder_sphere = Sphere::new(DVec3::ZERO, 10.0);
+    let camera = DVec3::new(0.0, 0.0, -20.0);
+    let occluder = cesium_math::Occluder::new(occluder_sphere, camera).unwrap();
+
+    let visible_sphere = Sphere::new(DVec3::new(0.0, 15.0, 0.0), 1.0);
+    assert!(!visible_sphere.is_occluded(&occluder));
+
+    let hidden_sphere = Sphere::new(DVec3::new(0.0, 0.0, 20.0), 1.0);
+    assert!(hidden_sphere.is_occluded(&occluder));
+
+    let plane = cesium_math::Plane::new(DVec3::X, -1.0).unwrap();
+    assert_eq!(
+        Sphere::new(DVec3::ZERO, 0.5).intersect_plane_struct(&plane),
+        PlaneIntersection::Outside
+    );
+}

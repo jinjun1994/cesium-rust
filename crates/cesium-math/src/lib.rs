@@ -804,7 +804,7 @@ pub fn reverse_z(fovy: f64, aspect: f64, near: f64) -> Result<Mat4, MathError> {
     ))
 }
 
-#[derive(Clone, Copy, Debug, PartialEq)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct Sphere {
     pub center: DVec3,
     pub radius: f64,

@@ -307,4 +307,72 @@ impl Sphere {
             }
         }
     }
+
+    pub const PACKED_LENGTH: usize = 4;
+
+    pub fn pack(&self, output: &mut [f64], offset: usize) -> Result<(), MathError> {
+        let end = offset.checked_add(Self::PACKED_LENGTH).ok_or(MathError)?;
+        let target = output.get_mut(offset..end).ok_or(MathError)?;
+        target.copy_from_slice(&[self.center.x, self.center.y, self.center.z, self.radius]);
+        Ok(())
+    }
+
+    pub fn unpack(input: &[f64], offset: usize) -> Result<Self, MathError> {
+        let end = offset.checked_add(Self::PACKED_LENGTH).ok_or(MathError)?;
+        let values = input.get(offset..end).ok_or(MathError)?;
+        Ok(Self {
+            center: DVec3::new(values[0], values[1], values[2]),
+            radius: values[3],
+        })
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => self.center == o.center && self.radius == o.radius,
+            None => false,
+        }
+    }
+
+    pub fn transform(&self, matrix: DMat4) -> Result<Self, MathError> {
+        let center = matrix.transform_point3(self.center);
+        if !center.is_finite() {
+            return Err(MathError);
+        }
+        let col0 = matrix.col(0).truncate().length();
+        let col1 = matrix.col(1).truncate().length();
+        let col2 = matrix.col(2).truncate().length();
+        let max_scale = col0.max(col1).max(col2);
+        let radius = max_scale * self.radius;
+        if !radius.is_finite() {
+            return Err(MathError);
+        }
+        Ok(Self { center, radius })
+    }
+
+    pub fn transform_without_scale(&self, matrix: DMat4) -> Result<Self, MathError> {
+        let center = matrix.transform_point3(self.center);
+        if !center.is_finite() {
+            return Err(MathError);
+        }
+        Ok(Self {
+            center,
+            radius: self.radius,
+        })
+    }
+
+    pub fn volume(&self) -> f64 {
+        (4.0 / 3.0) * std::f64::consts::PI * self.radius * self.radius * self.radius
+    }
+
+    pub fn from_oriented_bounding_box(obb: &crate::OrientedBoundingBox) -> Result<Self, MathError> {
+        Self::from_oriented_box(obb.center, obb.half_axes)
+    }
+
+    pub fn intersect_plane_struct(&self, plane: &crate::Plane) -> PlaneIntersection {
+        self.intersect_plane(plane.normal, plane.distance)
+    }
+
+    pub fn is_occluded(&self, occluder: &crate::Occluder) -> bool {
+        !occluder.is_sphere_visible(*self)
+    }
 }
