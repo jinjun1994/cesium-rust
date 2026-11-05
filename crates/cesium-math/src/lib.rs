@@ -98,6 +98,7 @@ mod property;
 mod property_bag;
 mod reference_frame;
 mod sampled_property;
+mod velocity_properties;
 mod pixel_format;
 mod pin_builder;
 mod point_inside_triangle;
@@ -372,6 +373,7 @@ pub use sampled_property::{
     ExtrapolationType, InterpolationAlgorithm, Rotation, Sampleable, SampledPositionProperty,
     SampledProperty,
 };
+pub use velocity_properties::{VelocityOrientationProperty, VelocityVectorProperty};
 pub use quantized_mesh_terrain_data::{QuantizedMeshTerrainData, QuantizedMeshTerrainDataOptions};
 pub use quaternion::{HeadingPitchRoll, Quaternion};
 pub use quaternion_spline::QuaternionSpline;
