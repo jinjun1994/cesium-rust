@@ -373,7 +373,7 @@
 | [packages/engine/Specs/DataSources/ModelGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/ModelGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/model_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/ModelVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/ModelVisualizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/NodeTransformationPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/NodeTransformationPropertySpec.js) | 已移植：节点变换属性、支持平移/旋转/缩放子属性组合、默认值回退、常量与动态时间序列求值、内部可变性赋值、级联 definitionChanged 事件广播、equals 比对与 get_value_to 缓冲复用（node_transformation_property_spec.rs，7 项测试全部通过） |
-| [packages/engine/Specs/DataSources/PathGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PathGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PathGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PathGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/path_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/PathVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/PathVisualizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/PlaneGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/PlaneGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/PlaneGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PlaneGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/plane_graphics_spec.rs) |
