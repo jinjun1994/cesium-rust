@@ -121,6 +121,7 @@ mod polygon_outline_geometry;
 mod polygon_pipeline;
 mod polynomial;
 mod polyline_geometry;
+mod polyline_graphics;
 mod polyline_pipeline;
 mod polyline_volume_geometry;
 mod polyline_volume_geometry_library;
@@ -389,6 +390,9 @@ pub use polynomial::{
     QuarticRealPolynomial,
 };
 pub use polyline_geometry::{PolylineGeometry, PolylineGeometryOptions};
+pub use polyline_graphics::{
+    PolylineGraphics, PolylineGraphicsOptions, PolylineGraphicsValues,
+};
 pub use polyline_pipeline::{
     PolylineArcOptions, PolylineHeight, PolylinePipeline, PolylineSegments,
 };
