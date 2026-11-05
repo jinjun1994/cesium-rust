@@ -198,8 +198,8 @@
 | [packages/core/Specs/PolylineVolumeGeometrySpec.js](../../cesium/packages/core/Specs/PolylineVolumeGeometrySpec.js) | 已全量移植：折线体积几何体（圆角/斜角/尖角侧壁四边形与端面剖分盖子、全顶点属性[法线/切线/副切线/ST]、顺逆时针截面自适应、Pack/Unpack 序列化）（polyline_volume_geometry_spec.rs） |
 | [packages/core/Specs/PolylineVolumeOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PolylineVolumeOutlineGeometrySpec.js) | 已全量移植：折线体轮廓线框几何体（端面闭合环框与纵向骨干棱线索引、Pack/Unpack 序列化）（polyline_volume_outline_geometry_spec.rs） |
 | [packages/core/Specs/PrimitiveTypeSpec.js](../../cesium/packages/core/Specs/PrimitiveTypeSpec.js) | 已全量移植：图元拓扑类型枚举与校验（点/线/三角形拓扑分类、validate合法性检查、isLines与isTriangles拓扑判定）（primitive_type_spec.rs） |
-| [packages/core/Specs/QuadraticRealPolynomialSpec.js](../../cesium/packages/core/Specs/QuadraticRealPolynomialSpec.js) | 部分：判别式及有限输入实根场景；JS 参数异常不适用 |
-| [packages/core/Specs/QuarticRealPolynomialSpec.js](../../cesium/packages/core/Specs/QuarticRealPolynomialSpec.js) | 部分：判别式与有限输入求根场景；JS 参数异常不适用 |
+| [packages/core/Specs/QuadraticRealPolynomialSpec.js](../../cesium/packages/core/Specs/QuadraticRealPolynomialSpec.js) | 已移植：判别式计算、正/负b、微负根号根合并、复根、退化单项式、退化线性/抛物线/双重根、零与正负根场景及非有限输入拒绝（quadratic_real_polynomial_spec.rs） |
+| [packages/core/Specs/QuarticRealPolynomialSpec.js](../../cesium/packages/core/Specs/QuarticRealPolynomialSpec.js) | 已移植：四次方程判别式、四重根、双重根对、单重根对、多相异实根、复根、退化三次降阶、Neumark/Ferrari数值稳定情形及非有限输入拒绝（quartic_real_polynomial_spec.rs） |
 | [packages/core/Specs/QuaternionSpec.js](../../cesium/packages/core/Specs/QuaternionSpec.js) | 已移植：单位四元数、轴角构造、旋转矩阵互转与 slerp 球面插值（quaternion_hpr_spec.rs） |
 | [packages/core/Specs/QuaternionSplineSpec.js](../../cesium/packages/core/Specs/QuaternionSplineSpec.js) | 已全量移植：四元数球面线性插值样条曲线（双控制点退化、多点插值、时间区间查找、越界抛错与 slerp 球面平滑求值）（quaternion_spline_spec.rs，4 项测试全部通过） |
 | [packages/core/Specs/QueueSpec.js](../../cesium/packages/core/Specs/QueueSpec.js) | 已移植：队列入队出队、首元素查看 peek、包含性检查、就地排序与清空（queue_spec.rs） |
