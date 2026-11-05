@@ -125,6 +125,7 @@ mod polyline_graphics;
 mod polyline_pipeline;
 mod polyline_volume_geometry;
 mod polyline_volume_geometry_library;
+mod polyline_volume_graphics;
 mod polyline_volume_outline_geometry;
 mod projection;
 mod quantized_mesh_terrain_data;
@@ -398,6 +399,9 @@ pub use polyline_pipeline::{
 };
 pub use polyline_volume_geometry::{PolylineVolumeGeometry, PolylineVolumeGeometryOptions};
 pub use polyline_volume_geometry_library::PolylineVolumeGeometryLibrary;
+pub use polyline_volume_graphics::{
+    PolylineVolumeGraphics, PolylineVolumeGraphicsOptions, PolylineVolumeGraphicsValues,
+};
 pub use polyline_volume_outline_geometry::{
     PolylineVolumeOutlineGeometry, PolylineVolumeOutlineGeometryOptions,
 };
