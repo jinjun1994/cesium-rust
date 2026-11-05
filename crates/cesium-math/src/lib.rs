@@ -170,6 +170,7 @@ mod typed_array_helpers;
 mod uri_helpers;
 mod vertex_format;
 mod vertical_exaggeration;
+mod vector_provider;
 mod wall_geometry;
 mod warnings;
 mod winding_order;
@@ -474,6 +475,13 @@ pub use uri_helpers::{
 };
 pub use vertex_format::VertexFormat;
 pub use vertical_exaggeration::VerticalExaggeration;
+pub use vector_provider::{
+    BufferPolygon, BufferPolygonCollection, BufferPolygonCollectionOptions, BufferPolygonMaterial,
+    BufferPolyline, BufferPolylineCollection, BufferPolylineCollectionOptions,
+    BufferPolylineMaterial, HeightReference, VectorDirtyRegion, VectorPipeline, VectorProvider,
+    VectorProviderOptions, VectorRing, VectorSegment, VectorTileData, WidthUnits,
+    MAXIMUM_GROUND_WIDTH_ANGLE,
+};
 pub use wall_geometry::{WallGeometry, WallOutlineGeometry};
 pub use warnings::{deprecation_warning, one_time_warning, reset_warnings};
 pub use winding_order::WindingOrder;
