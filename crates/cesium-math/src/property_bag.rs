@@ -160,4 +160,18 @@ impl<T: Clone + PartialEq + 'static> PropertyBag<T> {
         }
         true
     }
+
+    /// Assigns each unassigned property on this object to the value of the same property on the source.
+    pub fn merge(&mut self, source: &Self) {
+        for name in &source.property_names {
+            if !self.has_property(name) {
+                let prop = source.get_property(name);
+                self.add_property(name, prop);
+            } else if self.get_property(name).is_none() {
+                if let Some(prop) = source.get_property(name) {
+                    self.set_property_value(name, Some(prop));
+                }
+            }
+        }
+    }
 }
