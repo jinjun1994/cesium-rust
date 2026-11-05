@@ -345,7 +345,7 @@
 | [packages/engine/Specs/DataSources/CylinderGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/CylinderGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/CylinderGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/CylinderGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/cylinder_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/CzmlDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/CzmlDataSourceSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/DataSourceClockSpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceClockSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/DataSourceClockSpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceClockSpec.js) | 全绿通过 (crates/cesium-math/tests/data_source_clock_spec.rs，实现 DataSourceClock、时钟参数配置、merge 属性合并、clone/clone_to 复制及 get_value 实例化为 Clock 与默认行为回退) |
 | [packages/engine/Specs/DataSources/DataSourceCollectionSpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceCollectionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/DataSourceDisplaySpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceDisplaySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/DynamicGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/DynamicGeometryUpdaterSpec.js) | 待逐项核对 |

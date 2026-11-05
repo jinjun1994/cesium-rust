@@ -54,6 +54,7 @@ mod custom_shader;
 mod culling_volume;
 mod cylinder_geometry;
 mod cylinder_graphics;
+mod data_source_clock;
 mod defined;
 mod distance_display_condition;
 mod distance_display_condition_geometry_instance_attribute;
@@ -245,6 +246,7 @@ pub use corridor_graphics::{
 pub use cylinder_graphics::{
     CylinderGraphics, CylinderGraphicsOptions, CylinderGraphicsValues,
 };
+pub use data_source_clock::DataSourceClock;
 pub use ellipse_graphics::{EllipseGraphics, EllipseGraphicsOptions, EllipseGraphicsValues};
 pub use ellipsoid_graphics::{
     EllipsoidGraphics, EllipsoidGraphicsOptions, EllipsoidGraphicsValues,
