@@ -343,7 +343,7 @@
 | [packages/engine/Specs/DataSources/CorridorGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/CorridorGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/corridor_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/CustomDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/CustomDataSourceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/CylinderGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/CylinderGeometryUpdaterSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/CylinderGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/CylinderGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CylinderGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/CylinderGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/cylinder_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/CzmlDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/CzmlDataSourceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/DataSourceClockSpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceClockSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/DataSourceCollectionSpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceCollectionSpec.js) | 待逐项核对 |

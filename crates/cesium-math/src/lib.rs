@@ -50,6 +50,7 @@ mod ground_polyline_geometry;
 mod create_guid;
 mod culling_volume;
 mod cylinder_geometry;
+mod cylinder_graphics;
 mod defined;
 mod distance_display_condition;
 mod distance_display_condition_geometry_instance_attribute;
@@ -214,6 +215,9 @@ pub use box_graphics::{BoxGraphics, BoxGraphicsOptions, BoxGraphicsValues};
 pub use classification_type::ClassificationType;
 pub use corridor_graphics::{
     CorridorGraphics, CorridorGraphicsOptions, CorridorGraphicsValues,
+};
+pub use cylinder_graphics::{
+    CylinderGraphics, CylinderGraphicsOptions, CylinderGraphicsValues,
 };
 pub use ellipse_graphics::{EllipseGraphics, EllipseGraphicsOptions, EllipseGraphicsValues};
 pub use ellipsoid_graphics::{
