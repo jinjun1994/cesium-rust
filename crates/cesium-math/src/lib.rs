@@ -146,6 +146,7 @@ mod create_world_terrain_async;
 mod resize_image_to_next_power_of_two;
 mod sample_terrain;
 mod write_text_to_canvas;
+mod image_from_typed_array;
 mod terrain_mesh;
 mod terrain_picker;
 mod terrain_provider;
@@ -410,6 +411,10 @@ pub use sample_terrain::{
 };
 pub use write_text_to_canvas::{
     write_text_to_canvas, CanvasTextResult, TextDimensions, WriteTextOptions,
+};
+pub use image_from_typed_array::{
+    get_image_from_typed_array, load_image_from_typed_array, load_image_from_typed_array_sync,
+    LoadImageFromTypedArrayOptions,
 };
 pub use terrain_mesh::TerrainMesh;
 pub use terrain_picker::{TerrainPicker, TerrainPickerNode};
