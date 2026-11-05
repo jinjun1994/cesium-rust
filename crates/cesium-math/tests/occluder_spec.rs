@@ -58,6 +58,7 @@ fn upstream_eclipse_full_and_partial_visibility() {
         assert_eq!(c.compute_visibility(occludee), expected);
         if matches!(expected, Visibility::None | Visibility::Full) {
             assert_eq!(c.is_sphere_visible(occludee), expected == Visibility::Full);
+            assert_eq!(c.is_bounding_sphere_visible(occludee), expected == Visibility::Full);
         }
     }
 }

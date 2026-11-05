@@ -171,6 +171,10 @@ impl Occluder {
         d > 0.0 && (d.sqrt() + horizon).powi(2) > point.distance_squared(self.camera)
     }
 
+    pub fn is_bounding_sphere_visible(self, occludee: Sphere) -> bool {
+        self.is_sphere_visible(occludee)
+    }
+
     pub fn is_sphere_visible(self, occludee: Sphere) -> bool {
         let Some(horizon) = self.horizon else {
             return false;
