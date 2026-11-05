@@ -152,7 +152,7 @@
 | [packages/core/Specs/EncodedCartesian3Spec.js](../../cesium/packages/core/Specs/EncodedCartesian3Spec.js) | 已移植：高低位拆分编码、从 Cartesian3 构造、顶点属性数组交错写入（encoded_cartesian3_spec.rs） |
 | [packages/core/Specs/EventSpec.js](../../cesium/packages/core/Specs/EventSpec.js) | 已移植：通用事件发布订阅模式、回调重入动态增删（支持在回调内部安全注册与移除监听器）、监听器计数（event_spec.rs） |
 | [packages/core/Specs/FixedFrameTransformsSpec.js](../../cesium/packages/core/Specs/FixedFrameTransformsSpec.js) | 已移植：局部坐标系到椭球固定参考系变换（ENU/NED/NUE/NWU与通用正交轴生成器）、极点与原点退化处理、HPR变换互转与四元数提取、视口窗口坐标映射、位置速度旋转矩阵、2D地图投影模型矩阵转换（fixed_frame_transforms_spec.rs） |
-| [packages/core/Specs/GeographicProjectionSpec.js](../../cesium/packages/core/Specs/GeographicProjectionSpec.js) | 部分：WGS84/单位球正反投影；JS 参数/结果对象语义待核对 |
+| [packages/core/Specs/GeographicProjectionSpec.js](../../cesium/packages/core/Specs/GeographicProjectionSpec.js) | 已移植：WGS84/单位球默认与自定义椭球构造、高度投影、正反投影往返、2D接口及非法输入拒绝（geographic_projection_spec.rs） |
 | [packages/core/Specs/GeometryAttributeSpec.js](../../cesium/packages/core/Specs/GeometryAttributeSpec.js) | 已移植：几何顶点属性构造、ComponentDatatype、分量数与归一化标识校验、非法分量数抛错（geometry_attribute_spec.rs） |
 | [packages/core/Specs/GeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/GeometryInstanceAttributeSpec.js) | 已移植：几何实例属性构造、数据类型/分量数/归一化属性、TypedArray 映射与非法分量校验（geometry_instance_attribute_spec.rs） |
 | [packages/core/Specs/GeometryInstanceSpec.js](../../cesium/packages/core/Specs/GeometryInstanceSpec.js) | 已移植：几何实例构造、模型变换矩阵、标识符 id 与动态单体实例属性映射传递（geometry_instance_spec.rs） |
@@ -225,7 +225,7 @@
 | [packages/core/Specs/VerticalExaggerationSpec.js](../../cesium/packages/core/Specs/VerticalExaggerationSpec.js) | 已移植：垂直地形高程夸张计算（getHeight/getPosition、基准高程缩放、WGS84坐标转换）（vertical_exaggeration_spec.rs） |
 | [packages/core/Specs/WallGeometrySpec.js](../../cesium/packages/core/Specs/WallGeometrySpec.js) | 已移植：墙体几何顶点交错排布、高程拉伸、折线插值采样、退化参数校验与三角形剖分（wall_geometry_spec.rs） |
 | [packages/core/Specs/WallOutlineGeometrySpec.js](../../cesium/packages/core/Specs/WallOutlineGeometrySpec.js) | 已移植：墙体轮廓线框顶点生成、顶底水平与侧面垂直线条索引及退化参数校验（wall_geometry_spec.rs） |
-| [packages/core/Specs/WebMercatorProjectionSpec.js](../../cesium/packages/core/Specs/WebMercatorProjectionSpec.js) | 部分：正反投影、极区裁剪；结果对象及其他语义待核对 |
+| [packages/core/Specs/WebMercatorProjectionSpec.js](../../cesium/packages/core/Specs/WebMercatorProjectionSpec.js) | 已移植：WGS84/单位球构造、MathWorld基准正反投影、四角点解析、极区纬度截断保护、2D接口及非法输入拒绝（web_mercator_projection_spec.rs） |
 | [packages/core/Specs/arrayRemoveDuplicatesSpec.js](../../cesium/packages/core/Specs/arrayRemoveDuplicatesSpec.js) | 已移植：数组相邻重复项去除（ε容差去重、首尾闭合环绕去重与删除索引数组追踪）（array_remove_duplicates_spec.rs） |
 | [packages/core/Specs/barycentricCoordinatesSpec.js](../../cesium/packages/core/Specs/barycentricCoordinatesSpec.js) | 已移植：2D/3D 三角形顶点、边缘与内部重心坐标计算、退化共线判定（barycentric_coordinates_spec.rs） |
 | [packages/core/Specs/binarySearchSpec.js](../../cesium/packages/core/Specs/binarySearchSpec.js) | 已移植：有序序列二分查找（命中索引、未命中按按位取反~返回插入点、支持自定义比较器）（binary_search_spec.rs） |

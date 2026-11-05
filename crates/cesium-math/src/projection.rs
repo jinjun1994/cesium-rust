@@ -54,6 +54,12 @@ impl GeographicProjection {
             height: position.z,
         })
     }
+    pub fn project_2d(self, c: Cartographic) -> Option<glam::DVec2> {
+        self.project(c).map(|p| glam::DVec2::new(p.x, p.y))
+    }
+    pub fn unproject_2d(self, p: glam::DVec2) -> Option<Cartographic> {
+        self.unproject(p.extend(0.0))
+    }
 }
 
 /// Spherical Mercator projection, with latitude limited to the square world.
@@ -112,6 +118,12 @@ impl WebMercatorProjection {
             latitude: Self::mercator_angle_to_geodetic_latitude(p.y * inverse),
             height: p.z,
         })
+    }
+    pub fn project_2d(self, c: Cartographic) -> Option<glam::DVec2> {
+        self.project(c).map(|p| glam::DVec2::new(p.x, p.y))
+    }
+    pub fn unproject_2d(self, p: glam::DVec2) -> Option<Cartographic> {
+        self.unproject(p.extend(0.0))
     }
 }
 
