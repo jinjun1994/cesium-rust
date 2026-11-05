@@ -394,7 +394,7 @@
 | [packages/engine/Specs/DataSources/PropertyArraySpec.js](../../cesium/packages/engine/Specs/DataSources/PropertyArraySpec.js) | 已移植：通用属性数组容器、批量属性求值、子属性 definitionChanged 事件聚合广播、未定义值过滤、全项常量性判定、equals 逐项比对（property_array_spec.rs，9 项测试全部通过） |
 | [packages/engine/Specs/DataSources/PropertyBagSpec.js](../../cesium/packages/engine/Specs/DataSources/PropertyBagSpec.js) | 已移植：属性键值字典容器、动态属性增删与存在性检查（hasProperty/addProperty/removeProperty）、definitionChanged 事件层级聚合广播、属性字典常量性联合判定、equals 逐项比对（property_bag_spec.rs，10 项测试全部通过） |
 | [packages/engine/Specs/DataSources/RectangleGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/RectangleGeometryUpdaterSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/RectangleGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/RectangleGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/RectangleGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/RectangleGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/rectangle_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/ReferencePropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ReferencePropertySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/RotationSpec.js](../../cesium/packages/engine/Specs/DataSources/RotationSpec.js) | 已移植：最短圆周角距离插值打包器（Rotation）、弧度区间展开（convertPackedArrayForInterpolation）、解包与边界归一化、结合 SampledProperty 最小角插值（rotation_spec.rs，2 项测试全部通过） |
 | [packages/engine/Specs/DataSources/SampledPositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/SampledPositionPropertySpec.js) | 已移植：时间序列采样位置属性、多参考系（Fixed/Inertial）位置批量/单点采样添加（addSample/addSamples/addSamplesPackedArray）、跨参考系动态坐标插值求值、样本增删（removeSample/removeSamples）与常量性判定（sampled_position_property_spec.rs，9 项测试全部通过） |

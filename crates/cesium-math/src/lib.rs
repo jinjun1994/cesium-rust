@@ -137,6 +137,7 @@ mod rectangle;
 mod rectangle_geometry;
 mod rectangle_geometry_library;
 mod rectangle_outline_geometry;
+mod rectangle_graphics;
 mod rectangle_collision_checker;
 mod request;
 mod request_error_event;
@@ -428,9 +429,12 @@ pub use quaternion_spline::QuaternionSpline;
 pub use queue::Queue;
 pub use ray::Ray;
 pub use reference_frame::ReferenceFrame;
-pub use rectangle::GeoRectangle;
+pub use rectangle::{GeoRectangle, GeoRectangle as Rectangle};
 pub use rectangle_geometry::{RectangleGeometry, RectangleGeometryOptions};
 pub use rectangle_geometry_library::{RectangleGeometryLibrary, RectangleOptionsComputed};
+pub use rectangle_graphics::{
+    RectangleGraphics, RectangleGraphicsOptions, RectangleGraphicsValues,
+};
 pub use rectangle_outline_geometry::{
     RectangleOutlineGeometry, RectangleOutlineGeometryOptions,
 };
