@@ -196,6 +196,8 @@ mod time_interval_collection;
 mod tile_availability;
 mod tiling;
 mod tipsify;
+mod tracking_reference_frame;
+mod entity;
 mod tridiagonal_system_solver;
 mod translation_rotation_scale;
 mod typed_array_helpers;
@@ -559,6 +561,8 @@ pub use terrain_provider::{
 pub use time_constants::{TimeConstants, *};
 pub use time_interval::TimeInterval;
 pub use time_interval_collection::TimeIntervalCollection;
+pub use tracking_reference_frame::TrackingReferenceFrame;
+pub use entity::{Entity, Mergeable};
 pub use tile_availability::{
     QuadtreeNode, RectangleWithLevel, TileAvailability, TileScheme,
 };
