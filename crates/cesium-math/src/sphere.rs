@@ -9,6 +9,12 @@ pub enum PlaneIntersection {
     Inside,
 }
 
+impl PlaneIntersection {
+    pub const OUTSIDE: Self = Self::Outside;
+    pub const INTERSECTING: Self = Self::Intersecting;
+    pub const INSIDE: Self = Self::Inside;
+}
+
 impl Sphere {
     /// Projects the eight corners of a tangent-frame cube around this sphere,
     /// then swizzles its projected center to `(height, x, y)` as Cesium does.

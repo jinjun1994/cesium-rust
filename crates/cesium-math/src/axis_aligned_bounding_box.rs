@@ -1,5 +1,5 @@
 //! Axis-aligned bounding boxes adapted from CesiumJS (Apache-2.0).
-use crate::{MathError, PlaneIntersection};
+use crate::{MathError, Plane, PlaneIntersection};
 use glam::DVec3;
 
 /// Axis-aligned box with an explicitly stored center, as in CesiumJS.
@@ -44,8 +44,13 @@ impl AxisAlignedBoundingBox {
         Ok(Self::from_corners(minimum, maximum))
     }
 
+    /// Classifies this box against a plane struct.
+    pub fn intersect_plane(&self, plane: &Plane) -> PlaneIntersection {
+        self.intersect_plane_components(plane.normal, plane.distance)
+    }
+
     /// Classifies this box against a plane `normal.dot(point) + distance = 0`.
-    pub fn intersect_plane(self, normal: DVec3, distance: f64) -> PlaneIntersection {
+    pub fn intersect_plane_components(&self, normal: DVec3, distance: f64) -> PlaneIntersection {
         let half = (self.maximum - self.minimum) * 0.5;
         let extent = half.dot(normal.abs());
         let signed = self.center.dot(normal) + distance;
@@ -61,5 +66,14 @@ impl AxisAlignedBoundingBox {
     /// Touching faces, edges and corners count as intersections.
     pub fn intersects(self, other: Self) -> bool {
         self.minimum.cmple(other.maximum).all() && self.maximum.cmpge(other.minimum).all()
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => {
+                self.minimum == o.minimum && self.maximum == o.maximum && self.center == o.center
+            }
+            None => false,
+        }
     }
 }

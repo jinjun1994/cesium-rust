@@ -70,7 +70,7 @@ impl Plane {
     }
 
     pub fn classify_box(self, bounds: AxisAlignedBoundingBox) -> PlaneIntersection {
-        bounds.intersect_plane(self.normal, self.distance)
+        bounds.intersect_plane(&self)
     }
 
     pub fn classify_sphere(self, sphere: Sphere) -> PlaneIntersection {

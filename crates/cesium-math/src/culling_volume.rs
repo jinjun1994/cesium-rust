@@ -17,7 +17,7 @@ impl BoundingVolume for Sphere {
 
 impl BoundingVolume for AxisAlignedBoundingBox {
     fn intersect_plane(&self, plane: Plane) -> PlaneIntersection {
-        AxisAlignedBoundingBox::intersect_plane(*self, plane.normal, plane.distance)
+        self.intersect_plane(&plane)
     }
 }
 
