@@ -126,6 +126,8 @@ mod arcgis_terrain_provider;
 mod cesium_3d_tiles_terrain_data;
 mod cesium_3d_tiles_terrain_provider;
 mod google_earth_enterprise_metadata;
+mod google_earth_enterprise_terrain_data;
+mod google_earth_enterprise_terrain_provider;
 mod cesium_terrain_provider;
 mod terrain_mesh;
 mod terrain_picker;
@@ -331,6 +333,12 @@ pub use cesium_3d_tiles_terrain_provider::{
 pub use google_earth_enterprise_metadata::{
     decode_google_earth_enterprise_data, GoogleEarthEnterpriseMetadata,
     GoogleEarthEnterpriseTileInformation,
+};
+pub use google_earth_enterprise_terrain_data::{
+    GoogleEarthEnterpriseTerrainData, GoogleEarthEnterpriseTerrainDataOptions,
+};
+pub use google_earth_enterprise_terrain_provider::{
+    GoogleEarthEnterpriseTerrainProvider, GoogleEarthEnterpriseTerrainProviderOptions,
 };
 pub use cesium_terrain_provider::{
     CesiumTerrainFormat, CesiumTerrainLayerJson, CesiumTerrainProvider,
