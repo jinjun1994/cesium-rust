@@ -145,6 +145,7 @@ mod create_world_bathymetry_async;
 mod create_world_terrain_async;
 mod resize_image_to_next_power_of_two;
 mod sample_terrain;
+mod write_text_to_canvas;
 mod terrain_mesh;
 mod terrain_picker;
 mod terrain_provider;
@@ -406,6 +407,9 @@ pub use resize_image_to_next_power_of_two::{
 pub use sample_terrain::{
     sample_terrain, sample_terrain_most_detailed, sample_terrain_most_detailed_sync,
     sample_terrain_sync,
+};
+pub use write_text_to_canvas::{
+    write_text_to_canvas, CanvasTextResult, TextDimensions, WriteTextOptions,
 };
 pub use terrain_mesh::TerrainMesh;
 pub use terrain_picker::{TerrainPicker, TerrainPickerNode};
