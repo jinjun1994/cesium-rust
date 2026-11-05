@@ -45,6 +45,7 @@ mod coplanar_polygon_geometry;
 mod core_math;
 mod corridor_geometry;
 mod corridor_geometry_library;
+mod corridor_graphics;
 mod ground_polyline_geometry;
 mod create_guid;
 mod culling_volume;
@@ -211,6 +212,9 @@ pub use bounding_rectangle::BoundingRectangle;
 pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
 pub use box_graphics::{BoxGraphics, BoxGraphicsOptions, BoxGraphicsValues};
 pub use classification_type::ClassificationType;
+pub use corridor_graphics::{
+    CorridorGraphics, CorridorGraphicsOptions, CorridorGraphicsValues,
+};
 pub use ellipse_graphics::{EllipseGraphics, EllipseGraphicsOptions, EllipseGraphicsValues};
 pub use ellipsoid_graphics::{
     EllipsoidGraphics, EllipsoidGraphicsOptions, EllipsoidGraphicsValues,
