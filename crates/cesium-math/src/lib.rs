@@ -95,6 +95,7 @@ mod oriented_bounding_box;
 mod plane;
 mod plane_geometry;
 mod property;
+mod property_bag;
 mod reference_frame;
 mod pixel_format;
 mod pin_builder;
@@ -365,6 +366,7 @@ pub use property::{
     PositionProperty, PositionPropertyArray, Property, PropertyArray, PropertyCallback,
     TimeIntervalCollectionPositionProperty, TimeIntervalCollectionProperty,
 };
+pub use property_bag::PropertyBag;
 pub use quantized_mesh_terrain_data::{QuantizedMeshTerrainData, QuantizedMeshTerrainDataOptions};
 pub use quaternion::{HeadingPitchRoll, Quaternion};
 pub use quaternion_spline::QuaternionSpline;
