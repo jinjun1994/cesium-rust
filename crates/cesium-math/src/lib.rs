@@ -58,6 +58,7 @@ mod earth_orientation_parameters;
 mod ellipsoid;
 mod ellipsoid_geodesic;
 mod ellipsoid_geometry;
+mod ellipsoid_graphics;
 mod ellipsoid_rhumb_line;
 mod ellipsoid_tangent_plane;
 mod ellipsoidal_occluder;
@@ -211,6 +212,9 @@ pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
 pub use box_graphics::{BoxGraphics, BoxGraphicsOptions, BoxGraphicsValues};
 pub use classification_type::ClassificationType;
 pub use ellipse_graphics::{EllipseGraphics, EllipseGraphicsOptions, EllipseGraphicsValues};
+pub use ellipsoid_graphics::{
+    EllipsoidGraphics, EllipsoidGraphicsOptions, EllipsoidGraphicsValues,
+};
 pub use build_module_url::{
     build_module_url, build_module_url_from_base_url, clear_base_url, get_base_url,
     match_cesium_script_url, set_base_url,
