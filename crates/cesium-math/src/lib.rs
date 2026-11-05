@@ -21,6 +21,7 @@ mod bing_maps_geocoder_service;
 mod google_geocoder_service;
 mod open_cage_geocoder_service;
 mod pelias_geocoder_service;
+mod ion_geocoder_service;
 mod catmull_rom_spline;
 mod celestial_frame_transforms;
 mod check;
@@ -186,6 +187,10 @@ pub use open_cage_geocoder_service::{
 };
 pub use pelias_geocoder_service::{
     GeocodeType, PeliasAttribution, PeliasGeocoderResult, PeliasGeocoderService,
+};
+pub use ion_geocoder_service::{
+    IonGeocodeProviderType, IonGeocoderService, IonGeocoderServiceOptions,
+    DEFAULT_ION_ACCESS_TOKEN, DEFAULT_ION_SERVER,
 };
 pub use catmull_rom_spline::CatmullRomSpline;
 pub use celestial_frame_transforms::CelestialFrameTransforms;
