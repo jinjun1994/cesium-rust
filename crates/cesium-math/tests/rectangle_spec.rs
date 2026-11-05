@@ -179,3 +179,22 @@ fn upstream_bounding_sphere_zero_equator_and_pole() {
     )
     .is_none());
 }
+
+#[test]
+fn equality_and_clone_and_pack() {
+    let r1 = GeoRectangle::degrees(1.0, 2.0, 3.0, 4.0).unwrap();
+    let r2 = r1;
+    assert!(r1.equals(Some(&r2)));
+    assert!(!r1.equals(Some(&GeoRectangle::degrees(1.1, 2.0, 3.0, 4.0).unwrap())));
+    assert!(!r1.equals(None));
+
+    let close = GeoRectangle::degrees(1.0001, 2.0, 3.0, 4.0).unwrap();
+    assert!(r1.equals_epsilon(Some(&close), 0.001));
+    assert!(!r1.equals_epsilon(Some(&close), 1e-6));
+
+    let mut packed = [0.0; 6];
+    r1.pack(&mut packed, 1).unwrap();
+    assert_eq!(packed[0], 0.0);
+    let unpacked = GeoRectangle::unpack(&packed, 1).unwrap();
+    assert!(r1.equals(Some(&unpacked)));
+}

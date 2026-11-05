@@ -206,7 +206,7 @@
 | [packages/core/Specs/RaySpec.js](../../cesium/packages/core/Specs/RaySpec.js) | 已移植：默认/参数构造、方向自动归一化、克隆与相等比较、get_point/point_at取点、求交（平面/球/椭球/盒/三角形）与非法输入拒绝（ray_spec.rs） |
 | [packages/core/Specs/RectangleGeometrySpec.js](../../cesium/packages/core/Specs/RectangleGeometrySpec.js) | 已全量移植：矩形立体几何体（极点退化三角扇、IDL跨越、旋转与ST纹理坐标旋转重映射、拉伸侧壁网格与法线/切线/副切线、顶部/全部applyOffset偏移属性、退化检测与Pack/Unpack序列化）（rectangle_geometry_spec.rs，28 项测试全部通过） |
 | [packages/core/Specs/RectangleOutlineGeometrySpec.js](../../cesium/packages/core/Specs/RectangleOutlineGeometrySpec.js) | 已全量移植：矩形轮廓线框几何体（经纬线圈环绕索引、极点边退化、高度拉伸四角与极点柱边线框、顶部/全部applyOffset偏移属性、退化检测与Pack/Unpack序列化）（rectangle_outline_geometry_spec.rs，18 项测试全部通过） |
-| [packages/core/Specs/RectangleSpec.js](../../cesium/packages/core/Specs/RectangleSpec.js) | 部分：角点、宽高、点集、包围球、交并、包含、子区域与采样；其余待核对 |
+| [packages/core/Specs/RectangleSpec.js](../../cesium/packages/core/Specs/RectangleSpec.js) | 已移植：角点、宽高、点集、包围球、交并、包含、子区域与采样、相等与容差相等比较、克隆与Pack/Unpack序列化（rectangle_spec.rs，7 项测试全部通过） |
 | [packages/core/Specs/RuntimeErrorSpec.js](../../cesium/packages/core/Specs/RuntimeErrorSpec.js) | 已移植：运行时错误类型、类名、异常消息与字符串格式化输出（runtime_error_spec.rs） |
 | [packages/core/Specs/ShowGeometryInstanceAttributeSpec.js](../../cesium/packages/core/Specs/ShowGeometryInstanceAttributeSpec.js) | 已移植：显隐几何体实例属性构造、布尔值字节映射与数组填充（show_geometry_instance_attribute_spec.rs） |
 | [packages/core/Specs/SimplePolylineGeometrySpec.js](../../cesium/packages/core/Specs/SimplePolylineGeometrySpec.js) | 已移植：单像素折线图元生成、测地线/恒向线细分、逐段颜色（顶点拆分）与逐顶点颜色映射、线段索引构建（simple_polyline_geometry_spec.rs） |

@@ -374,4 +374,28 @@ impl GeoRectangle {
             north: array[starting_index + 3],
         })
     }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => {
+                self.west == o.west
+                    && self.south == o.south
+                    && self.east == o.east
+                    && self.north == o.north
+            }
+            None => false,
+        }
+    }
+
+    pub fn equals_epsilon(&self, other: Option<&Self>, epsilon: f64) -> bool {
+        match other {
+            Some(o) => {
+                (self.west - o.west).abs() <= epsilon
+                    && (self.south - o.south).abs() <= epsilon
+                    && (self.east - o.east).abs() <= epsilon
+                    && (self.north - o.north).abs() <= epsilon
+            }
+            None => false,
+        }
+    }
 }
