@@ -14,6 +14,7 @@ mod binary_search;
 mod billboard_graphics;
 mod bounding_rectangle;
 mod box_geometry;
+mod box_graphics;
 mod build_module_url;
 mod cartesian;
 mod cartographic_geocoder_service;
@@ -135,6 +136,7 @@ mod s2_cell;
 mod scalar;
 mod scene_mode;
 mod show_geometry_instance_attribute;
+mod shadow_mode;
 mod simple_polyline_geometry;
 mod simon1994_planetary_positions;
 mod spline;
@@ -204,6 +206,7 @@ pub use billboard_graphics::{
 };
 pub use bounding_rectangle::BoundingRectangle;
 pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
+pub use box_graphics::{BoxGraphics, BoxGraphicsOptions, BoxGraphicsValues};
 pub use build_module_url::{
     build_module_url, build_module_url_from_base_url, clear_base_url, get_base_url,
     match_cesium_script_url, set_base_url,
@@ -410,6 +413,7 @@ pub use request_scheduler::{
 pub use s2_cell::S2Cell;
 pub use scalar::{HeadingPitchRange, NearFarScalar};
 pub use scene_mode::SceneMode;
+pub use shadow_mode::ShadowMode;
 pub use split_direction::SplitDirection;
 pub use show_geometry_instance_attribute::ShowGeometryInstanceAttribute;
 pub use simple_polyline_geometry::{SimplePolylineGeometry, SimplePolylineGeometryOptions};
