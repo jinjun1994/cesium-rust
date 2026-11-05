@@ -180,10 +180,10 @@
 | [packages/core/Specs/NearFarScalarSpec.js](../../cesium/packages/core/Specs/NearFarScalarSpec.js) | 已移植：构造、打包解包、相等与容差比较（near_far_scalar_spec.rs） |
 | [packages/core/Specs/OccluderSpec.js](../../cesium/packages/core/Specs/OccluderSpec.js) | 已移植：点/包围球可见性（is_point_visible/is_sphere_visible/is_bounding_sphere_visible）、Visibility可见性三态（None/Partial/Full）、相机动态位置、点集与地理矩形遮挡点计算及非法输入拒绝（occluder_spec.rs） |
 | [packages/core/Specs/OrientedBoundingBoxSpec.js](../../cesium/packages/core/Specs/OrientedBoundingBoxSpec.js) | 已移植：PCA点集主轴构造、矩形高程/跨日界线构造、仿射变换、8角点计算、平面相交分类与视锥裁剪、点到盒距离平方、方向平面投影区间、地平遮挡检测、克隆与相等比较及打包（oriented_bounding_box_spec.rs） |
-| [packages/core/Specs/OrthographicFrustumSpec.js](../../cesium/packages/core/Specs/OrthographicFrustumSpec.js) | 部分：投影、像素尺寸、裁剪、打包；比较及 JS 语义待核对 |
-| [packages/core/Specs/OrthographicOffCenterFrustumSpec.js](../../cesium/packages/core/Specs/OrthographicOffCenterFrustumSpec.js) | 部分：投影、像素尺寸和裁剪；比较及 JS 语义待核对 |
-| [packages/core/Specs/PerspectiveFrustumSpec.js](../../cesium/packages/core/Specs/PerspectiveFrustumSpec.js) | 部分：视角、偏移、投影、像素尺寸与裁剪；pack/比较及 JS 语义待补齐 |
-| [packages/core/Specs/PerspectiveOffCenterFrustumSpec.js](../../cesium/packages/core/Specs/PerspectiveOffCenterFrustumSpec.js) | 部分：投影、像素尺寸与裁剪；比较及 JS 语义待补齐 |
+| [packages/core/Specs/OrthographicFrustumSpec.js](../../cesium/packages/core/Specs/OrthographicFrustumSpec.js) | 已移植：正交投影矩阵、偏心视锥转换、像素尺寸计算、6面剔除体计算、克隆、全等比较（equals/equals_epsilon）及打包（orthographic_frustum_spec.rs） |
+| [packages/core/Specs/OrthographicOffCenterFrustumSpec.js](../../cesium/packages/core/Specs/OrthographicOffCenterFrustumSpec.js) | 已移植：偏心正交投影、像素尺寸、6平面视锥剔除体积计算、克隆、全等比较与双容差近似比较（orthographic_frustum_spec.rs） |
+| [packages/core/Specs/PerspectiveFrustumSpec.js](../../cesium/packages/core/Specs/PerspectiveFrustumSpec.js) | 已移植：透视投影矩阵、水平/垂直FOV与SSE分母、偏心偏移、像素尺寸、6平面视锥剔除、无限远投影、克隆、全等比较及打包（frustum_spec.rs） |
+| [packages/core/Specs/PerspectiveOffCenterFrustumSpec.js](../../cesium/packages/core/Specs/PerspectiveOffCenterFrustumSpec.js) | 已移植：偏心透视投影矩阵映射（OpenGL深度范围[-1,1]）、无限远投影矩阵、视锥裁剪体积计算、克隆与全等/双容差比较（frustum_spec.rs） |
 | [packages/core/Specs/PixelFormatSpec.js](../../cesium/packages/core/Specs/PixelFormatSpec.js) | 已移植：像素格式与数据类型枚举、WebGL1/2内部格式转换、多通道垂直反转（flipY）（pixel_format_spec.rs） |
 | [packages/core/Specs/PlaneGeometrySpec.js](../../cesium/packages/core/Specs/PlaneGeometrySpec.js) | 已移植：单面 4 顶点 2 三角形网格、全属性（法线/切线/副切线/纹理）（plane_geometry_spec.rs） |
 | [packages/core/Specs/PlaneOutlineGeometrySpec.js](../../cesium/packages/core/Specs/PlaneOutlineGeometrySpec.js) | 已移植：矩形 4 边线框图元顶点与索引生成（plane_geometry_spec.rs） |

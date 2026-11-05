@@ -37,6 +37,20 @@ pub struct PerspectiveOffCenterFrustum {
 }
 
 impl PerspectiveOffCenterFrustum {
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => {
+                self.left == o.left
+                    && self.right == o.right
+                    && self.bottom == o.bottom
+                    && self.top == o.top
+                    && self.near == o.near
+                    && self.far == o.far
+            }
+            None => false,
+        }
+    }
+
     pub fn equals_epsilon(self, other: Self, relative: f64, absolute: f64) -> bool {
         equal_values(
             &[
@@ -177,6 +191,20 @@ pub struct OrthographicOffCenterFrustum {
 }
 
 impl OrthographicOffCenterFrustum {
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => {
+                self.left == o.left
+                    && self.right == o.right
+                    && self.bottom == o.bottom
+                    && self.top == o.top
+                    && self.near == o.near
+                    && self.far == o.far
+            }
+            None => false,
+        }
+    }
+
     pub fn equals_epsilon(self, other: Self, relative: f64, absolute: f64) -> bool {
         equal_values(
             &[
@@ -304,6 +332,19 @@ impl Default for OrthographicFrustum {
 
 impl OrthographicFrustum {
     pub const PACKED_LENGTH: usize = 4;
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => {
+                self.width == o.width
+                    && self.aspect_ratio == o.aspect_ratio
+                    && self.near == o.near
+                    && self.far == o.far
+            }
+            None => false,
+        }
+    }
+
     pub fn equals_epsilon(
         self,
         other: Self,
@@ -406,6 +447,21 @@ impl Default for PerspectiveFrustum {
 
 impl PerspectiveFrustum {
     pub const PACKED_LENGTH: usize = 6;
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => {
+                self.fov == o.fov
+                    && self.aspect_ratio == o.aspect_ratio
+                    && self.near == o.near
+                    && self.far == o.far
+                    && self.x_offset == o.x_offset
+                    && self.y_offset == o.y_offset
+            }
+            None => false,
+        }
+    }
+
     pub fn pack(self, output: &mut [f64], offset: usize) -> Result<(), MathError> {
         let end = offset.checked_add(Self::PACKED_LENGTH).ok_or(MathError)?;
         output

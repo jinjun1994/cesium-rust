@@ -134,3 +134,18 @@ fn upstream_pack_offsets_and_epsilon_comparison() {
     assert!(!a.equals_epsilon(b, 0.0, 1e-7));
     assert!(!a.equals_epsilon(a, -1.0, 1e-5));
 }
+
+#[test]
+fn equality_and_clone() {
+    let f1 = frustum();
+    let f2 = f1;
+    assert!(f1.equals(Some(&f2)));
+    assert!(!f1.equals(Some(&PerspectiveFrustum { fov: 2.0, ..f1 })));
+    assert!(!f1.equals(None));
+
+    let off1 = f1.off_center().unwrap();
+    let off2 = off1;
+    assert!(off1.equals(Some(&off2)));
+    assert!(!off1.equals(Some(&PerspectiveOffCenterFrustum { left: -5.0, ..off1 })));
+    assert!(!off1.equals(None));
+}

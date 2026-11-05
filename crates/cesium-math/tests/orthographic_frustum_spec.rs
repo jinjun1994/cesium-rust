@@ -121,3 +121,26 @@ fn upstream_epsilon_uses_absolute_and_relative_tolerances() {
     assert!(!a.equals_epsilon(b, 0.0001, 0.0));
     assert!(!a.equals_epsilon(a, f64::NAN, 0.0));
 }
+
+#[test]
+fn equality_and_clone() {
+    let f1 = OrthographicFrustum {
+        width: 2.0,
+        aspect_ratio: 1.0,
+        near: 1.0,
+        far: 3.0,
+    };
+    let f2 = f1;
+    assert!(f1.equals(Some(&f2)));
+    assert!(!f1.equals(Some(&OrthographicFrustum { width: 3.0, ..f1 })));
+    assert!(!f1.equals(None));
+
+    let off1 = f1.off_center().unwrap();
+    let off2 = off1;
+    assert!(off1.equals(Some(&off2)));
+    assert!(!off1.equals(Some(&OrthographicOffCenterFrustum {
+        left: -5.0,
+        ..off1
+    })));
+    assert!(!off1.equals(None));
+}
