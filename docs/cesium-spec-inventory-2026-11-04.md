@@ -362,9 +362,9 @@
 | [packages/engine/Specs/DataSources/GeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/GeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/GeometryVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/GeometryVisualizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/GpxDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/GpxDataSourceSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/GridMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/GridMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/GridMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/GridMaterialPropertySpec.js) | 已移植：网格材质属性封装、默认白色/0.1单元透明度/8x8线数/1.0线宽/0.0偏移回退、常量与动态属性求值、isConstant联合判定及equals属性比较（grid_material_property_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/DataSources/GroundGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/GroundGeometryUpdaterSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/ImageMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ImageMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/ImageMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ImageMaterialPropertySpec.js) | 已移植：图像材质属性封装、默认1x1重复度/白色/非透明回退、URL图片源解析与动态重采样求值、isConstant判定及equals属性比对（image_material_property_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/DataSources/KmlDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/KmlDataSourceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/KmlTourFlyToSpec.js](../../cesium/packages/engine/Specs/DataSources/KmlTourFlyToSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/KmlTourSpec.js](../../cesium/packages/engine/Specs/DataSources/KmlTourSpec.js) | 待逐项核对 |
@@ -405,7 +405,7 @@
 | [packages/engine/Specs/DataSources/StaticGroundGeometryPerMaterialBatchSpec.js](../../cesium/packages/engine/Specs/DataSources/StaticGroundGeometryPerMaterialBatchSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/StaticGroundPolylinePerMaterialBatchSpec.js](../../cesium/packages/engine/Specs/DataSources/StaticGroundPolylinePerMaterialBatchSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/StaticOutlineGeometryBatchSpec.js](../../cesium/packages/engine/Specs/DataSources/StaticOutlineGeometryBatchSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/StripeMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/StripeMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/StripeMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/StripeMaterialPropertySpec.js) | 已移植：条纹材质属性封装、水平/垂直方向枚举 StripeOrientation、默认水平/黑白/0偏移/1重复度回退、常量与动态属性求值、isConstant联合判定及equals属性比较（stripe_material_property_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/DataSources/TerrainOffsetPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/TerrainOffsetPropertySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/TimeIntervalCollectionPositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/TimeIntervalCollectionPositionPropertySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/TimeIntervalCollectionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/TimeIntervalCollectionPropertySpec.js) | 待逐项核对 |
