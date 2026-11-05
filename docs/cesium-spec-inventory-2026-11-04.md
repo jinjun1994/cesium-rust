@@ -354,7 +354,7 @@
 | [packages/engine/Specs/DataSources/EllipsoidGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipsoidGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/EllipsoidGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipsoidGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/ellipsoid_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/EntityClusterSpec.js](../../cesium/packages/engine/Specs/DataSources/EntityClusterSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/EntityCollectionSpec.js](../../cesium/packages/engine/Specs/DataSources/EntityCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/EntityCollectionSpec.js](../../cesium/packages/engine/Specs/DataSources/EntityCollectionSpec.js) | 全绿通过 (crates/cesium-math/tests/entity_collection_spec.rs，实现 EntityCollection、Iso8601 常量、增删查实体、get_or_create_entity、suspend_events/resume_events 批处理事件、compute_availability 动态时间交集推导与无限边界回退) |
 | [packages/engine/Specs/DataSources/EntitySpec.js](../../cesium/packages/engine/Specs/DataSources/EntitySpec.js) | 全绿通过 (crates/cesium-math/tests/entity_spec.rs，实现 TrackingReferenceFrame、Entity 结构、16 种图元与属性聚合、is_available 区间过滤、is_showing 祖先链层级显隐、compute_model_matrix 姿态与 ENU 矩阵变换、动态自定义属性注册与合并) |
 | [packages/engine/Specs/DataSources/EntityViewSpec.js](../../cesium/packages/engine/Specs/DataSources/EntityViewSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/GeoJsonDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/GeoJsonDataSourceSpec.js) | 待逐项核对 |

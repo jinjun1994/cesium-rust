@@ -187,6 +187,8 @@ mod default_proxy;
 mod resource;
 mod ion;
 mod ion_resource;
+mod iso8601;
+mod entity_collection;
 mod terrain_mesh;
 mod terrain_picker;
 mod terrain_provider;
@@ -563,6 +565,8 @@ pub use time_interval::TimeInterval;
 pub use time_interval_collection::TimeIntervalCollection;
 pub use tracking_reference_frame::TrackingReferenceFrame;
 pub use entity::{Entity, Mergeable};
+pub use entity_collection::EntityCollection;
+pub use iso8601::Iso8601;
 pub use tile_availability::{
     QuadtreeNode, RectangleWithLevel, TileAvailability, TileScheme,
 };
