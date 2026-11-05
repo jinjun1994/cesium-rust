@@ -407,8 +407,8 @@
 | [packages/engine/Specs/DataSources/StaticOutlineGeometryBatchSpec.js](../../cesium/packages/engine/Specs/DataSources/StaticOutlineGeometryBatchSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/StripeMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/StripeMaterialPropertySpec.js) | 已移植：条纹材质属性封装、水平/垂直方向枚举 StripeOrientation、默认水平/黑白/0偏移/1重复度回退、常量与动态属性求值、isConstant联合判定及equals属性比较（stripe_material_property_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/DataSources/TerrainOffsetPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/TerrainOffsetPropertySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/TimeIntervalCollectionPositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/TimeIntervalCollectionPositionPropertySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/TimeIntervalCollectionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/TimeIntervalCollectionPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/TimeIntervalCollectionPositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/TimeIntervalCollectionPositionPropertySpec.js) | 已移植：基于 TimeIntervalCollection 的集合位置属性包装、多参考系（Fixed/Inertial）位置求值与跨参考系动态坐标转换、intervals 集合变更监听与 definitionChanged 事件广播、equals 比对（time_interval_collection_position_property_spec.rs，3 项测试全部通过） |
+| [packages/engine/Specs/DataSources/TimeIntervalCollectionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/TimeIntervalCollectionPropertySpec.js) | 已移植：直接包装 TimeIntervalCollection 的动态时间区间属性、基本类型/复杂类型求值与深克隆、intervals 集合变更监听与 definitionChanged 事件广播、equals 比对（time_interval_collection_property_spec.rs，5 项测试全部通过） |
 | [packages/engine/Specs/DataSources/VelocityOrientationPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/VelocityOrientationPropertySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/VelocityVectorPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/VelocityVectorPropertySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/WallGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/WallGeometryUpdaterSpec.js) | 待逐项核对 |

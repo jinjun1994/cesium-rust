@@ -446,3 +446,118 @@ impl CallbackPositionProperty {
         }
     }
 }
+
+/// A Property which is comprised of multiple values over different time intervals.
+#[derive(Clone, Default)]
+pub struct TimeIntervalCollectionProperty<T: Clone + PartialEq> {
+    pub intervals: TimeIntervalCollection<T>,
+    definition_changed: Event<()>,
+}
+
+impl<T: Clone + PartialEq> TimeIntervalCollectionProperty<T> {
+    pub fn new() -> Self {
+        Self {
+            intervals: TimeIntervalCollection::new(),
+            definition_changed: Event::new(),
+        }
+    }
+
+    pub fn is_constant(&self) -> bool {
+        self.intervals.is_empty()
+    }
+
+    pub fn definition_changed(&self) -> &Event<()> {
+        &self.definition_changed
+    }
+
+    pub fn get_value(&self, time: Option<&JulianDate>) -> Option<T> {
+        let default_time;
+        let t = match time {
+            Some(t) => t,
+            None => {
+                default_time = JulianDate::now();
+                &default_time
+            }
+        };
+        self.intervals.find_data_for_interval_containing_date(t).cloned()
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => self.intervals == o.intervals,
+            None => false,
+        }
+    }
+
+    pub fn raise_definition_changed(&self) {
+        self.definition_changed.raise_event(&());
+    }
+}
+
+/// A PositionProperty which is comprised of multiple values over different time intervals.
+#[derive(Clone, Default)]
+pub struct TimeIntervalCollectionPositionProperty {
+    pub intervals: TimeIntervalCollection<Cartesian3>,
+    pub reference_frame: ReferenceFrame,
+    definition_changed: Event<()>,
+}
+
+impl TimeIntervalCollectionPositionProperty {
+    pub fn new(reference_frame: Option<ReferenceFrame>) -> Self {
+        Self {
+            intervals: TimeIntervalCollection::new(),
+            reference_frame: reference_frame.unwrap_or(ReferenceFrame::Fixed),
+            definition_changed: Event::new(),
+        }
+    }
+
+    pub fn reference_frame(&self) -> ReferenceFrame {
+        self.reference_frame
+    }
+
+    pub fn is_constant(&self) -> bool {
+        self.intervals.is_empty()
+    }
+
+    pub fn definition_changed(&self) -> &Event<()> {
+        &self.definition_changed
+    }
+
+    pub fn get_value(&self, time: Option<&JulianDate>) -> Option<Cartesian3> {
+        let default_time;
+        let t = match time {
+            Some(t) => t,
+            None => {
+                default_time = JulianDate::now();
+                &default_time
+            }
+        };
+        self.get_value_in_reference_frame(Some(t), ReferenceFrame::Fixed)
+    }
+
+    pub fn get_value_in_reference_frame(
+        &self,
+        time: Option<&JulianDate>,
+        target_frame: ReferenceFrame,
+    ) -> Option<Cartesian3> {
+        let t = time?;
+        let raw = *self.intervals.find_data_for_interval_containing_date(t)?;
+        PositionProperty::convert_to_reference_frame(
+            Some(t),
+            Some(raw),
+            self.reference_frame,
+            target_frame,
+        )
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => self.reference_frame == o.reference_frame && self.intervals == o.intervals,
+            None => false,
+        }
+    }
+
+    pub fn raise_definition_changed(&self) {
+        self.definition_changed.raise_event(&());
+    }
+}
