@@ -1,7 +1,7 @@
 //! Property interfaces and implementations matching CesiumJS `DataSources/Property.js` (Apache-2.0).
 
 use crate::{
-    Cartesian3, CelestialFrameTransforms, Event, JulianDate, ReferenceFrame,
+    Cartesian3, CelestialFrameTransforms, Event, JulianDate, ReferenceFrame, TimeIntervalCollection,
 };
 
 /// The interface for all properties, which represent a value that can optionally vary over time.
@@ -62,6 +62,12 @@ impl<T: Clone + PartialEq> ConstantProperty<T> {
             Some(o) => self.value == o.value,
             None => false,
         }
+    }
+}
+
+impl<T: Clone + PartialEq> PartialEq for ConstantProperty<T> {
+    fn eq(&self, other: &Self) -> bool {
+        self.value == other.value
     }
 }
 
@@ -165,6 +171,143 @@ impl ConstantPositionProperty {
             Some(o) => self.reference_frame == o.reference_frame && self.value == o.value,
             None => false,
         }
+    }
+}
+
+impl PartialEq for ConstantPositionProperty {
+    fn eq(&self, other: &Self) -> bool {
+        self.reference_frame == other.reference_frame && self.value == other.value
+    }
+}
+
+/// A Property which is comprised of multiple other properties over different time intervals.
+#[derive(Clone, Default)]
+pub struct CompositeProperty<T: Clone + PartialEq> {
+    pub intervals: TimeIntervalCollection<ConstantProperty<T>>,
+    definition_changed: Event<()>,
+}
+
+impl<T: Clone + PartialEq> CompositeProperty<T> {
+    pub fn new() -> Self {
+        Self {
+            intervals: TimeIntervalCollection::new(),
+            definition_changed: Event::new(),
+        }
+    }
+
+    pub fn is_constant(&self) -> bool {
+        let len = self.intervals.len();
+        if len == 0 {
+            return true;
+        }
+        if len == 1 {
+            if let Some(interval) = self.intervals.get(0) {
+                if let Some(prop) = &interval.data {
+                    return prop.is_constant();
+                }
+            }
+            return true;
+        }
+        false
+    }
+
+    pub fn definition_changed(&self) -> &Event<()> {
+        &self.definition_changed
+    }
+
+    pub fn get_value(&self, time: Option<&JulianDate>) -> Option<T> {
+        let default_time;
+        let t = match time {
+            Some(t) => t,
+            None => {
+                default_time = JulianDate::now();
+                &default_time
+            }
+        };
+        let prop = self.intervals.find_data_for_interval_containing_date(t)?;
+        prop.get_value(Some(t))
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => self.intervals == o.intervals,
+            None => false,
+        }
+    }
+
+    pub fn raise_definition_changed(&self) {
+        self.definition_changed.raise_event(&());
+    }
+}
+
+/// A PositionProperty which is comprised of multiple other properties over different time intervals.
+#[derive(Clone, Default)]
+pub struct CompositePositionProperty {
+    pub intervals: TimeIntervalCollection<ConstantPositionProperty>,
+    pub reference_frame: ReferenceFrame,
+    definition_changed: Event<()>,
+}
+
+impl CompositePositionProperty {
+    pub fn new(reference_frame: Option<ReferenceFrame>) -> Self {
+        Self {
+            intervals: TimeIntervalCollection::new(),
+            reference_frame: reference_frame.unwrap_or(ReferenceFrame::Fixed),
+            definition_changed: Event::new(),
+        }
+    }
+
+    pub fn is_constant(&self) -> bool {
+        let len = self.intervals.len();
+        if len == 0 {
+            return true;
+        }
+        if len == 1 {
+            if let Some(interval) = self.intervals.get(0) {
+                if let Some(prop) = &interval.data {
+                    return prop.is_constant();
+                }
+            }
+            return true;
+        }
+        false
+    }
+
+    pub fn definition_changed(&self) -> &Event<()> {
+        &self.definition_changed
+    }
+
+    pub fn get_value(&self, time: Option<&JulianDate>) -> Option<Cartesian3> {
+        let default_time;
+        let t = match time {
+            Some(t) => t,
+            None => {
+                default_time = JulianDate::now();
+                &default_time
+            }
+        };
+        self.get_value_in_reference_frame(Some(t), ReferenceFrame::Fixed)
+    }
+
+    pub fn get_value_in_reference_frame(
+        &self,
+        time: Option<&JulianDate>,
+        target_frame: ReferenceFrame,
+    ) -> Option<Cartesian3> {
+        let t = time?;
+        let prop = self.intervals.find_data_for_interval_containing_date(t)?;
+        prop.get_value_in_reference_frame(Some(t), target_frame)
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => self.reference_frame == o.reference_frame && self.intervals == o.intervals,
+            None => false,
+        }
+    }
+
+    pub fn raise_definition_changed(&self) {
+        self.definition_changed.raise_event(&());
     }
 }
 
