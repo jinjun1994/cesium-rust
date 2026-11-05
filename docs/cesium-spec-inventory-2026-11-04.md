@@ -331,8 +331,8 @@
 | [packages/engine/Specs/DataSources/CallbackPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CallbackPropertySpec.js) | 已移植：动态回调闭包属性求值、缺省时间自动采用JulianDate::now、isConstant常量标志、setCallback更新与isConstant切换、definitionChanged事件通知及equals函数指针比较（callback_property_spec.rs，5 项测试全部通过） |
 | [packages/engine/Specs/DataSources/Cesium3DTilesetGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/Cesium3DTilesetGraphicsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/Cesium3DTilesetVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/Cesium3DTilesetVisualizerSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/CheckerboardMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CheckerboardMaterialPropertySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/ColorMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ColorMaterialPropertySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/CheckerboardMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CheckerboardMaterialPropertySpec.js) | 已移植：Checkerboard棋盘格材质属性封装、默认黑白颜色与2x2重复度、自定义常量/动态属性求值、isConstant联合判定及equals属性比较（checkerboard_material_property_spec.rs，3 项测试全部通过） |
+| [packages/engine/Specs/DataSources/ColorMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ColorMaterialPropertySpec.js) | 已移植：单色材质属性封装、默认白色回退、常量/动态颜色属性求值、isConstant判定及equals颜色比较（color_material_property_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/DataSources/CompositeEntityCollectionSpec.js](../../cesium/packages/engine/Specs/DataSources/CompositeEntityCollectionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/CompositeMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CompositeMaterialPropertySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/CompositePositionPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/CompositePositionPropertySpec.js) | 已移植：基于 TimeIntervalCollection 的跨时间区间分段位置求值、多参考系（Fixed/Inertial）支持与跨参考系动态坐标变换、单区间/多区间 isConstant 判定、equals 区间集合与参考系比对（composite_position_property_spec.rs，3 项测试全部通过） |

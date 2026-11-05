@@ -20,7 +20,7 @@ pub trait Property<T: Clone> {
 }
 
 /// A Property whose value does not change with respect to simulation time.
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct ConstantProperty<T: Clone + PartialEq> {
     value: Option<T>,
     definition_changed: Event<()>,
@@ -107,7 +107,7 @@ impl PositionProperty {
 }
 
 /// A PositionProperty whose value does not change with respect to simulation time.
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct ConstantPositionProperty {
     value: Option<Cartesian3>,
     reference_frame: ReferenceFrame,

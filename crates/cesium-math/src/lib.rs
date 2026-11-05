@@ -86,6 +86,7 @@ mod lagrange_polynomial_approximation;
 mod linear_approximation;
 mod linear_spline;
 mod managed_array;
+mod material_property;
 mod matrices;
 mod merge_sort;
 mod morton_order;
@@ -315,6 +316,9 @@ pub use lagrange_polynomial_approximation::LagrangePolynomialApproximation;
 pub use linear_approximation::LinearApproximation;
 pub use linear_spline::{LinearSpline, SplineInterpolate};
 pub use managed_array::ManagedArray;
+pub use material_property::{
+    CheckerboardMaterialProperty, CheckerboardMaterialValue, ColorMaterialProperty,
+};
 pub use matrices::{Matrix2, Matrix3, Matrix4};
 pub use merge_sort::merge_sort;
 pub use morton_order::MortonOrder;
