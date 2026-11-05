@@ -11,6 +11,7 @@ mod attribute_type;
 mod axis_aligned_bounding_box;
 mod barycentric_coordinates;
 mod binary_search;
+mod billboard_graphics;
 mod bounding_rectangle;
 mod box_geometry;
 mod build_module_url;
@@ -91,6 +92,7 @@ mod matrices;
 mod merge_sort;
 mod morton_order;
 mod occluder;
+mod origin;
 mod oriented_bounding_box;
 mod plane;
 mod plane_geometry;
@@ -197,6 +199,9 @@ pub use barycentric_coordinates::{
     barycentric_coordinates, barycentric_coordinates_2d, BarycentricCoordinates,
 };
 pub use binary_search::{binary_search, binary_search_cesium};
+pub use billboard_graphics::{
+    BillboardGraphics, BillboardGraphicsOptions, BillboardGraphicsValues,
+};
 pub use bounding_rectangle::BoundingRectangle;
 pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
 pub use build_module_url::{
@@ -334,6 +339,7 @@ pub use matrices::{Matrix2, Matrix3, Matrix4};
 pub use merge_sort::merge_sort;
 pub use morton_order::MortonOrder;
 pub use occluder::{Occluder, Visibility};
+pub use origin::{HorizontalOrigin, VerticalOrigin};
 pub use oriented_bounding_box::OrientedBoundingBox;
 pub use plane::Plane;
 pub use plane_geometry::{PlaneGeometry, PlaneOutlineGeometry};
