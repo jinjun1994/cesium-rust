@@ -27,6 +27,7 @@ mod trusted_servers;
 mod itwin_platform;
 mod snap_service;
 mod ion_snap_service;
+mod video_synchronizer;
 mod catmull_rom_spline;
 mod celestial_frame_transforms;
 mod check;
@@ -209,6 +210,9 @@ pub use snap_service::SnapService;
 pub use ion_snap_service::{
     IonSnapGeometryType, IonSnapHeat, IonSnapMode, IonSnapOptions, IonSnapParentGeometryType,
     IonSnapResult, IonSnapService,
+};
+pub use video_synchronizer::{
+    VideoElementMock, VideoSynchronizer, VideoSynchronizerOptions,
 };
 pub use catmull_rom_spline::CatmullRomSpline;
 pub use celestial_frame_transforms::CelestialFrameTransforms;

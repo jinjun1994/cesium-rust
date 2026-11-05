@@ -304,7 +304,7 @@
 | [packages/engine/Specs/Core/TrustedServersSpec.js](../../cesium/packages/engine/Specs/Core/TrustedServersSpec.js) | 已补齐（`crates/cesium-math/tests/trusted_servers_spec.rs`，覆盖 host 与 port 校验、HTTP/HTTPS 默认端口推导、自定义端口匹配、用户名密码认证 URL 剥离、相对路径过滤、协议无关 URL 及全局单例 TrustedServers API） |
 | [packages/engine/Specs/Core/VRTheWorldTerrainProviderSpec.js](../../cesium/packages/engine/Specs/Core/VRTheWorldTerrainProviderSpec.js) | 已补齐（`crates/cesium-math/tests/vr_the_world_terrain_provider_spec.rs`，覆盖 TileMap XML 元数据解析与 EPSG:4326 SRS 校验、各级几何误差推导与折半计算、DataExtents 范围子瓦片可用性掩码解算、TMS y 坐标翻转瓦片 URL 构造与 HeightmapTerrainData 瓦片几何请求） |
 | [packages/engine/Specs/Core/VectorProviderSpec.js](../../cesium/packages/engine/Specs/Core/VectorProviderSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Core/VideoSynchronizerSpec.js](../../cesium/packages/engine/Specs/Core/VideoSynchronizerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Core/VideoSynchronizerSpec.js](../../cesium/packages/engine/Specs/Core/VideoSynchronizerSpec.js) | 已补齐（`crates/cesium-math/tests/video_synchronizer_spec.rs`，覆盖构造参数校验、Clock 仿真时钟与视频播放时间同步计算、时钟启停状态联动、时钟速率倍率应用及对象生命周期销毁） |
 | [packages/engine/Specs/Core/WebMercatorTilingSchemeSpec.js](../../cesium/packages/engine/Specs/Core/WebMercatorTilingSchemeSpec.js) | 已移植：Web 墨卡托瓦片方案、单根瓦片全域覆盖、瓦片索引与原生米坐标映射、极区裁剪与多层级瓦片定位（web_mercator_tiling_scheme_spec.rs） |
 | [packages/engine/Specs/Core/WireframeIndexGeneratorSpec.js](../../cesium/packages/engine/Specs/Core/WireframeIndexGeneratorSpec.js) | 已移植：网格线框索引生成器，支持三角形/三角带/三角扇（Triangles/TriangleStrip/TriangleFan）索引重排与线段缓冲生成、非三角形图元过滤、线框索引容量计算（wireframe_index_generator_spec.rs） |
 | [packages/engine/Specs/Core/addAllSpec.js](../../cesium/packages/engine/Specs/Core/addAllSpec.js) | 已移植：数组批量合并、None/空源切片安全过滤、大容量数组扩展（add_all_spec.rs） |

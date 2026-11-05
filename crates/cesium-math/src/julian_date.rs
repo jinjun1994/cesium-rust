@@ -241,6 +241,16 @@ impl JulianDate {
         Self::set_leap_seconds(list);
     }
 
+    pub const MINIMUM_VALUE: Self = Self {
+        day_number: 1721060,
+        seconds_of_day: 0.0,
+    };
+
+    pub const MAXIMUM_VALUE: Self = Self {
+        day_number: 5373484,
+        seconds_of_day: 0.0,
+    };
+
     #[inline]
     pub const fn new_tai(day_number: i32, seconds_of_day: f64) -> Self {
         Self {
