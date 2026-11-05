@@ -98,6 +98,7 @@ mod property;
 mod property_bag;
 mod reference_frame;
 mod sampled_property;
+mod node_transformation_property;
 mod velocity_properties;
 mod pixel_format;
 mod pin_builder;
@@ -372,6 +373,9 @@ pub use property_bag::PropertyBag;
 pub use sampled_property::{
     ExtrapolationType, InterpolationAlgorithm, Rotation, Sampleable, SampledPositionProperty,
     SampledProperty,
+};
+pub use node_transformation_property::{
+    NodeTransformationProperty, NodeTransformationPropertyOptions,
 };
 pub use velocity_properties::{VelocityOrientationProperty, VelocityVectorProperty};
 pub use quantized_mesh_terrain_data::{QuantizedMeshTerrainData, QuantizedMeshTerrainDataOptions};
