@@ -1,19 +1,37 @@
 //! Material property interfaces and implementations matching CesiumJS `DataSources/*MaterialProperty.js` (Apache-2.0).
 
-use crate::{Cartesian2, Color, ConstantProperty, Event, JulianDate};
+use std::cell::RefCell;
+use std::rc::Rc;
+
+use crate::{
+    Cartesian2, Color, ConstantProperty, Event, EventHelper, JulianDate, TimeIntervalCollection,
+};
 
 /// A MaterialProperty that maps to flat Color materials.
-#[derive(Clone, Debug, Default)]
+#[derive(Debug, Default)]
 pub struct ColorMaterialProperty {
     pub color: Option<ConstantProperty<Color>>,
     definition_changed: Event<()>,
 }
 
+impl Clone for ColorMaterialProperty {
+    fn clone(&self) -> Self {
+        Self::new(self.color.clone())
+    }
+}
+
 impl ColorMaterialProperty {
     pub fn new(color: Option<ConstantProperty<Color>>) -> Self {
+        let definition_changed = Event::new();
+        if let Some(ref c) = color {
+            let dc = definition_changed.clone();
+            c.definition_changed().add_listener(move |_| {
+                dc.raise_event(&());
+            });
+        }
         Self {
             color,
-            definition_changed: Event::new(),
+            definition_changed,
         }
     }
 
@@ -729,3 +747,423 @@ impl PolylineDashMaterialProperty {
         }
     }
 }
+
+/// The evaluated value of a MaterialProperty.
+#[derive(Clone, Debug, PartialEq)]
+pub enum MaterialValue {
+    Color(Color),
+    Checkerboard(CheckerboardMaterialValue),
+    Grid(GridMaterialValue),
+    Stripe(StripeMaterialValue),
+    Image(ImageMaterialValue),
+    PolylineGlow(PolylineGlowMaterialValue),
+    PolylineOutline(PolylineOutlineMaterialValue),
+    PolylineArrow(Color),
+    PolylineDash(PolylineDashMaterialValue),
+}
+
+/// Interface for all material properties.
+pub trait MaterialProperty: std::any::Any {
+    fn get_type(&self, time: &JulianDate) -> &'static str;
+    fn is_constant(&self) -> bool;
+    fn definition_changed(&self) -> &Event<()>;
+    fn equals_material(&self, other: &dyn MaterialProperty) -> bool;
+    fn as_any(&self) -> &dyn std::any::Any;
+    fn get_material_value(&self, time: Option<&JulianDate>) -> Option<MaterialValue>;
+}
+
+impl MaterialProperty for ColorMaterialProperty {
+    fn get_type(&self, _time: &JulianDate) -> &'static str {
+        "Color"
+    }
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn equals_material(&self, other: &dyn MaterialProperty) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn get_material_value(&self, time: Option<&JulianDate>) -> Option<MaterialValue> {
+        Some(MaterialValue::Color(self.get_value(time)))
+    }
+}
+
+impl MaterialProperty for CheckerboardMaterialProperty {
+    fn get_type(&self, _time: &JulianDate) -> &'static str {
+        "Checkerboard"
+    }
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn equals_material(&self, other: &dyn MaterialProperty) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn get_material_value(&self, time: Option<&JulianDate>) -> Option<MaterialValue> {
+        Some(MaterialValue::Checkerboard(self.get_value(time)))
+    }
+}
+
+impl MaterialProperty for GridMaterialProperty {
+    fn get_type(&self, _time: &JulianDate) -> &'static str {
+        "Grid"
+    }
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn equals_material(&self, other: &dyn MaterialProperty) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn get_material_value(&self, time: Option<&JulianDate>) -> Option<MaterialValue> {
+        Some(MaterialValue::Grid(self.get_value(time)))
+    }
+}
+
+impl MaterialProperty for StripeMaterialProperty {
+    fn get_type(&self, _time: &JulianDate) -> &'static str {
+        "Stripe"
+    }
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn equals_material(&self, other: &dyn MaterialProperty) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn get_material_value(&self, time: Option<&JulianDate>) -> Option<MaterialValue> {
+        Some(MaterialValue::Stripe(self.get_value(time)))
+    }
+}
+
+impl MaterialProperty for ImageMaterialProperty {
+    fn get_type(&self, _time: &JulianDate) -> &'static str {
+        "Image"
+    }
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn equals_material(&self, other: &dyn MaterialProperty) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn get_material_value(&self, time: Option<&JulianDate>) -> Option<MaterialValue> {
+        Some(MaterialValue::Image(self.get_value(time)))
+    }
+}
+
+impl MaterialProperty for PolylineGlowMaterialProperty {
+    fn get_type(&self, _time: &JulianDate) -> &'static str {
+        "PolylineGlow"
+    }
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn equals_material(&self, other: &dyn MaterialProperty) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn get_material_value(&self, time: Option<&JulianDate>) -> Option<MaterialValue> {
+        Some(MaterialValue::PolylineGlow(self.get_value(time)))
+    }
+}
+
+impl MaterialProperty for PolylineOutlineMaterialProperty {
+    fn get_type(&self, _time: &JulianDate) -> &'static str {
+        "PolylineOutline"
+    }
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn equals_material(&self, other: &dyn MaterialProperty) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn get_material_value(&self, time: Option<&JulianDate>) -> Option<MaterialValue> {
+        Some(MaterialValue::PolylineOutline(self.get_value(time)))
+    }
+}
+
+impl MaterialProperty for PolylineArrowMaterialProperty {
+    fn get_type(&self, _time: &JulianDate) -> &'static str {
+        "PolylineArrow"
+    }
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn equals_material(&self, other: &dyn MaterialProperty) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn get_material_value(&self, time: Option<&JulianDate>) -> Option<MaterialValue> {
+        Some(MaterialValue::PolylineArrow(self.get_value(time)))
+    }
+}
+
+impl MaterialProperty for PolylineDashMaterialProperty {
+    fn get_type(&self, _time: &JulianDate) -> &'static str {
+        "PolylineDash"
+    }
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn equals_material(&self, other: &dyn MaterialProperty) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn get_material_value(&self, time: Option<&JulianDate>) -> Option<MaterialValue> {
+        Some(MaterialValue::PolylineDash(self.get_value(time)))
+    }
+}
+
+/// Interval data wrapper for CompositeMaterialProperty holding a MaterialProperty instance.
+#[derive(Clone)]
+pub struct MaterialPropertyInterval {
+    pub property: Rc<dyn MaterialProperty>,
+}
+
+impl MaterialPropertyInterval {
+    pub fn new(property: Rc<dyn MaterialProperty>) -> Self {
+        Self { property }
+    }
+}
+
+impl PartialEq for MaterialPropertyInterval {
+    fn eq(&self, other: &Self) -> bool {
+        if Rc::ptr_eq(&self.property, &other.property) {
+            return true;
+        }
+        self.property.equals_material(&*other.property)
+    }
+}
+
+impl<M: MaterialProperty + 'static> From<M> for MaterialPropertyInterval {
+    fn from(m: M) -> Self {
+        Self {
+            property: Rc::new(m),
+        }
+    }
+}
+
+impl<M: MaterialProperty + 'static> From<Rc<M>> for MaterialPropertyInterval {
+    fn from(m: Rc<M>) -> Self {
+        Self {
+            property: m,
+        }
+    }
+}
+
+/// A CompositeProperty which is also a MaterialProperty.
+pub struct CompositeMaterialProperty {
+    pub intervals: TimeIntervalCollection<MaterialPropertyInterval>,
+    definition_changed: Event<()>,
+    event_helper: Rc<RefCell<EventHelper>>,
+}
+
+impl Default for CompositeMaterialProperty {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+impl Clone for CompositeMaterialProperty {
+    fn clone(&self) -> Self {
+        let mut slf = Self::new();
+        slf.intervals = self.intervals.clone();
+        slf.re_subscribe(&slf.intervals);
+        slf
+    }
+}
+
+impl CompositeMaterialProperty {
+    pub fn new() -> Self {
+        let intervals: TimeIntervalCollection<MaterialPropertyInterval> = TimeIntervalCollection::new();
+        let definition_changed = Event::new();
+        let event_helper = Rc::new(RefCell::new(EventHelper::new()));
+
+        let dc = definition_changed.clone();
+        let eh = Rc::clone(&event_helper);
+        intervals.changed_event().add_listener(move |curr_intervals| {
+            eh.borrow_mut().remove_all();
+            for interval in curr_intervals {
+                if let Some(prop_data) = &interval.data {
+                    let dc_inner = dc.clone();
+                    eh.borrow_mut().add(prop_data.property.definition_changed(), move |_| {
+                        dc_inner.raise_event(&());
+                    });
+                }
+            }
+            dc.raise_event(&());
+        });
+
+        Self {
+            intervals,
+            definition_changed,
+            event_helper,
+        }
+    }
+
+    fn re_subscribe(&self, intervals: &TimeIntervalCollection<MaterialPropertyInterval>) {
+        let mut eh = self.event_helper.borrow_mut();
+        eh.remove_all();
+        let dc = self.definition_changed.clone();
+        for i in 0..intervals.len() {
+            if let Some(interval) = intervals.get(i) {
+                if let Some(prop_data) = &interval.data {
+                    let dc_inner = dc.clone();
+                    eh.add(prop_data.property.definition_changed(), move |_| {
+                        dc_inner.raise_event(&());
+                    });
+                }
+            }
+        }
+    }
+
+    pub fn is_constant(&self) -> bool {
+        self.intervals.is_empty()
+    }
+
+    pub fn definition_changed(&self) -> &Event<()> {
+        &self.definition_changed
+    }
+
+    pub fn get_type(&self, time: Option<&JulianDate>) -> Option<&'static str> {
+        let default_time;
+        let t = match time {
+            Some(t) => t,
+            None => {
+                default_time = JulianDate::now();
+                &default_time
+            }
+        };
+        let prop = self.intervals.find_data_for_interval_containing_date(t)?;
+        Some(prop.property.get_type(t))
+    }
+
+    pub fn get_value(&self, time: Option<&JulianDate>) -> Option<MaterialValue> {
+        let default_time;
+        let t = match time {
+            Some(t) => t,
+            None => {
+                default_time = JulianDate::now();
+                &default_time
+            }
+        };
+        let prop = self.intervals.find_data_for_interval_containing_date(t)?;
+        prop.property.get_material_value(Some(t))
+    }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => self.intervals == o.intervals,
+            None => false,
+        }
+    }
+}
+
+impl MaterialProperty for CompositeMaterialProperty {
+    fn get_type(&self, time: &JulianDate) -> &'static str {
+        self.get_type(Some(time)).unwrap_or("")
+    }
+    fn is_constant(&self) -> bool {
+        self.is_constant()
+    }
+    fn definition_changed(&self) -> &Event<()> {
+        self.definition_changed()
+    }
+    fn equals_material(&self, other: &dyn MaterialProperty) -> bool {
+        if let Some(o) = other.as_any().downcast_ref::<Self>() {
+            self.equals(Some(o))
+        } else {
+            false
+        }
+    }
+    fn as_any(&self) -> &dyn std::any::Any {
+        self
+    }
+    fn get_material_value(&self, time: Option<&JulianDate>) -> Option<MaterialValue> {
+        self.get_value(time)
+    }
+}
+

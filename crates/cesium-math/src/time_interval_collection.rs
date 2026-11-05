@@ -1,25 +1,46 @@
 //! TimeIntervalCollection matching CesiumJS `Core/TimeIntervalCollection`.
 //! Adapted from CesiumJS (Apache-2.0).
 
-use crate::{julian_date::JulianDate, time_interval::TimeInterval};
+use crate::{julian_date::JulianDate, time_interval::TimeInterval, Event};
 use std::cmp::Ordering;
 
-#[derive(Clone, Debug, PartialEq)]
-pub struct TimeIntervalCollection<T = ()> {
+#[derive(Debug)]
+pub struct TimeIntervalCollection<T: 'static = ()> {
     intervals: Vec<TimeInterval<T>>,
+    changed_event: Event<Vec<TimeInterval<T>>>,
 }
 
-impl<T> Default for TimeIntervalCollection<T> {
+impl<T: Clone + 'static> Clone for TimeIntervalCollection<T> {
+    fn clone(&self) -> Self {
+        Self {
+            intervals: self.intervals.clone(),
+            changed_event: Event::new(),
+        }
+    }
+}
+
+impl<T: PartialEq + 'static> PartialEq for TimeIntervalCollection<T> {
+    fn eq(&self, other: &Self) -> bool {
+        self.intervals == other.intervals
+    }
+}
+
+impl<T: 'static> Default for TimeIntervalCollection<T> {
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl<T> TimeIntervalCollection<T> {
-    pub const fn new() -> Self {
+impl<T: 'static> TimeIntervalCollection<T> {
+    pub fn new() -> Self {
         Self {
             intervals: Vec::new(),
+            changed_event: Event::new(),
         }
+    }
+
+    pub fn changed_event(&self) -> &Event<Vec<TimeInterval<T>>> {
+        &self.changed_event
     }
 
     pub fn len(&self) -> usize {
@@ -51,7 +72,14 @@ impl<T> TimeIntervalCollection<T> {
     }
 
     pub fn remove_all(&mut self) {
-        self.intervals.clear();
+        if !self.intervals.is_empty() {
+            self.intervals.clear();
+            self.changed_event.raise_event(&self.intervals);
+        }
+    }
+
+    pub fn empty(&mut self) {
+        self.remove_all();
     }
 
     pub fn contains(&self, date: &JulianDate) -> bool {
@@ -138,6 +166,7 @@ impl<T: Clone + PartialEq> TimeIntervalCollection<T> {
             || interval.start.compare(&self.intervals.last().unwrap().stop) == Ordering::Greater
         {
             self.intervals.push(interval);
+            self.changed_event.raise_event(&self.intervals);
             return;
         }
 
@@ -263,6 +292,7 @@ impl<T: Clone + PartialEq> TimeIntervalCollection<T> {
         }
 
         self.intervals.insert(index, interval);
+        self.changed_event.raise_event(&self.intervals);
     }
 
     pub fn remove_interval<U>(&mut self, interval: &TimeInterval<U>) -> bool {
@@ -337,6 +367,10 @@ impl<T: Clone + PartialEq> TimeIntervalCollection<T> {
             } else {
                 break;
             }
+        }
+
+        if result {
+            self.changed_event.raise_event(&self.intervals);
         }
 
         result

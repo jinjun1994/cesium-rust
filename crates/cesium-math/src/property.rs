@@ -211,35 +211,116 @@ impl PartialEq for ConstantPositionProperty {
     }
 }
 
-/// A Property which is comprised of multiple other properties over different time intervals.
-#[derive(Clone, Default)]
-pub struct CompositeProperty<T: Clone + PartialEq> {
-    pub intervals: TimeIntervalCollection<ConstantProperty<T>>,
-    definition_changed: Event<()>,
+/// Interval data wrapper for CompositeProperty holding a dynamic property.
+#[derive(Clone)]
+pub struct PropertyInterval<T: Clone + 'static> {
+    pub property: Rc<dyn DynProperty<T>>,
 }
 
-impl<T: Clone + PartialEq> CompositeProperty<T> {
-    pub fn new() -> Self {
+impl<T: Clone + 'static> PropertyInterval<T> {
+    pub fn new(property: Rc<dyn DynProperty<T>>) -> Self {
+        Self { property }
+    }
+}
+
+impl<T: Clone + 'static> PartialEq for PropertyInterval<T> {
+    fn eq(&self, other: &Self) -> bool {
+        if Rc::ptr_eq(&self.property, &other.property) {
+            return true;
+        }
+        self.property.equals_dyn(&*other.property)
+    }
+}
+
+impl<T: Clone + 'static> From<Rc<dyn DynProperty<T>>> for PropertyInterval<T> {
+    fn from(property: Rc<dyn DynProperty<T>>) -> Self {
+        Self { property }
+    }
+}
+
+impl<T: Clone + PartialEq + 'static> From<ConstantProperty<T>> for PropertyInterval<T> {
+    fn from(prop: ConstantProperty<T>) -> Self {
         Self {
-            intervals: TimeIntervalCollection::new(),
-            definition_changed: Event::new(),
+            property: Rc::new(prop),
+        }
+    }
+}
+
+impl<T: Clone + PartialEq + 'static> From<Rc<ConstantProperty<T>>> for PropertyInterval<T> {
+    fn from(prop: Rc<ConstantProperty<T>>) -> Self {
+        Self { property: prop }
+    }
+}
+
+/// A Property which is defined by a TimeIntervalCollection, where the data property of each
+/// TimeInterval is another Property instance which is evaluated at the provided time.
+pub struct CompositeProperty<T: Clone + 'static> {
+    pub intervals: TimeIntervalCollection<PropertyInterval<T>>,
+    definition_changed: Event<()>,
+    event_helper: Rc<RefCell<EventHelper>>,
+}
+
+impl<T: Clone + 'static> Default for CompositeProperty<T> {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+impl<T: Clone + 'static> Clone for CompositeProperty<T> {
+    fn clone(&self) -> Self {
+        let mut slf = Self::new();
+        slf.intervals = self.intervals.clone();
+        slf.re_subscribe(&slf.intervals);
+        slf
+    }
+}
+
+impl<T: Clone + 'static> CompositeProperty<T> {
+    pub fn new() -> Self {
+        let intervals: TimeIntervalCollection<PropertyInterval<T>> = TimeIntervalCollection::new();
+        let definition_changed = Event::new();
+        let event_helper = Rc::new(RefCell::new(EventHelper::new()));
+
+        let dc = definition_changed.clone();
+        let eh = Rc::clone(&event_helper);
+        intervals.changed_event().add_listener(move |curr_intervals| {
+            eh.borrow_mut().remove_all();
+            for interval in curr_intervals {
+                if let Some(prop_data) = &interval.data {
+                    let dc_inner = dc.clone();
+                    eh.borrow_mut().add(prop_data.property.definition_changed(), move |_| {
+                        dc_inner.raise_event(&());
+                    });
+                }
+            }
+            dc.raise_event(&());
+        });
+
+        Self {
+            intervals,
+            definition_changed,
+            event_helper,
+        }
+    }
+
+    fn re_subscribe(&self, intervals: &TimeIntervalCollection<PropertyInterval<T>>) {
+        let mut eh = self.event_helper.borrow_mut();
+        eh.remove_all();
+        let dc = self.definition_changed.clone();
+        for i in 0..intervals.len() {
+            if let Some(interval) = intervals.get(i) {
+                if let Some(prop_data) = &interval.data {
+                    let dc_inner = dc.clone();
+                    eh.add(prop_data.property.definition_changed(), move |_| {
+                        dc_inner.raise_event(&());
+                    });
+                }
+            }
         }
     }
 
     pub fn is_constant(&self) -> bool {
-        let len = self.intervals.len();
-        if len == 0 {
-            return true;
-        }
-        if len == 1 {
-            if let Some(interval) = self.intervals.get(0) {
-                if let Some(prop) = &interval.data {
-                    return prop.is_constant();
-                }
-            }
-            return true;
-        }
-        false
+        self.intervals.is_empty()
     }
 
     pub fn definition_changed(&self) -> &Event<()> {
@@ -256,7 +337,7 @@ impl<T: Clone + PartialEq> CompositeProperty<T> {
             }
         };
         let prop = self.intervals.find_data_for_interval_containing_date(t)?;
-        prop.get_value(Some(t))
+        prop.property.get_value(Some(t))
     }
 
     pub fn equals(&self, other: Option<&Self>) -> bool {
@@ -271,37 +352,121 @@ impl<T: Clone + PartialEq> CompositeProperty<T> {
     }
 }
 
+/// Interval data wrapper for CompositePositionProperty holding a dynamic position property.
+#[derive(Clone)]
+pub struct PositionPropertyInterval {
+    pub property: Rc<dyn DynPositionProperty>,
+}
+
+impl PositionPropertyInterval {
+    pub fn new(property: Rc<dyn DynPositionProperty>) -> Self {
+        Self { property }
+    }
+}
+
+impl PartialEq for PositionPropertyInterval {
+    fn eq(&self, other: &Self) -> bool {
+        if Rc::ptr_eq(&self.property, &other.property) {
+            return true;
+        }
+        self.property.equals_dyn(&*other.property)
+    }
+}
+
+impl From<Rc<dyn DynPositionProperty>> for PositionPropertyInterval {
+    fn from(property: Rc<dyn DynPositionProperty>) -> Self {
+        Self { property }
+    }
+}
+
+impl From<ConstantPositionProperty> for PositionPropertyInterval {
+    fn from(prop: ConstantPositionProperty) -> Self {
+        Self {
+            property: Rc::new(prop),
+        }
+    }
+}
+
+impl From<Rc<ConstantPositionProperty>> for PositionPropertyInterval {
+    fn from(prop: Rc<ConstantPositionProperty>) -> Self {
+        Self { property: prop }
+    }
+}
+
 /// A PositionProperty which is comprised of multiple other properties over different time intervals.
-#[derive(Clone, Default)]
 pub struct CompositePositionProperty {
-    pub intervals: TimeIntervalCollection<ConstantPositionProperty>,
+    pub intervals: TimeIntervalCollection<PositionPropertyInterval>,
     pub reference_frame: ReferenceFrame,
     definition_changed: Event<()>,
+    event_helper: Rc<RefCell<EventHelper>>,
+}
+
+impl Default for CompositePositionProperty {
+    fn default() -> Self {
+        Self::new(None)
+    }
+}
+
+impl Clone for CompositePositionProperty {
+    fn clone(&self) -> Self {
+        let mut slf = Self::new(Some(self.reference_frame));
+        slf.intervals = self.intervals.clone();
+        slf.re_subscribe(&slf.intervals);
+        slf
+    }
 }
 
 impl CompositePositionProperty {
     pub fn new(reference_frame: Option<ReferenceFrame>) -> Self {
+        let intervals: TimeIntervalCollection<PositionPropertyInterval> = TimeIntervalCollection::new();
+        let definition_changed = Event::new();
+        let event_helper = Rc::new(RefCell::new(EventHelper::new()));
+
+        let dc = definition_changed.clone();
+        let eh = Rc::clone(&event_helper);
+        intervals.changed_event().add_listener(move |curr_intervals| {
+            eh.borrow_mut().remove_all();
+            for interval in curr_intervals {
+                if let Some(prop_data) = &interval.data {
+                    let dc_inner = dc.clone();
+                    eh.borrow_mut().add(prop_data.property.definition_changed(), move |_| {
+                        dc_inner.raise_event(&());
+                    });
+                }
+            }
+            dc.raise_event(&());
+        });
+
         Self {
-            intervals: TimeIntervalCollection::new(),
+            intervals,
             reference_frame: reference_frame.unwrap_or(ReferenceFrame::Fixed),
-            definition_changed: Event::new(),
+            definition_changed,
+            event_helper,
         }
     }
 
-    pub fn is_constant(&self) -> bool {
-        let len = self.intervals.len();
-        if len == 0 {
-            return true;
-        }
-        if len == 1 {
-            if let Some(interval) = self.intervals.get(0) {
-                if let Some(prop) = &interval.data {
-                    return prop.is_constant();
+    fn re_subscribe(&self, intervals: &TimeIntervalCollection<PositionPropertyInterval>) {
+        let mut eh = self.event_helper.borrow_mut();
+        eh.remove_all();
+        let dc = self.definition_changed.clone();
+        for i in 0..intervals.len() {
+            if let Some(interval) = intervals.get(i) {
+                if let Some(prop_data) = &interval.data {
+                    let dc_inner = dc.clone();
+                    eh.add(prop_data.property.definition_changed(), move |_| {
+                        dc_inner.raise_event(&());
+                    });
                 }
             }
-            return true;
         }
-        false
+    }
+
+    pub fn reference_frame(&self) -> ReferenceFrame {
+        self.reference_frame
+    }
+
+    pub fn is_constant(&self) -> bool {
+        self.intervals.is_empty()
     }
 
     pub fn definition_changed(&self) -> &Event<()> {
@@ -325,14 +490,23 @@ impl CompositePositionProperty {
         time: Option<&JulianDate>,
         target_frame: ReferenceFrame,
     ) -> Option<Cartesian3> {
-        let t = time?;
+        let default_time;
+        let t = match time {
+            Some(t) => t,
+            None => {
+                default_time = JulianDate::now();
+                &default_time
+            }
+        };
         let prop = self.intervals.find_data_for_interval_containing_date(t)?;
-        prop.get_value_in_reference_frame(Some(t), target_frame)
+        prop.property.get_value_in_reference_frame(Some(t), target_frame)
     }
 
     pub fn equals(&self, other: Option<&Self>) -> bool {
         match other {
-            Some(o) => self.reference_frame == o.reference_frame && self.intervals == o.intervals,
+            Some(o) => {
+                self.reference_frame == o.reference_frame && self.intervals == o.intervals
+            }
             None => false,
         }
     }
@@ -479,17 +653,43 @@ impl CallbackPositionProperty {
 }
 
 /// A Property which is comprised of multiple values over different time intervals.
-#[derive(Clone, Default)]
-pub struct TimeIntervalCollectionProperty<T: Clone + PartialEq> {
+pub struct TimeIntervalCollectionProperty<T: Clone + PartialEq + 'static> {
     pub intervals: TimeIntervalCollection<T>,
     definition_changed: Event<()>,
 }
 
-impl<T: Clone + PartialEq> TimeIntervalCollectionProperty<T> {
-    pub fn new() -> Self {
+impl<T: Clone + PartialEq + 'static> Default for TimeIntervalCollectionProperty<T> {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
+impl<T: Clone + PartialEq + 'static> Clone for TimeIntervalCollectionProperty<T> {
+    fn clone(&self) -> Self {
+        let intervals = self.intervals.clone();
+        let definition_changed = Event::new();
+        let dc = definition_changed.clone();
+        intervals.changed_event().add_listener(move |_| {
+            dc.raise_event(&());
+        });
         Self {
-            intervals: TimeIntervalCollection::new(),
-            definition_changed: Event::new(),
+            intervals,
+            definition_changed,
+        }
+    }
+}
+
+impl<T: Clone + PartialEq + 'static> TimeIntervalCollectionProperty<T> {
+    pub fn new() -> Self {
+        let intervals: TimeIntervalCollection<T> = TimeIntervalCollection::new();
+        let definition_changed = Event::new();
+        let dc = definition_changed.clone();
+        intervals.changed_event().add_listener(move |_| {
+            dc.raise_event(&());
+        });
+        Self {
+            intervals,
+            definition_changed,
         }
     }
 
@@ -526,19 +726,46 @@ impl<T: Clone + PartialEq> TimeIntervalCollectionProperty<T> {
 }
 
 /// A PositionProperty which is comprised of multiple values over different time intervals.
-#[derive(Clone, Default)]
 pub struct TimeIntervalCollectionPositionProperty {
     pub intervals: TimeIntervalCollection<Cartesian3>,
     pub reference_frame: ReferenceFrame,
     definition_changed: Event<()>,
 }
 
+impl Default for TimeIntervalCollectionPositionProperty {
+    fn default() -> Self {
+        Self::new(None)
+    }
+}
+
+impl Clone for TimeIntervalCollectionPositionProperty {
+    fn clone(&self) -> Self {
+        let intervals = self.intervals.clone();
+        let definition_changed = Event::new();
+        let dc = definition_changed.clone();
+        intervals.changed_event().add_listener(move |_| {
+            dc.raise_event(&());
+        });
+        Self {
+            intervals,
+            reference_frame: self.reference_frame,
+            definition_changed,
+        }
+    }
+}
+
 impl TimeIntervalCollectionPositionProperty {
     pub fn new(reference_frame: Option<ReferenceFrame>) -> Self {
+        let intervals: TimeIntervalCollection<Cartesian3> = TimeIntervalCollection::new();
+        let definition_changed = Event::new();
+        let dc = definition_changed.clone();
+        intervals.changed_event().add_listener(move |_| {
+            dc.raise_event(&());
+        });
         Self {
-            intervals: TimeIntervalCollection::new(),
+            intervals,
             reference_frame: reference_frame.unwrap_or(ReferenceFrame::Fixed),
-            definition_changed: Event::new(),
+            definition_changed,
         }
     }
 
@@ -1058,4 +1285,6 @@ impl PositionPropertyArray {
         }
     }
 }
+
+
 

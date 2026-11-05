@@ -322,7 +322,8 @@ pub use linear_spline::{LinearSpline, SplineInterpolate};
 pub use managed_array::ManagedArray;
 pub use material_property::{
     CheckerboardMaterialProperty, CheckerboardMaterialValue, ColorMaterialProperty,
-    GridMaterialProperty, GridMaterialValue, ImageMaterialProperty, ImageMaterialValue,
+    CompositeMaterialProperty, GridMaterialProperty, GridMaterialValue, ImageMaterialProperty,
+    ImageMaterialValue, MaterialProperty, MaterialPropertyInterval, MaterialValue,
     PolylineArrowMaterialProperty, PolylineDashMaterialProperty, PolylineDashMaterialValue,
     PolylineGlowMaterialProperty, PolylineGlowMaterialValue, PolylineOutlineMaterialProperty,
     PolylineOutlineMaterialValue, StripeMaterialProperty, StripeMaterialValue, StripeOrientation,
@@ -366,7 +367,8 @@ pub use projection::{GeographicProjection, MapProjection, WebMercatorProjection}
 pub use property::{
     CallbackPositionProperty, CallbackProperty, CompositePositionProperty, CompositeProperty,
     ConstantPositionProperty, ConstantProperty, DynPositionProperty, DynProperty,
-    PositionProperty, PositionPropertyArray, Property, PropertyArray, PropertyCallback,
+    PositionProperty, PositionPropertyArray, PositionPropertyInterval, Property, PropertyArray,
+    PropertyInterval, PropertyCallback,
     TimeIntervalCollectionPositionProperty, TimeIntervalCollectionProperty,
 };
 pub use property_bag::PropertyBag;
