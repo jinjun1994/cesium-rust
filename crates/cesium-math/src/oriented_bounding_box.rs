@@ -352,6 +352,13 @@ impl OrientedBoundingBox {
             DMat3::from_cols_array(&axes),
         ))
     }
+
+    pub fn equals(&self, other: Option<&Self>) -> bool {
+        match other {
+            Some(o) => self.center == o.center && self.half_axes == o.half_axes,
+            None => false,
+        }
+    }
 }
 
 impl BoundingVolume for OrientedBoundingBox {

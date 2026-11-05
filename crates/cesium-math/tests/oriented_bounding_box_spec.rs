@@ -252,3 +252,24 @@ fn upstream_occlusion_and_conservative_sheared_bounding_sphere() {
             > (shear.half_axes.x_axis + shear.half_axes.y_axis + shear.half_axes.z_axis).length()
     );
 }
+
+#[test]
+fn constructor_default_and_parameter_values_and_equality() {
+    let def = O::default();
+    assert_eq!(def.center, DVec3::ZERO);
+    assert_eq!(def.half_axes, DMat3::ZERO);
+
+    let center = DVec3::new(1.0, 2.0, 3.0);
+    let half_axes = DMat3::from_diagonal(DVec3::splat(2.0));
+    let box_val = O::new(center, half_axes);
+    assert_eq!(box_val.center, center);
+    assert_eq!(box_val.half_axes, half_axes);
+
+    assert!(box_val.equals(Some(&O::new(center, half_axes))));
+    assert!(!box_val.equals(Some(&O::new(DVec3::new(2.0, 2.0, 3.0), half_axes))));
+    assert!(!box_val.equals(Some(&O::new(center, DMat3::from_diagonal(DVec3::splat(3.0))))));
+    assert!(!box_val.equals(None));
+
+    let cloned = box_val;
+    assert_eq!(cloned, box_val);
+}

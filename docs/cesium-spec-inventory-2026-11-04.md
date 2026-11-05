@@ -179,7 +179,7 @@
 | [packages/core/Specs/Matrix4Spec.js](../../cesium/packages/core/Specs/Matrix4Spec.js) | 已移植：平移/旋转、点与方向变换、仿射逆矩阵、打包（matrix_spec.rs） |
 | [packages/core/Specs/NearFarScalarSpec.js](../../cesium/packages/core/Specs/NearFarScalarSpec.js) | 已移植：构造、打包解包、相等与容差比较（near_far_scalar_spec.rs） |
 | [packages/core/Specs/OccluderSpec.js](../../cesium/packages/core/Specs/OccluderSpec.js) | 已移植：点/包围球可见性（is_point_visible/is_sphere_visible/is_bounding_sphere_visible）、Visibility可见性三态（None/Partial/Full）、相机动态位置、点集与地理矩形遮挡点计算及非法输入拒绝（occluder_spec.rs） |
-| [packages/core/Specs/OrientedBoundingBoxSpec.js](../../cesium/packages/core/Specs/OrientedBoundingBoxSpec.js) | 部分：点集、矩形、变换、角点、平面、距离、遮挡、打包；更多边界待移植 |
+| [packages/core/Specs/OrientedBoundingBoxSpec.js](../../cesium/packages/core/Specs/OrientedBoundingBoxSpec.js) | 已移植：PCA点集主轴构造、矩形高程/跨日界线构造、仿射变换、8角点计算、平面相交分类与视锥裁剪、点到盒距离平方、方向平面投影区间、地平遮挡检测、克隆与相等比较及打包（oriented_bounding_box_spec.rs） |
 | [packages/core/Specs/OrthographicFrustumSpec.js](../../cesium/packages/core/Specs/OrthographicFrustumSpec.js) | 部分：投影、像素尺寸、裁剪、打包；比较及 JS 语义待核对 |
 | [packages/core/Specs/OrthographicOffCenterFrustumSpec.js](../../cesium/packages/core/Specs/OrthographicOffCenterFrustumSpec.js) | 部分：投影、像素尺寸和裁剪；比较及 JS 语义待核对 |
 | [packages/core/Specs/PerspectiveFrustumSpec.js](../../cesium/packages/core/Specs/PerspectiveFrustumSpec.js) | 部分：视角、偏移、投影、像素尺寸与裁剪；pack/比较及 JS 语义待补齐 |
