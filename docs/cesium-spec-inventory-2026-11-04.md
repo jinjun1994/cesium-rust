@@ -377,7 +377,7 @@
 | [packages/engine/Specs/DataSources/PathVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/PathVisualizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/PlaneGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/PlaneGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/PlaneGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PlaneGraphicsSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/PointGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PointGraphicsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/PointGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PointGraphicsSpec.js) | 已移植：点图元图形描述类、支持Color/pixelSize/outline/show/scaleByDistance/heightReference/distanceDisplayCondition/disableDepthTestDistance/splitDirection动态属性包装与字面量构造、merge未分配属性合并与既有属性保留、clone深拷贝、definitionChanged通知（point_graphics_spec.rs，4 项测试全部通过） |
 | [packages/engine/Specs/DataSources/PointVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/PointVisualizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/PolygonGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/PolygonGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/PolygonGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/PolygonGraphicsSpec.js) | 待逐项核对 |

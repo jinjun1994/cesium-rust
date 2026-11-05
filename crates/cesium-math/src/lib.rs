@@ -94,10 +94,12 @@ mod occluder;
 mod oriented_bounding_box;
 mod plane;
 mod plane_geometry;
+mod point_graphics;
 mod property;
 mod property_bag;
 mod reference_frame;
 mod sampled_property;
+mod split_direction;
 mod node_transformation_property;
 mod velocity_properties;
 mod pixel_format;
@@ -337,6 +339,7 @@ pub use plane::Plane;
 pub use plane_geometry::{PlaneGeometry, PlaneOutlineGeometry};
 pub use pixel_format::{PixelDatatype, PixelFormat};
 pub use pin_builder::{PinBuilder, PinImage};
+pub use point_graphics::{PointGraphics, PointGraphicsOptions, PointGraphicsValues};
 pub use point_inside_triangle::{
     point_inside_triangle, point_inside_triangle_2d, point_inside_triangle_3d,
 };
@@ -401,6 +404,7 @@ pub use request_scheduler::{
 pub use s2_cell::S2Cell;
 pub use scalar::{HeadingPitchRange, NearFarScalar};
 pub use scene_mode::SceneMode;
+pub use split_direction::SplitDirection;
 pub use show_geometry_instance_attribute::ShowGeometryInstanceAttribute;
 pub use simple_polyline_geometry::{SimplePolylineGeometry, SimplePolylineGeometryOptions};
 pub use simon1994_planetary_positions::Simon1994PlanetaryPositions;
