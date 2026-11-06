@@ -146,6 +146,7 @@ mod polyline_graphics;
 mod polyline_pipeline;
 mod polyline_volume_geometry;
 mod polyline_volume_geometry_library;
+mod polyline_volume_geometry_updater;
 mod polyline_volume_graphics;
 mod polyline_volume_outline_geometry;
 mod projection;
@@ -480,6 +481,11 @@ pub use polyline_pipeline::{
 };
 pub use polyline_volume_geometry::{PolylineVolumeGeometry, PolylineVolumeGeometryOptions};
 pub use polyline_volume_geometry_library::PolylineVolumeGeometryLibrary;
+pub use polyline_volume_geometry_updater::{
+    DynamicPolylineVolumeGeometryUpdater, PolylineVolumeFillGeometryInstance,
+    PolylineVolumeGeometryUpdater, PolylineVolumeOutlineGeometryInstance,
+    PolylineVolumeUpdaterOptions,
+};
 pub use polyline_volume_graphics::{
     PolylineVolumeGraphics, PolylineVolumeGraphicsOptions, PolylineVolumeGraphicsValues,
 };
