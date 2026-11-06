@@ -4,7 +4,7 @@ use std::rc::Rc;
 
 use crate::{
     Cartesian3, ClassificationType, Color, ColorMaterialProperty, ConstantProperty, CornerType,
-    DistanceDisplayCondition, DynProperty, Event, MaterialProperty, ShadowMode,
+    DistanceDisplayCondition, DynProperty, Event, HeightReference, MaterialProperty, ShadowMode,
 };
 
 /// Initialization options for CorridorGraphics using dynamic or constant properties.
@@ -14,7 +14,9 @@ pub struct CorridorGraphicsOptions {
     pub positions: Option<Rc<dyn DynProperty<Vec<Cartesian3>>>>,
     pub show: Option<Rc<dyn DynProperty<bool>>>,
     pub height: Option<Rc<dyn DynProperty<f64>>>,
+    pub height_reference: Option<Rc<dyn DynProperty<HeightReference>>>,
     pub extruded_height: Option<Rc<dyn DynProperty<f64>>>,
+    pub extruded_height_reference: Option<Rc<dyn DynProperty<HeightReference>>>,
     pub granularity: Option<Rc<dyn DynProperty<f64>>>,
     pub width: Option<Rc<dyn DynProperty<f64>>>,
     pub fill: Option<Rc<dyn DynProperty<bool>>>,
@@ -35,7 +37,9 @@ pub struct CorridorGraphicsValues {
     pub positions: Option<Vec<Cartesian3>>,
     pub show: Option<bool>,
     pub height: Option<f64>,
+    pub height_reference: Option<HeightReference>,
     pub extruded_height: Option<f64>,
+    pub extruded_height_reference: Option<HeightReference>,
     pub granularity: Option<f64>,
     pub width: Option<f64>,
     pub fill: Option<bool>,
@@ -56,7 +60,9 @@ pub struct CorridorGraphics {
     pub positions: Option<Rc<dyn DynProperty<Vec<Cartesian3>>>>,
     pub show: Option<Rc<dyn DynProperty<bool>>>,
     pub height: Option<Rc<dyn DynProperty<f64>>>,
+    pub height_reference: Option<Rc<dyn DynProperty<HeightReference>>>,
     pub extruded_height: Option<Rc<dyn DynProperty<f64>>>,
+    pub extruded_height_reference: Option<Rc<dyn DynProperty<HeightReference>>>,
     pub granularity: Option<Rc<dyn DynProperty<f64>>>,
     pub width: Option<Rc<dyn DynProperty<f64>>>,
     pub fill: Option<Rc<dyn DynProperty<bool>>>,
@@ -84,7 +90,9 @@ impl CorridorGraphics {
             positions: options.positions,
             show: options.show,
             height: options.height,
+            height_reference: options.height_reference,
             extruded_height: options.extruded_height,
+            extruded_height_reference: options.extruded_height_reference,
             granularity: options.granularity,
             width: options.width,
             fill: options.fill,
@@ -115,9 +123,15 @@ impl CorridorGraphics {
             height: values
                 .height
                 .map(|v| Rc::new(ConstantProperty::from_value(v)) as Rc<dyn DynProperty<f64>>),
+            height_reference: values.height_reference.map(|v| {
+                Rc::new(ConstantProperty::from_value(v)) as Rc<dyn DynProperty<HeightReference>>
+            }),
             extruded_height: values
                 .extruded_height
                 .map(|v| Rc::new(ConstantProperty::from_value(v)) as Rc<dyn DynProperty<f64>>),
+            extruded_height_reference: values.extruded_height_reference.map(|v| {
+                Rc::new(ConstantProperty::from_value(v)) as Rc<dyn DynProperty<HeightReference>>
+            }),
             granularity: values
                 .granularity
                 .map(|v| Rc::new(ConstantProperty::from_value(v)) as Rc<dyn DynProperty<f64>>),
@@ -174,8 +188,14 @@ impl CorridorGraphics {
         if self.height.is_none() {
             self.height = source.height.clone();
         }
+        if self.height_reference.is_none() {
+            self.height_reference = source.height_reference.clone();
+        }
         if self.extruded_height.is_none() {
             self.extruded_height = source.extruded_height.clone();
+        }
+        if self.extruded_height_reference.is_none() {
+            self.extruded_height_reference = source.extruded_height_reference.clone();
         }
         if self.granularity.is_none() {
             self.granularity = source.granularity.clone();

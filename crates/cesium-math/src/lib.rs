@@ -48,6 +48,7 @@ mod coplanar_polygon_geometry;
 mod core_math;
 mod corridor_geometry;
 mod corridor_geometry_library;
+mod corridor_geometry_updater;
 mod corridor_graphics;
 mod ground_polyline_geometry;
 mod create_guid;
@@ -327,6 +328,10 @@ pub use corridor_geometry::{
 };
 pub use corridor_geometry_library::{
     CorridorCorner, CorridorGeometryLibrary, CorridorParameters, CorridorPositions,
+};
+pub use corridor_geometry_updater::{
+    CorridorFillGeometryInstance, CorridorGeometryUpdater, CorridorOutlineGeometryInstance,
+    CorridorUpdaterOptions, DynamicCorridorGeometryUpdater,
 };
 pub use ground_polyline_geometry::{
     GroundPolylineGeometry, GroundPolylineGeometryOptions,
