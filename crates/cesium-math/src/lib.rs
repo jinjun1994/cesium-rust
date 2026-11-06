@@ -68,6 +68,7 @@ mod earth_orientation_parameters;
 mod ellipsoid;
 mod ellipsoid_geodesic;
 mod ellipsoid_geometry;
+mod ellipsoid_geometry_updater;
 mod ellipsoid_graphics;
 mod ellipsoid_rhumb_line;
 mod ellipsoid_tangent_plane;
@@ -348,6 +349,10 @@ pub use earth_orientation_parameters::{
 pub use ellipsoid::Ellipsoid;
 pub use ellipsoid_geodesic::EllipsoidGeodesic;
 pub use ellipsoid_geometry::{EllipsoidGeometry, EllipsoidOutlineGeometry};
+pub use ellipsoid_geometry_updater::{
+    DynamicEllipsoidGeometryUpdater, EllipsoidFillGeometryInstance, EllipsoidGeometryOptions,
+    EllipsoidGeometryUpdater, EllipsoidOutlineGeometryInstance,
+};
 pub use ellipsoid_rhumb_line::EllipsoidRhumbLine;
 pub use ellipsoid_tangent_plane::EllipsoidTangentPlane;
 pub use ellipsoidal_occluder::EllipsoidalOccluder;

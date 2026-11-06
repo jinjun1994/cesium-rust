@@ -5,7 +5,10 @@
 
 use crate::{
     core_math::{PI, TWO_PI},
-    geometry::{ComponentDatatype, Geometry, GeometryAttribute, GeometryAttributes, PrimitiveType},
+    geometry::{
+        ComponentDatatype, Geometry, GeometryAttribute, GeometryAttributes, GeometryOffsetAttribute,
+        PrimitiveType,
+    },
     Cartesian3, VertexFormat,
 };
 
@@ -24,6 +27,7 @@ pub struct EllipsoidGeometry {
     pub stack_partitions: i32,
     pub slice_partitions: i32,
     pub vertex_format: VertexFormat,
+    pub offset_attribute: Option<GeometryOffsetAttribute>,
 }
 
 impl Default for EllipsoidGeometry {
@@ -38,6 +42,7 @@ impl Default for EllipsoidGeometry {
             stack_partitions: 64,
             slice_partitions: 64,
             vertex_format: VertexFormat::DEFAULT,
+            offset_attribute: None,
         }
     }
 }
@@ -64,7 +69,13 @@ impl EllipsoidGeometry {
             stack_partitions: stack_partitions.unwrap_or(64),
             slice_partitions: slice_partitions.unwrap_or(64),
             vertex_format: vertex_format.unwrap_or(VertexFormat::DEFAULT),
+            offset_attribute: None,
         }
+    }
+
+    pub fn with_offset_attribute(mut self, offset_attribute: Option<GeometryOffsetAttribute>) -> Self {
+        self.offset_attribute = offset_attribute;
+        self
     }
 
     pub fn create_geometry(&self) -> Option<Geometry> {
@@ -148,7 +159,7 @@ impl EllipsoidGeometry {
             attributes.position = Some(GeometryAttribute::new(
                 ComponentDatatype::Double,
                 3,
-                positions,
+                positions.clone(),
             ));
         }
 
@@ -191,6 +202,19 @@ impl EllipsoidGeometry {
             attributes.st = Some(GeometryAttribute::new(ComponentDatatype::Float, 2, uvs));
         }
 
+        if let Some(offset_attr) = self.offset_attribute {
+            let offset_val = match offset_attr {
+                GeometryOffsetAttribute::None => 0.0,
+                _ => 1.0,
+            };
+            let count = positions.len() / 3;
+            attributes.apply_offset = Some(GeometryAttribute::new(
+                ComponentDatatype::UnsignedByte,
+                1,
+                vec![offset_val; count],
+            ));
+        }
+
         Some(Geometry {
             attributes,
             indices,
@@ -215,6 +239,7 @@ pub struct EllipsoidOutlineGeometry {
     pub stack_partitions: i32,
     pub slice_partitions: i32,
     pub subdivisions: i32,
+    pub offset_attribute: Option<GeometryOffsetAttribute>,
 }
 
 impl Default for EllipsoidOutlineGeometry {
@@ -229,6 +254,7 @@ impl Default for EllipsoidOutlineGeometry {
             stack_partitions: 10,
             slice_partitions: 8,
             subdivisions: 200,
+            offset_attribute: None,
         }
     }
 }
@@ -255,7 +281,13 @@ impl EllipsoidOutlineGeometry {
             stack_partitions: stack_partitions.unwrap_or(10),
             slice_partitions: slice_partitions.unwrap_or(8),
             subdivisions: subdivisions.unwrap_or(200),
+            offset_attribute: None,
         }
+    }
+
+    pub fn with_offset_attribute(mut self, offset_attribute: Option<GeometryOffsetAttribute>) -> Self {
+        self.offset_attribute = offset_attribute;
+        self
     }
 
     pub fn create_geometry(&self) -> Option<Geometry> {
@@ -357,14 +389,27 @@ impl EllipsoidOutlineGeometry {
             }
         }
 
-        let attributes = GeometryAttributes {
+        let mut attributes = GeometryAttributes {
             position: Some(GeometryAttribute::new(
                 ComponentDatatype::Double,
                 3,
-                positions,
+                positions.clone(),
             )),
             ..Default::default()
         };
+
+        if let Some(offset_attr) = self.offset_attribute {
+            let offset_val = match offset_attr {
+                GeometryOffsetAttribute::None => 0.0,
+                _ => 1.0,
+            };
+            let count = positions.len() / 3;
+            attributes.apply_offset = Some(GeometryAttribute::new(
+                ComponentDatatype::UnsignedByte,
+                1,
+                vec![offset_val; count],
+            ));
+        }
 
         Some(Geometry {
             attributes,
