@@ -13,6 +13,7 @@ mod barycentric_coordinates;
 mod binary_search;
 mod billboard_graphics;
 mod bounding_rectangle;
+mod bounding_sphere_state;
 mod box_geometry;
 mod box_geometry_updater;
 mod box_graphics;
@@ -140,6 +141,7 @@ mod polygon_outline_geometry;
 mod polygon_pipeline;
 mod polynomial;
 mod polyline_geometry;
+mod polyline_geometry_updater;
 mod polyline_graphics;
 mod polyline_pipeline;
 mod polyline_volume_geometry;
@@ -245,6 +247,7 @@ pub use billboard_graphics::{
     BillboardGraphics, BillboardGraphicsOptions, BillboardGraphicsValues,
 };
 pub use bounding_rectangle::BoundingRectangle;
+pub use bounding_sphere_state::BoundingSphereState;
 pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
 pub use box_geometry_updater::{
     BoxFillGeometryInstance, BoxGeometryOptions, BoxGeometryUpdater, BoxOutlineGeometryInstance,
@@ -465,6 +468,10 @@ pub use polynomial::{
     QuarticRealPolynomial,
 };
 pub use polyline_geometry::{PolylineGeometry, PolylineGeometryOptions};
+pub use polyline_geometry_updater::{
+    DynamicPolylineGeometryUpdater, PolylineFillGeometryInstance, PolylineGeometryUpdater,
+    PolylineUpdaterOptions,
+};
 pub use polyline_graphics::{
     PolylineGraphics, PolylineGraphicsOptions, PolylineGraphicsValues,
 };
