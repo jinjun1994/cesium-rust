@@ -73,6 +73,7 @@ mod ellipsoid_rhumb_line;
 mod ellipsoid_tangent_plane;
 mod ellipsoidal_occluder;
 mod ellipse_geometry;
+mod ellipse_geometry_updater;
 mod ellipse_graphics;
 mod encoded_cartesian;
 mod errors;
@@ -351,6 +352,10 @@ pub use ellipsoid_rhumb_line::EllipsoidRhumbLine;
 pub use ellipsoid_tangent_plane::EllipsoidTangentPlane;
 pub use ellipsoidal_occluder::EllipsoidalOccluder;
 pub use ellipse_geometry::{EllipseGeometry, EllipseOutlineGeometry};
+pub use ellipse_geometry_updater::{
+    DynamicEllipseGeometryUpdater, EllipseFillGeometryInstance, EllipseGeometryOptions,
+    EllipseGeometryUpdater, EllipseOutlineGeometryInstance,
+};
 pub use encoded_cartesian::EncodedCartesian3;
 pub use errors::{DeveloperError, RuntimeError};
 pub use event::{Event, EventHelper, ListenerId};

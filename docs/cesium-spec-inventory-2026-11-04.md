@@ -349,7 +349,7 @@
 | [packages/engine/Specs/DataSources/DataSourceCollectionSpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceCollectionSpec.js) | 全绿通过 (crates/cesium-math/tests/data_source_collection_spec.rs，实现 DataSourceCollection、多数据源增删查、按名检索 get_by_name、raise/lower/raise_to_top/lower_to_bottom 层级移动与 dataSourceAdded/Removed/Moved 事件监听) |
 | [packages/engine/Specs/DataSources/DataSourceDisplaySpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceDisplaySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/DynamicGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/DynamicGeometryUpdaterSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/EllipseGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipseGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/EllipseGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipseGeometryUpdaterSpec.js) | 已移植：椭圆几何更新器、长半轴/短半轴未定义时几何禁用、时间动态判定、填充与轮廓几何实例生成、动态更新器同步与属性变更事件调度（ellipse_geometry_updater_spec.rs，7 项测试全部通过） |
 | [packages/engine/Specs/DataSources/EllipseGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipseGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/ellipse_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/EllipsoidGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipsoidGeometryUpdaterSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/EllipsoidGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipsoidGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/ellipsoid_graphics_spec.rs) |

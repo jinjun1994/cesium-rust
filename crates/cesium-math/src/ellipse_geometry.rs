@@ -4,7 +4,10 @@
 
 use crate::{
     core_math::PI_OVER_TWO,
-    geometry::{ComponentDatatype, Geometry, GeometryAttribute, GeometryAttributes, PrimitiveType},
+    geometry::{
+        ComponentDatatype, Geometry, GeometryAttribute, GeometryAttributes, GeometryOffsetAttribute,
+        PrimitiveType,
+    },
     BoundingSphere, Cartesian3, Ellipsoid, Matrix3, Quaternion, VertexFormat,
 };
 
@@ -20,6 +23,7 @@ pub struct EllipseGeometry {
     pub rotation: f64,
     pub st_rotation: f64,
     pub vertex_format: VertexFormat,
+    pub offset_attribute: Option<GeometryOffsetAttribute>,
 }
 
 impl EllipseGeometry {
@@ -47,7 +51,13 @@ impl EllipseGeometry {
             rotation: rotation.unwrap_or(0.0),
             st_rotation: st_rotation.unwrap_or(0.0),
             vertex_format: vertex_format.unwrap_or(VertexFormat::DEFAULT),
+            offset_attribute: None,
         }
+    }
+
+    pub fn with_offset_attribute(mut self, offset_attribute: Option<GeometryOffsetAttribute>) -> Self {
+        self.offset_attribute = offset_attribute;
+        self
     }
 
     pub fn create_geometry(&self) -> Option<Geometry> {
@@ -131,6 +141,19 @@ impl EllipseGeometry {
 
         let indices = top_indices(num_pts);
 
+        if let Some(offset_attr) = self.offset_attribute {
+            let offset_val = match offset_attr {
+                GeometryOffsetAttribute::None => 0.0,
+                _ => 1.0,
+            };
+            let count = positions.len() / 3;
+            attributes.apply_offset = Some(GeometryAttribute::new(
+                ComponentDatatype::UnsignedByte,
+                1,
+                vec![offset_val; count],
+            ));
+        }
+
         Some(Geometry {
             attributes,
             indices,
@@ -151,6 +174,7 @@ pub struct EllipseOutlineGeometry {
     pub granularity: f64,
     pub rotation: f64,
     pub number_of_vertical_lines: Option<usize>,
+    pub offset_attribute: Option<GeometryOffsetAttribute>,
 }
 
 impl EllipseOutlineGeometry {
@@ -176,7 +200,13 @@ impl EllipseOutlineGeometry {
             granularity: granularity.unwrap_or(0.02),
             rotation: rotation.unwrap_or(0.0),
             number_of_vertical_lines,
+            offset_attribute: None,
         }
+    }
+
+    pub fn with_offset_attribute(mut self, offset_attribute: Option<GeometryOffsetAttribute>) -> Self {
+        self.offset_attribute = offset_attribute;
+        self
     }
 
     pub fn create_geometry(&self) -> Option<Geometry> {
@@ -249,7 +279,7 @@ impl EllipseOutlineGeometry {
             idxs
         };
 
-        let attributes = GeometryAttributes {
+        let mut attributes = GeometryAttributes {
             position: Some(GeometryAttribute::new(
                 ComponentDatatype::Double,
                 3,
@@ -257,6 +287,18 @@ impl EllipseOutlineGeometry {
             )),
             ..Default::default()
         };
+
+        if let Some(offset_attr) = self.offset_attribute {
+            let offset_val = match offset_attr {
+                GeometryOffsetAttribute::None => 0.0,
+                _ => 1.0,
+            };
+            attributes.apply_offset = Some(GeometryAttribute::new(
+                ComponentDatatype::UnsignedByte,
+                1,
+                vec![offset_val; length],
+            ));
+        }
 
         Some(Geometry {
             attributes,
