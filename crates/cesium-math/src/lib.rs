@@ -54,6 +54,7 @@ mod create_guid;
 mod custom_shader;
 mod culling_volume;
 mod cylinder_geometry;
+mod cylinder_geometry_updater;
 mod cylinder_graphics;
 mod data_source_clock;
 mod custom_data_source;
@@ -331,6 +332,10 @@ pub use ground_polyline_geometry::{
 pub use create_guid::create_guid;
 pub use culling_volume::{BoundingVolume, CullingVolume, Intersect};
 pub use cylinder_geometry::{CylinderGeometry, CylinderOutlineGeometry};
+pub use cylinder_geometry_updater::{
+    CylinderFillGeometryInstance, CylinderGeometryOptions, CylinderGeometryUpdater,
+    CylinderOutlineGeometryInstance, DynamicCylinderGeometryUpdater,
+};
 pub use defined::defined;
 pub use distance_display_condition::DistanceDisplayCondition;
 pub use distance_display_condition_geometry_instance_attribute::DistanceDisplayConditionGeometryInstanceAttribute;

@@ -3,7 +3,10 @@
 
 use crate::{
     core_math::TWO_PI,
-    geometry::{ComponentDatatype, Geometry, GeometryAttribute, GeometryAttributes, PrimitiveType},
+    geometry::{
+        ComponentDatatype, Geometry, GeometryAttribute, GeometryAttributes, GeometryOffsetAttribute,
+        PrimitiveType,
+    },
     VertexFormat,
 };
 
@@ -18,6 +21,7 @@ pub struct CylinderGeometry {
     pub bottom_radius: f64,
     pub slices: u32,
     pub vertex_format: VertexFormat,
+    pub offset_attribute: Option<GeometryOffsetAttribute>,
 }
 
 impl CylinderGeometry {
@@ -34,7 +38,13 @@ impl CylinderGeometry {
             bottom_radius,
             slices: slices.unwrap_or(128).max(3),
             vertex_format: vertex_format.unwrap_or(VertexFormat::DEFAULT),
+            offset_attribute: None,
         }
+    }
+
+    pub fn with_offset_attribute(mut self, offset_attribute: Option<GeometryOffsetAttribute>) -> Self {
+        self.offset_attribute = offset_attribute;
+        self
     }
 
     pub fn create_geometry(&self) -> Option<Geometry> {
@@ -130,6 +140,18 @@ impl CylinderGeometry {
             indices.push(three_slices + i + 1);
         }
 
+        if let Some(offset_attr) = self.offset_attribute {
+            let offset_val = match offset_attr {
+                GeometryOffsetAttribute::None => 0.0,
+                _ => 1.0,
+            };
+            attributes.apply_offset = Some(GeometryAttribute::new(
+                ComponentDatatype::UnsignedByte,
+                1,
+                vec![offset_val; num_vertices],
+            ));
+        }
+
         Some(Geometry {
             attributes,
             indices,
@@ -150,6 +172,7 @@ pub struct CylinderOutlineGeometry {
     pub bottom_radius: f64,
     pub slices: u32,
     pub number_of_vertical_lines: u32,
+    pub offset_attribute: Option<GeometryOffsetAttribute>,
 }
 
 impl CylinderOutlineGeometry {
@@ -166,7 +189,13 @@ impl CylinderOutlineGeometry {
             bottom_radius,
             slices: slices.unwrap_or(128).max(3),
             number_of_vertical_lines: number_of_vertical_lines.unwrap_or(16),
+            offset_attribute: None,
         }
+    }
+
+    pub fn with_offset_attribute(mut self, offset_attribute: Option<GeometryOffsetAttribute>) -> Self {
+        self.offset_attribute = offset_attribute;
+        self
     }
 
     pub fn create_geometry(&self) -> Option<Geometry> {
@@ -236,7 +265,7 @@ impl CylinderOutlineGeometry {
             }
         }
 
-        let attributes = GeometryAttributes {
+        let mut attributes = GeometryAttributes {
             position: Some(GeometryAttribute::new(
                 ComponentDatatype::Double,
                 3,
@@ -244,6 +273,18 @@ impl CylinderOutlineGeometry {
             )),
             ..Default::default()
         };
+
+        if let Some(offset_attr) = self.offset_attribute {
+            let offset_val = match offset_attr {
+                GeometryOffsetAttribute::None => 0.0,
+                _ => 1.0,
+            };
+            attributes.apply_offset = Some(GeometryAttribute::new(
+                ComponentDatatype::UnsignedByte,
+                1,
+                vec![offset_val; num_vertices],
+            ));
+        }
 
         Some(Geometry {
             attributes,
