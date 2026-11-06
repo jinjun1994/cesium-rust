@@ -337,3 +337,8 @@ impl RenderState {
         cache.entry(rs.clone()).or_insert_with(|| Arc::new(rs)).clone()
     }
 }
+
+/// Freezes a render state into an immutable, shared Arc reference.
+pub fn freeze_render_state(state: Option<RenderState>) -> Arc<RenderState> {
+    RenderState::from_cache(state)
+}

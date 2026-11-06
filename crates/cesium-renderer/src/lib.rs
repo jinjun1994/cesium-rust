@@ -32,8 +32,8 @@ pub use pass_state::PassState;
 pub use pick_id::PickId;
 pub use picking::FeatureRef;
 pub use render_state::{
-    BlendEquation, BlendFunction, BlendingState, ColorMaskState, CullFace, CullState,
-    DepthFunction, DepthRangeState, DepthTestState, PolygonOffsetState, RenderState,
+    freeze_render_state, BlendEquation, BlendFunction, BlendingState, ColorMaskState, CullFace,
+    CullState, DepthFunction, DepthRangeState, DepthTestState, PolygonOffsetState, RenderState,
     SampleCoverageState, ScissorTestState, StencilFunction, StencilOperation, StencilOperationState,
     StencilTestState,
 };

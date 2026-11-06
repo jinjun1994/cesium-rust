@@ -451,7 +451,7 @@
 | [packages/engine/Specs/Renderer/VertexArrayFactorySpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArrayFactorySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/VertexArraySpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArraySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/demodernizeShaderSpec.js](../../cesium/packages/engine/Specs/Renderer/demodernizeShaderSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/freezeRenderStateSpec.js](../../cesium/packages/engine/Specs/Renderer/freezeRenderStateSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/freezeRenderStateSpec.js](../../cesium/packages/engine/Specs/Renderer/freezeRenderStateSpec.js) | 已移植：渲染状态冻结不可变保护、freeze_render_state 函数、与 from_cache 缓存去重结合实现多线程安全 Arc 共享（freeze_render_state_spec.rs，1 项测试全部通过） |
 | [packages/engine/Specs/Renderer/loadCubeMapSpec.js](../../cesium/packages/engine/Specs/Renderer/loadCubeMapSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/AppearanceSpec.js](../../cesium/packages/engine/Specs/Scene/AppearanceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/ArcGisMapServerImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/ArcGisMapServerImageryProviderSpec.js) | 待逐项核对 |
