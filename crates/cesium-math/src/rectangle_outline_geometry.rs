@@ -82,6 +82,26 @@ impl RectangleOutlineGeometry {
         })
     }
 
+    pub fn surface_height(&self) -> f64 {
+        self.surface_height
+    }
+
+    pub fn granularity(&self) -> f64 {
+        self.granularity
+    }
+
+    pub fn rotation(&self) -> f64 {
+        self.rotation
+    }
+
+    pub fn extruded_height(&self) -> f64 {
+        self.extruded_height
+    }
+
+    pub fn offset_attribute(&self) -> Option<GeometryOffsetAttribute> {
+        self.offset_attribute
+    }
+
     pub fn pack(&self, array: &mut [f64], starting_index: usize) -> Result<(), DeveloperError> {
         if array.len() < starting_index + Self::PACKED_LENGTH {
             return Err(DeveloperError::new("Array is too short"));

@@ -200,6 +200,30 @@ impl RectangleGeometry {
         .unwrap_or(self.rectangle)
     }
 
+    pub fn surface_height(&self) -> f64 {
+        self.surface_height
+    }
+
+    pub fn granularity(&self) -> f64 {
+        self.granularity
+    }
+
+    pub fn rotation(&self) -> f64 {
+        self.rotation
+    }
+
+    pub fn st_rotation(&self) -> f64 {
+        self.st_rotation
+    }
+
+    pub fn extruded_height(&self) -> f64 {
+        self.extruded_height
+    }
+
+    pub fn offset_attribute(&self) -> Option<GeometryOffsetAttribute> {
+        self.offset_attribute
+    }
+
     pub fn texture_coordinate_rotation_points(&self) -> [f64; 6] {
         if self.st_rotation == 0.0 {
             return [0.0, 0.0, 0.0, 1.0, 1.0, 0.0];

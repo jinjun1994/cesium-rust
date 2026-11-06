@@ -154,6 +154,7 @@ mod ray;
 mod rectangle;
 mod rectangle_geometry;
 mod rectangle_geometry_library;
+mod rectangle_geometry_updater;
 mod rectangle_outline_geometry;
 mod rectangle_graphics;
 mod rectangle_collision_checker;
@@ -499,6 +500,10 @@ pub use reference_frame::ReferenceFrame;
 pub use rectangle::{GeoRectangle, GeoRectangle as Rectangle};
 pub use rectangle_geometry::{RectangleGeometry, RectangleGeometryOptions};
 pub use rectangle_geometry_library::{RectangleGeometryLibrary, RectangleOptionsComputed};
+pub use rectangle_geometry_updater::{
+    DynamicRectangleGeometryUpdater, RectangleFillGeometryInstance, RectangleGeometryUpdater,
+    RectangleOutlineGeometryInstance, RectangleUpdaterOptions,
+};
 pub use rectangle_graphics::{
     RectangleGraphics, RectangleGraphicsOptions, RectangleGraphicsValues,
 };
