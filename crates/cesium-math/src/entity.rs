@@ -2,16 +2,17 @@
 //! Direct port of CesiumJS `DataSources/Entity.js`.
 
 use std::cell::RefCell;
+use std::collections::HashMap;
 use std::fmt;
 use std::rc::Rc;
 
 use crate::{
     create_guid, BillboardGraphics, BoxGraphics, Cartesian3, Cesium3DTilesetGraphics,
     ConstantPositionProperty, ConstantProperty, CorridorGraphics, CylinderGraphics, DeveloperError,
-    EllipseGraphics, EllipsoidGraphics, FixedFrameTransforms, JulianDate, LabelGraphics, Matrix3,
-    Matrix4, ModelGraphics, PathGraphics, PlaneGraphics, PointGraphics, PolygonGraphics,
-    PolylineGraphics, PolylineVolumeGraphics, PropertyBag, Quaternion, RectangleGraphics,
-    TimeIntervalCollection, TrackingReferenceFrame, WallGraphics,
+    EllipseGraphics, EllipsoidGraphics, Event, FixedFrameTransforms, JulianDate, LabelGraphics,
+    MaterialProperty, Matrix3, Matrix4, ModelGraphics, PathGraphics, PlaneGraphics, PointGraphics,
+    PolygonGraphics, PolylineGraphics, PolylineVolumeGraphics, PropertyBag, Quaternion,
+    RectangleGraphics, TimeIntervalCollection, TrackingReferenceFrame, WallGraphics,
 };
 
 /// Trait for objects that can be merged with another object of the same type.
@@ -115,6 +116,8 @@ pub struct Entity {
     pub rectangle: Option<RectangleGraphics>,
     pub wall: Option<WallGraphics>,
     pub properties: PropertyBag<serde_json::Value>,
+    pub custom_materials: HashMap<String, Rc<dyn MaterialProperty>>,
+    pub definition_changed: Event<String>,
     pub parent: Option<Rc<RefCell<Entity>>>,
 }
 
@@ -166,6 +169,8 @@ impl Entity {
             rectangle: None,
             wall: None,
             properties: PropertyBag::new(),
+            custom_materials: HashMap::new(),
+            definition_changed: Event::new(),
             parent: None,
         }
     }
@@ -308,6 +313,28 @@ impl Entity {
         }
         self.properties.remove_property(property_name);
         Ok(())
+    }
+
+    /// Sets the billboard graphics and raises definitionChanged("billboard").
+    pub fn set_billboard(&mut self, billboard: Option<BillboardGraphics>) {
+        self.billboard = billboard;
+        self.definition_changed.raise_event(&"billboard".to_string());
+    }
+
+    /// Sets the position property and raises definitionChanged("position").
+    pub fn set_position(&mut self, position: Option<ConstantPositionProperty>) {
+        self.position = position;
+        self.definition_changed.raise_event(&"position".to_string());
+    }
+
+    /// Sets a custom material property and raises definitionChanged(property_name).
+    pub fn set_material_property(&mut self, property_name: &str, material: Option<Rc<dyn MaterialProperty>>) {
+        if let Some(mat) = material {
+            self.custom_materials.insert(property_name.to_string(), mat);
+        } else {
+            self.custom_materials.remove(property_name);
+        }
+        self.definition_changed.raise_event(&property_name.to_string());
     }
 
     /// Checks if a custom property is registered.

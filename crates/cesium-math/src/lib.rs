@@ -158,6 +158,7 @@ mod quaternion_spline;
 mod queue;
 mod ray;
 mod rectangle;
+mod reference_property;
 mod rectangle_geometry;
 mod rectangle_geometry_library;
 mod rectangle_geometry_updater;
@@ -526,6 +527,7 @@ pub use rectangle_geometry_updater::{
     DynamicRectangleGeometryUpdater, RectangleFillGeometryInstance, RectangleGeometryUpdater,
     RectangleOutlineGeometryInstance, RectangleUpdaterOptions,
 };
+pub use reference_property::{ReferenceProperty, ResolvedPropertyTarget};
 pub use rectangle_graphics::{
     RectangleGraphics, RectangleGraphicsOptions, RectangleGraphicsValues,
 };
