@@ -9,6 +9,7 @@ pub mod pass_state;
 pub mod pick_id;
 pub mod picking;
 pub mod pipelines;
+pub mod render_state;
 mod screen_distance;
 pub mod uniforms;
 
@@ -29,6 +30,12 @@ pub use metrics::{FrameStats, FrameStatsHistory, FrameStatsSummary, StageTimer};
 pub use pass_state::PassState;
 pub use pick_id::PickId;
 pub use picking::FeatureRef;
+pub use render_state::{
+    BlendEquation, BlendFunction, BlendingState, ColorMaskState, CullFace, CullState,
+    DepthFunction, DepthRangeState, DepthTestState, PolygonOffsetState, RenderState,
+    SampleCoverageState, ScissorTestState, StencilFunction, StencilOperation, StencilOperationState,
+    StencilTestState,
+};
 use picking::{PendingPick, PickRange};
 use pipelines::{PipelineCache, PipelineKey};
 pub use screen_distance::ScreenDistance;
