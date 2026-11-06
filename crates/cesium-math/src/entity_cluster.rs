@@ -1,7 +1,11 @@
 //! Defines how screen space objects (billboards, points, labels) are clustered.
 //! Direct port of CesiumJS `DataSources/EntityCluster.js`.
 
-use crate::{billboard_collection::{Billboard, BillboardCollection}, BoundingRectangle, Event};
+use crate::{
+    billboard_collection::{Billboard, BillboardCollection},
+    point_primitive_collection::{PointPrimitive, PointPrimitiveCollection},
+    BoundingRectangle, Event,
+};
 
 /// Options for initializing an EntityCluster instance.
 #[derive(Debug, Clone)]
@@ -41,6 +45,7 @@ pub struct EntityCluster {
     pub show: bool,
     pub cluster_event: Event<(Vec<String>, usize)>, // (clustered_ids, count)
     pub billboard_collection: Option<BillboardCollection>,
+    pub point_collection: Option<PointPrimitiveCollection>,
 }
 
 impl Default for EntityCluster {
@@ -62,6 +67,7 @@ impl EntityCluster {
             show: options.show,
             cluster_event: Event::new(),
             billboard_collection: None,
+            point_collection: None,
         }
     }
 
@@ -106,6 +112,51 @@ impl EntityCluster {
             {
                 bb.show = false;
                 bb.id = None;
+            }
+        }
+    }
+
+    /// Gets or creates the point primitive collection.
+    pub fn get_or_create_point_collection(&mut self) -> &mut PointPrimitiveCollection {
+        if self.point_collection.is_none() {
+            self.point_collection = Some(PointPrimitiveCollection::new());
+        }
+        self.point_collection.as_mut().unwrap()
+    }
+
+    /// Gets or allocates a point primitive associated with an entity. Reuses unused primitives.
+    pub fn get_point(&mut self, entity_id: &str) -> &mut PointPrimitive {
+        let collection = self.get_or_create_point_collection();
+        if let Some(pos) = collection
+            .point_primitives
+            .iter()
+            .position(|p| p.id.as_deref() == Some(entity_id))
+        {
+            return &mut collection.point_primitives[pos];
+        }
+        if let Some(pos) = collection.point_primitives.iter().position(|p| p.id.is_none()) {
+            let p = &mut collection.point_primitives[pos];
+            p.id = Some(entity_id.to_string());
+            return p;
+        }
+        let p = PointPrimitive {
+            id: Some(entity_id.to_string()),
+            ..Default::default()
+        };
+        collection.point_primitives.push(p);
+        collection.point_primitives.last_mut().unwrap()
+    }
+
+    /// Removes an entity's point primitive, hiding it and marking it for reuse.
+    pub fn remove_point(&mut self, entity_id: &str) {
+        if let Some(col) = &mut self.point_collection {
+            if let Some(p) = col
+                .point_primitives
+                .iter_mut()
+                .find(|p| p.id.as_deref() == Some(entity_id))
+            {
+                p.show = false;
+                p.id = None;
             }
         }
     }
