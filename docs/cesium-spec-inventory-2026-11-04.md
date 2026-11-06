@@ -435,11 +435,11 @@
 | [packages/engine/Specs/Renderer/SamplerSpec.js](../../cesium/packages/engine/Specs/Renderer/SamplerSpec.js) | 已移植：纹理采样器状态、Sampler 结构封装、TextureWrap 寻址模式、TextureMinificationFilter 与 TextureMagnificationFilter 滤波模式、最大各向异性过滤参数校验（>= 1.0）、Sampler::NEAREST 预置常量与全等比对（sampler_spec.rs，7 项测试全部通过） |
 | [packages/engine/Specs/Renderer/ShaderBuilderSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderBuilderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/ShaderCacheSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderCacheSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/ShaderDestinationSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderDestinationSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/ShaderFunctionSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderFunctionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ShaderDestinationSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderDestinationSpec.js) | 已移植：着色器目标位掩码、ShaderDestination 结构封装、VERTEX/FRAGMENT/BOTH 常量定义、includes_vertex_shader 与 includes_fragment_shader 判定、集合并集 union 与交集 intersection（shader_destination_spec.rs，4 项测试全部通过） |
+| [packages/engine/Specs/Renderer/ShaderFunctionSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderFunctionSpec.js) | 已移植：GLSL 函数结构构建器、ShaderFunction 结构封装、函数签名（返回值、函数名、参数列表）与函数体行添加（add_line/add_lines）、自动缩进格式化输出 generate_glsl_lines（shader_function_spec.rs，4 项测试全部通过） |
 | [packages/engine/Specs/Renderer/ShaderProgramSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderProgramSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/ShaderSourceSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderSourceSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/ShaderStructSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderStructSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ShaderStructSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderStructSpec.js) | 已移植：GLSL 结构体构建器、ShaderStruct 结构封装、结构体字段动态添加（add_field）、空结构体自动占位保护（_empty 字段注入防止编译报错）、generate_glsl_lines 生成标准 GLSL struct 代码（shader_struct_spec.rs，4 项测试全部通过） |
 | [packages/engine/Specs/Renderer/SharedContextSpec.js](../../cesium/packages/engine/Specs/Renderer/SharedContextSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/SyncSpec.js](../../cesium/packages/engine/Specs/Renderer/SyncSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/Texture3DSpec.js](../../cesium/packages/engine/Specs/Renderer/Texture3DSpec.js) | 待逐项核对 |
