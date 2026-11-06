@@ -107,6 +107,7 @@ mod intersections;
 mod intersections_2d;
 mod is_leap_year;
 mod julian_date;
+mod kml_tour;
 mod label_collection;
 mod label_graphics;
 mod label_style;
@@ -430,6 +431,10 @@ pub use intersections::{
 pub use intersections_2d::Intersections2D;
 pub use is_leap_year::is_leap_year;
 pub use julian_date::{GregorianDate, JulianDate, LeapSecond, TimeStandard, LEAP_SECONDS};
+pub use kml_tour::{
+    EasingFunction, KmlCamera, KmlCameraOptions, KmlCameraTarget, KmlLookAt, KmlTour, KmlTourEntry,
+    KmlTourFlyTo, KmlTourView, KmlTourWait,
+};
 pub use label_collection::{Label, LabelCollection};
 pub use label_graphics::{LabelGraphics, LabelGraphicsOptions, LabelGraphicsValues};
 pub use label_style::LabelStyle;
