@@ -11,7 +11,9 @@ mod attribute_type;
 mod axis_aligned_bounding_box;
 mod barycentric_coordinates;
 mod binary_search;
+mod billboard_collection;
 mod billboard_graphics;
+mod billboard_visualizer;
 mod bounding_rectangle;
 mod bounding_sphere_state;
 mod box_geometry;
@@ -250,9 +252,11 @@ pub use barycentric_coordinates::{
     barycentric_coordinates, barycentric_coordinates_2d, BarycentricCoordinates,
 };
 pub use binary_search::{binary_search, binary_search_cesium};
+pub use billboard_collection::{Billboard, BillboardCollection};
 pub use billboard_graphics::{
     BillboardGraphics, BillboardGraphicsOptions, BillboardGraphicsValues,
 };
+pub use billboard_visualizer::BillboardVisualizer;
 pub use bounding_rectangle::BoundingRectangle;
 pub use bounding_sphere_state::BoundingSphereState;
 pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};

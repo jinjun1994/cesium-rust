@@ -1,7 +1,7 @@
 //! Defines how screen space objects (billboards, points, labels) are clustered.
 //! Direct port of CesiumJS `DataSources/EntityCluster.js`.
 
-use crate::{BoundingRectangle, Event};
+use crate::{billboard_collection::{Billboard, BillboardCollection}, BoundingRectangle, Event};
 
 /// Options for initializing an EntityCluster instance.
 #[derive(Debug, Clone)]
@@ -40,6 +40,7 @@ pub struct EntityCluster {
     pub cluster_points: bool,
     pub show: bool,
     pub cluster_event: Event<(Vec<String>, usize)>, // (clustered_ids, count)
+    pub billboard_collection: Option<BillboardCollection>,
 }
 
 impl Default for EntityCluster {
@@ -60,6 +61,52 @@ impl EntityCluster {
             cluster_points: options.cluster_points,
             show: options.show,
             cluster_event: Event::new(),
+            billboard_collection: None,
+        }
+    }
+
+    /// Gets or creates the billboard collection.
+    pub fn get_or_create_billboard_collection(&mut self) -> &mut BillboardCollection {
+        if self.billboard_collection.is_none() {
+            self.billboard_collection = Some(BillboardCollection::new());
+        }
+        self.billboard_collection.as_mut().unwrap()
+    }
+
+    /// Gets or allocates a billboard associated with an entity. Reuses unused billboards.
+    pub fn get_billboard(&mut self, entity_id: &str) -> &mut Billboard {
+        let collection = self.get_or_create_billboard_collection();
+        if let Some(pos) = collection
+            .billboards
+            .iter()
+            .position(|b| b.id.as_deref() == Some(entity_id))
+        {
+            return &mut collection.billboards[pos];
+        }
+        if let Some(pos) = collection.billboards.iter().position(|b| b.id.is_none()) {
+            let bb = &mut collection.billboards[pos];
+            bb.id = Some(entity_id.to_string());
+            return bb;
+        }
+        let bb = Billboard {
+            id: Some(entity_id.to_string()),
+            ..Default::default()
+        };
+        collection.billboards.push(bb);
+        collection.billboards.last_mut().unwrap()
+    }
+
+    /// Removes an entity's billboard, hiding it and marking it for reuse.
+    pub fn remove_billboard(&mut self, entity_id: &str) {
+        if let Some(col) = &mut self.billboard_collection {
+            if let Some(bb) = col
+                .billboards
+                .iter_mut()
+                .find(|b| b.id.as_deref() == Some(entity_id))
+            {
+                bb.show = false;
+                bb.id = None;
+            }
         }
     }
 
