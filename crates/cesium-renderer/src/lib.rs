@@ -5,6 +5,8 @@ pub mod capabilities;
 pub mod commands;
 pub mod device;
 pub mod metrics;
+pub mod pass_state;
+pub mod pick_id;
 pub mod picking;
 pub mod pipelines;
 mod screen_distance;
@@ -24,6 +26,8 @@ pub use commands::{
 };
 pub use device::{DeviceContext, DeviceStatus};
 pub use metrics::{FrameStats, FrameStatsHistory, FrameStatsSummary, StageTimer};
+pub use pass_state::PassState;
+pub use pick_id::PickId;
 pub use picking::FeatureRef;
 use picking::{PendingPick, PickRange};
 use pipelines::{PipelineCache, PipelineKey};

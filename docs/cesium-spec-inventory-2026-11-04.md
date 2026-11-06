@@ -428,8 +428,8 @@
 | [packages/engine/Specs/Renderer/FramebufferManagerSpec.js](../../cesium/packages/engine/Specs/Renderer/FramebufferManagerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/FramebufferSpec.js](../../cesium/packages/engine/Specs/Renderer/FramebufferSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/MultisampleFramebufferSpec.js](../../cesium/packages/engine/Specs/Renderer/MultisampleFramebufferSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/PassStateSpec.js](../../cesium/packages/engine/Specs/Renderer/PassStateSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/PickIdSpec.js](../../cesium/packages/engine/Specs/Renderer/PickIdSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/PassStateSpec.js](../../cesium/packages/engine/Specs/Renderer/PassStateSpec.js) | 已移植：渲染通道上下文状态、PassState 封装、支持上下文绑定、帧缓冲绑定覆盖、混合开关与视口/剪裁区（scissorTest）覆盖（pass_state_spec.rs，1 项测试全部通过） |
+| [packages/engine/Specs/Renderer/PickIdSpec.js](../../cesium/packages/engine/Specs/Renderer/PickIdSpec.js) | 已移植：拾取标识符管理、PickId 结构封装、拾取颜色转换与键值关联、支持对象存取与生命周期销毁注销（pick_id_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/Renderer/RenderStateSpec.js](../../cesium/packages/engine/Specs/Renderer/RenderStateSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/RenderbufferSpec.js](../../cesium/packages/engine/Specs/Renderer/RenderbufferSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/SamplerSpec.js](../../cesium/packages/engine/Specs/Renderer/SamplerSpec.js) | 待逐项核对 |
