@@ -413,7 +413,7 @@
 | [packages/engine/Specs/DataSources/VelocityVectorPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/VelocityVectorPropertySpec.js) | 已移植：基于有限差分微商（step=1/60s）的速度矢量动态求导计算、归一化方向/非归一化速度切换、常量位置零速度回退、definitionChanged 级联监听与 equals 比对（velocity_vector_property_spec.rs，11 项测试全部通过） |
 | [packages/engine/Specs/DataSources/WallGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/WallGeometryUpdaterSpec.js) | 已移植：墙体几何更新器、时间动态判定、填充与轮廓几何实例生成、非闭合几何判定（isClosed恒为false）、动态更新器同步与属性变更事件调度（wall_geometry_updater_spec.rs，6 项测试全部通过） |
 | [packages/engine/Specs/DataSources/WallGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/WallGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/wall_graphics_spec.rs) |
-| [packages/engine/Specs/DataSources/createMaterialPropertyDescriptorSpec.js](../../cesium/packages/engine/Specs/DataSources/createMaterialPropertyDescriptorSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/createMaterialPropertyDescriptorSpec.js](../../cesium/packages/engine/Specs/DataSources/createMaterialPropertyDescriptorSpec.js) | 全绿通过 (crates/cesium-math/tests/create_material_property_descriptor_spec.rs，实现 MaterialPropertyDescriptor、Color/Image 自动材质类型推断封装、无法推断时严格类型校验报错、definition_changed 事件转发，4 项测试全绿) |
 | [packages/engine/Specs/DataSources/exportKmlSpec.js](../../cesium/packages/engine/Specs/DataSources/exportKmlSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/AutomaticUniformSpec.js](../../cesium/packages/engine/Specs/Renderer/AutomaticUniformSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/BufferSpec.js](../../cesium/packages/engine/Specs/Renderer/BufferSpec.js) | 待逐项核对 |

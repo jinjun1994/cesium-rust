@@ -397,6 +397,15 @@ impl ImageMaterialProperty {
         }
     }
 
+    pub fn from_url(url: impl Into<String>) -> Self {
+        Self::new(
+            Some(ConstantProperty::from_value(url.into())),
+            None,
+            None,
+            None,
+        )
+    }
+
     pub fn get_type(&self) -> &'static str {
         "Image"
     }

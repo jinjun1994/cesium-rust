@@ -195,6 +195,7 @@ mod google_earth_enterprise_terrain_data;
 mod google_earth_enterprise_terrain_provider;
 mod cesium_terrain_provider;
 mod cesium_3dtileset_graphics;
+mod create_material_property_descriptor;
 mod create_world_bathymetry_async;
 mod create_world_terrain_async;
 mod resize_image_to_next_power_of_two;
@@ -591,6 +592,9 @@ pub use google_earth_enterprise_terrain_provider::{
 pub use cesium_terrain_provider::{
     CesiumTerrainData, CesiumTerrainFormat, CesiumTerrainLayerJson, CesiumTerrainProvider,
     CesiumTerrainProviderOptions, CesiumTerrainTilingScheme, TileRange,
+};
+pub use create_material_property_descriptor::{
+    create_material_property, MaterialPropertyDescriptor, MaterialValueInput,
 };
 pub use create_world_bathymetry_async::{
     create_world_bathymetry_async, CreateWorldBathymetryOptions,
