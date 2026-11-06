@@ -432,7 +432,7 @@
 | [packages/engine/Specs/Renderer/PickIdSpec.js](../../cesium/packages/engine/Specs/Renderer/PickIdSpec.js) | 已移植：拾取标识符管理、PickId 结构封装、拾取颜色转换与键值关联、支持对象存取与生命周期销毁注销（pick_id_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/Renderer/RenderStateSpec.js](../../cesium/packages/engine/Specs/Renderer/RenderStateSpec.js) | 已移植：渲染管线状态机、RenderState 结构封装、裁剪/多边形偏移/剪裁区/深度测试与范围/写入掩码/混合方程与因数/模板测试与操作/多重采样覆盖率等全管线状态及 from_cache 缓存去重（render_state_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/Renderer/RenderbufferSpec.js](../../cesium/packages/engine/Specs/Renderer/RenderbufferSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/SamplerSpec.js](../../cesium/packages/engine/Specs/Renderer/SamplerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/SamplerSpec.js](../../cesium/packages/engine/Specs/Renderer/SamplerSpec.js) | 已移植：纹理采样器状态、Sampler 结构封装、TextureWrap 寻址模式、TextureMinificationFilter 与 TextureMagnificationFilter 滤波模式、最大各向异性过滤参数校验（>= 1.0）、Sampler::NEAREST 预置常量与全等比对（sampler_spec.rs，7 项测试全部通过） |
 | [packages/engine/Specs/Renderer/ShaderBuilderSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderBuilderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/ShaderCacheSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderCacheSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/ShaderDestinationSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderDestinationSpec.js) | 待逐项核对 |

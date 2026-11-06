@@ -10,6 +10,7 @@ pub mod pick_id;
 pub mod picking;
 pub mod pipelines;
 pub mod render_state;
+pub mod sampler;
 mod screen_distance;
 pub mod uniforms;
 
@@ -35,6 +36,9 @@ pub use render_state::{
     DepthFunction, DepthRangeState, DepthTestState, PolygonOffsetState, RenderState,
     SampleCoverageState, ScissorTestState, StencilFunction, StencilOperation, StencilOperationState,
     StencilTestState,
+};
+pub use sampler::{
+    Sampler, SamplerOptions, TextureMagnificationFilter, TextureMinificationFilter, TextureWrap,
 };
 use picking::{PendingPick, PickRange};
 use pipelines::{PipelineCache, PipelineKey};
