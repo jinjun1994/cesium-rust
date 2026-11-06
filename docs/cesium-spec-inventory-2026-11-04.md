@@ -348,7 +348,7 @@
 | [packages/engine/Specs/DataSources/DataSourceClockSpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceClockSpec.js) | 全绿通过 (crates/cesium-math/tests/data_source_clock_spec.rs，实现 DataSourceClock、时钟参数配置、merge 属性合并、clone/clone_to 复制及 get_value 实例化为 Clock 与默认行为回退) |
 | [packages/engine/Specs/DataSources/DataSourceCollectionSpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceCollectionSpec.js) | 全绿通过 (crates/cesium-math/tests/data_source_collection_spec.rs，实现 DataSourceCollection、多数据源增删查、按名检索 get_by_name、raise/lower/raise_to_top/lower_to_bottom 层级移动与 dataSourceAdded/Removed/Moved 事件监听) |
 | [packages/engine/Specs/DataSources/DataSourceDisplaySpec.js](../../cesium/packages/engine/Specs/DataSources/DataSourceDisplaySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/DataSources/DynamicGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/DynamicGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/DynamicGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/DynamicGeometryUpdaterSpec.js) | 已移植：动态几何更新器抽象接口、构造函数参数校验（updater/primitives/groundPrimitives缺失抛错）、时间参数缺失异常防御与生命周期管理（dynamic_geometry_updater_spec.rs，4 项测试全部通过） |
 | [packages/engine/Specs/DataSources/EllipseGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipseGeometryUpdaterSpec.js) | 已移植：椭圆几何更新器、长半轴/短半轴未定义时几何禁用、时间动态判定、填充与轮廓几何实例生成、动态更新器同步与属性变更事件调度（ellipse_geometry_updater_spec.rs，7 项测试全部通过） |
 | [packages/engine/Specs/DataSources/EllipseGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipseGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/ellipse_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/EllipsoidGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/EllipsoidGeometryUpdaterSpec.js) | 已移植：椭球体几何更新器、半径未定义时几何禁用、时间动态判定、填充与轮廓几何实例生成、高度参考系offsetAttribute关联、动态更新器同步与属性变更事件调度（ellipsoid_geometry_updater_spec.rs，7 项测试全部通过） |
@@ -363,7 +363,7 @@
 | [packages/engine/Specs/DataSources/GeometryVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/GeometryVisualizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/GpxDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/GpxDataSourceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/GridMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/GridMaterialPropertySpec.js) | 已移植：网格材质属性封装、默认白色/0.1单元透明度/8x8线数/1.0线宽/0.0偏移回退、常量与动态属性求值、isConstant联合判定及equals属性比较（grid_material_property_spec.rs，3 项测试全部通过） |
-| [packages/engine/Specs/DataSources/GroundGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/GroundGeometryUpdaterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/GroundGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/GroundGeometryUpdaterSpec.js) | 已移植：贴地几何更新器抽象基类、高度参考系解析（NONE/RELATIVE/CLAMP换算）、高度偏移标志位计算（computeGeometryOffsetAttribute多状态真值表推导）、destroy释放与生命周期管理（ground_geometry_updater_spec.rs，6 项测试全部通过） |
 | [packages/engine/Specs/DataSources/ImageMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/ImageMaterialPropertySpec.js) | 已移植：图像材质属性封装、默认1x1重复度/白色/非透明回退、URL图片源解析与动态重采样求值、isConstant判定及equals属性比对（image_material_property_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/DataSources/KmlDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/KmlDataSourceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/KmlTourFlyToSpec.js](../../cesium/packages/engine/Specs/DataSources/KmlTourFlyToSpec.js) | 待逐项核对 |

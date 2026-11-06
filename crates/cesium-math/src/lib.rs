@@ -88,7 +88,9 @@ mod frustum;
 mod frustum_geometry;
 mod geometry;
 mod geometry_pipeline;
+mod dynamic_geometry_updater;
 mod geometry_updater;
+mod ground_geometry_updater;
 mod heap;
 mod heightmap_terrain_data;
 mod hermite_polynomial_approximation;
@@ -396,7 +398,9 @@ pub use geometry::{
     PrimitiveType,
 };
 pub use geometry_pipeline::GeometryPipeline;
+pub use dynamic_geometry_updater::DynamicGeometryUpdater;
 pub use geometry_updater::{GeometryUpdater, GeometryUpdaterOptions};
+pub use ground_geometry_updater::{GroundGeometryUpdater, CLAMP_TO_GROUND};
 pub use heap::Heap;
 pub use heightmap_terrain_data::{
     CreateMeshOptions, HeightmapBuffer, HeightmapBufferType, HeightmapEncoding, HeightmapStructure,
