@@ -115,6 +115,7 @@ mod path_mode;
 mod oriented_bounding_box;
 mod plane;
 mod plane_geometry;
+mod plane_geometry_updater;
 mod plane_graphics;
 mod point_graphics;
 mod property;
@@ -408,6 +409,10 @@ pub use path_mode::PathMode;
 pub use oriented_bounding_box::OrientedBoundingBox;
 pub use plane::Plane;
 pub use plane_geometry::{PlaneGeometry, PlaneOutlineGeometry};
+pub use plane_geometry_updater::{
+    DynamicPlaneGeometryUpdater, PlaneFillGeometryInstance, PlaneGeometryOptions,
+    PlaneGeometryUpdater, PlaneOutlineGeometryInstance,
+};
 pub use plane_graphics::{PlaneGraphics, PlaneGraphicsOptions, PlaneGraphicsValues};
 pub use pixel_format::{PixelDatatype, PixelFormat};
 pub use pin_builder::{PinBuilder, PinImage};
