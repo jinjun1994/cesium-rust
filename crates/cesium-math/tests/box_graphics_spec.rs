@@ -18,6 +18,7 @@ fn creates_expected_instance_from_raw_assignment_and_construction() {
         dimensions: Some(Cartesian3::new(2.0, 3.0, 4.0)),
         shadows: Some(ShadowMode::Disabled),
         distance_display_condition: Some(DistanceDisplayCondition::new(10.0, 100.0)),
+        height_reference: None,
     };
 
     let box_graphics = BoxGraphics::from_values(values);

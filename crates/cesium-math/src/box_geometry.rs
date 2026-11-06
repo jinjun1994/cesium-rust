@@ -2,7 +2,10 @@
 //! Adapted from CesiumJS (Apache-2.0).
 
 use crate::{
-    geometry::{ComponentDatatype, Geometry, GeometryAttribute, GeometryAttributes, PrimitiveType},
+    geometry::{
+        ComponentDatatype, Geometry, GeometryAttribute, GeometryAttributes, GeometryOffsetAttribute,
+        PrimitiveType,
+    },
     AxisAlignedBoundingBox, Cartesian3, VertexFormat,
 };
 
@@ -11,6 +14,7 @@ pub struct BoxGeometry {
     pub minimum: Cartesian3,
     pub maximum: Cartesian3,
     pub vertex_format: VertexFormat,
+    pub offset_attribute: Option<GeometryOffsetAttribute>,
 }
 
 impl BoxGeometry {
@@ -19,7 +23,13 @@ impl BoxGeometry {
             minimum,
             maximum,
             vertex_format: vertex_format.unwrap_or(VertexFormat::DEFAULT),
+            offset_attribute: None,
         }
+    }
+
+    pub fn with_offset_attribute(mut self, offset_attribute: Option<GeometryOffsetAttribute>) -> Self {
+        self.offset_attribute = offset_attribute;
+        self
     }
 
     pub fn from_dimensions(dimensions: Cartesian3, vertex_format: Option<VertexFormat>) -> Self {
@@ -79,7 +89,7 @@ impl BoxGeometry {
             attributes.position = Some(GeometryAttribute::new(
                 ComponentDatatype::Double,
                 3,
-                positions,
+                positions.clone(),
             ));
 
             if vertex_format.normal {
@@ -130,6 +140,19 @@ impl BoxGeometry {
                 indices[idx + 5] = base + 3;
             }
 
+            if let Some(offset_attr) = self.offset_attribute {
+                let offset_val = match offset_attr {
+                    GeometryOffsetAttribute::None => 0.0,
+                    _ => 1.0,
+                };
+                let count = positions.len() / 3;
+                attributes.apply_offset = Some(GeometryAttribute::new(
+                    ComponentDatatype::UnsignedByte,
+                    1,
+                    vec![offset_val; count],
+                ));
+            }
+
             Some(Geometry {
                 attributes,
                 indices,
@@ -152,8 +175,21 @@ impl BoxGeometry {
             attributes.position = Some(GeometryAttribute::new(
                 ComponentDatatype::Double,
                 3,
-                positions,
+                positions.clone(),
             ));
+
+            if let Some(offset_attr) = self.offset_attribute {
+                let offset_val = match offset_attr {
+                    GeometryOffsetAttribute::None => 0.0,
+                    _ => 1.0,
+                };
+                let count = positions.len() / 3;
+                attributes.apply_offset = Some(GeometryAttribute::new(
+                    ComponentDatatype::UnsignedByte,
+                    1,
+                    vec![offset_val; count],
+                ));
+            }
 
             #[rustfmt::skip]
             let indices = vec![
@@ -183,11 +219,29 @@ impl BoxGeometry {
 pub struct BoxOutlineGeometry {
     pub minimum: Cartesian3,
     pub maximum: Cartesian3,
+    pub offset_attribute: Option<GeometryOffsetAttribute>,
 }
 
 impl BoxOutlineGeometry {
     pub fn new(minimum: Cartesian3, maximum: Cartesian3) -> Self {
-        Self { minimum, maximum }
+        Self {
+            minimum,
+            maximum,
+            offset_attribute: None,
+        }
+    }
+
+    pub fn with_offset_attribute(mut self, offset_attribute: Option<GeometryOffsetAttribute>) -> Self {
+        self.offset_attribute = offset_attribute;
+        self
+    }
+
+    pub fn max(&self) -> Cartesian3 {
+        self.maximum
+    }
+
+    pub fn min(&self) -> Cartesian3 {
+        self.minimum
     }
 
     pub fn from_dimensions(dimensions: Cartesian3) -> Self {
@@ -218,14 +272,27 @@ impl BoxOutlineGeometry {
             min.x, max.y, max.z, // 7
         ];
 
-        let attributes = GeometryAttributes {
+        let mut attributes = GeometryAttributes {
             position: Some(GeometryAttribute::new(
                 ComponentDatatype::Double,
                 3,
-                positions,
+                positions.clone(),
             )),
             ..Default::default()
         };
+
+        if let Some(offset_attr) = self.offset_attribute {
+            let offset_val = match offset_attr {
+                GeometryOffsetAttribute::None => 0.0,
+                _ => 1.0,
+            };
+            let count = positions.len() / 3;
+            attributes.apply_offset = Some(GeometryAttribute::new(
+                ComponentDatatype::UnsignedByte,
+                1,
+                vec![offset_val; count],
+            ));
+        }
 
         #[rustfmt::skip]
         let indices = vec![

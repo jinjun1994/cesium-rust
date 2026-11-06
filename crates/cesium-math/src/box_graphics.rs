@@ -4,7 +4,7 @@ use std::rc::Rc;
 
 use crate::{
     Cartesian3, Color, ColorMaterialProperty, ConstantProperty, DistanceDisplayCondition,
-    DynProperty, Event, MaterialProperty, ShadowMode,
+    DynProperty, Event, HeightReference, MaterialProperty, ShadowMode,
 };
 
 /// Initialization options for BoxGraphics using dynamic or constant properties.
@@ -19,6 +19,7 @@ pub struct BoxGraphicsOptions {
     pub dimensions: Option<Rc<dyn DynProperty<Cartesian3>>>,
     pub shadows: Option<Rc<dyn DynProperty<ShadowMode>>>,
     pub distance_display_condition: Option<Rc<dyn DynProperty<DistanceDisplayCondition>>>,
+    pub height_reference: Option<Rc<dyn DynProperty<HeightReference>>>,
 }
 
 /// Raw literal initialization values for BoxGraphics (convenience constructor).
@@ -33,6 +34,7 @@ pub struct BoxGraphicsValues {
     pub dimensions: Option<Cartesian3>,
     pub shadows: Option<ShadowMode>,
     pub distance_display_condition: Option<DistanceDisplayCondition>,
+    pub height_reference: Option<HeightReference>,
 }
 
 /// Describes a box located at the position of the containing Entity.
@@ -47,6 +49,7 @@ pub struct BoxGraphics {
     pub dimensions: Option<Rc<dyn DynProperty<Cartesian3>>>,
     pub shadows: Option<Rc<dyn DynProperty<ShadowMode>>>,
     pub distance_display_condition: Option<Rc<dyn DynProperty<DistanceDisplayCondition>>>,
+    pub height_reference: Option<Rc<dyn DynProperty<HeightReference>>>,
     definition_changed: Event<()>,
 }
 
@@ -68,6 +71,7 @@ impl BoxGraphics {
             dimensions: options.dimensions,
             shadows: options.shadows,
             distance_display_condition: options.distance_display_condition,
+            height_reference: options.height_reference,
             definition_changed: Event::new(),
         }
     }
@@ -102,6 +106,9 @@ impl BoxGraphics {
             distance_display_condition: values.distance_display_condition.map(|v| {
                 Rc::new(ConstantProperty::from_value(v))
                     as Rc<dyn DynProperty<DistanceDisplayCondition>>
+            }),
+            height_reference: values.height_reference.map(|v| {
+                Rc::new(ConstantProperty::from_value(v)) as Rc<dyn DynProperty<HeightReference>>
             }),
         })
     }
@@ -139,6 +146,9 @@ impl BoxGraphics {
         }
         if self.distance_display_condition.is_none() {
             self.distance_display_condition = source.distance_display_condition.clone();
+        }
+        if self.height_reference.is_none() {
+            self.height_reference = source.height_reference.clone();
         }
     }
 }

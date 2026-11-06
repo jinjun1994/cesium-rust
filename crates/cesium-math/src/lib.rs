@@ -14,6 +14,7 @@ mod binary_search;
 mod billboard_graphics;
 mod bounding_rectangle;
 mod box_geometry;
+mod box_geometry_updater;
 mod box_graphics;
 mod build_module_url;
 mod cartesian;
@@ -237,6 +238,10 @@ pub use billboard_graphics::{
 };
 pub use bounding_rectangle::BoundingRectangle;
 pub use box_geometry::{BoxGeometry, BoxOutlineGeometry};
+pub use box_geometry_updater::{
+    BoxFillGeometryInstance, BoxGeometryOptions, BoxGeometryUpdater, BoxOutlineGeometryInstance,
+    DynamicBoxGeometryUpdater,
+};
 pub use box_graphics::{BoxGraphics, BoxGraphicsOptions, BoxGraphicsValues};
 pub use classification_type::ClassificationType;
 pub use clipping_plane_collection::ClippingPlaneCollection;
