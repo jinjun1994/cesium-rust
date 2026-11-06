@@ -90,6 +90,7 @@ mod geometry;
 mod geometry_pipeline;
 mod dynamic_geometry_updater;
 mod geometry_updater;
+mod geometry_updater_set;
 mod ground_geometry_updater;
 mod heap;
 mod heightmap_terrain_data;
@@ -401,6 +402,9 @@ pub use geometry::{
 pub use geometry_pipeline::GeometryPipeline;
 pub use dynamic_geometry_updater::DynamicGeometryUpdater;
 pub use geometry_updater::{GeometryUpdater, GeometryUpdaterOptions};
+pub use geometry_updater_set::{
+    CustomUpdater, CustomUpdaterFactory, GeometryUpdaterInstance, GeometryUpdaterSet,
+};
 pub use ground_geometry_updater::{GroundGeometryUpdater, CLAMP_TO_GROUND};
 pub use heap::Heap;
 pub use heightmap_terrain_data::{
