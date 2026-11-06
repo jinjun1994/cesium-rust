@@ -186,6 +186,7 @@ mod spherical;
 mod stereographic;
 mod subdivide_array;
 mod terrain_encoding;
+mod terrain_offset_property;
 mod arcgis_terrain_provider;
 mod cesium_3d_tiles_terrain_data;
 mod cesium_3d_tiles_terrain_provider;
@@ -566,6 +567,7 @@ pub use subdivide_array::subdivide_array;
 pub use terrain_encoding::{
     TerrainAttribute, TerrainAttributeLocations, TerrainEncoding, TerrainQuantization,
 };
+pub use terrain_offset_property::TerrainOffsetProperty;
 pub use arcgis_terrain_provider::{
     ArcGISMetadata, ArcGISMetadataExtent, ArcGISMetadataLod, ArcGISMetadataSpatialReference,
     ArcGISMetadataTileInfo, ArcGISTiledElevationTerrainProvider, ArcGISTilingScheme,
