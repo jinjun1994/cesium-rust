@@ -418,12 +418,12 @@
 | [packages/engine/Specs/Renderer/AutomaticUniformSpec.js](../../cesium/packages/engine/Specs/Renderer/AutomaticUniformSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/BufferSpec.js](../../cesium/packages/engine/Specs/Renderer/BufferSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/BuiltinFunctionsSpec.js](../../cesium/packages/engine/Specs/Renderer/BuiltinFunctionsSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/ClearCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/ClearCommandSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ClearCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/ClearCommandSpec.js) | 已移植：渲染清屏命令、ClearCommand 结构封装、颜色/深度/模板/渲染状态/帧缓冲/所属通道参数映射与 ClearCommand::ALL 默认全局清屏常量（clear_command_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/Renderer/ClearSpec.js](../../cesium/packages/engine/Specs/Renderer/ClearSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/ComputeCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/ComputeCommandSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/ContextSpec.js](../../cesium/packages/engine/Specs/Renderer/ContextSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/CubeMapSpec.js](../../cesium/packages/engine/Specs/Renderer/CubeMapSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/DrawCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/DrawCommandSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/DrawCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/DrawCommandSpec.js) | 已移植：渲染绘制命令、DrawCommand 结构封装、图元类型/包围球与定向包围盒/模型变换/视锥剔除与遮挡/阴影与拾取/渲染通道/状态缓存与浅拷贝复用（draw_command_spec.rs，5 项测试全部通过） |
 | [packages/engine/Specs/Renderer/DrawSpec.js](../../cesium/packages/engine/Specs/Renderer/DrawSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/FramebufferManagerSpec.js](../../cesium/packages/engine/Specs/Renderer/FramebufferManagerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/FramebufferSpec.js](../../cesium/packages/engine/Specs/Renderer/FramebufferSpec.js) | 待逐项核对 |

@@ -2,6 +2,7 @@
 //! robust device state recovery, and multi-tier frame performance telemetry.
 
 pub mod capabilities;
+pub mod commands;
 pub mod device;
 pub mod metrics;
 pub mod picking;
@@ -18,6 +19,9 @@ use thiserror::Error;
 use wgpu::util::DeviceExt;
 
 pub use capabilities::RendererCapabilities;
+pub use commands::{
+    ClearCommand, ClearCommandOptions, DrawCommand, DrawCommandOptions, Pass, NUMBER_OF_PASSES,
+};
 pub use device::{DeviceContext, DeviceStatus};
 pub use metrics::{FrameStats, FrameStatsHistory, FrameStatsSummary, StageTimer};
 pub use picking::FeatureRef;
