@@ -369,7 +369,7 @@
 | [packages/engine/Specs/DataSources/KmlTourFlyToSpec.js](../../cesium/packages/engine/Specs/DataSources/KmlTourFlyToSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/KmlTourSpec.js](../../cesium/packages/engine/Specs/DataSources/KmlTourSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/LabelGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/LabelGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/label_graphics_spec.rs) |
-| [packages/engine/Specs/DataSources/LabelVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/LabelVisualizerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/LabelVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/LabelVisualizerSpec.js) | 已移植：标签可视化器、Label 与 LabelCollection 图元集合、文本/字体/样式/填充与轮廓色/背景/对齐原点/像素与视点偏移/距离缩放与可见性等全属性时序同步、图元复用池机制（隐藏释放再分配复用）、包围球计算及生命周期销毁（label_visualizer_spec.rs，15 项测试全部通过） |
 | [packages/engine/Specs/DataSources/ModelGraphicsSpec.js](../../cesium/packages/engine/Specs/DataSources/ModelGraphicsSpec.js) | 全绿通过 (crates/cesium-math/tests/model_graphics_spec.rs) |
 | [packages/engine/Specs/DataSources/ModelVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/ModelVisualizerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/NodeTransformationPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/NodeTransformationPropertySpec.js) | 已移植：节点变换属性、支持平移/旋转/缩放子属性组合、默认值回退、常量与动态时间序列求值、内部可变性赋值、级联 definitionChanged 事件广播、equals 比对与 get_value_to 缓冲复用（node_transformation_property_spec.rs，7 项测试全部通过） |

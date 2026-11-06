@@ -3,6 +3,7 @@
 
 use crate::{
     billboard_collection::{Billboard, BillboardCollection},
+    label_collection::{Label, LabelCollection},
     point_primitive_collection::{PointPrimitive, PointPrimitiveCollection},
     BoundingRectangle, Event,
 };
@@ -46,6 +47,7 @@ pub struct EntityCluster {
     pub cluster_event: Event<(Vec<String>, usize)>, // (clustered_ids, count)
     pub billboard_collection: Option<BillboardCollection>,
     pub point_collection: Option<PointPrimitiveCollection>,
+    pub label_collection: Option<LabelCollection>,
 }
 
 impl Default for EntityCluster {
@@ -68,6 +70,7 @@ impl EntityCluster {
             cluster_event: Event::new(),
             billboard_collection: None,
             point_collection: None,
+            label_collection: None,
         }
     }
 
@@ -157,6 +160,51 @@ impl EntityCluster {
             {
                 p.show = false;
                 p.id = None;
+            }
+        }
+    }
+
+    /// Gets or creates the label collection.
+    pub fn get_or_create_label_collection(&mut self) -> &mut LabelCollection {
+        if self.label_collection.is_none() {
+            self.label_collection = Some(LabelCollection::new());
+        }
+        self.label_collection.as_mut().unwrap()
+    }
+
+    /// Gets or allocates a label associated with an entity. Reuses unused labels.
+    pub fn get_label(&mut self, entity_id: &str) -> &mut Label {
+        let collection = self.get_or_create_label_collection();
+        if let Some(pos) = collection
+            .labels
+            .iter()
+            .position(|l| l.id.as_deref() == Some(entity_id))
+        {
+            return &mut collection.labels[pos];
+        }
+        if let Some(pos) = collection.labels.iter().position(|l| l.id.is_none()) {
+            let l = &mut collection.labels[pos];
+            l.id = Some(entity_id.to_string());
+            return l;
+        }
+        let l = Label {
+            id: Some(entity_id.to_string()),
+            ..Default::default()
+        };
+        collection.labels.push(l);
+        collection.labels.last_mut().unwrap()
+    }
+
+    /// Removes an entity's label, hiding it and marking it for reuse.
+    pub fn remove_label(&mut self, entity_id: &str) {
+        if let Some(col) = &mut self.label_collection {
+            if let Some(l) = col
+                .labels
+                .iter_mut()
+                .find(|l| l.id.as_deref() == Some(entity_id))
+            {
+                l.show = false;
+                l.id = None;
             }
         }
     }
