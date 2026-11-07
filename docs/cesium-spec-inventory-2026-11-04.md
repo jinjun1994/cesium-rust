@@ -433,12 +433,12 @@
 | [packages/engine/Specs/Renderer/RenderStateSpec.js](../../cesium/packages/engine/Specs/Renderer/RenderStateSpec.js) | 已移植：渲染管线状态机、RenderState 结构封装、裁剪/多边形偏移/剪裁区/深度测试与范围/写入掩码/混合方程与因数/模板测试与操作/多重采样覆盖率等全管线状态及 from_cache 缓存去重（render_state_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/Renderer/RenderbufferSpec.js](../../cesium/packages/engine/Specs/Renderer/RenderbufferSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/SamplerSpec.js](../../cesium/packages/engine/Specs/Renderer/SamplerSpec.js) | 已移植：纹理采样器状态、Sampler 结构封装、TextureWrap 寻址模式、TextureMinificationFilter 与 TextureMagnificationFilter 滤波模式、最大各向异性过滤参数校验（>= 1.0）、Sampler::NEAREST 预置常量与全等比对（sampler_spec.rs，7 项测试全部通过） |
-| [packages/engine/Specs/Renderer/ShaderBuilderSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderBuilderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ShaderBuilderSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderBuilderSpec.js) | 已移植：动态着色器代码构建器、ShaderBuilder 结构封装、支持 defines、structs、functions、uniforms、position/normal/matrix 属性位置分配（mat2/3/4 多槽位计算）、varyings 以及源码行动态追加，完整输出 ShaderSource 与 ShaderProgram（shader_builder_spec.rs，12 项测试全部通过） |
 | [packages/engine/Specs/Renderer/ShaderCacheSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderCacheSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/ShaderDestinationSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderDestinationSpec.js) | 已移植：着色器目标位掩码、ShaderDestination 结构封装、VERTEX/FRAGMENT/BOTH 常量定义、includes_vertex_shader 与 includes_fragment_shader 判定、集合并集 union 与交集 intersection（shader_destination_spec.rs，4 项测试全部通过） |
 | [packages/engine/Specs/Renderer/ShaderFunctionSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderFunctionSpec.js) | 已移植：GLSL 函数结构构建器、ShaderFunction 结构封装、函数签名（返回值、函数名、参数列表）与函数体行添加（add_line/add_lines）、自动缩进格式化输出 generate_glsl_lines（shader_function_spec.rs，4 项测试全部通过） |
 | [packages/engine/Specs/Renderer/ShaderProgramSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderProgramSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/ShaderSourceSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderSourceSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ShaderSourceSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderSourceSpec.js) | 已移植：着色器源码组合器、ShaderSource 结构封装、支持 defines/sources 组合注入、#line 0 追踪、版本提取、扩展保留、拾取着色器转换（uniform/in czm_pickColor）、out_FragColor 声明与 layout 注入、确定性缓存键生成与克隆（shader_source_spec.rs，15 项测试全部通过） |
 | [packages/engine/Specs/Renderer/ShaderStructSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderStructSpec.js) | 已移植：GLSL 结构体构建器、ShaderStruct 结构封装、结构体字段动态添加（add_field）、空结构体自动占位保护（_empty 字段注入防止编译报错）、generate_glsl_lines 生成标准 GLSL struct 代码（shader_struct_spec.rs，4 项测试全部通过） |
 | [packages/engine/Specs/Renderer/SharedContextSpec.js](../../cesium/packages/engine/Specs/Renderer/SharedContextSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/SyncSpec.js](../../cesium/packages/engine/Specs/Renderer/SyncSpec.js) | 待逐项核对 |

@@ -12,6 +12,7 @@ pub mod pipelines;
 pub mod render_state;
 pub mod sampler;
 pub mod shader_builder;
+pub mod shader_source;
 mod screen_distance;
 pub mod uniforms;
 
@@ -41,7 +42,10 @@ pub use render_state::{
 pub use sampler::{
     Sampler, SamplerOptions, TextureMagnificationFilter, TextureMinificationFilter, TextureWrap,
 };
-pub use shader_builder::{ShaderDestination, ShaderFunction, ShaderStruct};
+pub use shader_builder::{
+    BuiltShaderProgram, ShaderBuilder, ShaderDestination, ShaderFunction, ShaderStruct,
+};
+pub use shader_source::{ShaderContextInfo, ShaderSource, ShaderSourceOptions};
 use picking::{PendingPick, PickRange};
 use pipelines::{PipelineCache, PipelineKey};
 pub use screen_distance::ScreenDistance;
