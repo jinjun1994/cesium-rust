@@ -10,6 +10,7 @@ fn test_throws_when_missing_color_or_depth_stencil_attachment_pair() {
         height: 1,
         pixel_format: Some(PixelFormat::Rgba),
         pixel_datatype: None,
+        ..Default::default()
     });
 
     // Color textures without color renderbuffers
@@ -28,6 +29,7 @@ fn test_throws_when_missing_color_or_depth_stencil_attachment_pair() {
         height: 1,
         pixel_format: Some(PixelFormat::DepthStencil),
         pixel_datatype: Some(PixelDatatype::UnsignedInt24_8),
+        ..Default::default()
     });
     assert!(MultisampleFramebuffer::new(MultisampleFramebufferOptions {
         width: 1,
@@ -46,6 +48,7 @@ fn test_creates_read_and_draw_framebuffers() {
         height: 1,
         pixel_format: Some(PixelFormat::Rgba),
         pixel_datatype: None,
+        ..Default::default()
     });
     let color_rb = Renderbuffer::new(RenderbufferOptions {
         width: 1,
@@ -58,6 +61,7 @@ fn test_creates_read_and_draw_framebuffers() {
         height: 1,
         pixel_format: Some(PixelFormat::DepthStencil),
         pixel_datatype: Some(PixelDatatype::UnsignedInt24_8),
+        ..Default::default()
     });
     let ds_rb = Renderbuffer::new(RenderbufferOptions {
         width: 1,

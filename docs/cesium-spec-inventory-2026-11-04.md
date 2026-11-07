@@ -444,8 +444,8 @@
 | [packages/engine/Specs/Renderer/SyncSpec.js](../../cesium/packages/engine/Specs/Renderer/SyncSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/Texture3DSpec.js](../../cesium/packages/engine/Specs/Renderer/Texture3DSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/TextureAtlasSpec.js](../../cesium/packages/engine/Specs/Renderer/TextureAtlasSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/TextureCacheSpec.js](../../cesium/packages/engine/Specs/Renderer/TextureCacheSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/TextureSpec.js](../../cesium/packages/engine/Specs/Renderer/TextureSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/TextureCacheSpec.js](../../cesium/packages/engine/Specs/Renderer/TextureCacheSpec.js) | 已移植：纹理缓存池、TextureCache 结构封装、全局键值检索（add_texture/get_texture）、引用计数追踪、延迟批量回收（destroy_released_textures）、防抖命中保护与全量销毁（texture_cache_spec.rs，4 项测试全部通过） |
+| [packages/engine/Specs/Renderer/TextureSpec.js](../../cesium/packages/engine/Specs/Renderer/TextureSpec.js) | 已移植：2D 纹理对象抽象、Texture 结构封装、全局唯一 ID 生成、像素格式（PixelFormat）与像素数据类型（PixelDatatype）默认值判定、纹理字节占用空间计算（size_in_bytes = width * height * components_length）、采样器（Sampler）关联与生命周期安全销毁（texture_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/Renderer/UniformSpec.js](../../cesium/packages/engine/Specs/Renderer/UniformSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/VertexArrayFacadeSpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArrayFacadeSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/VertexArrayFactorySpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArrayFactorySpec.js) | 待逐项核对 |

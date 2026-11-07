@@ -76,12 +76,14 @@ fn test_sets_color_textures() {
         height: 1,
         pixel_format: Some(PixelFormat::Rgb),
         pixel_datatype: None,
+        ..Default::default()
     });
     let tex1 = Texture::new(TextureOptions {
         width: 1,
         height: 1,
         pixel_format: Some(PixelFormat::Rgba),
         pixel_datatype: None,
+        ..Default::default()
     });
 
     fbm.set_color_texture(Some(tex0.clone()), 0).unwrap();
@@ -112,6 +114,7 @@ fn test_sets_depth_attachments() {
         height: 1,
         pixel_format: Some(PixelFormat::DepthComponent),
         pixel_datatype: Some(PixelDatatype::UnsignedInt),
+        ..Default::default()
     });
     fbm.set_depth_texture(Some(tex.clone())).unwrap();
     assert_eq!(fbm.get_depth_texture(), Some(&tex));
@@ -140,6 +143,7 @@ fn test_sets_depth_stencil_attachments() {
         height: 1,
         pixel_format: Some(PixelFormat::DepthStencil),
         pixel_datatype: Some(PixelDatatype::UnsignedInt24_8),
+        ..Default::default()
     });
     fbm.set_depth_stencil_texture(Some(tex.clone())).unwrap();
     assert_eq!(fbm.get_depth_stencil_texture(), Some(&tex));

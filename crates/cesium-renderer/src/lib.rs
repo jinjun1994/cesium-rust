@@ -15,6 +15,7 @@ pub mod sampler;
 pub mod shader_builder;
 pub mod shader_cache;
 pub mod shader_source;
+pub mod texture;
 mod screen_distance;
 pub mod uniforms;
 
@@ -34,9 +35,9 @@ pub use device::{DeviceContext, DeviceStatus};
 pub use framebuffer::{
     Framebuffer, FramebufferManager, FramebufferManagerOptions, FramebufferOptions,
     MultisampleFramebuffer, MultisampleFramebufferOptions, PixelDatatype, PixelFormat,
-    Renderbuffer, RenderbufferFormat, RenderbufferOptions, Texture, TextureOptions,
-    MAXIMUM_RENDERBUFFER_SIZE,
+    Renderbuffer, RenderbufferFormat, RenderbufferOptions, MAXIMUM_RENDERBUFFER_SIZE,
 };
+pub use texture::{CachedTextureEntry, Texture, TextureCache, TextureOptions};
 pub use metrics::{FrameStats, FrameStatsHistory, FrameStatsSummary, StageTimer};
 pub use pass_state::PassState;
 pub use pick_id::PickId;

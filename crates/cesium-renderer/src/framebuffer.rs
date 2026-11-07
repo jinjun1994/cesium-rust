@@ -1,6 +1,7 @@
 //! Framebuffer and FramebufferManager matching CesiumJS `Renderer/Framebuffer*.js` (Apache-2.0).
 
 use cesium_math::DeveloperError;
+use crate::texture::{Texture, TextureOptions};
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 pub enum PixelFormat {
@@ -49,44 +50,6 @@ impl RenderbufferFormat {
             PixelDatatype::Float => Self::Rgba4,
             _ => Self::Rgba4,
         }
-    }
-}
-
-/// A 2D texture attachment representation.
-#[derive(Clone, Debug, PartialEq)]
-pub struct Texture {
-    pub width: u32,
-    pub height: u32,
-    pub pixel_format: PixelFormat,
-    pub pixel_datatype: PixelDatatype,
-    pub is_destroyed: bool,
-}
-
-#[derive(Clone, Debug)]
-pub struct TextureOptions {
-    pub width: u32,
-    pub height: u32,
-    pub pixel_format: Option<PixelFormat>,
-    pub pixel_datatype: Option<PixelDatatype>,
-}
-
-impl Texture {
-    pub fn new(options: TextureOptions) -> Self {
-        Self {
-            width: options.width,
-            height: options.height,
-            pixel_format: options.pixel_format.unwrap_or(PixelFormat::Rgba),
-            pixel_datatype: options.pixel_datatype.unwrap_or(PixelDatatype::UnsignedByte),
-            is_destroyed: false,
-        }
-    }
-
-    pub fn is_destroyed(&self) -> bool {
-        self.is_destroyed
-    }
-
-    pub fn destroy(&mut self) {
-        self.is_destroyed = true;
     }
 }
 
@@ -407,6 +370,7 @@ impl FramebufferManager {
                         height: h,
                         pixel_format: Some(format),
                         pixel_datatype: Some(datatype),
+                        ..Default::default()
                     }));
                 }
             }
@@ -418,6 +382,7 @@ impl FramebufferManager {
                         height: h,
                         pixel_format: Some(PixelFormat::DepthStencil),
                         pixel_datatype: Some(PixelDatatype::UnsignedInt24_8),
+                        ..Default::default()
                     }));
                 } else {
                     self.depth_stencil_renderbuffer = Some(Renderbuffer::new(RenderbufferOptions {
@@ -436,6 +401,7 @@ impl FramebufferManager {
                         height: h,
                         pixel_format: Some(PixelFormat::DepthComponent),
                         pixel_datatype: Some(PixelDatatype::UnsignedInt),
+                        ..Default::default()
                     }));
                 } else {
                     self.depth_renderbuffer = Some(Renderbuffer::new(RenderbufferOptions {

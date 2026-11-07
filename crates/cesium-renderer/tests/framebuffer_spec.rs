@@ -10,6 +10,7 @@ fn test_has_a_color_texture_attachment() {
         height: 1,
         pixel_format: Some(PixelFormat::Rgba),
         pixel_datatype: Some(PixelDatatype::UnsignedByte),
+        ..Default::default()
     });
 
     let fb = Framebuffer::new(FramebufferOptions {
@@ -48,6 +49,7 @@ fn test_has_a_depth_texture_attachment() {
         height: 1,
         pixel_format: Some(PixelFormat::DepthComponent),
         pixel_datatype: Some(PixelDatatype::UnsignedShort),
+        ..Default::default()
     });
 
     let fb = Framebuffer::new(FramebufferOptions {
@@ -66,6 +68,7 @@ fn test_throws_when_conflicting_attachments() {
         height: 1,
         pixel_format: Some(PixelFormat::Rgba),
         pixel_datatype: Some(PixelDatatype::UnsignedByte),
+        ..Default::default()
     });
     let rb = Renderbuffer::new(RenderbufferOptions {
         width: 1,
@@ -90,6 +93,7 @@ fn test_destroys_attachments_when_destroy_is_called() {
         height: 1,
         pixel_format: Some(PixelFormat::Rgba),
         pixel_datatype: Some(PixelDatatype::UnsignedByte),
+        ..Default::default()
     });
 
     let mut fb = Framebuffer::new(FramebufferOptions {
