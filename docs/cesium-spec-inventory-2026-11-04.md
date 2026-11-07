@@ -420,7 +420,7 @@
 | [packages/engine/Specs/Renderer/BuiltinFunctionsSpec.js](../../cesium/packages/engine/Specs/Renderer/BuiltinFunctionsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/ClearCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/ClearCommandSpec.js) | 已移植：渲染清屏命令、ClearCommand 结构封装、颜色/深度/模板/渲染状态/帧缓冲/所属通道参数映射与 ClearCommand::ALL 默认全局清屏常量（clear_command_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/Renderer/ClearSpec.js](../../cesium/packages/engine/Specs/Renderer/ClearSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/ComputeCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/ComputeCommandSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/ComputeCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/ComputeCommandSpec.js) | 已移植：GPU 通用计算命令抽象、ComputeCommand 结构封装、着色器/输出纹理/uniform/顶点数组绑定、persists 标志位控制关联显存资源是否在执行后自动销毁（compute_command_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/Renderer/ContextSpec.js](../../cesium/packages/engine/Specs/Renderer/ContextSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/CubeMapSpec.js](../../cesium/packages/engine/Specs/Renderer/CubeMapSpec.js) | 已移植：立方体纹理与六面体子面（CubeMap / CubeMapFace）抽象、六面方向正负轴（+/-X, +/-Y, +/-Z）像素格式与像素数据类型一致性映射、采样器挂载、六面显存总体积计算（width * height * components_length * bytes_per_component * 6）、flip_y 状态与销毁支持（cube_map_spec.rs，5 项测试全部通过） |
 | [packages/engine/Specs/Renderer/DrawCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/DrawCommandSpec.js) | 已移植：渲染绘制命令、DrawCommand 结构封装、图元类型/包围球与定向包围盒/模型变换/视锥剔除与遮挡/阴影与拾取/渲染通道/状态缓存与浅拷贝复用（draw_command_spec.rs，5 项测试全部通过） |
@@ -450,7 +450,7 @@
 | [packages/engine/Specs/Renderer/VertexArrayFacadeSpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArrayFacadeSpec.js) | 已移植：动态顶点数组门面、VertexArrayFacade 结构封装、属性写入器（writers）、跨步长对齐布局与动态批量扩容（resize/commit）（vertex_array_facade_spec.rs，2 项测试全部通过） |
 | [packages/engine/Specs/Renderer/VertexArrayFactorySpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArrayFactorySpec.js) | 已移植：几何体顶点数组工厂、VertexArray::from_geometry 静态方法、支持无几何体安全回退、根据 GeometryAttributes（position/normal）自动解析分配顶点缓冲与动态属性描述（vertex_array_factory_spec.rs，2 项测试全部通过） |
 | [packages/engine/Specs/Renderer/VertexArraySpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArraySpec.js) | 已移植：顶点数组对象与缓冲抽象（VertexArray / Buffer / VertexAttribute）、默认属性解算、多缓冲区绑定与交错缓冲区支持（interleaved buffer）、属性启用修改与联动销毁（vertex_array_spec.rs，3 项测试全部通过） |
-| [packages/engine/Specs/Renderer/demodernizeShaderSpec.js](../../cesium/packages/engine/Specs/Renderer/demodernizeShaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/demodernizeShaderSpec.js](../../cesium/packages/engine/Specs/Renderer/demodernizeShaderSpec.js) | 已移植：GLSL 3.00 es 到 GLSL 100 着色器语法降级转译器（demodernize_shader）、自动剥离 `#version 300 es`、`texture()` 降级为 `texture2D()`、FS 输入 `in` 转 `varying`、VS 输入 `in` 转 `attribute`、VS 输出 `out` 转 `varying`、多目标输出 `out_FragData_X` 降级为 `gl_FragData[X]`、单目标输出 `out_FragColor` 降级为 `gl_FragColor`、`gl_FragDepth` 深度扩展转译与 `#extension GL_EXT_frag_depth` 头注入（demodernize_shader_spec.rs，8 项测试全部通过） |
 | [packages/engine/Specs/Renderer/freezeRenderStateSpec.js](../../cesium/packages/engine/Specs/Renderer/freezeRenderStateSpec.js) | 已移植：渲染状态冻结不可变保护、freeze_render_state 函数、与 from_cache 缓存去重结合实现多线程安全 Arc 共享（freeze_render_state_spec.rs，1 项测试全部通过） |
 | [packages/engine/Specs/Renderer/loadCubeMapSpec.js](../../cesium/packages/engine/Specs/Renderer/loadCubeMapSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/AppearanceSpec.js](../../cesium/packages/engine/Specs/Scene/AppearanceSpec.js) | 待逐项核对 |
