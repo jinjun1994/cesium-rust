@@ -425,8 +425,8 @@
 | [packages/engine/Specs/Renderer/CubeMapSpec.js](../../cesium/packages/engine/Specs/Renderer/CubeMapSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/DrawCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/DrawCommandSpec.js) | 已移植：渲染绘制命令、DrawCommand 结构封装、图元类型/包围球与定向包围盒/模型变换/视锥剔除与遮挡/阴影与拾取/渲染通道/状态缓存与浅拷贝复用（draw_command_spec.rs，5 项测试全部通过） |
 | [packages/engine/Specs/Renderer/DrawSpec.js](../../cesium/packages/engine/Specs/Renderer/DrawSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/FramebufferManagerSpec.js](../../cesium/packages/engine/Specs/Renderer/FramebufferManagerSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/FramebufferSpec.js](../../cesium/packages/engine/Specs/Renderer/FramebufferSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/FramebufferManagerSpec.js](../../cesium/packages/engine/Specs/Renderer/FramebufferManagerSpec.js) | 已移植：帧缓冲生命周期管理器、FramebufferManager 结构封装、附件类型互斥校验（color/depth/depthStencil 组合验证）、延迟尺寸更新（update/isDirty 脏标记响应）、多附件槽位安全索引检查（get_color_texture/set_color_texture）、外置附件所有权托管与帧缓冲级联重建销毁（framebuffer_manager_spec.rs，11 项测试全部通过） |
+| [packages/engine/Specs/Renderer/FramebufferSpec.js](../../cesium/packages/engine/Specs/Renderer/FramebufferSpec.js) | 已移植：帧缓冲对象抽象、Framebuffer 结构封装、颜色纹理与颜色渲染缓冲（Texture / Renderbuffer）附件挂载与互斥保护、深度纹理与深度渲染缓冲挂载与互斥保护、destroy_attachments 联动销毁（framebuffer_spec.rs，5 项测试全部通过） |
 | [packages/engine/Specs/Renderer/MultisampleFramebufferSpec.js](../../cesium/packages/engine/Specs/Renderer/MultisampleFramebufferSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/PassStateSpec.js](../../cesium/packages/engine/Specs/Renderer/PassStateSpec.js) | 已移植：渲染通道上下文状态、PassState 封装、支持上下文绑定、帧缓冲绑定覆盖、混合开关与视口/剪裁区（scissorTest）覆盖（pass_state_spec.rs，1 项测试全部通过） |
 | [packages/engine/Specs/Renderer/PickIdSpec.js](../../cesium/packages/engine/Specs/Renderer/PickIdSpec.js) | 已移植：拾取标识符管理、PickId 结构封装、拾取颜色转换与键值关联、支持对象存取与生命周期销毁注销（pick_id_spec.rs，3 项测试全部通过） |
