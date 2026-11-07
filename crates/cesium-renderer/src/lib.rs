@@ -12,6 +12,7 @@ pub mod pipelines;
 pub mod render_state;
 pub mod sampler;
 pub mod shader_builder;
+pub mod shader_cache;
 pub mod shader_source;
 mod screen_distance;
 pub mod uniforms;
@@ -44,6 +45,10 @@ pub use sampler::{
 };
 pub use shader_builder::{
     BuiltShaderProgram, ShaderBuilder, ShaderDestination, ShaderFunction, ShaderStruct,
+};
+pub use shader_cache::{
+    CachedShaderEntry, ShaderCache, ShaderProgram, ShaderProgramOptions, ShaderSourceInput,
+    VertexAttributeDesc,
 };
 pub use shader_source::{ShaderContextInfo, ShaderSource, ShaderSourceOptions};
 use picking::{PendingPick, PickRange};
