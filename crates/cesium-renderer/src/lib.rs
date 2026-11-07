@@ -3,6 +3,7 @@
 
 pub mod capabilities;
 pub mod commands;
+pub mod cube_map;
 pub mod device;
 pub mod framebuffer;
 pub mod metrics;
@@ -33,6 +34,7 @@ pub use capabilities::RendererCapabilities;
 pub use commands::{
     ClearCommand, ClearCommandOptions, DrawCommand, DrawCommandOptions, Pass, NUMBER_OF_PASSES,
 };
+pub use cube_map::{CubeMap, CubeMapFace, CubeMapOptions};
 pub use device::{DeviceContext, DeviceStatus};
 pub use framebuffer::{
     Framebuffer, FramebufferManager, FramebufferManagerOptions, FramebufferOptions,

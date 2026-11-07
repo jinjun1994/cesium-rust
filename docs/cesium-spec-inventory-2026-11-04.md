@@ -422,7 +422,7 @@
 | [packages/engine/Specs/Renderer/ClearSpec.js](../../cesium/packages/engine/Specs/Renderer/ClearSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/ComputeCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/ComputeCommandSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/ContextSpec.js](../../cesium/packages/engine/Specs/Renderer/ContextSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/CubeMapSpec.js](../../cesium/packages/engine/Specs/Renderer/CubeMapSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/CubeMapSpec.js](../../cesium/packages/engine/Specs/Renderer/CubeMapSpec.js) | 已移植：立方体纹理与六面体子面（CubeMap / CubeMapFace）抽象、六面方向正负轴（+/-X, +/-Y, +/-Z）像素格式与像素数据类型一致性映射、采样器挂载、六面显存总体积计算（width * height * components_length * bytes_per_component * 6）、flip_y 状态与销毁支持（cube_map_spec.rs，5 项测试全部通过） |
 | [packages/engine/Specs/Renderer/DrawCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/DrawCommandSpec.js) | 已移植：渲染绘制命令、DrawCommand 结构封装、图元类型/包围球与定向包围盒/模型变换/视锥剔除与遮挡/阴影与拾取/渲染通道/状态缓存与浅拷贝复用（draw_command_spec.rs，5 项测试全部通过） |
 | [packages/engine/Specs/Renderer/DrawSpec.js](../../cesium/packages/engine/Specs/Renderer/DrawSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/FramebufferManagerSpec.js](../../cesium/packages/engine/Specs/Renderer/FramebufferManagerSpec.js) | 已移植：帧缓冲生命周期管理器、FramebufferManager 结构封装、附件类型互斥校验（color/depth/depthStencil 组合验证）、延迟尺寸更新（update/isDirty 脏标记响应）、多附件槽位安全索引检查（get_color_texture/set_color_texture）、外置附件所有权托管与帧缓冲级联重建销毁（framebuffer_manager_spec.rs，11 项测试全部通过） |
