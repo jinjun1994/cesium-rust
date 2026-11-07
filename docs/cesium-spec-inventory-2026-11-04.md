@@ -442,8 +442,8 @@
 | [packages/engine/Specs/Renderer/ShaderStructSpec.js](../../cesium/packages/engine/Specs/Renderer/ShaderStructSpec.js) | 已移植：GLSL 结构体构建器、ShaderStruct 结构封装、结构体字段动态添加（add_field）、空结构体自动占位保护（_empty 字段注入防止编译报错）、generate_glsl_lines 生成标准 GLSL struct 代码（shader_struct_spec.rs，4 项测试全部通过） |
 | [packages/engine/Specs/Renderer/SharedContextSpec.js](../../cesium/packages/engine/Specs/Renderer/SharedContextSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/SyncSpec.js](../../cesium/packages/engine/Specs/Renderer/SyncSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/Texture3DSpec.js](../../cesium/packages/engine/Specs/Renderer/Texture3DSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/TextureAtlasSpec.js](../../cesium/packages/engine/Specs/Renderer/TextureAtlasSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/Texture3DSpec.js](../../cesium/packages/engine/Specs/Renderer/Texture3DSpec.js) | 已移植：3D 体纹理对象抽象、Texture3D 结构封装、三维分辨率尺寸合法性校验（width/height/depth > 0）、像素格式与像素数据类型（PixelDatatype::size_in_bytes）体积显存字节占用计算、采样器配置与销毁生命周期（texture_3d_spec.rs，4 项测试全部通过） |
+| [packages/engine/Specs/Renderer/TextureAtlasSpec.js](../../cesium/packages/engine/Specs/Renderer/TextureAtlasSpec.js) | 已移植：动态纹理图集、TextureAtlas 结构封装、边框像素与初始尺寸下限保护（border_width >= 0, initial_size >= [1, 1]）、子图注册与去重（add_image）、子区域检索切片映射（add_image_sub_region 与 BoundingRectangle 归一化纹理坐标维护）、显存纹理释放（texture_atlas_spec.rs，5 项测试全部通过） |
 | [packages/engine/Specs/Renderer/TextureCacheSpec.js](../../cesium/packages/engine/Specs/Renderer/TextureCacheSpec.js) | 已移植：纹理缓存池、TextureCache 结构封装、全局键值检索（add_texture/get_texture）、引用计数追踪、延迟批量回收（destroy_released_textures）、防抖命中保护与全量销毁（texture_cache_spec.rs，4 项测试全部通过） |
 | [packages/engine/Specs/Renderer/TextureSpec.js](../../cesium/packages/engine/Specs/Renderer/TextureSpec.js) | 已移植：2D 纹理对象抽象、Texture 结构封装、全局唯一 ID 生成、像素格式（PixelFormat）与像素数据类型（PixelDatatype）默认值判定、纹理字节占用空间计算（size_in_bytes = width * height * components_length）、采样器（Sampler）关联与生命周期安全销毁（texture_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/Renderer/UniformSpec.js](../../cesium/packages/engine/Specs/Renderer/UniformSpec.js) | 待逐项核对 |

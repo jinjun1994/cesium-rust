@@ -16,6 +16,8 @@ pub mod shader_builder;
 pub mod shader_cache;
 pub mod shader_source;
 pub mod texture;
+pub mod texture_3d;
+pub mod texture_atlas;
 mod screen_distance;
 pub mod uniforms;
 
@@ -38,6 +40,8 @@ pub use framebuffer::{
     Renderbuffer, RenderbufferFormat, RenderbufferOptions, MAXIMUM_RENDERBUFFER_SIZE,
 };
 pub use texture::{CachedTextureEntry, Texture, TextureCache, TextureOptions};
+pub use texture_3d::{Texture3D, Texture3DOptions};
+pub use texture_atlas::{TextureAtlas, TextureAtlasOptions};
 pub use metrics::{FrameStats, FrameStatsHistory, FrameStatsSummary, StageTimer};
 pub use pass_state::PassState;
 pub use pick_id::PickId;
