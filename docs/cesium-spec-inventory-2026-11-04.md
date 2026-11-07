@@ -447,9 +447,9 @@
 | [packages/engine/Specs/Renderer/TextureCacheSpec.js](../../cesium/packages/engine/Specs/Renderer/TextureCacheSpec.js) | 已移植：纹理缓存池、TextureCache 结构封装、全局键值检索（add_texture/get_texture）、引用计数追踪、延迟批量回收（destroy_released_textures）、防抖命中保护与全量销毁（texture_cache_spec.rs，4 项测试全部通过） |
 | [packages/engine/Specs/Renderer/TextureSpec.js](../../cesium/packages/engine/Specs/Renderer/TextureSpec.js) | 已移植：2D 纹理对象抽象、Texture 结构封装、全局唯一 ID 生成、像素格式（PixelFormat）与像素数据类型（PixelDatatype）默认值判定、纹理字节占用空间计算（size_in_bytes = width * height * components_length）、采样器（Sampler）关联与生命周期安全销毁（texture_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/Renderer/UniformSpec.js](../../cesium/packages/engine/Specs/Renderer/UniformSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/VertexArrayFacadeSpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArrayFacadeSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/VertexArrayFactorySpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArrayFactorySpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/VertexArraySpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArraySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/VertexArrayFacadeSpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArrayFacadeSpec.js) | 已移植：动态顶点数组门面、VertexArrayFacade 结构封装、属性写入器（writers）、跨步长对齐布局与动态批量扩容（resize/commit）（vertex_array_facade_spec.rs，2 项测试全部通过） |
+| [packages/engine/Specs/Renderer/VertexArrayFactorySpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArrayFactorySpec.js) | 已移植：几何体顶点数组工厂、VertexArray::from_geometry 静态方法、支持无几何体安全回退、根据 GeometryAttributes（position/normal）自动解析分配顶点缓冲与动态属性描述（vertex_array_factory_spec.rs，2 项测试全部通过） |
+| [packages/engine/Specs/Renderer/VertexArraySpec.js](../../cesium/packages/engine/Specs/Renderer/VertexArraySpec.js) | 已移植：顶点数组对象与缓冲抽象（VertexArray / Buffer / VertexAttribute）、默认属性解算、多缓冲区绑定与交错缓冲区支持（interleaved buffer）、属性启用修改与联动销毁（vertex_array_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/Renderer/demodernizeShaderSpec.js](../../cesium/packages/engine/Specs/Renderer/demodernizeShaderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/freezeRenderStateSpec.js](../../cesium/packages/engine/Specs/Renderer/freezeRenderStateSpec.js) | 已移植：渲染状态冻结不可变保护、freeze_render_state 函数、与 from_cache 缓存去重结合实现多线程安全 Arc 共享（freeze_render_state_spec.rs，1 项测试全部通过） |
 | [packages/engine/Specs/Renderer/loadCubeMapSpec.js](../../cesium/packages/engine/Specs/Renderer/loadCubeMapSpec.js) | 待逐项核对 |
