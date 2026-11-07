@@ -32,8 +32,10 @@ pub use commands::{
 };
 pub use device::{DeviceContext, DeviceStatus};
 pub use framebuffer::{
-    Framebuffer, FramebufferManager, FramebufferManagerOptions, FramebufferOptions, PixelDatatype,
-    PixelFormat, Renderbuffer, RenderbufferFormat, RenderbufferOptions, Texture, TextureOptions,
+    Framebuffer, FramebufferManager, FramebufferManagerOptions, FramebufferOptions,
+    MultisampleFramebuffer, MultisampleFramebufferOptions, PixelDatatype, PixelFormat,
+    Renderbuffer, RenderbufferFormat, RenderbufferOptions, Texture, TextureOptions,
+    MAXIMUM_RENDERBUFFER_SIZE,
 };
 pub use metrics::{FrameStats, FrameStatsHistory, FrameStatsSummary, StageTimer};
 pub use pass_state::PassState;

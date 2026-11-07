@@ -609,3 +609,122 @@ impl FramebufferManager {
         self.is_destroyed
     }
 }
+
+
+pub const MAXIMUM_RENDERBUFFER_SIZE: u32 = 16384;
+
+impl Renderbuffer {
+    pub fn create(options: RenderbufferOptions) -> Result<Self, DeveloperError> {
+        if options.width == 0 {
+            return Err(DeveloperError::new("width must be greater than zero."));
+        }
+        if options.width > MAXIMUM_RENDERBUFFER_SIZE {
+            return Err(DeveloperError::new("width is greater than maximumRenderbufferSize."));
+        }
+        if options.height == 0 {
+            return Err(DeveloperError::new("height must be greater than zero."));
+        }
+        if options.height > MAXIMUM_RENDERBUFFER_SIZE {
+            return Err(DeveloperError::new("height is greater than maximumRenderbufferSize."));
+        }
+
+        Ok(Self::new(options))
+    }
+
+    pub fn destroy_checked(&mut self) -> Result<(), DeveloperError> {
+        if self.is_destroyed {
+            return Err(DeveloperError::new("This object was destroyed."));
+        }
+        self.destroy();
+        Ok(())
+    }
+}
+
+/// MultisampleFramebuffer wraps read and draw framebuffers for resolving multisampled renderbuffers.
+#[derive(Clone, Debug)]
+pub struct MultisampleFramebuffer {
+    pub width: u32,
+    pub height: u32,
+    render_framebuffer: Framebuffer,
+    color_framebuffer: Framebuffer,
+    destroy_attachments: bool,
+    is_destroyed: bool,
+}
+
+#[derive(Clone, Debug, Default)]
+pub struct MultisampleFramebufferOptions {
+    pub width: u32,
+    pub height: u32,
+    pub color_textures: Option<Vec<Option<Texture>>>,
+    pub color_renderbuffers: Option<Vec<Option<Renderbuffer>>>,
+    pub depth_stencil_texture: Option<Texture>,
+    pub depth_stencil_renderbuffer: Option<Renderbuffer>,
+    pub destroy_attachments: Option<bool>,
+}
+
+impl MultisampleFramebuffer {
+    pub fn new(options: MultisampleFramebufferOptions) -> Result<Self, DeveloperError> {
+        let has_color_rb = options.color_renderbuffers.is_some();
+        let has_color_tex = options.color_textures.is_some();
+        if has_color_rb != has_color_tex {
+            return Err(DeveloperError::new(
+                "Both color renderbuffer and texture attachments must be provided.",
+            ));
+        }
+
+        let has_ds_rb = options.depth_stencil_renderbuffer.is_some();
+        let has_ds_tex = options.depth_stencil_texture.is_some();
+        if has_ds_rb != has_ds_tex {
+            return Err(DeveloperError::new(
+                "Both depth-stencil renderbuffer and texture attachments must be provided.",
+            ));
+        }
+
+        let render_fb = Framebuffer::new(FramebufferOptions {
+            color_renderbuffers: options.color_renderbuffers.clone().unwrap_or_default(),
+            depth_stencil_renderbuffer: options.depth_stencil_renderbuffer.clone(),
+            destroy_attachments: options.destroy_attachments,
+            ..Default::default()
+        })?;
+
+        let color_fb = Framebuffer::new(FramebufferOptions {
+            color_textures: options.color_textures.clone().unwrap_or_default(),
+            depth_stencil_texture: options.depth_stencil_texture.clone(),
+            destroy_attachments: options.destroy_attachments,
+            ..Default::default()
+        })?;
+
+        Ok(Self {
+            width: options.width,
+            height: options.height,
+            render_framebuffer: render_fb,
+            color_framebuffer: color_fb,
+            destroy_attachments: options.destroy_attachments.unwrap_or(true),
+            is_destroyed: false,
+        })
+    }
+
+    pub fn get_render_framebuffer(&self) -> &Framebuffer {
+        &self.render_framebuffer
+    }
+
+    pub fn get_color_framebuffer(&self) -> &Framebuffer {
+        &self.color_framebuffer
+    }
+
+    pub fn blit_framebuffers(&mut self, _blit_stencil: bool) {
+        // Resolve blit from render_framebuffer to color_framebuffer
+    }
+
+    pub fn destroy(&mut self) {
+        if self.destroy_attachments {
+            self.render_framebuffer.destroy();
+            self.color_framebuffer.destroy();
+        }
+        self.is_destroyed = true;
+    }
+
+    pub fn is_destroyed(&self) -> bool {
+        self.is_destroyed
+    }
+}
