@@ -51,7 +51,7 @@ fn test_renderer_resources_preserved_or_destroyed_based_on_persists_flag() {
         size_in_bytes: 16,
         usage: Some(BufferUsage::StaticDraw),
         typed_array: None,
-    });
+    }).unwrap();
 
     let vertex_array = VertexArray::new(VertexArrayOptions {
         attributes: vec![VertexAttributeOptions {

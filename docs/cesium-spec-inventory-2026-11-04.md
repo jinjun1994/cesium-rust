@@ -416,7 +416,7 @@
 | [packages/engine/Specs/DataSources/createMaterialPropertyDescriptorSpec.js](../../cesium/packages/engine/Specs/DataSources/createMaterialPropertyDescriptorSpec.js) | 全绿通过 (crates/cesium-math/tests/create_material_property_descriptor_spec.rs，实现 MaterialPropertyDescriptor、Color/Image 自动材质类型推断封装、无法推断时严格类型校验报错、definition_changed 事件转发，4 项测试全绿) |
 | [packages/engine/Specs/DataSources/exportKmlSpec.js](../../cesium/packages/engine/Specs/DataSources/exportKmlSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/AutomaticUniformSpec.js](../../cesium/packages/engine/Specs/Renderer/AutomaticUniformSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Renderer/BufferSpec.js](../../cesium/packages/engine/Specs/Renderer/BufferSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Renderer/BufferSpec.js](../../cesium/packages/engine/Specs/Renderer/BufferSpec.js) | 已移植：GPU 数据缓冲（Buffer / BufferUsage / BufferTarget）、顶点/索引/像素缓冲静态工厂创建与入参互斥校验（sizeInBytes 与 typedArray 互斥、零长度拦截）、索引缓冲区特化属性（indexDatatype, bytesPerIndex, numberOfIndices）、切片数据拷贝与越界校验（copyFromArrayView）、数据反向读取（getBufferData）、跨缓冲及同缓冲无重叠安全复制（copyFromBuffer, copySubData）、生命周期与重复销毁防护（buffer_spec.rs，10 项测试全部通过） |
 | [packages/engine/Specs/Renderer/BuiltinFunctionsSpec.js](../../cesium/packages/engine/Specs/Renderer/BuiltinFunctionsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Renderer/ClearCommandSpec.js](../../cesium/packages/engine/Specs/Renderer/ClearCommandSpec.js) | 已移植：渲染清屏命令、ClearCommand 结构封装、颜色/深度/模板/渲染状态/帧缓冲/所属通道参数映射与 ClearCommand::ALL 默认全局清屏常量（clear_command_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/Renderer/ClearSpec.js](../../cesium/packages/engine/Specs/Renderer/ClearSpec.js) | 待逐项核对 |

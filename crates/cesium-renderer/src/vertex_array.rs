@@ -1,58 +1,7 @@
 //! VertexArray, VertexArrayFactory, and VertexArrayFacade matching CesiumJS (Apache-2.0).
 
 use cesium_math::{ComponentDatatype, DeveloperError, Geometry};
-
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Default)]
-pub enum BufferUsage {
-    #[default]
-    StaticDraw,
-    StreamDraw,
-    DynamicDraw,
-}
-
-#[derive(Clone, Debug, PartialEq)]
-pub struct Buffer {
-    pub size_in_bytes: usize,
-    pub usage: BufferUsage,
-    pub data: Vec<u8>,
-    pub is_destroyed: bool,
-}
-
-#[derive(Clone, Debug)]
-pub struct BufferOptions {
-    pub size_in_bytes: usize,
-    pub usage: Option<BufferUsage>,
-    pub typed_array: Option<Vec<u8>>,
-}
-
-impl Buffer {
-    pub fn create_vertex_buffer(options: BufferOptions) -> Self {
-        let data = options.typed_array.unwrap_or_else(|| vec![0u8; options.size_in_bytes]);
-        let size_in_bytes = if options.size_in_bytes > 0 {
-            options.size_in_bytes
-        } else {
-            data.len()
-        };
-        Self {
-            size_in_bytes,
-            usage: options.usage.unwrap_or(BufferUsage::StaticDraw),
-            data,
-            is_destroyed: false,
-        }
-    }
-
-    pub fn create_index_buffer(options: BufferOptions) -> Self {
-        Self::create_vertex_buffer(options)
-    }
-
-    pub fn is_destroyed(&self) -> bool {
-        self.is_destroyed
-    }
-
-    pub fn destroy(&mut self) {
-        self.is_destroyed = true;
-    }
-}
+pub use crate::buffer::*;
 
 #[derive(Clone, Debug, PartialEq)]
 pub struct VertexAttribute {
@@ -153,7 +102,7 @@ impl VertexArray {
                 size_in_bytes: pos.values.len() * 4,
                 usage: Some(BufferUsage::DynamicDraw),
                 typed_array: None,
-            });
+            })?;
             attributes.push(VertexAttribute::new(VertexAttributeOptions {
                 index: Some(index),
                 enabled: Some(true),
@@ -173,7 +122,7 @@ impl VertexArray {
                 size_in_bytes: normal.values.len() * 4,
                 usage: Some(BufferUsage::DynamicDraw),
                 typed_array: None,
-            });
+            })?;
             attributes.push(VertexAttribute::new(VertexAttributeOptions {
                 index: Some(index),
                 enabled: Some(true),
@@ -216,11 +165,11 @@ impl VertexArray {
     pub fn destroy(&mut self) {
         for attr in &mut self.attributes {
             if let Some(ref mut buf) = attr.vertex_buffer {
-                buf.destroy();
+                let _ = buf.destroy();
             }
         }
         if let Some(ref mut idx) = self.index_buffer {
-            idx.destroy();
+            let _ = idx.destroy();
         }
         self.is_destroyed = true;
     }
@@ -289,10 +238,10 @@ impl VertexArrayFacade {
     pub fn commit(&mut self) {
         let mut va_attrs = Vec::new();
         let buffer = Buffer::create_vertex_buffer(BufferOptions {
-            size_in_bytes: self.raw_buffer.len(),
+            size_in_bytes: 0,
             usage: Some(self.attributes.first().map(|a| a.usage).unwrap_or(BufferUsage::StaticDraw)),
             typed_array: Some(self.raw_buffer.clone()),
-        });
+        }).unwrap();
 
         let mut offset = 0;
         for attr in &self.attributes {

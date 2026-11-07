@@ -9,7 +9,7 @@ fn test_binds_with_default_values() {
         size_in_bytes: 3,
         usage: Some(BufferUsage::StaticDraw),
         typed_array: None,
-    });
+    }).unwrap();
 
     let attributes = vec![VertexAttributeOptions {
         index: None,
@@ -52,12 +52,12 @@ fn test_binds_with_multiple_buffers() {
         size_in_bytes: 12,
         usage: Some(BufferUsage::StaticDraw),
         typed_array: None,
-    });
+    }).unwrap();
     let normal_buffer = Buffer::create_vertex_buffer(BufferOptions {
         size_in_bytes: 12,
         usage: Some(BufferUsage::StaticDraw),
         typed_array: None,
-    });
+    }).unwrap();
 
     let attributes = vec![
         VertexAttributeOptions {
@@ -101,7 +101,7 @@ fn test_modifies_attributes() {
         size_in_bytes: 6,
         usage: Some(BufferUsage::StaticDraw),
         typed_array: None,
-    });
+    }).unwrap();
 
     let attributes = vec![VertexAttributeOptions {
         index: None,

@@ -1,6 +1,7 @@
 //! wgpu 30 renderer: core PBR, sorted alpha, paged dynamic uniforms,
 //! robust device state recovery, and multi-tier frame performance telemetry.
 
+pub mod buffer;
 pub mod capabilities;
 pub mod commands;
 pub mod compute_command;
@@ -33,6 +34,7 @@ use std::sync::mpsc;
 use thiserror::Error;
 use wgpu::util::DeviceExt;
 
+pub use buffer::{Buffer, BufferOptions, BufferTarget, BufferUsage, IndexBufferOptions};
 pub use capabilities::RendererCapabilities;
 pub use commands::{
     ClearCommand, ClearCommandOptions, DrawCommand, DrawCommandOptions, Pass, NUMBER_OF_PASSES,
@@ -50,7 +52,7 @@ pub use texture::{CachedTextureEntry, Texture, TextureCache, TextureOptions};
 pub use texture_3d::{Texture3D, Texture3DOptions};
 pub use texture_atlas::{TextureAtlas, TextureAtlasOptions};
 pub use vertex_array::{
-    Buffer, BufferOptions, BufferUsage, VertexArray, VertexArrayFacade, VertexArrayFacadeAttribute,
+    VertexArray, VertexArrayFacade, VertexArrayFacadeAttribute,
     VertexArrayFacadeItem, VertexArrayFromGeometryOptions, VertexArrayOptions, VertexAttribute,
     VertexAttributeOptions,
 };
