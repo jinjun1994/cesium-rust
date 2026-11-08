@@ -1,7 +1,12 @@
 //! Direct port and verification against CesiumJS `ClearCommandSpec.js` (Apache-2.0).
 
+use std::rc::Rc;
+use std::sync::Arc;
+
 use cesium_math::Color;
-use cesium_renderer::{ClearCommand, ClearCommandOptions};
+use cesium_renderer::{
+    ClearCommand, ClearCommandOptions, Framebuffer, FramebufferOptions, RenderState,
+};
 
 #[test]
 fn test_constructs_with_defaults() {
@@ -15,8 +20,8 @@ fn test_constructs_with_defaults() {
 
 #[test]
 fn test_constructs_with_options() {
-    let render_state = "render_state_mock".to_string();
-    let framebuffer = "framebuffer_mock".to_string();
+    let render_state = Arc::new(RenderState::default());
+    let framebuffer = Rc::new(Framebuffer::new(FramebufferOptions::default()).unwrap());
     let c = ClearCommand::new(ClearCommandOptions {
         color: Some(Color::new(1.0, 2.0, 3.0, 4.0)),
         depth: Some(1.0),

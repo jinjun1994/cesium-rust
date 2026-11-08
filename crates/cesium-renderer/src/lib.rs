@@ -6,6 +6,7 @@ pub mod buffer;
 pub mod capabilities;
 pub mod commands;
 pub mod compute_command;
+pub mod context;
 pub mod cube_map;
 pub mod demodernize_shader;
 pub mod device;
@@ -44,6 +45,7 @@ pub use commands::{
     ClearCommand, ClearCommandOptions, DrawCommand, DrawCommandOptions, Pass, NUMBER_OF_PASSES,
 };
 pub use compute_command::{ComputeCommand, ComputeCommandOptions};
+pub use context::{Context, ContextLimits, ContextOptions, ReadPixelsOptions};
 pub use cube_map::{CubeMap, CubeMapFace, CubeMapOptions};
 pub use demodernize_shader::demodernize_shader;
 pub use device::{DeviceContext, DeviceStatus};

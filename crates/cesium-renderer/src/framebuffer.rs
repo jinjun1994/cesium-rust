@@ -2,6 +2,9 @@
 
 use cesium_math::DeveloperError;
 use crate::texture::{Texture, TextureOptions};
+use std::sync::atomic::{AtomicU64, Ordering};
+
+static NEXT_FRAMEBUFFER_ID: AtomicU64 = AtomicU64::new(1);
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
 pub enum PixelFormat {
@@ -92,8 +95,9 @@ impl Renderbuffer {
 }
 
 /// A Framebuffer object managing color, depth, and stencil attachments.
-#[derive(Clone, Debug, Default)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct Framebuffer {
+    pub id: u64,
     pub color_textures: Vec<Option<Texture>>,
     pub color_renderbuffers: Vec<Option<Renderbuffer>>,
     pub depth_texture: Option<Texture>,
@@ -102,6 +106,22 @@ pub struct Framebuffer {
     pub depth_stencil_renderbuffer: Option<Renderbuffer>,
     pub destroy_attachments: bool,
     pub is_destroyed: bool,
+}
+
+impl Default for Framebuffer {
+    fn default() -> Self {
+        Self {
+            id: NEXT_FRAMEBUFFER_ID.fetch_add(1, Ordering::Relaxed),
+            color_textures: Vec::new(),
+            color_renderbuffers: Vec::new(),
+            depth_texture: None,
+            depth_renderbuffer: None,
+            depth_stencil_texture: None,
+            depth_stencil_renderbuffer: None,
+            destroy_attachments: false,
+            is_destroyed: false,
+        }
+    }
 }
 
 #[derive(Clone, Debug, Default)]
@@ -141,6 +161,7 @@ impl Framebuffer {
         }
 
         Ok(Self {
+            id: NEXT_FRAMEBUFFER_ID.fetch_add(1, Ordering::Relaxed),
             color_textures: options.color_textures,
             color_renderbuffers: options.color_renderbuffers,
             depth_texture: options.depth_texture,

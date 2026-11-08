@@ -1,8 +1,13 @@
 //! Renderer commands matching CesiumJS `Renderer/ClearCommand.js`, `Renderer/DrawCommand.js`, and `Renderer/Pass.js` (Apache-2.0).
 
 use std::collections::HashMap;
+use std::rc::Rc;
+use std::sync::Arc;
 
-use cesium_math::{BoundingSphere, Color, OrientedBoundingBox, PrimitiveType};
+use crate::context::Context;
+use crate::framebuffer::Framebuffer;
+use crate::render_state::RenderState;
+use cesium_math::{BoundingSphere, Color, DeveloperError, OrientedBoundingBox, PrimitiveType};
 use glam::DMat4;
 
 /// The render pass for a command, matching CesiumJS `Renderer/Pass.js`.
@@ -33,8 +38,8 @@ pub struct ClearCommandOptions {
     pub color: Option<Color>,
     pub depth: Option<f64>,
     pub stencil: Option<i32>,
-    pub render_state: Option<String>,
-    pub framebuffer: Option<String>,
+    pub render_state: Option<Arc<RenderState>>,
+    pub framebuffer: Option<Rc<Framebuffer>>,
     pub owner: Option<String>,
     pub pass: Option<Pass>,
 }
@@ -45,8 +50,8 @@ pub struct ClearCommand {
     pub color: Option<Color>,
     pub depth: Option<f64>,
     pub stencil: Option<i32>,
-    pub render_state: Option<String>,
-    pub framebuffer: Option<String>,
+    pub render_state: Option<Arc<RenderState>>,
+    pub framebuffer: Option<Rc<Framebuffer>>,
     pub owner: Option<String>,
     pub pass: Option<Pass>,
 }
@@ -80,6 +85,11 @@ impl ClearCommand {
             owner: options.owner,
             pass: options.pass,
         }
+    }
+
+    /// Executes this ClearCommand against a rendering Context.
+    pub fn execute(&self, context: &mut Context) -> Result<(), DeveloperError> {
+        context.clear(self)
     }
 }
 
