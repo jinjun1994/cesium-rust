@@ -23,6 +23,7 @@ pub mod clipping_plane_collection;
 pub mod clipping_polygon;
 pub mod clipping_polygon_collection;
 pub mod classification_model_draw_command;
+pub mod classification_pipeline_stage;
 pub mod cloud_collection;
 pub mod commands;
 pub mod compute_command;
@@ -185,6 +186,11 @@ pub use classification_model_draw_command::{
     ClassificationFramePasses, ClassificationFrameState, ClassificationModelDrawCommand,
     ClassificationModelOptions, ClassificationPrimitiveRenderResources,
     ClassificationRuntimePrimitive, StencilConstants,
+};
+pub use classification_pipeline_stage::{
+    ClassificationPipelineStage, ClassificationStageAttribute, ClassificationStageIndices,
+    ClassificationStagePrimitive, ClassificationStageRenderResources,
+    ClassificationStageRuntimePrimitive, VertexAttributeSemantic,
 };
 pub use clipping_plane::{ClippingPlane, ClippingPlaneChangeCallback};
 pub use clipping_plane_collection::{ClippingPlaneCollection, ClippingPlaneCollectionOptions};
