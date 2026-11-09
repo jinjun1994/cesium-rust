@@ -103,6 +103,60 @@ impl ImplicitTileCoordinates {
         offset + self.morton_index()
     }
 
+    /// Derives ancestor coordinates `offset_levels` above this tile.
+    pub fn get_ancestor_coordinates(&self, offset_levels: u32) -> Result<Self, DeveloperError> {
+        if offset_levels > self.level {
+            return Err(DeveloperError::new(
+                "ancestor cannot be above the tileset root",
+            ));
+        }
+        let divisor = 1u32 << offset_levels;
+        let ancestor_level = self.level - offset_levels;
+        let ancestor_x = self.x / divisor;
+        let ancestor_y = self.y / divisor;
+        let ancestor_z = if self.subdivision_scheme == ImplicitSubdivisionScheme::Octree {
+            self.z / divisor
+        } else {
+            0
+        };
+
+        Ok(Self {
+            subdivision_scheme: self.subdivision_scheme,
+            subtree_levels: self.subtree_levels,
+            level: ancestor_level,
+            x: ancestor_x,
+            y: ancestor_y,
+            z: ancestor_z,
+        })
+    }
+
+    /// Derives the parent subtree coordinates containing this tile.
+    pub fn get_parent_subtree_coordinates(&self) -> Result<Self, DeveloperError> {
+        let offset = (self.level % self.subtree_levels) + self.subtree_levels;
+        self.get_ancestor_coordinates(offset)
+    }
+
+    /// Returns whether this tile is an ancestor of another tile.
+    pub fn is_ancestor(&self, descendant: &Self) -> bool {
+        if descendant.level <= self.level {
+            return false;
+        }
+        let diff = descendant.level - self.level;
+        let anc_x = descendant.x >> diff;
+        let anc_y = descendant.y >> diff;
+        if self.subdivision_scheme == ImplicitSubdivisionScheme::Octree {
+            let anc_z = descendant.z >> diff;
+            self.x == anc_x && self.y == anc_y && self.z == anc_z
+        } else {
+            self.x == anc_x && self.y == anc_y
+        }
+    }
+
+    /// True if coordinates are identical.
+    pub fn is_equal(&self, other: &Self) -> bool {
+        self == other
+    }
+
     /// Generates template variables for URI formatting ({level}, {x}, {y}, {z}).
     pub fn get_template_values(&self) -> HashMap<String, String> {
         let mut map = HashMap::new();
