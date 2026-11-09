@@ -1,6 +1,7 @@
 //! wgpu 30 renderer: core PBR, sorted alpha, paged dynamic uniforms,
 //! robust device state recovery, and multi-tier frame performance telemetry.
 
+pub mod alpha_pipeline_stage;
 pub mod appearance;
 pub mod automatic_uniforms;
 pub mod axis;
@@ -139,6 +140,9 @@ use std::sync::mpsc;
 use thiserror::Error;
 use wgpu::util::DeviceExt;
 
+pub use alpha_pipeline_stage::{
+    AlphaPipelineStage, ModelAlphaOptions, ModelRenderResources, UniformCallback,
+};
 pub use appearance::{Appearance, AppearanceOptions};
 pub use automatic_uniforms::{AutomaticUniform, AutomaticUniforms, UniformState};
 pub use axis::Axis;
