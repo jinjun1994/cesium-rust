@@ -83,6 +83,7 @@ pub mod json_metadata_table;
 pub mod keyframe_node;
 pub mod light;
 pub mod mapbox_imagery_provider;
+pub mod mapbox_style_imagery_provider;
 pub mod implicit_subdivision_scheme;
 pub mod instance_attribute_semantic;
 pub mod implicit_tile_coordinates;
