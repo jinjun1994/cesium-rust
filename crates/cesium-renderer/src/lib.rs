@@ -70,6 +70,7 @@ pub mod gltf_spz_loader;
 pub mod gltf_structural_metadata_loader;
 pub mod gltf_texture_loader;
 pub mod gltf_vertex_buffer_loader;
+pub mod geo_json_loader;
 pub mod google_2d_imagery_provider;
 pub mod google_earth_enterprise_imagery_provider;
 pub mod google_earth_enterprise_maps_provider;
@@ -293,6 +294,7 @@ pub use frustum_commands::FrustumCommands;
 pub use gltf_buffer_view_loader::{
     GltfBufferViewLoader, GltfBufferViewLoaderOptions, MeshoptInfo,
 };
+pub use geo_json_loader::{GeoJsonLoader, GeoJsonLoaderOptions};
 pub use gltf_gpm_loader::{
     create_covariance_matrix_from_upper_triangle, AnchorPointDirect, AnchorPointIndirect,
     CorrelationGroup, GltfGpmLoader, GltfGpmLocal, GltfMeshPrimitiveGpmLoader,
