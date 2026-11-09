@@ -59,6 +59,7 @@ pub mod frame_rate_monitor;
 pub mod frustum_commands;
 pub mod gltf_buffer_view_loader;
 pub mod gltf_draco_loader;
+pub mod gltf_gpm_loader;
 pub mod gltf_image_loader;
 pub mod gltf_index_buffer_loader;
 pub mod gltf_json_loader;
@@ -286,6 +287,10 @@ pub use frame_rate_monitor::{
 pub use frustum_commands::FrustumCommands;
 pub use gltf_buffer_view_loader::{
     GltfBufferViewLoader, GltfBufferViewLoaderOptions, MeshoptInfo,
+};
+pub use gltf_gpm_loader::{
+    create_covariance_matrix_from_upper_triangle, AnchorPointDirect, AnchorPointIndirect,
+    CorrelationGroup, GltfGpmLoader, GltfGpmLocal, GpmStorageType, Spdcf,
 };
 pub use gltf_json_loader::{
     is_supported_extension as is_supported_gltf_extension, GltfJsonLoader, GltfJsonLoaderOptions,
