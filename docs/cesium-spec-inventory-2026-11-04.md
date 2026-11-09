@@ -509,7 +509,7 @@
 | [packages/engine/Specs/Scene/DebugModelMatrixPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/DebugModelMatrixPrimitiveSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/DepthPlaneSpec.js](../../cesium/packages/engine/Specs/Scene/DepthPlaneSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/DeviceOrientationCameraControllerSpec.js](../../cesium/packages/engine/Specs/Scene/DeviceOrientationCameraControllerSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/DirectionalLightSpec.js](../../cesium/packages/engine/Specs/Scene/DirectionalLightSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/DirectionalLightSpec.js](../../cesium/packages/engine/Specs/Scene/DirectionalLightSpec.js) | 已移植：平行光定向光源抽象（DirectionalLight / DirectionalLightOptions）、默认与自定义参数（direction、color 默认 WHITE、intensity 默认 1.0）、零长度方向向量异常校验拦截（ZeroLengthDirection DeveloperError）（directional_light_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/Scene/DiscardEmptyTileImagePolicySpec.js](../../cesium/packages/engine/Specs/Scene/DiscardEmptyTileImagePolicySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/DiscardMissingTileImagePolicySpec.js](../../cesium/packages/engine/Specs/Scene/DiscardMissingTileImagePolicySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/DynamicAtmosphereLightingTypeSpec.js](../../cesium/packages/engine/Specs/Scene/DynamicAtmosphereLightingTypeSpec.js) | 已移植：动态大气光照类型枚举与决策逻辑（DynamicAtmosphereLightingType::None/Sunlight/SceneLight）、基于地球光照标志位的动态解析（from_globe_flags）（dynamic_atmosphere_lighting_type_spec.rs，2 项测试全部通过） |
