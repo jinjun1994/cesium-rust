@@ -81,6 +81,7 @@ pub mod ion_imagery_provider;
 pub mod job_scheduler;
 pub mod json_metadata_table;
 pub mod keyframe_node;
+pub mod light;
 pub mod implicit_subdivision_scheme;
 pub mod instance_attribute_semantic;
 pub mod implicit_tile_coordinates;
@@ -180,6 +181,7 @@ pub use device_orientation_camera_controller::{
     DeviceOrientationEvent,
 };
 pub use directional_light::{DirectionalLight, DirectionalLightError, DirectionalLightOptions};
+pub use light::{Light, LightBase};
 pub use discard_empty_tile_image_policy::DiscardEmptyTileImagePolicy;
 pub use discard_missing_tile_image_policy::{
     DiscardMissingError, DiscardMissingTileImagePolicy, DiscardMissingTileImagePolicyOptions,
