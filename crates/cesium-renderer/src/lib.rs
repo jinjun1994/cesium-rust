@@ -96,6 +96,8 @@ pub mod implicit_subtree_metadata;
 pub mod implicit_3d_tile_content;
 pub mod material;
 pub mod material_appearance;
+pub mod megatexture;
+pub mod metadata_component_type;
 pub mod metrics;
 pub mod model_components;
 pub mod pass_state;
@@ -223,6 +225,8 @@ pub use gltf_json_loader::{
 };
 pub use material::{Fabric, Material, MaterialOptions};
 pub use material_appearance::{MaterialAppearance, MaterialAppearanceOptions, MaterialSupport};
+pub use megatexture::Megatexture;
+pub use metadata_component_type::MetadataComponentType;
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,
