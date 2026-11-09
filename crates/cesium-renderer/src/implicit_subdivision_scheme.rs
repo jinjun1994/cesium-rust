@@ -44,4 +44,15 @@ impl ImplicitSubdivisionScheme {
             Self::Octree => 8,
         }
     }
+
+    /// Gets the branching factor for the given subdivision scheme name string.
+    pub fn get_branching_factor(s: &str) -> Result<usize, DeveloperError> {
+        match s {
+            "QUADTREE" => Ok(4),
+            "OCTREE" => Ok(8),
+            _ => Err(DeveloperError::new(
+                "subdivisionScheme is not a valid value.",
+            )),
+        }
+    }
 }
