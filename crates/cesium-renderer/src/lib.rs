@@ -84,6 +84,7 @@ pub mod implicit_subtree;
 pub mod implicit_tileset;
 pub mod implicit_metadata_view;
 pub mod implicit_subtree_cache;
+pub mod implicit_subtree_metadata;
 pub mod implicit_3d_tile_content;
 pub mod material;
 pub mod metrics;
