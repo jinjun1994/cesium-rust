@@ -1,6 +1,7 @@
 //! wgpu 30 renderer: core PBR, sorted alpha, paged dynamic uniforms,
 //! robust device state recovery, and multi-tier frame performance telemetry.
 
+pub mod appearance;
 pub mod automatic_uniforms;
 pub mod builtin_functions;
 pub mod buffer;
@@ -12,6 +13,7 @@ pub mod cube_map;
 pub mod demodernize_shader;
 pub mod device;
 pub mod framebuffer;
+pub mod material;
 pub mod metrics;
 pub mod pass_state;
 pub mod pick_id;
@@ -40,6 +42,7 @@ use std::sync::mpsc;
 use thiserror::Error;
 use wgpu::util::DeviceExt;
 
+pub use appearance::{Appearance, AppearanceOptions};
 pub use automatic_uniforms::{AutomaticUniform, AutomaticUniforms, UniformState};
 pub use builtin_functions::{BuiltinFunctions, Ray};
 pub use buffer::{Buffer, BufferOptions, BufferTarget, BufferUsage, IndexBufferOptions};
@@ -59,6 +62,7 @@ pub use framebuffer::{
     MultisampleFramebuffer, MultisampleFramebufferOptions, PixelDatatype, PixelFormat,
     Renderbuffer, RenderbufferFormat, RenderbufferOptions, MAXIMUM_RENDERBUFFER_SIZE,
 };
+pub use material::Material;
 pub use sync::{Sync, SyncStatus};
 pub use shared_context::{SceneContext, SharedContext, SharedContextOptions};
 pub use uniform::{Uniform, UniformGetter, UniformMap, UniformType, UniformValue};
