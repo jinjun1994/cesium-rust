@@ -22,6 +22,7 @@ pub mod clipping_plane;
 pub mod clipping_plane_collection;
 pub mod clipping_polygon;
 pub mod clipping_polygon_collection;
+pub mod classification_model_draw_command;
 pub mod cloud_collection;
 pub mod commands;
 pub mod compute_command;
@@ -179,6 +180,11 @@ pub use cesium_3d_tile_content_type::Cesium3DTileContentType;
 pub use cesium_3d_tile_feature_table::Cesium3DTileFeatureTable;
 pub use cesium_3d_tile_pass_state::{
     Cesium3DTilePass, Cesium3DTilePassState, Cesium3DTilePassStateOptions,
+};
+pub use classification_model_draw_command::{
+    ClassificationFramePasses, ClassificationFrameState, ClassificationModelDrawCommand,
+    ClassificationModelOptions, ClassificationPrimitiveRenderResources,
+    ClassificationRuntimePrimitive, StencilConstants,
 };
 pub use clipping_plane::{ClippingPlane, ClippingPlaneChangeCallback};
 pub use clipping_plane_collection::{ClippingPlaneCollection, ClippingPlaneCollectionOptions};
