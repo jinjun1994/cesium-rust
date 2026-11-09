@@ -3,6 +3,7 @@
 
 pub mod alpha_pipeline_stage;
 pub mod appearance;
+pub mod atmosphere_pipeline_stage;
 pub mod automatic_uniforms;
 pub mod axis;
 pub mod batch_table_hierarchy;
@@ -144,6 +145,10 @@ pub use alpha_pipeline_stage::{
     AlphaPipelineStage, ModelAlphaOptions, ModelRenderResources, UniformCallback,
 };
 pub use appearance::{Appearance, AppearanceOptions};
+pub use atmosphere_pipeline_stage::{
+    AtmosphereFrameState, AtmosphereModelInfo, AtmospherePipelineStage,
+    AtmosphereRenderResources, BoolUniformCallback, ATMOSPHERE_STAGE_FS, ATMOSPHERE_STAGE_VS,
+};
 pub use automatic_uniforms::{AutomaticUniform, AutomaticUniforms, UniformState};
 pub use axis::Axis;
 pub use batch_table_hierarchy::{
