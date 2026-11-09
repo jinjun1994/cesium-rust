@@ -47,6 +47,7 @@ pub mod framebuffer;
 pub mod frame_rate_monitor;
 pub mod frustum_commands;
 pub mod gltf_buffer_view_loader;
+pub mod gltf_json_loader;
 pub mod material;
 pub mod metrics;
 pub mod pass_state;
@@ -166,6 +167,10 @@ pub use frame_rate_monitor::{
 pub use frustum_commands::FrustumCommands;
 pub use gltf_buffer_view_loader::{
     GltfBufferViewLoader, GltfBufferViewLoaderOptions, MeshoptInfo,
+};
+pub use gltf_json_loader::{
+    is_supported_extension as is_supported_gltf_extension, GltfJsonLoader, GltfJsonLoaderOptions,
+    GLB_CHUNK_TYPE_BIN, GLB_CHUNK_TYPE_JSON, GLB_MAGIC,
 };
 pub use material::Material;
 pub use particle::{Particle, ParticleOptions};

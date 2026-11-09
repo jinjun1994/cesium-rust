@@ -537,7 +537,7 @@
 | [packages/engine/Specs/Scene/GltfDracoLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfDracoLoaderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GltfImageLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfImageLoaderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GltfIndexBufferLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfIndexBufferLoaderSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/GltfJsonLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfJsonLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GltfJsonLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfJsonLoaderSpec.js) | 已移植：glTF JSON 与 GLB 二进制容器加载器（GltfJsonLoader / GltfJsonLoaderOptions）、支持文本 JSON 与二进制 GLB（v1 与 v2，处理 magic 0x46546c67、JSON chunk 与 BIN chunk）、版本合法性校验（1.0、2.0、2.1）、extensionsRequired 校验与未知扩展拦截报错、异步状态流转（Unloaded / Loading / Ready / Failed）、卸载与生命周期销毁控制（gltf_json_loader_spec.rs，11 项测试全部通过） |
 | [packages/engine/Specs/Scene/GltfLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfLoaderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GltfLoaderUtilSpec.js](../../cesium/packages/engine/Specs/Scene/GltfLoaderUtilSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GltfSpzLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfSpzLoaderSpec.js) | 待逐项核对 |
