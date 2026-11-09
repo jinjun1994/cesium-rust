@@ -30,6 +30,7 @@ pub mod directional_light;
 pub mod discard_empty_tile_image_policy;
 pub mod discard_missing_tile_image_policy;
 pub mod dynamic_atmosphere_lighting_type;
+pub mod dynamic_environment_map_manager;
 pub mod edge_framebuffer;
 pub mod empty_3d_tile_content;
 pub mod framebuffer;
@@ -112,6 +113,9 @@ pub use discard_missing_tile_image_policy::{
     DiscardMissingError, DiscardMissingTileImagePolicy, DiscardMissingTileImagePolicyOptions,
 };
 pub use dynamic_atmosphere_lighting_type::DynamicAtmosphereLightingType;
+pub use dynamic_environment_map_manager::{
+    DynamicEnvironmentMapManager, DynamicEnvironmentMapManagerOptions,
+};
 pub use edge_framebuffer::EdgeFramebuffer;
 pub use empty_3d_tile_content::Empty3DTileContent;
 pub use framebuffer::{
