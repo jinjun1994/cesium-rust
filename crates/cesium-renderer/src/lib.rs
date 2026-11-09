@@ -102,6 +102,7 @@ pub mod metadata_class_property;
 pub mod metadata_component_type;
 pub mod metadata_entity;
 pub mod metadata_enum;
+pub mod metadata_picking;
 pub mod metadata_type;
 pub mod metrics;
 pub mod model_components;
@@ -236,6 +237,9 @@ pub use metadata_class_property::MetadataClassProperty;
 pub use metadata_component_type::MetadataComponentType;
 pub use metadata_entity::{MetadataEntity, MetadataEntityBase, MetadataEntityTrait};
 pub use metadata_enum::{MetadataEnum, MetadataEnumJson, MetadataEnumValue};
+pub use metadata_picking::{
+    MetadataPicking, MetadataValue, PickingMetadataProperty, RawMetadataNumber,
+};
 pub use metadata_type::MetadataType;
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{

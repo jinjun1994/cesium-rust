@@ -414,6 +414,36 @@ impl MetadataClassProperty {
     }
 }
 
+impl Default for MetadataClassProperty {
+    fn default() -> Self {
+        Self {
+            id: String::new(),
+            name: None,
+            description: None,
+            r#type: MetadataType::Scalar,
+            component_type: None,
+            enum_type: None,
+            value_type: None,
+            is_array: false,
+            is_variable_length_array: false,
+            array_length: None,
+            normalized: false,
+            max: None,
+            min: None,
+            offset: None,
+            scale: None,
+            no_data: None,
+            default: None,
+            required: false,
+            semantic: None,
+            extras: None,
+            extensions: None,
+            is_legacy_extension: false,
+            has_value_transform: false,
+        }
+    }
+}
+
 struct ParsedTypeInfo {
     r#type: MetadataType,
     component_type: Option<MetadataComponentType>,
