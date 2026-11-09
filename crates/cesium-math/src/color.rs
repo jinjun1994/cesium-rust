@@ -28,6 +28,7 @@ impl Color {
     pub const YELLOW: Self = Self::new(1.0, 1.0, 0.0, 1.0);
     pub const CYAN: Self = Self::new(0.0, 1.0, 1.0, 1.0);
     pub const MAGENTA: Self = Self::new(1.0, 0.0, 1.0, 1.0);
+    pub const LIME: Self = Self::new(0.0, 1.0, 0.0, 1.0);
     pub const TRANSPARENT: Self = Self::new(0.0, 0.0, 0.0, 0.0);
 
     #[inline]

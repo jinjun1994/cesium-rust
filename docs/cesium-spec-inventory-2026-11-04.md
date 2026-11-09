@@ -679,7 +679,7 @@
 | [packages/engine/Specs/Scene/OpenStreetMapImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/OpenStreetMapImageryProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/OrderedGroundPrimitiveCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/OrderedGroundPrimitiveCollectionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/PanoramaSpec.js](../../cesium/packages/engine/Specs/Scene/PanoramaSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/ParticleSpec.js](../../cesium/packages/engine/Specs/Scene/ParticleSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ParticleSpec.js](../../cesium/packages/engine/Specs/Scene/ParticleSpec.js) | 已移植：粒子实体与配置选项（Particle / ParticleOptions）、默认值与自定义参数全字段覆盖（mass, position, velocity, life, image, startColor, endColor, startScale, endScale, imageSize）、无回调常规位移步进与生命周期老化计算（update, age, normalizedAge）、带外部作用力闭包更新（forces callback 动态修改 mass）（particle_spec.rs，4 项测试全部通过） |
 | [packages/engine/Specs/Scene/ParticleSystemSpec.js](../../cesium/packages/engine/Specs/Scene/ParticleSystemSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/PerInstanceColorAppearanceSpec.js](../../cesium/packages/engine/Specs/Scene/PerInstanceColorAppearanceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/PickingSpec.js](../../cesium/packages/engine/Specs/Scene/PickingSpec.js) | 待逐项核对 |
