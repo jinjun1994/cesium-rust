@@ -491,7 +491,7 @@
 | [packages/engine/Specs/Scene/Cesium3DTilesetMostDetailedTraversalSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTilesetMostDetailedTraversalSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Cesium3DTilesetSkipTraversalSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTilesetSkipTraversalSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Cesium3DTilesetSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTilesetSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/CircleEmitterSpec.js](../../cesium/packages/engine/Specs/Scene/CircleEmitterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/CircleEmitterSpec.js](../../cesium/packages/engine/Specs/Scene/CircleEmitterSpec.js) | 已移植：圆形粒子发射器（CircleEmitter / ParticleEmitter）、默认与自定义半径（radius）、非正数半径异常校验拦截（validate_radius DeveloperError）、动态半径修改（set_radius）、圆盘内极坐标随机分布采样与沿 Z 轴单位向量初始速度（emit）（circle_emitter_spec.rs，6 项测试全部通过） |
 | [packages/engine/Specs/Scene/ClassificationPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/ClassificationPrimitiveSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/ClippingPlaneCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPlaneCollectionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/ClippingPlaneSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPlaneSpec.js) | 待逐项核对 |
