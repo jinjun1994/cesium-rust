@@ -29,6 +29,7 @@ pub mod commands;
 pub mod compute_command;
 pub mod content_metadata;
 pub mod cpu_styling_pipeline_stage;
+pub mod custom_shader;
 pub mod context;
 pub mod credit_display;
 pub mod cube_map;
@@ -211,6 +212,11 @@ pub use content_metadata::{ContentMetadata, ContentMetadataOptions};
 pub use cpu_styling_pipeline_stage::{
     CPUStylingModelOptions, CPUStylingPipelineStage, CPUStylingRenderResources,
     CPUStylingUniformCallback, CPU_STYLING_STAGE_FS, CPU_STYLING_STAGE_VS,
+};
+pub use custom_shader::{
+    CustomShader, CustomShaderMode, CustomShaderOptions, CustomShaderTranslucencyMode,
+    CustomShaderUniformCallback, CustomShaderUniformType, CustomShaderValue, FragmentVariableSets,
+    LightingModel, TextureUniform, UniformSpecifier, VaryingType, VertexVariableSets,
 };
 pub use context::{Context, ContextLimits, ContextOptions, ReadPixelsOptions};
 pub use credit_display::{CreditDisplay, DEFAULT_DELIMITER as DEFAULT_CREDIT_DELIMITER};
