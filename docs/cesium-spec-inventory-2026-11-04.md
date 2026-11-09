@@ -463,7 +463,7 @@
 | [packages/engine/Specs/Scene/BatchTextureSpec.js](../../cesium/packages/engine/Specs/Scene/BatchTextureSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/BillboardCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/BillboardCollectionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/BingMapsImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/BingMapsImageryProviderSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/BoundingVolumeSemanticsSpec.js](../../cesium/packages/engine/Specs/Scene/BoundingVolumeSemanticsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BoundingVolumeSemanticsSpec.js](../../cesium/packages/engine/Specs/Scene/BoundingVolumeSemanticsSpec.js) | 已移植：3D Tiles 1.1 包围体语义解析（BoundingVolumeSemantics / PropertyBySemantic）、前缀验证（TILE/CONTENT DeveloperError）、元数据模式抽象（MetadataClass / TileMetadata）、包围体优先级解析（Box > Region > Sphere）、隐式切片极限高度解析（minimumHeight / maximumHeight）（bounding_volume_semantics_spec.rs，11 项测试全部通过） |
 | [packages/engine/Specs/Scene/BoxEmitterSpec.js](../../cesium/packages/engine/Specs/Scene/BoxEmitterSpec.js) | 已移植：盒体粒子发射器（BoxEmitter / ParticleEmitter）、默认与自定义盒体尺寸（dimensions）、负值尺寸异常校验拦截（validate_dimensions DeveloperError）、动态尺寸修改（set_dimensions）、盒体内三维随机位置采样及中心外向正规化初始速度（emit）（box_emitter_spec.rs，6 项测试全部通过） |
 | [packages/engine/Specs/Scene/BufferLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/BufferLoaderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/BufferPointCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPointCollectionSpec.js) | 待逐项核对 |
