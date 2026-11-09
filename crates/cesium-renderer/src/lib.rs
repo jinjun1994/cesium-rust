@@ -221,7 +221,7 @@ pub use gltf_json_loader::{
     is_supported_extension as is_supported_gltf_extension, GltfJsonLoader, GltfJsonLoaderOptions,
     GLB_CHUNK_TYPE_BIN, GLB_CHUNK_TYPE_JSON, GLB_MAGIC,
 };
-pub use material::Material;
+pub use material::{Fabric, Material, MaterialOptions};
 pub use material_appearance::{MaterialAppearance, MaterialAppearanceOptions, MaterialSupport};
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
