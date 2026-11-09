@@ -106,6 +106,13 @@ impl GltfJsonLoader {
         self.inner.lock().unwrap().gltf.clone()
     }
 
+    /// Sets preloaded glTF JSON.
+    pub fn set_gltf(&self, gltf: Value) {
+        let mut inner = self.inner.lock().unwrap();
+        inner.gltf = Some(gltf);
+        inner.state = ResourceLoaderState::Ready;
+    }
+
     /// The loader's current state.
     pub fn state(&self) -> ResourceLoaderState {
         self.inner.lock().unwrap().state
