@@ -103,6 +103,72 @@ impl ImplicitTileCoordinates {
         offset + self.morton_index()
     }
 
+    /// Creates coordinates from Morton index at `level`.
+    pub fn from_morton_index(
+        subdivision_scheme: ImplicitSubdivisionScheme,
+        subtree_levels: u32,
+        level: u32,
+        morton_index: usize,
+    ) -> Self {
+        if subdivision_scheme == ImplicitSubdivisionScheme::Octree {
+            let mut x = 0u32;
+            let mut y = 0u32;
+            let mut z = 0u32;
+            for i in 0..21 {
+                let bx = ((morton_index >> (3 * i)) & 1) as u32;
+                let by = ((morton_index >> (3 * i + 1)) & 1) as u32;
+                let bz = ((morton_index >> (3 * i + 2)) & 1) as u32;
+                x |= bx << i;
+                y |= by << i;
+                z |= bz << i;
+            }
+            Self {
+                subdivision_scheme,
+                subtree_levels,
+                level,
+                x,
+                y,
+                z,
+            }
+        } else {
+            let mut x = 0u32;
+            let mut y = 0u32;
+            for i in 0..32 {
+                let bx = ((morton_index >> (2 * i)) & 1) as u32;
+                let by = ((morton_index >> (2 * i + 1)) & 1) as u32;
+                x |= bx << i;
+                y |= by << i;
+            }
+            Self {
+                subdivision_scheme,
+                subtree_levels,
+                level,
+                x,
+                y,
+                z: 0,
+            }
+        }
+    }
+
+    /// Creates coordinates from a cumulative tile index relative to subtree root.
+    pub fn from_tile_index(
+        subdivision_scheme: ImplicitSubdivisionScheme,
+        subtree_levels: u32,
+        tile_index: usize,
+    ) -> Self {
+        let (level, morton_index) = if subdivision_scheme == ImplicitSubdivisionScheme::Octree {
+            let l = (((7 * tile_index + 1) as f64).log2() / 3.0).floor() as u32;
+            let offset = ((1usize << (3 * l)) - 1) / 7;
+            (l, tile_index - offset)
+        } else {
+            let l = (((3 * tile_index + 1) as f64).log2() / 2.0).floor() as u32;
+            let offset = ((1usize << (2 * l)) - 1) / 3;
+            (l, tile_index - offset)
+        };
+
+        Self::from_morton_index(subdivision_scheme, subtree_levels, level, morton_index)
+    }
+
     /// Derives ancestor coordinates `offset_levels` above this tile.
     pub fn get_ancestor_coordinates(&self, offset_levels: u32) -> Result<Self, DeveloperError> {
         if offset_levels > self.level {
