@@ -61,7 +61,9 @@ impl ImplicitPlaceholderTile {
                 let is_bottom_of_subtree = rel_level + 1 == subtree_levels;
 
                 for child_idx in 0..branching {
-                    let child_coords = self.implicit_coordinates.get_child_coordinates(child_idx);
+                    let Ok(child_coords) = self.implicit_coordinates.get_child_coordinates(child_idx) else {
+                        continue;
+                    };
 
                     if is_bottom_of_subtree {
                         // At bottom of subtree, check child subtree availability
