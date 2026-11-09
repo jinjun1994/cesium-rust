@@ -27,6 +27,7 @@ pub mod debug_model_matrix_primitive;
 pub mod demodernize_shader;
 pub mod depth_plane;
 pub mod device;
+pub mod device_orientation_camera_controller;
 pub mod directional_light;
 pub mod discard_empty_tile_image_policy;
 pub mod discard_missing_tile_image_policy;
@@ -110,6 +111,10 @@ pub use debug_model_matrix_primitive::{
 pub use demodernize_shader::demodernize_shader;
 pub use depth_plane::DepthPlane;
 pub use device::{DeviceContext, DeviceStatus};
+pub use device_orientation_camera_controller::{
+    rotate_camera, CameraOrientationState, DeviceOrientationCameraController,
+    DeviceOrientationEvent,
+};
 pub use directional_light::{DirectionalLight, DirectionalLightError, DirectionalLightOptions};
 pub use discard_empty_tile_image_policy::DiscardEmptyTileImagePolicy;
 pub use discard_missing_tile_image_policy::{
