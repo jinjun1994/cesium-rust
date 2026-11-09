@@ -33,6 +33,7 @@ pub mod dynamic_atmosphere_lighting_type;
 pub mod dynamic_environment_map_manager;
 pub mod edge_framebuffer;
 pub mod empty_3d_tile_content;
+pub mod ellipsoid_surface_appearance;
 pub mod framebuffer;
 pub mod material;
 pub mod metrics;
@@ -118,6 +119,9 @@ pub use dynamic_environment_map_manager::{
 };
 pub use edge_framebuffer::EdgeFramebuffer;
 pub use empty_3d_tile_content::Empty3DTileContent;
+pub use ellipsoid_surface_appearance::{
+    EllipsoidSurfaceAppearance, EllipsoidSurfaceAppearanceOptions,
+};
 pub use framebuffer::{
     Framebuffer, FramebufferManager, FramebufferManagerOptions, FramebufferOptions,
     MultisampleFramebuffer, MultisampleFramebufferOptions, PixelDatatype, PixelFormat,
