@@ -26,6 +26,7 @@ pub mod cloud_collection;
 pub mod commands;
 pub mod compute_command;
 pub mod content_metadata;
+pub mod cpu_styling_pipeline_stage;
 pub mod context;
 pub mod credit_display;
 pub mod cube_map;
@@ -195,6 +196,10 @@ pub use commands::{
 };
 pub use compute_command::{ComputeCommand, ComputeCommandOptions};
 pub use content_metadata::{ContentMetadata, ContentMetadataOptions};
+pub use cpu_styling_pipeline_stage::{
+    CPUStylingModelOptions, CPUStylingPipelineStage, CPUStylingRenderResources,
+    CPUStylingUniformCallback, CPU_STYLING_STAGE_FS, CPU_STYLING_STAGE_VS,
+};
 pub use context::{Context, ContextLimits, ContextOptions, ReadPixelsOptions};
 pub use credit_display::{CreditDisplay, DEFAULT_DELIMITER as DEFAULT_CREDIT_DELIMITER};
 pub use cube_map::{load_cube_map, CubeMap, CubeMapFace, CubeMapOptions, CubeMapUrls};
