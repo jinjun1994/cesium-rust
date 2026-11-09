@@ -37,6 +37,7 @@ pub mod dynamic_atmosphere_lighting_type;
 pub mod dynamic_environment_map_manager;
 pub mod edge_framebuffer;
 pub mod empty_3d_tile_content;
+pub mod equirectangular_panorama;
 pub mod ellipsoid_primitive;
 pub mod ellipsoid_surface_appearance;
 pub mod framebuffer;
@@ -133,6 +134,11 @@ pub use dynamic_environment_map_manager::{
 };
 pub use edge_framebuffer::EdgeFramebuffer;
 pub use empty_3d_tile_content::Empty3DTileContent;
+pub use equirectangular_panorama::{
+    EquirectangularAppearance, EquirectangularMaterial, EquirectangularPanorama,
+    EquirectangularPanoramaOptions, EquirectangularPrimitive, EquirectangularUniforms,
+    DEFAULT_RADIUS as DEFAULT_EQUIRECTANGULAR_RADIUS,
+};
 pub use ellipsoid_primitive::{EllipsoidPrimitive, EllipsoidPrimitiveOptions};
 pub use ellipsoid_surface_appearance::{
     EllipsoidSurfaceAppearance, EllipsoidSurfaceAppearanceOptions,
