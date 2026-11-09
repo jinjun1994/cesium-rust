@@ -23,6 +23,7 @@ pub mod commands;
 pub mod compute_command;
 pub mod content_metadata;
 pub mod context;
+pub mod credit_display;
 pub mod cube_map;
 pub mod cube_map_panorama;
 pub mod debug_appearance;
@@ -117,6 +118,7 @@ pub use commands::{
 pub use compute_command::{ComputeCommand, ComputeCommandOptions};
 pub use content_metadata::{ContentMetadata, ContentMetadataOptions};
 pub use context::{Context, ContextLimits, ContextOptions, ReadPixelsOptions};
+pub use credit_display::{CreditDisplay, DEFAULT_DELIMITER as DEFAULT_CREDIT_DELIMITER};
 pub use cube_map::{load_cube_map, CubeMap, CubeMapFace, CubeMapOptions, CubeMapUrls};
 pub use cube_map_panorama::{CubeMapPanorama, CubeMapPanoramaOptions};
 pub use debug_appearance::{DebugAppearance, DebugAppearanceOptions};
