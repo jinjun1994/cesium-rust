@@ -22,6 +22,7 @@ pub mod sampler;
 pub mod shader_builder;
 pub mod shader_cache;
 pub mod shader_source;
+pub mod shared_context;
 pub mod sync;
 pub mod texture;
 pub mod texture_3d;
@@ -59,6 +60,7 @@ pub use framebuffer::{
     Renderbuffer, RenderbufferFormat, RenderbufferOptions, MAXIMUM_RENDERBUFFER_SIZE,
 };
 pub use sync::{Sync, SyncStatus};
+pub use shared_context::{SceneContext, SharedContext, SharedContextOptions};
 pub use uniform::{Uniform, UniformGetter, UniformMap, UniformType, UniformValue};
 pub use texture::{CachedTextureEntry, Texture, TextureCache, TextureOptions};
 pub use texture_3d::{Texture3D, Texture3DOptions};
