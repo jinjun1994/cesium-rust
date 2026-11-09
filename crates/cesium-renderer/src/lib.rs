@@ -6,6 +6,7 @@ pub mod appearance;
 pub mod atmosphere_pipeline_stage;
 pub mod automatic_uniforms;
 pub mod axis;
+pub mod b3dm_loader;
 pub mod batch_table_hierarchy;
 pub mod bounding_volume_semantics;
 pub mod builtin_functions;
@@ -151,6 +152,7 @@ pub use atmosphere_pipeline_stage::{
 };
 pub use automatic_uniforms::{AutomaticUniform, AutomaticUniforms, UniformState};
 pub use axis::Axis;
+pub use b3dm_loader::{B3dmLoader, B3dmLoaderOptions, B3dmParser, ParsedB3dm};
 pub use batch_table_hierarchy::{
     BatchTableHierarchy, BatchTableHierarchyClass, BatchTableHierarchyError,
 };
