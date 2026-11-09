@@ -78,6 +78,7 @@ pub mod imagery_layer;
 pub mod imagery_layer_collection;
 pub mod itwin_data;
 pub mod ion_imagery_provider;
+pub mod job_scheduler;
 pub mod implicit_subdivision_scheme;
 pub mod instance_attribute_semantic;
 pub mod implicit_tile_coordinates;
