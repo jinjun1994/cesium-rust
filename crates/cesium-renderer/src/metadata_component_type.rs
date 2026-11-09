@@ -55,14 +55,14 @@ impl MetadataComponentType {
     pub fn get_minimum(component_type: Self) -> f64 {
         match component_type {
             Self::Int8 => i8::MIN as f64,
-            Self::Uint8 => u8::MIN as f64,
+            Self::Uint8 => 0.0,
             Self::Int16 => i16::MIN as f64,
-            Self::Uint16 => u16::MIN as f64,
+            Self::Uint16 => 0.0,
             Self::Int32 => i32::MIN as f64,
-            Self::Uint32 => u32::MIN as f64,
-            Self::Int64 => i64::MIN as f64,
-            Self::Uint64 => u64::MIN as f64,
-            Self::Float32 => f32::MIN as f64,
+            Self::Uint32 => 0.0,
+            Self::Int64 => -9223372036854775808.0,
+            Self::Uint64 => 0.0,
+            Self::Float32 => -340282346638528859811704183484516925440.0,
             Self::Float64 => -f64::MAX,
         }
     }
@@ -76,9 +76,9 @@ impl MetadataComponentType {
             Self::Uint16 => u16::MAX as f64,
             Self::Int32 => i32::MAX as f64,
             Self::Uint32 => u32::MAX as f64,
-            Self::Int64 => i64::MAX as f64,
-            Self::Uint64 => u64::MAX as f64,
-            Self::Float32 => f32::MAX as f64,
+            Self::Int64 => 9223372036854775807.0,
+            Self::Uint64 => 18446744073709551615.0,
+            Self::Float32 => 340282346638528859811704183484516925440.0,
             Self::Float64 => f64::MAX,
         }
     }
@@ -119,6 +119,77 @@ impl MetadataComponentType {
         matches!(
             self,
             Self::Uint8 | Self::Uint16 | Self::Uint32 | Self::Uint64
+        )
+    }
+
+    /// Returns whether this component type can be used as vector components.
+    pub const fn is_vector_compatible(&self) -> bool {
+        !matches!(self, Self::Int64 | Self::Uint64)
+    }
+
+    /// Returns the category ("int", "uint", or "float").
+    pub const fn category(&self) -> &'static str {
+        match self {
+            Self::Int8 | Self::Int16 | Self::Int32 | Self::Int64 => "int",
+            Self::Uint8 | Self::Uint16 | Self::Uint32 | Self::Uint64 => "uint",
+            Self::Float32 | Self::Float64 => "float",
+        }
+    }
+
+    /// Returns the GPU component type taking downcasting into account.
+    pub const fn gpu_component_type(&self) -> Self {
+        match self {
+            Self::Int64 => Self::Int32,
+            Self::Uint64 => Self::Uint32,
+            Self::Float64 => Self::Float32,
+            other => *other,
+        }
+    }
+
+    /// Normalizes signed integers to [-1.0, 1.0] and unsigned integers to [0.0, 1.0].
+    pub fn normalize(value: f64, component_type: Self) -> Result<f64, DeveloperError> {
+        if !component_type.is_integer_type() {
+            return Err(DeveloperError::new("type must be an integer type"));
+        }
+        let max = Self::get_maximum(component_type);
+        Ok((value / max).max(-1.0))
+    }
+
+    /// Unnormalizes numbers into integer values.
+    pub fn unnormalize(value: f64, component_type: Self) -> Result<f64, DeveloperError> {
+        if !component_type.is_integer_type() {
+            return Err(DeveloperError::new("type must be an integer type"));
+        }
+        let max = Self::get_maximum(component_type);
+        let min = if component_type.is_unsigned_integer_type() {
+            0.0
+        } else {
+            -max
+        };
+
+        let rounded = value.signum() * (value.abs() * max).round();
+        Ok(rounded.clamp(min, max))
+    }
+
+    /// Applies offset and scale transform: scale * value + offset.
+    pub fn apply_value_transform(value: f64, offset: f64, scale: f64) -> f64 {
+        scale * value + offset
+    }
+
+    /// Inverts value transform: (value - offset) / scale.
+    pub fn unapply_value_transform(value: f64, offset: f64, scale: f64) -> f64 {
+        if scale == 0.0 {
+            0.0
+        } else {
+            (value - offset) / scale
+        }
+    }
+
+    /// Clamps value to component type limits.
+    pub fn clamp_to_limits(value: f64, component_type: Self) -> f64 {
+        value.clamp(
+            Self::get_minimum(component_type),
+            Self::get_maximum(component_type),
         )
     }
 }
