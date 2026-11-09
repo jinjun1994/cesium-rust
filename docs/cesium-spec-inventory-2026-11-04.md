@@ -533,7 +533,7 @@
 | [packages/engine/Specs/Scene/GlobeSurfaceTileSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeSurfaceTileSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GlobeTranslucencyFramebufferSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeTranslucencyFramebufferSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GlobeTranslucencyStateSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeTranslucencyStateSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/GltfBufferViewLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfBufferViewLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GltfBufferViewLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfBufferViewLoaderSpec.js) | 已移植：glTF 缓冲区视图加载器（GltfBufferViewLoader / GltfBufferViewLoaderOptions）、内嵌（embedded）与外部（external）二进制切片提取、支持 meshopt 压缩扩展元数据解析（KHR_meshopt_compression / EXT_meshopt_compression）、异步生命周期流转（Unloaded / Loading / Ready / Failed）、切片越界与网络异常拦截报错（DeveloperError / RuntimeError）、资源缓存键（cacheKey）及卸载销毁控制（gltf_buffer_view_loader_spec.rs，6 项测试全部通过） |
 | [packages/engine/Specs/Scene/GltfDracoLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfDracoLoaderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GltfImageLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfImageLoaderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GltfIndexBufferLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfIndexBufferLoaderSpec.js) | 待逐项核对 |
