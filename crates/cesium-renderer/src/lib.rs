@@ -78,6 +78,7 @@ pub mod imagery_layer;
 pub mod imagery_layer_collection;
 pub mod itwin_data;
 pub mod implicit_subdivision_scheme;
+pub mod instance_attribute_semantic;
 pub mod implicit_tile_coordinates;
 pub mod implicit_availability_bitstream;
 pub mod implicit_subtree;
