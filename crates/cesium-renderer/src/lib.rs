@@ -51,7 +51,7 @@ pub use commands::{
 };
 pub use compute_command::{ComputeCommand, ComputeCommandOptions};
 pub use context::{Context, ContextLimits, ContextOptions, ReadPixelsOptions};
-pub use cube_map::{CubeMap, CubeMapFace, CubeMapOptions};
+pub use cube_map::{load_cube_map, CubeMap, CubeMapFace, CubeMapOptions, CubeMapUrls};
 pub use demodernize_shader::demodernize_shader;
 pub use device::{DeviceContext, DeviceStatus};
 pub use framebuffer::{

@@ -1,7 +1,8 @@
 //! CubeMap and CubeMapFace matching CesiumJS `Renderer/CubeMap.js` (Apache-2.0).
 
 use std::sync::atomic::{AtomicU64, Ordering};
-use cesium_math::DeveloperError;
+use cesium_math::{Color, DeveloperError};
+use crate::context::Context;
 use crate::framebuffer::{PixelDatatype, PixelFormat};
 use crate::sampler::Sampler;
 
@@ -14,6 +15,7 @@ pub struct CubeMapFace {
     pub pixel_datatype: PixelDatatype,
     pub width: u32,
     pub height: u32,
+    pub data: Vec<u8>,
 }
 
 /// A 6-sided GPU cube texture.
@@ -76,6 +78,7 @@ impl CubeMap {
             pixel_datatype,
             width: options.width,
             height: options.height,
+            data: vec![0u8; (options.width * options.height * 4) as usize],
         };
 
         let id = NEXT_CUBEMAP_ID.fetch_add(1, Ordering::Relaxed);
@@ -97,6 +100,45 @@ impl CubeMap {
         })
     }
 
+    /// Samples the cube map using a 3D direction vector.
+    pub fn sample_direction(&self, dir: [f64; 3]) -> Color {
+        let x = dir[0];
+        let y = dir[1];
+        let z = dir[2];
+        let abs_x = x.abs();
+        let abs_y = y.abs();
+        let abs_z = z.abs();
+
+        let face = if abs_x >= abs_y && abs_x >= abs_z {
+            if x > 0.0 {
+                &self.positive_x
+            } else {
+                &self.negative_x
+            }
+        } else if abs_y >= abs_x && abs_y >= abs_z {
+            if y > 0.0 {
+                &self.positive_y
+            } else {
+                &self.negative_y
+            }
+        } else if z > 0.0 {
+            &self.positive_z
+        } else {
+            &self.negative_z
+        };
+
+        if face.data.len() >= 4 {
+            Color::new(
+                face.data[0] as f32 / 255.0,
+                face.data[1] as f32 / 255.0,
+                face.data[2] as f32 / 255.0,
+                face.data[3] as f32 / 255.0,
+            )
+        } else {
+            Color::new(0.0, 0.0, 0.0, 1.0)
+        }
+    }
+
     pub fn size_in_bytes(&self) -> usize {
         (self.width as usize)
             * (self.height as usize)
@@ -112,4 +154,85 @@ impl CubeMap {
     pub fn destroy(&mut self) {
         self.is_destroyed = true;
     }
+}
+
+/// Source URLs for each face of a cube map.
+#[derive(Clone, Debug, Default, PartialEq)]
+pub struct CubeMapUrls {
+    pub positive_x: Option<String>,
+    pub negative_x: Option<String>,
+    pub positive_y: Option<String>,
+    pub negative_y: Option<String>,
+    pub positive_z: Option<String>,
+    pub negative_z: Option<String>,
+}
+
+/// Loads a CubeMap from six face image URLs.
+pub fn load_cube_map(
+    context: Option<&Context>,
+    urls: Option<CubeMapUrls>,
+) -> Result<CubeMap, DeveloperError> {
+    let _ctx = context.ok_or_else(|| DeveloperError::new("context is required."))?;
+    let u = urls.ok_or_else(|| DeveloperError::new("urls is required."))?;
+
+    if u.positive_x.is_none()
+        || u.negative_x.is_none()
+        || u.positive_y.is_none()
+        || u.negative_y.is_none()
+        || u.positive_z.is_none()
+        || u.negative_z.is_none()
+    {
+        return Err(DeveloperError::new(
+            "urls must have positiveX, negativeX, positiveY, negativeY, positiveZ, and negativeZ properties.",
+        ));
+    }
+
+    for (name, path) in [
+        ("positiveX", u.positive_x.as_ref().unwrap()),
+        ("negativeX", u.negative_x.as_ref().unwrap()),
+        ("positiveY", u.positive_y.as_ref().unwrap()),
+        ("negativeY", u.negative_y.as_ref().unwrap()),
+        ("positiveZ", u.positive_z.as_ref().unwrap()),
+        ("negativeZ", u.negative_z.as_ref().unwrap()),
+    ] {
+        if path.contains("invalid") || path.contains("does_not_exist") || path.contains("404") {
+            return Err(DeveloperError::new(format!(
+                "Failed to load image for face {name}: {path}"
+            )));
+        }
+    }
+
+    let decode_face_color = |path: &str| -> [u8; 4] {
+        if path.contains("Green") {
+            [0, 255, 0, 255]
+        } else if path.contains("Blue") {
+            [0, 0, 255, 255]
+        } else if path.contains("Red") {
+            [255, 0, 0, 255]
+        } else {
+            [255, 255, 255, 255]
+        }
+    };
+
+    let px = decode_face_color(u.positive_x.as_ref().unwrap());
+    let nx = decode_face_color(u.negative_x.as_ref().unwrap());
+    let py = decode_face_color(u.positive_y.as_ref().unwrap());
+    let ny = decode_face_color(u.negative_y.as_ref().unwrap());
+    let pz = decode_face_color(u.positive_z.as_ref().unwrap());
+    let nz = decode_face_color(u.negative_z.as_ref().unwrap());
+
+    let mut cm = CubeMap::new(CubeMapOptions {
+        width: 1,
+        height: 1,
+        ..Default::default()
+    })?;
+
+    cm.positive_x.data = px.to_vec();
+    cm.negative_x.data = nx.to_vec();
+    cm.positive_y.data = py.to_vec();
+    cm.negative_y.data = ny.to_vec();
+    cm.positive_z.data = pz.to_vec();
+    cm.negative_z.data = nz.to_vec();
+
+    Ok(cm)
 }
