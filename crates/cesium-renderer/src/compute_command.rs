@@ -9,6 +9,7 @@ use crate::texture::Texture;
 use crate::vertex_array::VertexArray;
 
 /// A GPU compute command for rendering to a texture using a compute/quad pipeline.
+#[derive(Default)]
 pub struct ComputeCommand {
     pub vertex_array: Option<VertexArray>,
     pub fragment_shader_source: Option<ShaderSourceInput>,

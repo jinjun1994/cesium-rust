@@ -17,6 +17,7 @@ pub mod cesium_3d_tile_pass_state;
 pub mod clipping_plane;
 pub mod clipping_polygon;
 pub mod clipping_polygon_collection;
+pub mod cloud_collection;
 pub mod commands;
 pub mod compute_command;
 pub mod content_metadata;
@@ -100,6 +101,9 @@ pub use clipping_plane::{ClippingPlane, ClippingPlaneChangeCallback};
 pub use clipping_polygon::{ClippingPolygon, ClippingPolygonOptions};
 pub use clipping_polygon_collection::{
     ClippingPolygonCollection, ClippingPolygonCollectionOptions, Intersect,
+};
+pub use cloud_collection::{
+    CloudCollection, CloudCollectionOptions, CloudType, CumulusCloud, CumulusCloudOptions,
 };
 pub use commands::{
     ClearCommand, ClearCommandOptions, DrawCommand, DrawCommandOptions, FramebufferHandle,
