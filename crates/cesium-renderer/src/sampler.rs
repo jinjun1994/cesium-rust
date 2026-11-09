@@ -29,6 +29,16 @@ impl TextureWrap {
             _ => None,
         }
     }
+
+    /// Converts raw GL enum integer to TextureWrap.
+    pub fn from_gl_enum(val: u32) -> Option<Self> {
+        match val {
+            0x812F => Some(Self::ClampToEdge),
+            0x2901 => Some(Self::Repeat),
+            0x8370 => Some(Self::MirroredRepeat),
+            _ => None,
+        }
+    }
 }
 
 /// Minification filters matching WebGLConstants.
@@ -77,6 +87,30 @@ impl TextureMinificationFilter {
             _ => None,
         }
     }
+
+    /// Converts raw GL enum integer to TextureMinificationFilter.
+    pub fn from_gl_enum(val: u32) -> Option<Self> {
+        match val {
+            0x2600 => Some(Self::Nearest),
+            0x2601 => Some(Self::Linear),
+            0x2700 => Some(Self::NearestMipmapNearest),
+            0x2701 => Some(Self::LinearMipmapNearest),
+            0x2702 => Some(Self::NearestMipmapLinear),
+            0x2703 => Some(Self::LinearMipmapLinear),
+            _ => None,
+        }
+    }
+
+    /// Whether this filter requires mipmaps.
+    pub fn requires_mipmap(self) -> bool {
+        matches!(
+            self,
+            Self::NearestMipmapNearest
+                | Self::LinearMipmapNearest
+                | Self::NearestMipmapLinear
+                | Self::LinearMipmapLinear
+        )
+    }
 }
 
 /// Magnification filters matching WebGLConstants.
@@ -98,6 +132,15 @@ impl TextureMagnificationFilter {
         match name {
             "NEAREST" | "nearest" => Some(Self::Nearest),
             "LINEAR" | "linear" => Some(Self::Linear),
+            _ => None,
+        }
+    }
+
+    /// Converts raw GL enum integer to TextureMagnificationFilter.
+    pub fn from_gl_enum(val: u32) -> Option<Self> {
+        match val {
+            0x2600 => Some(Self::Nearest),
+            0x2601 => Some(Self::Linear),
             _ => None,
         }
     }
