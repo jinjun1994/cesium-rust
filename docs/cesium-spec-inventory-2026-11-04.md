@@ -514,7 +514,7 @@
 | [packages/engine/Specs/Scene/DiscardMissingTileImagePolicySpec.js](../../cesium/packages/engine/Specs/Scene/DiscardMissingTileImagePolicySpec.js) | 已移植：缺失瓦片图像像素特征匹配策略（DiscardMissingTileImagePolicy / DiscardMissingTileImagePolicyOptions）、必填参数异常校验拦截（missing_image_url 与 pixels_to_check DeveloperError）、多采样点 RGBA 像素比对、全透明豁免逻辑与未就绪调用异常拦截（discard_missing_tile_image_policy_spec.rs，6 项测试全部通过） |
 | [packages/engine/Specs/Scene/DynamicAtmosphereLightingTypeSpec.js](../../cesium/packages/engine/Specs/Scene/DynamicAtmosphereLightingTypeSpec.js) | 已移植：动态大气光照类型枚举与决策逻辑（DynamicAtmosphereLightingType::None/Sunlight/SceneLight）、基于地球光照标志位的动态解析（from_globe_flags）（dynamic_atmosphere_lighting_type_spec.rs，2 项测试全部通过） |
 | [packages/engine/Specs/Scene/DynamicEnvironmentMapManagerSpec.js](../../cesium/packages/engine/Specs/Scene/DynamicEnvironmentMapManagerSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/EdgeFramebufferSpec.js](../../cesium/packages/engine/Specs/Scene/EdgeFramebufferSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/EdgeFramebufferSpec.js](../../cesium/packages/engine/Specs/Scene/EdgeFramebufferSpec.js) | 已移植：边缘可见性 MRT 帧缓冲区管理器（EdgeFramebuffer）、多渲染目标（MRT: 颜色/ID/打包深度纹理）、视口尺寸变动动态分配与复用机制、清除命令生成与合法性校验（非法尺寸拦截 DeveloperError、多重销毁安全保证）（edge_framebuffer_spec.rs，11 项测试全部通过） |
 | [packages/engine/Specs/Scene/EllipsoidPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/EllipsoidPrimitiveSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/EllipsoidSurfaceAppearanceSpec.js](../../cesium/packages/engine/Specs/Scene/EllipsoidSurfaceAppearanceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Empty3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Empty3DTileContentSpec.js) | 待逐项核对 |

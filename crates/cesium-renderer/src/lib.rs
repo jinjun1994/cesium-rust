@@ -27,6 +27,7 @@ pub mod directional_light;
 pub mod discard_empty_tile_image_policy;
 pub mod discard_missing_tile_image_policy;
 pub mod dynamic_atmosphere_lighting_type;
+pub mod edge_framebuffer;
 pub mod framebuffer;
 pub mod material;
 pub mod metrics;
@@ -102,6 +103,7 @@ pub use discard_missing_tile_image_policy::{
     DiscardMissingError, DiscardMissingTileImagePolicy, DiscardMissingTileImagePolicyOptions,
 };
 pub use dynamic_atmosphere_lighting_type::DynamicAtmosphereLightingType;
+pub use edge_framebuffer::EdgeFramebuffer;
 pub use framebuffer::{
     Framebuffer, FramebufferManager, FramebufferManagerOptions, FramebufferOptions,
     MultisampleFramebuffer, MultisampleFramebufferOptions, PixelDatatype, PixelFormat,

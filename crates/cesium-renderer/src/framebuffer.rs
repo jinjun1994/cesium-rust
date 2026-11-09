@@ -249,6 +249,7 @@ impl Default for FramebufferManagerOptions {
 }
 
 /// A manager that handles lazy resize and allocation of Framebuffers.
+#[derive(Debug)]
 pub struct FramebufferManager {
     num_samples: u32,
     color_attachments_length: usize,
