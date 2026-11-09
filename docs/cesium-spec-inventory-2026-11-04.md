@@ -458,7 +458,7 @@
 | [packages/engine/Specs/Scene/AxisSpec.js](../../cesium/packages/engine/Specs/Scene/AxisSpec.js) | 已移植：坐标轴枚举定义（Axis::X/Y/Z）、名称解析与字符串转换（from_name / name）、数值强转与整型转换错误校验（try_from / i32）、6 组轴向变换矩阵（Y_UP_TO_Z_UP, Z_UP_TO_Y_UP, X_UP_TO_Z_UP, Z_UP_TO_X_UP, X_UP_TO_Y_UP, Y_UP_TO_X_UP）及乘法单位向量正规化变换校验（axis_spec.rs，7 项测试全部通过） |
 | [packages/engine/Specs/Scene/Azure2DImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/Azure2DImageryProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/B3dmParserSpec.js](../../cesium/packages/engine/Specs/Scene/B3dmParserSpec.js) | 部分：无效版本/空内容、两种旧头和旧 BATCHID 解码；告警与渲染待验证 |
-| [packages/engine/Specs/Scene/BatchTableHierarchySpec.js](../../cesium/packages/engine/Specs/Scene/BatchTableHierarchySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BatchTableHierarchySpec.js](../../cesium/packages/engine/Specs/Scene/BatchTableHierarchySpec.js) | 已移植：3D Tiles 1.0 批次表层次结构扩展（3DTILES_batch_table_hierarchy / BatchTableHierarchy）、JSON 与二进制体格式解析、类别映射（classIds / classIndexes）、单亲与多亲拓扑遍历（parentCounts / parentIndexes / parentIds）、属性存在与继承链检索（has_property, property_exists, get_property_ids, get_property）、标量与向量二进制解析/回写（set_property / Cartesian2）、继承属性只读保护与修改拦截（DeveloperError）、环形依赖及越界父节点校验拦截、类型化数组内存占用精确计算（byte_length）（batch_table_hierarchy_spec.rs，20 项测试全部通过） |
 | [packages/engine/Specs/Scene/BatchTableSpec.js](../../cesium/packages/engine/Specs/Scene/BatchTableSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/BatchTextureSpec.js](../../cesium/packages/engine/Specs/Scene/BatchTextureSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/BillboardCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/BillboardCollectionSpec.js) | 待逐项核对 |
