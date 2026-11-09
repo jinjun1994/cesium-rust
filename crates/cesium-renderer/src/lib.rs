@@ -64,6 +64,7 @@ pub mod google_street_view_cube_map_panorama_provider;
 pub mod grid_imagery_provider;
 pub mod ground_polyline_primitive;
 pub mod ground_primitive;
+pub mod group_metadata;
 pub mod material;
 pub mod metrics;
 pub mod model_components;

@@ -32,6 +32,7 @@ pub struct MetadataClassProperty {
     pub component_type: Option<String>,
     pub array: Option<bool>,
     pub count: Option<usize>,
+    pub default: Option<Value>,
 }
 
 /// A metadata class describing property schemas and semantics.
@@ -58,6 +59,7 @@ impl MetadataClass {
                 let component_type = prop_val.get("componentType").and_then(Value::as_str).map(String::from);
                 let array = prop_val.get("array").and_then(Value::as_bool);
                 let count = prop_val.get("count").and_then(Value::as_u64).map(|n| n as usize);
+                let default = prop_val.get("default").cloned();
 
                 properties.insert(
                     prop_id.clone(),
@@ -67,6 +69,7 @@ impl MetadataClass {
                         component_type,
                         array,
                         count,
+                        default,
                     },
                 );
             }
