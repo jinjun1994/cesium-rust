@@ -69,13 +69,10 @@ impl GeographicTilingScheme {
             || ellipsoid.maximum_radius() <= 0.0
             || rectangle.width() <= 0.0
             || rectangle.height() <= 0.0
-            || GeoRectangle::radians(
-                rectangle.west,
-                rectangle.south,
-                rectangle.east,
-                rectangle.north,
-            )
-            .is_err()
+            || !rectangle.west.is_finite()
+            || !rectangle.south.is_finite()
+            || !rectangle.east.is_finite()
+            || !rectangle.north.is_finite()
         {
             return Err(MathError);
         }
