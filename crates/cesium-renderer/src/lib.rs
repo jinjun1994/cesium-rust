@@ -22,6 +22,8 @@ pub mod cube_map;
 pub mod demodernize_shader;
 pub mod device;
 pub mod directional_light;
+pub mod discard_empty_tile_image_policy;
+pub mod discard_missing_tile_image_policy;
 pub mod dynamic_atmosphere_lighting_type;
 pub mod framebuffer;
 pub mod material;
@@ -91,6 +93,10 @@ pub use cube_map::{load_cube_map, CubeMap, CubeMapFace, CubeMapOptions, CubeMapU
 pub use demodernize_shader::demodernize_shader;
 pub use device::{DeviceContext, DeviceStatus};
 pub use directional_light::{DirectionalLight, DirectionalLightError, DirectionalLightOptions};
+pub use discard_empty_tile_image_policy::DiscardEmptyTileImagePolicy;
+pub use discard_missing_tile_image_policy::{
+    DiscardMissingError, DiscardMissingTileImagePolicy, DiscardMissingTileImagePolicyOptions,
+};
 pub use dynamic_atmosphere_lighting_type::DynamicAtmosphereLightingType;
 pub use framebuffer::{
     Framebuffer, FramebufferManager, FramebufferManagerOptions, FramebufferOptions,
