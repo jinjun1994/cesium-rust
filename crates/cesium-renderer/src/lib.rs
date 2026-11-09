@@ -66,6 +66,7 @@ pub mod ground_polyline_primitive;
 pub mod ground_primitive;
 pub mod group_metadata;
 pub mod heightmap_tessellator;
+pub mod i3s_data_provider;
 pub mod material;
 pub mod metrics;
 pub mod model_components;
