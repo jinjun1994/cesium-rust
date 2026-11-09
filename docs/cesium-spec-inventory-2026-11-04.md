@@ -467,11 +467,11 @@
 | [packages/engine/Specs/Scene/BoxEmitterSpec.js](../../cesium/packages/engine/Specs/Scene/BoxEmitterSpec.js) | 已移植：盒体粒子发射器（BoxEmitter / ParticleEmitter）、默认与自定义盒体尺寸（dimensions）、负值尺寸异常校验拦截（validate_dimensions DeveloperError）、动态尺寸修改（set_dimensions）、盒体内三维随机位置采样及中心外向正规化初始速度（emit）（box_emitter_spec.rs，6 项测试全部通过） |
 | [packages/engine/Specs/Scene/BufferLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/BufferLoaderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/BufferPointCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPointCollectionSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/BufferPointMaterialSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPointMaterialSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BufferPointMaterialSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPointMaterialSpec.js) | 已移植：点图元材质描述与二进制打包解包（BufferPointMaterial / BufferPrimitiveMaterial）、字段配置（color, outlineColor, outlineWidth, size）、二进制内存布局（pack / unpack 16 字节定长格式验证）（buffer_point_material_spec.rs，2 项测试全部通过） |
 | [packages/engine/Specs/Scene/BufferPolygonCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPolygonCollectionSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/BufferPolygonMaterialSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPolygonMaterialSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BufferPolygonMaterialSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPolygonMaterialSpec.js) | 已移植：多边形图元材质描述与二进制打包解包（BufferPolygonMaterial / BufferPrimitiveMaterial）、字段配置（color, outlineColor, outlineWidth）、二进制内存布局（pack / unpack 12 字节定长格式验证）（buffer_polygon_material_spec.rs，2 项测试全部通过） |
 | [packages/engine/Specs/Scene/BufferPolylineCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPolylineCollectionSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/BufferPolylineMaterialSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPolylineMaterialSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BufferPolylineMaterialSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPolylineMaterialSpec.js) | 已移植：折线图元材质描述与二进制打包解包（BufferPolylineMaterial / BufferPrimitiveMaterial）、字段配置（color, outlineColor, outlineWidth, width）、二进制内存布局（pack / unpack 16 字节定长格式验证）（buffer_polyline_material_spec.rs，2 项测试全部通过） |
 | [packages/engine/Specs/Scene/CameraEventAggregatorSpec.js](../../cesium/packages/engine/Specs/Scene/CameraEventAggregatorSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/CameraFlightPathSpec.js](../../cesium/packages/engine/Specs/Scene/CameraFlightPathSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/CameraSpec.js](../../cesium/packages/engine/Specs/Scene/CameraSpec.js) | 待逐项核对 |

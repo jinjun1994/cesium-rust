@@ -8,6 +8,7 @@ pub mod batch_table_hierarchy;
 pub mod bounding_volume_semantics;
 pub mod builtin_functions;
 pub mod buffer;
+pub mod buffer_primitive_material;
 pub mod capabilities;
 pub mod commands;
 pub mod compute_command;
@@ -59,6 +60,11 @@ pub use bounding_volume_semantics::{
 };
 pub use builtin_functions::{BuiltinFunctions, Ray};
 pub use buffer::{Buffer, BufferOptions, BufferTarget, BufferUsage, IndexBufferOptions};
+pub use buffer_primitive_material::{
+    BufferPointMaterial, BufferPointMaterialOptions, BufferPolygonMaterial,
+    BufferPolygonMaterialOptions, BufferPolylineMaterial, BufferPolylineMaterialOptions,
+    BufferPrimitiveMaterial, BufferPrimitiveMaterialOptions,
+};
 pub use capabilities::RendererCapabilities;
 pub use commands::{
     ClearCommand, ClearCommandOptions, DrawCommand, DrawCommandOptions, FramebufferHandle,
