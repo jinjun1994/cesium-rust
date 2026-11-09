@@ -68,6 +68,7 @@ pub mod group_metadata;
 pub mod heightmap_tessellator;
 pub mod i3s_data_provider;
 pub mod i3s_decoder;
+pub mod i3s_field;
 pub mod material;
 pub mod metrics;
 pub mod model_components;
