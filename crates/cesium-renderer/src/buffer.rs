@@ -223,6 +223,11 @@ impl Buffer {
         Ok(())
     }
 
+    /// Reads and returns a copy of all bytes in this buffer.
+    pub fn copy_data(&self) -> Vec<u8> {
+        self.data.clone()
+    }
+
     /// Copies bytes between buffers.
     pub fn copy_from_buffer(
         &mut self,

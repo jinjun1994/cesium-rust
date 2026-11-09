@@ -3,7 +3,10 @@
 use std::collections::HashMap;
 
 use cesium_math::{BoundingSphere, OrientedBoundingBox, PrimitiveType};
-use cesium_renderer::{DrawCommand, DrawCommandOptions, Pass};
+use cesium_renderer::{
+    DrawCommand, DrawCommandOptions, FramebufferHandle, Pass, RenderStateHandle,
+    ShaderProgramHandle, UniformMapHandle, VertexArrayHandle,
+};
 use glam::DMat4;
 
 #[test]
@@ -56,14 +59,14 @@ fn test_constructs_with_options() {
         occlude: Some(false),
         model_matrix: Some(model_matrix),
         primitive_type: Some(primitive_type),
-        vertex_array: Some(vertex_array.clone()),
+        vertex_array: Some(vertex_array.clone().into()),
         count: Some(3),
         offset: Some(3),
         instance_count: Some(2),
-        shader_program: Some(shader_program.clone()),
-        uniform_map: Some(uniform_map.clone()),
-        render_state: Some(render_state.clone()),
-        framebuffer: Some(framebuffer.clone()),
+        shader_program: Some(shader_program.clone().into()),
+        uniform_map: Some(uniform_map.clone().into()),
+        render_state: Some(render_state.clone().into()),
+        framebuffer: Some(framebuffer.clone().into()),
         pass: Some(pass),
         execute_in_closest_frustum: Some(true),
         owner: Some(owner.clone()),
@@ -81,14 +84,14 @@ fn test_constructs_with_options() {
     assert!(!c.occlude);
     assert_eq!(c.model_matrix, Some(model_matrix));
     assert_eq!(c.primitive_type, primitive_type);
-    assert_eq!(c.vertex_array, Some(vertex_array));
+    assert_eq!(c.vertex_array, Some(VertexArrayHandle::from(vertex_array)));
     assert_eq!(c.count, Some(3));
     assert_eq!(c.offset, 3);
     assert_eq!(c.instance_count, 2);
-    assert_eq!(c.shader_program, Some(shader_program));
-    assert_eq!(c.uniform_map, Some(uniform_map));
-    assert_eq!(c.render_state, Some(render_state));
-    assert_eq!(c.framebuffer, Some(framebuffer));
+    assert_eq!(c.shader_program, Some(ShaderProgramHandle::from(shader_program)));
+    assert_eq!(c.uniform_map, Some(UniformMapHandle::from(uniform_map)));
+    assert_eq!(c.render_state, Some(RenderStateHandle::from(render_state)));
+    assert_eq!(c.framebuffer, Some(FramebufferHandle::from(framebuffer)));
     assert_eq!(c.pass, Some(pass));
     assert!(c.execute_in_closest_frustum);
     assert_eq!(c.owner, Some(owner));
@@ -109,14 +112,14 @@ fn test_shallow_clones() {
         occlude: Some(false),
         model_matrix: Some(DMat4::IDENTITY),
         primitive_type: Some(PrimitiveType::TriangleFan),
-        vertex_array: Some("va".to_string()),
+        vertex_array: Some("va".into()),
         count: Some(3),
         offset: Some(3),
         instance_count: Some(2),
-        shader_program: Some("sh".to_string()),
-        uniform_map: Some(HashMap::new()),
-        render_state: Some("rs".to_string()),
-        framebuffer: Some("fb".to_string()),
+        shader_program: Some("sh".into()),
+        uniform_map: Some(HashMap::new().into()),
+        render_state: Some("rs".into()),
+        framebuffer: Some("fb".into()),
         pass: Some(Pass::Translucent),
         execute_in_closest_frustum: Some(true),
         owner: Some("ow".to_string()),
@@ -173,14 +176,14 @@ fn test_shallow_clones_with_result() {
         occlude: Some(false),
         model_matrix: Some(DMat4::IDENTITY),
         primitive_type: Some(PrimitiveType::TriangleFan),
-        vertex_array: Some("va".to_string()),
+        vertex_array: Some("va".into()),
         count: Some(3),
         offset: Some(3),
         instance_count: Some(2),
-        shader_program: Some("sh".to_string()),
-        uniform_map: Some(HashMap::new()),
-        render_state: Some("rs".to_string()),
-        framebuffer: Some("fb".to_string()),
+        shader_program: Some("sh".into()),
+        uniform_map: Some(HashMap::new().into()),
+        render_state: Some("rs".into()),
+        framebuffer: Some("fb".into()),
         pass: Some(Pass::Translucent),
         execute_in_closest_frustum: Some(true),
         owner: Some("ow".to_string()),

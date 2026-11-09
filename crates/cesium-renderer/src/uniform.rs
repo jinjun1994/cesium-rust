@@ -289,6 +289,20 @@ pub struct UniformMap {
     pub map: BTreeMap<String, UniformGetter>,
 }
 
+impl std::fmt::Debug for UniformMap {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("UniformMap")
+            .field("keys", &self.map.keys().collect::<Vec<_>>())
+            .finish()
+    }
+}
+
+impl PartialEq for UniformMap {
+    fn eq(&self, other: &Self) -> bool {
+        self.map.keys().collect::<Vec<_>>() == other.map.keys().collect::<Vec<_>>()
+    }
+}
+
 impl UniformMap {
     pub fn new() -> Self {
         Self {

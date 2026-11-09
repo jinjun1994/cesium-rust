@@ -76,6 +76,18 @@ pub struct ShaderProgram {
     pub(crate) is_destroyed: bool,
 }
 
+impl std::fmt::Debug for ShaderProgram {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("ShaderProgram")
+            .field("vertex_shader_text", &self.vertex_shader_text)
+            .field("fragment_shader_text", &self.fragment_shader_text)
+            .field("attribute_locations", &self.attribute_locations)
+            .field("vertex_attributes", &self.vertex_attributes)
+            .field("is_destroyed", &self.is_destroyed)
+            .finish()
+    }
+}
+
 impl ShaderProgram {
     pub fn new(
         vertex_shader_source: ShaderSource,

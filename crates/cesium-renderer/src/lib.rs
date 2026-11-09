@@ -44,7 +44,9 @@ pub use builtin_functions::{BuiltinFunctions, Ray};
 pub use buffer::{Buffer, BufferOptions, BufferTarget, BufferUsage, IndexBufferOptions};
 pub use capabilities::RendererCapabilities;
 pub use commands::{
-    ClearCommand, ClearCommandOptions, DrawCommand, DrawCommandOptions, Pass, NUMBER_OF_PASSES,
+    ClearCommand, ClearCommandOptions, DrawCommand, DrawCommandOptions, FramebufferHandle,
+    Pass, RenderStateHandle, ShaderProgramHandle, UniformMapHandle, VertexArrayHandle,
+    NUMBER_OF_PASSES,
 };
 pub use compute_command::{ComputeCommand, ComputeCommandOptions};
 pub use context::{Context, ContextLimits, ContextOptions, ReadPixelsOptions};

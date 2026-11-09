@@ -7,8 +7,172 @@ use std::sync::Arc;
 use crate::context::Context;
 use crate::framebuffer::Framebuffer;
 use crate::render_state::RenderState;
+use crate::shader_cache::ShaderProgram;
+use crate::uniform::UniformMap;
+use crate::vertex_array::VertexArray;
 use cesium_math::{BoundingSphere, Color, DeveloperError, OrientedBoundingBox, PrimitiveType};
 use glam::DMat4;
+
+/// Handle to a ShaderProgram: either a named identifier or a compiled program instance.
+#[derive(Clone, Debug)]
+pub enum ShaderProgramHandle {
+    Name(String),
+    Program(Rc<ShaderProgram>),
+}
+
+impl PartialEq for ShaderProgramHandle {
+    fn eq(&self, other: &Self) -> bool {
+        match (self, other) {
+            (Self::Name(a), Self::Name(b)) => a == b,
+            (Self::Program(a), Self::Program(b)) => {
+                Rc::ptr_eq(a, b) || a.vertex_shader_text == b.vertex_shader_text
+            }
+            _ => false,
+        }
+    }
+}
+
+impl From<String> for ShaderProgramHandle {
+    fn from(s: String) -> Self {
+        Self::Name(s)
+    }
+}
+
+impl From<&str> for ShaderProgramHandle {
+    fn from(s: &str) -> Self {
+        Self::Name(s.to_string())
+    }
+}
+
+impl From<ShaderProgram> for ShaderProgramHandle {
+    fn from(p: ShaderProgram) -> Self {
+        Self::Program(Rc::new(p))
+    }
+}
+
+impl From<Rc<ShaderProgram>> for ShaderProgramHandle {
+    fn from(p: Rc<ShaderProgram>) -> Self {
+        Self::Program(p)
+    }
+}
+
+/// Handle to a VertexArray: either a named identifier or an instantiated vertex array.
+#[derive(Clone, Debug, PartialEq)]
+pub enum VertexArrayHandle {
+    Name(String),
+    Array(Rc<VertexArray>),
+}
+
+impl From<String> for VertexArrayHandle {
+    fn from(s: String) -> Self {
+        Self::Name(s)
+    }
+}
+
+impl From<&str> for VertexArrayHandle {
+    fn from(s: &str) -> Self {
+        Self::Name(s.to_string())
+    }
+}
+
+impl From<VertexArray> for VertexArrayHandle {
+    fn from(va: VertexArray) -> Self {
+        Self::Array(Rc::new(va))
+    }
+}
+
+impl From<Rc<VertexArray>> for VertexArrayHandle {
+    fn from(va: Rc<VertexArray>) -> Self {
+        Self::Array(va)
+    }
+}
+
+/// Handle to a RenderState: either a named identifier or a frozen render state.
+#[derive(Clone, Debug, PartialEq)]
+pub enum RenderStateHandle {
+    Name(String),
+    State(Arc<RenderState>),
+}
+
+impl From<String> for RenderStateHandle {
+    fn from(s: String) -> Self {
+        Self::Name(s)
+    }
+}
+
+impl From<&str> for RenderStateHandle {
+    fn from(s: &str) -> Self {
+        Self::Name(s.to_string())
+    }
+}
+
+impl From<RenderState> for RenderStateHandle {
+    fn from(rs: RenderState) -> Self {
+        Self::State(Arc::new(rs))
+    }
+}
+
+impl From<Arc<RenderState>> for RenderStateHandle {
+    fn from(rs: Arc<RenderState>) -> Self {
+        Self::State(rs)
+    }
+}
+
+/// Handle to a Framebuffer: either a named identifier or an instantiated framebuffer.
+#[derive(Clone, Debug, PartialEq)]
+pub enum FramebufferHandle {
+    Name(String),
+    Framebuffer(Rc<Framebuffer>),
+}
+
+impl From<String> for FramebufferHandle {
+    fn from(s: String) -> Self {
+        Self::Name(s)
+    }
+}
+
+impl From<&str> for FramebufferHandle {
+    fn from(s: &str) -> Self {
+        Self::Name(s.to_string())
+    }
+}
+
+impl From<Framebuffer> for FramebufferHandle {
+    fn from(fb: Framebuffer) -> Self {
+        Self::Framebuffer(Rc::new(fb))
+    }
+}
+
+impl From<Rc<Framebuffer>> for FramebufferHandle {
+    fn from(fb: Rc<Framebuffer>) -> Self {
+        Self::Framebuffer(fb)
+    }
+}
+
+/// Handle to Uniforms: either a key-value dictionary or a typed UniformMap.
+#[derive(Clone, Debug, PartialEq)]
+pub enum UniformMapHandle {
+    Map(HashMap<String, String>),
+    UniformMap(Rc<UniformMap>),
+}
+
+impl From<HashMap<String, String>> for UniformMapHandle {
+    fn from(m: HashMap<String, String>) -> Self {
+        Self::Map(m)
+    }
+}
+
+impl From<UniformMap> for UniformMapHandle {
+    fn from(um: UniformMap) -> Self {
+        Self::UniformMap(Rc::new(um))
+    }
+}
+
+impl From<Rc<UniformMap>> for UniformMapHandle {
+    fn from(um: Rc<UniformMap>) -> Self {
+        Self::UniformMap(um)
+    }
+}
 
 /// The render pass for a command, matching CesiumJS `Renderer/Pass.js`.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord)]
@@ -100,14 +264,14 @@ pub struct DrawCommandOptions {
     pub oriented_bounding_box: Option<OrientedBoundingBox>,
     pub model_matrix: Option<DMat4>,
     pub primitive_type: Option<PrimitiveType>,
-    pub vertex_array: Option<String>,
+    pub vertex_array: Option<VertexArrayHandle>,
     pub count: Option<usize>,
     pub offset: Option<usize>,
     pub instance_count: Option<usize>,
-    pub shader_program: Option<String>,
-    pub uniform_map: Option<HashMap<String, String>>,
-    pub render_state: Option<String>,
-    pub framebuffer: Option<String>,
+    pub shader_program: Option<ShaderProgramHandle>,
+    pub uniform_map: Option<UniformMapHandle>,
+    pub render_state: Option<RenderStateHandle>,
+    pub framebuffer: Option<FramebufferHandle>,
     pub pass: Option<Pass>,
     pub owner: Option<String>,
     pub pick_id: Option<String>,
@@ -130,14 +294,14 @@ pub struct DrawCommand {
     pub oriented_bounding_box: Option<OrientedBoundingBox>,
     pub model_matrix: Option<DMat4>,
     pub primitive_type: PrimitiveType,
-    pub vertex_array: Option<String>,
+    pub vertex_array: Option<VertexArrayHandle>,
     pub count: Option<usize>,
     pub offset: usize,
     pub instance_count: usize,
-    pub shader_program: Option<String>,
-    pub uniform_map: Option<HashMap<String, String>>,
-    pub render_state: Option<String>,
-    pub framebuffer: Option<String>,
+    pub shader_program: Option<ShaderProgramHandle>,
+    pub uniform_map: Option<UniformMapHandle>,
+    pub render_state: Option<RenderStateHandle>,
+    pub framebuffer: Option<FramebufferHandle>,
     pub pass: Option<Pass>,
     pub owner: Option<String>,
     pub pick_id: Option<String>,
@@ -211,5 +375,10 @@ impl DrawCommand {
         let mut cloned = cmd.clone();
         cloned.dirty = true;
         Some(cloned)
+    }
+
+    /// Executes this DrawCommand against a rendering Context.
+    pub fn execute(&self, context: &mut Context) -> Result<(), DeveloperError> {
+        context.draw(self)
     }
 }

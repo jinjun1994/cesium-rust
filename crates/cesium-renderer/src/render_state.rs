@@ -196,17 +196,58 @@ pub struct BlendingState {
 
 impl Default for BlendingState {
     fn default() -> Self {
-        Self {
-            enabled: false,
-            color: Color::new(0.0, 0.0, 0.0, 0.0),
-            equation_rgb: BlendEquation::Add,
-            equation_alpha: BlendEquation::Add,
-            function_source_rgb: BlendFunction::One,
-            function_source_alpha: BlendFunction::One,
-            function_destination_rgb: BlendFunction::Zero,
-            function_destination_alpha: BlendFunction::Zero,
-        }
+        Self::DISABLED
     }
+}
+
+impl BlendingState {
+    /// Blending is disabled.
+    pub const DISABLED: Self = Self {
+        enabled: false,
+        color: Color::new(0.0, 0.0, 0.0, 0.0),
+        equation_rgb: BlendEquation::Add,
+        equation_alpha: BlendEquation::Add,
+        function_source_rgb: BlendFunction::One,
+        function_source_alpha: BlendFunction::One,
+        function_destination_rgb: BlendFunction::Zero,
+        function_destination_alpha: BlendFunction::Zero,
+    };
+
+    /// Blending is enabled using alpha blending: source * source.alpha + destination * (1 - source.alpha).
+    pub const ALPHA_BLEND: Self = Self {
+        enabled: true,
+        color: Color::new(0.0, 0.0, 0.0, 0.0),
+        equation_rgb: BlendEquation::Add,
+        equation_alpha: BlendEquation::Add,
+        function_source_rgb: BlendFunction::SrcAlpha,
+        function_source_alpha: BlendFunction::One,
+        function_destination_rgb: BlendFunction::OneMinusSrcAlpha,
+        function_destination_alpha: BlendFunction::OneMinusSrcAlpha,
+    };
+
+    /// Blending is enabled using alpha blending with premultiplied alpha.
+    pub const PRE_MULTIPLIED_ALPHA_BLEND: Self = Self {
+        enabled: true,
+        color: Color::new(0.0, 0.0, 0.0, 0.0),
+        equation_rgb: BlendEquation::Add,
+        equation_alpha: BlendEquation::Add,
+        function_source_rgb: BlendFunction::One,
+        function_source_alpha: BlendFunction::One,
+        function_destination_rgb: BlendFunction::OneMinusSrcAlpha,
+        function_destination_alpha: BlendFunction::OneMinusSrcAlpha,
+    };
+
+    /// Blending is enabled using additive blending: source * source.alpha + destination.
+    pub const ADDITIVE_BLEND: Self = Self {
+        enabled: true,
+        color: Color::new(0.0, 0.0, 0.0, 0.0),
+        equation_rgb: BlendEquation::Add,
+        equation_alpha: BlendEquation::Add,
+        function_source_rgb: BlendFunction::SrcAlpha,
+        function_source_alpha: BlendFunction::One,
+        function_destination_rgb: BlendFunction::One,
+        function_destination_alpha: BlendFunction::One,
+    };
 }
 
 impl Eq for BlendingState {}
