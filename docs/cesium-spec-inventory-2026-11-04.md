@@ -507,7 +507,7 @@
 | [packages/engine/Specs/Scene/DebugAppearanceSpec.js](../../cesium/packages/engine/Specs/Scene/DebugAppearanceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/DebugCameraPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/DebugCameraPrimitiveSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/DebugModelMatrixPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/DebugModelMatrixPrimitiveSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/DepthPlaneSpec.js](../../cesium/packages/engine/Specs/Scene/DepthPlaneSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/DepthPlaneSpec.js](../../cesium/packages/engine/Specs/Scene/DepthPlaneSpec.js) | 已移植：地球背面遮挡深度面计算抽象（DepthPlane）、默认与自定义椭球偏移（depthPlaneEllipsoidOffset）、包围球半径动态响应（boundingVolume.radius 随 offset 计算）、透视与正交视锥下的切平面四边形顶点计算（depth_plane_spec.rs，2 项测试全部通过） |
 | [packages/engine/Specs/Scene/DeviceOrientationCameraControllerSpec.js](../../cesium/packages/engine/Specs/Scene/DeviceOrientationCameraControllerSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/DirectionalLightSpec.js](../../cesium/packages/engine/Specs/Scene/DirectionalLightSpec.js) | 已移植：平行光定向光源抽象（DirectionalLight / DirectionalLightOptions）、默认与自定义参数（direction、color 默认 WHITE、intensity 默认 1.0）、零长度方向向量异常校验拦截（ZeroLengthDirection DeveloperError）（directional_light_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/Scene/DiscardEmptyTileImagePolicySpec.js](../../cesium/packages/engine/Specs/Scene/DiscardEmptyTileImagePolicySpec.js) | 已移植：空瓦片图像丢弃策略抽象（DiscardEmptyTileImagePolicy）、1x1 透明 PNG 静态常量匹配（EMPTY_IMAGE）、准备就绪检查与应否丢弃判断（discard_empty_tile_image_policy_spec.rs，2 项测试全部通过） |
