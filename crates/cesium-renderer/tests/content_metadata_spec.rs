@@ -7,6 +7,7 @@ fn make_content_class_with_no_properties() -> MetadataClass {
         "id": "content",
         "class": {}
     }))
+    .unwrap()
 }
 
 fn make_content_class() -> MetadataClass {
@@ -27,6 +28,7 @@ fn make_content_class() -> MetadataClass {
             }
         }
     }))
+    .unwrap()
 }
 
 fn make_default_content_metadata() -> ContentMetadata {

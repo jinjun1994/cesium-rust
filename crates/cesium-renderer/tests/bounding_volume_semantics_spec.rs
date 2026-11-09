@@ -59,7 +59,7 @@ fn setup_fixtures() -> (
             }
         }
     });
-    let tile_class = MetadataClass::from_json(&tile_class_json);
+    let tile_class = MetadataClass::from_json(&tile_class_json).unwrap();
     let empty_tile_metadata = TileMetadata::default();
 
     (

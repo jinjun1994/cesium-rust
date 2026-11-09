@@ -7,6 +7,7 @@ fn make_building_class_with_no_properties() -> MetadataClass {
         "id": "building",
         "class": {}
     }))
+    .unwrap()
 }
 
 fn make_building_class() -> MetadataClass {
@@ -26,6 +27,7 @@ fn make_building_class() -> MetadataClass {
             }
         }
     }))
+    .unwrap()
 }
 
 #[test]
@@ -152,7 +154,8 @@ fn has_property_returns_true_when_class_has_default_value() {
                 }
             }
         }
-    }));
+    }))
+    .unwrap();
 
     let group_metadata = GroupMetadata::new(GroupMetadataOptions {
         id: Some("building".to_string()),
@@ -218,7 +221,8 @@ fn has_property_by_semantic_returns_true_when_class_has_default() {
                 }
             }
         }
-    }));
+    }))
+    .unwrap();
 
     let group_metadata = GroupMetadata::new(GroupMetadataOptions {
         id: Some("building".to_string()),
@@ -257,7 +261,8 @@ fn get_property_ids_returns_property_ids_and_defaults() {
                 }
             }
         }
-    }));
+    }))
+    .unwrap();
 
     let group_metadata = GroupMetadata::new(GroupMetadataOptions {
         id: Some("building".to_string()),
@@ -291,7 +296,8 @@ fn get_property_returns_value_and_defaults() {
                 }
             }
         }
-    }));
+    }))
+    .unwrap();
 
     let group_metadata = GroupMetadata::new(GroupMetadataOptions {
         id: Some("building".to_string()),

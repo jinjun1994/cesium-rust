@@ -24,7 +24,7 @@ fn make_subtree_class() -> MetadataClass {
             }
         }
     });
-    MetadataClass::from_json(&json)
+    MetadataClass::from_json(&json).unwrap()
 }
 
 #[test]
@@ -120,7 +120,7 @@ fn has_property_with_class_default() {
             }
         }
     });
-    let subtree_class = MetadataClass::from_json(&class_json);
+    let subtree_class = MetadataClass::from_json(&class_json).unwrap();
     let subtree_metadata = ImplicitSubtreeMetadata::new(ImplicitSubtreeMetadataOptions {
         class: Some(subtree_class),
         subtree_metadata: Some(json!({})),

@@ -59,9 +59,9 @@ fn create_schema_and_classes() -> (MetadataClass, MetadataClass, MetadataClass) 
     });
 
     (
-        MetadataClass::from_json(&tile_class_json),
-        MetadataClass::from_json(&building_class_json),
-        MetadataClass::from_json(&tree_class_json),
+        MetadataClass::from_json(&tile_class_json).unwrap(),
+        MetadataClass::from_json(&building_class_json).unwrap(),
+        MetadataClass::from_json(&tree_class_json).unwrap(),
     )
 }
 

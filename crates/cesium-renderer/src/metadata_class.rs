@@ -19,9 +19,9 @@ pub struct MetadataClass {
 }
 
 impl MetadataClass {
-    /// Creates a `MetadataClass` from JSON options.
-    pub fn from_json(options: &serde_json::Value) -> Self {
-        Self::from_json_with_enums(options, None).unwrap_or_default()
+    /// Creates a `MetadataClass` from JSON options (throws DeveloperError if id or class missing).
+    pub fn from_json(options: &serde_json::Value) -> Result<Self, DeveloperError> {
+        Self::from_json_with_enums(options, None)
     }
 
     /// Creates a `MetadataClass` from JSON options and optional enum mappings.
@@ -32,29 +32,32 @@ impl MetadataClass {
         let id = options
             .get("id")
             .and_then(|v| v.as_str())
-            .unwrap_or("")
+            .ok_or_else(|| DeveloperError::new("options.id is required."))?
             .to_string();
 
-        let class_obj = options.get("class").and_then(|c| c.as_object());
+        let class_obj = options
+            .get("class")
+            .and_then(|c| c.as_object())
+            .ok_or_else(|| DeveloperError::new("options.class is required."))?;
 
         let name = class_obj
-            .and_then(|c| c.get("name"))
+            .get("name")
             .and_then(|n| n.as_str())
             .map(|s| s.to_string());
 
         let description = class_obj
-            .and_then(|c| c.get("description"))
+            .get("description")
             .and_then(|d| d.as_str())
             .map(|s| s.to_string());
 
-        let extras = class_obj.and_then(|c| c.get("extras")).cloned();
-        let extensions = class_obj.and_then(|c| c.get("extensions")).cloned();
+        let extras = class_obj.get("extras").cloned();
+        let extensions = class_obj.get("extensions").cloned();
 
         let mut properties = HashMap::new();
         let mut properties_by_semantic = HashMap::new();
 
         if let Some(props_map) = class_obj
-            .and_then(|c| c.get("properties"))
+            .get("properties")
             .and_then(|p| p.as_object())
         {
             for (prop_id, prop_val) in props_map {
@@ -80,6 +83,6 @@ impl MetadataClass {
 
     /// Convenience parser matching legacy signature for single JSON definition.
     pub fn from_value(json: &serde_json::Value) -> Self {
-        Self::from_json(json)
+        Self::from_json(json).unwrap_or_default()
     }
 }
