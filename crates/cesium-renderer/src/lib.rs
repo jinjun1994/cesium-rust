@@ -14,6 +14,7 @@ pub mod capabilities;
 pub mod cesium_3d_tile_content_type;
 pub mod cesium_3d_tile_feature_table;
 pub mod cesium_3d_tile_pass_state;
+pub mod clipping_plane;
 pub mod commands;
 pub mod compute_command;
 pub mod context;
@@ -78,6 +79,7 @@ pub use cesium_3d_tile_feature_table::Cesium3DTileFeatureTable;
 pub use cesium_3d_tile_pass_state::{
     Cesium3DTilePass, Cesium3DTilePassState, Cesium3DTilePassStateOptions,
 };
+pub use clipping_plane::{ClippingPlane, ClippingPlaneChangeCallback};
 pub use commands::{
     ClearCommand, ClearCommandOptions, DrawCommand, DrawCommandOptions, FramebufferHandle,
     Pass, RenderStateHandle, ShaderProgramHandle, UniformMapHandle, VertexArrayHandle,

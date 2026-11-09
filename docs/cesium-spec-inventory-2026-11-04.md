@@ -494,7 +494,7 @@
 | [packages/engine/Specs/Scene/CircleEmitterSpec.js](../../cesium/packages/engine/Specs/Scene/CircleEmitterSpec.js) | 已移植：圆形粒子发射器（CircleEmitter / ParticleEmitter）、默认与自定义半径（radius）、非正数半径异常校验拦截（validate_radius DeveloperError）、动态半径修改（set_radius）、圆盘内极坐标随机分布采样与沿 Z 轴单位向量初始速度（emit）（circle_emitter_spec.rs，6 项测试全部通过） |
 | [packages/engine/Specs/Scene/ClassificationPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/ClassificationPrimitiveSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/ClippingPlaneCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPlaneCollectionSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/ClippingPlaneSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPlaneSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ClippingPlaneSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPlaneSpec.js) | 已移植：裁剪面抽象（ClippingPlane）、法向量与原点距离属性、数值变动响应回调（on_change_callback）、Plane 互转（from_plane / to_plane）、浅拷贝（clone / clone_to）与 Plane 变换矩阵兼容计算（clipping_plane_spec.rs，5 项测试全部通过） |
 | [packages/engine/Specs/Scene/ClippingPolygonCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPolygonCollectionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/ClippingPolygonSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPolygonSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/CloudCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/CloudCollectionSpec.js) | 待逐项核对 |
