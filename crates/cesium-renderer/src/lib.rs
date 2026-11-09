@@ -230,9 +230,11 @@ pub use dequantization_pipeline_stage::{
     DequantizationPrimitive, DequantizationRenderResources, DequantizationUniformCallback,
 };
 pub use edge_visibility_pipeline_stage::{
-    extract_visible_edges, EdgeDataEntry, EdgeDisplayMode, EdgeGeometry, EdgeVisibilityData,
+    extract_visible_edges, EdgeDataEntry, EdgeDetectionPipelineStage, EdgeDisplayMode,
+    EdgeGeometry, EdgeRenderCommand, EdgeRenderingModel, EdgeVisibilityData,
     EdgeVisibilityLineString, EdgeVisibilityPipelineStage, EdgeVisibilityPrimitive,
     EdgeVisibilityRenderResources, EdgeVisibilityType, VisibleEdgesResult,
+    EDGE_DETECTION_STAGE_FS,
 };
 pub use model_components::Quantization;
 pub use context::{Context, ContextLimits, ContextOptions, ReadPixelsOptions};

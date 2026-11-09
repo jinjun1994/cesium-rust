@@ -134,6 +134,11 @@ impl EdgeVisibilityPipelineStage {
         sb.add_define("HAS_EDGE_VISIBILITY", None, Some(ShaderDestination::BOTH));
         sb.add_define("HAS_EDGE_VISIBILITY_MRT", None, Some(ShaderDestination::FRAGMENT));
 
+        sb.add_fragment_lines(&[
+            "layout(location = 1) out vec4 out_id;",
+            "layout(location = 2) out vec4 out_edgeDepth;",
+        ]);
+
         sb.add_uniform("bool", "u_isEdgePass", Some(ShaderDestination::BOTH));
         sb.add_uniform("float", "u_lineWidth", Some(ShaderDestination::VERTEX));
 
@@ -545,5 +550,247 @@ fn create_quad_edge_geometry(
         primitive_type: PrimitiveType::Triangles,
         pass: Pass::Cesium3dTileEdges,
         line_width: Some(1.0),
+    }
+}
+
+/// Fragment shader snippet for edge detection in surface pass.
+pub const EDGE_DETECTION_STAGE_FS: &str = r#"
+void edgeDetectionStage(inout vec4 color, inout FeatureIds featureIds) {
+    if (u_isEdgePass) {
+        return;
+    }
+
+    vec2 screenCoord = gl_FragCoord.xy / czm_viewport.zw;
+
+    vec4 edgeColor = texture(czm_edgeColorTexture, screenCoord);
+    vec4 edgeId = texture(czm_edgeIdTexture, screenCoord);
+
+    // Packed window-space depth from edge pass (0..1)
+    float edgeDepthWin = czm_unpackDepth(texture(czm_edgeDepthTexture, screenCoord));
+
+    // Near / far for current frustum
+    float n = czm_currentFrustum.x;
+    float f = czm_currentFrustum.y;
+
+    // geometry depth in eye coordinate
+    vec4 geomEC = czm_windowToEyeCoordinates(gl_FragCoord);
+    float geomDepthLinear = -geomEC.z;
+
+    // Convert edge depth to linear depth
+    float z_ndc_edge = edgeDepthWin * 2.0 - 1.0;
+    float edgeDepthLinear = (2.0 * n * f) / (f + n - z_ndc_edge * (f - n));
+
+    float d = abs(edgeDepthLinear - geomDepthLinear);
+
+    // Adaptive epsilon using linear depth fwidth for robustness
+    float pixelStepLinear = fwidth(geomDepthLinear);
+    float rel = geomDepthLinear * 0.0005;
+    float eps = max(n * 1e-4, max(pixelStepLinear * 1.5, rel));
+
+    // If Edge isn't behind any geometry and the pixel has edge data
+    if (d < eps && edgeId.r > 0.0) {
+#ifdef HAS_EDGE_FEATURE_ID
+        float edgeFeatureId    = edgeId.g;
+        float currentFeatureId = float(featureIds.featureId_0);
+#endif
+        float globeDepth = czm_unpackDepth(texture(czm_globeDepthTexture, screenCoord));
+        // Background / sky / globe: always show edge
+        bool isBackground = geomDepthLinear > globeDepth;
+        bool drawEdge = isBackground;
+
+#ifdef HAS_EDGE_FEATURE_ID
+        bool hasEdgeFeature = edgeFeatureId > 0.0;
+        bool hasCurrentFeature = currentFeatureId > 0.0;
+        bool featuresMatch = edgeFeatureId == currentFeatureId;
+
+        drawEdge = drawEdge || !hasEdgeFeature || !hasCurrentFeature || featuresMatch;
+#else
+        drawEdge = true;
+#endif
+
+        if (drawEdge) {
+            color = edgeColor;
+        }
+    }
+}
+"#;
+
+/// Stage injecting fragment shader logic for edge detection and screen-space composition.
+pub struct EdgeDetectionPipelineStage;
+
+impl EdgeDetectionPipelineStage {
+    pub const NAME: &'static str = "EdgeDetectionPipelineStage";
+
+    pub fn process(render_resources: &mut EdgeVisibilityRenderResources<'_>) {
+        render_resources
+            .shader_builder
+            .add_fragment_lines(&[EDGE_DETECTION_STAGE_FS]);
+    }
+}
+
+/// Edge draw command representation holding shader text, pass and uniforms.
+#[derive(Clone, Debug)]
+pub struct EdgeRenderCommand {
+    pub pass: Pass,
+    pub vertex_shader_text: String,
+    pub fragment_shader_text: String,
+    pub is_edge_pass: bool,
+    pub is_destroyed: bool,
+}
+
+impl EdgeRenderCommand {
+    pub fn destroy(&mut self) {
+        self.is_destroyed = true;
+    }
+}
+
+/// Simulated model managing multi-pass edge commands and snapping.
+#[derive(Clone, Debug)]
+pub struct EdgeRenderingModel {
+    pub edge_display_mode: EdgeDisplayMode,
+    pub edge_geometry_needed: bool,
+    pub edge_geometry_needed_for_snapping: bool,
+    pub primitive: EdgeVisibilityPrimitive,
+    pub edge_commands: Vec<EdgeRenderCommand>,
+    pub surface_commands: Vec<EdgeRenderCommand>,
+    pub is_destroyed: bool,
+}
+
+impl EdgeRenderingModel {
+    pub fn new(primitive: EdgeVisibilityPrimitive, mode: EdgeDisplayMode) -> Self {
+        Self {
+            edge_display_mode: mode,
+            edge_geometry_needed: false,
+            edge_geometry_needed_for_snapping: false,
+            primitive,
+            edge_commands: Vec::new(),
+            surface_commands: Vec::new(),
+            is_destroyed: false,
+        }
+    }
+
+    pub fn reset_draw_commands(&mut self) {
+        for cmd in &mut self.edge_commands {
+            cmd.destroy();
+        }
+        self.edge_commands.clear();
+        self.surface_commands.clear();
+        self.edge_geometry_needed = false;
+    }
+
+    pub fn destroy(&mut self) {
+        self.reset_draw_commands();
+        self.is_destroyed = true;
+    }
+
+    pub fn update(
+        &mut self,
+        snap_pass: bool,
+        edge_visibility_requested: &mut bool,
+        enable_edge_visibility: &mut bool,
+        command_list: &mut Vec<EdgeRenderCommand>,
+    ) {
+        if snap_pass {
+            self.edge_geometry_needed_for_snapping = true;
+        }
+
+        let needs_edges = self.edge_display_mode != EdgeDisplayMode::SurfacesOnly
+            || self.edge_geometry_needed_for_snapping;
+
+        self.edge_geometry_needed = needs_edges;
+
+        if needs_edges && self.edge_commands.is_empty() {
+            let mut sb = ShaderBuilder::default();
+            let mut um = HashMap::new();
+            let mut rr = EdgeVisibilityRenderResources {
+                shader_builder: &mut sb,
+                uniform_map: &mut um,
+                edge_geometry: None,
+            };
+            EdgeVisibilityPipelineStage::process(&mut rr, &self.primitive);
+
+            let pass = match self.edge_display_mode {
+                EdgeDisplayMode::EdgesOnly => Pass::Cesium3dTileEdgesDirect,
+                _ => Pass::Cesium3dTileEdges,
+            };
+
+            let vs_source = rr.shader_builder.create_vertex_shader_source();
+            let mut vs_parts = vs_source
+                .defines
+                .iter()
+                .map(|d| format!("#define {}\n", d))
+                .collect::<Vec<_>>();
+            vs_parts.extend(vs_source.sources);
+            let vs = vs_parts.join("\n");
+
+            let fs_source = rr.shader_builder.create_fragment_shader_source();
+            let mut fs_parts = fs_source
+                .defines
+                .iter()
+                .map(|d| format!("#define {}\n", d))
+                .collect::<Vec<_>>();
+            fs_parts.extend(fs_source.sources);
+            fs_parts.push("layout(location = 1) out vec4 out_id;".to_string());
+            fs_parts.push("layout(location = 2) out vec4 out_edgeDepth;".to_string());
+            let fs = fs_parts.join("\n");
+
+            let edge_cmd = EdgeRenderCommand {
+                pass,
+                vertex_shader_text: vs,
+                fragment_shader_text: fs,
+                is_edge_pass: true,
+                is_destroyed: false,
+            };
+            self.edge_commands.push(edge_cmd);
+        }
+
+        if self.surface_commands.is_empty() && self.edge_display_mode != EdgeDisplayMode::EdgesOnly {
+            let mut sb = ShaderBuilder::default();
+            let mut um = HashMap::new();
+            let mut rr = EdgeVisibilityRenderResources {
+                shader_builder: &mut sb,
+                uniform_map: &mut um,
+                edge_geometry: None,
+            };
+            EdgeDetectionPipelineStage::process(&mut rr);
+
+            let vs = rr.shader_builder.create_vertex_shader_source().sources.join("\n");
+            let fs = rr.shader_builder.create_fragment_shader_source().sources.join("\n");
+
+            let surf_cmd = EdgeRenderCommand {
+                pass: Pass::Cesium3dTile,
+                vertex_shader_text: vs,
+                fragment_shader_text: fs,
+                is_edge_pass: false,
+                is_destroyed: false,
+            };
+            self.surface_commands.push(surf_cmd);
+        }
+
+        // Update frame states and collect commands
+        match self.edge_display_mode {
+            EdgeDisplayMode::SurfacesOnly => {
+                *edge_visibility_requested = false;
+                for cmd in &self.surface_commands {
+                    command_list.push(cmd.clone());
+                }
+            }
+            EdgeDisplayMode::SurfacesAndEdges => {
+                *edge_visibility_requested = true;
+                *enable_edge_visibility = true;
+                for cmd in &self.surface_commands {
+                    command_list.push(cmd.clone());
+                }
+                for cmd in &self.edge_commands {
+                    command_list.push(cmd.clone());
+                }
+            }
+            EdgeDisplayMode::EdgesOnly => {
+                *edge_visibility_requested = false;
+                for cmd in &self.edge_commands {
+                    command_list.push(cmd.clone());
+                }
+            }
+        }
     }
 }
