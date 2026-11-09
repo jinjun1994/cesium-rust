@@ -2,6 +2,7 @@
 //! robust device state recovery, and multi-tier frame performance telemetry.
 
 pub mod automatic_uniforms;
+pub mod builtin_functions;
 pub mod buffer;
 pub mod capabilities;
 pub mod commands;
@@ -39,6 +40,7 @@ use thiserror::Error;
 use wgpu::util::DeviceExt;
 
 pub use automatic_uniforms::{AutomaticUniform, AutomaticUniforms, UniformState};
+pub use builtin_functions::{BuiltinFunctions, Ray};
 pub use buffer::{Buffer, BufferOptions, BufferTarget, BufferUsage, IndexBufferOptions};
 pub use capabilities::RendererCapabilities;
 pub use commands::{
