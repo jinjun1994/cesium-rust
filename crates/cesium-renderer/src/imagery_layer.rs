@@ -96,6 +96,8 @@ pub struct ImageryLayerOptions {
     pub cutout_rectangle: Option<GeoRectangle>,
     pub color_to_alpha: Option<Color>,
     pub color_to_alpha_threshold: Option<f32>,
+    pub minimum_terrain_level: Option<u32>,
+    pub maximum_terrain_level: Option<u32>,
 }
 
 /// An imagery layer on the globe or 3D tileset.
@@ -120,6 +122,8 @@ pub struct ImageryLayer {
     cutout_rectangle: Option<GeoRectangle>,
     color_to_alpha: Option<Color>,
     color_to_alpha_threshold: f32,
+    minimum_terrain_level: Option<u32>,
+    maximum_terrain_level: Option<u32>,
 
     layer_index: usize,
     is_base_layer: bool,
@@ -160,6 +164,8 @@ impl ImageryLayer {
             cutout_rectangle: opts.cutout_rectangle,
             color_to_alpha: opts.color_to_alpha,
             color_to_alpha_threshold: opts.color_to_alpha_threshold.unwrap_or(0.004),
+            minimum_terrain_level: opts.minimum_terrain_level,
+            maximum_terrain_level: opts.maximum_terrain_level,
 
             layer_index: 0,
             is_base_layer: false,
@@ -322,6 +328,37 @@ impl ImageryLayer {
 
     pub fn set_layer_index(&mut self, idx: usize) {
         self.layer_index = idx;
+    }
+
+    pub fn minimum_terrain_level(&self) -> Option<u32> {
+        self.minimum_terrain_level
+    }
+
+    pub fn set_minimum_terrain_level(&mut self, level: Option<u32>) {
+        self.minimum_terrain_level = level;
+    }
+
+    pub fn maximum_terrain_level(&self) -> Option<u32> {
+        self.maximum_terrain_level
+    }
+
+    pub fn set_maximum_terrain_level(&mut self, level: Option<u32>) {
+        self.maximum_terrain_level = level;
+    }
+
+    pub fn is_tile_level_supported(&self, level: u32) -> bool {
+        let min = self.minimum_terrain_level.unwrap_or(0);
+        let max = self.maximum_terrain_level.unwrap_or(u32::MAX);
+        level >= min && level <= max
+    }
+
+    pub fn get_imagery_rectangle(&self) -> Option<GeoRectangle> {
+        if let Some(provider) = &self.provider {
+            let p_rect = provider.rectangle();
+            self.rectangle.intersection(p_rect)
+        } else {
+            Some(self.rectangle)
+        }
     }
 
     pub fn is_ready(&self) -> bool {
