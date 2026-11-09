@@ -47,6 +47,7 @@ pub mod framebuffer;
 pub mod frame_rate_monitor;
 pub mod frustum_commands;
 pub mod gltf_buffer_view_loader;
+pub mod gltf_image_loader;
 pub mod gltf_index_buffer_loader;
 pub mod gltf_json_loader;
 pub mod gltf_vertex_buffer_loader;

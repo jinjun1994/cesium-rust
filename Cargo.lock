@@ -252,6 +252,7 @@ dependencies = [
 name = "cesium-renderer"
 version = "0.0.26"
 dependencies = [
+ "base64 0.22.1",
  "bytemuck",
  "cesium-formats",
  "cesium-math",
