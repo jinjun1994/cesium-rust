@@ -84,11 +84,12 @@ fn parse_availability_entry(
 ) -> Result<ImplicitAvailabilityBitstream, DeveloperError> {
     let obj = match entry {
         Some(v) => v,
-        None => return Ok(ImplicitAvailabilityBitstream::constant(0)),
+        None => return Ok(ImplicitAvailabilityBitstream::default()),
     };
 
     if let Some(constant) = obj.get("constant").and_then(|c| c.as_u64()) {
-        return Ok(ImplicitAvailabilityBitstream::constant(constant as u8));
+        let bit_len = obj.get("bitLength").and_then(|b| b.as_u64()).unwrap_or(1024) as usize;
+        return Ok(ImplicitAvailabilityBitstream::constant(constant != 0, bit_len));
     }
 
     if let Some(descriptor) = obj.get("descriptor").and_then(|d| d.as_str()) {
@@ -101,5 +102,5 @@ fn parse_availability_entry(
         ));
     }
 
-    Ok(ImplicitAvailabilityBitstream::constant(0))
+    Ok(ImplicitAvailabilityBitstream::default())
 }
