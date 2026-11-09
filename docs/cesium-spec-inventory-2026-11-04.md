@@ -500,7 +500,7 @@
 | [packages/engine/Specs/Scene/CloudCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/CloudCollectionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Composite3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Composite3DTileContentSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/ConditionsExpressionSpec.js](../../cesium/packages/engine/Specs/Scene/ConditionsExpressionSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/ConeEmitterSpec.js](../../cesium/packages/engine/Specs/Scene/ConeEmitterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ConeEmitterSpec.js](../../cesium/packages/engine/Specs/Scene/ConeEmitterSpec.js) | 已移植：圆锥体粒子发射器（ConeEmitter / ParticleEmitter）、默认与自定义锥角（angle）、动态角度修改（set_angle）、顶点零坐标定位、底面圆盘随机采样、单位化速度矢量与 Z 轴夹角极限约束（acos(v.z) <= angle）（cone_emitter_spec.rs，4 项测试全部通过） |
 | [packages/engine/Specs/Scene/ContentMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/ContentMetadataSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/CreditDisplaySpec.js](../../cesium/packages/engine/Specs/Scene/CreditDisplaySpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/CubeMapPanoramaSpec.js](../../cesium/packages/engine/Specs/Scene/CubeMapPanoramaSpec.js) | 待逐项核对 |
