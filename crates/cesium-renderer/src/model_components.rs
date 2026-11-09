@@ -2,7 +2,7 @@
 
 use crate::axis::Axis;
 use crate::buffer::Buffer;
-use crate::gltf_loader_util::ModelTextureReader;
+pub use crate::gltf_loader_util::ModelTextureReader;
 use cesium_math::{
     AttributeType, Cartesian3, Cartesian4, ComponentDatatype, IndexDatatype, Matrix4,
     PrimitiveType, Quaternion,

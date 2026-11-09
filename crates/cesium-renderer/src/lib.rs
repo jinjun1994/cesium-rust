@@ -24,6 +24,7 @@ pub mod clipping_polygon;
 pub mod clipping_polygon_collection;
 pub mod classification_model_draw_command;
 pub mod classification_pipeline_stage;
+pub mod feature_id_pipeline_stage;
 pub mod cloud_collection;
 pub mod commands;
 pub mod compute_command;
@@ -229,6 +230,10 @@ pub use custom_shader_pipeline_stage::{
 pub use dequantization_pipeline_stage::{
     DequantizationAttribute, DequantizationModelOptions, DequantizationPipelineStage,
     DequantizationPrimitive, DequantizationRenderResources, DequantizationUniformCallback,
+};
+pub use feature_id_pipeline_stage::{
+    FeatureIdPipelineStage, FeatureIdRenderResources, FeatureIdVertexAttribute,
+    SHADERS_FEATURE_ID_STAGE_FS, SHADERS_FEATURE_ID_STAGE_VS,
 };
 pub use edge_visibility_pipeline_stage::{
     extract_visible_edges, EdgeDataEntry, EdgeDetectionPipelineStage, EdgeDisplayMode,
