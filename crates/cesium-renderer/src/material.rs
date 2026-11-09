@@ -14,6 +14,7 @@ pub struct Material {
 
 impl Material {
     pub const COLOR_TYPE: &'static str = "Color";
+    pub const STRIPE_TYPE: &'static str = "Stripe";
 
     /// Creates a default Material.
     pub fn new() -> Self {
@@ -28,6 +29,12 @@ impl Material {
                 shader_source: "czm_material czm_getMaterial(czm_materialInput materialInput) { czm_material material = czm_getDefaultMaterial(materialInput); material.diffuse = color.rgb; material.alpha = color.a; return material; }".to_string(),
                 translucent: true,
                 uniforms: HashMap::from([("color".to_string(), "vec4(1.0, 0.0, 0.0, 0.5)".to_string())]),
+            }),
+            "Stripe" => Ok(Self {
+                material_type: "Stripe".to_string(),
+                shader_source: "czm_material czm_getMaterial(czm_materialInput materialInput) { czm_material material = czm_getDefaultMaterial(materialInput); return material; }".to_string(),
+                translucent: false,
+                uniforms: HashMap::new(),
             }),
             _ => Err(DeveloperError::new(format!(
                 "material with type '{material_type}' does not exist."
