@@ -1,8 +1,15 @@
 //! I3SLayer matching CesiumJS `Scene/I3SLayer.js` (Apache-2.0).
 
-use cesium_math::{Color, GeoRectangle, RuntimeError};
+use cesium_math::{Color, GeoRectangle, Resource, RuntimeError};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+
+/// Attribute filter for an I3S Layer or Node.
+#[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
+pub struct I3SAttributeFilter {
+    pub name: String,
+    pub values: Vec<Value>,
+}
 
 /// Geometry buffer information within an I3S geometry definition.
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
@@ -62,6 +69,7 @@ pub struct I3SLayer {
     pub root_node: Option<I3SRootNode>,
     pub tileset: Option<I3STileset>,
     pub visibility: bool,
+    pub resource: Option<Resource>,
 }
 
 impl I3SLayer {
@@ -118,6 +126,13 @@ impl I3SLayer {
 
         let legacy_version_16 = major < 1 || (major == 1 && minor <= 6);
 
+        let mut full_layer_url = tileset_url.clone();
+        if let Some(qp) = &query_params {
+            full_layer_url.push('?');
+            full_layer_url.push_str(qp);
+        }
+        let resource = Some(Resource::from_url(&full_layer_url));
+
         let mut layer = Self {
             url: tileset_url,
             query_params,
@@ -131,6 +146,7 @@ impl I3SLayer {
             root_node: None,
             tileset: None,
             visibility: true,
+            resource,
         };
 
         layer.compute_extent();

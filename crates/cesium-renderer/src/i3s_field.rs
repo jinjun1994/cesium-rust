@@ -1,11 +1,12 @@
 //! I3SField matching CesiumJS `Scene/I3SField.js` (Apache-2.0).
 
-use cesium_math::RuntimeError;
+use cesium_math::{Resource, RuntimeError};
+use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::collections::HashMap;
 
 /// Storage definition for a single attribute in I3SField.
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
 pub struct I3SAttributeStorageInfo {
     pub key: String,
     pub name: String,
@@ -18,14 +19,14 @@ pub struct I3SAttributeStorageInfo {
 }
 
 /// Header item descriptor.
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
 pub struct I3SHeaderItem {
     pub property: String,
     pub value_type: String,
 }
 
 /// Value descriptor.
-#[derive(Clone, Debug, Default, PartialEq)]
+#[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
 pub struct I3SValueDesc {
     pub value_type: String,
     pub values_per_element: Option<usize>,
@@ -33,12 +34,13 @@ pub struct I3SValueDesc {
 }
 
 /// I3S Field representing custom attribute data attached to nodes.
-#[derive(Clone, Debug, Default)]
+#[derive(Clone, Debug, Default, PartialEq)]
 pub struct I3SField {
     pub storage_info: I3SAttributeStorageInfo,
     pub header: Option<HashMap<String, u64>>,
     pub values: Vec<Value>,
     pub data: Option<Vec<u8>>,
+    pub resource: Option<Resource>,
 }
 
 fn get_numeric_type_size(value_type: &str) -> usize {
@@ -67,6 +69,7 @@ impl I3SField {
             header: None,
             values: Vec::new(),
             data: None,
+            resource: None,
         }
     }
 
