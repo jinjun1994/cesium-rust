@@ -17,6 +17,8 @@ pub mod framebuffer;
 pub mod material;
 pub mod metrics;
 pub mod pass_state;
+pub mod particle;
+pub mod particle_emitter;
 pub mod pick_id;
 pub mod picking;
 pub mod pipelines;
@@ -65,6 +67,10 @@ pub use framebuffer::{
     Renderbuffer, RenderbufferFormat, RenderbufferOptions, MAXIMUM_RENDERBUFFER_SIZE,
 };
 pub use material::Material;
+pub use particle::{Particle, ParticleOptions};
+pub use particle_emitter::{
+    BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,
+};
 pub use sync::{Sync, SyncStatus};
 pub use shared_context::{SceneContext, SharedContext, SharedContextOptions};
 pub use uniform::{Uniform, UniformGetter, UniformMap, UniformType, UniformValue};

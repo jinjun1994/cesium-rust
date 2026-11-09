@@ -464,7 +464,7 @@
 | [packages/engine/Specs/Scene/BillboardCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/BillboardCollectionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/BingMapsImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/BingMapsImageryProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/BoundingVolumeSemanticsSpec.js](../../cesium/packages/engine/Specs/Scene/BoundingVolumeSemanticsSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/BoxEmitterSpec.js](../../cesium/packages/engine/Specs/Scene/BoxEmitterSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/BoxEmitterSpec.js](../../cesium/packages/engine/Specs/Scene/BoxEmitterSpec.js) | 已移植：盒体粒子发射器（BoxEmitter / ParticleEmitter）、默认与自定义盒体尺寸（dimensions）、负值尺寸异常校验拦截（validate_dimensions DeveloperError）、动态尺寸修改（set_dimensions）、盒体内三维随机位置采样及中心外向正规化初始速度（emit）（box_emitter_spec.rs，6 项测试全部通过） |
 | [packages/engine/Specs/Scene/BufferLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/BufferLoaderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/BufferPointCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPointCollectionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/BufferPointMaterialSpec.js](../../cesium/packages/engine/Specs/Scene/BufferPointMaterialSpec.js) | 待逐项核对 |
