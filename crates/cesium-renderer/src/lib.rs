@@ -3,6 +3,7 @@
 
 pub mod appearance;
 pub mod automatic_uniforms;
+pub mod axis;
 pub mod builtin_functions;
 pub mod buffer;
 pub mod capabilities;
@@ -44,6 +45,7 @@ use wgpu::util::DeviceExt;
 
 pub use appearance::{Appearance, AppearanceOptions};
 pub use automatic_uniforms::{AutomaticUniform, AutomaticUniforms, UniformState};
+pub use axis::Axis;
 pub use builtin_functions::{BuiltinFunctions, Ray};
 pub use buffer::{Buffer, BufferOptions, BufferTarget, BufferUsage, IndexBufferOptions};
 pub use capabilities::RendererCapabilities;
