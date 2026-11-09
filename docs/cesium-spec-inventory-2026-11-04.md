@@ -517,7 +517,7 @@
 | [packages/engine/Specs/Scene/EdgeFramebufferSpec.js](../../cesium/packages/engine/Specs/Scene/EdgeFramebufferSpec.js) | 已移植：边缘可见性 MRT 帧缓冲区管理器（EdgeFramebuffer）、多渲染目标（MRT: 颜色/ID/打包深度纹理）、视口尺寸变动动态分配与复用机制、清除命令生成与合法性校验（非法尺寸拦截 DeveloperError、多重销毁安全保证）（edge_framebuffer_spec.rs，11 项测试全部通过） |
 | [packages/engine/Specs/Scene/EllipsoidPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/EllipsoidPrimitiveSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/EllipsoidSurfaceAppearanceSpec.js](../../cesium/packages/engine/Specs/Scene/EllipsoidSurfaceAppearanceSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/Empty3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Empty3DTileContentSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Empty3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Empty3DTileContentSpec.js) | 已移植：3D Tiles 空瓦片内容抽象（Empty3DTileContent）、零几何/纹理/批次/要素计数语义、禁用附加内容元数据与分组元数据（拦截抛出 DeveloperError）、生命周期销毁与瓦片/瓦片集引用（empty_3d_tile_content_spec.rs，6 项测试全部通过） |
 | [packages/engine/Specs/Scene/EquirectangularPanoramaSpec.js](../../cesium/packages/engine/Specs/Scene/EquirectangularPanoramaSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/ExpressionSpec.js](../../cesium/packages/engine/Specs/Scene/ExpressionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/FogSpec.js](../../cesium/packages/engine/Specs/Scene/FogSpec.js) | 待逐项核对 |
