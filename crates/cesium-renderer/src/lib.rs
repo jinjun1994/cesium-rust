@@ -82,6 +82,7 @@ pub mod implicit_tile_coordinates;
 pub mod implicit_availability_bitstream;
 pub mod implicit_subtree;
 pub mod implicit_tileset;
+pub mod implicit_metadata_view;
 pub mod implicit_3d_tile_content;
 pub mod material;
 pub mod metrics;
