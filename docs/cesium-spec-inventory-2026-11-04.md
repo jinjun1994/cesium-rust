@@ -496,7 +496,7 @@
 | [packages/engine/Specs/Scene/ClippingPlaneCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPlaneCollectionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/ClippingPlaneSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPlaneSpec.js) | 已移植：裁剪面抽象（ClippingPlane）、法向量与原点距离属性、数值变动响应回调（on_change_callback）、Plane 互转（from_plane / to_plane）、浅拷贝（clone / clone_to）与 Plane 变换矩阵兼容计算（clipping_plane_spec.rs，5 项测试全部通过） |
 | [packages/engine/Specs/Scene/ClippingPolygonCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPolygonCollectionSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/ClippingPolygonSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPolygonSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ClippingPolygonSpec.js](../../cesium/packages/engine/Specs/Scene/ClippingPolygonSpec.js) | 已移植：测地线裁剪多边形抽象（ClippingPolygon / ClippingPolygonOptions）、最少点数合法性校验（少于 3 个点拦截 DeveloperError）、多孔洞拓扑（holes）、外包经纬度矩形自动生成（computeRectangleFromPositions）、不可变语义与引用等价性判别（clipping_polygon_spec.rs，8 项测试全部通过） |
 | [packages/engine/Specs/Scene/CloudCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/CloudCollectionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Composite3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Composite3DTileContentSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/ConditionsExpressionSpec.js](../../cesium/packages/engine/Specs/Scene/ConditionsExpressionSpec.js) | 待逐项核对 |
