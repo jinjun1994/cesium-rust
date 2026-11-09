@@ -543,7 +543,7 @@
 | [packages/engine/Specs/Scene/GltfSpzLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfSpzLoaderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GltfStructuralMetadataLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfStructuralMetadataLoaderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GltfTextureLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfTextureLoaderSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/GltfVertexBufferLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfVertexBufferLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GltfVertexBufferLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfVertexBufferLoaderSpec.js) | 已移植：glTF 顶点缓冲区加载器（GltfVertexBufferLoader / GltfVertexBufferLoaderOptions）、支持从 bufferViewId / Draco 压缩扩展 / SPZ 扩展加载顶点数据、严格来源互斥与 Draco 关联属性语义校验、支持加载为 GPU VertexBuffer 与 TypedArray 双模式、支持 Draco 解码 QuantizationInfo 量化参数提取、异步与主线程处理生命周期流转（Unloaded / Loading / Loaded / Processing / Ready / Failed）、卸载与生命周期销毁控制（gltf_vertex_buffer_loader_spec.rs，9 项测试全部通过） |
 | [packages/engine/Specs/Scene/Google2DImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/Google2DImageryProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GoogleEarthEnterpriseImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/GoogleEarthEnterpriseImageryProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GoogleEarthEnterpriseMapsProviderSpec.js](../../cesium/packages/engine/Specs/Scene/GoogleEarthEnterpriseMapsProviderSpec.js) | 待逐项核对 |

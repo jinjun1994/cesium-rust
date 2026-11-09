@@ -49,6 +49,7 @@ pub mod frustum_commands;
 pub mod gltf_buffer_view_loader;
 pub mod gltf_index_buffer_loader;
 pub mod gltf_json_loader;
+pub mod gltf_vertex_buffer_loader;
 pub mod material;
 pub mod metrics;
 pub mod pass_state;
