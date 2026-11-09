@@ -51,6 +51,7 @@ pub mod gltf_image_loader;
 pub mod gltf_index_buffer_loader;
 pub mod gltf_json_loader;
 pub mod gltf_loader_util;
+pub mod gltf_spz_loader;
 pub mod gltf_texture_loader;
 pub mod gltf_vertex_buffer_loader;
 pub mod material;
