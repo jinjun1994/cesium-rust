@@ -97,7 +97,11 @@ pub mod implicit_3d_tile_content;
 pub mod material;
 pub mod material_appearance;
 pub mod megatexture;
+pub mod metadata_class;
+pub mod metadata_class_property;
 pub mod metadata_component_type;
+pub mod metadata_enum;
+pub mod metadata_type;
 pub mod metrics;
 pub mod model_components;
 pub mod pass_state;
@@ -137,7 +141,7 @@ pub use batch_table_hierarchy::{
 };
 pub use bounding_volume_semantics::{
     BoundingVolumeSemanticValue, BoundingVolumeSemantics, BoundingVolumeSemanticsResult,
-    MetadataClass, MetadataClassProperty, PropertyBySemantic, TileMetadata,
+    PropertyBySemantic, TileMetadata,
 };
 pub use builtin_functions::{BuiltinFunctions, Ray};
 pub use buffer::{Buffer, BufferOptions, BufferTarget, BufferUsage, IndexBufferOptions};
@@ -226,7 +230,11 @@ pub use gltf_json_loader::{
 pub use material::{Fabric, Material, MaterialOptions};
 pub use material_appearance::{MaterialAppearance, MaterialAppearanceOptions, MaterialSupport};
 pub use megatexture::Megatexture;
+pub use metadata_class::MetadataClass;
+pub use metadata_class_property::MetadataClassProperty;
 pub use metadata_component_type::MetadataComponentType;
+pub use metadata_enum::{MetadataEnum, MetadataEnumJson, MetadataEnumValue};
+pub use metadata_type::MetadataType;
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,

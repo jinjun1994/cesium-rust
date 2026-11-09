@@ -24,60 +24,8 @@ pub struct BoundingVolumeSemanticsResult {
     pub maximum_height: Option<f64>,
 }
 
-/// Metadata property definition in a [`MetadataClass`].
-#[derive(Debug, Clone, Default)]
-pub struct MetadataClassProperty {
-    pub semantic: Option<String>,
-    pub property_type: Option<String>,
-    pub component_type: Option<String>,
-    pub array: Option<bool>,
-    pub count: Option<usize>,
-    pub default: Option<Value>,
-}
-
-/// A metadata class describing property schemas and semantics.
-#[derive(Debug, Clone, Default)]
-pub struct MetadataClass {
-    pub id: String,
-    pub properties: HashMap<String, MetadataClassProperty>,
-}
-
-impl MetadataClass {
-    /// Constructs a `MetadataClass` from JSON definition.
-    pub fn from_json(json: &Value) -> Self {
-        let id = json.get("id").and_then(Value::as_str).unwrap_or("").to_string();
-        let mut properties = HashMap::new();
-
-        if let Some(props_obj) = json
-            .get("class")
-            .and_then(|c| c.get("properties"))
-            .and_then(Value::as_object)
-        {
-            for (prop_id, prop_val) in props_obj {
-                let semantic = prop_val.get("semantic").and_then(Value::as_str).map(String::from);
-                let property_type = prop_val.get("type").and_then(Value::as_str).map(String::from);
-                let component_type = prop_val.get("componentType").and_then(Value::as_str).map(String::from);
-                let array = prop_val.get("array").and_then(Value::as_bool);
-                let count = prop_val.get("count").and_then(Value::as_u64).map(|n| n as usize);
-                let default = prop_val.get("default").cloned();
-
-                properties.insert(
-                    prop_id.clone(),
-                    MetadataClassProperty {
-                        semantic,
-                        property_type,
-                        component_type,
-                        array,
-                        count,
-                        default,
-                    },
-                );
-            }
-        }
-
-        Self { id, properties }
-    }
-}
+pub use crate::metadata_class::MetadataClass;
+pub use crate::metadata_class_property::MetadataClassProperty;
 
 /// Represents tile metadata containing properties and optional class schema.
 #[derive(Debug, Clone, Default)]
