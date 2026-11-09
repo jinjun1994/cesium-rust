@@ -105,6 +105,8 @@ pub mod metadata_enum;
 pub mod metadata_picking;
 pub mod metadata_schema;
 pub mod metadata_schema_loader;
+pub mod metadata_table;
+pub mod metadata_table_property;
 pub mod metadata_type;
 pub mod metrics;
 pub mod model_components;
@@ -244,7 +246,9 @@ pub use metadata_picking::{
 };
 pub use metadata_schema::MetadataSchema;
 pub use metadata_schema_loader::{MetadataSchemaLoader, MetadataSchemaLoaderOptions};
-pub use metadata_type::MetadataType;
+pub use metadata_table::{MetadataTable, MetadataTableOptions};
+pub use metadata_table_property::{MetadataTableProperty, MetadataTablePropertyOptions};
+pub use metadata_type::{MetadataMathType, MetadataType};
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,

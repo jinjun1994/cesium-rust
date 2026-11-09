@@ -4,6 +4,17 @@ use cesium_math::DeveloperError;
 use serde::{Deserialize, Serialize};
 use std::str::FromStr;
 
+/// Mathematical object type corresponding to a metadata vector or matrix type.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub enum MetadataMathType {
+    Cartesian2,
+    Cartesian3,
+    Cartesian4,
+    Matrix2,
+    Matrix3,
+    Matrix4,
+}
+
 /// Metadata types describing single values, vectors, matrices, or enums.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, Serialize, Deserialize)]
 #[serde(rename_all = "UPPERCASE")]
@@ -61,6 +72,25 @@ impl MetadataType {
             Self::Mat3 => 9,
             Self::Mat4 => 16,
         }
+    }
+
+    /// Returns the mathematical class type associated with vector/matrix types.
+    pub const fn get_math_type(&self) -> Option<MetadataMathType> {
+        match self {
+            Self::Vec2 => Some(MetadataMathType::Cartesian2),
+            Self::Vec3 => Some(MetadataMathType::Cartesian3),
+            Self::Vec4 => Some(MetadataMathType::Cartesian4),
+            Self::Mat2 => Some(MetadataMathType::Matrix2),
+            Self::Mat3 => Some(MetadataMathType::Matrix3),
+            Self::Mat4 => Some(MetadataMathType::Matrix4),
+            _ => None,
+        }
+    }
+
+    /// Returns the number of components from a type name string, or DeveloperError if invalid.
+    pub fn get_component_count_from_str(s: &str) -> Result<usize, DeveloperError> {
+        let t: Self = s.parse()?;
+        Ok(t.get_component_count())
     }
 
     /// Returns the string representation.
