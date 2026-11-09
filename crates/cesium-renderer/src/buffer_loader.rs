@@ -5,10 +5,12 @@ use std::sync::{Arc, Mutex};
 /// State of a resource loader.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum ResourceLoaderState {
-    Unloaded,
-    Loading,
-    Ready,
-    Failed,
+    Unloaded = 0,
+    Loading = 1,
+    Loaded = 2,
+    Processing = 3,
+    Ready = 4,
+    Failed = 5,
 }
 
 /// Options for creating a [`BufferLoader`].
