@@ -30,6 +30,7 @@ pub mod compute_command;
 pub mod content_metadata;
 pub mod cpu_styling_pipeline_stage;
 pub mod custom_shader;
+pub mod custom_shader_pipeline_stage;
 pub mod context;
 pub mod credit_display;
 pub mod cube_map;
@@ -217,6 +218,10 @@ pub use custom_shader::{
     CustomShader, CustomShaderMode, CustomShaderOptions, CustomShaderTranslucencyMode,
     CustomShaderUniformCallback, CustomShaderUniformType, CustomShaderValue, FragmentVariableSets,
     LightingModel, TextureUniform, UniformSpecifier, VaryingType, VertexVariableSets,
+};
+pub use custom_shader_pipeline_stage::{
+    CustomShaderAttributeInfo, CustomShaderPipelineStage, CustomShaderPrimitive,
+    CustomShaderRenderResources, CUSTOM_SHADER_STAGE_FS, CUSTOM_SHADER_STAGE_VS,
 };
 pub use context::{Context, ContextLimits, ContextOptions, ReadPixelsOptions};
 pub use credit_display::{CreditDisplay, DEFAULT_DELIMITER as DEFAULT_CREDIT_DELIMITER};
