@@ -15,6 +15,7 @@ pub mod cesium_3d_tile_content_type;
 pub mod cesium_3d_tile_feature_table;
 pub mod cesium_3d_tile_pass_state;
 pub mod clipping_plane;
+pub mod clipping_plane_collection;
 pub mod clipping_polygon;
 pub mod clipping_polygon_collection;
 pub mod cloud_collection;
@@ -100,6 +101,7 @@ pub use cesium_3d_tile_pass_state::{
     Cesium3DTilePass, Cesium3DTilePassState, Cesium3DTilePassStateOptions,
 };
 pub use clipping_plane::{ClippingPlane, ClippingPlaneChangeCallback};
+pub use clipping_plane_collection::{ClippingPlaneCollection, ClippingPlaneCollectionOptions};
 pub use clipping_polygon::{ClippingPolygon, ClippingPolygonOptions};
 pub use clipping_polygon_collection::{
     ClippingPolygonCollection, ClippingPolygonCollectionOptions, Intersect,
