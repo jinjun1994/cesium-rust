@@ -49,6 +49,7 @@ pub mod discard_missing_tile_image_policy;
 pub mod dynamic_atmosphere_lighting_type;
 pub mod dynamic_environment_map_manager;
 pub mod edge_framebuffer;
+pub mod edge_visibility_pipeline_stage;
 pub mod empty_3d_tile_content;
 pub mod equirectangular_panorama;
 pub mod ellipsoid_primitive;
@@ -227,6 +228,11 @@ pub use custom_shader_pipeline_stage::{
 pub use dequantization_pipeline_stage::{
     DequantizationAttribute, DequantizationModelOptions, DequantizationPipelineStage,
     DequantizationPrimitive, DequantizationRenderResources, DequantizationUniformCallback,
+};
+pub use edge_visibility_pipeline_stage::{
+    extract_visible_edges, EdgeDataEntry, EdgeDisplayMode, EdgeGeometry, EdgeVisibilityData,
+    EdgeVisibilityLineString, EdgeVisibilityPipelineStage, EdgeVisibilityPrimitive,
+    EdgeVisibilityRenderResources, EdgeVisibilityType, VisibleEdgesResult,
 };
 pub use model_components::Quantization;
 pub use context::{Context, ContextLimits, ContextOptions, ReadPixelsOptions};
