@@ -95,6 +95,7 @@ pub mod implicit_subtree_cache;
 pub mod implicit_subtree_metadata;
 pub mod implicit_3d_tile_content;
 pub mod material;
+pub mod material_appearance;
 pub mod metrics;
 pub mod model_components;
 pub mod pass_state;
@@ -221,6 +222,7 @@ pub use gltf_json_loader::{
     GLB_CHUNK_TYPE_BIN, GLB_CHUNK_TYPE_JSON, GLB_MAGIC,
 };
 pub use material::Material;
+pub use material_appearance::{MaterialAppearance, MaterialAppearanceOptions, MaterialSupport};
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,
