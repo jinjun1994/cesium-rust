@@ -42,6 +42,7 @@ pub mod equirectangular_panorama;
 pub mod ellipsoid_primitive;
 pub mod ellipsoid_surface_appearance;
 pub mod framebuffer;
+pub mod frame_rate_monitor;
 pub mod material;
 pub mod metrics;
 pub mod pass_state;
@@ -151,6 +152,10 @@ pub use framebuffer::{
     Framebuffer, FramebufferManager, FramebufferManagerOptions, FramebufferOptions,
     MultisampleFramebuffer, MultisampleFramebufferOptions, PixelDatatype, PixelFormat,
     Renderbuffer, RenderbufferFormat, RenderbufferOptions, MAXIMUM_RENDERBUFFER_SIZE,
+};
+pub use frame_rate_monitor::{
+    FrameRateMonitor, FrameRateMonitorOptions, DEFAULT_MIN_FPS_AFTER_WARMUP, DEFAULT_MIN_FPS_WARMUP,
+    DEFAULT_QUIET_PERIOD, DEFAULT_SAMPLING_WINDOW, DEFAULT_WARMUP_PERIOD,
 };
 pub use material::Material;
 pub use particle::{Particle, ParticleOptions};

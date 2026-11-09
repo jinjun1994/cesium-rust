@@ -521,7 +521,7 @@
 | [packages/engine/Specs/Scene/EquirectangularPanoramaSpec.js](../../cesium/packages/engine/Specs/Scene/EquirectangularPanoramaSpec.js) | 已移植：等距柱状投影全景天空背景（EquirectangularPanorama / EquirectangularPanoramaOptions）、必填参数缺失校验（缺失 image 拦截抛出 DeveloperError）、默认参数（DEFAULT_RADIUS 100000.0、Matrix4::IDENTITY、show=true）、自定义变换矩阵（transform）、Credit 对象与字符串支持、水平与垂直纹理重复因子（repeatHorizontal、repeatVertical，Uniforms 计算 repeat = (-repeatHorizontal, repeatVertical)）、生命周期与销毁控制（equirectangular_panorama_spec.rs，7 项测试全部通过） |
 | [packages/engine/Specs/Scene/ExpressionSpec.js](../../cesium/packages/engine/Specs/Scene/ExpressionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/FogSpec.js](../../cesium/packages/engine/Specs/Scene/FogSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/FrameRateMonitorSpec.js](../../cesium/packages/engine/Specs/Scene/FrameRateMonitorSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/FrameRateMonitorSpec.js](../../cesium/packages/engine/Specs/Scene/FrameRateMonitorSpec.js) | 已移植：帧率与性能监控器（FrameRateMonitor / FrameRateMonitorOptions）、默认参数与阈值（samplingWindow 5.0s、quietPeriod 2.0s、warmupPeriod 5.0s、minimumFrameRateDuringWarmup 4.0、minimumFrameRateAfterWarmup 8.0）、滑动时间窗口平均 FPS 动态统计、低帧率与恢复正常事件派发（lowFrameRate / nominalFrameRate）、多重暂停与恢复机制（pause / unpause / pause_count）、静默期保护（quiet period）、生命周期与销毁（frame_rate_monitor_spec.rs，8 项测试全部通过） |
 | [packages/engine/Specs/Scene/FrustumCommandsSpec.js](../../cesium/packages/engine/Specs/Scene/FrustumCommandsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GaussianSplat3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/GaussianSplat3DTileContentSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GaussianSplatPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/GaussianSplatPrimitiveSpec.js) | 待逐项核对 |
