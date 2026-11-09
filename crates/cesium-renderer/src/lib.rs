@@ -17,6 +17,7 @@ pub mod cesium_3d_tile_pass_state;
 pub mod clipping_plane;
 pub mod commands;
 pub mod compute_command;
+pub mod content_metadata;
 pub mod context;
 pub mod cube_map;
 pub mod demodernize_shader;
@@ -88,6 +89,7 @@ pub use commands::{
     NUMBER_OF_PASSES,
 };
 pub use compute_command::{ComputeCommand, ComputeCommandOptions};
+pub use content_metadata::{ContentMetadata, ContentMetadataOptions};
 pub use context::{Context, ContextLimits, ContextOptions, ReadPixelsOptions};
 pub use cube_map::{load_cube_map, CubeMap, CubeMapFace, CubeMapOptions, CubeMapUrls};
 pub use demodernize_shader::demodernize_shader;
