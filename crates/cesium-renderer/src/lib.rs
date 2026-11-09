@@ -20,6 +20,7 @@ pub mod context;
 pub mod cube_map;
 pub mod demodernize_shader;
 pub mod device;
+pub mod dynamic_atmosphere_lighting_type;
 pub mod framebuffer;
 pub mod material;
 pub mod metrics;
@@ -86,6 +87,7 @@ pub use context::{Context, ContextLimits, ContextOptions, ReadPixelsOptions};
 pub use cube_map::{load_cube_map, CubeMap, CubeMapFace, CubeMapOptions, CubeMapUrls};
 pub use demodernize_shader::demodernize_shader;
 pub use device::{DeviceContext, DeviceStatus};
+pub use dynamic_atmosphere_lighting_type::DynamicAtmosphereLightingType;
 pub use framebuffer::{
     Framebuffer, FramebufferManager, FramebufferManagerOptions, FramebufferOptions,
     MultisampleFramebuffer, MultisampleFramebufferOptions, PixelDatatype, PixelFormat,
