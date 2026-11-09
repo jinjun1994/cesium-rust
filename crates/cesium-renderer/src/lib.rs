@@ -11,6 +11,8 @@ pub mod buffer;
 pub mod buffer_loader;
 pub mod buffer_primitive_material;
 pub mod capabilities;
+pub mod cesium_3d_tile_content_type;
+pub mod cesium_3d_tile_pass_state;
 pub mod commands;
 pub mod compute_command;
 pub mod context;
@@ -68,6 +70,10 @@ pub use buffer_primitive_material::{
     BufferPrimitiveMaterial, BufferPrimitiveMaterialOptions,
 };
 pub use capabilities::RendererCapabilities;
+pub use cesium_3d_tile_content_type::Cesium3DTileContentType;
+pub use cesium_3d_tile_pass_state::{
+    Cesium3DTilePass, Cesium3DTilePassState, Cesium3DTilePassStateOptions,
+};
 pub use commands::{
     ClearCommand, ClearCommandOptions, DrawCommand, DrawCommandOptions, FramebufferHandle,
     Pass, RenderStateHandle, ShaderProgramHandle, UniformMapHandle, VertexArrayHandle,
