@@ -22,6 +22,7 @@ pub mod context;
 pub mod cube_map;
 pub mod cube_map_panorama;
 pub mod debug_appearance;
+pub mod debug_model_matrix_primitive;
 pub mod demodernize_shader;
 pub mod depth_plane;
 pub mod device;
@@ -99,6 +100,9 @@ pub use context::{Context, ContextLimits, ContextOptions, ReadPixelsOptions};
 pub use cube_map::{load_cube_map, CubeMap, CubeMapFace, CubeMapOptions, CubeMapUrls};
 pub use cube_map_panorama::{CubeMapPanorama, CubeMapPanoramaOptions};
 pub use debug_appearance::{DebugAppearance, DebugAppearanceOptions};
+pub use debug_model_matrix_primitive::{
+    DebugAxis, DebugModelMatrixPrimitive, DebugModelMatrixPrimitiveOptions,
+};
 pub use demodernize_shader::demodernize_shader;
 pub use depth_plane::DepthPlane;
 pub use device::{DeviceContext, DeviceStatus};
