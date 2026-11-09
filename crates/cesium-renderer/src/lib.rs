@@ -74,6 +74,8 @@ pub mod i3s_layer;
 pub mod i3s_node;
 pub mod i3s_symbology;
 pub mod image_based_lighting;
+pub mod imagery_layer;
+pub mod imagery_layer_collection;
 pub mod itwin_data;
 pub mod material;
 pub mod metrics;
