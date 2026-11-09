@@ -60,6 +60,7 @@ pub mod gltf_vertex_buffer_loader;
 pub mod google_2d_imagery_provider;
 pub mod google_earth_enterprise_imagery_provider;
 pub mod google_earth_enterprise_maps_provider;
+pub mod google_street_view_cube_map_panorama_provider;
 pub mod material;
 pub mod metrics;
 pub mod model_components;
