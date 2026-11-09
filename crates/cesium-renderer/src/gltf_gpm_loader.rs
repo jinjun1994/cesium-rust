@@ -1,6 +1,8 @@
 //! GltfGpmLoader for parsing NGA_gpm_local glTF extension.
 //! Matches CesiumJS `Scene/Model/Extensions/Gpm/GltfGpmLoader.js`.
 
+use crate::gltf_loader_util::ModelTextureReader;
+use crate::gltf_texture_loader::SupportedImageFormats;
 use cesium_math::{Cartesian3, DeveloperError};
 
 /// Storage type for NGA_gpm_local data.
@@ -295,5 +297,223 @@ impl GltfGpmLoader {
             anchor_points_indirect,
             intra_tile_correlation_groups,
         })
+    }
+}
+
+/// Metadata traits for a PPE texture.
+#[derive(Clone, Debug, PartialEq)]
+pub struct PpeMetadata {
+    pub min: f64,
+    pub max: f64,
+    pub source: String,
+}
+
+/// A single PPE texture descriptor.
+#[derive(Clone, Debug, PartialEq)]
+pub struct PpeTexture {
+    pub traits: PpeMetadata,
+    pub index: usize,
+    pub no_data: u32,
+    pub offset: f64,
+    pub scale: f64,
+    pub tex_coord: usize,
+}
+
+/// Parsed mesh primitive GPM local extension data.
+#[derive(Clone, Debug, PartialEq, Default)]
+pub struct MeshPrimitiveGpmLocal {
+    pub ppe_textures: Vec<PpeTexture>,
+}
+
+impl MeshPrimitiveGpmLocal {
+    pub fn new(ppe_textures: Vec<PpeTexture>) -> Self {
+        Self { ppe_textures }
+    }
+}
+
+/// Options for configuring GltfMeshPrimitiveGpmLoader.
+#[derive(Clone, Debug, Default)]
+pub struct GltfMeshPrimitiveGpmLoaderOptions {
+    pub gltf: Option<serde_json::Value>,
+    pub extension: Option<serde_json::Value>,
+    pub gltf_resource: Option<String>,
+    pub base_resource: Option<String>,
+    pub supported_image_formats: Option<SupportedImageFormats>,
+    pub frame_state: Option<serde_json::Value>,
+}
+
+/// Loader for `NGA_gpm_local` extension on a mesh primitive.
+pub struct GltfMeshPrimitiveGpmLoader {
+    pub gltf: serde_json::Value,
+    extension: Option<serde_json::Value>,
+    pub mesh_primitive_gpm_local: Option<MeshPrimitiveGpmLocal>,
+    pub structural_metadata: Option<crate::gltf_structural_metadata_loader::StructuralMetadata>,
+    is_loaded: bool,
+    is_destroyed: bool,
+    pub texture_destroy_count: usize,
+}
+
+impl GltfMeshPrimitiveGpmLoader {
+    /// Creates a new `GltfMeshPrimitiveGpmLoader`.
+    pub fn new(options: GltfMeshPrimitiveGpmLoaderOptions) -> Result<Self, DeveloperError> {
+        let gltf = options
+            .gltf
+            .ok_or_else(|| DeveloperError::new("options.gltf is required"))?;
+        if options.gltf_resource.is_none() {
+            return Err(DeveloperError::new("options.gltfResource is required"));
+        }
+        if options.base_resource.is_none() {
+            return Err(DeveloperError::new("options.baseResource is required"));
+        }
+        if options.supported_image_formats.is_none() {
+            return Err(DeveloperError::new(
+                "options.supportedImageFormats is required",
+            ));
+        }
+        if options.frame_state.is_none() {
+            return Err(DeveloperError::new("options.frameState is required"));
+        }
+
+        Ok(Self {
+            gltf,
+            extension: options.extension,
+            mesh_primitive_gpm_local: None,
+            structural_metadata: None,
+            is_loaded: false,
+            is_destroyed: false,
+            texture_destroy_count: 0,
+        })
+    }
+
+    /// Loads and parses the mesh primitive GPM extension into structural metadata.
+    pub fn load(&mut self) -> Result<(), DeveloperError> {
+        if self.is_destroyed {
+            return Ok(());
+        }
+
+        let Some(ref extension) = self.extension else {
+            self.is_loaded = true;
+            return Ok(());
+        };
+
+        let mut ppe_textures = Vec::new();
+        if let Some(ppe_textures_json) = extension.get("ppeTextures").and_then(|v| v.as_array()) {
+            for tex_json in ppe_textures_json {
+                let traits_json = tex_json.get("traits");
+                let traits = PpeMetadata {
+                    min: traits_json.and_then(|t| t.get("min")).and_then(|v| v.as_f64()).unwrap_or(0.0),
+                    max: traits_json.and_then(|t| t.get("max")).and_then(|v| v.as_f64()).unwrap_or(0.0),
+                    source: traits_json
+                        .and_then(|t| t.get("source"))
+                        .and_then(|v| v.as_str())
+                        .unwrap_or("")
+                        .to_string(),
+                };
+
+                let index = tex_json.get("index").and_then(|v| v.as_u64()).unwrap_or(0) as usize;
+                let no_data = tex_json.get("noData").and_then(|v| v.as_u64()).unwrap_or(255) as u32;
+                let offset = tex_json.get("offset").and_then(|v| v.as_f64()).unwrap_or(0.0);
+                let scale = tex_json.get("scale").and_then(|v| v.as_f64()).unwrap_or(1.0);
+                let tex_coord = tex_json.get("texCoord").and_then(|v| v.as_u64()).unwrap_or(0) as usize;
+
+                ppe_textures.push(PpeTexture {
+                    traits,
+                    index,
+                    no_data,
+                    offset,
+                    scale,
+                    tex_coord,
+                });
+            }
+        }
+
+        let gpm_local = MeshPrimitiveGpmLocal::new(ppe_textures);
+
+        // Convert to StructuralMetadata
+        let mut property_textures = Vec::new();
+        let mut schema_classes = std::collections::BTreeMap::new();
+
+        for (i, ppe_tex) in gpm_local.ppe_textures.iter().enumerate() {
+            let class_id = format!("ppeTexture_{}", i);
+            let prop_name = ppe_tex.traits.source.clone();
+
+            let mut class_props = serde_json::Map::new();
+            class_props.insert(
+                prop_name.clone(),
+                serde_json::json!({
+                    "type": "SCALAR",
+                    "componentType": "FLOAT32",
+                    "min": ppe_tex.traits.min,
+                    "max": ppe_tex.traits.max,
+                    "offset": ppe_tex.offset,
+                    "scale": ppe_tex.scale,
+                    "noData": ppe_tex.no_data,
+                }),
+            );
+            schema_classes.insert(
+                class_id.clone(),
+                serde_json::Value::Object(class_props),
+            );
+
+            let mut properties = std::collections::HashMap::new();
+            properties.insert(
+                prop_name,
+                crate::gltf_structural_metadata_loader::PropertyTextureProperty {
+                    texture_reader: ModelTextureReader {
+                        index: ppe_tex.index,
+                        texture: None,
+                        tex_coord: ppe_tex.tex_coord,
+                        scale: Some(ppe_tex.scale),
+                        transform: None,
+                        channels: Some("r".to_string()),
+                    },
+                    channels: vec![0],
+                },
+            );
+
+            property_textures.push(crate::gltf_structural_metadata_loader::PropertyTexture {
+                id: i,
+                name: Some(class_id.clone()),
+                class_name: class_id,
+                properties,
+            });
+        }
+
+        let structural_metadata = crate::gltf_structural_metadata_loader::StructuralMetadata {
+            schema: crate::gltf_structural_metadata_loader::MetadataSchema {
+                id: Some("PPE_TEXTURE_SCHEMA_0".to_string()),
+                classes: schema_classes,
+            },
+            property_tables: Vec::new(),
+            property_textures,
+        };
+
+        self.mesh_primitive_gpm_local = Some(gpm_local);
+        self.structural_metadata = Some(structural_metadata);
+        self.is_loaded = true;
+
+        Ok(())
+    }
+
+    /// Process loader progress.
+    pub fn process(&mut self) -> Result<bool, DeveloperError> {
+        if self.is_destroyed {
+            return Ok(true);
+        }
+        Ok(self.is_loaded)
+    }
+
+    /// Destroys the loader and releases resources.
+    pub fn destroy(&mut self) {
+        if !self.is_destroyed {
+            self.structural_metadata = None;
+            self.texture_destroy_count += 1;
+            self.is_destroyed = true;
+        }
+    }
+
+    /// Returns whether this loader has been destroyed.
+    pub fn is_destroyed(&self) -> bool {
+        self.is_destroyed
     }
 }

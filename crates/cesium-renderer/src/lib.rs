@@ -290,7 +290,9 @@ pub use gltf_buffer_view_loader::{
 };
 pub use gltf_gpm_loader::{
     create_covariance_matrix_from_upper_triangle, AnchorPointDirect, AnchorPointIndirect,
-    CorrelationGroup, GltfGpmLoader, GltfGpmLocal, GpmStorageType, Spdcf,
+    CorrelationGroup, GltfGpmLoader, GltfGpmLocal, GltfMeshPrimitiveGpmLoader,
+    GltfMeshPrimitiveGpmLoaderOptions, GpmStorageType, MeshPrimitiveGpmLocal, PpeMetadata,
+    PpeTexture, Spdcf,
 };
 pub use gltf_json_loader::{
     is_supported_extension as is_supported_gltf_extension, GltfJsonLoader, GltfJsonLoaderOptions,
