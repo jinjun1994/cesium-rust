@@ -2,6 +2,7 @@
 
 use cesium_math::{Cartesian3, DeveloperError, Matrix4, Quaternion};
 
+use crate::buffer::Buffer;
 use crate::model_components::Node;
 
 /// Pipeline stage enum for runtime nodes.
@@ -93,6 +94,9 @@ pub struct ModelRuntimeNode {
     pub pipeline_stages: Vec<NodePipelineStage>,
     pub update_stages: Vec<NodeUpdateStage>,
     pub is_instanced: bool,
+    pub instancing_transforms_buffer: Option<Buffer>,
+    pub instancing_transforms_buffer_2d: Option<Buffer>,
+    pub instancing_translation_buffer_2d: Option<Buffer>,
 }
 
 impl PartialEq for ModelRuntimeNode {
@@ -116,6 +120,9 @@ impl PartialEq for ModelRuntimeNode {
             && self.pipeline_stages == other.pipeline_stages
             && self.update_stages == other.update_stages
             && self.is_instanced == other.is_instanced
+            && self.instancing_transforms_buffer == other.instancing_transforms_buffer
+            && self.instancing_transforms_buffer_2d == other.instancing_transforms_buffer_2d
+            && self.instancing_translation_buffer_2d == other.instancing_translation_buffer_2d
     }
 }
 
@@ -142,6 +149,9 @@ impl Default for ModelRuntimeNode {
             pipeline_stages: Vec::new(),
             update_stages: Vec::new(),
             is_instanced: false,
+            instancing_transforms_buffer: None,
+            instancing_transforms_buffer_2d: None,
+            instancing_translation_buffer_2d: None,
         }
     }
 }
@@ -222,6 +232,9 @@ impl ModelRuntimeNode {
             pipeline_stages: Vec::new(),
             update_stages: Vec::new(),
             is_instanced,
+            instancing_transforms_buffer: None,
+            instancing_transforms_buffer_2d: None,
+            instancing_translation_buffer_2d: None,
         }
     }
 
@@ -252,6 +265,9 @@ impl ModelRuntimeNode {
             pipeline_stages: Vec::new(),
             update_stages: Vec::new(),
             is_instanced: false,
+            instancing_transforms_buffer: None,
+            instancing_transforms_buffer_2d: None,
+            instancing_translation_buffer_2d: None,
         }
     }
 
