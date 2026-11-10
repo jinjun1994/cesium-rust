@@ -29,6 +29,7 @@ pub mod model_imagery;
 pub mod model_imagery_mapping;
 pub mod model_matrix_update_stage;
 pub mod model_node;
+pub mod model_primitive_imagery;
 pub mod model_runtime_node;
 pub mod model_type;
 pub mod model_utility;
@@ -347,7 +348,7 @@ pub use imagery_layer_collection::*;
 pub use imagery_pipeline_stage::{
     Imagery, ImageryCoverage, ImageryFlags, ImageryFrameState, ImageryInput,
     ImageryModelOptions, ImageryPipelineStage, ImageryRenderResources, ImageryRuntimePrimitive,
-    ImageryStageVertexAttribute, ImageryState, ImageryUniforms, ModelPrimitiveImagery,
+    ImageryStageVertexAttribute, ImageryState, ImageryUniforms,
     DEFAULT_BRIGHTNESS as IMAGERY_DEFAULT_BRIGHTNESS,
     DEFAULT_CONTRAST as IMAGERY_DEFAULT_CONTRAST, DEFAULT_GAMMA as IMAGERY_DEFAULT_GAMMA,
     DEFAULT_HUE as IMAGERY_DEFAULT_HUE, DEFAULT_SATURATION as IMAGERY_DEFAULT_SATURATION,
@@ -419,6 +420,7 @@ pub use model_matrix_update_stage::*;
 pub use model_node::*;
 pub use model_runtime_node::*;
 pub use model_utility::*;
+pub use model_primitive_imagery::*;
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,

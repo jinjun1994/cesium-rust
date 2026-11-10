@@ -4,14 +4,13 @@ use std::collections::HashMap;
 use std::sync::{Arc, RwLock};
 
 use cesium_math::{
-    Cartesian4, ComponentDatatype, DeveloperError, Ellipsoid, GeoRectangle, NativeRectangle,
+    Cartesian4, ComponentDatatype, Ellipsoid, GeoRectangle, NativeRectangle,
     WebMercatorTilingScheme,
 };
 
 use crate::buffer::Buffer;
 use crate::imagery_layer::ImageryLayer;
 use crate::imagery_layer_collection::ImageryLayerCollection;
-use crate::mapped_positions::MappedPositions;
 use crate::shader_builder::{ShaderBuilder, ShaderDestination};
 
 pub const DEFAULT_BRIGHTNESS: f32 = 1.0;
@@ -75,6 +74,18 @@ pub struct ImageryCoverage {
     pub texture_coordinate_rectangle: Cartesian4,
 }
 
+impl ImageryCoverage {
+    pub fn new(x: u32, y: u32, level: u32, texture_coordinate_rectangle: Cartesian4) -> Self {
+        Self {
+            x,
+            y,
+            level,
+            imagery: Arc::new(RwLock::new(Imagery::new(GeoRectangle::MAXIMUM))),
+            texture_coordinate_rectangle,
+        }
+    }
+}
+
 /// An assembled input for draping imagery over 3D Tiles in the shader.
 #[derive(Clone, Debug)]
 pub struct ImageryInput {
@@ -99,128 +110,7 @@ pub struct ImageryStageVertexAttribute {
     pub normalize: bool,
 }
 
-/// Holds imagery mapping and coverage information for a primitive.
-#[derive(Clone, Debug, Default)]
-pub struct ModelPrimitiveImagery {
-    pub runtime_node_index: usize,
-    pub runtime_primitive_index: usize,
-    pub ready: bool,
-    pub is_destroyed: bool,
-    pub mapped_positions_by_layer_id: HashMap<u64, MappedPositions>,
-    pub coverages_by_layer_id: HashMap<u64, Vec<ImageryCoverage>>,
-    pub imagery_tex_coord_attributes: Vec<ImageryStageVertexAttribute>,
-    pub projections: Vec<String>,
-}
-
-impl ModelPrimitiveImagery {
-    pub fn new() -> Self {
-        Self {
-            runtime_node_index: 0,
-            runtime_primitive_index: 0,
-            ready: true,
-            is_destroyed: false,
-            mapped_positions_by_layer_id: HashMap::new(),
-            coverages_by_layer_id: HashMap::new(),
-            imagery_tex_coord_attributes: Vec::new(),
-            projections: Vec::new(),
-        }
-    }
-
-    pub fn with_indices(runtime_node_index: usize, runtime_primitive_index: usize) -> Self {
-        Self {
-            runtime_node_index,
-            runtime_primitive_index,
-            ready: true,
-            is_destroyed: false,
-            mapped_positions_by_layer_id: HashMap::new(),
-            coverages_by_layer_id: HashMap::new(),
-            imagery_tex_coord_attributes: Vec::new(),
-            projections: Vec::new(),
-        }
-    }
-
-    pub fn is_destroyed(&self) -> bool {
-        self.is_destroyed
-    }
-
-    pub fn destroy(&mut self) {
-        self.is_destroyed = true;
-        self.mapped_positions_by_layer_id.clear();
-        self.coverages_by_layer_id.clear();
-        self.imagery_tex_coord_attributes.clear();
-        self.projections.clear();
-    }
-
-    pub fn update(&mut self) {
-        self.ready = true;
-    }
-
-    pub fn compute_unique_ellipsoids(
-        imagery_layers: Option<&ImageryLayerCollection>,
-    ) -> Result<Vec<Ellipsoid>, DeveloperError> {
-        let layers = imagery_layers.ok_or_else(|| DeveloperError::new("imageryLayers is required"))?;
-        let mut unique = Vec::new();
-        for i in 0..layers.length() {
-            if let Ok(layer_arc) = layers.get(i) {
-                let layer = layer_arc.read().unwrap();
-                let ell = layer.ellipsoid();
-                if !unique.contains(&ell) {
-                    unique.push(ell);
-                }
-            }
-        }
-        Ok(unique)
-    }
-
-    pub fn compute_unique_ellipsoids_from_slice(
-        ellipsoids: Option<&[Ellipsoid]>,
-    ) -> Result<Vec<Ellipsoid>, DeveloperError> {
-        let list = ellipsoids.ok_or_else(|| DeveloperError::new("ellipsoids is required"))?;
-        let mut unique = Vec::new();
-        for ell in list {
-            if !unique.contains(ell) {
-                unique.push(*ell);
-            }
-        }
-        Ok(unique)
-    }
-
-    pub fn extract_projections_checked(
-        imagery_layers: Option<&ImageryLayerCollection>,
-    ) -> Result<Vec<String>, DeveloperError> {
-        let layers = imagery_layers.ok_or_else(|| DeveloperError::new("imageryLayers is required"))?;
-        Ok(Self::extract_projections(layers))
-    }
-
-    pub fn mapped_positions_for_imagery_layer(
-        &self,
-        layer: &ImageryLayer,
-    ) -> Option<&MappedPositions> {
-        self.mapped_positions_by_layer_id.get(&layer.id())
-    }
-
-    pub fn coverages_for_imagery_layer(&self, layer: &ImageryLayer) -> &[ImageryCoverage] {
-        self.coverages_by_layer_id
-            .get(&layer.id())
-            .map(|v| v.as_slice())
-            .unwrap_or(&[])
-    }
-
-    pub fn imagery_tex_coord_attributes_per_projection(&self) -> &[ImageryStageVertexAttribute] {
-        &self.imagery_tex_coord_attributes
-    }
-
-    pub fn extract_projections(imagery_layers: &ImageryLayerCollection) -> Vec<String> {
-        let mut projections = Vec::with_capacity(imagery_layers.length());
-        for i in 0..imagery_layers.length() {
-            if let Ok(layer_arc) = imagery_layers.get(i) {
-                let _guard = layer_arc.read().unwrap();
-                projections.push("WebMercator".to_string());
-            }
-        }
-        projections
-    }
-}
+pub use crate::model_primitive_imagery::ModelPrimitiveImagery;
 
 /// Model options for imagery pipeline stage.
 #[derive(Clone, Debug, Default)]
@@ -380,7 +270,7 @@ impl ImageryPipelineStage {
                 None => continue,
             };
 
-            let cartographic_bounding_rectangle = mapped_positions.cartographic_bounding_rectangle();
+            let cartographic_bounding_rectangle = mapped_positions.cartographic_bounding_rectangle;
             let coverages = model_primitive_imagery.coverages_for_imagery_layer(&layer_guard);
 
             drop(layer_guard);

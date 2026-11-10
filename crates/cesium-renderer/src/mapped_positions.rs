@@ -7,10 +7,10 @@ use cesium_math::{Cartographic, DeveloperError, Ellipsoid, GeoRectangle};
 /// have been computed from cartesian positions, for a specific ellipsoid.
 #[derive(Clone, Debug, PartialEq)]
 pub struct MappedPositions {
-    cartographic_positions: Vec<Cartographic>,
-    num_positions: usize,
-    cartographic_bounding_rectangle: GeoRectangle,
-    ellipsoid: Ellipsoid,
+    pub cartographic_positions: Vec<Cartographic>,
+    pub num_positions: usize,
+    pub cartographic_bounding_rectangle: GeoRectangle,
+    pub ellipsoid: Ellipsoid,
 }
 
 impl MappedPositions {
@@ -39,6 +39,21 @@ impl MappedPositions {
             num_positions: num as usize,
             cartographic_bounding_rectangle: rect,
             ellipsoid: ellip,
+        })
+    }
+
+    /// Convenience constructor without optional wrappers.
+    pub fn from_values(
+        cartographic_positions: Vec<Cartographic>,
+        num_positions: usize,
+        cartographic_bounding_rectangle: GeoRectangle,
+        ellipsoid: Ellipsoid,
+    ) -> Result<Self, DeveloperError> {
+        Ok(Self {
+            cartographic_positions,
+            num_positions,
+            cartographic_bounding_rectangle,
+            ellipsoid,
         })
     }
 

@@ -31,7 +31,7 @@ fn create_texture_coordinates_for_mapped_positions_throws_without_projection() {
     let num_positions = 4;
     let cartographic_bounding_rectangle = GeoRectangle::new(0.0, 0.0, 0.1, 0.1);
     let ellipsoid = Ellipsoid::WGS84;
-    let mapped_positions = MappedPositions::new(
+    let mapped_positions = MappedPositions::from_values(
         cartographic_positions,
         num_positions,
         cartographic_bounding_rectangle,
@@ -71,7 +71,7 @@ fn create_texture_coordinates_attribute_for_mapped_positions_throws_without_proj
     let num_positions = 4;
     let cartographic_bounding_rectangle = GeoRectangle::new(0.0, 0.0, 0.1, 0.1);
     let ellipsoid = Ellipsoid::WGS84;
-    let mapped_positions = MappedPositions::new(
+    let mapped_positions = MappedPositions::from_values(
         cartographic_positions,
         num_positions,
         cartographic_bounding_rectangle,
@@ -99,7 +99,7 @@ fn create_texture_coordinates_attribute_for_mapped_positions_creates_attribute()
     let num_positions = 4;
     let cartographic_bounding_rectangle = GeoRectangle::new(0.0, 0.0, 0.1, 0.1);
     let ellipsoid = Ellipsoid::WGS84;
-    let mapped_positions = MappedPositions::new(
+    let mapped_positions = MappedPositions::from_values(
         cartographic_positions,
         num_positions,
         cartographic_bounding_rectangle,

@@ -5,7 +5,7 @@ use std::sync::{Arc, RwLock};
 use cesium_math::{Color, DeveloperError};
 
 use crate::imagery_layer::ImageryLayer;
-use crate::imagery_pipeline_stage::ModelPrimitiveImagery;
+use crate::model_primitive_imagery::ModelPrimitiveImagery;
 
 /// A snapshot containing the values that affect the appearance of an ImageryLayer.
 #[derive(Clone, Debug, PartialEq)]

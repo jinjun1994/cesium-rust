@@ -639,7 +639,7 @@
 | [packages/engine/Specs/Scene/Model/ModelImagerySpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelImagerySpec.js) | 已完成（通过测试 `model_imagery_spec`，实现 `ModelImagery` 与 `ModelPrimitiveImagery` 的影像层管理、ready状态、动态配置比对更新、图元影像绑定与生命周期注销，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/ModelMatrixUpdateStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelMatrixUpdateStageSpec.js) | 已完成（通过测试 `model_matrix_update_stage_spec`，实现节点层次变换矩阵级联更新、包围球重计算、背面剔除方向翻转及2D跳过逻辑，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/ModelNodeSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelNodeSpec.js) | 已完成（通过测试 `model_node_spec`，实现模型节点公开API与内部RuntimeNode的状态同步、矩阵覆盖与重置，通过三重门禁） |
-| [packages/engine/Specs/Scene/Model/ModelPrimitiveImagerySpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelPrimitiveImagerySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelPrimitiveImagerySpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelPrimitiveImagerySpec.js) | 已完成（通过测试 `model_primitive_imagery_spec`，实现图元级别影像投影提取、椭球体去重、位置变换矩阵复合、POSITION语义提取、覆盖层级与经纬度映射、生命周期与销毁，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/ModelReaderSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelReaderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/ModelRenderResourcesSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelRenderResourcesSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/ModelRuntimeNodeSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelRuntimeNodeSpec.js) | 待逐项核对 |

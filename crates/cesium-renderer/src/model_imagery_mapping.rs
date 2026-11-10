@@ -8,31 +8,7 @@ use glam::DVec3;
 
 use crate::model_components::Attribute;
 
-/// A collection of cartographic positions (and their bounding rectangle) that
-/// have been computed from cartesian positions, for a specific ellipsoid.
-#[derive(Clone, Debug, PartialEq)]
-pub struct MappedPositions {
-    pub cartographic_positions: Vec<Cartographic>,
-    pub num_positions: usize,
-    pub cartographic_bounding_rectangle: GeoRectangle,
-    pub ellipsoid: Ellipsoid,
-}
-
-impl MappedPositions {
-    pub fn new(
-        cartographic_positions: Vec<Cartographic>,
-        num_positions: usize,
-        cartographic_bounding_rectangle: GeoRectangle,
-        ellipsoid: Ellipsoid,
-    ) -> Result<Self, DeveloperError> {
-        Ok(Self {
-            cartographic_positions,
-            num_positions,
-            cartographic_bounding_rectangle,
-            ellipsoid,
-        })
-    }
-}
+pub use crate::mapped_positions::MappedPositions;
 
 /// A class for computing the texture coordinates of imagery that is
 /// supposed to be mapped on a ModelComponents::Primitive.
