@@ -201,6 +201,14 @@ impl ShaderBuilder {
         &self.attribute_lines
     }
 
+    pub fn vertex_varying_lines(&self) -> &[String] {
+        &self.vertex_shader_parts.varying_lines
+    }
+
+    pub fn fragment_varying_lines(&self) -> &[String] {
+        &self.fragment_shader_parts.varying_lines
+    }
+
     pub fn get_function(&self, function_id: &str) -> Option<&ShaderFunction> {
         self.functions.get(function_id)
     }

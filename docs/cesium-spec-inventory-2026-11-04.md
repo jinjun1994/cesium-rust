@@ -655,7 +655,7 @@
 | [packages/engine/Specs/Scene/Model/MorphTargetsPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/MorphTargetsPipelineStageSpec.js) | 已完成（通过测试 `morph_targets_pipeline_stage_spec`，实现形变目标管线阶段、HAS_MORPH_TARGETS宏与getMorphedPosition/Normal/Tangent顶点函数注入、顶点属性提取与动态权重u_morphWeights统一变量绑定，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/NodeRenderResourcesSpec.js](../../cesium/packages/engine/Specs/Scene/Model/NodeRenderResourcesSpec.js) | 已完成（通过测试 `node_render_resources_spec`，实现节点级渲染资源容器，严格校验必需参数、深克隆着色器构建器与渲染状态、继承模型级 Alpha/轮廓/跳过 LOD 配置，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/NodeStatisticsPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/NodeStatisticsPipelineStageSpec.js) | 已完成（通过测试 `node_statistics_pipeline_stage_spec`，实现节点级统计管线阶段，支持实例属性缓冲区与运行时生成的3D/2D实例化变换缓冲区去重统计，通过三重门禁） |
-| [packages/engine/Specs/Scene/Model/PickingPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PickingPipelineStageSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/PickingPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PickingPipelineStageSpec.js) | 已完成（通过测试 `picking_pipeline_stage_spec`，实现图元拾取管线阶段，支持自定义拾取对象、3D Tiles与模型拾取对象构建、实例网格拾取顶点属性生成、特征纹理拾取注入与贴地矢量遮盖处理，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/PntsLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PntsLoaderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/PointCloudStylingPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PointCloudStylingPipelineStageSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/PrimitiveLoadPlanSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveLoadPlanSpec.js) | 待逐项核对 |
