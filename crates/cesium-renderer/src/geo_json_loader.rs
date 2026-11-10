@@ -443,6 +443,7 @@ fn parse_geojson(
         outline_coordinates: None,
         property_attribute_ids: Vec::new(),
         property_texture_ids: Vec::new(),
+        ..Default::default()
     };
 
     // Extract property table

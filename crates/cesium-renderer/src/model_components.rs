@@ -121,6 +121,26 @@ pub struct MorphTarget {
     pub attributes: Vec<Attribute>,
 }
 
+/// Vector data in the model, as defined by the CESIUM_mesh_vector extension.
+#[derive(Debug, Clone, Default, PartialEq)]
+pub struct Vector {
+    pub count: usize,
+    pub polygon_attribute_offsets: Vec<u32>,
+    pub polygon_hole_counts: Vec<u32>,
+    pub polygon_hole_offsets: Vec<u32>,
+    pub polygon_indices_offsets: Vec<u32>,
+}
+
+/// Polygon data in the model, as defined by the EXT_mesh_polygon extension.
+#[derive(Debug, Clone, Default, PartialEq)]
+pub struct Polygon {
+    pub count: usize,
+    pub triangle_indices: Option<Vec<u32>>,
+    pub triangle_indices_offsets: Vec<u32>,
+    pub loop_indices: Vec<u32>,
+    pub loop_indices_offsets: Vec<u32>,
+}
+
 /// Geometry to be rendered with a material.
 #[derive(Debug, Clone, Default)]
 pub struct Primitive {
@@ -133,6 +153,8 @@ pub struct Primitive {
     pub property_texture_ids: Vec<usize>,
     pub property_attribute_ids: Vec<usize>,
     pub outline_coordinates: Option<Attribute>,
+    pub vector: Option<Vector>,
+    pub polygon: Option<Polygon>,
 }
 
 /// Position and metadata information for instances of a node.

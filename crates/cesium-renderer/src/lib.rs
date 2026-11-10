@@ -22,6 +22,7 @@ pub mod clipping_plane;
 pub mod clipping_plane_collection;
 pub mod clipping_polygon;
 pub mod clipping_polygon_collection;
+pub mod create_vector_tile_buffers;
 pub mod classification_model_draw_command;
 pub mod model_draw_command;
 pub mod model_feature_table;
@@ -257,6 +258,12 @@ pub use clipping_plane_collection::{ClippingPlaneCollection, ClippingPlaneCollec
 pub use clipping_polygon::{ClippingPolygon, ClippingPolygonOptions};
 pub use clipping_polygon_collection::{
     ClippingPolygonCollection, ClippingPolygonCollectionOptions, Intersect,
+};
+pub use create_vector_tile_buffers::{
+    create_vector_tile_buffers_from_model_components, BufferCollection, BufferCollectionGet,
+    BufferPoint, BufferPointCollection, BufferPointOptions, BufferPolygon, BufferPolygonCollection,
+    BufferPolygonOptions, BufferPolyline, BufferPolylineCollection, BufferPolylineOptions,
+    VectorGltf3DTileContent, VectorTileResult, VectorTileset,
 };
 pub use cloud_collection::{
     CloudCollection, CloudCollectionOptions, CloudType, CumulusCloud, CumulusCloudOptions,
