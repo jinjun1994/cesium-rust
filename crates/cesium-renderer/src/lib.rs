@@ -130,6 +130,7 @@ pub mod metadata_schema_loader;
 pub mod metadata_table;
 pub mod metadata_table_property;
 pub mod metadata_type;
+pub mod metadata_pipeline_stage;
 pub mod metrics;
 pub mod model_components;
 pub mod pass_state;
@@ -364,6 +365,19 @@ pub use metadata_schema_loader::{MetadataSchemaLoader, MetadataSchemaLoaderOptio
 pub use metadata_table::{MetadataTable, MetadataTableOptions};
 pub use metadata_table_property::{MetadataTableProperty, MetadataTablePropertyOptions};
 pub use metadata_type::{MetadataMathType, MetadataType};
+pub use metadata_pipeline_stage::{
+    MetadataClassField, MetadataFrameContext, MetadataFrameState, MetadataModel,
+    MetadataPipelineStage, MetadataRenderResources, MetadataStatistics, MetadataStatisticsField,
+    PointCloudStyle, PropertyAttribute, PropertyAttributeProperty, PropertyStatistics,
+    PropertyTexture, PropertyTextureProperty, StructuralMetadata,
+    FUNCTION_ID_INITIALIZE_METADATA_FS, FUNCTION_ID_INITIALIZE_METADATA_VS,
+    FUNCTION_ID_SET_METADATA_VARYINGS, FUNCTION_SIGNATURE_INITIALIZE_METADATA,
+    FUNCTION_SIGNATURE_SET_METADATA_VARYINGS, METADATA_CLASS_FIELDS, METADATA_STATISTICS_FIELDS,
+    SHADERS_METADATA_STAGE_FS, SHADERS_METADATA_STAGE_VS, STRUCT_ID_METADATA_CLASS_FS,
+    STRUCT_ID_METADATA_CLASS_VS, STRUCT_ID_METADATA_FS, STRUCT_ID_METADATA_STATISTICS_FS,
+    STRUCT_ID_METADATA_STATISTICS_VS, STRUCT_ID_METADATA_VS, STRUCT_NAME_METADATA,
+    STRUCT_NAME_METADATA_CLASS, STRUCT_NAME_METADATA_STATISTICS,
+};
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,

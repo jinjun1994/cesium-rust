@@ -42,7 +42,7 @@ pub struct CreateModelTextureReaderOptions<'a> {
 }
 
 /// Texture reader for models matching CesiumJS `ModelComponents.TextureReader`.
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Default)]
 pub struct ModelTextureReader {
     pub index: usize,
     pub texture: Option<Texture>,

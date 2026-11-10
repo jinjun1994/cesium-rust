@@ -219,6 +219,19 @@ pub struct CustomShader {
     is_destroyed: Arc<RwLock<bool>>,
 }
 
+impl std::fmt::Debug for CustomShader {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("CustomShader")
+            .field("mode", &self.mode)
+            .field("lighting_model", &self.lighting_model)
+            .field("translucency_mode", &self.translucency_mode)
+            .field("varyings", &self.varyings)
+            .field("vertex_shader_text", &self.vertex_shader_text)
+            .field("fragment_shader_text", &self.fragment_shader_text)
+            .finish()
+    }
+}
+
 fn expand_coordinate_abbreviations(name: &str) -> String {
     if name.ends_with("MC") {
         format!("{name} (model coordinates)")
