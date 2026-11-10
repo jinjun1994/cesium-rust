@@ -133,6 +133,7 @@ pub mod metadata_type;
 pub mod metadata_pipeline_stage;
 pub mod model_3d_tile_content;
 pub mod model_animation_channel;
+pub mod model_animation_collection;
 pub mod metrics;
 pub mod model_components;
 pub mod pass_state;
@@ -382,6 +383,7 @@ pub use metadata_pipeline_stage::{
 };
 pub use model_3d_tile_content::*;
 pub use model_animation_channel::*;
+pub use model_animation_collection::*;
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,

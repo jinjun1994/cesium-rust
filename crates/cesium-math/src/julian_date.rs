@@ -205,6 +205,15 @@ pub struct JulianDate {
     pub seconds_of_day: f64,
 }
 
+impl PartialOrd for JulianDate {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        match self.day_number.cmp(&other.day_number) {
+            std::cmp::Ordering::Equal => self.seconds_of_day.partial_cmp(&other.seconds_of_day),
+            ord => Some(ord),
+        }
+    }
+}
+
 impl Default for JulianDate {
     fn default() -> Self {
         Self {
