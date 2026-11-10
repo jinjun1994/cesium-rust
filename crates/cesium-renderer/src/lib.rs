@@ -94,6 +94,7 @@ pub mod image_based_lighting_pipeline_stage;
 pub mod imagery_layer;
 pub mod imagery_layer_collection;
 pub mod imagery_pipeline_stage;
+pub mod instancing_pipeline_stage;
 pub mod itwin_data;
 pub mod ion_imagery_provider;
 pub mod job_scheduler;
@@ -327,6 +328,12 @@ pub use imagery_pipeline_stage::{
     DEFAULT_BRIGHTNESS as IMAGERY_DEFAULT_BRIGHTNESS,
     DEFAULT_CONTRAST as IMAGERY_DEFAULT_CONTRAST, DEFAULT_GAMMA as IMAGERY_DEFAULT_GAMMA,
     DEFAULT_HUE as IMAGERY_DEFAULT_HUE, DEFAULT_SATURATION as IMAGERY_DEFAULT_SATURATION,
+};
+pub use instancing_pipeline_stage::{
+    InstancingFrameState, InstancingModel, InstancingPipelineStage, InstancingRenderResources,
+    InstancingRuntimeNode, InstancingSceneGraph, InstancingVertexAttribute,
+    SHADERS_INSTANCING_STAGE_COMMON, SHADERS_INSTANCING_STAGE_VS,
+    SHADERS_LEGACY_INSTANCING_STAGE_VS,
 };
 pub use mapped_positions::MappedPositions;
 pub use material::{Fabric, Material, MaterialOptions};
