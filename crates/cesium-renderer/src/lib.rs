@@ -25,6 +25,7 @@ pub mod clipping_polygon_collection;
 pub mod classification_model_draw_command;
 pub mod model_draw_command;
 pub mod model_feature_table;
+pub mod model_imagery;
 pub mod model_imagery_mapping;
 pub mod model_type;
 pub mod classification_pipeline_stage;
@@ -337,6 +338,8 @@ pub use image_based_lighting_pipeline_stage::{
     IblContext, IblEnvironmentMapManager, IblModelOptions, IblRenderResources, IblUniformCallback,
     ImageBasedLightingPipelineStage, SpecularEnvironmentCubeMap,
 };
+pub use imagery_layer::*;
+pub use imagery_layer_collection::*;
 pub use imagery_pipeline_stage::{
     Imagery, ImageryCoverage, ImageryFlags, ImageryFrameState, ImageryInput,
     ImageryModelOptions, ImageryPipelineStage, ImageryRenderResources, ImageryRuntimePrimitive,
@@ -405,6 +408,7 @@ pub use model_clipping_polygons_pipeline_stage::*;
 pub use model_color_pipeline_stage::*;
 pub use model_draw_command::*;
 pub use model_feature_table::*;
+pub use model_imagery::*;
 pub use model_imagery_mapping::*;
 pub use model_type::*;
 pub use particle::{Particle, ParticleOptions};

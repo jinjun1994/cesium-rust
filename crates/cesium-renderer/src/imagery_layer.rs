@@ -1,6 +1,6 @@
 use std::sync::atomic::{AtomicU64, Ordering};
 use std::sync::Arc;
-use cesium_math::{Cartesian3, Color, GeoRectangle};
+use cesium_math::{Cartesian3, Color, Ellipsoid, GeoRectangle};
 
 static NEXT_LAYER_ID: AtomicU64 = AtomicU64::new(1);
 
@@ -65,6 +65,9 @@ pub trait ImageryProvider: Send + Sync {
     fn is_ready(&self) -> bool {
         true
     }
+    fn ellipsoid(&self) -> Ellipsoid {
+        Ellipsoid::WGS84
+    }
     fn pick_features(
         &self,
         _x: u32,
@@ -98,6 +101,7 @@ pub struct ImageryLayerOptions {
     pub color_to_alpha_threshold: Option<f32>,
     pub minimum_terrain_level: Option<u32>,
     pub maximum_terrain_level: Option<u32>,
+    pub ellipsoid: Option<Ellipsoid>,
 }
 
 /// An imagery layer on the globe or 3D tileset.
@@ -124,6 +128,7 @@ pub struct ImageryLayer {
     color_to_alpha_threshold: f32,
     minimum_terrain_level: Option<u32>,
     maximum_terrain_level: Option<u32>,
+    ellipsoid: Ellipsoid,
 
     layer_index: usize,
     is_base_layer: bool,
@@ -153,6 +158,10 @@ impl ImageryLayer {
             .or_else(|| provider.as_ref().map(|p| p.rectangle()))
             .unwrap_or(GeoRectangle::MAXIMUM);
         let ready = provider.as_ref().map(|p| p.is_ready()).unwrap_or(true);
+        let ellipsoid = opts
+            .ellipsoid
+            .or_else(|| provider.as_ref().map(|p| p.ellipsoid()))
+            .unwrap_or(Ellipsoid::WGS84);
 
         Self {
             id: NEXT_LAYER_ID.fetch_add(1, Ordering::Relaxed),
@@ -176,6 +185,7 @@ impl ImageryLayer {
             color_to_alpha_threshold: opts.color_to_alpha_threshold.unwrap_or(0.004),
             minimum_terrain_level: opts.minimum_terrain_level,
             maximum_terrain_level: opts.maximum_terrain_level,
+            ellipsoid,
 
             layer_index: 0,
             is_base_layer: false,
@@ -377,6 +387,14 @@ impl ImageryLayer {
 
     pub fn set_ready(&mut self, ready: bool) {
         self.ready = ready;
+    }
+
+    pub fn ellipsoid(&self) -> Ellipsoid {
+        self.ellipsoid
+    }
+
+    pub fn set_ellipsoid(&mut self, ellipsoid: Ellipsoid) {
+        self.ellipsoid = ellipsoid;
     }
 
     pub fn is_destroyed(&self) -> bool {
