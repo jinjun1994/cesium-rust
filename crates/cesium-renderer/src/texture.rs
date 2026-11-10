@@ -31,6 +31,7 @@ pub struct Texture {
     pub pixel_datatype: PixelDatatype,
     pub sampler: Sampler,
     pub flip_y: bool,
+    pub has_mipmap: bool,
     pub(crate) cached_entry: Option<Weak<RefCell<CachedTextureEntry>>>,
     pub(crate) is_destroyed: bool,
 }
@@ -43,6 +44,7 @@ impl PartialEq for Texture {
             && self.pixel_format == other.pixel_format
             && self.pixel_datatype == other.pixel_datatype
             && self.flip_y == other.flip_y
+            && self.has_mipmap == other.has_mipmap
             && self.is_destroyed == other.is_destroyed
     }
 }
@@ -81,9 +83,14 @@ impl Texture {
             pixel_datatype: options.pixel_datatype.unwrap_or(PixelDatatype::UnsignedByte),
             sampler: options.sampler.unwrap_or_default(),
             flip_y: options.flip_y.unwrap_or(false),
+            has_mipmap: false,
             cached_entry: None,
             is_destroyed: false,
         }
+    }
+
+    pub fn generate_mipmap(&mut self) {
+        self.has_mipmap = true;
     }
 
     pub fn size_in_bytes(&self) -> usize {

@@ -1,4 +1,4 @@
-use cesium_math::{PixelDatatype, PixelFormat};
+use cesium_renderer::framebuffer::{PixelDatatype, PixelFormat};
 use cesium_renderer::sampler::{
     Sampler, TextureMagnificationFilter, TextureMinificationFilter, TextureWrap,
 };

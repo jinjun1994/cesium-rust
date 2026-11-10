@@ -1,7 +1,8 @@
 //! TextureUniform matching CesiumJS `Scene/Model/TextureUniform.js` (Apache-2.0).
 
-use cesium_math::{DeveloperError, PixelDatatype, PixelFormat};
+use cesium_math::DeveloperError;
 
+use crate::framebuffer::{PixelDatatype, PixelFormat};
 use crate::sampler::{
     Sampler, TextureMagnificationFilter, TextureMinificationFilter, TextureWrap,
 };
