@@ -672,7 +672,7 @@
 | [packages/engine/Specs/Scene/Model/VerticalExaggerationPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/VerticalExaggerationPipelineStageSpec.js) | 已完成（通过测试 `vertical_exaggeration_pipeline_stage_spec`，实现垂直夸张（Vertical Exaggeration）管线阶段，支持 HAS_VERTICAL_EXAGGERATION 顶点宏注入、高度形变着色器算法注入与 u_verticalExaggerationAndRelativeHeight 动态统一变量绑定，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/WireframePipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/WireframePipelineStageSpec.js) | 已完成（通过测试 `wireframe_pipeline_stage_spec`，实现线框模式渲染管线阶段，支持 HAS_WIREFRAME 片元宏注入、自动从 Buffer 或 TypedArray 重建 gl.LINES 线框索引缓冲、更新图元类型与图元计数以及管道与几何内存统计追踪，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/createVectorTileBuffersFromModelComponentsSpec.js](../../cesium/packages/engine/Specs/Scene/Model/createVectorTileBuffersFromModelComponentsSpec.js) | 已完成（通过测试 `create_vector_tile_buffers_from_model_components_spec`，实现模型组件到矢量瓦片缓冲区生成，支持点/折线/多边形 Flyweight 集合视图装配、图元重启值分割、CESIUM_mesh_vector 与 EXT_mesh_polygon 内孔与三角形索引重映射映射解析，并通过三重门禁） |
-| [packages/engine/Specs/Scene/Model/pickModelSpec.js](../../cesium/packages/engine/Specs/Scene/Model/pickModelSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/pickModelSpec.js](../../cesium/packages/engine/Specs/Scene/Model/pickModelSpec.js) | 已完成（通过测试 `pick_model_spec`，实现模型射线拾取算法，支持图元包围球快速剔除、多实例局部与世界变换递归求交、垂直夸张形变、背面剔除切换与 2D/哥伦布视图坐标反投影，并通过三重门禁） |
 | [packages/engine/Specs/Scene/MoonSpec.js](../../cesium/packages/engine/Specs/Scene/MoonSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/MultifrustumSpec.js](../../cesium/packages/engine/Specs/Scene/MultifrustumSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Multiple3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Multiple3DTileContentSpec.js) | 待逐项核对 |
