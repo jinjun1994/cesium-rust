@@ -39,6 +39,7 @@ pub mod primitive_load_plan;
 pub mod scene_mode_2d_pipeline_stage;
 pub mod selected_feature_id_pipeline_stage;
 pub mod skinning_pipeline_stage;
+pub mod texture_uniform;
 pub mod model_primitive_imagery;
 pub mod model_reader;
 pub mod model_render_resources;

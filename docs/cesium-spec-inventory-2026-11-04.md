@@ -667,7 +667,7 @@
 | [packages/engine/Specs/Scene/Model/SelectedFeatureIdPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/SelectedFeatureIdPipelineStageSpec.js) | 已完成（通过测试 `selected_feature_id_pipeline_stage_spec`，实现选中特征 ID 管线阶段，支持图元/实例特征属性及纹理选择、SelectedFeature 着色器结构体动态注入、HAS_SELECTED_FEATURE_ID 与 SELECTED_FEATURE_ID 宏及空特征 ID（HAS_NULL_FEATURE_ID）统一变量绑定，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/SkinningPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/SkinningPipelineStageSpec.js) | 已完成（通过测试 `skinning_pipeline_stage_spec`，实现骨骼蒙皮管线阶段，支持 HAS_SKINNING 宏注入、getSkinningMatrix 着色器计算函数动态生成、多关节集合与权重属性匹配、u_jointMatrices 数组统一变量声明与动态关节变换矩阵绑定，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/TextureManagerSpec.js](../../cesium/packages/engine/Specs/Scene/Model/TextureManagerSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/Model/TextureUniformSpec.js](../../cesium/packages/engine/Specs/Scene/Model/TextureUniformSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/TextureUniformSpec.js](../../cesium/packages/engine/Specs/Scene/Model/TextureUniformSpec.js) | 已完成（通过测试 `texture_uniform_spec`，实现纹理统一变量结构容器，严格校验 URL 与 TypedArray 互斥依赖、尺寸规范、像素格式/数据类型配置及采样器模式与各项异性参数装配，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/TilesetPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/TilesetPipelineStageSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/VerticalExaggerationPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/VerticalExaggerationPipelineStageSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/WireframePipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/WireframePipelineStageSpec.js) | 待逐项核对 |

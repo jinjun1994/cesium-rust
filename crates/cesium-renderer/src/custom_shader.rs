@@ -112,37 +112,7 @@ impl VaryingType {
     }
 }
 
-/// Struct representing a texture uniform value.
-#[derive(Clone, Debug, PartialEq, Eq)]
-pub struct TextureUniform {
-    pub url: Option<String>,
-    pub typed_array: Option<Vec<u8>>,
-    pub width: Option<u32>,
-    pub height: Option<u32>,
-    pub repeat: bool,
-}
-
-impl TextureUniform {
-    pub fn from_url(url: impl Into<String>) -> Self {
-        Self {
-            url: Some(url.into()),
-            typed_array: None,
-            width: None,
-            height: None,
-            repeat: true,
-        }
-    }
-
-    pub fn from_bytes(bytes: Vec<u8>, width: u32, height: u32) -> Self {
-        Self {
-            url: None,
-            typed_array: Some(bytes),
-            width: Some(width),
-            height: Some(height),
-            repeat: true,
-        }
-    }
-}
+pub use crate::texture_uniform::TextureUniform;
 
 /// Value of a custom shader uniform.
 #[derive(Clone, Debug, PartialEq)]
