@@ -101,6 +101,7 @@ pub mod job_scheduler;
 pub mod json_metadata_table;
 pub mod keyframe_node;
 pub mod light;
+pub mod lighting_pipeline_stage;
 pub mod mapbox_imagery_provider;
 pub mod mapbox_style_imagery_provider;
 pub mod mapped_positions;
@@ -334,6 +335,10 @@ pub use instancing_pipeline_stage::{
     InstancingRuntimeNode, InstancingSceneGraph, InstancingVertexAttribute,
     SHADERS_INSTANCING_STAGE_COMMON, SHADERS_INSTANCING_STAGE_VS,
     SHADERS_LEGACY_INSTANCING_STAGE_VS,
+};
+pub use lighting_pipeline_stage::{
+    LightingModelOptions, LightingPipelineStage, LightingRenderResources, ModelLightingOptions,
+    SHADERS_LIGHTING_STAGE_FS,
 };
 pub use mapped_positions::MappedPositions;
 pub use material::{Fabric, Material, MaterialOptions};
