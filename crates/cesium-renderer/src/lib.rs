@@ -33,6 +33,7 @@ pub mod node_render_resources;
 pub mod node_statistics_pipeline_stage;
 pub mod primitive_render_resources;
 pub mod primitive_statistics_pipeline_stage;
+pub mod primitive_outline_generator;
 pub mod model_primitive_imagery;
 pub mod model_reader;
 pub mod model_render_resources;
@@ -449,6 +450,7 @@ pub use node_render_resources::*;
 pub use node_statistics_pipeline_stage::*;
 pub use primitive_render_resources::*;
 pub use primitive_statistics_pipeline_stage::*;
+pub use primitive_outline_generator::*;
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,

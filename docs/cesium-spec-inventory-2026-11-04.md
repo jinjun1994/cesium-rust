@@ -659,7 +659,7 @@
 | [packages/engine/Specs/Scene/Model/PntsLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PntsLoaderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/PointCloudStylingPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PointCloudStylingPipelineStageSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/PrimitiveLoadPlanSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveLoadPlanSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/Model/PrimitiveOutlineGeneratorSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveOutlineGeneratorSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/PrimitiveOutlineGeneratorSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveOutlineGeneratorSpec.js) | 已完成（通过测试 `primitive_outline_generator_spec`，实现快速纹理线框轮廓生成算法，支持三角形面坐标排序位掩码匹配、冲突顶点动态复制与索引重映射、属性切片复制更新以及多级 Mipmap 轮廓查找纹理生成，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/PrimitiveOutlinePipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveOutlinePipelineStageSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/PrimitiveRenderResourcesSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveRenderResourcesSpec.js) | 已完成（通过测试 `primitive_render_resources_spec`，实现图元级渲染资源容器，严格校验必需参数、深克隆继承节点/模型着色器构建器与渲染状态、计算顶点/索引数量、包围球与位置Min/Max提取、默认Unlit光照模型配置，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/PrimitiveStatisticsPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveStatisticsPipelineStageSpec.js) | 已完成（通过测试 `primitive_statistics_pipeline_stage_spec`，实现图元级统计管线阶段，支持三角形/点云/Strip/Fan点面计算、顶点/索引/轮廓CPU及GPU缓冲区去重统计、2D位置缓冲区计算、形变目标、材质与特征ID纹理去重、结构化元数据属性表与属性纹理内存计算，通过三重门禁） |
