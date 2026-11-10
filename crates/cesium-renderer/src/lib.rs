@@ -34,6 +34,7 @@ pub mod node_statistics_pipeline_stage;
 pub mod primitive_render_resources;
 pub mod primitive_statistics_pipeline_stage;
 pub mod primitive_outline_generator;
+pub mod primitive_outline_pipeline_stage;
 pub mod primitive_load_plan;
 pub mod model_primitive_imagery;
 pub mod model_reader;
