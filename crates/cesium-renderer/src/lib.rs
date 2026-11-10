@@ -144,6 +144,7 @@ pub mod light;
 pub mod lighting_pipeline_stage;
 pub mod mapbox_imagery_provider;
 pub mod mapbox_style_imagery_provider;
+pub mod open_street_map_imagery_provider;
 pub mod mapped_positions;
 pub mod material_pipeline_stage;
 pub mod implicit_subdivision_scheme;
@@ -361,6 +362,9 @@ pub use multi_frustum::{
 pub use multiple_3d_tile_content::{
     Cesium3DContentGroup, InnerContentHeader, InnerTileContent, Multiple3DTileContent,
     TilesetStatistics,
+};
+pub use open_street_map_imagery_provider::{
+    OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,
 };
 pub use gltf_buffer_view_loader::{
     GltfBufferViewLoader, GltfBufferViewLoaderOptions, MeshoptInfo,
