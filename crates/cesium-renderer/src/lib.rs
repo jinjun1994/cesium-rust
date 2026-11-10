@@ -146,6 +146,7 @@ pub mod mapbox_imagery_provider;
 pub mod mapbox_style_imagery_provider;
 pub mod open_street_map_imagery_provider;
 pub mod ordered_ground_primitive_collection;
+pub mod panorama;
 pub mod mapped_positions;
 pub mod material_pipeline_stage;
 pub mod implicit_subdivision_scheme;
@@ -371,6 +372,7 @@ pub use ordered_ground_primitive_collection::{
     next_ground_primitive_id, GroundPrimitive, MockGroundPrimitive,
     OrderedGroundPrimitiveCollection, PrimitiveSubcollection,
 };
+pub use panorama::{Panorama, PanoramaTrait};
 pub use gltf_buffer_view_loader::{
     GltfBufferViewLoader, GltfBufferViewLoaderOptions, MeshoptInfo,
 };
