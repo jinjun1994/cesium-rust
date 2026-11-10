@@ -17,6 +17,27 @@ impl StencilConstants {
     pub const SKIP_LOD_MASK: u32 = 0x70;
     pub const SKIP_LOD_BIT_SHIFT: u32 = 4;
     pub const CLASSIFICATION_MASK: u32 = 0x0f;
+
+    /// Configures stencil test state to set the Cesium 3D Tile bit.
+    pub fn set_cesium_3d_tile_bit() -> StencilTestState {
+        StencilTestState {
+            enabled: true,
+            front_function: StencilFunction::Always,
+            front_operation: StencilOperationState {
+                fail: StencilOperation::Keep,
+                z_fail: StencilOperation::Keep,
+                z_pass: StencilOperation::Replace,
+            },
+            back_function: StencilFunction::Always,
+            back_operation: StencilOperationState {
+                fail: StencilOperation::Keep,
+                z_fail: StencilOperation::Keep,
+                z_pass: StencilOperation::Replace,
+            },
+            reference: Self::CESIUM_3D_TILE_MASK as i32,
+            mask: Self::CESIUM_3D_TILE_MASK,
+        }
+    }
 }
 
 /// Model options used by ClassificationModelDrawCommand.
