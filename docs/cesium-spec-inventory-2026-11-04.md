@@ -674,7 +674,7 @@
 | [packages/engine/Specs/Scene/Model/createVectorTileBuffersFromModelComponentsSpec.js](../../cesium/packages/engine/Specs/Scene/Model/createVectorTileBuffersFromModelComponentsSpec.js) | 已完成（通过测试 `create_vector_tile_buffers_from_model_components_spec`，实现模型组件到矢量瓦片缓冲区生成，支持点/折线/多边形 Flyweight 集合视图装配、图元重启值分割、CESIUM_mesh_vector 与 EXT_mesh_polygon 内孔与三角形索引重映射映射解析，并通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/pickModelSpec.js](../../cesium/packages/engine/Specs/Scene/Model/pickModelSpec.js) | 已完成（通过测试 `pick_model_spec`，实现模型射线拾取算法，支持图元包围球快速剔除、多实例局部与世界变换递归求交、垂直夸张形变、背面剔除切换与 2D/哥伦布视图坐标反投影，并通过三重门禁） |
 | [packages/engine/Specs/Scene/MoonSpec.js](../../cesium/packages/engine/Specs/Scene/MoonSpec.js) | 已完成（通过测试 `moon_spec`，实现三维月球（Moon）渲染图元封装与天体运动变换，支持默认月球椭球体参数、纹理装配、太阳单光源配置、IAU 旋转轴与 Simon 1994 行星轨道解算以及生命周期管理，并通过三重门禁） |
-| [packages/engine/Specs/Scene/MultifrustumSpec.js](../../cesium/packages/engine/Specs/Scene/MultifrustumSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/MultifrustumSpec.js](../../cesium/packages/engine/Specs/Scene/MultifrustumSpec.js) | 已完成（通过测试 `multifrustum_spec`，实现多视锥分割算法 update_frustums 与命令分箱 insert_into_bin，支持 2D 线性均匀分段与 3D/CV 对数分段、对数深度比率缩减视锥数量、未定义包围盒跨视锥投影、executeInClosestFrustum 单视锥限制以及 debugShowFrustums 着色器调试插桩与统计追踪，并通过三重门禁） |
 | [packages/engine/Specs/Scene/Multiple3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Multiple3DTileContentSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/OpenStreetMapImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/OpenStreetMapImageryProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/OrderedGroundPrimitiveCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/OrderedGroundPrimitiveCollectionSpec.js) | 待逐项核对 |

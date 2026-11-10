@@ -96,6 +96,7 @@ pub mod ellipsoid_surface_appearance;
 pub mod framebuffer;
 pub mod frame_rate_monitor;
 pub mod frustum_commands;
+pub mod multi_frustum;
 pub mod gltf_buffer_view_loader;
 pub mod gltf_draco_loader;
 pub mod gltf_gpm_loader;
@@ -353,6 +354,9 @@ pub use frame_rate_monitor::{
     DEFAULT_QUIET_PERIOD, DEFAULT_SAMPLING_WINDOW, DEFAULT_WARMUP_PERIOD,
 };
 pub use frustum_commands::FrustumCommands;
+pub use multi_frustum::{
+    CommandExtent, DebugFrustumStatistics, MultiFrustum, MultiFrustumOptions,
+};
 pub use gltf_buffer_view_loader::{
     GltfBufferViewLoader, GltfBufferViewLoaderOptions, MeshoptInfo,
 };
