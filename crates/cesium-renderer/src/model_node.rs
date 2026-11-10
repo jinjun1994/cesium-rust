@@ -8,7 +8,7 @@ use cesium_math::{DeveloperError, Matrix4};
 use crate::model_runtime_node::ModelRuntimeNode;
 
 /// A public-facing node of a 3D model, providing access to properties such as node transform and visibility.
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct ModelNode {
     runtime_node: Rc<RefCell<ModelRuntimeNode>>,
     model_user_animation_dirty: Option<Rc<Cell<bool>>>,

@@ -266,6 +266,44 @@ pub struct ModelDrawCommand {
 }
 
 impl ModelDrawCommand {
+    /// Creates a ModelDrawCommand directly wrapping a DrawCommand.
+    pub fn from_command(command: DrawCommand) -> Self {
+        let model_matrix = command.model_matrix.unwrap_or(DMat4::IDENTITY);
+        let bounding_volume = command.bounding_volume.unwrap_or_default();
+        Self {
+            command,
+            model: ModelDrawCommandModelOptions::default(),
+            runtime_primitive: ModelDrawCommandRuntimePrimitive::default(),
+            primitive_render_resources: ModelPrimitiveRenderResources::default(),
+            model_matrix,
+            bounding_volume,
+            model_matrix_2d: DMat4::IDENTITY,
+            bounding_volume_2d: BoundingSphere::default(),
+            model_matrix_2d_dirty: false,
+            back_face_culling: true,
+            cull_face: CullFace::Back,
+            shadows: ShadowMode::Disabled,
+            debug_show_bounding_volume: false,
+            uses_back_face_culling: false,
+            needs_translucent_command: false,
+            needs_skip_level_of_detail_commands: false,
+            needs_silhouette_commands: false,
+            needs_edge_commands: false,
+            needs_planar_fill_id_command: false,
+            original_command: None,
+            translucent_command: None,
+            skip_lod_backface_command: None,
+            skip_lod_stencil_command: None,
+            silhouette_model_command: None,
+            silhouette_color_command: None,
+            edge_command: None,
+            edge_snap_command: None,
+            planar_fill_id_command: None,
+            derived_commands: Vec::new(),
+            has_2d_commands: false,
+        }
+    }
+
     /// Creates a new ModelDrawCommand from the command and primitive render resources.
     pub fn new(
         command: Option<DrawCommand>,
