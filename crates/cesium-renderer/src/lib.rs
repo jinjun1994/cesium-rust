@@ -135,6 +135,8 @@ pub mod model_3d_tile_content;
 pub mod model_animation;
 pub mod model_animation_channel;
 pub mod model_animation_collection;
+pub mod model_articulation;
+pub mod model_articulation_stage;
 pub mod metrics;
 pub mod model_components;
 pub mod pass_state;
@@ -386,6 +388,8 @@ pub use model_3d_tile_content::*;
 pub use model_animation::*;
 pub use model_animation_channel::*;
 pub use model_animation_collection::*;
+pub use model_articulation::*;
+pub use model_articulation_stage::*;
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,

@@ -269,21 +269,21 @@ fn test_animates_node_translation() {
     let runtime_channel = ModelAnimationChannel::new(Some(channel), Some(runtime_anim), Some(&runtime_node)).unwrap();
 
     assert_eq!(runtime_node.translation, Cartesian3::ZERO);
-    assert_eq!(runtime_node.transform(), Matrix4::IDENTITY);
+    assert_eq!(runtime_node.computed_transform(), Matrix4::IDENTITY);
 
     let time = times[1];
     let expected = translation_points[1];
 
     runtime_channel.animate(&mut runtime_node, time).unwrap();
     assert_eq!(runtime_node.translation, expected);
-    assert_eq!(runtime_node.transform(), Matrix4::from_translation(expected));
+    assert_eq!(runtime_node.computed_transform(), Matrix4::from_translation(expected));
 
     let time_mid = (times[1] + times[2]) / 2.0;
     let expected_mid = Cartesian3::lerp(translation_points[1], translation_points[2], 0.5);
 
     runtime_channel.animate(&mut runtime_node, time_mid).unwrap();
     assert_eq!(runtime_node.translation, expected_mid);
-    assert_eq!(runtime_node.transform(), Matrix4::from_translation(expected_mid));
+    assert_eq!(runtime_node.computed_transform(), Matrix4::from_translation(expected_mid));
 }
 
 #[test]
@@ -309,7 +309,7 @@ fn test_animates_node_rotation() {
     let runtime_channel = ModelAnimationChannel::new(Some(channel), Some(runtime_anim), Some(&runtime_node)).unwrap();
 
     assert_eq!(runtime_node.rotation, Quaternion::IDENTITY);
-    assert_eq!(runtime_node.transform(), Matrix4::IDENTITY);
+    assert_eq!(runtime_node.computed_transform(), Matrix4::IDENTITY);
 
     let time = times[1];
     let expected = rotation_points[1];
@@ -317,7 +317,7 @@ fn test_animates_node_rotation() {
 
     runtime_channel.animate(&mut runtime_node, time).unwrap();
     assert_eq!(runtime_node.rotation, expected);
-    assert!(runtime_node.transform().equals_epsilon(
+    assert!(runtime_node.computed_transform().equals_epsilon(
         &Matrix4::from_rotation_translation(&expected_matrix, Cartesian3::ZERO),
         EPSILON6,
     ));
@@ -328,7 +328,7 @@ fn test_animates_node_rotation() {
 
     runtime_channel.animate(&mut runtime_node, time_mid).unwrap();
     assert!(runtime_node.rotation.equals_epsilon(&expected_mid, EPSILON6));
-    assert!(runtime_node.transform().equals_epsilon(
+    assert!(runtime_node.computed_transform().equals_epsilon(
         &Matrix4::from_rotation_translation(&expected_matrix_mid, Cartesian3::ZERO),
         EPSILON6,
     ));
@@ -357,21 +357,21 @@ fn test_animates_node_scale() {
     let runtime_channel = ModelAnimationChannel::new(Some(channel), Some(runtime_anim), Some(&runtime_node)).unwrap();
 
     assert_eq!(runtime_node.scale, Cartesian3::new(1.0, 1.0, 1.0));
-    assert_eq!(runtime_node.transform(), Matrix4::IDENTITY);
+    assert_eq!(runtime_node.computed_transform(), Matrix4::IDENTITY);
 
     let time = times[1];
     let expected = scale_points[1];
 
     runtime_channel.animate(&mut runtime_node, time).unwrap();
     assert_eq!(runtime_node.scale, expected);
-    assert_eq!(runtime_node.transform(), Matrix4::from_scale(expected));
+    assert_eq!(runtime_node.computed_transform(), Matrix4::from_scale(expected));
 
     let time_mid = (times[1] + times[2]) / 2.0;
     let expected_mid = Cartesian3::lerp(scale_points[1], scale_points[2], 0.5);
 
     runtime_channel.animate(&mut runtime_node, time_mid).unwrap();
     assert_eq!(runtime_node.scale, expected_mid);
-    assert_eq!(runtime_node.transform(), Matrix4::from_scale(expected_mid));
+    assert_eq!(runtime_node.computed_transform(), Matrix4::from_scale(expected_mid));
 }
 
 #[test]

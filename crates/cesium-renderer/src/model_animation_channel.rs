@@ -63,6 +63,8 @@ pub struct ModelRuntimeNode {
     pub scale: Cartesian3,
     pub morph_weights: Vec<f64>,
     pub user_animated: bool,
+    pub original_transform: Matrix4,
+    pub transform: Matrix4,
 }
 
 impl Default for ModelRuntimeNode {
@@ -73,6 +75,8 @@ impl Default for ModelRuntimeNode {
             scale: Cartesian3::new(1.0, 1.0, 1.0),
             morph_weights: Vec::new(),
             user_animated: false,
+            original_transform: Matrix4::IDENTITY,
+            transform: Matrix4::IDENTITY,
         }
     }
 }
@@ -82,7 +86,15 @@ impl ModelRuntimeNode {
         Self::default()
     }
 
-    pub fn transform(&self) -> Matrix4 {
+    pub fn with_transform(transform: Matrix4) -> Self {
+        Self {
+            original_transform: transform,
+            transform,
+            ..Default::default()
+        }
+    }
+
+    pub fn computed_transform(&self) -> Matrix4 {
         Matrix4::from_translation_quaternion_rotation_scale(
             self.translation,
             self.rotation,

@@ -907,6 +907,11 @@ impl Matrix4 {
     }
 
     #[inline]
+    pub fn multiply_transformation(&self, other: &Self) -> Self {
+        self.multiply(other)
+    }
+
+    #[inline]
     pub fn add(&self, other: &Self) -> Self {
         let mut out = [0.0; 16];
         for i in 0..16 {
