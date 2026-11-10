@@ -1,7 +1,8 @@
 //! GPU Buffer implementations matching CesiumJS `Renderer/Buffer.js` (Apache-2.0).
 
 use cesium_math::{DeveloperError, IndexDatatype};
-use std::sync::atomic::{AtomicU64, Ordering};
+use std::sync::atomic::{AtomicBool, AtomicU64, Ordering};
+use std::sync::Arc;
 
 static NEXT_BUFFER_ID: AtomicU64 = AtomicU64::new(1);
 
@@ -49,6 +50,7 @@ pub struct Buffer {
     pub data: Vec<u8>,
     pub index_datatype: Option<IndexDatatype>,
     pub is_destroyed: bool,
+    shared_destroyed: Arc<AtomicBool>,
 }
 
 impl PartialEq for Buffer {
@@ -142,6 +144,7 @@ impl Buffer {
             data,
             index_datatype,
             is_destroyed: false,
+            shared_destroyed: Arc::new(AtomicBool::new(false)),
         })
     }
 
@@ -328,17 +331,18 @@ impl Buffer {
 
     /// Returns whether this buffer is destroyed.
     pub fn is_destroyed(&self) -> bool {
-        self.is_destroyed
+        self.is_destroyed || self.shared_destroyed.load(Ordering::Relaxed)
     }
 
     /// Destroys this buffer. Throws error if already destroyed.
     pub fn destroy(&mut self) -> Result<(), DeveloperError> {
-        if self.is_destroyed {
+        if self.is_destroyed() {
             return Err(DeveloperError::new(
                 "This object was destroyed, i.e., destroy() was called.",
             ));
         }
         self.is_destroyed = true;
+        self.shared_destroyed.store(true, Ordering::Relaxed);
         self.data.clear();
         self.data.shrink_to_fit();
         Ok(())

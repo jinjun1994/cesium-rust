@@ -81,6 +81,7 @@ pub mod ground_polyline_primitive;
 pub mod ground_primitive;
 pub mod group_metadata;
 pub mod heightmap_tessellator;
+pub mod i3dm_loader;
 pub mod i3dm_parser;
 pub mod i3s_data_provider;
 pub mod i3s_decoder;
@@ -311,6 +312,7 @@ pub use gltf_json_loader::{
     is_supported_extension as is_supported_gltf_extension, GltfJsonLoader, GltfJsonLoaderOptions,
     GLB_CHUNK_TYPE_BIN, GLB_CHUNK_TYPE_JSON, GLB_MAGIC,
 };
+pub use i3dm_loader::{I3dmLoader, I3dmLoaderOptions};
 pub use material::{Fabric, Material, MaterialOptions};
 pub use material_appearance::{MaterialAppearance, MaterialAppearanceOptions, MaterialSupport};
 pub use megatexture::Megatexture;
