@@ -197,6 +197,14 @@ impl ShaderBuilder {
         &self.attribute_locations
     }
 
+    pub fn attribute_lines(&self) -> &[String] {
+        &self.attribute_lines
+    }
+
+    pub fn get_function(&self, function_id: &str) -> Option<&ShaderFunction> {
+        self.functions.get(function_id)
+    }
+
     pub fn vertex_uniform_lines(&self) -> &[String] {
         &self.vertex_shader_parts.uniform_lines
     }
