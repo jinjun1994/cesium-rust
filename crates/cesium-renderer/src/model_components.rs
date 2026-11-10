@@ -2,7 +2,7 @@
 
 use crate::axis::Axis;
 use crate::buffer::Buffer;
-pub use crate::gltf_loader_util::ModelTextureReader;
+pub use crate::gltf_loader_util::{ConstantLod, ModelTextureReader};
 use cesium_math::{
     AttributeType, Cartesian3, Cartesian4, ComponentDatatype, IndexDatatype, Matrix4,
     PrimitiveType, Quaternion,
@@ -108,6 +108,7 @@ pub struct FeatureIdImplicitRange {
 
 /// Feature ID container variant.
 #[derive(Debug, Clone)]
+#[allow(clippy::large_enum_variant)]
 pub enum FeatureId {
     Attribute(FeatureIdAttribute),
     Texture(FeatureIdTexture),
@@ -217,11 +218,68 @@ impl Default for SpecularGlossiness {
     }
 }
 
+/// Material properties for KHR_materials_specular.
+#[derive(Debug, Clone, PartialEq)]
+pub struct Specular {
+    pub specular_factor: f32,
+    pub specular_texture: Option<ModelTextureReader>,
+    pub specular_color_factor: Cartesian3,
+    pub specular_color_texture: Option<ModelTextureReader>,
+}
+
+impl Default for Specular {
+    fn default() -> Self {
+        Self {
+            specular_factor: 1.0,
+            specular_texture: None,
+            specular_color_factor: Cartesian3::new(1.0, 1.0, 1.0),
+            specular_color_texture: None,
+        }
+    }
+}
+
+/// Material properties for KHR_materials_clearcoat.
+#[derive(Debug, Clone, PartialEq, Default)]
+pub struct Clearcoat {
+    pub clearcoat_factor: f32,
+    pub clearcoat_texture: Option<ModelTextureReader>,
+    pub clearcoat_roughness_factor: f32,
+    pub clearcoat_roughness_texture: Option<ModelTextureReader>,
+    pub clearcoat_normal_texture: Option<ModelTextureReader>,
+}
+
+/// Material properties for KHR_materials_anisotropy.
+#[derive(Debug, Clone, PartialEq, Default)]
+pub struct Anisotropy {
+    pub anisotropy_strength: f32,
+    pub anisotropy_rotation: f32,
+    pub anisotropy_texture: Option<ModelTextureReader>,
+}
+
+/// Material properties for BENTLEY_materials_planar_fill.
+#[derive(Debug, Clone, PartialEq, Default)]
+pub struct PlanarFill {
+    pub behind: bool,
+    pub background_fill: bool,
+}
+
+/// Material properties for BENTLEY_materials_line_style.
+#[derive(Debug, Clone, PartialEq, Default)]
+pub struct LineStyle {
+    pub width: Option<f32>,
+    pub pattern: Option<u32>,
+}
+
 /// Material appearance of a primitive.
 #[derive(Debug, Clone)]
 pub struct Material {
     pub metallic_roughness: Option<MetallicRoughness>,
     pub specular_glossiness: Option<SpecularGlossiness>,
+    pub specular: Option<Specular>,
+    pub clearcoat: Option<Clearcoat>,
+    pub anisotropy: Option<Anisotropy>,
+    pub planar_fill: Option<PlanarFill>,
+    pub line_style: Option<LineStyle>,
     pub emissive_texture: Option<ModelTextureReader>,
     pub normal_texture: Option<ModelTextureReader>,
     pub occlusion_texture: Option<ModelTextureReader>,
@@ -238,6 +296,11 @@ impl Default for Material {
         Self {
             metallic_roughness: Some(MetallicRoughness::default()),
             specular_glossiness: None,
+            specular: None,
+            clearcoat: None,
+            anisotropy: None,
+            planar_fill: None,
+            line_style: None,
             emissive_texture: None,
             normal_texture: None,
             occlusion_texture: None,

@@ -105,6 +105,7 @@ pub mod lighting_pipeline_stage;
 pub mod mapbox_imagery_provider;
 pub mod mapbox_style_imagery_provider;
 pub mod mapped_positions;
+pub mod material_pipeline_stage;
 pub mod implicit_subdivision_scheme;
 pub mod instance_attribute_semantic;
 pub mod implicit_tile_coordinates;
@@ -341,6 +342,12 @@ pub use lighting_pipeline_stage::{
     SHADERS_LIGHTING_STAGE_FS,
 };
 pub use mapped_positions::MappedPositions;
+pub use material_pipeline_stage::{
+    MaterialFrameState, MaterialFrameStateCamera, MaterialFrameStateContext, MaterialFrustum,
+    MaterialModelOptions, MaterialPipelineStage, MaterialRenderResources, MaterialUniformCallback,
+    MaterialUniformValue, PointCloudShading, SHADERS_CONSTANT_LOD_STAGE_FS,
+    SHADERS_CONSTANT_LOD_STAGE_VS, SHADERS_MATERIAL_STAGE_FS,
+};
 pub use material::{Fabric, Material, MaterialOptions};
 pub use material_appearance::{MaterialAppearance, MaterialAppearanceOptions, MaterialSupport};
 pub use megatexture::Megatexture;

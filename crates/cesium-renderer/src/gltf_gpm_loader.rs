@@ -466,6 +466,7 @@ impl GltfMeshPrimitiveGpmLoader {
                         scale: Some(ppe_tex.scale),
                         transform: None,
                         channels: Some("r".to_string()),
+                        constant_lod: None,
                     },
                     channels: vec![0],
                 },

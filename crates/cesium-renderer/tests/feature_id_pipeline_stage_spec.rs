@@ -171,6 +171,7 @@ fn test_processes_feature_id_texture() {
             scale: None,
             transform: None,
             channels: Some("r".to_string()),
+            constant_lod: None,
         }),
         label: Some("landCover".to_string()),
         ..Default::default()
@@ -204,6 +205,7 @@ fn test_adds_feature_id_texture_transforms_to_the_shader() {
             scale: None,
             transform: Some(Matrix3::IDENTITY),
             channels: Some("r".to_string()),
+            constant_lod: None,
         }),
         label: None,
         ..Default::default()
@@ -247,6 +249,7 @@ fn test_processes_feature_id_textures_with_multiple_channels() {
                 scale: None,
                 transform: None,
                 channels: Some(chan.to_string()),
+                constant_lod: None,
             }),
             label: Some(lbl.to_string()),
             ..Default::default()

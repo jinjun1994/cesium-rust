@@ -5,8 +5,17 @@ use crate::sampler::{
     Sampler, TextureMagnificationFilter, TextureMinificationFilter, TextureWrap,
 };
 use crate::texture::Texture;
-use cesium_math::{DeveloperError, Matrix3};
+use cesium_math::{Cartesian2, DeveloperError, Matrix3};
 use serde_json::Value;
+
+/// Constant LOD options matching CesiumJS `EXT_textureInfo_constant_lod`.
+#[derive(Debug, Clone, PartialEq)]
+pub struct ConstantLod {
+    pub min_clamp_distance: f32,
+    pub max_clamp_distance: f32,
+    pub repetitions: f32,
+    pub offset: Cartesian2,
+}
 
 /// Options for [`GltfLoaderUtil::get_image_id_from_texture`].
 #[derive(Debug, Clone, Default)]
@@ -41,6 +50,7 @@ pub struct ModelTextureReader {
     pub scale: Option<f64>,
     pub transform: Option<Matrix3>,
     pub channels: Option<String>,
+    pub constant_lod: Option<ConstantLod>,
 }
 
 /// glTF loading utilities matching CesiumJS `GltfLoaderUtil`.
@@ -259,6 +269,39 @@ impl GltfLoaderUtil {
             ));
         }
 
+        let mut constant_lod = None;
+        if let Some(ext) = texture_info.get("extensions") {
+            if let Some(lod_ext) = ext.get("EXT_textureInfo_constant_lod") {
+                let min_clamp_distance = lod_ext
+                    .get("minClampDistance")
+                    .and_then(Value::as_f64)
+                    .unwrap_or(0.0) as f32;
+                let max_clamp_distance = lod_ext
+                    .get("maxClampDistance")
+                    .and_then(Value::as_f64)
+                    .unwrap_or(1000.0) as f32;
+                let repetitions = lod_ext
+                    .get("repetitions")
+                    .and_then(Value::as_f64)
+                    .unwrap_or(1.0) as f32;
+                let mut offset = Cartesian2::ZERO;
+                if let Some(offset_arr) = lod_ext.get("offset").and_then(Value::as_array) {
+                    if offset_arr.len() == 2 {
+                        offset = Cartesian2::new(
+                            offset_arr[0].as_f64().unwrap_or(0.0),
+                            offset_arr[1].as_f64().unwrap_or(0.0),
+                        );
+                    }
+                }
+                constant_lod = Some(ConstantLod {
+                    min_clamp_distance,
+                    max_clamp_distance,
+                    repetitions,
+                    offset,
+                });
+            }
+        }
+
         Ok(ModelTextureReader {
             index,
             texture: options.texture,
@@ -266,6 +309,7 @@ impl GltfLoaderUtil {
             scale,
             transform,
             channels: options.channels,
+            constant_lod,
         })
     }
 }
