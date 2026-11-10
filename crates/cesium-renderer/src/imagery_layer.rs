@@ -131,6 +131,16 @@ pub struct ImageryLayer {
     is_destroyed: bool,
 }
 
+impl std::fmt::Debug for ImageryLayer {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("ImageryLayer")
+            .field("id", &self.id)
+            .field("show", &self.show)
+            .field("alpha", &self.alpha)
+            .finish()
+    }
+}
+
 impl ImageryLayer {
     /// Creates a new `ImageryLayer` backed by an imagery provider.
     pub fn new(

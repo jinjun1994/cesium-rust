@@ -93,6 +93,7 @@ pub mod image_based_lighting;
 pub mod image_based_lighting_pipeline_stage;
 pub mod imagery_layer;
 pub mod imagery_layer_collection;
+pub mod imagery_pipeline_stage;
 pub mod itwin_data;
 pub mod ion_imagery_provider;
 pub mod job_scheduler;
@@ -101,6 +102,7 @@ pub mod keyframe_node;
 pub mod light;
 pub mod mapbox_imagery_provider;
 pub mod mapbox_style_imagery_provider;
+pub mod mapped_positions;
 pub mod implicit_subdivision_scheme;
 pub mod instance_attribute_semantic;
 pub mod implicit_tile_coordinates;
@@ -318,6 +320,15 @@ pub use image_based_lighting_pipeline_stage::{
     IblContext, IblEnvironmentMapManager, IblModelOptions, IblRenderResources, IblUniformCallback,
     ImageBasedLightingPipelineStage, SpecularEnvironmentCubeMap,
 };
+pub use imagery_pipeline_stage::{
+    Imagery, ImageryCoverage, ImageryFlags, ImageryFrameState, ImageryInput,
+    ImageryModelOptions, ImageryPipelineStage, ImageryRenderResources, ImageryRuntimePrimitive,
+    ImageryStageVertexAttribute, ImageryState, ImageryUniforms, ModelPrimitiveImagery,
+    DEFAULT_BRIGHTNESS as IMAGERY_DEFAULT_BRIGHTNESS,
+    DEFAULT_CONTRAST as IMAGERY_DEFAULT_CONTRAST, DEFAULT_GAMMA as IMAGERY_DEFAULT_GAMMA,
+    DEFAULT_HUE as IMAGERY_DEFAULT_HUE, DEFAULT_SATURATION as IMAGERY_DEFAULT_SATURATION,
+};
+pub use mapped_positions::MappedPositions;
 pub use material::{Fabric, Material, MaterialOptions};
 pub use material_appearance::{MaterialAppearance, MaterialAppearanceOptions, MaterialSupport};
 pub use megatexture::Megatexture;

@@ -21,6 +21,15 @@ pub struct ImageryLayerCollection {
     is_destroyed: bool,
 }
 
+impl std::fmt::Debug for ImageryLayerCollection {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("ImageryLayerCollection")
+            .field("layers_len", &self.layers.len())
+            .field("is_destroyed", &self.is_destroyed)
+            .finish()
+    }
+}
+
 impl ImageryLayerCollection {
     /// Creates a new, empty `ImageryLayerCollection`.
     pub fn new() -> Self {
