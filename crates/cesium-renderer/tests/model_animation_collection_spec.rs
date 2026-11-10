@@ -23,10 +23,10 @@ fn create_mock_metadata(name: &str, index: usize, duration: f64) -> AnimationMet
 
     let channel = AnimationChannel {
         sampler,
-        target: AnimationTarget {
+        target: Some(AnimationTarget {
             node: Some(0),
             path: AnimatedPropertyType::Translation,
-        },
+        }),
     };
 
     AnimationMetadata {
@@ -198,15 +198,15 @@ fn test_animation_events_and_remove_on_stop() {
     }).unwrap();
 
     let anim = collection.get_mut(idx).unwrap();
-    anim.start_listeners.push(Box::new(move |_| {
+    anim.add_start_listener(move |_| {
         *start_c.lock().unwrap() = true;
-    }));
-    anim.update_listeners.push(Box::new(move |_, _| {
+    });
+    anim.add_update_listener(move |_, _| {
         *update_c.lock().unwrap() += 1;
-    }));
-    anim.stop_listeners.push(Box::new(move |_| {
+    });
+    anim.add_stop_listener(move |_| {
         *stop_c.lock().unwrap() = true;
-    }));
+    });
 
     let mut nodes = vec![ModelRuntimeNode::new()];
 

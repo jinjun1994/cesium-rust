@@ -1,147 +1,15 @@
 //! ModelAnimationCollection matching CesiumJS `Scene/Model/ModelAnimationCollection.js` (Apache-2.0).
 
 use cesium_math::{clamp, DeveloperError, JulianDate};
-use crate::model_animation_channel::{
-    AnimationChannel, ModelAnimation, ModelAnimationChannel, ModelRuntimeNode,
+use crate::model_animation_channel::ModelRuntimeNode;
+pub use crate::model_animation::{
+    AnimationCollectionCallback, AnimationMetadata, AnimationStateCallback, AnimationTimeCallback,
+    AnimationUpdateCallback, ModelAnimation, ModelAnimationLoop, ModelAnimationOptions,
+    ModelAnimationState,
 };
 
-/// Looping mode for a model animation matching CesiumJS `ModelAnimationLoop`.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default)]
-pub enum ModelAnimationLoop {
-    #[default]
-    None,
-    Repeat,
-    MirroredRepeat,
-}
-
-/// The state of an animation matching CesiumJS `ModelAnimationState`.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Default)]
-pub enum ModelAnimationState {
-    #[default]
-    Stopped,
-    Animating,
-}
-
-/// Metadata description of an animation component in a 3D model.
-#[derive(Debug, Clone, PartialEq)]
-pub struct AnimationMetadata {
-    pub name: Option<String>,
-    pub index: usize,
-    pub channels: Vec<AnimationChannel>,
-    pub local_start_time: f64,
-    pub local_stop_time: f64,
-}
-
-/// Options for adding an animation to a `ModelAnimationCollection`.
-#[derive(Default)]
-pub struct ModelAnimationOptions {
-    pub name: Option<String>,
-    pub index: Option<usize>,
-    pub start_time: Option<JulianDate>,
-    pub delay: f64,
-    pub stop_time: Option<JulianDate>,
-    pub remove_on_stop: bool,
-    pub multiplier: f64,
-    pub reverse: bool,
-    pub loop_mode: ModelAnimationLoop,
-    pub animation_time: Option<Box<dyn Fn(f64, f64) -> f64 + Send + Sync>>,
-}
-
-impl ModelAnimationOptions {
-    pub fn new() -> Self {
-        Self {
-            name: None,
-            index: None,
-            start_time: None,
-            delay: 0.0,
-            stop_time: None,
-            remove_on_stop: false,
-            multiplier: 1.0,
-            reverse: false,
-            loop_mode: ModelAnimationLoop::None,
-            animation_time: None,
-        }
-    }
-}
-
-pub type AnimationStateCallback = Box<dyn Fn(&str) + Send + Sync>;
-pub type AnimationUpdateCallback = Box<dyn Fn(&str, f64) + Send + Sync>;
-pub type AnimationCollectionCallback = Box<dyn Fn(usize, &str) + Send + Sync>;
-
-/// A runtime animation instance in a collection matching CesiumJS `ModelAnimation`.
-pub struct RuntimeModelAnimation {
-    pub name: Option<String>,
-    pub index: usize,
-    pub start_time: Option<JulianDate>,
-    pub delay: f64,
-    pub stop_time: Option<JulianDate>,
-    pub remove_on_stop: bool,
-    pub multiplier: f64,
-    pub reverse: bool,
-    pub loop_mode: ModelAnimationLoop,
-    pub animation_time: Option<Box<dyn Fn(f64, f64) -> f64 + Send + Sync>>,
-    pub channels: Vec<ModelAnimationChannel>,
-    pub local_start_time: f64,
-    pub local_stop_time: f64,
-    pub computed_start_time: Option<JulianDate>,
-    pub duration: Option<f64>,
-    pub state: ModelAnimationState,
-    pub prev_animation_delta: Option<f64>,
-    pub start_listeners: Vec<AnimationStateCallback>,
-    pub update_listeners: Vec<AnimationUpdateCallback>,
-    pub stop_listeners: Vec<AnimationStateCallback>,
-}
-
-impl RuntimeModelAnimation {
-    pub fn new(metadata: &AnimationMetadata, options: ModelAnimationOptions, model_clamp_animations: bool) -> Result<Self, DeveloperError> {
-        let multiplier = if options.multiplier <= 0.0 { 1.0 } else { options.multiplier };
-        let mut runtime_channels = Vec::new();
-
-        let dummy_runtime_node = ModelRuntimeNode::new();
-        let runtime_anim = ModelAnimation {
-            clamp_animations: model_clamp_animations,
-        };
-
-        for ch in &metadata.channels {
-            let rc = ModelAnimationChannel::new(
-                Some(ch.clone()),
-                Some(runtime_anim.clone()),
-                Some(&dummy_runtime_node),
-            )?;
-            runtime_channels.push(rc);
-        }
-
-        Ok(Self {
-            name: metadata.name.clone(),
-            index: metadata.index,
-            start_time: options.start_time,
-            delay: options.delay,
-            stop_time: options.stop_time,
-            remove_on_stop: options.remove_on_stop,
-            multiplier,
-            reverse: options.reverse,
-            loop_mode: options.loop_mode,
-            animation_time: options.animation_time,
-            channels: runtime_channels,
-            local_start_time: metadata.local_start_time,
-            local_stop_time: metadata.local_stop_time,
-            computed_start_time: None,
-            duration: None,
-            state: ModelAnimationState::Stopped,
-            prev_animation_delta: None,
-            start_listeners: Vec::new(),
-            update_listeners: Vec::new(),
-            stop_listeners: Vec::new(),
-        })
-    }
-
-    pub fn animate(&self, runtime_node: &mut ModelRuntimeNode, time: f64) -> Result<(), DeveloperError> {
-        for channel in &self.channels {
-            channel.animate(runtime_node, time)?;
-        }
-        Ok(())
-    }
-}
+/// Alias for compatibility with collection-specific code.
+pub type RuntimeModelAnimation = ModelAnimation;
 
 /// A collection of active model animations matching CesiumJS `ModelAnimationCollection`.
 #[derive(Default)]
@@ -242,7 +110,7 @@ impl ModelAnimationCollection {
         };
 
         let metadata = &self.animations_metadata[meta_index];
-        let anim = RuntimeModelAnimation::new(metadata, options, self.model_clamp_animations)?;
+        let anim = ModelAnimation::from_metadata(metadata, options, self.model_clamp_animations)?;
         let name_str = anim.name.clone().unwrap_or_default();
         let anim_index = anim.index;
 
@@ -407,7 +275,7 @@ impl ModelAnimationCollection {
                 );
 
                 for node in runtime_nodes.iter_mut() {
-                    runtime_animation.animate(node, local_animation_time)?;
+                    runtime_animation.animate_node(node, local_animation_time)?;
                 }
 
                 let name = runtime_animation.name.clone().unwrap_or_default();

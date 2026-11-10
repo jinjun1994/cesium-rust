@@ -1,5 +1,8 @@
 //! ModelAnimationChannel matching CesiumJS `Scene/Model/ModelAnimationChannel.js` (Apache-2.0).
 
+use std::cell::RefCell;
+use std::rc::Rc;
+
 use cesium_math::{
     clamp_time, find_time_interval, wrap_time, Cartesian3, ConstantSpline, DeveloperError,
     HermiteSpline, LinearSpline, Matrix4, Quaternion, QuaternionSpline, SteppedSpline,
@@ -49,7 +52,7 @@ pub struct AnimationTarget {
 #[derive(Debug, Clone, PartialEq)]
 pub struct AnimationChannel {
     pub sampler: AnimationSampler,
-    pub target: AnimationTarget,
+    pub target: Option<AnimationTarget>,
 }
 
 /// Runtime node representing a node in the scene graph being animated.
@@ -88,13 +91,13 @@ impl ModelRuntimeNode {
     }
 }
 
-/// Runtime animation owning animation channels.
+/// Runtime animation configuration owning animation channels.
 #[derive(Debug, Clone, PartialEq)]
-pub struct ModelAnimation {
+pub struct ModelAnimationChannelAnimation {
     pub clamp_animations: bool,
 }
 
-impl Default for ModelAnimation {
+impl Default for ModelAnimationChannelAnimation {
     fn default() -> Self {
         Self {
             clamp_animations: true,
@@ -255,16 +258,17 @@ impl AnimationSpline {
 #[derive(Debug, Clone, PartialEq)]
 pub struct ModelAnimationChannel {
     pub channel: AnimationChannel,
-    pub runtime_animation: ModelAnimation,
+    pub runtime_animation: ModelAnimationChannelAnimation,
     pub splines: Vec<AnimationSpline>,
     pub path: AnimatedPropertyType,
+    pub runtime_node: Option<Rc<RefCell<ModelRuntimeNode>>>,
 }
 
 impl ModelAnimationChannel {
     /// Creates a new `ModelAnimationChannel`.
     pub fn new(
         channel: Option<AnimationChannel>,
-        runtime_animation: Option<ModelAnimation>,
+        runtime_animation: Option<ModelAnimationChannelAnimation>,
         runtime_node: Option<&ModelRuntimeNode>,
     ) -> Result<Self, DeveloperError> {
         let channel = channel.ok_or_else(|| DeveloperError::new("options.channel is required."))?;
@@ -274,7 +278,8 @@ impl ModelAnimationChannel {
         let sampler = &channel.sampler;
         let times = &sampler.input;
         let interpolation = sampler.interpolation;
-        let path = channel.target.path;
+        let target = channel.target.as_ref().ok_or_else(|| DeveloperError::new("options.channel.target is required."))?;
+        let path = target.path;
 
         let count = if path == AnimatedPropertyType::Weights {
             runtime_node.morph_weights.len().max(1)
@@ -289,7 +294,32 @@ impl ModelAnimationChannel {
             runtime_animation,
             splines,
             path,
+            runtime_node: None,
         })
+    }
+
+    /// Creates a new `ModelAnimationChannel` with an attached shared runtime node cell.
+    pub fn new_with_node_rc(
+        channel: Option<AnimationChannel>,
+        runtime_animation: Option<ModelAnimationChannelAnimation>,
+        runtime_node: Option<Rc<RefCell<ModelRuntimeNode>>>,
+    ) -> Result<Self, DeveloperError> {
+        let node_cell = runtime_node.as_ref().ok_or_else(|| DeveloperError::new("options.runtimeNode is required."))?;
+        let mut inst = {
+            let borrowed = node_cell.borrow();
+            Self::new(channel, runtime_animation, Some(&borrowed))?
+        };
+        inst.runtime_node = runtime_node;
+        Ok(inst)
+    }
+
+    /// Evaluates the channel spline and animates the attached runtime node.
+    pub fn animate_node(&self, time: f64) -> Result<(), DeveloperError> {
+        if let Some(node) = &self.runtime_node {
+            let mut borrowed = node.borrow_mut();
+            self.animate(&mut borrowed, time)?;
+        }
+        Ok(())
     }
 
     fn create_cubic_spline_cartesian3(times: &[f64], points: &[Cartesian3]) -> Result<HermiteSpline, DeveloperError> {

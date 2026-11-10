@@ -3,8 +3,8 @@
 use cesium_math::{Cartesian3, EPSILON6, Matrix3, Matrix4, Quaternion};
 use cesium_renderer::model_animation_channel::{
     AnimatedPropertyType, AnimationChannel, AnimationOutputValues, AnimationSampler,
-    AnimationSpline, AnimationTarget, InterpolationType, ModelAnimation, ModelAnimationChannel,
-    ModelRuntimeNode,
+    AnimationSpline, AnimationTarget, InterpolationType, ModelAnimationChannel,
+    ModelAnimationChannelAnimation, ModelRuntimeNode,
 };
 
 fn create_mock_channel(
@@ -13,17 +13,17 @@ fn create_mock_channel(
 ) -> AnimationChannel {
     AnimationChannel {
         sampler,
-        target: AnimationTarget {
+        target: Some(AnimationTarget {
             node: Some(0),
             path,
-        },
+        }),
     }
 }
 
 #[test]
 fn test_throws_for_missing_arguments() {
     let runtime_node = ModelRuntimeNode::new();
-    let runtime_anim = ModelAnimation::default();
+    let runtime_anim = ModelAnimationChannelAnimation::default();
 
     // Missing channel
     assert!(ModelAnimationChannel::new(None, Some(runtime_anim.clone()), Some(&runtime_node)).is_err());
@@ -45,7 +45,7 @@ fn test_throws_for_missing_arguments() {
 #[test]
 fn test_constructs_constant_spline() {
     let runtime_node = ModelRuntimeNode::new();
-    let runtime_anim = ModelAnimation::default();
+    let runtime_anim = ModelAnimationChannelAnimation::default();
 
     let sampler = AnimationSampler {
         input: vec![0.0],
@@ -63,7 +63,7 @@ fn test_constructs_constant_spline() {
 #[test]
 fn test_constructs_linear_spline() {
     let runtime_node = ModelRuntimeNode::new();
-    let runtime_anim = ModelAnimation::default();
+    let runtime_anim = ModelAnimationChannelAnimation::default();
 
     let times = vec![0.0, 0.25, 0.5, 1.0];
     let translation_points = vec![
@@ -89,7 +89,7 @@ fn test_constructs_linear_spline() {
 #[test]
 fn test_constructs_quaternion_spline() {
     let runtime_node = ModelRuntimeNode::new();
-    let runtime_anim = ModelAnimation::default();
+    let runtime_anim = ModelAnimationChannelAnimation::default();
 
     let times = vec![0.0, 0.25, 0.5, 1.0];
     let rotation_points = vec![
@@ -115,7 +115,7 @@ fn test_constructs_quaternion_spline() {
 #[test]
 fn test_constructs_stepped_spline() {
     let runtime_node = ModelRuntimeNode::new();
-    let runtime_anim = ModelAnimation::default();
+    let runtime_anim = ModelAnimationChannelAnimation::default();
 
     let times = vec![0.0, 0.25, 0.5, 1.0];
     let scale_points = vec![
@@ -141,7 +141,7 @@ fn test_constructs_stepped_spline() {
 #[test]
 fn test_constructs_cubic_spline() {
     let runtime_node = ModelRuntimeNode::new();
-    let runtime_anim = ModelAnimation::default();
+    let runtime_anim = ModelAnimationChannelAnimation::default();
 
     let cubic_times = vec![0.0, 0.5, 1.0];
     let cubic_points = vec![
@@ -183,7 +183,7 @@ fn test_constructs_cubic_spline() {
 fn test_constructs_weight_splines() {
     let mut runtime_node = ModelRuntimeNode::new();
     runtime_node.morph_weights = vec![0.0, 0.0];
-    let runtime_anim = ModelAnimation::default();
+    let runtime_anim = ModelAnimationChannelAnimation::default();
 
     let times = vec![0.0, 0.25, 0.5, 1.0];
     let weight_points = vec![0.0, 0.0, 0.5, 0.25, 1.0, 0.5, 0.5, 0.25];
@@ -206,7 +206,7 @@ fn test_constructs_weight_splines() {
 fn test_constructs_cubic_weight_splines() {
     let mut runtime_node = ModelRuntimeNode::new();
     runtime_node.morph_weights = vec![0.0, 0.0];
-    let runtime_anim = ModelAnimation::default();
+    let runtime_anim = ModelAnimationChannelAnimation::default();
 
     let cubic_weight_times = vec![0.0, 0.5];
     let cubic_weight_points = vec![
@@ -249,7 +249,7 @@ fn test_constructs_cubic_weight_splines() {
 #[test]
 fn test_animates_node_translation() {
     let mut runtime_node = ModelRuntimeNode::new();
-    let runtime_anim = ModelAnimation::default();
+    let runtime_anim = ModelAnimationChannelAnimation::default();
 
     let times = vec![0.0, 0.25, 0.5, 1.0];
     let translation_points = vec![
@@ -289,7 +289,7 @@ fn test_animates_node_translation() {
 #[test]
 fn test_animates_node_rotation() {
     let mut runtime_node = ModelRuntimeNode::new();
-    let runtime_anim = ModelAnimation::default();
+    let runtime_anim = ModelAnimationChannelAnimation::default();
 
     let times = vec![0.0, 0.25, 0.5, 1.0];
     let rotation_points = vec![
@@ -337,7 +337,7 @@ fn test_animates_node_rotation() {
 #[test]
 fn test_animates_node_scale() {
     let mut runtime_node = ModelRuntimeNode::new();
-    let runtime_anim = ModelAnimation::default();
+    let runtime_anim = ModelAnimationChannelAnimation::default();
 
     let times = vec![0.0, 0.25, 0.5, 1.0];
     let scale_points = vec![
@@ -378,7 +378,7 @@ fn test_animates_node_scale() {
 fn test_animates_node_weights() {
     let mut runtime_node = ModelRuntimeNode::new();
     runtime_node.morph_weights = vec![0.0, 0.0];
-    let runtime_anim = ModelAnimation::default();
+    let runtime_anim = ModelAnimationChannelAnimation::default();
 
     let times = vec![0.0, 0.25, 0.5, 1.0];
     let weight_points = vec![0.0, 0.0, 0.5, 0.25, 1.0, 0.5, 0.5, 0.25];
@@ -410,7 +410,7 @@ fn test_animates_node_weights() {
 #[test]
 fn test_clamps_animations() {
     let mut runtime_node = ModelRuntimeNode::new();
-    let runtime_anim = ModelAnimation {
+    let runtime_anim = ModelAnimationChannelAnimation {
         clamp_animations: true,
     };
 
@@ -443,7 +443,7 @@ fn test_clamps_animations() {
 #[test]
 fn test_wraps_animations() {
     let mut runtime_node = ModelRuntimeNode::new();
-    let runtime_anim = ModelAnimation {
+    let runtime_anim = ModelAnimationChannelAnimation {
         clamp_animations: false,
     };
 
@@ -476,7 +476,7 @@ fn test_wraps_animations() {
 #[test]
 fn test_does_not_modify_user_animated_node() {
     let mut runtime_node = ModelRuntimeNode::new();
-    let runtime_anim = ModelAnimation::default();
+    let runtime_anim = ModelAnimationChannelAnimation::default();
 
     let times = vec![0.0, 0.25, 0.5, 1.0];
     let translation_points = vec![
