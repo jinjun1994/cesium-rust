@@ -145,6 +145,7 @@ pub mod lighting_pipeline_stage;
 pub mod mapbox_imagery_provider;
 pub mod mapbox_style_imagery_provider;
 pub mod open_street_map_imagery_provider;
+pub mod ordered_ground_primitive_collection;
 pub mod mapped_positions;
 pub mod material_pipeline_stage;
 pub mod implicit_subdivision_scheme;
@@ -365,6 +366,10 @@ pub use multiple_3d_tile_content::{
 };
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,
+};
+pub use ordered_ground_primitive_collection::{
+    next_ground_primitive_id, GroundPrimitive, MockGroundPrimitive,
+    OrderedGroundPrimitiveCollection, PrimitiveSubcollection,
 };
 pub use gltf_buffer_view_loader::{
     GltfBufferViewLoader, GltfBufferViewLoaderOptions, MeshoptInfo,
