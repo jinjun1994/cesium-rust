@@ -649,7 +649,7 @@
 | [packages/engine/Specs/Scene/Model/ModelSkinSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSkinSpec.js) | 已完成（通过测试 `model_skin_spec`，实现模型骨骼蒙皮运行时管理、关节引用与逆绑定矩阵映射、关节空间世界变换矩阵复合计算与动态实时更新，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/ModelSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/ModelSplitterPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSplitterPipelineStageSpec.js) | 已完成（通过测试 `model_splitter_pipeline_stage_spec`，实现模型视口滑块切割管线阶段、HAS_MODEL_SPLITTER片元宏注入、片元舍弃着色器逻辑与model_splitDirection动态统一变量注入，通过三重门禁） |
-| [packages/engine/Specs/Scene/Model/ModelStatisticsSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelStatisticsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelStatisticsSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelStatisticsSpec.js) | 已完成（通过测试 `model_statistics_spec`，实现模型运行时渲染资源统计容器，支持点/三角形数、GPU/CPU缓冲区统计与去重、纹理统计与去重、动态BatchTexture内存跟踪计算与clear清空复位，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/ModelTypeSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelTypeSpec.js) | 已移植：模型类型枚举（ModelType: Gltf / TileGltf / TileB3dm / TileI3dm / TilePnts / TileGeoJson）、3D Tiles 类型判定（is3DTiles / is3DTilesStr）、字符串类型安全解析与 DeveloperError 严格校验（model_type_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/Scene/Model/ModelUtilitySpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelUtilitySpec.js) | 已完成（通过测试 `model_utility_spec`，实现TRS节点变换提取、量化属性检测、语义属性提取、GLSL类型与变量名生成、轴向修正矩阵计算、实例化包围盒、剔除方向推导、GLSL标识符清理及扩展白名单校验，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/MorphTargetsPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/MorphTargetsPipelineStageSpec.js) | 待逐项核对 |
