@@ -1,12 +1,13 @@
 use cesium_math::{Cartesian3, DeveloperError, Matrix3, Matrix4};
 
 /// An enum describing the x, y, and z axes and helper conversion matrices.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord, Default)]
 #[repr(i32)]
 pub enum Axis {
     /// Denotes the x-axis.
     X = 0,
     /// Denotes the y-axis.
+    #[default]
     Y = 1,
     /// Denotes the z-axis.
     Z = 2,

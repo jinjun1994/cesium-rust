@@ -730,6 +730,7 @@ fn enables_unlit_lighting_under_special_conditions() {
             point_cloud_shading: Some(PointCloudShading {
                 normal_shading: false,
                 back_face_culling: true,
+                ..Default::default()
             }),
             ..Default::default()
         };

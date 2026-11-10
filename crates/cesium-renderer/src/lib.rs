@@ -131,6 +131,7 @@ pub mod metadata_table;
 pub mod metadata_table_property;
 pub mod metadata_type;
 pub mod metadata_pipeline_stage;
+pub mod model_3d_tile_content;
 pub mod metrics;
 pub mod model_components;
 pub mod pass_state;
@@ -378,6 +379,7 @@ pub use metadata_pipeline_stage::{
     STRUCT_ID_METADATA_STATISTICS_VS, STRUCT_ID_METADATA_VS, STRUCT_NAME_METADATA,
     STRUCT_NAME_METADATA_CLASS, STRUCT_NAME_METADATA_STATISTICS,
 };
+pub use model_3d_tile_content::*;
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,
