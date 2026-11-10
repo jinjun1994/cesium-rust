@@ -151,6 +151,12 @@ pub struct Skin {
     pub inverse_bind_matrices: Vec<Matrix4>,
 }
 
+/// Visibility information for a node, e.g. from KHR_node_visibility.
+#[derive(Debug, Clone, Default, PartialEq)]
+pub struct NodeVisibility {
+    pub visible: Option<bool>,
+}
+
 /// A node in the node hierarchy.
 #[derive(Debug, Clone, Default)]
 pub struct Node {
@@ -166,6 +172,7 @@ pub struct Node {
     pub scale: Option<Cartesian3>,
     pub morph_weights: Vec<f64>,
     pub articulation_name: Option<String>,
+    pub node_visibility: Option<NodeVisibility>,
 }
 
 /// A scene containing root node indices.

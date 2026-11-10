@@ -43,7 +43,7 @@ impl ModelMatrixUpdateStage {
         let next_transform_to_root = transform_to_root.multiply(&current_transform);
 
         nodes[node_idx].transform_to_root = transform_to_root;
-        nodes[node_idx].update_computed_transform(model_matrix);
+        nodes[node_idx].update_computed_transform_with_root(model_matrix);
 
         let computed_transform = nodes[node_idx].computed_transform;
 

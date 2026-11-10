@@ -642,7 +642,7 @@
 | [packages/engine/Specs/Scene/Model/ModelPrimitiveImagerySpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelPrimitiveImagerySpec.js) | 已完成（通过测试 `model_primitive_imagery_spec`，实现图元级别影像投影提取、椭球体去重、位置变换矩阵复合、POSITION语义提取、覆盖层级与经纬度映射、生命周期与销毁，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/ModelReaderSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelReaderSpec.js) | 已完成（通过测试 `model_reader_spec`，实现属性交错解包、字节与整型归一化浮点转换、多维向量与标量解量化、八面体法线解码及 ZXY 到 XYZ 坐标转换，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/ModelRenderResourcesSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelRenderResourcesSpec.js) | 已完成（通过测试 `model_render_resources_spec`，实现模型统一渲染资源配置、默认深度测试状态（LESS_OR_EQUAL）、统一变量表、Alpha 选项、轮廓与跳过 LOD 标志及着色器构建器初始化，通过三重门禁） |
-| [packages/engine/Specs/Scene/Model/ModelRuntimeNodeSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelRuntimeNodeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelRuntimeNodeSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelRuntimeNodeSpec.js) | 已完成（通过测试 `model_runtime_node_spec`，实现运行时场景图节点严格参数校验、矩阵初始化与默认/显式TRS变换分离约束、变换与原始矩阵解耦、子节点边界检查、KHR_node_visibility显式可见性判定、TRS动态更新与脏标记级联及实例化管线阶段配置，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/ModelRuntimePrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelRuntimePrimitiveSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/ModelSceneGraphSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSceneGraphSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/ModelSilhouettePipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSilhouettePipelineStageSpec.js) | 待逐项核对 |
