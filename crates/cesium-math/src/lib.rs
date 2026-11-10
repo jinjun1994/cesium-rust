@@ -340,6 +340,7 @@ pub use color::Color;
 pub use color_geometry_instance_attribute::ColorGeometryInstanceAttribute;
 pub use combine::combine;
 pub use constant_spline::ConstantSpline;
+pub use spline_common::{clamp_time, find_time_interval, find_time_interval_with_start, wrap_time};
 pub use coplanar_polygon_geometry::{
     CoplanarPolygonGeometry, CoplanarPolygonOutlineGeometry, PolygonHierarchy,
 };
