@@ -90,6 +90,7 @@ pub mod i3s_layer;
 pub mod i3s_node;
 pub mod i3s_symbology;
 pub mod image_based_lighting;
+pub mod image_based_lighting_pipeline_stage;
 pub mod imagery_layer;
 pub mod imagery_layer_collection;
 pub mod itwin_data;
@@ -313,6 +314,10 @@ pub use gltf_json_loader::{
     GLB_CHUNK_TYPE_BIN, GLB_CHUNK_TYPE_JSON, GLB_MAGIC,
 };
 pub use i3dm_loader::{I3dmLoader, I3dmLoaderOptions};
+pub use image_based_lighting_pipeline_stage::{
+    IblContext, IblEnvironmentMapManager, IblModelOptions, IblRenderResources, IblUniformCallback,
+    ImageBasedLightingPipelineStage, SpecularEnvironmentCubeMap,
+};
 pub use material::{Fabric, Material, MaterialOptions};
 pub use material_appearance::{MaterialAppearance, MaterialAppearanceOptions, MaterialSupport};
 pub use megatexture::Megatexture;
