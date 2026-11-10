@@ -658,7 +658,7 @@
 | [packages/engine/Specs/Scene/Model/PickingPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PickingPipelineStageSpec.js) | 已完成（通过测试 `picking_pipeline_stage_spec`，实现图元拾取管线阶段，支持自定义拾取对象、3D Tiles与模型拾取对象构建、实例网格拾取顶点属性生成、特征纹理拾取注入与贴地矢量遮盖处理，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/PntsLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PntsLoaderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/PointCloudStylingPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PointCloudStylingPipelineStageSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/Model/PrimitiveLoadPlanSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveLoadPlanSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/PrimitiveLoadPlanSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveLoadPlanSpec.js) | 已完成（通过测试 `primitive_load_plan_spec`，实现图元后处理加载计划，支持 CESIUM_primitive_outline 动态生成轮廓坐标属性、索引升级重映射与属性缓冲拓展、GPU Buffer 与 TypedArray 选择性生成及 Gaussian Splat 缓冲区配置，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/PrimitiveOutlineGeneratorSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveOutlineGeneratorSpec.js) | 已完成（通过测试 `primitive_outline_generator_spec`，实现快速纹理线框轮廓生成算法，支持三角形面坐标排序位掩码匹配、冲突顶点动态复制与索引重映射、属性切片复制更新以及多级 Mipmap 轮廓查找纹理生成，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/PrimitiveOutlinePipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveOutlinePipelineStageSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/PrimitiveRenderResourcesSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveRenderResourcesSpec.js) | 已完成（通过测试 `primitive_render_resources_spec`，实现图元级渲染资源容器，严格校验必需参数、深克隆继承节点/模型着色器构建器与渲染状态、计算顶点/索引数量、包围球与位置Min/Max提取、默认Unlit光照模型配置，通过三重门禁） |
