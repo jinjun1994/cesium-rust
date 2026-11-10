@@ -20,6 +20,8 @@ pub struct ClippingPlaneCollectionOptions {
     pub edge_width: Option<f64>,
     /// Determines whether regions are unioned. Defaults to false (intersection).
     pub union_clipping_regions: Option<bool>,
+    /// Optional explicit texture resolution.
+    pub texture_resolution: Option<Cartesian2>,
 }
 
 /// A collection of ClippingPlane objects that defines planar boundaries for clipping models or 3D Tilesets.
@@ -36,6 +38,8 @@ pub struct ClippingPlaneCollection {
     pub edge_width: f64,
     /// Determines whether regions are unioned.
     pub union_clipping_regions: bool,
+    /// Explicit texture resolution override if set.
+    pub texture_resolution: Option<Cartesian2>,
 
     /// Event fired when a plane is added to the collection.
     pub plane_added: Event<usize>,
@@ -62,6 +66,7 @@ impl ClippingPlaneCollection {
             edge_color: opts.edge_color.unwrap_or(Color::WHITE),
             edge_width: opts.edge_width.unwrap_or(0.0),
             union_clipping_regions: opts.union_clipping_regions.unwrap_or(false),
+            texture_resolution: opts.texture_resolution,
             plane_added: Event::new(),
             plane_removed: Event::new(),
             is_destroyed: false,
@@ -199,6 +204,9 @@ impl ClippingPlaneCollection {
         use_float_texture: bool,
         max_size: Option<u32>,
     ) -> Cartesian2 {
+        if let Some(res) = self.texture_resolution {
+            return res;
+        }
         let max_size = max_size.unwrap_or(2048) as f64;
         let count = self.planes.len() as f64;
         let pixels_needed = if use_float_texture { count } else { count * 2.0 };

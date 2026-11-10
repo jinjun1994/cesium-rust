@@ -205,6 +205,14 @@ impl ShaderBuilder {
         &self.fragment_shader_parts.uniform_lines
     }
 
+    pub fn vertex_define_lines(&self) -> &[String] {
+        &self.vertex_shader_parts.define_lines
+    }
+
+    pub fn fragment_define_lines(&self) -> &[String] {
+        &self.fragment_shader_parts.define_lines
+    }
+
     pub fn add_define(
         &mut self,
         identifier: &str,
