@@ -184,6 +184,20 @@ pub struct ModelStatistics {
     pub batch_texture_id_map: HashMap<String, Arc<dyn BatchTextureStatisticsSource>>,
 }
 
+impl std::fmt::Debug for ModelStatistics {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("ModelStatistics")
+            .field("points_length", &self.points_length)
+            .field("triangles_length", &self.triangles_length)
+            .field("geometry_byte_length", &self.geometry_byte_length)
+            .field("textures_byte_length", &self.textures_byte_length)
+            .field("property_tables_byte_length", &self.property_tables_byte_length)
+            .field("buffer_id_set", &self.buffer_id_set)
+            .field("texture_id_byte_lengths", &self.texture_id_byte_lengths)
+            .finish()
+    }
+}
+
 impl ModelStatistics {
     /// Creates an empty statistics container.
     pub fn new() -> Self {
