@@ -57,6 +57,7 @@ pub mod model_splitter_pipeline_stage;
 pub mod model_statistics;
 pub mod model_type;
 pub mod model_utility;
+pub mod moon;
 pub mod morph_targets_pipeline_stage;
 pub mod pick_model;
 pub mod picking_pipeline_stage;
@@ -405,6 +406,7 @@ pub use material_pipeline_stage::{
 };
 pub use material::{Fabric, Material, MaterialOptions};
 pub use material_appearance::{MaterialAppearance, MaterialAppearanceOptions, MaterialSupport};
+pub use moon::{Moon, MoonOptions};
 pub use megatexture::Megatexture;
 pub use metadata_class::MetadataClass;
 pub use metadata_class_property::MetadataClassProperty;
