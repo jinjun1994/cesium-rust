@@ -43,6 +43,7 @@ pub mod texture_uniform;
 pub mod texture_manager;
 pub mod tileset_pipeline_stage;
 pub mod vertical_exaggeration_pipeline_stage;
+pub mod wireframe_pipeline_stage;
 pub mod model_primitive_imagery;
 pub mod model_reader;
 pub mod model_render_resources;
