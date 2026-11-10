@@ -138,6 +138,7 @@ pub mod model_animation_collection;
 pub mod model_articulation;
 pub mod model_articulation_stage;
 pub mod model_clipping_planes_pipeline_stage;
+pub mod model_clipping_polygons_pipeline_stage;
 pub mod metrics;
 pub mod model_components;
 pub mod pass_state;
@@ -392,6 +393,7 @@ pub use model_animation_collection::*;
 pub use model_articulation::*;
 pub use model_articulation_stage::*;
 pub use model_clipping_planes_pipeline_stage::*;
+pub use model_clipping_polygons_pipeline_stage::*;
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,
