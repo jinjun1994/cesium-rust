@@ -5,8 +5,10 @@ use std::rc::Rc;
 
 use cesium_math::{
     clamp_time, find_time_interval, wrap_time, Cartesian3, ConstantSpline, DeveloperError,
-    HermiteSpline, LinearSpline, Matrix4, Quaternion, QuaternionSpline, SteppedSpline,
+    HermiteSpline, LinearSpline, Quaternion, QuaternionSpline, SteppedSpline,
 };
+
+pub use crate::model_runtime_node::ModelRuntimeNode;
 
 /// The property of a node that an animation channel targets.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
@@ -53,54 +55,6 @@ pub struct AnimationTarget {
 pub struct AnimationChannel {
     pub sampler: AnimationSampler,
     pub target: Option<AnimationTarget>,
-}
-
-/// Runtime node representing a node in the scene graph being animated.
-#[derive(Debug, Clone, PartialEq)]
-pub struct ModelRuntimeNode {
-    pub translation: Cartesian3,
-    pub rotation: Quaternion,
-    pub scale: Cartesian3,
-    pub morph_weights: Vec<f64>,
-    pub user_animated: bool,
-    pub original_transform: Matrix4,
-    pub transform: Matrix4,
-}
-
-impl Default for ModelRuntimeNode {
-    fn default() -> Self {
-        Self {
-            translation: Cartesian3::ZERO,
-            rotation: Quaternion::IDENTITY,
-            scale: Cartesian3::new(1.0, 1.0, 1.0),
-            morph_weights: Vec::new(),
-            user_animated: false,
-            original_transform: Matrix4::IDENTITY,
-            transform: Matrix4::IDENTITY,
-        }
-    }
-}
-
-impl ModelRuntimeNode {
-    pub fn new() -> Self {
-        Self::default()
-    }
-
-    pub fn with_transform(transform: Matrix4) -> Self {
-        Self {
-            original_transform: transform,
-            transform,
-            ..Default::default()
-        }
-    }
-
-    pub fn computed_transform(&self) -> Matrix4 {
-        Matrix4::from_translation_quaternion_rotation_scale(
-            self.translation,
-            self.rotation,
-            self.scale,
-        )
-    }
 }
 
 /// Runtime animation configuration owning animation channels.

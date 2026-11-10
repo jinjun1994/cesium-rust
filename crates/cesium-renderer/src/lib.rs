@@ -27,7 +27,11 @@ pub mod model_draw_command;
 pub mod model_feature_table;
 pub mod model_imagery;
 pub mod model_imagery_mapping;
+pub mod model_matrix_update_stage;
+pub mod model_node;
+pub mod model_runtime_node;
 pub mod model_type;
+pub mod model_utility;
 pub mod classification_pipeline_stage;
 pub mod feature_id_pipeline_stage;
 pub mod cloud_collection;
@@ -411,6 +415,10 @@ pub use model_feature_table::*;
 pub use model_imagery::*;
 pub use model_imagery_mapping::*;
 pub use model_type::*;
+pub use model_matrix_update_stage::*;
+pub use model_node::*;
+pub use model_runtime_node::*;
+pub use model_utility::*;
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,

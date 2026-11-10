@@ -1083,3 +1083,10 @@ impl From<Matrix4> for DMat4 {
         DMat4::from_cols_array(&m.values)
     }
 }
+
+impl From<&Matrix4> for DMat4 {
+    #[inline]
+    fn from(m: &Matrix4) -> Self {
+        DMat4::from_cols_array(&m.values)
+    }
+}

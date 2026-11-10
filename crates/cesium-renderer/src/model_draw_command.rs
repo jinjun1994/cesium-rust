@@ -505,6 +505,16 @@ impl ModelDrawCommand {
         self.bounding_volume
     }
 
+    pub fn set_bounding_volume(&mut self, value: BoundingSphere) {
+        self.bounding_volume = value;
+        for cmd in &mut self.derived_commands {
+            if !cmd.is_2d {
+                cmd.command.bounding_volume = Some(self.bounding_volume);
+            }
+        }
+        self.sync_named_commands_3d();
+    }
+
     pub fn shadows(&self) -> ShadowMode {
         self.shadows
     }
