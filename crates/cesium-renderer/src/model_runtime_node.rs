@@ -1,9 +1,8 @@
 //! ModelRuntimeNode and ModelRuntimePrimitive matching CesiumJS `Scene/Model/ModelRuntimeNode.js` and `ModelRuntimePrimitive.js` (Apache-2.0).
 
-use cesium_math::{BoundingSphere, Cartesian3, DeveloperError, Matrix4, Quaternion};
+use cesium_math::{Cartesian3, DeveloperError, Matrix4, Quaternion};
 
 use crate::model_components::Node;
-use crate::model_draw_command::ModelDrawCommand;
 
 /// Pipeline stage enum for runtime nodes.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash)]
@@ -35,30 +34,7 @@ impl NodeUpdateStage {
     }
 }
 
-/// Runtime primitive belonging to a `ModelRuntimeNode`.
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct ModelRuntimePrimitive {
-    pub draw_command: Option<ModelDrawCommand>,
-    pub bounding_sphere: Option<BoundingSphere>,
-    pub bounding_sphere_2d: Option<BoundingSphere>,
-}
-
-impl ModelRuntimePrimitive {
-    pub fn new() -> Self {
-        Self::default()
-    }
-
-    pub fn with_command(
-        draw_command: ModelDrawCommand,
-        bounding_sphere: Option<BoundingSphere>,
-    ) -> Self {
-        Self {
-            draw_command: Some(draw_command),
-            bounding_sphere,
-            bounding_sphere_2d: None,
-        }
-    }
-}
+pub use crate::model_runtime_primitive::ModelRuntimePrimitive;
 
 /// Options to instantiate a [`ModelRuntimeNode`].
 #[derive(Clone, Debug)]
