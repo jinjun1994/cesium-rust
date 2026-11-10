@@ -661,7 +661,7 @@
 | [packages/engine/Specs/Scene/Model/PrimitiveLoadPlanSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveLoadPlanSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/PrimitiveOutlineGeneratorSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveOutlineGeneratorSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/PrimitiveOutlinePipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveOutlinePipelineStageSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/Model/PrimitiveRenderResourcesSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveRenderResourcesSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/PrimitiveRenderResourcesSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveRenderResourcesSpec.js) | 已完成（通过测试 `primitive_render_resources_spec`，实现图元级渲染资源容器，严格校验必需参数、深克隆继承节点/模型着色器构建器与渲染状态、计算顶点/索引数量、包围球与位置Min/Max提取、默认Unlit光照模型配置，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/PrimitiveStatisticsPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/PrimitiveStatisticsPipelineStageSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/SceneMode2DPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/SceneMode2DPipelineStageSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/SelectedFeatureIdPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/SelectedFeatureIdPipelineStageSpec.js) | 待逐项核对 |

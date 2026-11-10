@@ -64,7 +64,7 @@ pub struct Attribute {
 }
 
 /// Indices used to select vertices for rendering.
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, PartialEq)]
 pub struct Indices {
     pub index_datatype: Option<IndexDatatype>,
     pub count: usize,

@@ -132,9 +132,17 @@ void lightingStage(inout czm_modelMaterial material, ProcessedAttributes attribu
 "#;
 
 /// Options configuring model lighting.
-#[derive(Clone, Debug, Default, PartialEq, Eq)]
+#[derive(Clone, Debug, PartialEq, Eq)]
 pub struct ModelLightingOptions {
     pub lighting_model: LightingModel,
+}
+
+impl Default for ModelLightingOptions {
+    fn default() -> Self {
+        Self {
+            lighting_model: LightingModel::Unlit,
+        }
+    }
 }
 
 /// Model properties relevant to lighting pipeline stage.
