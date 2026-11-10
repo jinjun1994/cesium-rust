@@ -16,13 +16,16 @@ pub struct ModelAlphaOptions {
 pub type UniformCallback = Box<dyn Fn() -> f64 + Send + Sync>;
 
 /// Render resources configured by model pipeline stages.
-pub struct ModelRenderResources<'a> {
+pub struct AlphaRenderResources<'a> {
     pub opaque_pass: Pass,
     pub shader_builder: &'a mut ShaderBuilder,
     pub alpha_options: &'a mut ModelAlphaOptions,
     pub uniform_map: &'a mut HashMap<String, UniformCallback>,
     pub render_state: &'a mut RenderState,
 }
+
+/// Backward compatibility alias.
+pub type ModelRenderResources<'a> = AlphaRenderResources<'a>;
 
 /// Pipeline stage for configuring the alpha options for handling translucency.
 pub struct AlphaPipelineStage;
@@ -31,7 +34,7 @@ impl AlphaPipelineStage {
     pub const NAME: &'static str = "AlphaPipelineStage";
 
     /// Configures render resources according to alpha options.
-    pub fn process(resources: &mut ModelRenderResources<'_>) {
+    pub fn process(resources: &mut AlphaRenderResources<'_>) {
         if resources.alpha_options.pass.is_none() {
             resources.alpha_options.pass = Some(resources.opaque_pass);
         }

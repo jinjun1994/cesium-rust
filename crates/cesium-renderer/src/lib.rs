@@ -31,6 +31,7 @@ pub mod model_matrix_update_stage;
 pub mod model_node;
 pub mod model_primitive_imagery;
 pub mod model_reader;
+pub mod model_render_resources;
 pub mod model_runtime_node;
 pub mod model_type;
 pub mod model_utility;
@@ -183,7 +184,7 @@ use thiserror::Error;
 use wgpu::util::DeviceExt;
 
 pub use alpha_pipeline_stage::{
-    AlphaPipelineStage, ModelAlphaOptions, ModelRenderResources, UniformCallback,
+    AlphaPipelineStage, AlphaRenderResources, ModelAlphaOptions, UniformCallback,
 };
 pub use appearance::{Appearance, AppearanceOptions};
 pub use atmosphere_pipeline_stage::{
@@ -423,6 +424,7 @@ pub use model_runtime_node::*;
 pub use model_utility::*;
 pub use model_primitive_imagery::*;
 pub use model_reader::*;
+pub use model_render_resources::*;
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,

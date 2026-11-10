@@ -1,5 +1,5 @@
 use cesium_renderer::{
-    AlphaPipelineStage, BlendingState, ModelAlphaOptions, ModelRenderResources, Pass, RenderState,
+    AlphaPipelineStage, AlphaRenderResources, BlendingState, ModelAlphaOptions, Pass, RenderState,
     ShaderBuilder,
 };
 use std::collections::HashMap;
@@ -13,7 +13,7 @@ fn test_defaults_to_the_models_pass_if_not_specified() {
 
     assert_eq!(alpha_options.pass, None);
 
-    let mut resources = ModelRenderResources {
+    let mut resources = AlphaRenderResources {
         opaque_pass: Pass::Cesium3dTile,
         shader_builder: &mut shader_builder,
         alpha_options: &mut alpha_options,
@@ -36,7 +36,7 @@ fn test_sets_render_state_options_when_given_translucent_pass() {
     let mut uniform_map = HashMap::new();
     let mut render_state = RenderState::default();
 
-    let mut resources = ModelRenderResources {
+    let mut resources = AlphaRenderResources {
         opaque_pass: Pass::Cesium3dTile,
         shader_builder: &mut shader_builder,
         alpha_options: &mut alpha_options,
@@ -62,7 +62,7 @@ fn test_handles_alpha_cutoff() {
     let mut uniform_map = HashMap::new();
     let mut render_state = RenderState::default();
 
-    let mut resources = ModelRenderResources {
+    let mut resources = AlphaRenderResources {
         opaque_pass: Pass::Cesium3dTile,
         shader_builder: &mut shader_builder,
         alpha_options: &mut alpha_options,
