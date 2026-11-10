@@ -23,6 +23,7 @@ pub mod clipping_plane_collection;
 pub mod clipping_polygon;
 pub mod clipping_polygon_collection;
 pub mod classification_model_draw_command;
+pub mod model_draw_command;
 pub mod classification_pipeline_stage;
 pub mod feature_id_pipeline_stage;
 pub mod cloud_collection;
@@ -396,6 +397,7 @@ pub use model_articulation_stage::*;
 pub use model_clipping_planes_pipeline_stage::*;
 pub use model_clipping_polygons_pipeline_stage::*;
 pub use model_color_pipeline_stage::*;
+pub use model_draw_command::*;
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,
