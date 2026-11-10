@@ -646,7 +646,7 @@
 | [packages/engine/Specs/Scene/Model/ModelRuntimePrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelRuntimePrimitiveSpec.js) | 已完成（通过测试 `model_runtime_primitive_spec`，实现图元级别完整管线阶段动态配置，覆盖拾取、实例特征拾取、特征表关联、量化解算、自定义着色器替换与混合材质、点云衰减/样式/背面剔除、形变目标、蒙皮骨骼、WebGL1/2线框、2D/CV模式、图元轮廓、分类图元及高程夸大，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/ModelSceneGraphSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSceneGraphSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/ModelSilhouettePipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSilhouettePipelineStageSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/Model/ModelSkinSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSkinSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Model/ModelSkinSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSkinSpec.js) | 已完成（通过测试 `model_skin_spec`，实现模型骨骼蒙皮运行时管理、关节引用与逆绑定矩阵映射、关节空间世界变换矩阵复合计算与动态实时更新，通过三重门禁） |
 | [packages/engine/Specs/Scene/Model/ModelSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/ModelSplitterPipelineStageSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelSplitterPipelineStageSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Model/ModelStatisticsSpec.js](../../cesium/packages/engine/Specs/Scene/Model/ModelStatisticsSpec.js) | 待逐项核对 |

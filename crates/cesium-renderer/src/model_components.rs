@@ -144,7 +144,7 @@ pub struct Instances {
 }
 
 /// Joints and matrices defining a skin.
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, PartialEq)]
 pub struct Skin {
     pub index: Option<usize>,
     pub joints: Vec<usize>,
