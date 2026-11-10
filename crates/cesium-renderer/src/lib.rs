@@ -24,6 +24,8 @@ pub mod clipping_polygon;
 pub mod clipping_polygon_collection;
 pub mod classification_model_draw_command;
 pub mod model_draw_command;
+pub mod model_feature_table;
+pub mod model_type;
 pub mod classification_pipeline_stage;
 pub mod feature_id_pipeline_stage;
 pub mod cloud_collection;
@@ -388,7 +390,10 @@ pub use metadata_pipeline_stage::{
     STRUCT_ID_METADATA_STATISTICS_VS, STRUCT_ID_METADATA_VS, STRUCT_NAME_METADATA,
     STRUCT_NAME_METADATA_CLASS, STRUCT_NAME_METADATA_STATISTICS,
 };
-pub use model_3d_tile_content::*;
+pub use model_3d_tile_content::{
+    Cesium3DTileStyle, Model3D, Model3DTileContent, Model3DTileContext, Model3DTilesetContext,
+    ModelStatistics,
+};
 pub use model_animation::*;
 pub use model_animation_channel::*;
 pub use model_animation_collection::*;
@@ -398,6 +403,8 @@ pub use model_clipping_planes_pipeline_stage::*;
 pub use model_clipping_polygons_pipeline_stage::*;
 pub use model_color_pipeline_stage::*;
 pub use model_draw_command::*;
+pub use model_feature_table::*;
+pub use model_type::*;
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,
