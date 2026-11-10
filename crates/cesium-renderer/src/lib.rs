@@ -188,6 +188,7 @@ pub mod model_components;
 pub mod pass_state;
 pub mod particle;
 pub mod particle_emitter;
+pub mod particle_system;
 pub mod pick_id;
 pub mod picking;
 pub mod pipelines;
@@ -495,6 +496,9 @@ pub use primitive_outline_generator::*;
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,
+};
+pub use particle_system::{
+    ParticleBurst, ParticleForceCallback, ParticleSystem, ParticleSystemOptions,
 };
 pub use sync::{Sync, SyncStatus};
 pub use shared_context::{SceneContext, SharedContext, SharedContextOptions};
