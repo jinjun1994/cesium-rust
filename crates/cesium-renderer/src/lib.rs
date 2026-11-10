@@ -97,6 +97,7 @@ pub mod framebuffer;
 pub mod frame_rate_monitor;
 pub mod frustum_commands;
 pub mod multi_frustum;
+pub mod multiple_3d_tile_content;
 pub mod gltf_buffer_view_loader;
 pub mod gltf_draco_loader;
 pub mod gltf_gpm_loader;
@@ -356,6 +357,10 @@ pub use frame_rate_monitor::{
 pub use frustum_commands::FrustumCommands;
 pub use multi_frustum::{
     CommandExtent, DebugFrustumStatistics, MultiFrustum, MultiFrustumOptions,
+};
+pub use multiple_3d_tile_content::{
+    Cesium3DContentGroup, InnerContentHeader, InnerTileContent, Multiple3DTileContent,
+    TilesetStatistics,
 };
 pub use gltf_buffer_view_loader::{
     GltfBufferViewLoader, GltfBufferViewLoaderOptions, MeshoptInfo,
