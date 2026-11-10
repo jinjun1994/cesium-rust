@@ -29,6 +29,7 @@ pub mod model_imagery;
 pub mod model_imagery_mapping;
 pub mod model_matrix_update_stage;
 pub mod model_node;
+pub mod node_render_resources;
 pub mod model_primitive_imagery;
 pub mod model_reader;
 pub mod model_render_resources;
@@ -437,6 +438,7 @@ pub use model_utility::*;
 pub use model_primitive_imagery::*;
 pub use model_reader::*;
 pub use model_render_resources::*;
+pub use node_render_resources::*;
 pub use particle::{Particle, ParticleOptions};
 pub use particle_emitter::{
     BoxEmitter, CircleEmitter, ConeEmitter, ParticleEmitter, SphereEmitter,
