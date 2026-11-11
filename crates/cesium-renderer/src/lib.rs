@@ -264,6 +264,7 @@ pub mod tileset_metadata;
 pub mod time_dynamic_imagery;
 pub mod time_dynamic_point_cloud;
 pub mod translucent_tile_classification;
+pub mod tween_collection;
 pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;
@@ -506,6 +507,10 @@ pub use time_dynamic_point_cloud::{
 pub use translucent_tile_classification::{
     FrustumCommandsClassification, TranslucentTileClassification,
     TranslucentTileClassificationOptions,
+};
+pub use tween_collection::{
+    Tween, TweenAlphaOptions, TweenCancelCallback, TweenCollection, TweenCompleteCallback,
+    TweenMaterial, TweenOffsetOptions, TweenOptions, TweenPropertyOptions, TweenUpdateCallback,
 };
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,

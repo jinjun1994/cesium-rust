@@ -56,11 +56,7 @@ impl From<KmlCamera> for KmlTourView {
     }
 }
 
-/// Easing functions supported by KML tour flight.
-#[derive(Clone, Copy, Debug, PartialEq, Eq)]
-pub enum EasingFunction {
-    LinearNone,
-}
+pub use crate::easing_function::EasingFunction;
 
 /// Options generated for camera flights.
 #[derive(Clone, Debug, Default, PartialEq)]

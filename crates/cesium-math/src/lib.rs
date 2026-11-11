@@ -92,6 +92,7 @@ mod frustum_geometry;
 mod geometry;
 mod geometry_pipeline;
 mod dynamic_geometry_updater;
+mod easing_function;
 mod geometry_updater;
 mod geometry_updater_set;
 mod ground_geometry_updater;
