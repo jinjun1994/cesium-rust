@@ -235,6 +235,7 @@ pub mod scene;
 pub mod scene_transforms;
 pub mod shadow_map;
 pub mod shadow_map_shader;
+pub mod shadow_volume_appearance;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -622,6 +623,7 @@ pub use scene::{Scene, SceneOptions};
 pub use scene_transforms::{SceneTransforms, WorldToWindowCoordinatesOptions};
 pub use shadow_map::{ShadowBias, ShadowMap, ShadowMapOptions, ShadowPass};
 pub use shadow_map_shader::ShadowMapShader;
+pub use shadow_volume_appearance::{ShadowAppearanceSource, ShadowVolumeAppearance};
 pub use resource_cache::{CacheEntry, ResourceCache};
 pub use resource_cache_key::{
     IndexBufferCacheKeyOptions, ResourceCacheKey, SchemaCacheKeyOptions, SupportedImageFormats,
