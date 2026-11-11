@@ -266,6 +266,7 @@ pub mod time_dynamic_point_cloud;
 pub mod translucent_tile_classification;
 pub mod tween_collection;
 pub mod url_template_imagery_provider;
+pub mod vector_3d_tile_clamped_polylines;
 pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;
@@ -515,6 +516,9 @@ pub use tween_collection::{
 };
 pub use url_template_imagery_provider::{
     ImageryProviderError, UrlTemplateImageryProvider, UrlTemplateImageryProviderOptions,
+};
+pub use vector_3d_tile_clamped_polylines::{
+    Vector3DTileClampedPolylines, Vector3DTileClampedPolylinesOptions,
 };
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,
