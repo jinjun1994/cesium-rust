@@ -797,7 +797,7 @@
 | [packages/gltf/Specs/constructBoundingVolumeJsonSpec.js](../../cesium/packages/gltf/Specs/constructBoundingVolumeJsonSpec.js) | 已完成 (12/12 单测通过，覆盖包围体 box 半轴计算/缩放/四元数旋转与中心平移转换、sphere 半径/各向异性最大分量缩放/中心平移转换、输入不可变性与非支持几何类型校验拦截) |
 | [packages/gltf/Specs/findAccessorMinMaxSpec.js](../../cesium/packages/gltf/Specs/findAccessorMinMaxSpec.js) | 已完成 (2/2 单测通过，覆盖连续缓冲区与带 byteStride 步长非连续缓冲区 accessor 的各分量 min/max 提取计算与 NaN 容错) |
 | [packages/gltf/Specs/forEachTextureInMaterialSpec.js](../../cesium/packages/gltf/Specs/forEachTextureInMaterialSpec.js) | 已完成 (11/11 单测通过，覆盖材质无纹理、PBR 金属粗糙度纹理、高光光泽度扩展、高光扩展、透射扩展、common 材质扩展纹理与非纹理忽略、webgl techniques 扩展纹理值过滤、顶层纹理遍历以及提前返回短路终止) |
-| [packages/gltf/Specs/getAccessorByteStrideSpec.js](../../cesium/packages/gltf/Specs/getAccessorByteStrideSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/getAccessorByteStrideSpec.js](../../cesium/packages/gltf/Specs/getAccessorByteStrideSpec.js) | 已完成 (1/1 单测通过，覆盖无 bufferView、未显式指定步长、显式指定步长、不同数据类型及分量数的 accessor 字节跨度计算) |
 | [packages/gltf/Specs/getComponentReaderSpec.js](../../cesium/packages/gltf/Specs/getComponentReaderSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/getNodeTransformSpec.js](../../cesium/packages/gltf/Specs/getNodeTransformSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/moveTechniqueRenderStatesSpec.js](../../cesium/packages/gltf/Specs/moveTechniqueRenderStatesSpec.js) | 待逐项核对 |
