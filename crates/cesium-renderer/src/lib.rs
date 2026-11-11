@@ -290,6 +290,7 @@ pub mod compute_fly_to_location_for_rectangle;
 pub mod create_elevation_band_material;
 pub mod create_tangent_space_debug_primitive;
 pub mod create_world_imagery_async;
+pub mod decode_mvt;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -598,6 +599,7 @@ pub use create_world_imagery_async::{
 pub use ion_imagery_provider::{
     ExternalImageryType, IonImageryProvider, IonImageryProviderOptions,
 };
+pub use decode_mvt::{decode_mvt, DecodedMvt, MvtFeature, MvtLayer, MvtPoint};
 pub use keyframe_node::{KeyframeLoadState, KeyframeNode};
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,
