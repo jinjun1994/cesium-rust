@@ -233,6 +233,7 @@ pub mod uniforms;
 pub mod screen_space_camera_controller;
 pub mod scene;
 pub mod scene_transforms;
+pub mod shadow_map_shader;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -618,6 +619,7 @@ pub use uniforms::{
 pub use screen_space_camera_controller::ScreenSpaceCameraController;
 pub use scene::{Scene, SceneOptions};
 pub use scene_transforms::{SceneTransforms, WorldToWindowCoordinatesOptions};
+pub use shadow_map_shader::ShadowMapShader;
 pub use resource_cache::{CacheEntry, ResourceCache};
 pub use resource_cache_key::{
     IndexBufferCacheKeyOptions, ResourceCacheKey, SchemaCacheKeyOptions, SupportedImageFormats,
