@@ -775,7 +775,7 @@
 | [packages/engine/Specs/Scene/decodeMVTSpec.js](../../cesium/packages/engine/Specs/Scene/decodeMVTSpec.js) | 已完成 (2/2 单测通过，覆盖 Mapbox 矢量瓦片 Protobuf 2.1 规范解码、Point/LineString/Polygon 几何命令流解算与属性键值对构建) |
 | [packages/engine/Specs/Scene/findContentMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/findContentMetadataSpec.js) | 已完成 (4/4 单测通过，覆盖 3D Tiles 1.1 与 3DTILES_metadata 扩展内容元数据解析、缺失 Schema 警告、类映射与属性查询) |
 | [packages/engine/Specs/Scene/findGroupMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/findGroupMetadataSpec.js) | 已完成 (4/4 单测通过，覆盖 3D Tiles 1.1 组索引与 3DTILES_metadata 扩展组 ID 映射查找、属性解算与未定义情形处理) |
-| [packages/engine/Specs/Scene/findMeshoptExtensionSpec.js](../../cesium/packages/engine/Specs/Scene/findMeshoptExtensionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/findMeshoptExtensionSpec.js](../../cesium/packages/engine/Specs/Scene/findMeshoptExtensionSpec.js) | 已完成 (4/4 单测通过，覆盖 glTF bufferView/buffer 上 KHR_meshopt_compression 与 EXT_meshopt_compression 扩展提取及 KHR 优先策略) |
 | [packages/engine/Specs/Scene/findTileMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/findTileMetadataSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/hasExtensionSpec.js](../../cesium/packages/engine/Specs/Scene/hasExtensionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/parseBatchTableSpec.js](../../cesium/packages/engine/Specs/Scene/parseBatchTableSpec.js) | 待逐项核对 |
