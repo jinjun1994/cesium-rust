@@ -240,6 +240,8 @@ pub mod single_tile_imagery_provider;
 pub mod sky_atmosphere;
 pub mod sky_box;
 pub mod snapping;
+pub mod spatial_node;
+pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
