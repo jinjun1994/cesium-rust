@@ -255,6 +255,7 @@ pub mod tile_bounding_sphere;
 pub mod tile_bounding_volume;
 pub mod tile_coordinates_imagery_provider;
 pub mod tile_imagery;
+pub mod tile_map_service_imagery_provider;
 pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;
@@ -446,6 +447,9 @@ pub use tile_coordinates_imagery_provider::{
     TileCoordinatesImageryProvider, TileCoordinatesImageryProviderOptions,
 };
 pub use tile_imagery::{ImageryNode, TileImagery};
+pub use tile_map_service_imagery_provider::{
+    TileMapServiceImageryProvider, TileMapServiceImageryProviderOptions,
+};
 pub use quadtree_primitive::{
     QuadtreePrimitive, QuadtreePrimitiveOptions, QuadtreeTileProvider, TileReplacementQueue,
 };
