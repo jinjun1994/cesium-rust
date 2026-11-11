@@ -278,6 +278,8 @@ pub mod voxel_box_shape;
 pub mod voxel_cell;
 pub mod voxel_cylinder_shape;
 pub mod voxel_ellipsoid_shape;
+pub mod voxel_shape_type;
+pub mod voxel_primitive;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -550,6 +552,10 @@ pub use viewport_quad::ViewportQuad;
 pub use voxel_cell::VoxelCell;
 pub use voxel_cylinder_shape::VoxelCylinderShape;
 pub use voxel_ellipsoid_shape::VoxelEllipsoidShape;
+pub use voxel_shape_type::VoxelShapeType;
+pub use voxel_primitive::{
+    MockVoxelProvider, VoxelPrimitive, VoxelPrimitiveOptions, VoxelProvider, VoxelStatistics,
+};
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,
 };
