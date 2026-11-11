@@ -263,6 +263,7 @@ pub mod tileset_3d_tile_content;
 pub mod tileset_metadata;
 pub mod time_dynamic_imagery;
 pub mod time_dynamic_point_cloud;
+pub mod translucent_tile_classification;
 pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;
@@ -501,6 +502,10 @@ pub use time_dynamic_imagery::{
 pub use time_dynamic_point_cloud::{
     PointCloudFrame, TimeDynamicPointCloud, TimeDynamicPointCloudIntervalData,
     TimeDynamicPointCloudOptions,
+};
+pub use translucent_tile_classification::{
+    FrustumCommandsClassification, TranslucentTileClassification,
+    TranslucentTileClassificationOptions,
 };
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,

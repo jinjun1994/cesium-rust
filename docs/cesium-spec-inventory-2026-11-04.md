@@ -744,7 +744,7 @@
 | [packages/engine/Specs/Scene/TilesetMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/TilesetMetadataSpec.js) | 已完成 (9/9 tests passing, `crates/cesium-renderer/tests/tileset_metadata_spec.rs`, `crates/cesium-renderer/src/tileset_metadata.rs`) |
 | [packages/engine/Specs/Scene/TimeDynamicImagerySpec.js](../../cesium/packages/engine/Specs/Scene/TimeDynamicImagerySpec.js) | 已完成 (11/11 tests passing, `crates/cesium-renderer/tests/time_dynamic_imagery_spec.rs`, `crates/cesium-renderer/src/time_dynamic_imagery.rs`) |
 | [packages/engine/Specs/Scene/TimeDynamicPointCloudSpec.js](../../cesium/packages/engine/Specs/Scene/TimeDynamicPointCloudSpec.js) | 已完成 (15/15 tests passing, `crates/cesium-renderer/tests/time_dynamic_point_cloud_spec.rs`, `crates/cesium-renderer/src/time_dynamic_point_cloud.rs`) |
-| [packages/engine/Specs/Scene/TranslucentTileClassificationSpec.js](../../cesium/packages/engine/Specs/Scene/TranslucentTileClassificationSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TranslucentTileClassificationSpec.js](../../cesium/packages/engine/Specs/Scene/TranslucentTileClassificationSpec.js) | 已完成 (7/7 tests passing, `crates/cesium-renderer/tests/translucent_tile_classification_spec.rs`, `crates/cesium-renderer/src/translucent_tile_classification.rs`) |
 | [packages/engine/Specs/Scene/TweenCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/TweenCollectionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/UrlTemplateImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/UrlTemplateImageryProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Vector3DTileClampedPolylinesSpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTileClampedPolylinesSpec.js) | 待逐项核对 |
