@@ -518,7 +518,10 @@ pub use vertex_array::{
 pub use metrics::{FrameStats, FrameStatsHistory, FrameStatsSummary, StageTimer};
 pub use pass_state::PassState;
 pub use pick_id::PickId;
-pub use picking::FeatureRef;
+pub use picking::{
+    FeatureRef, PickVoxelCell, PickedObject, PickingManager, PickingPrimitive,
+    ProjectionType as PickProjectionType, RayPickResult, SceneMode as PickSceneMode,
+};
 pub use render_state::{
     freeze_render_state, BlendEquation, BlendFunction, BlendingState, ColorMaskState, CullFace,
     CullState, DepthFunction, DepthRangeState, DepthTestState, PolygonOffsetState, RenderState,
