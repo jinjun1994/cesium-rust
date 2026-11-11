@@ -805,7 +805,7 @@
 | [packages/gltf/Specs/numberOfComponentsForTypeSpec.js](../../cesium/packages/gltf/Specs/numberOfComponentsForTypeSpec.js) | 已完成 (1/1 单测通过，覆盖 SCALAR、VEC2、VEC3、VEC4、MAT2、MAT3、MAT4 等各数据类型分量数对应获取) |
 | [packages/gltf/Specs/parseGlbSpec.js](../../cesium/packages/gltf/Specs/parseGlbSpec.js) | 已完成 (5/5 单测通过，覆盖 glTF 1.0/2.0 二进制 GLB 解析、非合法 magic 报错、不支持版本校验、非 JSON 格式场景拦截以及二进制缓冲区 source 提取与 pipeline extras 清理) |
 | [packages/gltf/Specs/readAccessorPackedSpec.js](../../cesium/packages/gltf/Specs/readAccessorPackedSpec.js) | 已完成 (3/3 单测通过，覆盖连续缓冲区、带 byteStride 非连续步长缓冲区以及未定义 bufferView 全零填充的紧凑数组读取) |
-| [packages/gltf/Specs/removeExtensionSpec.js](../../cesium/packages/gltf/Specs/removeExtensionSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/removeExtensionSpec.js](../../cesium/packages/gltf/Specs/removeExtensionSpec.js) | 已完成 (2/2 单测通过，覆盖扩展从顶层与深层对象递归清理、空 extensions 字典自动删除、返回顶层扩展数据及 CESIUM_RTC 向 MODELVIEW 语义回退重写) |
 | [packages/gltf/Specs/removeExtensionsRequiredSpec.js](../../cesium/packages/gltf/Specs/removeExtensionsRequiredSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/removeExtensionsUsedSpec.js](../../cesium/packages/gltf/Specs/removeExtensionsUsedSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/removePipelineExtrasSpec.js](../../cesium/packages/gltf/Specs/removePipelineExtrasSpec.js) | 待逐项核对 |

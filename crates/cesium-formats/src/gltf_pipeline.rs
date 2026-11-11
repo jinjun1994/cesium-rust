@@ -1175,6 +1175,111 @@ pub fn remove_extensions_used(gltf: &mut Value, extension: &str) {
     }
 }
 
+fn remove_extension_recursive(value: &mut Value, extension: &str) -> Option<Value> {
+    if let Some(arr) = value.as_array_mut() {
+        let mut found = None;
+        for item in arr {
+            if let Some(res) = remove_extension_recursive(item, extension) {
+                if found.is_none() {
+                    found = Some(res);
+                }
+            }
+        }
+        return found;
+    }
+
+    if let Some(obj) = value.as_object_mut() {
+        let mut top_removed = None;
+        if let Some(ext_val) = obj.get_mut("extensions").and_then(|e| e.as_object_mut()) {
+            if let Some(removed) = ext_val.remove(extension) {
+                top_removed = Some(removed);
+            }
+        }
+
+        if let Some(ext_val) = obj.get("extensions").and_then(|e| e.as_object()) {
+            if ext_val.is_empty() {
+                obj.remove("extensions");
+            }
+        }
+
+        let mut child_removed = None;
+        for (_, child) in obj.iter_mut() {
+            if let Some(res) = remove_extension_recursive(child, extension) {
+                if child_removed.is_none() {
+                    child_removed = Some(res);
+                }
+            }
+        }
+
+        return top_removed.or(child_removed);
+    }
+
+    None
+}
+
+fn update_cesium_rtc_semantics(value: &mut Value) {
+    if let Some(techniques) = value.get_mut("techniques") {
+        let check_tech = |tech: &mut Value| {
+            if let Some(uniforms) = tech.get_mut("uniforms").and_then(|u| u.as_object_mut()) {
+                for (_, uniform) in uniforms {
+                    if let Some(u_obj) = uniform.as_object_mut() {
+                        if u_obj.get("semantic").and_then(|s| s.as_str()) == Some("CESIUM_RTC_MODELVIEW") {
+                            u_obj.insert("semantic".to_string(), json!("MODELVIEW"));
+                        }
+                    }
+                }
+            }
+        };
+
+        if let Some(arr) = techniques.as_array_mut() {
+            for tech in arr {
+                check_tech(tech);
+            }
+        } else if let Some(map) = techniques.as_object_mut() {
+            for (_, tech) in map {
+                check_tech(tech);
+            }
+        }
+    }
+
+    if let Some(ext) = value.get_mut("extensions").and_then(|e| e.as_object_mut()) {
+        if let Some(tech_webgl) = ext.get_mut("KHR_techniques_webgl") {
+            update_cesium_rtc_semantics(tech_webgl);
+        }
+    }
+}
+
+/// Removes an extension from `gltf.extensions`, `gltf.extensionsUsed`, `gltf.extensionsRequired`,
+/// and any other objects in the glTF if it is present. Returns the extension data removed from `gltf.extensions`.
+pub fn remove_extension(gltf: &mut Value, extension: &str) -> Option<Value> {
+    remove_extensions_used(gltf, extension);
+
+    if extension == "CESIUM_RTC" {
+        update_cesium_rtc_semantics(gltf);
+    }
+
+    // Capture the top-level gltf.extensions[extension] before recursive removal
+    let top_extension_data = gltf
+        .get_mut("extensions")
+        .and_then(|e| e.as_object_mut())
+        .and_then(|m| m.remove(extension));
+
+    // Remove from all nested objects
+    remove_extension_recursive(gltf, extension);
+
+    // Clean up top-level gltf.extensions if empty
+    if let Some(ext) = gltf.get("extensions").and_then(|e| e.as_object()) {
+        if ext.is_empty() {
+            if let Some(obj) = gltf.as_object_mut() {
+                obj.remove("extensions");
+            }
+        }
+    }
+
+    top_extension_data
+}
+
+
 fn remove_extras_from_object(object: &mut Value) {
     if let Some(obj) = object.as_object_mut() {
         if let Some(extras) = obj.get_mut("extras").and_then(|e| e.as_object_mut()) {
