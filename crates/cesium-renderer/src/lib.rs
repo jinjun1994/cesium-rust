@@ -297,6 +297,7 @@ pub mod find_meshopt_extension;
 pub mod find_tile_metadata;
 pub mod has_extension;
 pub mod parse_batch_table;
+pub mod parse_feature_metadata_legacy;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -620,6 +621,9 @@ pub use find_tile_metadata::{
 };
 pub use has_extension::has_extension;
 pub use parse_batch_table::{parse_batch_table, ParseBatchTableOptions};
+pub use parse_feature_metadata_legacy::{
+    parse_feature_metadata_legacy, ParseFeatureMetadataLegacyOptions,
+};
 pub use keyframe_node::{KeyframeLoadState, KeyframeNode};
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,
