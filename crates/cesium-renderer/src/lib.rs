@@ -107,6 +107,9 @@ pub mod property_attribute_property;
 pub mod property_table;
 pub mod property_texture;
 pub mod property_texture_property;
+pub mod quadtree_primitive;
+pub mod quadtree_tile;
+pub mod quadtree_tile_load_state;
 pub mod scene_primitive;
 pub mod edge_visibility_pipeline_stage;
 pub mod empty_3d_tile_content;
@@ -390,6 +393,14 @@ pub use property_attribute_property::PropertyAttributeProperty;
 pub use property_table::{PropertyTable, PropertyTableOptions};
 pub use property_texture::PropertyTexture;
 pub use property_texture_property::PropertyTextureProperty;
+pub use quadtree_primitive::{
+    QuadtreePrimitive, QuadtreePrimitiveOptions, QuadtreeTileProvider, TileReplacementQueue,
+};
+pub use quadtree_tile::{
+    AnyTilingScheme, CustomDataEntry, LRUCache, QuadtreeTile, QuadtreeTileOptions,
+    TileSelectionResult,
+};
+pub use quadtree_tile_load_state::QuadtreeTileLoadState;
 pub use scene_primitive::{
     Primitive, PrimitiveAppearance, PrimitiveOptions, PrimitivePasses, PrimitiveRenderFrameState,
 };
