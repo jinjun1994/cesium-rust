@@ -1138,6 +1138,217 @@ pub fn move_techniques_to_extension(mut gltf: Value) -> Value {
     gltf
 }
 
+/// Removes an extension from `gltf.extensionsRequired` if it is present.
+pub fn remove_extensions_required(gltf: &mut Value, extension: &str) {
+    if let Some(extensions_required) = gltf
+        .get_mut("extensionsRequired")
+        .and_then(|v| v.as_array_mut())
+    {
+        if let Some(pos) = extensions_required.iter().position(|v| v == extension) {
+            extensions_required.remove(pos);
+        }
+    }
+    if let Some(arr) = gltf.get("extensionsRequired").and_then(|v| v.as_array()) {
+        if arr.is_empty() {
+            if let Some(obj) = gltf.as_object_mut() {
+                obj.remove("extensionsRequired");
+            }
+        }
+    }
+}
+
+/// Removes an extension from `gltf.extensionsUsed` and `gltf.extensionsRequired` if it is present.
+pub fn remove_extensions_used(gltf: &mut Value, extension: &str) {
+    if let Some(extensions_used) = gltf.get_mut("extensionsUsed").and_then(|v| v.as_array_mut()) {
+        if let Some(pos) = extensions_used.iter().position(|v| v == extension) {
+            extensions_used.remove(pos);
+        }
+    }
+    remove_extensions_required(gltf, extension);
+
+    if let Some(arr) = gltf.get("extensionsUsed").and_then(|v| v.as_array()) {
+        if arr.is_empty() {
+            if let Some(obj) = gltf.as_object_mut() {
+                obj.remove("extensionsUsed");
+            }
+        }
+    }
+}
+
+fn remove_extras_from_object(object: &mut Value) {
+    if let Some(obj) = object.as_object_mut() {
+        if let Some(extras) = obj.get_mut("extras").and_then(|e| e.as_object_mut()) {
+            extras.remove("_pipeline");
+        }
+        if let Some(extras) = obj.get("extras").and_then(|e| e.as_object()) {
+            if extras.is_empty() {
+                obj.remove("extras");
+            }
+        }
+    }
+}
+
+fn remove_extras_from_collection(collection: &mut Value) {
+    if let Some(arr) = collection.as_array_mut() {
+        for item in arr {
+            remove_extras_from_object(item);
+        }
+    } else if let Some(map) = collection.as_object_mut() {
+        for (_, item) in map {
+            remove_extras_from_object(item);
+        }
+    }
+}
+
+/// Iterates through the objects within the glTF and deletes their pipeline extras object.
+pub fn remove_pipeline_extras(gltf: &mut Value) {
+    if let Some(buffers) = gltf.get_mut("buffers") {
+        remove_extras_from_collection(buffers);
+    }
+    if let Some(images) = gltf.get_mut("images") {
+        remove_extras_from_collection(images);
+    }
+    if let Some(shaders) = gltf.get_mut("shaders") {
+        remove_extras_from_collection(shaders);
+    }
+    if let Some(ext) = gltf.get_mut("extensions").and_then(|e| e.as_object_mut()) {
+        if let Some(tech) = ext.get_mut("KHR_techniques_webgl").and_then(|t| t.as_object_mut()) {
+            if let Some(shaders) = tech.get_mut("shaders") {
+                remove_extras_from_collection(shaders);
+            }
+        }
+    }
+
+    remove_extras_from_object(gltf);
+}
+
+/// Converts a binary glTF (GLB) to a glTF JSON `Value` with pipeline extras included.
+pub fn parse_glb(glb: &[u8]) -> Result<Value, String> {
+    if glb.len() < 12 {
+        return Err("File is not valid binary glTF".to_string());
+    }
+
+    let magic = &glb[0..4];
+    if magic != b"glTF" {
+        return Err("File is not valid binary glTF".to_string());
+    }
+
+    let version = u32::from_le_bytes([glb[4], glb[5], glb[6], glb[7]]);
+    if version != 1 && version != 2 {
+        return Err("Binary glTF version is not 1 or 2".to_string());
+    }
+
+    if version == 1 {
+        if glb.len() < 20 {
+            return Err("File is not valid binary glTF".to_string());
+        }
+        let length = u32::from_le_bytes([glb[8], glb[9], glb[10], glb[11]]) as usize;
+        let content_length = u32::from_le_bytes([glb[12], glb[13], glb[14], glb[15]]) as usize;
+        let content_format = u32::from_le_bytes([glb[16], glb[17], glb[18], glb[19]]);
+
+        if content_format != 0 {
+            return Err("Binary glTF scene format is not JSON".to_string());
+        }
+
+        let json_start = 20;
+        let json_end = json_start + content_length;
+        if json_end > glb.len() {
+            return Err("Unexpected EOF in JSON chunk".to_string());
+        }
+
+        let json_str = std::str::from_utf8(&glb[json_start..json_end])
+            .map_err(|e| format!("Invalid UTF-8 in JSON chunk: {e}"))?;
+        let mut gltf: Value = serde_json::from_str(json_str)
+            .map_err(|e| format!("Invalid JSON: {e}"))?;
+
+        gltf = add_pipeline_extras(gltf);
+
+        let binary_start = json_end;
+        let binary_end = length.min(glb.len());
+        let binary_slice = &glb[binary_start..binary_end];
+        let binary_json = Value::Array(binary_slice.iter().map(|&b| json!(b)).collect());
+
+        if let Some(buffers) = gltf.get_mut("buffers") {
+            let buffer_obj_opt = if buffers.is_object() {
+                if buffers.get("binary_glTF").is_some() {
+                    buffers.get_mut("binary_glTF")
+                } else {
+                    buffers.get_mut("KHR_binary_glTF")
+                }
+            } else if let Some(arr) = buffers.as_array_mut() {
+                arr.first_mut()
+            } else {
+                None
+            };
+
+            if let Some(buffer) = buffer_obj_opt {
+                if let Some(extras) = buffer.get_mut("extras").and_then(|e| e.as_object_mut()) {
+                    if let Some(pipeline) = extras.get_mut("_pipeline").and_then(|p| p.as_object_mut()) {
+                        pipeline.insert("source".to_string(), binary_json);
+                    }
+                }
+                if let Some(obj) = buffer.as_object_mut() {
+                    obj.remove("uri");
+                }
+            }
+        }
+
+        remove_extensions_used(&mut gltf, "KHR_binary_glTF");
+        Ok(gltf)
+    } else {
+        let length = u32::from_le_bytes([glb[8], glb[9], glb[10], glb[11]]) as usize;
+        let mut byte_offset = 12;
+        let mut gltf_opt: Option<Value> = None;
+        let mut binary_buffer_opt: Option<Vec<Value>> = None;
+
+        while byte_offset + 8 <= length && byte_offset + 8 <= glb.len() {
+            let chunk_length = u32::from_le_bytes([
+                glb[byte_offset],
+                glb[byte_offset + 1],
+                glb[byte_offset + 2],
+                glb[byte_offset + 3],
+            ]) as usize;
+            let chunk_type = u32::from_le_bytes([
+                glb[byte_offset + 4],
+                glb[byte_offset + 5],
+                glb[byte_offset + 6],
+                glb[byte_offset + 7],
+            ]);
+            byte_offset += 8;
+
+            let chunk_end = (byte_offset + chunk_length).min(glb.len());
+            let chunk_data = &glb[byte_offset..chunk_end];
+            byte_offset += chunk_length;
+
+            if chunk_type == 0x4e4f534a {
+                let json_str = std::str::from_utf8(chunk_data)
+                    .map_err(|e| format!("Invalid UTF-8 in JSON chunk: {e}"))?;
+                let gltf_parsed: Value = serde_json::from_str(json_str)
+                    .map_err(|e| format!("Invalid JSON: {e}"))?;
+                gltf_opt = Some(add_pipeline_extras(gltf_parsed));
+            } else if chunk_type == 0x004e4942 {
+                binary_buffer_opt = Some(chunk_data.iter().map(|&b| json!(b)).collect());
+            }
+        }
+
+        let mut gltf = gltf_opt.ok_or_else(|| "Missing JSON chunk in GLB 2.0".to_string())?;
+        if let Some(bin) = binary_buffer_opt {
+            if let Some(buffers) = gltf.get_mut("buffers").and_then(|v| v.as_array_mut()) {
+                if let Some(buf) = buffers.first_mut() {
+                    if let Some(extras) = buf.get_mut("extras").and_then(|e| e.as_object_mut()) {
+                        if let Some(pipeline) = extras.get_mut("_pipeline").and_then(|p| p.as_object_mut()) {
+                            pipeline.insert("source".to_string(), Value::Array(bin));
+                        }
+                    }
+                }
+            }
+        }
+
+        Ok(gltf)
+    }
+}
+
+
 
 
 
