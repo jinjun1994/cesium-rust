@@ -1348,6 +1348,98 @@ pub fn parse_glb(glb: &[u8]) -> Result<Value, String> {
     }
 }
 
+/// Returns the accessor data in a contiguous array of f64.
+pub fn read_accessor_packed(gltf: &Value, accessor: &Value) -> Result<Vec<f64>, String> {
+    let type_str = accessor
+        .get("type")
+        .and_then(|v| v.as_str())
+        .unwrap_or("SCALAR");
+    let num_components = number_of_components_for_type(type_str);
+    let count = accessor
+        .get("count")
+        .and_then(|v| v.as_u64())
+        .unwrap_or(0) as usize;
+
+    let total_values = num_components * count;
+
+    let buffer_view_id = match accessor.get("bufferView").and_then(|v| v.as_u64()) {
+        Some(id) => id as usize,
+        None => return Ok(vec![0.0; total_values]),
+    };
+
+    let buffer_views = gltf
+        .get("bufferViews")
+        .and_then(|v| v.as_array())
+        .ok_or_else(|| "bufferViews missing in glTF".to_string())?;
+
+    let buffer_view = buffer_views
+        .get(buffer_view_id)
+        .ok_or_else(|| format!("bufferView index {buffer_view_id} out of bounds"))?;
+
+    let buffer_id = buffer_view
+        .get("buffer")
+        .and_then(|v| v.as_u64())
+        .ok_or_else(|| "bufferView.buffer missing".to_string())? as usize;
+
+    let buffers = gltf
+        .get("buffers")
+        .and_then(|v| v.as_array())
+        .ok_or_else(|| "buffers missing in glTF".to_string())?;
+
+    let buffer = buffers
+        .get(buffer_id)
+        .ok_or_else(|| format!("buffer index {buffer_id} out of bounds"))?;
+
+    let source_bytes: Vec<u8> = if let Some(source_val) = buffer
+        .get("extras")
+        .and_then(|e| e.get("_pipeline"))
+        .and_then(|p| p.get("source"))
+    {
+        if let Some(arr) = source_val.as_array() {
+            arr.iter()
+                .filter_map(|v| v.as_u64().map(|b| b as u8))
+                .collect()
+        } else {
+            return Err("buffer.extras._pipeline.source is not an array".to_string());
+        }
+    } else {
+        return Err("buffer.extras._pipeline.source missing".to_string());
+    };
+
+    let component_type = accessor
+        .get("componentType")
+        .and_then(|v| v.as_u64())
+        .unwrap_or(5126) as u32;
+
+    let reader = get_component_reader(component_type)?;
+    let byte_stride = get_accessor_byte_stride(gltf, accessor);
+
+    let accessor_byte_offset = accessor
+        .get("byteOffset")
+        .and_then(|v| v.as_u64())
+        .unwrap_or(0) as usize;
+
+    let buffer_view_byte_offset = buffer_view
+        .get("byteOffset")
+        .and_then(|v| v.as_u64())
+        .unwrap_or(0) as usize;
+
+    let mut start_offset = accessor_byte_offset + buffer_view_byte_offset;
+    let mut values = vec![0.0; total_values];
+    let mut components = vec![0.0; num_components];
+
+    for i in 0..count {
+        reader(&source_bytes, start_offset, num_components, &mut components);
+        for j in 0..num_components {
+            values[i * num_components + j] = components[j];
+        }
+        start_offset += byte_stride;
+    }
+
+    Ok(values)
+}
+
+
 
 
 
