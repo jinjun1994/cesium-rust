@@ -605,3 +605,106 @@ impl ForEach {
         Self::top_level(gltf, "textures", handler)
     }
 }
+
+/// Calls the provider handler function on each texture used by the material.
+/// Mimics the behavior of `forEachTextureInMaterial` in gltf-pipeline.
+pub fn for_each_texture_in_material<'a, F, R>(
+    material: Option<&'a Value>,
+    mut handler: F,
+) -> Option<R>
+where
+    F: FnMut(usize, &'a Value) -> Option<R>,
+{
+    let material = material.expect("material must be defined");
+    if !material.is_object() {
+        panic!("material must be an object");
+    }
+
+    let mut check_texture = |tex: Option<&'a Value>| -> Option<R> {
+        if let Some(texture_info) = tex {
+            if let Some(index) = texture_info.get("index").and_then(Value::as_u64) {
+                return handler(index as usize, texture_info);
+            }
+        }
+        None
+    };
+
+    // 1. Metallic roughness
+    if let Some(pbr) = material.get("pbrMetallicRoughness") {
+        if let Some(res) = check_texture(pbr.get("baseColorTexture")) {
+            return Some(res);
+        }
+        if let Some(res) = check_texture(pbr.get("metallicRoughnessTexture")) {
+            return Some(res);
+        }
+    }
+
+    // 2. Extensions
+    if let Some(extensions) = material.get("extensions") {
+        // Spec gloss extension
+        if let Some(spec_gloss) = extensions.get("KHR_materials_pbrSpecularGlossiness") {
+            if let Some(res) = check_texture(spec_gloss.get("diffuseTexture")) {
+                return Some(res);
+            }
+            if let Some(res) = check_texture(spec_gloss.get("specularGlossinessTexture")) {
+                return Some(res);
+            }
+        }
+
+        // Specular extension
+        if let Some(specular) = extensions.get("KHR_materials_specular") {
+            if let Some(res) = check_texture(specular.get("specularTexture")) {
+                return Some(res);
+            }
+            if let Some(res) = check_texture(specular.get("specularColorTexture")) {
+                return Some(res);
+            }
+        }
+
+        // Transmission extension
+        if let Some(transmission) = extensions.get("KHR_materials_transmission") {
+            if let Some(res) = check_texture(transmission.get("transmissionTexture")) {
+                return Some(res);
+            }
+        }
+
+        // Materials common extension
+        if let Some(materials_common) = extensions.get("KHR_materials_common") {
+            if let Some(values) = materials_common.get("values") {
+                if let Some(res) = check_texture(values.get("diffuse")) {
+                    return Some(res);
+                }
+                if let Some(res) = check_texture(values.get("ambient")) {
+                    return Some(res);
+                }
+                if let Some(res) = check_texture(values.get("emission")) {
+                    return Some(res);
+                }
+                if let Some(res) = check_texture(values.get("specular")) {
+                    return Some(res);
+                }
+            }
+        }
+    }
+
+    // 3. KHR_techniques_webgl extension
+    if let Some(res) = ForEach::material_value(material, |material_value, _| {
+        check_texture(Some(material_value))
+    }) {
+        return Some(res);
+    }
+
+    // 4. Top level textures
+    if let Some(res) = check_texture(material.get("emissiveTexture")) {
+        return Some(res);
+    }
+    if let Some(res) = check_texture(material.get("normalTexture")) {
+        return Some(res);
+    }
+    if let Some(res) = check_texture(material.get("occlusionTexture")) {
+        return Some(res);
+    }
+
+    None
+}
+
