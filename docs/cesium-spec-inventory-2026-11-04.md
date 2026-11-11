@@ -765,7 +765,7 @@
 | [packages/engine/Specs/Scene/VoxelShapeTypeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelShapeTypeSpec.js) | 已完成 (7/7 单测通过，覆盖形状极值范围查询、字符串解析、构造器多态实例化与非法类型 DeveloperError 拦截) |
 | [packages/engine/Specs/Scene/VoxelTraversalSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelTraversalSpec.js) | 已完成 (9/9 单测通过，覆盖巨纹理与关键帧节点管理、空间节点视锥体可见性掩码与 SSE 误差解算、形状平移 OBB 重算与内存销毁) |
 | [packages/engine/Specs/Scene/WebMapServiceImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/WebMapServiceImageryProviderSpec.js) | 已完成 (11/11 单测通过，覆盖 WMS 参数合并、v1.1 与 v1.3 版本解析、CRS/SRS 映射、EPSG 逆轴顺序判断、瓦片 BBOX 与请求 URL 构建) |
-| [packages/engine/Specs/Scene/WebMapTileServiceImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/WebMapTileServiceImageryProviderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/WebMapTileServiceImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/WebMapTileServiceImageryProviderSpec.js) | 已完成 (10/10 单测通过，覆盖 WMTS 1.0.0 规范、KVP 查询参数与 RESTful 模板占位符替换、瓦片矩阵标签层级映射、子域名轮换与必填参数校验) |
 | [packages/engine/Specs/Scene/buildVectorGltfFromMVTSpec.js](../../cesium/packages/engine/Specs/Scene/buildVectorGltfFromMVTSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/buildVoxelDrawCommandsSpec.js](../../cesium/packages/engine/Specs/Scene/buildVoxelDrawCommandsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/computeFlyToLocationForRectangleSpec.js](../../cesium/packages/engine/Specs/Scene/computeFlyToLocationForRectangleSpec.js) | 待逐项核对 |
