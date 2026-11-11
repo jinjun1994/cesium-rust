@@ -286,6 +286,7 @@ pub mod web_map_service_imagery_provider;
 pub mod web_map_tile_service_imagery_provider;
 pub mod build_vector_gltf_from_mvt;
 pub mod build_voxel_draw_commands;
+pub mod compute_fly_to_location_for_rectangle;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -576,6 +577,9 @@ pub use build_vector_gltf_from_mvt::{
     VectorTileLayer, VectorTilePoint,
 };
 pub use build_voxel_draw_commands::build_voxel_draw_commands;
+pub use compute_fly_to_location_for_rectangle::{
+    compute_fly_to_location_for_rectangle, sample_cartographics_for_rectangle,
+};
 pub use keyframe_node::{KeyframeLoadState, KeyframeNode};
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,
