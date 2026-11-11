@@ -770,7 +770,7 @@
 | [packages/engine/Specs/Scene/buildVoxelDrawCommandsSpec.js](../../cesium/packages/engine/Specs/Scene/buildVoxelDrawCommandsSpec.js) | 已完成 (2/2 单测通过，覆盖体素 DrawCommand 与拾取命令组装、裁剪平面函数生成与片元着色器注入) |
 | [packages/engine/Specs/Scene/computeFlyToLocationForRectangleSpec.js](../../cesium/packages/engine/Specs/Scene/computeFlyToLocationForRectangleSpec.js) | 已完成 (5/5 单测通过，覆盖矩形 5 点采样、3D/哥伦布视图/2D 模式投影与地形最大高度修正飞行相机视角计算) |
 | [packages/engine/Specs/Scene/createElevationBandMaterialSpec.js](../../cesium/packages/engine/Specs/Scene/createElevationBandMaterialSpec.js) | 已完成 (9/9 单测通过，覆盖高程色带多图层预处理、按高度排序插值混合、重复条目剔除与空隙补齐、材质创建与非法参数校验) |
-| [packages/engine/Specs/Scene/createTangentSpaceDebugPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/createTangentSpaceDebugPrimitiveSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/createTangentSpaceDebugPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/createTangentSpaceDebugPrimitiveSpec.js) | 已完成 (2/2 单测通过，覆盖椭球几何切线与副切线全属性计算、切线空间调试图元生成、各轴色彩与线段类型校验及缺失几何校验) |
 | [packages/engine/Specs/Scene/createWorldImageryAsyncSpec.js](../../cesium/packages/engine/Specs/Scene/createWorldImageryAsyncSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/decodeMVTSpec.js](../../cesium/packages/engine/Specs/Scene/decodeMVTSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/findContentMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/findContentMetadataSpec.js) | 待逐项核对 |

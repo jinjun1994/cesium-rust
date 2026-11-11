@@ -468,10 +468,7 @@ impl TileBoundingS2Cell {
 
         Ok(Primitive::new(PrimitiveOptions {
             geometry_instances: Some(instances),
-            appearance: Some(PrimitiveAppearance {
-                closed: false,
-                translucent: false,
-            }),
+            appearance: Some(PrimitiveAppearance::new(false, false)),
             asynchronous: Some(false),
             ..Default::default()
         }))

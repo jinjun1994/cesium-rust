@@ -184,6 +184,66 @@ impl EllipsoidGeometry {
             ));
         }
 
+        if vertex_format.tangent || vertex_format.bitangent {
+            let mut tangents = if vertex_format.tangent {
+                Vec::with_capacity(vertex_count * 3)
+            } else {
+                Vec::new()
+            };
+            let mut bitangents = if vertex_format.bitangent {
+                Vec::with_capacity(vertex_count * 3)
+            } else {
+                Vec::new()
+            };
+
+            for i in 0..num_phis {
+                for j in 0..num_thetas {
+                    let n = Cartesian3::new(
+                        sin_phi[i] * cos_theta[j] / radii.x,
+                        sin_phi[i] * sin_theta[j] / radii.y,
+                        cos_phi[i] / radii.z,
+                    ).normalize();
+
+                    let unit = if i == 0 || i == num_phis - 1 {
+                        Cartesian3::UNIT_X
+                    } else {
+                        Cartesian3::UNIT_Z
+                    };
+
+                    let tangent = unit.cross(&n).normalize();
+
+                    if vertex_format.tangent {
+                        tangents.push(tangent.x);
+                        tangents.push(tangent.y);
+                        tangents.push(tangent.z);
+                    }
+
+                    if vertex_format.bitangent {
+                        let bitangent = n.cross(&tangent).normalize();
+                        bitangents.push(bitangent.x);
+                        bitangents.push(bitangent.y);
+                        bitangents.push(bitangent.z);
+                    }
+                }
+            }
+
+            if vertex_format.tangent {
+                attributes.tangent = Some(GeometryAttribute::new(
+                    ComponentDatatype::Float,
+                    3,
+                    tangents,
+                ));
+            }
+
+            if vertex_format.bitangent {
+                attributes.bitangent = Some(GeometryAttribute::new(
+                    ComponentDatatype::Float,
+                    3,
+                    bitangents,
+                ));
+            }
+        }
+
         if vertex_format.st {
             let mut uvs = Vec::with_capacity(vertex_count * 2);
             for i in 0..num_phis {

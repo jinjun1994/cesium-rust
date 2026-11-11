@@ -215,10 +215,7 @@ impl TileOrientedBoundingBox {
 
         Ok(Primitive::new(PrimitiveOptions {
             geometry_instances: Some(vec![instance]),
-            appearance: Some(PrimitiveAppearance {
-                closed: false,
-                translucent: false,
-            }),
+            appearance: Some(PrimitiveAppearance::new(false, false)),
             asynchronous: Some(false),
             ..Default::default()
         }))

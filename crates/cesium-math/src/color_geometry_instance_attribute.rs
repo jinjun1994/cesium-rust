@@ -1,7 +1,10 @@
 //! Color geometry instance attribute matching CesiumJS `Core/ColorGeometryInstanceAttribute`.
 //! Adapted from CesiumJS (Apache-2.0).
 
-use crate::{color::Color, geometry::ComponentDatatype};
+use crate::{
+    color::Color,
+    geometry::{ComponentDatatype, GeometryInstanceAttribute},
+};
 
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct ColorGeometryInstanceAttribute {
@@ -9,6 +12,17 @@ pub struct ColorGeometryInstanceAttribute {
     pub components_per_attribute: u8,
     pub normalize: bool,
     pub value: [u8; 4],
+}
+
+impl From<ColorGeometryInstanceAttribute> for GeometryInstanceAttribute {
+    fn from(c: ColorGeometryInstanceAttribute) -> Self {
+        Self {
+            component_datatype: c.component_datatype,
+            components_per_attribute: c.components_per_attribute,
+            normalize: c.normalize,
+            value: c.value.iter().map(|&b| b as f64).collect(),
+        }
+    }
 }
 
 impl Default for ColorGeometryInstanceAttribute {

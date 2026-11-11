@@ -46,6 +46,8 @@ impl Default for PrimitivePasses {
 pub struct PrimitiveAppearance {
     pub closed: bool,
     pub translucent: bool,
+    pub flat: bool,
+    pub face_forward: bool,
 }
 
 impl Default for PrimitiveAppearance {
@@ -53,6 +55,8 @@ impl Default for PrimitiveAppearance {
         Self {
             closed: false,
             translucent: true,
+            flat: false,
+            face_forward: false,
         }
     }
 }
@@ -62,6 +66,29 @@ impl PrimitiveAppearance {
         Self {
             closed,
             translucent,
+            flat: false,
+            face_forward: false,
+        }
+    }
+
+    pub fn with_flat(mut self, flat: bool) -> Self {
+        self.flat = flat;
+        self
+    }
+
+    pub fn with_face_forward(mut self, face_forward: bool) -> Self {
+        self.face_forward = face_forward;
+        self
+    }
+}
+
+impl From<crate::per_instance_color_appearance::PerInstanceColorAppearance> for PrimitiveAppearance {
+    fn from(a: crate::per_instance_color_appearance::PerInstanceColorAppearance) -> Self {
+        Self {
+            closed: a.closed,
+            translucent: a.translucent,
+            flat: a.flat,
+            face_forward: a.face_forward,
         }
     }
 }
@@ -128,6 +155,18 @@ pub struct Primitive {
     pub debug_show_bounding_volume: bool,
     pub ready: bool,
     is_destroyed: AtomicBool,
+}
+
+impl std::fmt::Debug for Primitive {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("Primitive")
+            .field("id", &self.id)
+            .field("geometry_instances", &self.geometry_instances)
+            .field("appearance", &self.appearance)
+            .field("model_matrix", &self.model_matrix)
+            .field("asynchronous", &self.asynchronous)
+            .finish()
+    }
 }
 
 impl Default for Primitive {

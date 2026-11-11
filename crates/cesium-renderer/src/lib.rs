@@ -288,6 +288,7 @@ pub mod build_vector_gltf_from_mvt;
 pub mod build_voxel_draw_commands;
 pub mod compute_fly_to_location_for_rectangle;
 pub mod create_elevation_band_material;
+pub mod create_tangent_space_debug_primitive;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -585,6 +586,9 @@ pub use create_elevation_band_material::{
     create_elevation_band_material, ElevationBandEntry, ElevationBandLayer,
     ElevationBandMaterialResult, ELEVATION_BAND_EMPTY_COLOR, ELEVATION_BAND_MAXIMUM_HEIGHT,
     ELEVATION_BAND_MINIMUM_HEIGHT,
+};
+pub use create_tangent_space_debug_primitive::{
+    create_tangent_space_debug_primitive, CreateTangentSpaceDebugPrimitiveOptions,
 };
 pub use keyframe_node::{KeyframeLoadState, KeyframeNode};
 pub use open_street_map_imagery_provider::{
