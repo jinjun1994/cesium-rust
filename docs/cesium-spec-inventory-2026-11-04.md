@@ -799,7 +799,7 @@
 | [packages/gltf/Specs/forEachTextureInMaterialSpec.js](../../cesium/packages/gltf/Specs/forEachTextureInMaterialSpec.js) | 已完成 (11/11 单测通过，覆盖材质无纹理、PBR 金属粗糙度纹理、高光光泽度扩展、高光扩展、透射扩展、common 材质扩展纹理与非纹理忽略、webgl techniques 扩展纹理值过滤、顶层纹理遍历以及提前返回短路终止) |
 | [packages/gltf/Specs/getAccessorByteStrideSpec.js](../../cesium/packages/gltf/Specs/getAccessorByteStrideSpec.js) | 已完成 (1/1 单测通过，覆盖无 bufferView、未显式指定步长、显式指定步长、不同数据类型及分量数的 accessor 字节跨度计算) |
 | [packages/gltf/Specs/getComponentReaderSpec.js](../../cesium/packages/gltf/Specs/getComponentReaderSpec.js) | 已完成 (2/2 单测通过，覆盖 BYTE/UNSIGNED_BYTE/SHORT/UNSIGNED_SHORT/INT/UNSIGNED_INT/FLOAT/DOUBLE 所有组件类型小端二进制切片读取转换及非法组件类型拦截) |
-| [packages/gltf/Specs/getNodeTransformSpec.js](../../cesium/packages/gltf/Specs/getNodeTransformSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/getNodeTransformSpec.js](../../cesium/packages/gltf/Specs/getNodeTransformSpec.js) | 已完成 (4/4 单测通过，覆盖无变换返回 None、提取显式矩阵、TRS 平移/旋转/缩放列主序合成及缺失分量单位元补全) |
 | [packages/gltf/Specs/moveTechniqueRenderStatesSpec.js](../../cesium/packages/gltf/Specs/moveTechniqueRenderStatesSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/moveTechniquesToExtensionSpec.js](../../cesium/packages/gltf/Specs/moveTechniquesToExtensionSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/numberOfComponentsForTypeSpec.js](../../cesium/packages/gltf/Specs/numberOfComponentsForTypeSpec.js) | 待逐项核对 |

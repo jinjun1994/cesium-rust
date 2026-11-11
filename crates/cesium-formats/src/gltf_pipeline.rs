@@ -1,6 +1,6 @@
 //! glTF pipeline helper functions matching CesiumJS `packages/gltf/Source` (Apache-2.0).
 
-use glam::{Mat3, Quat, Vec3};
+use glam::{DMat4, DQuat, DVec3, Mat3, Quat, Vec3};
 use serde_json::{json, Value};
 use std::collections::HashSet;
 
@@ -747,6 +747,51 @@ pub fn get_component_reader(component_type: u32) -> Result<ComponentReader, Stri
         _ => Err(format!("Unsupported component type: {component_type}")),
     }
 }
+
+/// Gets the local transform of a glTF node as a column-major array of 16 numbers.
+/// Returns `None` if the node has no `matrix`, `translation`, `rotation`, or `scale`.
+pub fn get_node_transform(node_json: &Value) -> Option<Vec<f64>> {
+    if let Some(matrix) = node_json.get("matrix").and_then(|v| v.as_array()) {
+        return Some(matrix.iter().filter_map(|v| v.as_f64()).collect());
+    }
+
+    let translation = node_json.get("translation").and_then(|v| v.as_array());
+    let rotation = node_json.get("rotation").and_then(|v| v.as_array());
+    let scale = node_json.get("scale").and_then(|v| v.as_array());
+
+    if translation.is_none() && rotation.is_none() && scale.is_none() {
+        return None;
+    }
+
+    let t = translation.map(|arr| {
+        DVec3::new(
+            arr.first().and_then(|v| v.as_f64()).unwrap_or(0.0),
+            arr.get(1).and_then(|v| v.as_f64()).unwrap_or(0.0),
+            arr.get(2).and_then(|v| v.as_f64()).unwrap_or(0.0),
+        )
+    }).unwrap_or(DVec3::ZERO);
+
+    let r = rotation.map(|arr| {
+        DQuat::from_xyzw(
+            arr.first().and_then(|v| v.as_f64()).unwrap_or(0.0),
+            arr.get(1).and_then(|v| v.as_f64()).unwrap_or(0.0),
+            arr.get(2).and_then(|v| v.as_f64()).unwrap_or(0.0),
+            arr.get(3).and_then(|v| v.as_f64()).unwrap_or(1.0),
+        )
+    }).unwrap_or(DQuat::IDENTITY);
+
+    let s = scale.map(|arr| {
+        DVec3::new(
+            arr.first().and_then(|v| v.as_f64()).unwrap_or(1.0),
+            arr.get(1).and_then(|v| v.as_f64()).unwrap_or(1.0),
+            arr.get(2).and_then(|v| v.as_f64()).unwrap_or(1.0),
+        )
+    }).unwrap_or(DVec3::ONE);
+
+    let mat = DMat4::from_scale_rotation_translation(s, r, t);
+    Some(mat.to_cols_array().to_vec())
+}
+
 
 
 fn read_component_value(bytes: &[u8], offset: usize, component_type: u32) -> Option<f64> {
