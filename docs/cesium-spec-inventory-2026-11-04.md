@@ -802,7 +802,7 @@
 | [packages/gltf/Specs/getNodeTransformSpec.js](../../cesium/packages/gltf/Specs/getNodeTransformSpec.js) | 已完成 (4/4 单测通过，覆盖无变换返回 None、提取显式矩阵、TRS 平移/旋转/缩放列主序合成及缺失分量单位元补全) |
 | [packages/gltf/Specs/moveTechniqueRenderStatesSpec.js](../../cesium/packages/gltf/Specs/moveTechniqueRenderStatesSpec.js) | 已完成 (5/5 单测通过，覆盖无 CULL_FACE 时 material.doubleSided 迁移设置、混合模式 BLEND 与混合方程/混合因子向 KHR_blend 扩展迁移、非法因子降级默认值及非混合技术保持纯净) |
 | [packages/gltf/Specs/moveTechniquesToExtensionSpec.js](../../cesium/packages/gltf/Specs/moveTechniquesToExtensionSpec.js) | 已完成 (1/1 单测通过，覆盖 glTF 1.0 的 techniques/programs/shaders 属性向 glTF 2.0 KHR_techniques_webgl 扩展完整迁移、uniforms 参数映射转换与材质 values 注入) |
-| [packages/gltf/Specs/numberOfComponentsForTypeSpec.js](../../cesium/packages/gltf/Specs/numberOfComponentsForTypeSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/numberOfComponentsForTypeSpec.js](../../cesium/packages/gltf/Specs/numberOfComponentsForTypeSpec.js) | 已完成 (1/1 单测通过，覆盖 SCALAR、VEC2、VEC3、VEC4、MAT2、MAT3、MAT4 等各数据类型分量数对应获取) |
 | [packages/gltf/Specs/parseGlbSpec.js](../../cesium/packages/gltf/Specs/parseGlbSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/readAccessorPackedSpec.js](../../cesium/packages/gltf/Specs/readAccessorPackedSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/removeExtensionSpec.js](../../cesium/packages/gltf/Specs/removeExtensionSpec.js) | 待逐项核对 |
