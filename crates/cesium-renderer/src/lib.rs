@@ -251,6 +251,7 @@ pub mod terrain_fill_mesh;
 pub mod terrain;
 pub mod tile_bounding_region;
 pub mod tile_bounding_s2_cell;
+pub mod tile_bounding_sphere;
 pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;
@@ -433,6 +434,9 @@ pub use tile_bounding_region::{
 pub use tile_bounding_s2_cell::{
     TileBoundingS2Cell, TileBoundingS2CellCamera, TileBoundingS2CellFrameState,
     TileBoundingS2CellOptions,
+};
+pub use tile_bounding_sphere::{
+    TileBoundingSphere, TileBoundingSphereCamera, TileBoundingSphereFrameState,
 };
 pub use quadtree_primitive::{
     QuadtreePrimitive, QuadtreePrimitiveOptions, QuadtreeTileProvider, TileReplacementQueue,
