@@ -5,7 +5,7 @@ use std::collections::{HashMap, HashSet, VecDeque};
 use std::rc::{Rc, Weak};
 
 use cesium_math::{
-    Cartesian3, Cartographic, DeveloperError, GeoRectangle, GeographicTilingScheme,
+    Cartesian3, Cartographic, DeveloperError, Ellipsoid, GeoRectangle, GeographicTilingScheme,
     TilingScheme, WebMercatorTilingScheme,
 };
 
@@ -111,6 +111,32 @@ impl AnyTilingScheme {
             Self::Geographic(s) => s.tile_rectangle(x, y, level),
             Self::WebMercator(s) => s.tile_rectangle(x, y, level),
         }
+    }
+
+    pub fn ellipsoid(&self) -> Ellipsoid {
+        match self {
+            Self::Geographic(s) => s.ellipsoid(),
+            Self::WebMercator(s) => s.ellipsoid(),
+        }
+    }
+
+    pub fn rectangle(&self) -> GeoRectangle {
+        match self {
+            Self::Geographic(s) => s.rectangle(),
+            Self::WebMercator(s) => s.rectangle(),
+        }
+    }
+}
+
+impl From<GeographicTilingScheme> for AnyTilingScheme {
+    fn from(s: GeographicTilingScheme) -> Self {
+        Self::Geographic(s)
+    }
+}
+
+impl From<WebMercatorTilingScheme> for AnyTilingScheme {
+    fn from(s: WebMercatorTilingScheme) -> Self {
+        Self::WebMercator(s)
     }
 }
 
