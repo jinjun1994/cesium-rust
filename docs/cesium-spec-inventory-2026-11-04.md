@@ -789,7 +789,7 @@
 | [packages/engine/Specs/Widget/CesiumWidgetSpec.js](../../cesium/packages/engine/Specs/Widget/CesiumWidgetSpec.js) | 已完成 (28/28 单测通过，覆盖 CesiumWidget 生命周期、容器/画布配置、时钟与时钟多数据源同步追踪、场景模式与地图投影切换、底图/地形/星空/大气/球体开关、上下文参数、trackedEntity 获取/设置/事件/移除重置、错误处理与错误面板控制、分辨率与按需渲染、zoomTo 与 flyTo 全目标支持) |
 | [packages/gltf/Specs/ForEachSpec.js](../../cesium/packages/gltf/Specs/ForEachSpec.js) | 已完成 (12/12 单测通过，覆盖 glTF 2.0 与 1.0 顶层属性遍历、accessors 遍历与 semantic 过滤、顶点数据/索引数据 accessor 抽取、动画与通道/采样器、缓冲区与视图、相机/材质/材质参数与 KHR_techniques_webgl 扩展遍历、网格与图元/属性/变形目标、节点与场景树深度遍历、着色器/程序/技术与蒙皮/纹理遍历) |
 | [packages/gltf/Specs/addBufferSpec.js](../../cesium/packages/gltf/Specs/addBufferSpec.js) | 已完成 (1/1 单测通过，覆盖动态添加缓冲至 glTF buffers、extras._pipeline.source 写入、生成并返回关联 bufferView 索引与偏移配置) |
-| [packages/gltf/Specs/addDefaultsSpec.js](../../cesium/packages/gltf/Specs/addDefaultsSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/addDefaultsSpec.js](../../cesium/packages/gltf/Specs/addDefaultsSpec.js) | 已完成 (8/8 单测通过，覆盖网格/图元模式与默认材质补全、顶点与索引 accessor/bufferView 偏移/跨度/target 计算与补全、PBR 金属粗糙度/高光光泽度默认因子与纹理坐标补全、KHR_materials_common 技术默认值、动画插值与静态/动画节点 TRS/矩阵补全、采样器环绕模式、默认场景补全) |
 | [packages/gltf/Specs/addExtensionsRequiredSpec.js](../../cesium/packages/gltf/Specs/addExtensionsRequiredSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/addExtensionsUsedSpec.js](../../cesium/packages/gltf/Specs/addExtensionsUsedSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/addPipelineExtrasSpec.js](../../cesium/packages/gltf/Specs/addPipelineExtrasSpec.js) | 待逐项核对 |
