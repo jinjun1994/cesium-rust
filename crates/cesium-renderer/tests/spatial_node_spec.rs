@@ -7,7 +7,7 @@ fn get_basic_box_shape() -> VoxelBoxShape {
     let model_matrix = Matrix4::IDENTITY;
     let min_bounds = VoxelBoxShape::DEFAULT_MIN_BOUNDS;
     let max_bounds = VoxelBoxShape::DEFAULT_MAX_BOUNDS;
-    shape.update(model_matrix, min_bounds, max_bounds);
+    shape.update(Some(model_matrix), Some(min_bounds), Some(max_bounds), None, None).unwrap();
     shape
 }
 
