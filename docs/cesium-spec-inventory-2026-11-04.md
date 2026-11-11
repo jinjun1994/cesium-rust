@@ -793,7 +793,7 @@
 | [packages/gltf/Specs/addExtensionsRequiredSpec.js](../../cesium/packages/gltf/Specs/addExtensionsRequiredSpec.js) | 已完成 (1/1 单测通过，覆盖扩展去重追加至 extensionsRequired 并级联同步至 extensionsUsed) |
 | [packages/gltf/Specs/addExtensionsUsedSpec.js](../../cesium/packages/gltf/Specs/addExtensionsUsedSpec.js) | 已完成 (1/1 单测通过，覆盖扩展去重追加至 extensionsUsed 且不影响 extensionsRequired) |
 | [packages/gltf/Specs/addPipelineExtrasSpec.js](../../cesium/packages/gltf/Specs/addPipelineExtrasSpec.js) | 已完成 (2/2 单测通过，覆盖 glTF 1.0 与 glTF 2.0 缓冲区、着色器、图像与根资产 extras._pipeline 属性初始化注入) |
-| [packages/gltf/Specs/addToArraySpec.js](../../cesium/packages/gltf/Specs/addToArraySpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/addToArraySpec.js](../../cesium/packages/gltf/Specs/addToArraySpec.js) | 已完成 (2/2 单测通过，覆盖动态添加数组项返回下标、开启 checkDuplicates 时的去重查询与复用已有下标) |
 | [packages/gltf/Specs/constructBoundingVolumeJsonSpec.js](../../cesium/packages/gltf/Specs/constructBoundingVolumeJsonSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/findAccessorMinMaxSpec.js](../../cesium/packages/gltf/Specs/findAccessorMinMaxSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/forEachTextureInMaterialSpec.js](../../cesium/packages/gltf/Specs/forEachTextureInMaterialSpec.js) | 待逐项核对 |
