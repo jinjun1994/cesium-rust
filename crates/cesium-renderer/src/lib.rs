@@ -339,10 +339,10 @@ pub use clipping_polygon_collection::{
     ClippingPolygonCollection, ClippingPolygonCollectionOptions, Intersect,
 };
 pub use create_vector_tile_buffers::{
-    create_vector_tile_buffers_from_model_components, BufferCollection, BufferCollectionGet,
+    create_vector_tile_buffers_from_model_components, BlendOption, BufferCollection, BufferCollectionGet,
     BufferPoint, BufferPointCollection, BufferPointOptions, BufferPolygon, BufferPolygonCollection,
     BufferPolygonOptions, BufferPolyline, BufferPolylineCollection, BufferPolylineOptions,
-    VectorGltf3DTileContent, VectorTileResult, VectorTileset,
+    FeatureTableInfo, VectorGltf3DTileContent, VectorGltfFeature, VectorTileResult, VectorTileset,
 };
 pub use cloud_collection::{
     CloudCollection, CloudCollectionOptions, CloudType, CumulusCloud, CumulusCloudOptions,

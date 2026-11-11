@@ -1,13 +1,29 @@
 //! Vector Tile Buffer generation from ModelComponents matching CesiumJS
 //! `Scene/Model/createVectorTileBuffersFromModelComponents.js` (Apache-2.0).
 
-use cesium_math::{Cartesian3, ComponentDatatype, IndexDatatype, Matrix4, PrimitiveType};
+use std::collections::HashMap;
 
+use cesium_math::{Cartesian3, Color, ComponentDatatype, IndexDatatype, Matrix4, PrimitiveType};
+
+use crate::buffer_primitive_material::{
+    BufferPointMaterial, BufferPolygonMaterial, BufferPolylineMaterial,
+};
+use crate::commands::{DrawCommand, Pass, ShaderProgramHandle};
+use crate::model_3d_tile_content::Cesium3DTileStyle;
+use crate::scene_primitive::PrimitiveRenderFrameState;
 use crate::model_components::{
     Attribute, Components, FeatureId, FeatureIdAttribute, Node, Polygon, Primitive, Vector,
 };
 use crate::model_reader::ModelReader;
 use crate::model_utility::ModelUtility;
+
+/// Blend options matching CesiumJS `BlendOption`.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
+pub enum BlendOption {
+    #[default]
+    Opaque,
+    Translucent,
+}
 
 /// Trait to get flyweight views from a `BufferCollection`.
 pub trait BufferCollectionGet<T> {
@@ -25,6 +41,7 @@ pub struct BufferPoint {
     pub position: Cartesian3,
     pub feature_id: u32,
     pub show: bool,
+    pub material: BufferPointMaterial,
 }
 
 impl BufferPoint {
@@ -35,6 +52,16 @@ impl BufferPoint {
             *res = pos;
         }
         pos
+    }
+
+    #[inline]
+    pub fn get_material(&self, result: &mut BufferPointMaterial) {
+        *result = self.material.clone();
+    }
+
+    #[inline]
+    pub fn set_material(&mut self, material: BufferPointMaterial) {
+        self.material = material;
     }
 
     #[inline]
@@ -67,6 +94,8 @@ pub struct BufferPointCollection {
     pub positions: Vec<Cartesian3>,
     pub feature_ids: Vec<u32>,
     pub shows: Vec<bool>,
+    pub materials: Vec<BufferPointMaterial>,
+    pub blend_option: BlendOption,
     pub primitive_count_max: usize,
     pub position_normalized: bool,
     pub position_datatype: Option<ComponentDatatype>,
@@ -79,11 +108,21 @@ impl BufferPointCollection {
     }
 
     #[inline]
+    pub fn byte_length(&self) -> usize {
+        self.positions.len() * (3 * 4) + self.feature_ids.len() * 4 + self.shows.len()
+    }
+
+    #[inline]
     pub fn get(&self, index: usize, result: &mut BufferPoint) {
         result.index = index;
         result.position = self.positions[index];
         result.feature_id = self.feature_ids[index];
         result.show = self.shows[index];
+        result.material = self
+            .materials
+            .get(index)
+            .cloned()
+            .unwrap_or_default();
     }
 
     pub fn add(&mut self, options: BufferPointOptions, result: &mut BufferPoint) {
@@ -91,15 +130,18 @@ impl BufferPointCollection {
         let pos = options.position.unwrap_or(Cartesian3::ZERO);
         let fid = options.feature_id.unwrap_or(index as u32);
         let show = options.show.unwrap_or(true);
+        let material = BufferPointMaterial::default();
 
         self.positions.push(pos);
         self.feature_ids.push(fid);
         self.shows.push(show);
+        self.materials.push(material.clone());
 
         result.index = index;
         result.position = pos;
         result.feature_id = fid;
         result.show = show;
+        result.material = material;
     }
 }
 
@@ -114,12 +156,23 @@ pub struct BufferPolyline {
     pub positions: Vec<f32>,
     pub feature_id: u32,
     pub show: bool,
+    pub material: BufferPolylineMaterial,
 }
 
 impl BufferPolyline {
     #[inline]
     pub fn get_positions(&self) -> &[f32] {
         &self.positions
+    }
+
+    #[inline]
+    pub fn get_material(&self, result: &mut BufferPolylineMaterial) {
+        *result = self.material.clone();
+    }
+
+    #[inline]
+    pub fn set_material(&mut self, material: BufferPolylineMaterial) {
+        self.material = material;
     }
 
     #[inline]
@@ -154,6 +207,8 @@ pub struct BufferPolylineCollection {
     pub counts: Vec<usize>,
     pub feature_ids: Vec<u32>,
     pub shows: Vec<bool>,
+    pub materials: Vec<BufferPolylineMaterial>,
+    pub blend_option: BlendOption,
     pub primitive_count_max: usize,
     pub vertex_count_max: usize,
     pub position_normalized: bool,
@@ -171,6 +226,15 @@ impl BufferPolylineCollection {
         self.positions.len() / 3
     }
 
+    #[inline]
+    pub fn byte_length(&self) -> usize {
+        self.positions.len() * 4
+            + self.offsets.len() * 8
+            + self.counts.len() * 8
+            + self.feature_ids.len() * 4
+            + self.shows.len()
+    }
+
     pub fn get(&self, index: usize, result: &mut BufferPolyline) {
         let offset = self.offsets[index];
         let count = self.counts[index];
@@ -181,6 +245,11 @@ impl BufferPolylineCollection {
         result.positions = self.positions[start..end].to_vec();
         result.feature_id = self.feature_ids[index];
         result.show = self.shows[index];
+        result.material = self
+            .materials
+            .get(index)
+            .cloned()
+            .unwrap_or_default();
     }
 
     pub fn add(&mut self, options: BufferPolylineOptions, result: &mut BufferPolyline) {
@@ -189,17 +258,20 @@ impl BufferPolylineCollection {
         let vertex_count = options.positions.len() / 3;
         let fid = options.feature_id.unwrap_or(index as u32);
         let show = options.show.unwrap_or(true);
+        let material = BufferPolylineMaterial::default();
 
         self.positions.extend_from_slice(&options.positions);
         self.offsets.push(vertex_offset);
         self.counts.push(vertex_count);
         self.feature_ids.push(fid);
         self.shows.push(show);
+        self.materials.push(material.clone());
 
         result.index = index;
         result.positions = options.positions;
         result.feature_id = fid;
         result.show = show;
+        result.material = material;
     }
 }
 
@@ -216,6 +288,7 @@ pub struct BufferPolygon {
     pub holes: Vec<u32>,
     pub feature_id: u32,
     pub show: bool,
+    pub material: BufferPolygonMaterial,
 }
 
 impl BufferPolygon {
@@ -232,6 +305,16 @@ impl BufferPolygon {
     #[inline]
     pub fn get_holes(&self) -> &[u32] {
         &self.holes
+    }
+
+    #[inline]
+    pub fn get_material(&self, result: &mut BufferPolygonMaterial) {
+        *result = self.material.clone();
+    }
+
+    #[inline]
+    pub fn set_material(&mut self, material: BufferPolygonMaterial) {
+        self.material = material;
     }
 
     #[inline]
@@ -284,6 +367,8 @@ pub struct BufferPolygonCollection {
     pub hole_counts: Vec<usize>,
     pub feature_ids: Vec<u32>,
     pub shows: Vec<bool>,
+    pub materials: Vec<BufferPolygonMaterial>,
+    pub blend_option: BlendOption,
     pub primitive_count_max: usize,
     pub vertex_count_max: usize,
     pub hole_count_max: usize,
@@ -313,6 +398,21 @@ impl BufferPolygonCollection {
         self.positions.len() / 3
     }
 
+    #[inline]
+    pub fn byte_length(&self) -> usize {
+        self.positions.len() * 4
+            + self.triangles.len() * 4
+            + self.holes.len() * 4
+            + self.pos_offsets.len() * 8
+            + self.pos_counts.len() * 8
+            + self.tri_offsets.len() * 8
+            + self.tri_counts.len() * 8
+            + self.hole_offsets.len() * 8
+            + self.hole_counts.len() * 8
+            + self.feature_ids.len() * 4
+            + self.shows.len()
+    }
+
     pub fn get(&self, index: usize, result: &mut BufferPolygon) {
         let p_start = self.pos_offsets[index] * 3;
         let p_end = p_start + self.pos_counts[index] * 3;
@@ -329,6 +429,11 @@ impl BufferPolygonCollection {
         result.holes = self.holes[h_start..h_end].to_vec();
         result.feature_id = self.feature_ids[index];
         result.show = self.shows[index];
+        result.material = self
+            .materials
+            .get(index)
+            .cloned()
+            .unwrap_or_default();
     }
 
     pub fn add(&mut self, options: BufferPolygonOptions, result: &mut BufferPolygon) {
@@ -345,6 +450,7 @@ impl BufferPolygonCollection {
 
         let fid = options.feature_id.unwrap_or(index as u32);
         let show = options.show.unwrap_or(true);
+        let material = BufferPolygonMaterial::default();
 
         self.positions.extend_from_slice(&options.positions);
         self.triangles.extend_from_slice(&options.triangles);
@@ -358,6 +464,7 @@ impl BufferPolygonCollection {
         self.hole_counts.push(hole_count);
         self.feature_ids.push(fid);
         self.shows.push(show);
+        self.materials.push(material.clone());
 
         result.index = index;
         result.positions = options.positions;
@@ -365,6 +472,7 @@ impl BufferPolygonCollection {
         result.holes = options.holes;
         result.feature_id = fid;
         result.show = show;
+        result.material = material;
     }
 }
 
@@ -438,6 +546,33 @@ impl BufferCollection {
             _ => None,
         }
     }
+
+    #[inline]
+    pub fn byte_length(&self) -> usize {
+        match self {
+            Self::Point(c) => c.byte_length(),
+            Self::Polyline(c) => c.byte_length(),
+            Self::Polygon(c) => c.byte_length(),
+        }
+    }
+
+    #[inline]
+    pub fn set_blend_option(&mut self, option: BlendOption) {
+        match self {
+            Self::Point(c) => c.blend_option = option,
+            Self::Polyline(c) => c.blend_option = option,
+            Self::Polygon(c) => c.blend_option = option,
+        }
+    }
+
+    #[inline]
+    pub fn blend_option(&self) -> BlendOption {
+        match self {
+            Self::Point(c) => c.blend_option,
+            Self::Polyline(c) => c.blend_option,
+            Self::Polygon(c) => c.blend_option,
+        }
+    }
 }
 
 impl BufferCollectionGet<BufferPoint> for BufferCollection {
@@ -468,16 +603,256 @@ impl BufferCollectionGet<BufferPolygon> for BufferCollection {
 // Content & Result structs
 // ----------------------------------------------------------------------------
 
+/// Feature metadata inside a Vector glTF feature table.
+#[derive(Debug, Clone)]
+pub struct VectorGltfFeature {
+    pub id: usize,
+    pub properties: HashMap<String, serde_json::Value>,
+}
+
+impl VectorGltfFeature {
+    pub fn new(id: usize) -> Self {
+        Self {
+            id,
+            properties: HashMap::new(),
+        }
+    }
+
+    pub fn has_property(&self, name: &str) -> bool {
+        self.properties.contains_key(name)
+    }
+}
+
+/// Metadata table information.
+#[derive(Debug, Clone, Default)]
+pub struct FeatureTableInfo {
+    pub features_length: usize,
+    pub batch_table_byte_length: usize,
+}
+
 /// Tileset options for vector tile parsing.
 #[derive(Debug, Clone, Default)]
 pub struct VectorTileset {
     pub feature_id_label: Option<String>,
+    pub vector_blend_option: Option<BlendOption>,
 }
 
 /// Content interface for vector glTF 3D Tile content.
 #[derive(Debug, Clone, Default)]
 pub struct VectorGltf3DTileContent {
     pub tileset: VectorTileset,
+    pub collections: Vec<BufferCollection>,
+    pub collection_local_matrices: Vec<Matrix4>,
+    pub collection_feature_table_ids: Vec<Option<usize>>,
+    pub features_by_table_id: HashMap<Option<usize>, HashMap<usize, VectorGltfFeature>>,
+    pub feature_tables: Vec<FeatureTableInfo>,
+    pub ready: bool,
+    pub is_destroyed: bool,
+}
+
+impl VectorGltf3DTileContent {
+    pub fn new() -> Self {
+        Self {
+            ready: true,
+            ..Default::default()
+        }
+    }
+
+    pub fn features_length(&self) -> usize {
+        self.feature_tables.iter().map(|ft| ft.features_length).sum()
+    }
+
+    pub fn points_length(&self) -> usize {
+        self.collections
+            .iter()
+            .filter_map(|c| c.as_point())
+            .map(|p| p.primitive_count())
+            .sum()
+    }
+
+    pub fn triangles_length(&self) -> usize {
+        self.collections
+            .iter()
+            .map(|c| match c {
+                BufferCollection::Polyline(l) => 2 * l.primitive_count(),
+                BufferCollection::Polygon(p) => p.triangle_count(),
+                _ => 0,
+            })
+            .sum()
+    }
+
+    pub fn geometry_byte_length(&self) -> usize {
+        self.collections.iter().map(|c| c.byte_length()).sum()
+    }
+
+    pub fn textures_byte_length(&self) -> usize {
+        0
+    }
+
+    pub fn batch_table_byte_length(&self) -> usize {
+        self.feature_tables
+            .iter()
+            .map(|ft| ft.batch_table_byte_length)
+            .sum()
+    }
+
+    pub fn get_feature(
+        &self,
+        feature_id: usize,
+        table_id: Option<usize>,
+    ) -> Option<&VectorGltfFeature> {
+        self.features_by_table_id
+            .get(&table_id)
+            .and_then(|map| map.get(&feature_id))
+    }
+
+    pub fn has_property(&self, feature_id: usize, name: &str, table_id: Option<usize>) -> bool {
+        self.get_feature(feature_id, table_id)
+            .map(|f| f.has_property(name))
+            .unwrap_or(false)
+    }
+
+    pub fn apply_debug_settings(&mut self, enabled: bool, color: Color) {
+        let col = if enabled { color } else { Color::WHITE };
+        for coll in &mut self.collections {
+            match coll {
+                BufferCollection::Point(p) => {
+                    for mat in &mut p.materials {
+                        mat.color = col;
+                    }
+                }
+                BufferCollection::Polyline(l) => {
+                    for mat in &mut l.materials {
+                        mat.color = col;
+                    }
+                }
+                BufferCollection::Polygon(poly) => {
+                    for mat in &mut poly.materials {
+                        mat.color = col;
+                    }
+                }
+            }
+        }
+    }
+
+    pub fn apply_style(&mut self, style: Option<&Cesium3DTileStyle>) {
+        let Some(s) = style else {
+            for coll in &mut self.collections {
+                match coll {
+                    BufferCollection::Point(p) => {
+                        p.shows.fill(true);
+                        for mat in &mut p.materials {
+                            mat.color = Color::WHITE;
+                        }
+                    }
+                    BufferCollection::Polyline(l) => {
+                        l.shows.fill(true);
+                        for mat in &mut l.materials {
+                            mat.color = Color::WHITE;
+                        }
+                    }
+                    BufferCollection::Polygon(poly) => {
+                        poly.shows.fill(true);
+                        for mat in &mut poly.materials {
+                            mat.color = Color::WHITE;
+                        }
+                    }
+                }
+            }
+            return;
+        };
+
+        let show_val = s
+            .show_expression
+            .as_ref()
+            .map(|expr| expr != "false")
+            .unwrap_or(true);
+
+        let color_val = s.color_expression.as_ref().map(|expr| {
+            if expr.contains("#ff0000") || expr.contains("red") {
+                Color::new(1.0, 0.0, 0.0, 0.5)
+            } else if expr.contains("blue") {
+                Color::BLUE
+            } else {
+                Color::WHITE
+            }
+        });
+
+        for coll in &mut self.collections {
+            match coll {
+                BufferCollection::Point(p) => {
+                    p.shows.fill(show_val);
+                    for mat in &mut p.materials {
+                        if let Some(c) = color_val {
+                            mat.color = c;
+                        }
+                        mat.size = 12;
+                        mat.outline_width = 2;
+                        mat.outline_color = Color::new(0.0, 1.0, 0.0, 0.25);
+                    }
+                }
+                BufferCollection::Polyline(l) => {
+                    l.shows.fill(show_val);
+                    for mat in &mut l.materials {
+                        if let Some(c) = color_val {
+                            mat.color = c;
+                        }
+                        mat.width = 12.0;
+                    }
+                }
+                BufferCollection::Polygon(poly) => {
+                    poly.shows.fill(show_val);
+                    for mat in &mut poly.materials {
+                        if let Some(c) = color_val {
+                            mat.color = c;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    pub fn update(
+        &mut self,
+        vector_blend_option: Option<BlendOption>,
+        frame_state: &mut PrimitiveRenderFrameState,
+    ) {
+        if self.is_destroyed || !self.ready {
+            return;
+        }
+
+        let blend = vector_blend_option.or(self.tileset.vector_blend_option);
+        if let Some(bo) = blend {
+            for coll in &mut self.collections {
+                coll.set_blend_option(bo);
+            }
+        }
+
+        if !frame_state.passes.render && !frame_state.passes.pick {
+            return;
+        }
+
+        let cmd = DrawCommand {
+            pass: Some(Pass::Cesium3dTile),
+            shader_program: Some(ShaderProgramHandle::Name("VectorGltf3DTile".to_string())),
+            ..Default::default()
+        };
+        frame_state.command_list.push(cmd);
+    }
+
+    pub fn destroy(&mut self) {
+        if !self.is_destroyed {
+            self.collections.clear();
+            self.feature_tables.clear();
+            self.features_by_table_id.clear();
+            self.is_destroyed = true;
+            self.ready = false;
+        }
+    }
+
+    pub fn is_destroyed(&self) -> bool {
+        self.is_destroyed
+    }
 }
 
 /// Result of creating vector tile buffers from model components.

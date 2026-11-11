@@ -125,7 +125,9 @@ fn mock_tile_content() -> VectorGltf3DTileContent {
     VectorGltf3DTileContent {
         tileset: VectorTileset {
             feature_id_label: Some("featureId_0".to_string()),
+            ..Default::default()
         },
+        ..Default::default()
     }
 }
 
