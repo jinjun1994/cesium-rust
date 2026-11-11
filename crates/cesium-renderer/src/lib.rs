@@ -284,6 +284,7 @@ pub mod voxel_render_resources;
 pub mod voxel_traversal;
 pub mod web_map_service_imagery_provider;
 pub mod web_map_tile_service_imagery_provider;
+pub mod build_vector_gltf_from_mvt;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -568,6 +569,10 @@ pub use web_map_service_imagery_provider::{
 };
 pub use web_map_tile_service_imagery_provider::{
     WebMapTileServiceImageryProvider, WebMapTileServiceImageryProviderOptions,
+};
+pub use build_vector_gltf_from_mvt::{
+    build_vector_gltf_from_mvt, DecodedVectorTile, TileCoordinates, VectorTileFeature,
+    VectorTileLayer, VectorTilePoint,
 };
 pub use keyframe_node::{KeyframeLoadState, KeyframeNode};
 pub use open_street_map_imagery_provider::{
