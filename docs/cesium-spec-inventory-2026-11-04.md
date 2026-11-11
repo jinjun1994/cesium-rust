@@ -812,7 +812,7 @@
 | [packages/gltf/Specs/removeUnusedElementsSpec.js](../../cesium/packages/gltf/Specs/removeUnusedElementsSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/updateAccessorComponentTypeSpec.js](../../cesium/packages/gltf/Specs/updateAccessorComponentTypeSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/updateVersionSpec.js](../../cesium/packages/gltf/Specs/updateVersionSpec.js) | 待逐项核对 |
-| [packages/gltf/Specs/usesExtensionSpec.js](../../cesium/packages/gltf/Specs/usesExtensionSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/usesExtensionSpec.js](../../cesium/packages/gltf/Specs/usesExtensionSpec.js) | 已完成 (1/1 单测通过，覆盖 extensionsUsed 匹配判定及空资产未声明判定) |
 | [packages/widgets/Specs/Animation/AnimationSpec.js](../../cesium/packages/widgets/Specs/Animation/AnimationSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/Animation/AnimationViewModelSpec.js](../../cesium/packages/widgets/Specs/Animation/AnimationViewModelSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/BaseLayerPicker/BaseLayerPickerSpec.js](../../cesium/packages/widgets/Specs/BaseLayerPicker/BaseLayerPickerSpec.js) | 待逐项核对 |
