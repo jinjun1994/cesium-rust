@@ -287,6 +287,7 @@ pub mod web_map_tile_service_imagery_provider;
 pub mod build_vector_gltf_from_mvt;
 pub mod build_voxel_draw_commands;
 pub mod compute_fly_to_location_for_rectangle;
+pub mod create_elevation_band_material;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -579,6 +580,11 @@ pub use build_vector_gltf_from_mvt::{
 pub use build_voxel_draw_commands::build_voxel_draw_commands;
 pub use compute_fly_to_location_for_rectangle::{
     compute_fly_to_location_for_rectangle, sample_cartographics_for_rectangle,
+};
+pub use create_elevation_band_material::{
+    create_elevation_band_material, ElevationBandEntry, ElevationBandLayer,
+    ElevationBandMaterialResult, ELEVATION_BAND_EMPTY_COLOR, ELEVATION_BAND_MAXIMUM_HEIGHT,
+    ELEVATION_BAND_MINIMUM_HEIGHT,
 };
 pub use keyframe_node::{KeyframeLoadState, KeyframeNode};
 pub use open_street_map_imagery_provider::{
