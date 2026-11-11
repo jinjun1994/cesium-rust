@@ -724,7 +724,7 @@
 | [packages/engine/Specs/Scene/SpecularEnvironmentCubeMapSpec.js](../../cesium/packages/engine/Specs/Scene/SpecularEnvironmentCubeMapSpec.js) | 已完成 (5/5 tests passing, `crates/cesium-renderer/tests/specular_environment_cube_map_spec.rs`, `crates/cesium-renderer/src/specular_environment_cube_map.rs`) |
 | [packages/engine/Specs/Scene/SphereEmitterSpec.js](../../cesium/packages/engine/Specs/Scene/SphereEmitterSpec.js) | 已移植：球体粒子发射器（SphereEmitter / ParticleEmitter）、默认与自定义半径（radius）、非正数半径异常校验拦截（validate_radius DeveloperError）、动态半径修改（set_radius）、球体内部球坐标三维随机分布采样与从球心向外正规化初始速度（emit）（sphere_emitter_spec.rs，6 项测试全部通过） |
 | [packages/engine/Specs/Scene/StructuralMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/StructuralMetadataSpec.js) | 已完成 (6/6 tests passing, `crates/cesium-renderer/tests/structural_metadata_spec.rs`, `crates/cesium-renderer/src/structural_metadata.rs`) |
-| [packages/engine/Specs/Scene/StyleExpressionSpec.js](../../cesium/packages/engine/Specs/Scene/StyleExpressionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/StyleExpressionSpec.js](../../cesium/packages/engine/Specs/Scene/StyleExpressionSpec.js) | 已完成 (1/1 tests passing, `crates/cesium-renderer/tests/style_expression_spec.rs`, `crates/cesium-renderer/src/style_expression.rs`) |
 | [packages/engine/Specs/Scene/SunLightSpec.js](../../cesium/packages/engine/Specs/Scene/SunLightSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/SunSpec.js](../../cesium/packages/engine/Specs/Scene/SunSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/SupportedImageFormatsSpec.js](../../cesium/packages/engine/Specs/Scene/SupportedImageFormatsSpec.js) | 待逐项核对 |
