@@ -791,7 +791,7 @@
 | [packages/gltf/Specs/addBufferSpec.js](../../cesium/packages/gltf/Specs/addBufferSpec.js) | 已完成 (1/1 单测通过，覆盖动态添加缓冲至 glTF buffers、extras._pipeline.source 写入、生成并返回关联 bufferView 索引与偏移配置) |
 | [packages/gltf/Specs/addDefaultsSpec.js](../../cesium/packages/gltf/Specs/addDefaultsSpec.js) | 已完成 (8/8 单测通过，覆盖网格/图元模式与默认材质补全、顶点与索引 accessor/bufferView 偏移/跨度/target 计算与补全、PBR 金属粗糙度/高光光泽度默认因子与纹理坐标补全、KHR_materials_common 技术默认值、动画插值与静态/动画节点 TRS/矩阵补全、采样器环绕模式、默认场景补全) |
 | [packages/gltf/Specs/addExtensionsRequiredSpec.js](../../cesium/packages/gltf/Specs/addExtensionsRequiredSpec.js) | 已完成 (1/1 单测通过，覆盖扩展去重追加至 extensionsRequired 并级联同步至 extensionsUsed) |
-| [packages/gltf/Specs/addExtensionsUsedSpec.js](../../cesium/packages/gltf/Specs/addExtensionsUsedSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/addExtensionsUsedSpec.js](../../cesium/packages/gltf/Specs/addExtensionsUsedSpec.js) | 已完成 (1/1 单测通过，覆盖扩展去重追加至 extensionsUsed 且不影响 extensionsRequired) |
 | [packages/gltf/Specs/addPipelineExtrasSpec.js](../../cesium/packages/gltf/Specs/addPipelineExtrasSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/addToArraySpec.js](../../cesium/packages/gltf/Specs/addToArraySpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/constructBoundingVolumeJsonSpec.js](../../cesium/packages/gltf/Specs/constructBoundingVolumeJsonSpec.js) | 待逐项核对 |
