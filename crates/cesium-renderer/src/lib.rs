@@ -93,6 +93,8 @@ pub mod pnts_parser;
 pub mod point_cloud_shading;
 pub mod point_cloud_eye_dome_lighting;
 pub mod polyline_collection;
+pub mod polyline_color_appearance;
+pub mod polyline_material_appearance;
 pub mod edge_visibility_pipeline_stage;
 pub mod empty_3d_tile_content;
 pub mod equirectangular_panorama;
@@ -352,6 +354,10 @@ pub use point_cloud_eye_dome_lighting::{
 };
 pub use point_cloud_shading::PointCloudShading;
 pub use polyline_collection::{Polyline, PolylineCollection, PolylineOptions};
+pub use polyline_color_appearance::{PolylineColorAppearance, PolylineColorAppearanceOptions};
+pub use polyline_material_appearance::{
+    PolylineMaterialAppearance, PolylineMaterialAppearanceOptions,
+};
 pub use empty_3d_tile_content::Empty3DTileContent;
 pub use equirectangular_panorama::{
     EquirectangularAppearance, EquirectangularMaterial, EquirectangularPanorama,
