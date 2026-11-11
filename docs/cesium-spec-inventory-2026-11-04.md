@@ -749,7 +749,7 @@
 | [packages/engine/Specs/Scene/UrlTemplateImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/UrlTemplateImageryProviderSpec.js) | 已完成 (8/8 tests passing, `crates/cesium-renderer/tests/url_template_imagery_provider_spec.rs`, `crates/cesium-renderer/src/url_template_imagery_provider.rs`) |
 | [packages/engine/Specs/Scene/Vector3DTileClampedPolylinesSpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTileClampedPolylinesSpec.js) | 已完成 (3/3 tests passing, `crates/cesium-renderer/tests/vector_3d_tile_clamped_polylines_spec.rs`, `crates/cesium-renderer/src/vector_3d_tile_clamped_polylines.rs`) |
 | [packages/engine/Specs/Scene/Vector3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTileContentSpec.js) | 已完成 (8/8 tests passing, `crates/cesium-renderer/tests/vector_3d_tile_content_spec.rs`, `crates/cesium-renderer/src/vector_3d_tile_content.rs`) |
-| [packages/engine/Specs/Scene/Vector3DTileGeometrySpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTileGeometrySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Vector3DTileGeometrySpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTileGeometrySpec.js) | 已完成 (13/13 tests passing, `crates/cesium-renderer/tests/vector_3d_tile_geometry_spec.rs`, `crates/cesium-renderer/src/vector_3d_tile_geometry.rs`) |
 | [packages/engine/Specs/Scene/Vector3DTilePointsSpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTilePointsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Vector3DTilePolygonsSpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTilePolygonsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Vector3DTilePolylinesSpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTilePolylinesSpec.js) | 待逐项核对 |
