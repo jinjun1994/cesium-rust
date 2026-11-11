@@ -248,6 +248,7 @@ pub mod sun_light;
 pub mod sun;
 pub mod supported_image_formats;
 pub mod terrain_fill_mesh;
+pub mod terrain;
 pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;
@@ -422,6 +423,7 @@ pub use sun_light::{SunLight, SunLightOptions};
 pub use sun::{Sun, SunCommands, SunFramePasses, SunFrameState};
 pub use supported_image_formats::{SupportedImageFormats, SupportedImageFormatsOptions};
 pub use terrain_fill_mesh::{TerrainFillMesh, TileCoord};
+pub use terrain::{Terrain, TerrainEvent};
 pub use quadtree_primitive::{
     QuadtreePrimitive, QuadtreePrimitiveOptions, QuadtreeTileProvider, TileReplacementQueue,
 };

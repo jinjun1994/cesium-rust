@@ -729,7 +729,7 @@
 | [packages/engine/Specs/Scene/SunSpec.js](../../cesium/packages/engine/Specs/Scene/SunSpec.js) | 已完成 (8/8 tests passing, `crates/cesium-renderer/tests/sun_spec.rs`, `crates/cesium-renderer/src/sun.rs`) |
 | [packages/engine/Specs/Scene/SupportedImageFormatsSpec.js](../../cesium/packages/engine/Specs/Scene/SupportedImageFormatsSpec.js) | 已完成 (3/3 tests passing, `crates/cesium-renderer/tests/supported_image_formats_spec.rs`, `crates/cesium-renderer/src/supported_image_formats.rs`) |
 | [packages/engine/Specs/Scene/TerrainFillMeshSpec.js](../../cesium/packages/engine/Specs/Scene/TerrainFillMeshSpec.js) | 已完成 (4/4 tests passing, `crates/cesium-renderer/tests/terrain_fill_mesh_spec.rs`, `crates/cesium-renderer/src/terrain_fill_mesh.rs`) |
-| [packages/engine/Specs/Scene/TerrainSpec.js](../../cesium/packages/engine/Specs/Scene/TerrainSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TerrainSpec.js](../../cesium/packages/engine/Specs/Scene/TerrainSpec.js) | 已完成 (5/5 tests passing, `crates/cesium-renderer/tests/terrain_spec.rs`, `crates/cesium-renderer/src/terrain.rs`) |
 | [packages/engine/Specs/Scene/TileBoundingRegionSpec.js](../../cesium/packages/engine/Specs/Scene/TileBoundingRegionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/TileBoundingS2CellSpec.js](../../cesium/packages/engine/Specs/Scene/TileBoundingS2CellSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/TileBoundingSphereSpec.js](../../cesium/packages/engine/Specs/Scene/TileBoundingSphereSpec.js) | 待逐项核对 |
