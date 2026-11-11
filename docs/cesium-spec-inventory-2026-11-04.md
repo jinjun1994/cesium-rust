@@ -808,7 +808,7 @@
 | [packages/gltf/Specs/removeExtensionSpec.js](../../cesium/packages/gltf/Specs/removeExtensionSpec.js) | 已完成 (2/2 单测通过，覆盖扩展从顶层与深层对象递归清理、空 extensions 字典自动删除、返回顶层扩展数据及 CESIUM_RTC 向 MODELVIEW 语义回退重写) |
 | [packages/gltf/Specs/removeExtensionsRequiredSpec.js](../../cesium/packages/gltf/Specs/removeExtensionsRequiredSpec.js) | 已完成 (1/1 单测通过，覆盖指定扩展移除、空 extensionsRequired 自动删除且不误删 extensionsUsed) |
 | [packages/gltf/Specs/removeExtensionsUsedSpec.js](../../cesium/packages/gltf/Specs/removeExtensionsUsedSpec.js) | 已完成 (1/1 单测通过，覆盖指定扩展移除、extensionsUsed 与级联 extensionsRequired 同时清理及空数组删除) |
-| [packages/gltf/Specs/removePipelineExtrasSpec.js](../../cesium/packages/gltf/Specs/removePipelineExtrasSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/removePipelineExtrasSpec.js](../../cesium/packages/gltf/Specs/removePipelineExtrasSpec.js) | 已完成 (1/1 单测通过，覆盖缓冲区与扩展着色器中 extras._pipeline 属性深度删除及空 extras 对象清理) |
 | [packages/gltf/Specs/removeUnusedElementsSpec.js](../../cesium/packages/gltf/Specs/removeUnusedElementsSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/updateAccessorComponentTypeSpec.js](../../cesium/packages/gltf/Specs/updateAccessorComponentTypeSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/updateVersionSpec.js](../../cesium/packages/gltf/Specs/updateVersionSpec.js) | 待逐项核对 |
