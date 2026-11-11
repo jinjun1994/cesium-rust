@@ -11,18 +11,7 @@ use serde_json::Value;
 use std::future::Future;
 use std::sync::{Arc, Mutex};
 
-/// Supported image formats matching CesiumJS `Scene/SupportedImageFormats`.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]
-pub struct SupportedImageFormats {
-    pub webp: bool,
-    pub basis: bool,
-}
-
-impl SupportedImageFormats {
-    pub fn new(basis: bool, webp: bool) -> Self {
-        Self { basis, webp }
-    }
-}
+pub use crate::supported_image_formats::{SupportedImageFormats, SupportedImageFormatsOptions};
 
 /// Options for creating a [`GltfTextureLoader`].
 #[derive(Debug, Clone, Default)]

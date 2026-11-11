@@ -93,7 +93,7 @@ fn get_image_id_from_texture_extension_negotiation() {
     let id_webp_ok = GltfLoaderUtil::get_image_id_from_texture(GetImageIdFromTextureOptions {
         gltf: Some(&gltf),
         texture_id: Some(1),
-        supported_image_formats: Some(SupportedImageFormats::new(false, true)),
+        supported_image_formats: Some(SupportedImageFormats::with_flags(false, true)),
     })
     .unwrap();
     assert_eq!(id_webp_ok, 2);
@@ -101,7 +101,7 @@ fn get_image_id_from_texture_extension_negotiation() {
     let id_webp_no = GltfLoaderUtil::get_image_id_from_texture(GetImageIdFromTextureOptions {
         gltf: Some(&gltf),
         texture_id: Some(1),
-        supported_image_formats: Some(SupportedImageFormats::new(false, false)),
+        supported_image_formats: Some(SupportedImageFormats::with_flags(false, false)),
     })
     .unwrap();
     assert_eq!(id_webp_no, 0);
@@ -110,7 +110,7 @@ fn get_image_id_from_texture_extension_negotiation() {
     let id_basis_ok = GltfLoaderUtil::get_image_id_from_texture(GetImageIdFromTextureOptions {
         gltf: Some(&gltf),
         texture_id: Some(2),
-        supported_image_formats: Some(SupportedImageFormats::new(true, false)),
+        supported_image_formats: Some(SupportedImageFormats::with_flags(true, false)),
     })
     .unwrap();
     assert_eq!(id_basis_ok, 3);
@@ -118,7 +118,7 @@ fn get_image_id_from_texture_extension_negotiation() {
     let id_basis_no = GltfLoaderUtil::get_image_id_from_texture(GetImageIdFromTextureOptions {
         gltf: Some(&gltf),
         texture_id: Some(2),
-        supported_image_formats: Some(SupportedImageFormats::new(false, false)),
+        supported_image_formats: Some(SupportedImageFormats::with_flags(false, false)),
     })
     .unwrap();
     assert_eq!(id_basis_no, 0);

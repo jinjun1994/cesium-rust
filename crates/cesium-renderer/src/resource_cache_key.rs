@@ -3,12 +3,7 @@
 use cesium_math::DeveloperError;
 use serde_json::Value;
 
-/// Supported image formats for glTF texture loading.
-#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
-pub struct SupportedImageFormats {
-    pub webp: bool,
-    pub basis: bool,
-}
+pub use crate::supported_image_formats::SupportedImageFormats;
 
 /// Options for computing schema cache key.
 #[derive(Clone, Debug, Default)]

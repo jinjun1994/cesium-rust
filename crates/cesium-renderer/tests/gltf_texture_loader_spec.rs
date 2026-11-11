@@ -203,7 +203,7 @@ fn loads_ktx2_texture_and_handles_incompatible_mipmap_sampler() {
             texture_info: Some(json!({ "index": 3 })),
             gltf_resource: Some("https://example.com/model.glb".to_string()),
             base_resource: Some("https://example.com/".to_string()),
-            supported_image_formats: Some(SupportedImageFormats::new(true, false)),
+            supported_image_formats: Some(SupportedImageFormats::with_flags(true, false)),
             ..Default::default()
         })
         .unwrap();

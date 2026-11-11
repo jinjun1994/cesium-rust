@@ -246,6 +246,7 @@ pub mod structural_metadata;
 pub mod style_expression;
 pub mod sun_light;
 pub mod sun;
+pub mod supported_image_formats;
 pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;
@@ -418,6 +419,7 @@ pub use structural_metadata::{StructuralMetadata, StructuralMetadataOptions};
 pub use style_expression::{StyleExpression, StyleValue, TileFeature};
 pub use sun_light::{SunLight, SunLightOptions};
 pub use sun::{Sun, SunCommands, SunFramePasses, SunFrameState};
+pub use supported_image_formats::{SupportedImageFormats, SupportedImageFormatsOptions};
 pub use quadtree_primitive::{
     QuadtreePrimitive, QuadtreePrimitiveOptions, QuadtreeTileProvider, TileReplacementQueue,
 };
@@ -648,7 +650,7 @@ pub use sky_box::{SkyBox, SkyBoxFaceSource, SkyBoxOptions, SkyBoxSources};
 pub use snapping::{SceneSnapResult, SnapHit, Snapping};
 pub use resource_cache::{CacheEntry, ResourceCache};
 pub use resource_cache_key::{
-    IndexBufferCacheKeyOptions, ResourceCacheKey, SchemaCacheKeyOptions, SupportedImageFormats,
+    IndexBufferCacheKeyOptions, ResourceCacheKey, SchemaCacheKeyOptions,
     TextureCacheKeyOptions, VertexBufferCacheKeyOptions,
 };
 pub use resource_cache_statistics::ResourceCacheStatistics;
