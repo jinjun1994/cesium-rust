@@ -4,9 +4,12 @@ use std::sync::Arc;
 
 use cesium_math::{Cartesian3, DeveloperError, Matrix4};
 
+use crate::clipping_plane_collection::ClippingPlaneCollection;
+use crate::commands::DrawCommand;
 use crate::custom_shader::{CustomShader, CustomShaderOptions};
 use crate::primitive_collection::next_primitive_id;
 use crate::scene_primitive::PrimitiveRenderFrameState;
+use crate::shader_builder::BuiltShaderProgram;
 use crate::voxel_shape_type::VoxelShapeType;
 
 /// Interface for voxel data providers.
@@ -109,6 +112,7 @@ pub struct VoxelPrimitiveOptions {
     pub debug_draw: Option<bool>,
     pub min_clipping_bounds: Option<Cartesian3>,
     pub max_clipping_bounds: Option<Cartesian3>,
+    pub clipping_planes: Option<ClippingPlaneCollection>,
 }
 
 /// A primitive that renders voxel data supplied by a VoxelProvider.
@@ -148,6 +152,10 @@ pub struct VoxelPrimitive {
     pub load_progress_listeners: usize,
     pub tile_visible_listeners: usize,
     pub vertical_exaggeration: f64,
+    pub clipping_planes: Option<ClippingPlaneCollection>,
+    pub draw_command: Option<DrawCommand>,
+    pub draw_command_pick: Option<DrawCommand>,
+    pub shader_program: Option<BuiltShaderProgram>,
     pub destroyed: bool,
 }
 
@@ -236,6 +244,10 @@ impl VoxelPrimitive {
             load_progress_listeners: 0,
             tile_visible_listeners: 0,
             vertical_exaggeration: 1.0,
+            clipping_planes: opts.clipping_planes,
+            draw_command: None,
+            draw_command_pick: None,
+            shader_program: None,
             destroyed: false,
         }
     }
@@ -349,5 +361,8 @@ impl VoxelPrimitive {
         self.destroyed = true;
         self.pick_id = None;
         self.traversal_active = false;
+        self.draw_command = None;
+        self.draw_command_pick = None;
+        self.shader_program = None;
     }
 }

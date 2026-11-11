@@ -767,7 +767,7 @@
 | [packages/engine/Specs/Scene/WebMapServiceImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/WebMapServiceImageryProviderSpec.js) | 已完成 (11/11 单测通过，覆盖 WMS 参数合并、v1.1 与 v1.3 版本解析、CRS/SRS 映射、EPSG 逆轴顺序判断、瓦片 BBOX 与请求 URL 构建) |
 | [packages/engine/Specs/Scene/WebMapTileServiceImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/WebMapTileServiceImageryProviderSpec.js) | 已完成 (10/10 单测通过，覆盖 WMTS 1.0.0 规范、KVP 查询参数与 RESTful 模板占位符替换、瓦片矩阵标签层级映射、子域名轮换与必填参数校验) |
 | [packages/engine/Specs/Scene/buildVectorGltfFromMVTSpec.js](../../cesium/packages/engine/Specs/Scene/buildVectorGltfFromMVTSpec.js) | 已完成 (5/5 单测通过，覆盖 Mapbox 矢量瓦片转 GLB/glTF、点线面图元扩展标注、EXT_structural_metadata 与属性表二进制编码) |
-| [packages/engine/Specs/Scene/buildVoxelDrawCommandsSpec.js](../../cesium/packages/engine/Specs/Scene/buildVoxelDrawCommandsSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/buildVoxelDrawCommandsSpec.js](../../cesium/packages/engine/Specs/Scene/buildVoxelDrawCommandsSpec.js) | 已完成 (2/2 单测通过，覆盖体素 DrawCommand 与拾取命令组装、裁剪平面函数生成与片元着色器注入) |
 | [packages/engine/Specs/Scene/computeFlyToLocationForRectangleSpec.js](../../cesium/packages/engine/Specs/Scene/computeFlyToLocationForRectangleSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/createElevationBandMaterialSpec.js](../../cesium/packages/engine/Specs/Scene/createElevationBandMaterialSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/createTangentSpaceDebugPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/createTangentSpaceDebugPrimitiveSpec.js) | 待逐项核对 |

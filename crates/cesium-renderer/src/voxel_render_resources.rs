@@ -83,10 +83,16 @@ impl VoxelRenderResources {
             Some(ShaderDestination::FRAGMENT),
         );
 
+        let clipping_planes_length = primitive
+            .clipping_planes
+            .as_ref()
+            .map(|c| c.len())
+            .unwrap_or(0);
+
         Self {
             shader_builder,
             uniform_map,
-            clipping_planes_length: 0,
+            clipping_planes_length,
             render_bound_planes_length: 0,
         }
     }
