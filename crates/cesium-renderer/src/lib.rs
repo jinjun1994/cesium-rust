@@ -100,6 +100,7 @@ pub mod post_process_stage_composite;
 pub mod post_process_stage_collection;
 pub mod post_process_stage_library;
 pub mod primitive_collection;
+pub mod primitive_culling;
 pub mod edge_visibility_pipeline_stage;
 pub mod empty_3d_tile_content;
 pub mod equirectangular_panorama;
@@ -375,6 +376,7 @@ pub use post_process_stage_library::PostProcessStageLibrary;
 pub use primitive_collection::{
     MockPrimitive, PrimitiveCollection, PrimitiveCollectionOptions, ScenePrimitive,
 };
+pub use primitive_culling::PrimitiveCuller;
 pub use empty_3d_tile_content::Empty3DTileContent;
 pub use equirectangular_panorama::{
     EquirectangularAppearance, EquirectangularMaterial, EquirectangularPanorama,
