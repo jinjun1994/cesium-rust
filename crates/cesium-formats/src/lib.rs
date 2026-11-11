@@ -7,6 +7,8 @@ use thiserror::Error;
 
 mod pnts;
 mod pnts_draco;
+pub mod gltf_for_each;
+pub use gltf_for_each::*;
 pub use pnts::{decode_point_cloud, parse_pnts, Pnts, PointCloud, PointVertex, PositionEncoding};
 
 #[derive(Clone, Debug)]
