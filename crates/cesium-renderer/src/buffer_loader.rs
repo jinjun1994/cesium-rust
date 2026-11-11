@@ -150,3 +150,26 @@ impl BufferLoader {
         }
     }
 }
+
+impl crate::resource_loader::ResourceLoader for BufferLoader {
+    fn cache_key(&self) -> Result<String, DeveloperError> {
+        self.cache_key()
+            .ok_or_else(|| DeveloperError::new("cacheKey is undefined"))
+    }
+
+    fn load(&self) -> Result<(), DeveloperError> {
+        Ok(())
+    }
+
+    fn is_destroyed(&self) -> bool {
+        self.is_destroyed()
+    }
+
+    fn destroy(&mut self) {
+        BufferLoader::destroy(self);
+    }
+
+    fn geometry_byte_length(&self) -> usize {
+        self.typed_array().map(|a| a.len()).unwrap_or(0)
+    }
+}

@@ -709,7 +709,7 @@
 | [packages/engine/Specs/Scene/ResourceCacheKeySpec.js](../../cesium/packages/engine/Specs/Scene/ResourceCacheKeySpec.js) | 已移植：资源缓存键生成系统（ResourceCacheKey / SchemaCacheKeyOptions / VertexBufferCacheKeyOptions / IndexBufferCacheKeyOptions / TextureCacheKeyOptions / SupportedImageFormats）、Schema/Buffer/Gltf/BufferView/Draco/SPZ/VertexBuffer/IndexBuffer/Image/Texture 缓存键算法、meshopt/draco/spz 压缩拓展支持与格式回退选择（resource_cache_key_spec.rs，7 项测试全部通过） |
 | [packages/engine/Specs/Scene/ResourceCacheSpec.js](../../cesium/packages/engine/Specs/Scene/ResourceCacheSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/ResourceCacheStatisticsSpec.js](../../cesium/packages/engine/Specs/Scene/ResourceCacheStatisticsSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/ResourceLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/ResourceLoaderSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/ResourceLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/ResourceLoaderSpec.js) | 已移植：资源加载器基类与统一抽象体系（ResourceLoader / BaseResourceLoader / cacheKey / load / unload / process / getError / destroy / isDestroyed）、防直接空实现调用保护、异常信息格式化链路（resource_loader_spec.rs，5 项测试全部通过） |
 | [packages/engine/Specs/Scene/SceneSpec.js](../../cesium/packages/engine/Specs/Scene/SceneSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/SceneTransformsSpec.js](../../cesium/packages/engine/Specs/Scene/SceneTransformsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/ScreenSpaceCameraControllerSpec.js](../../cesium/packages/engine/Specs/Scene/ScreenSpaceCameraControllerSpec.js) | 待逐项核对 |
