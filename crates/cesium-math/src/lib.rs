@@ -473,7 +473,9 @@ pub use plane_graphics::{PlaneGraphics, PlaneGraphicsOptions, PlaneGraphicsValue
 pub use pixel_format::{PixelDatatype, PixelFormat};
 pub use pin_builder::{PinBuilder, PinImage};
 pub use point_graphics::{PointGraphics, PointGraphicsOptions, PointGraphicsValues};
-pub use point_primitive_collection::{PointPrimitive, PointPrimitiveCollection};
+pub use point_primitive_collection::{
+    PointPrimitive, PointPrimitiveCollection, PointPrimitiveOptions,
+};
 pub use point_visualizer::PointVisualizer;
 pub use point_inside_triangle::{
     point_inside_triangle, point_inside_triangle_2d, point_inside_triangle_3d,
