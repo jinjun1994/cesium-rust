@@ -271,6 +271,7 @@ pub mod vector_3d_tile_content;
 pub mod vector_3d_tile_geometry;
 pub mod vector_3d_tile_points;
 pub mod vector_3d_tile_polygons;
+pub mod vector_3d_tile_polylines;
 pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;
@@ -539,6 +540,7 @@ pub use vector_3d_tile_points::{
 pub use vector_3d_tile_polygons::{
     encode_polygon_positions, Vector3DTilePolygons, Vector3DTilePolygonsOptions,
 };
+pub use vector_3d_tile_polylines::{Vector3DTilePolylines, Vector3DTilePolylinesOptions};
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,
 };
