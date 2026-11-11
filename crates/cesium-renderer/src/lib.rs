@@ -262,6 +262,7 @@ pub mod tile_replacement_queue;
 pub mod tileset_3d_tile_content;
 pub mod tileset_metadata;
 pub mod time_dynamic_imagery;
+pub mod time_dynamic_point_cloud;
 pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;
@@ -493,6 +494,13 @@ pub use multi_frustum::{
 pub use multiple_3d_tile_content::{
     Cesium3DContentGroup, InnerContentHeader, InnerTileContent, Multiple3DTileContent,
     TilesetStatistics,
+};
+pub use time_dynamic_imagery::{
+    ReloadFunction, RequestImageFunction, TimeDynamicImagery, TimeDynamicImageryOptions,
+};
+pub use time_dynamic_point_cloud::{
+    PointCloudFrame, TimeDynamicPointCloud, TimeDynamicPointCloudIntervalData,
+    TimeDynamicPointCloudOptions,
 };
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,

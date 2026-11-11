@@ -2,10 +2,28 @@
 
 use std::sync::atomic::{AtomicBool, Ordering};
 
-use cesium_math::{GeometryInstance, GeometryInstanceAttribute, Matrix4, SceneMode};
+use cesium_math::{GeometryInstance, GeometryInstanceAttribute, JulianDate, Matrix4, SceneMode};
 
 use crate::commands::DrawCommand;
 use crate::primitive_collection::{next_primitive_id, ScenePrimitive};
+
+/// Hardware/context capabilities passed to `Primitive::update`.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub struct ContextCapabilities {
+    pub draw_buffers: bool,
+    pub fragment_depth: bool,
+    pub floating_point_texture: bool,
+}
+
+impl Default for ContextCapabilities {
+    fn default() -> Self {
+        Self {
+            draw_buffers: true,
+            fragment_depth: true,
+            floating_point_texture: true,
+        }
+    }
+}
 
 /// Passes active for a render frame.
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -55,6 +73,9 @@ pub struct PrimitiveRenderFrameState {
     pub scene_3d_only: bool,
     pub passes: PrimitivePasses,
     pub command_list: Vec<DrawCommand>,
+    pub frame_number: u64,
+    pub time: Option<JulianDate>,
+    pub context_capabilities: Option<ContextCapabilities>,
 }
 
 impl Default for PrimitiveRenderFrameState {
@@ -64,6 +85,9 @@ impl Default for PrimitiveRenderFrameState {
             scene_3d_only: false,
             passes: PrimitivePasses::default(),
             command_list: Vec::new(),
+            frame_number: 0,
+            time: None,
+            context_capabilities: None,
         }
     }
 }

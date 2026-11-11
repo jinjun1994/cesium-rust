@@ -375,4 +375,33 @@ impl<T: Clone + PartialEq> TimeIntervalCollection<T> {
 
         result
     }
+
+    /// Creates a new `TimeIntervalCollection` from an array of `JulianDate`s.
+    ///
+    /// An interval is generated for each consecutive pair of dates. The last interval includes its stop date.
+    pub fn from_julian_date_array<F>(dates: &[JulianDate], mut data_callback: F) -> Self
+    where
+        F: FnMut(&TimeInterval<T>, usize) -> Option<T>,
+    {
+        let mut collection = Self::new();
+        if dates.len() < 2 {
+            return collection;
+        }
+        let count = dates.len() - 1;
+        for i in 0..count {
+            let start = dates[i];
+            let stop = dates[i + 1];
+            let is_stop_included = i == count - 1;
+            let mut interval = TimeInterval {
+                start,
+                stop,
+                is_start_included: true,
+                is_stop_included,
+                data: None,
+            };
+            interval.data = data_callback(&interval, i);
+            collection.add_interval(interval);
+        }
+        collection
+    }
 }

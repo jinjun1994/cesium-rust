@@ -195,6 +195,7 @@ impl Scene {
                 pick: false,
             },
             command_list: Vec::new(),
+            ..Default::default()
         };
 
         // Collect commands from all primitives
