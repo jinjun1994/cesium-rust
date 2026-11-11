@@ -244,6 +244,7 @@ pub mod spatial_node;
 pub mod specular_environment_cube_map;
 pub mod structural_metadata;
 pub mod style_expression;
+pub mod sun_light;
 pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;
@@ -414,6 +415,7 @@ pub use property_texture::PropertyTexture;
 pub use property_texture_property::PropertyTextureProperty;
 pub use structural_metadata::{StructuralMetadata, StructuralMetadataOptions};
 pub use style_expression::{StyleExpression, StyleValue, TileFeature};
+pub use sun_light::{SunLight, SunLightOptions};
 pub use quadtree_primitive::{
     QuadtreePrimitive, QuadtreePrimitiveOptions, QuadtreeTileProvider, TileReplacementQueue,
 };
