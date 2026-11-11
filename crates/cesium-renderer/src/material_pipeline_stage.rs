@@ -625,29 +625,7 @@ vec4 constantLodTextureLookup(sampler2D textureSampler, vec3 constantLodParams, 
 
 #endif"#;
 
-/// Point cloud shading options matching CesiumJS `PointCloudShading`.
-#[derive(Debug, Clone, PartialEq)]
-pub struct PointCloudShading {
-    pub normal_shading: bool,
-    pub back_face_culling: bool,
-    pub attenuation: bool,
-    pub geometric_error_scale: f64,
-    pub maximum_attenuation: f64,
-    pub base_resolution: f64,
-}
-
-impl Default for PointCloudShading {
-    fn default() -> Self {
-        Self {
-            normal_shading: false,
-            back_face_culling: false,
-            attenuation: false,
-            geometric_error_scale: 1.0,
-            maximum_attenuation: 0.0,
-            base_resolution: 0.0,
-        }
-    }
-}
+pub use crate::point_cloud_shading::PointCloudShading;
 
 /// Dynamic uniform values for material pipeline stage.
 #[derive(Debug, Clone, PartialEq)]

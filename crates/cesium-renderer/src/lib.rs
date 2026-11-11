@@ -90,6 +90,8 @@ pub mod dynamic_environment_map_manager;
 pub mod edge_framebuffer;
 pub mod planar_fill_id_framebuffer;
 pub mod pnts_parser;
+pub mod point_cloud_shading;
+pub mod point_cloud_eye_dome_lighting;
 pub mod edge_visibility_pipeline_stage;
 pub mod empty_3d_tile_content;
 pub mod equirectangular_panorama;
@@ -344,6 +346,10 @@ pub use dynamic_environment_map_manager::{
 pub use edge_framebuffer::EdgeFramebuffer;
 pub use planar_fill_id_framebuffer::PlanarFillIdFramebuffer;
 pub use pnts_parser::PntsParser;
+pub use point_cloud_eye_dome_lighting::{
+    PointCloudCommand, PointCloudEyeDomeLighting, PointCloudEyeDomeLightingFrameState,
+};
+pub use point_cloud_shading::PointCloudShading;
 pub use empty_3d_tile_content::Empty3DTileContent;
 pub use equirectangular_panorama::{
     EquirectangularAppearance, EquirectangularMaterial, EquirectangularPanorama,
@@ -427,7 +433,7 @@ pub use mapped_positions::MappedPositions;
 pub use material_pipeline_stage::{
     MaterialFrameState, MaterialFrameStateCamera, MaterialFrameStateContext, MaterialFrustum,
     MaterialModelOptions, MaterialPipelineStage, MaterialRenderResources, MaterialUniformCallback,
-    MaterialUniformValue, PointCloudShading, SHADERS_CONSTANT_LOD_STAGE_FS,
+    MaterialUniformValue, SHADERS_CONSTANT_LOD_STAGE_FS,
     SHADERS_CONSTANT_LOD_STAGE_VS, SHADERS_MATERIAL_STAGE_FS,
 };
 pub use material::{Fabric, Material, MaterialOptions};

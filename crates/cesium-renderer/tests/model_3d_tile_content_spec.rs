@@ -158,8 +158,8 @@ fn test_pnts_content_and_attenuation() {
         point_cloud_shading: Some(PointCloudShading {
             attenuation: true,
             geometric_error_scale: 1.5,
-            maximum_attenuation: 16.0,
-            base_resolution: 0.05,
+            maximum_attenuation: Some(16.0),
+            base_resolution: Some(0.05),
             ..Default::default()
         }),
         ..Default::default()
@@ -197,9 +197,9 @@ fn test_pnts_content_and_attenuation() {
     content.update();
     let pcs = content.model.as_ref().unwrap().point_cloud_shading.as_ref().unwrap();
     assert!(pcs.attenuation);
-    assert_eq!(pcs.maximum_attenuation, 16.0);
+    assert_eq!(pcs.maximum_attenuation, Some(16.0));
     assert_eq!(pcs.geometric_error_scale, 1.5);
-    assert_eq!(pcs.base_resolution, 0.05);
+    assert_eq!(pcs.base_resolution, Some(0.05));
 }
 
 #[test]
