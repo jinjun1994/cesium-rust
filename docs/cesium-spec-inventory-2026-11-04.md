@@ -754,7 +754,7 @@
 | [packages/engine/Specs/Scene/Vector3DTilePolygonsSpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTilePolygonsSpec.js) | 已完成 (6/6 tests passing, `crates/cesium-renderer/tests/vector_3d_tile_polygons_spec.rs`, `crates/cesium-renderer/src/vector_3d_tile_polygons.rs`) |
 | [packages/engine/Specs/Scene/Vector3DTilePolylinesSpec.js](../../cesium/packages/engine/Specs/Scene/Vector3DTilePolylinesSpec.js) | 已完成 (5/5 tests passing, `crates/cesium-renderer/tests/vector_3d_tile_polylines_spec.rs`, `crates/cesium-renderer/src/vector_3d_tile_polylines.rs`) |
 | [packages/engine/Specs/Scene/VectorGltf3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/VectorGltf3DTileContentSpec.js) | 已完成 (7/7 tests passing, `crates/cesium-renderer/tests/vector_gltf_3d_tile_content_spec.rs`, `crates/cesium-renderer/src/create_vector_tile_buffers.rs`) |
-| [packages/engine/Specs/Scene/VertexAttributeSemanticSpec.js](../../cesium/packages/engine/Specs/Scene/VertexAttributeSemanticSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/VertexAttributeSemanticSpec.js](../../cesium/packages/engine/Specs/Scene/VertexAttributeSemanticSpec.js) | 已完成 (5/5 tests passing, `crates/cesium-renderer/tests/vertex_attribute_semantic_spec.rs`, `crates/cesium-renderer/src/vertex_attribute_semantic.rs`) |
 | [packages/engine/Specs/Scene/ViewportQuadSpec.js](../../cesium/packages/engine/Specs/Scene/ViewportQuadSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/VoxelBoxShapeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelBoxShapeSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/VoxelCellSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelCellSpec.js) | 待逐项核对 |

@@ -272,6 +272,7 @@ pub mod vector_3d_tile_geometry;
 pub mod vector_3d_tile_points;
 pub mod vector_3d_tile_polygons;
 pub mod vector_3d_tile_polylines;
+pub mod vertex_attribute_semantic;
 pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;

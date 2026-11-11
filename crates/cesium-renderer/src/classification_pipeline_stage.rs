@@ -3,19 +3,7 @@
 use crate::shader_builder::{ShaderBuilder, ShaderDestination};
 use cesium_math::{PrimitiveType, RuntimeError};
 
-/// Built-in vertex attribute semantic strings matching CesiumJS `Scene/VertexAttributeSemantic.js`.
-pub struct VertexAttributeSemantic;
-
-impl VertexAttributeSemantic {
-    pub const POSITION: &'static str = "POSITION";
-    pub const NORMAL: &'static str = "NORMAL";
-    pub const TANGENT: &'static str = "TANGENT";
-    pub const TEXCOORD: &'static str = "TEXCOORD";
-    pub const COLOR: &'static str = "COLOR";
-    pub const JOINTS: &'static str = "JOINTS";
-    pub const WEIGHTS: &'static str = "WEIGHTS";
-    pub const FEATURE_ID: &'static str = "_FEATURE_ID";
-}
+pub use crate::vertex_attribute_semantic::VertexAttributeSemantic;
 
 /// Attribute descriptor for classification pipeline stage.
 #[derive(Clone, Debug, Default)]
