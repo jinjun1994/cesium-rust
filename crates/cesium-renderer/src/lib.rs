@@ -231,6 +231,7 @@ mod screen_distance;
 pub mod uniform;
 pub mod uniforms;
 pub mod resource_cache_key;
+pub mod resource_cache_statistics;
 pub mod resource_loader;
 
 use cesium_formats::Primitive as FormatPrimitive;
@@ -614,6 +615,7 @@ pub use resource_cache_key::{
     IndexBufferCacheKeyOptions, ResourceCacheKey, SchemaCacheKeyOptions, SupportedImageFormats,
     TextureCacheKeyOptions, VertexBufferCacheKeyOptions,
 };
+pub use resource_cache_statistics::ResourceCacheStatistics;
 pub use resource_loader::{BaseResourceLoader, ResourceLoader};
 
 #[derive(Debug, Error)]
