@@ -242,6 +242,7 @@ pub mod sky_box;
 pub mod snapping;
 pub mod spatial_node;
 pub mod specular_environment_cube_map;
+pub mod structural_metadata;
 pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;
@@ -410,6 +411,7 @@ pub use property_attribute_property::PropertyAttributeProperty;
 pub use property_table::{PropertyTable, PropertyTableOptions};
 pub use property_texture::PropertyTexture;
 pub use property_texture_property::PropertyTextureProperty;
+pub use structural_metadata::{StructuralMetadata, StructuralMetadataOptions};
 pub use quadtree_primitive::{
     QuadtreePrimitive, QuadtreePrimitiveOptions, QuadtreeTileProvider, TileReplacementQueue,
 };
@@ -527,7 +529,7 @@ pub use metadata_type::{MetadataMathType, MetadataType};
 pub use metadata_pipeline_stage::{
     MetadataClassField, MetadataFrameContext, MetadataFrameState, MetadataModel,
     MetadataPipelineStage, MetadataRenderResources, MetadataStatistics, MetadataStatisticsField,
-    PointCloudStyle, PropertyStatistics, StructuralMetadata,
+    PointCloudStyle, PropertyStatistics,
     FUNCTION_ID_INITIALIZE_METADATA_FS, FUNCTION_ID_INITIALIZE_METADATA_VS,
     FUNCTION_ID_SET_METADATA_VARYINGS, FUNCTION_SIGNATURE_INITIALIZE_METADATA,
     FUNCTION_SIGNATURE_SET_METADATA_VARYINGS, METADATA_CLASS_FIELDS, METADATA_STATISTICS_FIELDS,

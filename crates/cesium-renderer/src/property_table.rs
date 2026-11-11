@@ -28,6 +28,7 @@ pub struct PropertyTableOptions {
 }
 
 /// A property table for use with `EXT_structural_metadata` or 3D Tiles 1.0 batch tables.
+#[derive(Clone, Debug)]
 pub struct PropertyTable {
     name: Option<String>,
     id: Option<Value>,

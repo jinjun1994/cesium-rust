@@ -15,6 +15,8 @@ pub struct PropertyAttribute {
     pub properties: HashMap<String, PropertyAttributeProperty>,
     pub extras: Option<Value>,
     pub extensions: Option<Value>,
+    pub id: Option<Value>,
+    pub name: Option<String>,
 }
 
 impl PropertyAttribute {
@@ -41,12 +43,19 @@ impl PropertyAttribute {
 
         let extras = property_attr.get("extras").cloned();
         let extensions = property_attr.get("extensions").cloned();
+        let id = property_attr.get("id").cloned();
+        let name = property_attr
+            .get("name")
+            .and_then(|n| n.as_str())
+            .map(|s| s.to_string());
 
         Ok(Self {
             class: class.clone(),
             properties,
             extras,
             extensions,
+            id,
+            name,
         })
     }
 
