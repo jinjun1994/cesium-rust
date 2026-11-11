@@ -102,6 +102,7 @@ pub mod post_process_stage_library;
 pub mod primitive_collection;
 pub mod primitive_culling;
 pub mod primitive_pipeline;
+pub mod scene_primitive;
 pub mod edge_visibility_pipeline_stage;
 pub mod empty_3d_tile_content;
 pub mod equirectangular_panorama;
@@ -222,7 +223,7 @@ mod screen_distance;
 pub mod uniform;
 pub mod uniforms;
 
-use cesium_formats::Primitive;
+use cesium_formats::Primitive as FormatPrimitive;
 use cesium_math::{linear_part, relative_model_view, Camera};
 use glam::{DMat4, DVec3};
 use std::num::NonZeroU64;
@@ -379,6 +380,9 @@ pub use primitive_collection::{
 };
 pub use primitive_culling::PrimitiveCuller;
 pub use primitive_pipeline::{CreateGeometryResults, PrimitivePipeline};
+pub use scene_primitive::{
+    Primitive, PrimitiveAppearance, PrimitiveOptions, PrimitivePasses, PrimitiveRenderFrameState,
+};
 pub use empty_3d_tile_content::Empty3DTileContent;
 pub use equirectangular_panorama::{
     EquirectangularAppearance, EquirectangularMaterial, EquirectangularPanorama,
@@ -1241,7 +1245,7 @@ impl Renderer {
 
     pub fn upload(
         &mut self,
-        p: &Primitive,
+        p: &FormatPrimitive,
         model: DMat4,
         pickable: bool,
     ) -> Result<GpuMesh, RenderError> {
@@ -1251,7 +1255,7 @@ impl Renderer {
     /// Polyline strips with previous/next ECEF positions and framebuffer-pixel widths.
     pub fn upload_wide_line(
         &mut self,
-        p: &Primitive,
+        p: &FormatPrimitive,
         model: DMat4,
         pickable: bool,
     ) -> Result<GpuMesh, RenderError> {
@@ -1261,7 +1265,7 @@ impl Renderer {
     /// Camera-facing quads whose local XY coordinates are framebuffer pixels.
     pub fn upload_screen(
         &mut self,
-        p: &Primitive,
+        p: &FormatPrimitive,
         model: DMat4,
         pickable: bool,
     ) -> Result<GpuMesh, RenderError> {
@@ -1297,7 +1301,7 @@ impl Renderer {
 
     pub fn upload_lines(
         &mut self,
-        p: &Primitive,
+        p: &FormatPrimitive,
         model: DMat4,
         pickable: bool,
     ) -> Result<GpuMesh, RenderError> {
@@ -1310,7 +1314,7 @@ impl Renderer {
     /// Upload points once and expand each into a screen-facing instanced quad.
     pub fn upload_points(
         &mut self,
-        p: &Primitive,
+        p: &FormatPrimitive,
         model: DMat4,
         pickable: bool,
     ) -> Result<GpuMesh, RenderError> {
@@ -1349,7 +1353,7 @@ impl Renderer {
 
     pub fn upload_globe(
         &mut self,
-        p: &Primitive,
+        p: &FormatPrimitive,
         texture: &BaseColorTexture<'_>,
     ) -> Result<GpuMesh, RenderError> {
         self.upload_material(p, DMat4::IDENTITY, false, Some(texture), UploadMode::Globe)
@@ -1358,7 +1362,7 @@ impl Renderer {
     /// Terrain retains a double-precision RTC transform while sharing the globe material path.
     pub fn upload_terrain(
         &mut self,
-        p: &Primitive,
+        p: &FormatPrimitive,
         texture: &BaseColorTexture<'_>,
     ) -> Result<GpuMesh, RenderError> {
         self.upload_material(p, p.transform, false, Some(texture), UploadMode::Globe)
@@ -1366,7 +1370,7 @@ impl Renderer {
 
     pub fn upload_imagery(
         &mut self,
-        p: &Primitive,
+        p: &FormatPrimitive,
         texture: &BaseColorTexture<'_>,
     ) -> Result<GpuMesh, RenderError> {
         self.upload_material(
@@ -1381,7 +1385,7 @@ impl Renderer {
     /// Geometry for a coverage region, sharing the ancestor's texture and material.
     pub fn upload_shared_globe(
         &mut self,
-        p: &Primitive,
+        p: &FormatPrimitive,
         source: &GpuMesh,
     ) -> Result<GpuMesh, RenderError> {
         let mut mesh = self.upload_material(p, DMat4::IDENTITY, false, None, UploadMode::Globe)?;
@@ -1394,7 +1398,7 @@ impl Renderer {
 
     fn upload_material(
         &mut self,
-        p: &Primitive,
+        p: &FormatPrimitive,
         model: DMat4,
         pickable: bool,
         texture: Option<&BaseColorTexture<'_>>,
