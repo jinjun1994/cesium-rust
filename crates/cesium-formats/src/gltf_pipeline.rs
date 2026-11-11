@@ -652,5 +652,195 @@ pub fn construct_bounding_volume_json(
     Err("Only box and sphere shapes are supported for the bounding volume.".to_string())
 }
 
+/// Result of `find_accessor_min_max`.
+#[derive(Clone, Debug, PartialEq)]
+pub struct AccessorMinMax {
+    pub min: Vec<f64>,
+    pub max: Vec<f64>,
+}
+
+fn read_component_value(bytes: &[u8], offset: usize, component_type: u32) -> Option<f64> {
+    match component_type {
+        5120 => bytes.get(offset).map(|&b| (b as i8) as f64),
+        5121 => bytes.get(offset).map(|&b| b as f64),
+        5122 => {
+            if offset + 2 <= bytes.len() {
+                let v = i16::from_le_bytes([bytes[offset], bytes[offset + 1]]);
+                Some(v as f64)
+            } else {
+                None
+            }
+        }
+        5123 => {
+            if offset + 2 <= bytes.len() {
+                let v = u16::from_le_bytes([bytes[offset], bytes[offset + 1]]);
+                Some(v as f64)
+            } else {
+                None
+            }
+        }
+        5124 => {
+            if offset + 4 <= bytes.len() {
+                let v = i32::from_le_bytes([
+                    bytes[offset],
+                    bytes[offset + 1],
+                    bytes[offset + 2],
+                    bytes[offset + 3],
+                ]);
+                Some(v as f64)
+            } else {
+                None
+            }
+        }
+        5125 => {
+            if offset + 4 <= bytes.len() {
+                let v = u32::from_le_bytes([
+                    bytes[offset],
+                    bytes[offset + 1],
+                    bytes[offset + 2],
+                    bytes[offset + 3],
+                ]);
+                Some(v as f64)
+            } else {
+                None
+            }
+        }
+        5126 => {
+            if offset + 4 <= bytes.len() {
+                let v = f32::from_le_bytes([
+                    bytes[offset],
+                    bytes[offset + 1],
+                    bytes[offset + 2],
+                    bytes[offset + 3],
+                ]);
+                Some(v as f64)
+            } else {
+                None
+            }
+        }
+        5130 => {
+            if offset + 8 <= bytes.len() {
+                let v = f64::from_le_bytes([
+                    bytes[offset],
+                    bytes[offset + 1],
+                    bytes[offset + 2],
+                    bytes[offset + 3],
+                    bytes[offset + 4],
+                    bytes[offset + 5],
+                    bytes[offset + 6],
+                    bytes[offset + 7],
+                ]);
+                Some(v)
+            } else {
+                None
+            }
+        }
+        _ => None,
+    }
+}
+
+/// Finds the min and max values of the glTF accessor.
+pub fn find_accessor_min_max(gltf: &Value, accessor: &Value) -> Result<AccessorMinMax, String> {
+    let type_str = accessor
+        .get("type")
+        .and_then(|v| v.as_str())
+        .unwrap_or("SCALAR");
+    let num_components = number_of_components_for_type(type_str);
+
+    let buffer_view_id = match accessor.get("bufferView").and_then(|v| v.as_u64()) {
+        Some(id) => id as usize,
+        None => {
+            // According to spec: accessor without bufferView returns zeros
+            return Ok(AccessorMinMax {
+                min: vec![0.0; num_components],
+                max: vec![0.0; num_components],
+            });
+        }
+    };
+
+    let buffer_views = gltf
+        .get("bufferViews")
+        .and_then(|v| v.as_array())
+        .ok_or_else(|| "bufferViews missing in glTF".to_string())?;
+
+    let buffer_view = buffer_views
+        .get(buffer_view_id)
+        .ok_or_else(|| format!("bufferView index {buffer_view_id} out of bounds"))?;
+
+    let buffer_id = buffer_view
+        .get("buffer")
+        .and_then(|v| v.as_u64())
+        .ok_or_else(|| "bufferView.buffer missing".to_string())? as usize;
+
+    let buffers = gltf
+        .get("buffers")
+        .and_then(|v| v.as_array())
+        .ok_or_else(|| "buffers missing in glTF".to_string())?;
+
+    let buffer = buffers
+        .get(buffer_id)
+        .ok_or_else(|| format!("buffer index {buffer_id} out of bounds"))?;
+
+    let source_bytes: Vec<u8> = if let Some(source_val) = buffer
+        .get("extras")
+        .and_then(|e| e.get("_pipeline"))
+        .and_then(|p| p.get("source"))
+    {
+        if let Some(arr) = source_val.as_array() {
+            arr.iter()
+                .filter_map(|v| v.as_u64().map(|b| b as u8))
+                .collect()
+        } else {
+            return Err("buffer.extras._pipeline.source is not an array".to_string());
+        }
+    } else {
+        return Err("buffer.extras._pipeline.source missing".to_string());
+    };
+
+    let count = accessor
+        .get("count")
+        .and_then(|v| v.as_u64())
+        .unwrap_or(0) as usize;
+
+    let component_type = accessor
+        .get("componentType")
+        .and_then(|v| v.as_u64())
+        .unwrap_or(5126) as u32;
+
+    let byte_stride = get_accessor_byte_stride(gltf, accessor);
+    let comp_size = component_type_size_in_bytes(component_type);
+
+    let accessor_byte_offset = accessor
+        .get("byteOffset")
+        .and_then(|v| v.as_u64())
+        .unwrap_or(0) as usize;
+
+    let buffer_view_byte_offset = buffer_view
+        .get("byteOffset")
+        .and_then(|v| v.as_u64())
+        .unwrap_or(0) as usize;
+
+    let mut start_offset = accessor_byte_offset + buffer_view_byte_offset;
+
+    let mut min = vec![f64::INFINITY; num_components];
+    let mut max = vec![f64::NEG_INFINITY; num_components];
+
+    for _ in 0..count {
+        for j in 0..num_components {
+            let offset = start_offset + j * comp_size;
+            if let Some(val) = read_component_value(&source_bytes, offset, component_type) {
+                if !val.is_nan() {
+                    min[j] = min[j].min(val);
+                    max[j] = max[j].max(val);
+                }
+            }
+        }
+        start_offset += byte_stride;
+    }
+
+    Ok(AccessorMinMax { min, max })
+}
+
+
 
 

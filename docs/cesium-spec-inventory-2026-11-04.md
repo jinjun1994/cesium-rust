@@ -795,7 +795,7 @@
 | [packages/gltf/Specs/addPipelineExtrasSpec.js](../../cesium/packages/gltf/Specs/addPipelineExtrasSpec.js) | 已完成 (2/2 单测通过，覆盖 glTF 1.0 与 glTF 2.0 缓冲区、着色器、图像与根资产 extras._pipeline 属性初始化注入) |
 | [packages/gltf/Specs/addToArraySpec.js](../../cesium/packages/gltf/Specs/addToArraySpec.js) | 已完成 (2/2 单测通过，覆盖动态添加数组项返回下标、开启 checkDuplicates 时的去重查询与复用已有下标) |
 | [packages/gltf/Specs/constructBoundingVolumeJsonSpec.js](../../cesium/packages/gltf/Specs/constructBoundingVolumeJsonSpec.js) | 已完成 (12/12 单测通过，覆盖包围体 box 半轴计算/缩放/四元数旋转与中心平移转换、sphere 半径/各向异性最大分量缩放/中心平移转换、输入不可变性与非支持几何类型校验拦截) |
-| [packages/gltf/Specs/findAccessorMinMaxSpec.js](../../cesium/packages/gltf/Specs/findAccessorMinMaxSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/findAccessorMinMaxSpec.js](../../cesium/packages/gltf/Specs/findAccessorMinMaxSpec.js) | 已完成 (2/2 单测通过，覆盖连续缓冲区与带 byteStride 步长非连续缓冲区 accessor 的各分量 min/max 提取计算与 NaN 容错) |
 | [packages/gltf/Specs/forEachTextureInMaterialSpec.js](../../cesium/packages/gltf/Specs/forEachTextureInMaterialSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/getAccessorByteStrideSpec.js](../../cesium/packages/gltf/Specs/getAccessorByteStrideSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/getComponentReaderSpec.js](../../cesium/packages/gltf/Specs/getComponentReaderSpec.js) | 待逐项核对 |
