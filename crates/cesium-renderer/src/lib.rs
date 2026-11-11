@@ -269,6 +269,7 @@ pub mod url_template_imagery_provider;
 pub mod vector_3d_tile_clamped_polylines;
 pub mod vector_3d_tile_content;
 pub mod vector_3d_tile_geometry;
+pub mod vector_3d_tile_points;
 pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;
@@ -529,6 +530,10 @@ pub use vector_3d_tile_geometry::{
     pack_boxes, pack_cylinders, pack_ellipsoids, pack_spheres, Vector3DTileBatch,
     Vector3DTileGeometry, Vector3DTileGeometryOptions, PACKED_BOX_LENGTH, PACKED_CYLINDER_LENGTH,
     PACKED_ELLIPSOID_LENGTH, PACKED_SPHERE_LENGTH,
+};
+pub use vector_3d_tile_points::{
+    decode_positions, encode_positions, un_zig_zag, zig_zag, Cesium3DTilePointFeature,
+    Vector3DTilePoints, Vector3DTilePointsOptions,
 };
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,
