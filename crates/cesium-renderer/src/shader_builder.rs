@@ -213,6 +213,10 @@ impl ShaderBuilder {
         self.functions.get(function_id)
     }
 
+    pub fn get_struct(&self, struct_id: &str) -> Option<&ShaderStruct> {
+        self.structs.get(struct_id)
+    }
+
     pub fn vertex_uniform_lines(&self) -> &[String] {
         &self.vertex_shader_parts.uniform_lines
     }

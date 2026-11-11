@@ -7,6 +7,8 @@ use cesium_math::{Cartesian3, DeveloperError, Matrix4};
 use crate::clipping_plane_collection::ClippingPlaneCollection;
 use crate::commands::DrawCommand;
 use crate::custom_shader::{CustomShader, CustomShaderOptions};
+use crate::metadata_component_type::MetadataComponentType;
+use crate::metadata_type::MetadataType;
 use crate::primitive_collection::next_primitive_id;
 use crate::scene_primitive::PrimitiveRenderFrameState;
 use crate::shader_builder::BuiltShaderProgram;
@@ -30,6 +32,31 @@ pub trait VoxelProvider: std::fmt::Debug {
     }
     fn global_transform(&self) -> Option<Matrix4> {
         None
+    }
+    fn names(&self) -> Vec<String> {
+        vec!["a".to_string()]
+    }
+    fn types(&self) -> Vec<MetadataType> {
+        vec![MetadataType::Scalar]
+    }
+    fn component_types(&self) -> Vec<MetadataComponentType> {
+        vec![MetadataComponentType::Float32]
+    }
+    fn min_values_per_component(&self) -> Option<Vec<Vec<f64>>> {
+        let min_vals = self.minimum_values();
+        if min_vals.is_empty() {
+            None
+        } else {
+            Some(vec![min_vals])
+        }
+    }
+    fn max_values_per_component(&self) -> Option<Vec<Vec<f64>>> {
+        let max_vals = self.maximum_values();
+        if max_vals.is_empty() {
+            None
+        } else {
+            Some(vec![max_vals])
+        }
     }
 }
 
@@ -86,6 +113,34 @@ impl VoxelProvider for MockVoxelProvider {
 
     fn global_transform(&self) -> Option<Matrix4> {
         self.global_transform
+    }
+
+    fn names(&self) -> Vec<String> {
+        vec!["a".to_string()]
+    }
+
+    fn types(&self) -> Vec<MetadataType> {
+        vec![MetadataType::Scalar]
+    }
+
+    fn component_types(&self) -> Vec<MetadataComponentType> {
+        vec![MetadataComponentType::Float32]
+    }
+
+    fn min_values_per_component(&self) -> Option<Vec<Vec<f64>>> {
+        if self.minimum_values.is_empty() {
+            None
+        } else {
+            Some(vec![self.minimum_values.clone()])
+        }
+    }
+
+    fn max_values_per_component(&self) -> Option<Vec<Vec<f64>>> {
+        if self.maximum_values.is_empty() {
+            None
+        } else {
+            Some(vec![self.maximum_values.clone()])
+        }
     }
 }
 

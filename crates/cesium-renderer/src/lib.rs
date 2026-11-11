@@ -300,6 +300,7 @@ pub mod parse_batch_table;
 pub mod parse_feature_metadata_legacy;
 pub mod parse_structural_metadata;
 pub mod preprocess_3d_tile_content;
+pub mod process_voxel_properties;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -630,6 +631,7 @@ pub use parse_structural_metadata::{
     parse_structural_metadata, ParseStructuralMetadataOptions,
 };
 pub use preprocess_3d_tile_content::{preprocess_3d_tile_content, PreprocessedContent};
+pub use process_voxel_properties::process_voxel_properties;
 pub use keyframe_node::{KeyframeLoadState, KeyframeNode};
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,

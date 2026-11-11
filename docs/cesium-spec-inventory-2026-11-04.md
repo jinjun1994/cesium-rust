@@ -782,7 +782,7 @@
 | [packages/engine/Specs/Scene/parseFeatureMetadataLegacySpec.js](../../cesium/packages/engine/Specs/Scene/parseFeatureMetadataLegacySpec.js) | 已完成 (5/5 单测通过，覆盖 EXT_feature_metadata 特征表字典序排序转码、字符串/标量属性解包、特征纹理通道转码与统计扩展) |
 | [packages/engine/Specs/Scene/parseStructuralMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/parseStructuralMetadataSpec.js) | 已完成 (7/7 单测通过，覆盖 EXT_structural_metadata 解析、属性表/属性纹理/属性属性构建、统计数据、扩展与附加字段) |
 | [packages/engine/Specs/Scene/preprocess3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/preprocess3DTileContentSpec.js) | 已完成 (9/9 单测通过，覆盖 3D Tiles 瓦片内容预处理、Magic 校验、外部 Tileset、glTF/GLB、子树扩展判断、GeoJSON 解析与异常处理) |
-| [packages/engine/Specs/Scene/processVoxelPropertiesSpec.js](../../cesium/packages/engine/Specs/Scene/processVoxelPropertiesSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/processVoxelPropertiesSpec.js](../../cesium/packages/engine/Specs/Scene/processVoxelPropertiesSpec.js) | 已完成 (1/1 单测通过，覆盖体素属性着色器宏定义、统计/属性/输入结构体注入与插值/采样/统计函数生成) |
 | [packages/engine/Specs/Scene/renderBufferPointCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/renderBufferPointCollectionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/renderBufferPolygonCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/renderBufferPolygonCollectionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/renderBufferPolylineCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/renderBufferPolylineCollectionSpec.js) | 待逐项核对 |
