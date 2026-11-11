@@ -792,6 +792,156 @@ pub fn get_node_transform(node_json: &Value) -> Option<Vec<f64>> {
     Some(mat.to_cols_array().to_vec())
 }
 
+pub const WEBGL_DEPTH_TEST: u32 = 2929;
+pub const WEBGL_BLEND: u32 = 3042;
+pub const WEBGL_CULL_FACE: u32 = 2884;
+pub const WEBGL_FUNC_ADD: u32 = 32774;
+pub const WEBGL_ZERO: u32 = 0;
+pub const WEBGL_ONE: u32 = 1;
+
+const SUPPORTED_BLEND_FACTORS: [u32; 10] = [
+    0,     // ZERO
+    1,     // ONE
+    768,   // SRC_COLOR
+    769,   // ONE_MINUS_SRC_COLOR
+    770,   // SRC_ALPHA
+    771,   // ONE_MINUS_SRC_ALPHA
+    772,   // DST_ALPHA
+    773,   // ONE_MINUS_DST_ALPHA
+    774,   // DST_COLOR
+    775,   // ONE_MINUS_DST_COLOR
+];
+
+fn is_state_enabled(render_states: &Value, state: u32) -> bool {
+    if let Some(enable) = render_states.get("enable").and_then(|v| v.as_array()) {
+        enable.iter().any(|item| item.as_u64() == Some(state as u64))
+    } else {
+        false
+    }
+}
+
+fn get_supported_blend_factors(val: Option<&Value>, default_factors: &Value) -> Value {
+    if let Some(arr) = val.and_then(|v| v.as_array()) {
+        if arr.len() == 4 {
+            let all_supported = arr.iter().all(|item| {
+                if let Some(f) = item.as_u64() {
+                    SUPPORTED_BLEND_FACTORS.contains(&(f as u32))
+                } else {
+                    false
+                }
+            });
+            if all_supported {
+                return Value::Array(arr.clone());
+            }
+        }
+    }
+    default_factors.clone()
+}
+
+/// Moves glTF 1.0 technique render states to glTF 2.0 materials properties and KHR_blend extension.
+pub fn move_technique_render_states(mut gltf: Value) -> Value {
+    if gltf.get("techniques").is_none() {
+        return gltf;
+    }
+
+    let default_blend_equation = json!([WEBGL_FUNC_ADD, WEBGL_FUNC_ADD]);
+    let default_blend_factors = json!([WEBGL_ONE, WEBGL_ZERO, WEBGL_ONE, WEBGL_ZERO]);
+
+    let mut blending_for_technique: std::collections::HashMap<String, Value> = std::collections::HashMap::new();
+    let mut material_properties_for_technique: std::collections::HashMap<String, serde_json::Map<String, Value>> =
+        std::collections::HashMap::new();
+
+    // Iterate over techniques
+    if let Some(techniques) = gltf.get_mut("techniques") {
+        let mut process_technique = |tech_id: String, tech: &mut Value| {
+            if let Some(render_states) = tech.get_mut("states") {
+                let mut material_props = serde_json::Map::new();
+
+                if is_state_enabled(render_states, WEBGL_BLEND) {
+                    material_props.insert("alphaMode".to_string(), json!("BLEND"));
+
+                    if let Some(blend_functions) = render_states.get("functions") {
+                        let has_eq = blend_functions.get("blendEquationSeparate").is_some();
+                        let has_func = blend_functions.get("blendFuncSeparate").is_some();
+                        if has_eq || has_func {
+                            let eq = blend_functions
+                                .get("blendEquationSeparate")
+                                .cloned()
+                                .unwrap_or_else(|| default_blend_equation.clone());
+                            let factors = get_supported_blend_factors(
+                                blend_functions.get("blendFuncSeparate"),
+                                &default_blend_factors,
+                            );
+
+                            blending_for_technique.insert(
+                                tech_id.clone(),
+                                json!({
+                                    "blendEquation": eq,
+                                    "blendFactors": factors
+                                }),
+                            );
+                        }
+                    }
+                }
+
+                if !is_state_enabled(render_states, WEBGL_CULL_FACE) {
+                    material_props.insert("doubleSided".to_string(), json!(true));
+                }
+
+                material_properties_for_technique.insert(tech_id, material_props);
+            }
+            if let Some(tech_obj) = tech.as_object_mut() {
+                tech_obj.remove("states");
+            }
+        };
+
+        if let Some(arr) = techniques.as_array_mut() {
+            for (idx, tech) in arr.iter_mut().enumerate() {
+                process_technique(idx.to_string(), tech);
+            }
+        } else if let Some(map) = techniques.as_object_mut() {
+            for (tech_id, tech) in map.iter_mut() {
+                process_technique(tech_id.clone(), tech);
+            }
+        }
+    }
+
+    if !blending_for_technique.is_empty() {
+        add_extensions_used(&mut gltf, "KHR_blend");
+    }
+
+    if let Some(materials) = gltf.get_mut("materials").and_then(|v| v.as_array_mut()) {
+        for mat in materials {
+            let tech_id_opt = mat
+                .get("technique")
+                .and_then(|t| t.as_str().map(|s| s.to_string()))
+                .or_else(|| mat.get("technique").and_then(|t| t.as_u64().map(|u| u.to_string())));
+
+            if let Some(tech_id) = tech_id_opt {
+                if let Some(props) = material_properties_for_technique.get(&tech_id) {
+                    if let Some(mat_obj) = mat.as_object_mut() {
+                        for (k, v) in props {
+                            mat_obj.insert(k.clone(), v.clone());
+                        }
+                    }
+                }
+
+                if let Some(blending) = blending_for_technique.get(&tech_id) {
+                    if mat.get("extensions").is_none() {
+                        mat["extensions"] = json!({});
+                    }
+                    if let Some(ext) = mat.get_mut("extensions").and_then(|v| v.as_object_mut()) {
+                        ext.insert("KHR_blend".to_string(), blending.clone());
+                    }
+                }
+            }
+        }
+    }
+
+    gltf
+}
+
+
 
 
 fn read_component_value(bytes: &[u8], offset: usize, component_type: u32) -> Option<f64> {

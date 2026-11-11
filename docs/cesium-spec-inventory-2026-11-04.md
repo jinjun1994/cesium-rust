@@ -800,7 +800,7 @@
 | [packages/gltf/Specs/getAccessorByteStrideSpec.js](../../cesium/packages/gltf/Specs/getAccessorByteStrideSpec.js) | 已完成 (1/1 单测通过，覆盖无 bufferView、未显式指定步长、显式指定步长、不同数据类型及分量数的 accessor 字节跨度计算) |
 | [packages/gltf/Specs/getComponentReaderSpec.js](../../cesium/packages/gltf/Specs/getComponentReaderSpec.js) | 已完成 (2/2 单测通过，覆盖 BYTE/UNSIGNED_BYTE/SHORT/UNSIGNED_SHORT/INT/UNSIGNED_INT/FLOAT/DOUBLE 所有组件类型小端二进制切片读取转换及非法组件类型拦截) |
 | [packages/gltf/Specs/getNodeTransformSpec.js](../../cesium/packages/gltf/Specs/getNodeTransformSpec.js) | 已完成 (4/4 单测通过，覆盖无变换返回 None、提取显式矩阵、TRS 平移/旋转/缩放列主序合成及缺失分量单位元补全) |
-| [packages/gltf/Specs/moveTechniqueRenderStatesSpec.js](../../cesium/packages/gltf/Specs/moveTechniqueRenderStatesSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/moveTechniqueRenderStatesSpec.js](../../cesium/packages/gltf/Specs/moveTechniqueRenderStatesSpec.js) | 已完成 (5/5 单测通过，覆盖无 CULL_FACE 时 material.doubleSided 迁移设置、混合模式 BLEND 与混合方程/混合因子向 KHR_blend 扩展迁移、非法因子降级默认值及非混合技术保持纯净) |
 | [packages/gltf/Specs/moveTechniquesToExtensionSpec.js](../../cesium/packages/gltf/Specs/moveTechniquesToExtensionSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/numberOfComponentsForTypeSpec.js](../../cesium/packages/gltf/Specs/numberOfComponentsForTypeSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/parseGlbSpec.js](../../cesium/packages/gltf/Specs/parseGlbSpec.js) | 待逐项核对 |
