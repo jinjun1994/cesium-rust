@@ -239,6 +239,7 @@ pub mod shadow_volume_appearance;
 pub mod single_tile_imagery_provider;
 pub mod sky_atmosphere;
 pub mod sky_box;
+pub mod snapping;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -633,6 +634,7 @@ pub use single_tile_imagery_provider::{
 };
 pub use sky_atmosphere::{SkyAtmosphere, SkyAtmosphereFramePasses, SkyAtmosphereFrameState};
 pub use sky_box::{SkyBox, SkyBoxFaceSource, SkyBoxOptions, SkyBoxSources};
+pub use snapping::{SceneSnapResult, SnapHit, Snapping};
 pub use resource_cache::{CacheEntry, ResourceCache};
 pub use resource_cache_key::{
     IndexBufferCacheKeyOptions, ResourceCacheKey, SchemaCacheKeyOptions, SupportedImageFormats,
