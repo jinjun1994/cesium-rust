@@ -189,6 +189,7 @@ pub mod pass_state;
 pub mod particle;
 pub mod particle_emitter;
 pub mod particle_system;
+pub mod per_instance_color_appearance;
 pub mod pick_id;
 pub mod picking;
 pub mod pipelines;
@@ -499,6 +500,9 @@ pub use particle_emitter::{
 };
 pub use particle_system::{
     ParticleBurst, ParticleForceCallback, ParticleSystem, ParticleSystemOptions,
+};
+pub use per_instance_color_appearance::{
+    PerInstanceColorAppearance, PerInstanceColorAppearanceOptions,
 };
 pub use sync::{Sync, SyncStatus};
 pub use shared_context::{SceneContext, SharedContext, SharedContextOptions};
