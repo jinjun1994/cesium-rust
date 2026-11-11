@@ -86,10 +86,11 @@ pub struct BufferPointOptions {
     pub position: Option<Cartesian3>,
     pub feature_id: Option<u32>,
     pub show: Option<bool>,
+    pub material: Option<BufferPointMaterial>,
 }
 
 /// Collection of points held in continuous storage.
-#[derive(Debug, Clone, Default, PartialEq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct BufferPointCollection {
     pub positions: Vec<Cartesian3>,
     pub feature_ids: Vec<u32>,
@@ -99,6 +100,27 @@ pub struct BufferPointCollection {
     pub primitive_count_max: usize,
     pub position_normalized: bool,
     pub position_datatype: Option<ComponentDatatype>,
+    pub show: bool,
+    pub allow_picking: bool,
+    pub model_matrix: Matrix4,
+}
+
+impl Default for BufferPointCollection {
+    fn default() -> Self {
+        Self {
+            positions: Vec::new(),
+            feature_ids: Vec::new(),
+            shows: Vec::new(),
+            materials: Vec::new(),
+            blend_option: BlendOption::Opaque,
+            primitive_count_max: 0,
+            position_normalized: false,
+            position_datatype: None,
+            show: true,
+            allow_picking: false,
+            model_matrix: Matrix4::IDENTITY,
+        }
+    }
 }
 
 impl BufferPointCollection {
@@ -125,12 +147,22 @@ impl BufferPointCollection {
             .unwrap_or_default();
     }
 
+    #[inline]
+    pub fn set(&mut self, index: usize, point: &BufferPoint) {
+        if index < self.positions.len() {
+            self.positions[index] = point.position;
+            self.feature_ids[index] = point.feature_id;
+            self.shows[index] = point.show;
+            self.materials[index] = point.material.clone();
+        }
+    }
+
     pub fn add(&mut self, options: BufferPointOptions, result: &mut BufferPoint) {
         let index = self.positions.len();
         let pos = options.position.unwrap_or(Cartesian3::ZERO);
         let fid = options.feature_id.unwrap_or(index as u32);
         let show = options.show.unwrap_or(true);
-        let material = BufferPointMaterial::default();
+        let material = options.material.unwrap_or_default();
 
         self.positions.push(pos);
         self.feature_ids.push(fid);
@@ -142,6 +174,29 @@ impl BufferPointCollection {
         result.feature_id = fid;
         result.show = show;
         result.material = material;
+    }
+
+    pub fn sort<F>(&mut self, mut compare: F)
+    where
+        F: FnMut(&BufferPoint, &BufferPoint) -> std::cmp::Ordering,
+    {
+        let count = self.positions.len();
+        let mut points: Vec<BufferPoint> = (0..count)
+            .map(|i| {
+                let mut pt = BufferPoint::default();
+                self.get(i, &mut pt);
+                pt
+            })
+            .collect();
+
+        points.sort_by(|a, b| compare(a, b));
+
+        for (i, pt) in points.into_iter().enumerate() {
+            self.positions[i] = pt.position;
+            self.feature_ids[i] = pt.feature_id;
+            self.shows[i] = pt.show;
+            self.materials[i] = pt.material;
+        }
     }
 }
 
@@ -1337,6 +1392,7 @@ fn append_buffer_points(
                 position: Some(pos),
                 feature_id,
                 show: Some(true),
+                ..Default::default()
             },
             &mut scratch,
         );
