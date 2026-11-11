@@ -302,6 +302,7 @@ pub mod parse_structural_metadata;
 pub mod preprocess_3d_tile_content;
 pub mod process_voxel_properties;
 pub mod render_buffer_point_collection;
+pub mod render_buffer_polygon_collection;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -636,6 +637,10 @@ pub use process_voxel_properties::process_voxel_properties;
 pub use render_buffer_point_collection::{
     drill_pick_buffer_point_collection, pick_buffer_point_collection,
     render_buffer_point_collection,
+};
+pub use render_buffer_polygon_collection::{
+    drill_pick_buffer_polygon_collection, pick_buffer_polygon_collection,
+    render_buffer_polygon_collection,
 };
 pub use keyframe_node::{KeyframeLoadState, KeyframeNode};
 pub use open_street_map_imagery_provider::{

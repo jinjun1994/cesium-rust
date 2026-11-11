@@ -3,7 +3,9 @@
 
 use std::collections::HashMap;
 
-use cesium_math::{Cartesian3, Color, ComponentDatatype, IndexDatatype, Matrix4, PrimitiveType};
+use cesium_math::{
+    Cartesian3, Color, ComponentDatatype, HeightReference, IndexDatatype, Matrix4, PrimitiveType,
+};
 
 use crate::buffer_primitive_material::{
     BufferPointMaterial, BufferPolygonMaterial, BufferPolylineMaterial,
@@ -373,6 +375,11 @@ impl BufferPolygon {
     }
 
     #[inline]
+    pub fn set_positions(&mut self, positions: &[f32]) {
+        self.positions = positions.to_vec();
+    }
+
+    #[inline]
     pub fn hole_count(&self) -> usize {
         self.holes.len()
     }
@@ -406,10 +413,11 @@ pub struct BufferPolygonOptions {
     pub holes: Vec<u32>,
     pub feature_id: Option<u32>,
     pub show: Option<bool>,
+    pub material: Option<BufferPolygonMaterial>,
 }
 
 /// Collection of polygons held in continuous storage.
-#[derive(Debug, Clone, Default, PartialEq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct BufferPolygonCollection {
     pub positions: Vec<f32>,
     pub triangles: Vec<u32>,
@@ -430,6 +438,40 @@ pub struct BufferPolygonCollection {
     pub triangle_count_max: usize,
     pub position_normalized: bool,
     pub position_datatype: Option<ComponentDatatype>,
+    pub show: bool,
+    pub allow_picking: bool,
+    pub model_matrix: Matrix4,
+    pub height_reference: Option<HeightReference>,
+}
+
+impl Default for BufferPolygonCollection {
+    fn default() -> Self {
+        Self {
+            positions: Vec::new(),
+            triangles: Vec::new(),
+            holes: Vec::new(),
+            pos_offsets: Vec::new(),
+            pos_counts: Vec::new(),
+            tri_offsets: Vec::new(),
+            tri_counts: Vec::new(),
+            hole_offsets: Vec::new(),
+            hole_counts: Vec::new(),
+            feature_ids: Vec::new(),
+            shows: Vec::new(),
+            materials: Vec::new(),
+            blend_option: BlendOption::Opaque,
+            primitive_count_max: 0,
+            vertex_count_max: 0,
+            hole_count_max: 0,
+            triangle_count_max: 0,
+            position_normalized: false,
+            position_datatype: None,
+            show: true,
+            allow_picking: false,
+            model_matrix: Matrix4::IDENTITY,
+            height_reference: None,
+        }
+    }
 }
 
 impl BufferPolygonCollection {
@@ -491,6 +533,92 @@ impl BufferPolygonCollection {
             .unwrap_or_default();
     }
 
+    #[inline]
+    pub fn set(&mut self, index: usize, polygon: &BufferPolygon) {
+        if index < self.pos_offsets.len() {
+            self.shows[index] = polygon.show;
+            self.feature_ids[index] = polygon.feature_id;
+            self.materials[index] = polygon.material.clone();
+            self.set_positions(index, &polygon.positions);
+        }
+    }
+
+    pub fn set_positions(&mut self, index: usize, positions: &[f32]) {
+        if index < self.pos_offsets.len() {
+            let start = self.pos_offsets[index] * 3;
+            let current_count = self.pos_counts[index] * 3;
+            if positions.len() == current_count && start + current_count <= self.positions.len() {
+                self.positions[start..start + current_count].copy_from_slice(positions);
+            }
+        }
+    }
+
+    pub fn sort<F>(&mut self, mut compare: F)
+    where
+        F: FnMut(&BufferPolygon, &BufferPolygon) -> std::cmp::Ordering,
+    {
+        let count = self.primitive_count();
+        let mut polygons: Vec<BufferPolygon> = (0..count)
+            .map(|i| {
+                let mut poly = BufferPolygon::default();
+                self.get(i, &mut poly);
+                poly
+            })
+            .collect();
+
+        polygons.sort_by(|a, b| compare(a, b));
+
+        // Rebuild flat buffers
+        let mut new_positions = Vec::new();
+        let mut new_triangles = Vec::new();
+        let mut new_holes = Vec::new();
+        let mut new_pos_offsets = Vec::new();
+        let mut new_pos_counts = Vec::new();
+        let mut new_tri_offsets = Vec::new();
+        let mut new_tri_counts = Vec::new();
+        let mut new_hole_offsets = Vec::new();
+        let mut new_hole_counts = Vec::new();
+        let mut new_feature_ids = Vec::new();
+        let mut new_shows = Vec::new();
+        let mut new_materials = Vec::new();
+
+        for poly in polygons {
+            let p_off = new_positions.len() / 3;
+            let p_cnt = poly.positions.len() / 3;
+            let t_off = new_triangles.len() / 3;
+            let t_cnt = poly.triangles.len() / 3;
+            let h_off = new_holes.len();
+            let h_cnt = poly.holes.len();
+
+            new_positions.extend_from_slice(&poly.positions);
+            new_triangles.extend_from_slice(&poly.triangles);
+            new_holes.extend_from_slice(&poly.holes);
+
+            new_pos_offsets.push(p_off);
+            new_pos_counts.push(p_cnt);
+            new_tri_offsets.push(t_off);
+            new_tri_counts.push(t_cnt);
+            new_hole_offsets.push(h_off);
+            new_hole_counts.push(h_cnt);
+            new_feature_ids.push(poly.feature_id);
+            new_shows.push(poly.show);
+            new_materials.push(poly.material);
+        }
+
+        self.positions = new_positions;
+        self.triangles = new_triangles;
+        self.holes = new_holes;
+        self.pos_offsets = new_pos_offsets;
+        self.pos_counts = new_pos_counts;
+        self.tri_offsets = new_tri_offsets;
+        self.tri_counts = new_tri_counts;
+        self.hole_offsets = new_hole_offsets;
+        self.hole_counts = new_hole_counts;
+        self.feature_ids = new_feature_ids;
+        self.shows = new_shows;
+        self.materials = new_materials;
+    }
+
     pub fn add(&mut self, options: BufferPolygonOptions, result: &mut BufferPolygon) {
         let index = self.pos_offsets.len();
 
@@ -505,7 +633,7 @@ impl BufferPolygonCollection {
 
         let fid = options.feature_id.unwrap_or(index as u32);
         let show = options.show.unwrap_or(true);
-        let material = BufferPolygonMaterial::default();
+        let material = options.material.unwrap_or_default();
 
         self.positions.extend_from_slice(&options.positions);
         self.triangles.extend_from_slice(&options.triangles);
@@ -537,6 +665,7 @@ impl BufferPolygonCollection {
 
 /// Any vector buffer primitive collection.
 #[derive(Debug, Clone, PartialEq)]
+#[allow(clippy::large_enum_variant)]
 pub enum BufferCollection {
     Point(BufferPointCollection),
     Polyline(BufferPolylineCollection),
@@ -1551,6 +1680,7 @@ fn append_buffer_polygons_deprecated(
                 holes,
                 feature_id,
                 show: Some(true),
+                ..Default::default()
             },
             &mut scratch,
         );
@@ -1636,6 +1766,7 @@ fn append_buffer_polygons(
                 holes,
                 feature_id,
                 show: Some(true),
+                ..Default::default()
             },
             &mut scratch,
         );
