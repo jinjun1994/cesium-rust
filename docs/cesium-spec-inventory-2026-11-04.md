@@ -726,7 +726,7 @@
 | [packages/engine/Specs/Scene/StructuralMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/StructuralMetadataSpec.js) | 已完成 (6/6 tests passing, `crates/cesium-renderer/tests/structural_metadata_spec.rs`, `crates/cesium-renderer/src/structural_metadata.rs`) |
 | [packages/engine/Specs/Scene/StyleExpressionSpec.js](../../cesium/packages/engine/Specs/Scene/StyleExpressionSpec.js) | 已完成 (1/1 tests passing, `crates/cesium-renderer/tests/style_expression_spec.rs`, `crates/cesium-renderer/src/style_expression.rs`) |
 | [packages/engine/Specs/Scene/SunLightSpec.js](../../cesium/packages/engine/Specs/Scene/SunLightSpec.js) | 已完成 (2/2 tests passing, `crates/cesium-renderer/tests/sun_light_spec.rs`, `crates/cesium-renderer/src/sun_light.rs`) |
-| [packages/engine/Specs/Scene/SunSpec.js](../../cesium/packages/engine/Specs/Scene/SunSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/SunSpec.js](../../cesium/packages/engine/Specs/Scene/SunSpec.js) | 已完成 (8/8 tests passing, `crates/cesium-renderer/tests/sun_spec.rs`, `crates/cesium-renderer/src/sun.rs`) |
 | [packages/engine/Specs/Scene/SupportedImageFormatsSpec.js](../../cesium/packages/engine/Specs/Scene/SupportedImageFormatsSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/TerrainFillMeshSpec.js](../../cesium/packages/engine/Specs/Scene/TerrainFillMeshSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/TerrainSpec.js](../../cesium/packages/engine/Specs/Scene/TerrainSpec.js) | 待逐项核对 |
