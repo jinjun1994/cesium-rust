@@ -737,7 +737,7 @@
 | [packages/engine/Specs/Scene/TileCoordinatesImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/TileCoordinatesImageryProviderSpec.js) | 已完成 (6/6 tests passing, `crates/cesium-renderer/tests/tile_coordinates_imagery_provider_spec.rs`, `crates/cesium-renderer/src/tile_coordinates_imagery_provider.rs`) |
 | [packages/engine/Specs/Scene/TileImagerySpec.js](../../cesium/packages/engine/Specs/Scene/TileImagerySpec.js) | 已完成 (3/3 tests passing, `crates/cesium-renderer/tests/tile_imagery_spec.rs`, `crates/cesium-renderer/src/tile_imagery.rs`) |
 | [packages/engine/Specs/Scene/TileMapServiceImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/TileMapServiceImageryProviderSpec.js) | 已完成 (6/6 tests passing, `crates/cesium-renderer/tests/tile_map_service_imagery_provider_spec.rs`, `crates/cesium-renderer/src/tile_map_service_imagery_provider.rs`) |
-| [packages/engine/Specs/Scene/TileMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/TileMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TileMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/TileMetadataSpec.js) | 已完成 (5/5 tests passing, `crates/cesium-renderer/tests/tile_metadata_spec.rs`, `crates/cesium-renderer/src/tile_metadata.rs`) |
 | [packages/engine/Specs/Scene/TileOrientedBoundingBoxSpec.js](../../cesium/packages/engine/Specs/Scene/TileOrientedBoundingBoxSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/TileReplacementQueueSpec.js](../../cesium/packages/engine/Specs/Scene/TileReplacementQueueSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Tileset3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Tileset3DTileContentSpec.js) | 待逐项核对 |

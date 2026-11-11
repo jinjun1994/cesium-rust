@@ -1,6 +1,5 @@
 use cesium_math::DeveloperError;
 use serde_json::Value;
-use std::collections::HashMap;
 
 /// Trait for objects that can look up metadata values by semantic name.
 pub trait PropertyBySemantic {
@@ -26,34 +25,7 @@ pub struct BoundingVolumeSemanticsResult {
 
 pub use crate::metadata_class::MetadataClass;
 pub use crate::metadata_class_property::MetadataClassProperty;
-
-/// Represents tile metadata containing properties and optional class schema.
-#[derive(Debug, Clone, Default)]
-pub struct TileMetadata {
-    pub class: Option<MetadataClass>,
-    pub properties: HashMap<String, Value>,
-}
-
-impl TileMetadata {
-    /// Creates a new `TileMetadata` from class and properties.
-    pub fn new(class: Option<MetadataClass>, properties: HashMap<String, Value>) -> Self {
-        Self { class, properties }
-    }
-}
-
-impl PropertyBySemantic for TileMetadata {
-    fn get_property_by_semantic(&self, semantic: &str) -> Option<Value> {
-        let class = self.class.as_ref()?;
-        for (prop_id, prop_def) in &class.properties {
-            if prop_def.semantic.as_deref() == Some(semantic) {
-                if let Some(val) = self.properties.get(prop_id) {
-                    return Some(val.clone());
-                }
-            }
-        }
-        None
-    }
-}
+pub use crate::tile_metadata::TileMetadata;
 
 /// Utilities for parsing bounding volume semantics from 3D Tiles 1.1 metadata.
 pub struct BoundingVolumeSemantics;
