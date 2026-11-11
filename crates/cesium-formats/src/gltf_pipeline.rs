@@ -478,3 +478,55 @@ pub fn add_extensions_required(gltf: &mut Value, extension: &str) {
     add_extensions_used(gltf, extension);
 }
 
+fn add_extras_to_object(object: &mut Value) {
+    if !object.is_object() {
+        return;
+    }
+    if object.get("extras").is_none() {
+        object["extras"] = json!({});
+    }
+    if let Some(extras) = object.get_mut("extras").and_then(|e| e.as_object_mut()) {
+        if !extras.contains_key("_pipeline") {
+            extras.insert("_pipeline".to_string(), json!({}));
+        }
+    }
+}
+
+fn add_extras_to_collection(collection: &mut Value) {
+    if let Some(arr) = collection.as_array_mut() {
+        for item in arr {
+            add_extras_to_object(item);
+        }
+    } else if let Some(map) = collection.as_object_mut() {
+        for (_, item) in map {
+            add_extras_to_object(item);
+        }
+    }
+}
+
+/// Adds `extras._pipeline` to each object that can have extras in the glTF asset.
+/// This stage runs before `updateVersion` and handles both glTF 1.0 and glTF 2.0 assets.
+pub fn add_pipeline_extras(mut gltf: Value) -> Value {
+    if let Some(buffers) = gltf.get_mut("buffers") {
+        add_extras_to_collection(buffers);
+    }
+    if let Some(images) = gltf.get_mut("images") {
+        add_extras_to_collection(images);
+    }
+    if let Some(shaders) = gltf.get_mut("shaders") {
+        add_extras_to_collection(shaders);
+    }
+    if let Some(ext) = gltf.get_mut("extensions").and_then(|e| e.as_object_mut()) {
+        if let Some(tech) = ext.get_mut("KHR_techniques_webgl").and_then(|t| t.as_object_mut()) {
+            if let Some(shaders) = tech.get_mut("shaders") {
+                add_extras_to_collection(shaders);
+            }
+        }
+    }
+
+    add_extras_to_object(&mut gltf);
+
+    gltf
+}
+
+
