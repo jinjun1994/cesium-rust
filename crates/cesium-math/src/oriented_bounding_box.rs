@@ -327,7 +327,12 @@ impl OrientedBoundingBox {
                 closest += unit * offset.dot(unit).clamp(-length, length);
             }
         }
-        Some((offset - closest).length_squared())
+        let dist_sq = (offset - closest).length_squared();
+        if dist_sq < 1e-16 {
+            Some(0.0)
+        } else {
+            Some(dist_sq)
+        }
     }
     pub fn compute_plane_distances(self, position: DVec3, direction: DVec3) -> RayInterval {
         let midpoint = direction.dot(self.center - position);
