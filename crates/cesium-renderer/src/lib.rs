@@ -289,6 +289,7 @@ pub mod build_voxel_draw_commands;
 pub mod compute_fly_to_location_for_rectangle;
 pub mod create_elevation_band_material;
 pub mod create_tangent_space_debug_primitive;
+pub mod create_world_imagery_async;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -589,6 +590,13 @@ pub use create_elevation_band_material::{
 };
 pub use create_tangent_space_debug_primitive::{
     create_tangent_space_debug_primitive, CreateTangentSpaceDebugPrimitiveOptions,
+};
+pub use create_world_imagery_async::{
+    create_world_imagery_async, create_world_imagery_async_with_fetcher,
+    CreateWorldImageryOptions, IonWorldImageryStyle,
+};
+pub use ion_imagery_provider::{
+    ExternalImageryType, IonImageryProvider, IonImageryProviderOptions,
 };
 pub use keyframe_node::{KeyframeLoadState, KeyframeNode};
 pub use open_street_map_imagery_provider::{
