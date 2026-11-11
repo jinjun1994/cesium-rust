@@ -292,6 +292,7 @@ pub mod create_tangent_space_debug_primitive;
 pub mod create_world_imagery_async;
 pub mod decode_mvt;
 pub mod find_content_metadata;
+pub mod find_group_metadata;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -605,6 +606,10 @@ pub use find_content_metadata::{
     find_content_metadata, has_find_content_metadata_warned, reset_find_content_metadata_warning,
     TilesetMetadataQuery,
 };
+pub use find_group_metadata::{
+    find_group_metadata, TilesetGroupMetadataQuery, TilesetMetadataExtension,
+};
+pub use group_metadata::{GroupMetadata, GroupMetadataOptions};
 pub use keyframe_node::{KeyframeLoadState, KeyframeNode};
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,
