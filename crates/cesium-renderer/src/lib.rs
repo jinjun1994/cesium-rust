@@ -104,6 +104,7 @@ pub mod primitive_culling;
 pub mod primitive_pipeline;
 pub mod property_attribute;
 pub mod property_attribute_property;
+pub mod property_table;
 pub mod scene_primitive;
 pub mod edge_visibility_pipeline_stage;
 pub mod empty_3d_tile_content;
@@ -384,6 +385,7 @@ pub use primitive_culling::PrimitiveCuller;
 pub use primitive_pipeline::{CreateGeometryResults, PrimitivePipeline};
 pub use property_attribute::PropertyAttribute;
 pub use property_attribute_property::PropertyAttributeProperty;
+pub use property_table::{PropertyTable, PropertyTableOptions};
 pub use scene_primitive::{
     Primitive, PrimitiveAppearance, PrimitiveOptions, PrimitivePasses, PrimitiveRenderFrameState,
 };

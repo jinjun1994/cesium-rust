@@ -288,6 +288,29 @@ impl MetadataTableProperty {
             return Err(DeveloperError::new("index out of bounds"));
         }
 
+        if self.class_property.r#type == MetadataType::String {
+            let s = value.as_str().ok_or_else(|| DeveloperError::new("Expected string"))?;
+            let s_bytes = s.as_bytes();
+            if let Some(ref mut str_offsets) = self.string_offsets {
+                if index + 1 < str_offsets.len() {
+                    let start = str_offsets[index];
+                    let end = str_offsets[index + 1];
+                    let old_len = end.saturating_sub(start);
+                    let new_len = s_bytes.len();
+
+                    self.values_buffer.splice(start..end, s_bytes.iter().copied());
+
+                    if new_len != old_len {
+                        let diff = new_len as isize - old_len as isize;
+                        for offset in &mut str_offsets[index + 1..] {
+                            *offset = (*offset as isize + diff).max(0) as usize;
+                        }
+                    }
+                    return Ok(());
+                }
+            }
+        }
+
         let size = MetadataComponentType::get_size_in_bytes(self.value_type);
         let byte_offset = index * size;
         if byte_offset + size > self.values_buffer.len() {
