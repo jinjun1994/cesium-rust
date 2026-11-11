@@ -773,7 +773,7 @@
 | [packages/engine/Specs/Scene/createTangentSpaceDebugPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/createTangentSpaceDebugPrimitiveSpec.js) | 已完成 (2/2 单测通过，覆盖椭球几何切线与副切线全属性计算、切线空间调试图元生成、各轴色彩与线段类型校验及缺失几何校验) |
 | [packages/engine/Specs/Scene/createWorldImageryAsyncSpec.js](../../cesium/packages/engine/Specs/Scene/createWorldImageryAsyncSpec.js) | 已完成 (4/4 单测通过，覆盖 Cesium ion 基础底图风格映射 Aerial/AerialWithLabels/Road、默认参数解析、IonImageryProvider 实例构建与自定义 fetcher 注入) |
 | [packages/engine/Specs/Scene/decodeMVTSpec.js](../../cesium/packages/engine/Specs/Scene/decodeMVTSpec.js) | 已完成 (2/2 单测通过，覆盖 Mapbox 矢量瓦片 Protobuf 2.1 规范解码、Point/LineString/Polygon 几何命令流解算与属性键值对构建) |
-| [packages/engine/Specs/Scene/findContentMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/findContentMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/findContentMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/findContentMetadataSpec.js) | 已完成 (4/4 单测通过，覆盖 3D Tiles 1.1 与 3DTILES_metadata 扩展内容元数据解析、缺失 Schema 警告、类映射与属性查询) |
 | [packages/engine/Specs/Scene/findGroupMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/findGroupMetadataSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/findMeshoptExtensionSpec.js](../../cesium/packages/engine/Specs/Scene/findMeshoptExtensionSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/findTileMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/findTileMetadataSpec.js) | 待逐项核对 |
