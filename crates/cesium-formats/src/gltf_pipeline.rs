@@ -451,3 +451,30 @@ pub fn add_defaults(mut gltf: Value) -> Value {
 
     gltf
 }
+
+/// Adds an extension to `gltf.extensionsUsed` if it does not already exist.
+/// Initializes `extensionsUsed` if it is not defined.
+pub fn add_extensions_used(gltf: &mut Value, extension: &str) {
+    if !gltf.is_object() {
+        *gltf = json!({});
+    }
+    if gltf.get("extensionsUsed").is_none() {
+        gltf["extensionsUsed"] = Value::Array(Vec::new());
+    }
+    add_to_array(&mut gltf["extensionsUsed"], json!(extension), true);
+}
+
+/// Adds an extension to `gltf.extensionsRequired` if it does not already exist,
+/// and also adds it to `gltf.extensionsUsed`.
+/// Initializes `extensionsRequired` and `extensionsUsed` if they are not defined.
+pub fn add_extensions_required(gltf: &mut Value, extension: &str) {
+    if !gltf.is_object() {
+        *gltf = json!({});
+    }
+    if gltf.get("extensionsRequired").is_none() {
+        gltf["extensionsRequired"] = Value::Array(Vec::new());
+    }
+    add_to_array(&mut gltf["extensionsRequired"], json!(extension), true);
+    add_extensions_used(gltf, extension);
+}
+

@@ -790,7 +790,7 @@
 | [packages/gltf/Specs/ForEachSpec.js](../../cesium/packages/gltf/Specs/ForEachSpec.js) | 已完成 (12/12 单测通过，覆盖 glTF 2.0 与 1.0 顶层属性遍历、accessors 遍历与 semantic 过滤、顶点数据/索引数据 accessor 抽取、动画与通道/采样器、缓冲区与视图、相机/材质/材质参数与 KHR_techniques_webgl 扩展遍历、网格与图元/属性/变形目标、节点与场景树深度遍历、着色器/程序/技术与蒙皮/纹理遍历) |
 | [packages/gltf/Specs/addBufferSpec.js](../../cesium/packages/gltf/Specs/addBufferSpec.js) | 已完成 (1/1 单测通过，覆盖动态添加缓冲至 glTF buffers、extras._pipeline.source 写入、生成并返回关联 bufferView 索引与偏移配置) |
 | [packages/gltf/Specs/addDefaultsSpec.js](../../cesium/packages/gltf/Specs/addDefaultsSpec.js) | 已完成 (8/8 单测通过，覆盖网格/图元模式与默认材质补全、顶点与索引 accessor/bufferView 偏移/跨度/target 计算与补全、PBR 金属粗糙度/高光光泽度默认因子与纹理坐标补全、KHR_materials_common 技术默认值、动画插值与静态/动画节点 TRS/矩阵补全、采样器环绕模式、默认场景补全) |
-| [packages/gltf/Specs/addExtensionsRequiredSpec.js](../../cesium/packages/gltf/Specs/addExtensionsRequiredSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/addExtensionsRequiredSpec.js](../../cesium/packages/gltf/Specs/addExtensionsRequiredSpec.js) | 已完成 (1/1 单测通过，覆盖扩展去重追加至 extensionsRequired 并级联同步至 extensionsUsed) |
 | [packages/gltf/Specs/addExtensionsUsedSpec.js](../../cesium/packages/gltf/Specs/addExtensionsUsedSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/addPipelineExtrasSpec.js](../../cesium/packages/gltf/Specs/addPipelineExtrasSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/addToArraySpec.js](../../cesium/packages/gltf/Specs/addToArraySpec.js) | 待逐项核对 |
