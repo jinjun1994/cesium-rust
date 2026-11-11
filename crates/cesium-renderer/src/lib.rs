@@ -99,6 +99,7 @@ pub mod post_process_stage;
 pub mod post_process_stage_composite;
 pub mod post_process_stage_collection;
 pub mod post_process_stage_library;
+pub mod primitive_collection;
 pub mod edge_visibility_pipeline_stage;
 pub mod empty_3d_tile_content;
 pub mod equirectangular_panorama;
@@ -371,6 +372,9 @@ pub use post_process_stage_composite::{
 };
 pub use post_process_stage_collection::{PostProcessStageCollection, Tonemapper};
 pub use post_process_stage_library::PostProcessStageLibrary;
+pub use primitive_collection::{
+    MockPrimitive, PrimitiveCollection, PrimitiveCollectionOptions, ScenePrimitive,
+};
 pub use empty_3d_tile_content::Empty3DTileContent;
 pub use equirectangular_panorama::{
     EquirectangularAppearance, EquirectangularMaterial, EquirectangularPanorama,
