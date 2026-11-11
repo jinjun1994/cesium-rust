@@ -59,6 +59,18 @@ impl PropertyAttribute {
         })
     }
 
+    /// Sets the attribute id.
+    pub fn with_id(mut self, id: Option<Value>) -> Self {
+        self.id = id;
+        self
+    }
+
+    /// Sets the attribute name.
+    pub fn with_name(mut self, name: Option<String>) -> Self {
+        self.name = name;
+        self
+    }
+
     /// Gets the property attribute property for a given property ID.
     pub fn get_property(
         &self,

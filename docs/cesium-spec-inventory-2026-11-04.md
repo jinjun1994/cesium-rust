@@ -780,7 +780,7 @@
 | [packages/engine/Specs/Scene/hasExtensionSpec.js](../../cesium/packages/engine/Specs/Scene/hasExtensionSpec.js) | 已完成 (2/2 单测通过，覆盖 3D Tiles 与 glTF JSON 对象的扩展属性字段存在性安全判定) |
 | [packages/engine/Specs/Scene/parseBatchTableSpec.js](../../cesium/packages/engine/Specs/Scene/parseBatchTableSpec.js) | 已完成 (6/6 单测通过，覆盖 3D Tiles 1.0 Batch Table 转码为 EXT_structural_metadata、标量/多维向量二进制类型转码、层次结构与 JSON 属性融合) |
 | [packages/engine/Specs/Scene/parseFeatureMetadataLegacySpec.js](../../cesium/packages/engine/Specs/Scene/parseFeatureMetadataLegacySpec.js) | 已完成 (5/5 单测通过，覆盖 EXT_feature_metadata 特征表字典序排序转码、字符串/标量属性解包、特征纹理通道转码与统计扩展) |
-| [packages/engine/Specs/Scene/parseStructuralMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/parseStructuralMetadataSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/parseStructuralMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/parseStructuralMetadataSpec.js) | 已完成 (7/7 单测通过，覆盖 EXT_structural_metadata 解析、属性表/属性纹理/属性属性构建、统计数据、扩展与附加字段) |
 | [packages/engine/Specs/Scene/preprocess3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/preprocess3DTileContentSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/processVoxelPropertiesSpec.js](../../cesium/packages/engine/Specs/Scene/processVoxelPropertiesSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/renderBufferPointCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/renderBufferPointCollectionSpec.js) | 待逐项核对 |
