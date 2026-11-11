@@ -19,6 +19,9 @@ pub struct MetadataClass {
 }
 
 impl MetadataClass {
+    /// Class name used for transcoding 3D Tiles 1.0 batch tables.
+    pub const BATCH_TABLE_CLASS_NAME: &'static str = "_batchTable";
+
     /// Creates a `MetadataClass` from JSON options (throws DeveloperError if id or class missing).
     pub fn from_json(options: &serde_json::Value) -> Result<Self, DeveloperError> {
         Self::from_json_with_enums(options, None)
