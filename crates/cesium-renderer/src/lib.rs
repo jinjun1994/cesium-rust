@@ -237,6 +237,7 @@ pub mod shadow_map;
 pub mod shadow_map_shader;
 pub mod shadow_volume_appearance;
 pub mod single_tile_imagery_provider;
+pub mod sky_atmosphere;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -629,6 +630,7 @@ pub use single_tile_imagery_provider::{
     SingleTileImageryProvider, SingleTileImageryProviderFromUrlOptions,
     SingleTileImageryProviderOptions,
 };
+pub use sky_atmosphere::{SkyAtmosphere, SkyAtmosphereFramePasses, SkyAtmosphereFrameState};
 pub use resource_cache::{CacheEntry, ResourceCache};
 pub use resource_cache_key::{
     IndexBufferCacheKeyOptions, ResourceCacheKey, SchemaCacheKeyOptions, SupportedImageFormats,

@@ -717,7 +717,7 @@
 | [packages/engine/Specs/Scene/ShadowMapSpec.js](../../cesium/packages/engine/Specs/Scene/ShadowMapSpec.js) | 已移植：级联与点光源阴影贴图管理系统（ShadowMap / ShadowPass / ShadowBias / resize / compute_cascade_splits）、多级级联视口图集布局与纹理偏移映射矩阵、各几何类型偏差同步与约束校验（shadow_map_spec.rs，9 项测试全部通过） |
 | [packages/engine/Specs/Scene/ShadowVolumeAppearanceSpec.js](../../cesium/packages/engine/Specs/Scene/ShadowVolumeAppearanceSpec.js) | 已移植：贴地阴影体积外观系统（ShadowVolumeAppearance / getSphericalExtentGeometryInstanceAttributes / getPlanarTextureCoordinateAttributes / shouldUseSphericalCoordinates）、3D ENU/球坐标范围/2D 投影平面几何实例属性生成、颜色与拾取着色器宏动态装配（shadow_volume_appearance_spec.rs，7 项测试全部通过） |
 | [packages/engine/Specs/Scene/SingleTileImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/SingleTileImageryProviderSpec.js) | 已移植：单瓦片影像提供器（SingleTileImageryProvider / fromUrl / requestImage / GeographicTilingScheme / custom ellipsoid / credit）、参数约束与异步失败防御（single_tile_imagery_provider_spec.rs，9 项测试全部通过） |
-| [packages/engine/Specs/Scene/SkyAtmosphereSpec.js](../../cesium/packages/engine/Specs/Scene/SkyAtmosphereSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/SkyAtmosphereSpec.js](../../cesium/packages/engine/Specs/Scene/SkyAtmosphereSpec.js) | 已移植：大气散射天空环境（SkyAtmosphere / setDynamicLighting / update / hasColorCorrection / destroy）、散射系数与高度参数、相机逆视角旋转对齐、3D/Morphing/RenderPass 条件门禁与生命周期管理（sky_atmosphere_spec.rs，10 项测试全部通过） |
 | [packages/engine/Specs/Scene/SkyBoxSpec.js](../../cesium/packages/engine/Specs/Scene/SkyBoxSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/SnappingSpec.js](../../cesium/packages/engine/Specs/Scene/SnappingSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/SpatialNodeSpec.js](../../cesium/packages/engine/Specs/Scene/SpatialNodeSpec.js) | 待逐项核对 |
