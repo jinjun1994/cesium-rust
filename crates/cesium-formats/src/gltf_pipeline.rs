@@ -941,6 +941,204 @@ pub fn move_technique_render_states(mut gltf: Value) -> Value {
     gltf
 }
 
+/// Moves glTF 1.0 material techniques to glTF 2.0 `KHR_techniques_webgl` extension.
+pub fn move_techniques_to_extension(mut gltf: Value) -> Value {
+    if gltf.get("techniques").is_none() {
+        return gltf;
+    }
+
+    let gl_extensions = gltf.as_object_mut().and_then(|obj| obj.remove("glExtensionsUsed"));
+
+    let mut extension_programs = json!([]);
+    let mut extension_shaders = json!([]);
+    let mut extension_techniques = json!([]);
+
+    let mut mapped_uniforms: std::collections::HashMap<String, std::collections::HashMap<String, String>> =
+        std::collections::HashMap::new();
+    let mut updated_technique_indices: std::collections::HashMap<String, usize> =
+        std::collections::HashMap::new();
+    let mut seen_programs: std::collections::HashMap<String, usize> =
+        std::collections::HashMap::new();
+
+    // Iterate over gltf.techniques
+    let techniques_val = gltf.get("techniques").cloned();
+    if let Some(techniques) = techniques_val {
+        let mut process_technique = |technique_id: String, technique_legacy: &Value| {
+            let mut tech_obj = serde_json::Map::new();
+            if let Some(name) = technique_legacy.get("name") {
+                tech_obj.insert("name".to_string(), name.clone());
+            }
+
+            let mut attributes_map = serde_json::Map::new();
+            if let Some(attributes) = technique_legacy.get("attributes").and_then(|v| v.as_object()) {
+                for (attr_name, param_name_val) in attributes {
+                    if let Some(param_name) = param_name_val.as_str() {
+                        if let Some(param_legacy) = technique_legacy
+                            .get("parameters")
+                            .and_then(|p| p.get(param_name))
+                        {
+                            let mut attr_entry = serde_json::Map::new();
+                            if let Some(semantic) = param_legacy.get("semantic") {
+                                attr_entry.insert("semantic".to_string(), semantic.clone());
+                            }
+                            attributes_map.insert(attr_name.clone(), Value::Object(attr_entry));
+                        }
+                    }
+                }
+            }
+            tech_obj.insert("attributes".to_string(), Value::Object(attributes_map));
+
+            let mut uniforms_map = serde_json::Map::new();
+            if let Some(uniforms) = technique_legacy.get("uniforms").and_then(|v| v.as_object()) {
+                for (uniform_name, param_name_val) in uniforms {
+                    if let Some(param_name) = param_name_val.as_str() {
+                        if let Some(param_legacy) = technique_legacy
+                            .get("parameters")
+                            .and_then(|p| p.get(param_name))
+                        {
+                            let mut uniform_entry = serde_json::Map::new();
+                            for key in &["count", "node", "type", "semantic", "value"] {
+                                if let Some(val) = param_legacy.get(*key) {
+                                    uniform_entry.insert(key.to_string(), val.clone());
+                                }
+                            }
+                            uniforms_map.insert(uniform_name.clone(), Value::Object(uniform_entry));
+
+                            mapped_uniforms
+                                .entry(technique_id.clone())
+                                .or_default()
+                                .insert(param_name.to_string(), uniform_name.clone());
+                        }
+                    }
+                }
+            }
+            tech_obj.insert("uniforms".to_string(), Value::Object(uniforms_map));
+
+            // Program processing
+            let prog_key_opt = technique_legacy
+                .get("program")
+                .and_then(|p| p.as_str().map(|s| s.to_string()))
+                .or_else(|| technique_legacy.get("program").and_then(|p| p.as_u64().map(|u| u.to_string())));
+
+            if let Some(prog_key) = prog_key_opt {
+                if let Some(&cached_idx) = seen_programs.get(&prog_key) {
+                    tech_obj.insert("program".to_string(), json!(cached_idx));
+                } else if let Some(program_legacy) = gltf
+                    .get("programs")
+                    .and_then(|pr| pr.get(&prog_key).or_else(|| pr.as_array().and_then(|arr| prog_key.parse::<usize>().ok().and_then(|i| arr.get(i)))))
+                {
+                    let mut new_program = serde_json::Map::new();
+                    if let Some(name) = program_legacy.get("name") {
+                        new_program.insert("name".to_string(), name.clone());
+                    }
+                    if let Some(gl_ext) = &gl_extensions {
+                        new_program.insert("glExtensions".to_string(), gl_ext.clone());
+                    }
+
+                    // fragment shader
+                    if let Some(fs_key) = program_legacy.get("fragmentShader").and_then(|s| s.as_str()) {
+                        if let Some(fs) = gltf.get("shaders").and_then(|sh| sh.get(fs_key)) {
+                            let fs_idx = add_to_array(&mut extension_shaders, fs.clone(), true);
+                            new_program.insert("fragmentShader".to_string(), json!(fs_idx));
+                        }
+                    }
+
+                    // vertex shader
+                    if let Some(vs_key) = program_legacy.get("vertexShader").and_then(|s| s.as_str()) {
+                        if let Some(vs) = gltf.get("shaders").and_then(|sh| sh.get(vs_key)) {
+                            let vs_idx = add_to_array(&mut extension_shaders, vs.clone(), true);
+                            new_program.insert("vertexShader".to_string(), json!(vs_idx));
+                        }
+                    }
+
+                    let prog_idx = add_to_array(&mut extension_programs, Value::Object(new_program), false);
+                    seen_programs.insert(prog_key, prog_idx);
+                    tech_obj.insert("program".to_string(), json!(prog_idx));
+                }
+            }
+
+            let tech_idx = add_to_array(&mut extension_techniques, Value::Object(tech_obj), false);
+            updated_technique_indices.insert(technique_id, tech_idx);
+        };
+
+        if let Some(map) = techniques.as_object() {
+            for (id, tech) in map {
+                process_technique(id.clone(), tech);
+            }
+        } else if let Some(arr) = techniques.as_array() {
+            for (idx, tech) in arr.iter().enumerate() {
+                process_technique(idx.to_string(), tech);
+            }
+        }
+    }
+
+    if let Some(tech_arr) = extension_techniques.as_array() {
+        if !tech_arr.is_empty() {
+            if gltf.get("extensions").is_none() {
+                gltf["extensions"] = json!({});
+            }
+            gltf["extensions"]["KHR_techniques_webgl"] = json!({
+                "programs": extension_programs,
+                "shaders": extension_shaders,
+                "techniques": extension_techniques,
+            });
+            add_extensions_used(&mut gltf, "KHR_techniques_webgl");
+            add_extensions_required(&mut gltf, "KHR_techniques_webgl");
+        }
+    }
+
+    if let Some(materials) = gltf.get_mut("materials").and_then(|v| v.as_array_mut()) {
+        for mat in materials {
+            let tech_id_opt = mat
+                .get("technique")
+                .and_then(|t| t.as_str().map(|s| s.to_string()))
+                .or_else(|| mat.get("technique").and_then(|t| t.as_u64().map(|u| u.to_string())));
+
+            if let Some(tech_id) = tech_id_opt {
+                let mut material_ext = serde_json::Map::new();
+                if let Some(&new_tech_idx) = updated_technique_indices.get(&tech_id) {
+                    material_ext.insert("technique".to_string(), json!(new_tech_idx));
+                }
+
+                if let Some(values) = mat.get("values").and_then(|v| v.as_object()) {
+                    let mut ext_values = serde_json::Map::new();
+                    if let Some(param_to_uniform) = mapped_uniforms.get(&tech_id) {
+                        for (param_name, val) in values {
+                            if let Some(uniform_name) = param_to_uniform.get(param_name) {
+                                ext_values.insert(uniform_name.clone(), val.clone());
+                            }
+                        }
+                    }
+                    if !ext_values.is_empty() {
+                        material_ext.insert("values".to_string(), Value::Object(ext_values));
+                    }
+                }
+
+                if mat.get("extensions").is_none() {
+                    mat["extensions"] = json!({});
+                }
+                if let Some(ext) = mat.get_mut("extensions").and_then(|v| v.as_object_mut()) {
+                    ext.insert("KHR_techniques_webgl".to_string(), Value::Object(material_ext));
+                }
+
+                if let Some(mat_obj) = mat.as_object_mut() {
+                    mat_obj.remove("technique");
+                    mat_obj.remove("values");
+                }
+            }
+        }
+    }
+
+    if let Some(obj) = gltf.as_object_mut() {
+        obj.remove("techniques");
+        obj.remove("programs");
+        obj.remove("shaders");
+    }
+
+    gltf
+}
+
+
 
 
 
