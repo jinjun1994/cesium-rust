@@ -1,5 +1,6 @@
 //! glTF pipeline helper functions matching CesiumJS `packages/gltf/Source` (Apache-2.0).
 
+use glam::{Mat3, Quat, Vec3};
 use serde_json::{json, Value};
 use std::collections::HashSet;
 
@@ -528,5 +529,128 @@ pub fn add_pipeline_extras(mut gltf: Value) -> Value {
 
     gltf
 }
+
+/// Converts the `boundingVolume` of a glTF node using the `3DTILES_tileset` extension
+/// to the box or sphere bounding volume format of a 3D Tiles tileset JSON.
+/// Only box and sphere shapes are supported.
+pub fn construct_bounding_volume_json(
+    bounding_volume_json: &Value,
+    shapes: &[Value],
+) -> Result<Value, String> {
+    let shape_idx = bounding_volume_json
+        .get("shape")
+        .and_then(|v| v.as_u64())
+        .ok_or_else(|| "boundingVolume.shape is missing".to_string())? as usize;
+
+    let shape = shapes
+        .get(shape_idx)
+        .ok_or_else(|| format!("Shape index {shape_idx} out of bounds"))?;
+
+    let translation = bounding_volume_json
+        .get("translation")
+        .and_then(|v| v.as_array())
+        .map(|arr| {
+            [
+                arr.first().and_then(|v| v.as_f64()).unwrap_or(0.0),
+                arr.get(1).and_then(|v| v.as_f64()).unwrap_or(0.0),
+                arr.get(2).and_then(|v| v.as_f64()).unwrap_or(0.0),
+            ]
+        })
+        .unwrap_or([0.0, 0.0, 0.0]);
+
+    let scale = bounding_volume_json
+        .get("scale")
+        .and_then(|v| v.as_array())
+        .map(|arr| {
+            [
+                arr.first().and_then(|v| v.as_f64()).unwrap_or(1.0),
+                arr.get(1).and_then(|v| v.as_f64()).unwrap_or(1.0),
+                arr.get(2).and_then(|v| v.as_f64()).unwrap_or(1.0),
+            ]
+        });
+
+    let rotation = bounding_volume_json
+        .get("rotation")
+        .and_then(|v| v.as_array())
+        .map(|arr| {
+            [
+                arr.first().and_then(|v| v.as_f64()).unwrap_or(0.0),
+                arr.get(1).and_then(|v| v.as_f64()).unwrap_or(0.0),
+                arr.get(2).and_then(|v| v.as_f64()).unwrap_or(0.0),
+                arr.get(3).and_then(|v| v.as_f64()).unwrap_or(1.0),
+            ]
+        });
+
+    if let Some(box_obj) = shape.get("box") {
+        let size = box_obj
+            .get("size")
+            .and_then(|v| v.as_array())
+            .map(|arr| {
+                [
+                    arr.first().and_then(|v| v.as_f64()).unwrap_or(1.0),
+                    arr.get(1).and_then(|v| v.as_f64()).unwrap_or(1.0),
+                    arr.get(2).and_then(|v| v.as_f64()).unwrap_or(1.0),
+                ]
+            })
+            .unwrap_or([1.0, 1.0, 1.0]);
+
+        // Half axes initialized from half size: size * 0.5
+        let mut half_axes = Mat3::from_diagonal(Vec3::new(
+            (size[0] * 0.5) as f32,
+            (size[1] * 0.5) as f32,
+            (size[2] * 0.5) as f32,
+        ));
+
+        if let Some(s) = scale {
+            // multiplyByScale: each column scaled by s[i]
+            half_axes = Mat3::from_cols(
+                half_axes.x_axis * s[0] as f32,
+                half_axes.y_axis * s[1] as f32,
+                half_axes.z_axis * s[2] as f32,
+            );
+        }
+
+        if let Some(r) = rotation {
+            let quat = Quat::from_xyzw(r[0] as f32, r[1] as f32, r[2] as f32, r[3] as f32);
+            let rot_mat = Mat3::from_quat(quat);
+            half_axes = rot_mat * half_axes;
+        }
+
+        let box_data = vec![
+            translation[0],
+            translation[1],
+            translation[2],
+            half_axes.x_axis.x as f64,
+            half_axes.x_axis.y as f64,
+            half_axes.x_axis.z as f64,
+            half_axes.y_axis.x as f64,
+            half_axes.y_axis.y as f64,
+            half_axes.y_axis.z as f64,
+            half_axes.z_axis.x as f64,
+            half_axes.z_axis.y as f64,
+            half_axes.z_axis.z as f64,
+        ];
+
+        return Ok(json!({ "box": box_data }));
+    }
+
+    if let Some(sphere_obj) = shape.get("sphere") {
+        let mut radius = sphere_obj
+            .get("radius")
+            .and_then(|v| v.as_f64())
+            .unwrap_or(0.5);
+
+        if let Some(s) = scale {
+            let max_s = s[0].abs().max(s[1].abs()).max(s[2].abs());
+            radius *= max_s;
+        }
+
+        let sphere_data = vec![translation[0], translation[1], translation[2], radius];
+        return Ok(json!({ "sphere": sphere_data }));
+    }
+
+    Err("Only box and sphere shapes are supported for the bounding volume.".to_string())
+}
+
 
 
