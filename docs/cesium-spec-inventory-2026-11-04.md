@@ -742,7 +742,7 @@
 | [packages/engine/Specs/Scene/TileReplacementQueueSpec.js](../../cesium/packages/engine/Specs/Scene/TileReplacementQueueSpec.js) | 已完成 (7/7 tests passing, `crates/cesium-renderer/tests/tile_replacement_queue_spec.rs`, `crates/cesium-renderer/src/tile_replacement_queue.rs`) |
 | [packages/engine/Specs/Scene/Tileset3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Tileset3DTileContentSpec.js) | 已完成 (5/5 tests passing, `crates/cesium-renderer/tests/tileset_3d_tile_content_spec.rs`, `crates/cesium-renderer/src/tileset_3d_tile_content.rs`) |
 | [packages/engine/Specs/Scene/TilesetMetadataSpec.js](../../cesium/packages/engine/Specs/Scene/TilesetMetadataSpec.js) | 已完成 (9/9 tests passing, `crates/cesium-renderer/tests/tileset_metadata_spec.rs`, `crates/cesium-renderer/src/tileset_metadata.rs`) |
-| [packages/engine/Specs/Scene/TimeDynamicImagerySpec.js](../../cesium/packages/engine/Specs/Scene/TimeDynamicImagerySpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/TimeDynamicImagerySpec.js](../../cesium/packages/engine/Specs/Scene/TimeDynamicImagerySpec.js) | 已完成 (11/11 tests passing, `crates/cesium-renderer/tests/time_dynamic_imagery_spec.rs`, `crates/cesium-renderer/src/time_dynamic_imagery.rs`) |
 | [packages/engine/Specs/Scene/TimeDynamicPointCloudSpec.js](../../cesium/packages/engine/Specs/Scene/TimeDynamicPointCloudSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/TranslucentTileClassificationSpec.js](../../cesium/packages/engine/Specs/Scene/TranslucentTileClassificationSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/TweenCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/TweenCollectionSpec.js) | 待逐项核对 |
