@@ -275,6 +275,7 @@ pub mod vector_3d_tile_polylines;
 pub mod vertex_attribute_semantic;
 pub mod viewport_quad;
 pub mod voxel_box_shape;
+pub mod voxel_cell;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -544,6 +545,7 @@ pub use vector_3d_tile_polygons::{
 };
 pub use vector_3d_tile_polylines::{Vector3DTilePolylines, Vector3DTilePolylinesOptions};
 pub use viewport_quad::ViewportQuad;
+pub use voxel_cell::VoxelCell;
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,
 };

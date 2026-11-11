@@ -757,7 +757,7 @@
 | [packages/engine/Specs/Scene/VertexAttributeSemanticSpec.js](../../cesium/packages/engine/Specs/Scene/VertexAttributeSemanticSpec.js) | 已完成 (5/5 tests passing, `crates/cesium-renderer/tests/vertex_attribute_semantic_spec.rs`, `crates/cesium-renderer/src/vertex_attribute_semantic.rs`) |
 | [packages/engine/Specs/Scene/ViewportQuadSpec.js](../../cesium/packages/engine/Specs/Scene/ViewportQuadSpec.js) | 已完成 (10/10 tests passing, `crates/cesium-renderer/tests/viewport_quad_spec.rs`, `crates/cesium-renderer/src/viewport_quad.rs`) |
 | [packages/engine/Specs/Scene/VoxelBoxShapeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelBoxShapeSpec.js) | 已完成 (12/12 tests passing, `crates/cesium-renderer/tests/voxel_box_shape_spec.rs`, `crates/cesium-renderer/src/voxel_box_shape.rs`) |
-| [packages/engine/Specs/Scene/VoxelCellSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelCellSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/VoxelCellSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelCellSpec.js) | 已完成 (5/5 tests passing, `crates/cesium-renderer/tests/voxel_cell_spec.rs`, `crates/cesium-renderer/src/voxel_cell.rs`) |
 | [packages/engine/Specs/Scene/VoxelCylinderShapeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelCylinderShapeSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/VoxelEllipsoidShapeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelEllipsoidShapeSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/VoxelPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelPrimitiveSpec.js) | 待逐项核对 |
