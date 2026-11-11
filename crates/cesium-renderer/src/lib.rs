@@ -304,6 +304,7 @@ pub mod process_voxel_properties;
 pub mod render_buffer_point_collection;
 pub mod render_buffer_polygon_collection;
 pub mod render_buffer_polyline_collection;
+pub mod cesium_widget;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -845,6 +846,7 @@ pub use resource_cache_key::{
 };
 pub use resource_cache_statistics::ResourceCacheStatistics;
 pub use resource_loader::{BaseResourceLoader, ResourceLoader};
+pub use cesium_widget::*;
 
 #[derive(Debug, Error)]
 #[error("renderer: {0}")]

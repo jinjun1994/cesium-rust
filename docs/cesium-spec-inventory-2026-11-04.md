@@ -786,7 +786,7 @@
 | [packages/engine/Specs/Scene/renderBufferPointCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/renderBufferPointCollectionSpec.js) | 已完成 (15/15 单测通过，覆盖点缓冲集合基础渲染、混合模式切换、颜色/透明度动态更新、位置变换、重排序、奇异变换、空集与隐藏剔除、单点拾取与穿透拾取) |
 | [packages/engine/Specs/Scene/renderBufferPolygonCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/renderBufferPolygonCollectionSpec.js) | 已完成 (16/16 单测通过，覆盖多边形缓冲集合基础渲染、混合模式切换、贴地不绘制特性、颜色/透明度动态更新、位置变换、重排序、奇异变换、空集与隐藏剔除、单多边形拾取与穿透拾取) |
 | [packages/engine/Specs/Scene/renderBufferPolylineCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/renderBufferPolylineCollectionSpec.js) | 已完成 (16/16 单测通过，覆盖线缓冲集合基础渲染、混合模式切换、贴地不绘制特性、颜色/透明度动态更新、位置变换、重排序、奇异变换、空集与隐藏剔除、单折线拾取与穿透拾取) |
-| [packages/engine/Specs/Widget/CesiumWidgetSpec.js](../../cesium/packages/engine/Specs/Widget/CesiumWidgetSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Widget/CesiumWidgetSpec.js](../../cesium/packages/engine/Specs/Widget/CesiumWidgetSpec.js) | 已完成 (28/28 单测通过，覆盖 CesiumWidget 生命周期、容器/画布配置、时钟与时钟多数据源同步追踪、场景模式与地图投影切换、底图/地形/星空/大气/球体开关、上下文参数、trackedEntity 获取/设置/事件/移除重置、错误处理与错误面板控制、分辨率与按需渲染、zoomTo 与 flyTo 全目标支持) |
 | [packages/gltf/Specs/ForEachSpec.js](../../cesium/packages/gltf/Specs/ForEachSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/addBufferSpec.js](../../cesium/packages/gltf/Specs/addBufferSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/addDefaultsSpec.js](../../cesium/packages/gltf/Specs/addDefaultsSpec.js) | 待逐项核对 |
