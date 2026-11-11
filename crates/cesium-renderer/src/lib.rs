@@ -230,6 +230,7 @@ pub mod vertex_array;
 mod screen_distance;
 pub mod uniform;
 pub mod uniforms;
+pub mod scene_transforms;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -612,6 +613,7 @@ pub use screen_distance::ScreenDistance;
 pub use uniforms::{
     GlobalUniform, MaterialUniform, ObjectUniform, PagedObjectUniforms, DEFAULT_PAGE_CAPACITY,
 };
+pub use scene_transforms::{SceneTransforms, WorldToWindowCoordinatesOptions};
 pub use resource_cache::{CacheEntry, ResourceCache};
 pub use resource_cache_key::{
     IndexBufferCacheKeyOptions, ResourceCacheKey, SchemaCacheKeyOptions, SupportedImageFormats,
