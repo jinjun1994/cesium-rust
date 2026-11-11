@@ -241,6 +241,7 @@ pub mod sky_atmosphere;
 pub mod sky_box;
 pub mod snapping;
 pub mod spatial_node;
+pub mod specular_environment_cube_map;
 pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;

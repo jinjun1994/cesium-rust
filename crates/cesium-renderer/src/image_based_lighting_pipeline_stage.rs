@@ -24,13 +24,7 @@ impl IblContext {
     }
 }
 
-/// Cube map representation for IBL testing and runtime.
-#[derive(Clone, Debug, Default, PartialEq)]
-pub struct SpecularEnvironmentCubeMap {
-    pub maximum_mipmap_level: f64,
-    pub ready: bool,
-    pub texture_id: Option<String>,
-}
+pub use crate::specular_environment_cube_map::SpecularEnvironmentCubeMap;
 
 /// Environment map manager options for IBL.
 #[derive(Clone, Debug, Default)]

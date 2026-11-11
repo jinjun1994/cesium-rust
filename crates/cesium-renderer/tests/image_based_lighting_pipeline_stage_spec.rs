@@ -121,6 +121,7 @@ fn test_configures_render_resources_for_specular_environment_maps() {
         maximum_mipmap_level: 0.0,
         ready: true,
         texture_id: Some("example_texture".to_string()),
+        ..Default::default()
     };
 
     let ibl = ImageBasedLighting::new(Some(ImageBasedLightingOptions {
