@@ -295,6 +295,7 @@ pub mod find_content_metadata;
 pub mod find_group_metadata;
 pub mod find_meshopt_extension;
 pub mod find_tile_metadata;
+pub mod has_extension;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -616,6 +617,7 @@ pub use find_meshopt_extension::find_meshopt_extension;
 pub use find_tile_metadata::{
     find_tile_metadata, has_find_tile_metadata_warned, reset_find_tile_metadata_warning,
 };
+pub use has_extension::has_extension;
 pub use keyframe_node::{KeyframeLoadState, KeyframeNode};
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,
