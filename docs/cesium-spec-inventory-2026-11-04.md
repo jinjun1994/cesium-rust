@@ -759,7 +759,7 @@
 | [packages/engine/Specs/Scene/VoxelBoxShapeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelBoxShapeSpec.js) | 已完成 (12/12 tests passing, `crates/cesium-renderer/tests/voxel_box_shape_spec.rs`, `crates/cesium-renderer/src/voxel_box_shape.rs`) |
 | [packages/engine/Specs/Scene/VoxelCellSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelCellSpec.js) | 已完成 (5/5 tests passing, `crates/cesium-renderer/tests/voxel_cell_spec.rs`, `crates/cesium-renderer/src/voxel_cell.rs`) |
 | [packages/engine/Specs/Scene/VoxelCylinderShapeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelCylinderShapeSpec.js) | 已完成 (8/8 tests passing, `crates/cesium-renderer/tests/voxel_cylinder_shape_spec.rs`, `crates/cesium-renderer/src/voxel_cylinder_shape.rs`) |
-| [packages/engine/Specs/Scene/VoxelEllipsoidShapeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelEllipsoidShapeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/VoxelEllipsoidShapeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelEllipsoidShapeSpec.js) | 已完成 (6/6 tests passing, `crates/cesium-renderer/tests/voxel_ellipsoid_shape_spec.rs`, `crates/cesium-renderer/src/voxel_ellipsoid_shape.rs`) |
 | [packages/engine/Specs/Scene/VoxelPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelPrimitiveSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/VoxelRenderResourcesSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelRenderResourcesSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/VoxelShapeTypeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelShapeTypeSpec.js) | 待逐项核对 |
