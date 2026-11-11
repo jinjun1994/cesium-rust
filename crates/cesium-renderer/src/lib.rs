@@ -230,6 +230,7 @@ pub mod vertex_array;
 mod screen_distance;
 pub mod uniform;
 pub mod uniforms;
+pub mod resource_cache_key;
 
 use cesium_formats::Primitive as FormatPrimitive;
 use cesium_math::{linear_part, relative_model_view, Camera};
@@ -607,6 +608,10 @@ use pipelines::{PipelineCache, PipelineKey};
 pub use screen_distance::ScreenDistance;
 pub use uniforms::{
     GlobalUniform, MaterialUniform, ObjectUniform, PagedObjectUniforms, DEFAULT_PAGE_CAPACITY,
+};
+pub use resource_cache_key::{
+    IndexBufferCacheKeyOptions, ResourceCacheKey, SchemaCacheKeyOptions, SupportedImageFormats,
+    TextureCacheKeyOptions, VertexBufferCacheKeyOptions,
 };
 
 #[derive(Debug, Error)]
