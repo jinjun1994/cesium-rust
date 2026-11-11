@@ -95,6 +95,10 @@ pub mod point_cloud_eye_dome_lighting;
 pub mod polyline_collection;
 pub mod polyline_color_appearance;
 pub mod polyline_material_appearance;
+pub mod post_process_stage;
+pub mod post_process_stage_composite;
+pub mod post_process_stage_collection;
+pub mod post_process_stage_library;
 pub mod edge_visibility_pipeline_stage;
 pub mod empty_3d_tile_content;
 pub mod equirectangular_panorama;
@@ -358,6 +362,15 @@ pub use polyline_color_appearance::{PolylineColorAppearance, PolylineColorAppear
 pub use polyline_material_appearance::{
     PolylineMaterialAppearance, PolylineMaterialAppearanceOptions,
 };
+pub use post_process_stage::{
+    PostProcessStage, PostProcessStageOptions, PostProcessStageSampleMode, PostProcessUniformValue,
+    SelectedFeature, SelectedIdTextureInfo,
+};
+pub use post_process_stage_composite::{
+    PostProcessStageComposite, PostProcessStageCompositeOptions, PostProcessStageNode,
+};
+pub use post_process_stage_collection::{PostProcessStageCollection, Tonemapper};
+pub use post_process_stage_library::PostProcessStageLibrary;
 pub use empty_3d_tile_content::Empty3DTileContent;
 pub use equirectangular_panorama::{
     EquirectangularAppearance, EquirectangularMaterial, EquirectangularPanorama,
