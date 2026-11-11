@@ -761,7 +761,7 @@
 | [packages/engine/Specs/Scene/VoxelCylinderShapeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelCylinderShapeSpec.js) | 已完成 (8/8 tests passing, `crates/cesium-renderer/tests/voxel_cylinder_shape_spec.rs`, `crates/cesium-renderer/src/voxel_cylinder_shape.rs`) |
 | [packages/engine/Specs/Scene/VoxelEllipsoidShapeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelEllipsoidShapeSpec.js) | 已完成 (6/6 tests passing, `crates/cesium-renderer/tests/voxel_ellipsoid_shape_spec.rs`, `crates/cesium-renderer/src/voxel_ellipsoid_shape.rs`) |
 | [packages/engine/Specs/Scene/VoxelPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelPrimitiveSpec.js) | 已完成 (16/16 单测通过，覆盖构造参数、瓦片/统计状态机、事件监听器计数、深度测试与着色器重构标记、裁剪范围极值、三种几何形状垂直夸张变换复合与销毁) |
-| [packages/engine/Specs/Scene/VoxelRenderResourcesSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelRenderResourcesSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/VoxelRenderResourcesSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelRenderResourcesSpec.js) | 已完成 (1/1 单测通过，覆盖体素渲染资源构建、着色器构建器管线阶段初始化与 UniformMap 绑定) |
 | [packages/engine/Specs/Scene/VoxelShapeTypeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelShapeTypeSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/VoxelTraversalSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelTraversalSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/WebMapServiceImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/WebMapServiceImageryProviderSpec.js) | 待逐项核对 |
