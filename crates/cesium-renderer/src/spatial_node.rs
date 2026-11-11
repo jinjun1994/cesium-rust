@@ -1,4 +1,4 @@
-use cesium_math::{Cartesian3, OrientedBoundingBox, EPSILON7};
+use cesium_math::{Cartesian3, CullingVolume, OrientedBoundingBox, EPSILON7};
 use glam::DVec3;
 
 use crate::keyframe_node::KeyframeNode;
@@ -31,7 +31,7 @@ impl SpatialNode {
         x: u32,
         y: u32,
         z: u32,
-        shape: &impl VoxelShape,
+        shape: &(impl VoxelShape + ?Sized),
         dimensions: Cartesian3,
     ) -> Self {
         let mut node = Self {
@@ -57,7 +57,7 @@ impl SpatialNode {
     }
 
     /// Computes the tile's oriented bounding box and calculates approximate voxel size.
-    pub fn compute_bounding_volumes(&mut self, shape: &impl VoxelShape) {
+    pub fn compute_bounding_volumes(&mut self, shape: &(impl VoxelShape + ?Sized)) {
         self.oriented_bounding_box =
             shape.compute_oriented_bounding_box_for_tile(self.level, self.x, self.y, self.z);
 
@@ -77,7 +77,7 @@ impl SpatialNode {
     /// Divides this spatial node into 8 child nodes according to octree indexing rules.
     pub fn construct_child_nodes(
         &mut self,
-        shape: &impl VoxelShape,
+        shape: &(impl VoxelShape + ?Sized),
         dimensions: Cartesian3,
     ) {
         let child_level = self.level + 1;
@@ -132,5 +132,10 @@ impl SpatialNode {
     /// Checks if this spatial node has been visited during the specified frame.
     pub fn is_visited(&self, frame_number: i64) -> bool {
         self.visited_frame_number == frame_number
+    }
+
+    /// Computes the visibility mask of this spatial node within the given culling volume.
+    pub fn visibility(&self, culling_volume: &CullingVolume, parent_plane_mask: u32) -> u32 {
+        culling_volume.compute_visibility_with_plane_mask(&self.oriented_bounding_box, parent_plane_mask)
     }
 }

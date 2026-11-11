@@ -763,7 +763,7 @@
 | [packages/engine/Specs/Scene/VoxelPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelPrimitiveSpec.js) | 已完成 (16/16 单测通过，覆盖构造参数、瓦片/统计状态机、事件监听器计数、深度测试与着色器重构标记、裁剪范围极值、三种几何形状垂直夸张变换复合与销毁) |
 | [packages/engine/Specs/Scene/VoxelRenderResourcesSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelRenderResourcesSpec.js) | 已完成 (1/1 单测通过，覆盖体素渲染资源构建、着色器构建器管线阶段初始化与 UniformMap 绑定) |
 | [packages/engine/Specs/Scene/VoxelShapeTypeSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelShapeTypeSpec.js) | 已完成 (7/7 单测通过，覆盖形状极值范围查询、字符串解析、构造器多态实例化与非法类型 DeveloperError 拦截) |
-| [packages/engine/Specs/Scene/VoxelTraversalSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelTraversalSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/VoxelTraversalSpec.js](../../cesium/packages/engine/Specs/Scene/VoxelTraversalSpec.js) | 已完成 (9/9 单测通过，覆盖巨纹理与关键帧节点管理、空间节点视锥体可见性掩码与 SSE 误差解算、形状平移 OBB 重算与内存销毁) |
 | [packages/engine/Specs/Scene/WebMapServiceImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/WebMapServiceImageryProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/WebMapTileServiceImageryProviderSpec.js](../../cesium/packages/engine/Specs/Scene/WebMapTileServiceImageryProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/buildVectorGltfFromMVTSpec.js](../../cesium/packages/engine/Specs/Scene/buildVectorGltfFromMVTSpec.js) | 待逐项核对 |
