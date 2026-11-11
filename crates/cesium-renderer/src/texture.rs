@@ -13,7 +13,7 @@ static NEXT_TEXTURE_ID: AtomicU64 = AtomicU64::new(1);
 impl PixelFormat {
     pub fn components_length(&self) -> usize {
         match self {
-            Self::DepthComponent | Self::Alpha | Self::Luminance => 1,
+            Self::DepthComponent | Self::Alpha | Self::Luminance | Self::Red => 1,
             Self::DepthStencil | Self::LuminanceAlpha => 2,
             Self::Rgb => 3,
             Self::Rgba => 4,

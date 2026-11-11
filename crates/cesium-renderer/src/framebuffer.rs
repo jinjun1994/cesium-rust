@@ -15,13 +15,19 @@ pub enum PixelFormat {
     Rgba,
     Luminance,
     LuminanceAlpha,
+    Red,
 }
 
 impl PixelFormat {
     pub fn is_color_format(&self) -> bool {
         matches!(
             self,
-            Self::Alpha | Self::Rgb | Self::Rgba | Self::Luminance | Self::LuminanceAlpha
+            Self::Alpha
+                | Self::Rgb
+                | Self::Rgba
+                | Self::Luminance
+                | Self::LuminanceAlpha
+                | Self::Red
         )
     }
 }
