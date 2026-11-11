@@ -10,6 +10,17 @@ pub struct BoundingRectangle {
     pub height: f64,
 }
 
+impl Eq for BoundingRectangle {}
+
+impl std::hash::Hash for BoundingRectangle {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.x.to_bits().hash(state);
+        self.y.to_bits().hash(state);
+        self.width.to_bits().hash(state);
+        self.height.to_bits().hash(state);
+    }
+}
+
 impl BoundingRectangle {
     pub const PACKED_LENGTH: usize = 4;
 

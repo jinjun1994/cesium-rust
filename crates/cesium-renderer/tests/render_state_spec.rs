@@ -152,6 +152,7 @@ fn test_creates_with_custom_values() {
             value: 0.5,
             invert: true,
         },
+        viewport: Some(BoundingRectangle::new(10.0, 20.0, 30.0, 40.0)),
     };
 
     let rs = RenderState::from_cache(Some(custom.clone()));
@@ -169,6 +170,7 @@ fn test_creates_with_custom_values() {
     assert_eq!(rs.blending, custom.blending);
     assert_eq!(rs.stencil_test, custom.stencil_test);
     assert_eq!(rs.sample_coverage, custom.sample_coverage);
+    assert_eq!(rs.viewport, custom.viewport);
 }
 
 #[test]

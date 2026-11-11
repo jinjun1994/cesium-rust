@@ -344,6 +344,7 @@ pub struct RenderState {
     pub blending: BlendingState,
     pub stencil_test: StencilTestState,
     pub sample_coverage: SampleCoverageState,
+    pub viewport: Option<BoundingRectangle>,
 }
 
 impl Default for RenderState {
@@ -362,6 +363,7 @@ impl Default for RenderState {
             blending: BlendingState::default(),
             stencil_test: StencilTestState::default(),
             sample_coverage: SampleCoverageState::default(),
+            viewport: None,
         }
     }
 }
