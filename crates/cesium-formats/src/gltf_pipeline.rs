@@ -659,6 +659,96 @@ pub struct AccessorMinMax {
     pub max: Vec<f64>,
 }
 
+pub type ComponentReader = Box<dyn Fn(&[u8], usize, usize, &mut [f64]) + Send + Sync>;
+
+/// Returns a function to read and convert data from a byte slice into an array.
+#[allow(clippy::needless_range_loop)]
+pub fn get_component_reader(component_type: u32) -> Result<ComponentReader, String> {
+    let byte_length = component_type_size_in_bytes(component_type);
+    match component_type {
+        5120 => Ok(Box::new(move |bytes, offset, count, result| {
+            for i in 0..count {
+                let idx = offset + i * byte_length;
+                result[i] = (bytes[idx] as i8) as f64;
+            }
+        })),
+        5121 => Ok(Box::new(move |bytes, offset, count, result| {
+            for i in 0..count {
+                let idx = offset + i * byte_length;
+                result[i] = bytes[idx] as f64;
+            }
+        })),
+        5122 => Ok(Box::new(move |bytes, offset, count, result| {
+            for i in 0..count {
+                let idx = offset + i * byte_length;
+                let v = i16::from_le_bytes([bytes[idx], bytes[idx + 1]]);
+                result[i] = v as f64;
+            }
+        })),
+        5123 => Ok(Box::new(move |bytes, offset, count, result| {
+            for i in 0..count {
+                let idx = offset + i * byte_length;
+                let v = u16::from_le_bytes([bytes[idx], bytes[idx + 1]]);
+                result[i] = v as f64;
+            }
+        })),
+        5124 => Ok(Box::new(move |bytes, offset, count, result| {
+            for i in 0..count {
+                let idx = offset + i * byte_length;
+                let v = i32::from_le_bytes([
+                    bytes[idx],
+                    bytes[idx + 1],
+                    bytes[idx + 2],
+                    bytes[idx + 3],
+                ]);
+                result[i] = v as f64;
+            }
+        })),
+        5125 => Ok(Box::new(move |bytes, offset, count, result| {
+            for i in 0..count {
+                let idx = offset + i * byte_length;
+                let v = u32::from_le_bytes([
+                    bytes[idx],
+                    bytes[idx + 1],
+                    bytes[idx + 2],
+                    bytes[idx + 3],
+                ]);
+                result[i] = v as f64;
+            }
+        })),
+        5126 => Ok(Box::new(move |bytes, offset, count, result| {
+            for i in 0..count {
+                let idx = offset + i * byte_length;
+                let v = f32::from_le_bytes([
+                    bytes[idx],
+                    bytes[idx + 1],
+                    bytes[idx + 2],
+                    bytes[idx + 3],
+                ]);
+                result[i] = v as f64;
+            }
+        })),
+        5130 => Ok(Box::new(move |bytes, offset, count, result| {
+            for i in 0..count {
+                let idx = offset + i * byte_length;
+                let v = f64::from_le_bytes([
+                    bytes[idx],
+                    bytes[idx + 1],
+                    bytes[idx + 2],
+                    bytes[idx + 3],
+                    bytes[idx + 4],
+                    bytes[idx + 5],
+                    bytes[idx + 6],
+                    bytes[idx + 7],
+                ]);
+                result[i] = v;
+            }
+        })),
+        _ => Err(format!("Unsupported component type: {component_type}")),
+    }
+}
+
+
 fn read_component_value(bytes: &[u8], offset: usize, component_type: u32) -> Option<f64> {
     match component_type {
         5120 => bytes.get(offset).map(|&b| (b as i8) as f64),
