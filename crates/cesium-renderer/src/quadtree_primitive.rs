@@ -1,7 +1,6 @@
 //! QuadtreePrimitive matching CesiumJS `Scene/QuadtreePrimitive.js` (Apache-2.0).
 
 use std::cell::RefCell;
-use std::collections::HashSet;
 use std::rc::Rc;
 
 use cesium_math::{GeoRectangle, Visibility};
@@ -34,47 +33,7 @@ pub trait QuadtreeTileProvider {
     fn update_heights(&mut self, _tile: &Rc<RefCell<QuadtreeTile>>) {}
 }
 
-/// Simple LRU tile replacement queue.
-#[derive(Default)]
-pub struct TileReplacementQueue {
-    tiles: Vec<Rc<RefCell<QuadtreeTile>>>,
-}
-
-impl TileReplacementQueue {
-    pub fn mark_tile_rendered(&mut self, tile: &Rc<RefCell<QuadtreeTile>>) {
-        if let Some(pos) = self.tiles.iter().position(|t| Rc::ptr_eq(t, tile)) {
-            let t = self.tiles.remove(pos);
-            self.tiles.push(t);
-        } else {
-            self.tiles.push(tile.clone());
-        }
-    }
-
-    pub fn trim_tiles(&mut self, max_tiles: usize, tiles_rendered_this_frame: &HashSet<*const RefCell<QuadtreeTile>>) {
-        while self.tiles.len() > max_tiles {
-            // Find the oldest tile that is not currently rendered
-            let mut removed_index = None;
-            for (i, tile) in self.tiles.iter().enumerate() {
-                let ptr = Rc::as_ptr(tile);
-                if !tiles_rendered_this_frame.contains(&ptr) {
-                    removed_index = Some(i);
-                    break;
-                }
-            }
-
-            if let Some(idx) = removed_index {
-                let tile = self.tiles.remove(idx);
-                tile.borrow_mut().free_resources();
-            } else {
-                break;
-            }
-        }
-    }
-
-    pub fn count(&self) -> usize {
-        self.tiles.len()
-    }
-}
+pub use crate::tile_replacement_queue::TileReplacementQueue;
 
 /// Options for `QuadtreePrimitive`.
 pub struct QuadtreePrimitiveOptions {
@@ -299,12 +258,7 @@ impl QuadtreePrimitive {
         self.update_heights();
 
         // Evict tiles if over cache size
-        let rendered_ptrs: HashSet<*const RefCell<QuadtreeTile>> = self
-            .tiles_to_render
-            .iter()
-            .map(Rc::as_ptr)
-            .collect();
-        self.tile_replacement_queue.trim_tiles(self.tile_cache_size, &rendered_ptrs);
+        self.tile_replacement_queue.trim_tiles(self.tile_cache_size);
 
         self.tile_provider.end_update(frame_state);
 

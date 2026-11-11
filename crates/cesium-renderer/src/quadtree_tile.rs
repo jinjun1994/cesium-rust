@@ -191,6 +191,7 @@ pub struct QuadtreeTile {
     pub last_selection_result_frame: Option<u64>,
     pub distance: f64,
     pub load_priority: f64,
+    pub eligible_for_unloading: bool,
 }
 
 impl QuadtreeTile {
@@ -228,6 +229,7 @@ impl QuadtreeTile {
             last_selection_result_frame: None,
             distance: 0.0,
             load_priority: 0.0,
+            eligible_for_unloading: true,
         })))
     }
 
