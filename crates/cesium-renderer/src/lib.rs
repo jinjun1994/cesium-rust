@@ -102,6 +102,8 @@ pub mod post_process_stage_library;
 pub mod primitive_collection;
 pub mod primitive_culling;
 pub mod primitive_pipeline;
+pub mod property_attribute;
+pub mod property_attribute_property;
 pub mod scene_primitive;
 pub mod edge_visibility_pipeline_stage;
 pub mod empty_3d_tile_content;
@@ -380,6 +382,8 @@ pub use primitive_collection::{
 };
 pub use primitive_culling::PrimitiveCuller;
 pub use primitive_pipeline::{CreateGeometryResults, PrimitivePipeline};
+pub use property_attribute::PropertyAttribute;
+pub use property_attribute_property::PropertyAttributeProperty;
 pub use scene_primitive::{
     Primitive, PrimitiveAppearance, PrimitiveOptions, PrimitivePasses, PrimitiveRenderFrameState,
 };
@@ -489,8 +493,7 @@ pub use metadata_type::{MetadataMathType, MetadataType};
 pub use metadata_pipeline_stage::{
     MetadataClassField, MetadataFrameContext, MetadataFrameState, MetadataModel,
     MetadataPipelineStage, MetadataRenderResources, MetadataStatistics, MetadataStatisticsField,
-    PointCloudStyle, PropertyAttribute, PropertyAttributeProperty, PropertyStatistics,
-    PropertyTexture, PropertyTextureProperty, StructuralMetadata,
+    PointCloudStyle, PropertyStatistics, StructuralMetadata,
     FUNCTION_ID_INITIALIZE_METADATA_FS, FUNCTION_ID_INITIALIZE_METADATA_VS,
     FUNCTION_ID_SET_METADATA_VARYINGS, FUNCTION_SIGNATURE_INITIALIZE_METADATA,
     FUNCTION_SIGNATURE_SET_METADATA_VARYINGS, METADATA_CLASS_FIELDS, METADATA_STATISTICS_FIELDS,
