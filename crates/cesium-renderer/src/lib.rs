@@ -92,6 +92,7 @@ pub mod planar_fill_id_framebuffer;
 pub mod pnts_parser;
 pub mod point_cloud_shading;
 pub mod point_cloud_eye_dome_lighting;
+pub mod polyline_collection;
 pub mod edge_visibility_pipeline_stage;
 pub mod empty_3d_tile_content;
 pub mod equirectangular_panorama;
@@ -350,6 +351,7 @@ pub use point_cloud_eye_dome_lighting::{
     PointCloudCommand, PointCloudEyeDomeLighting, PointCloudEyeDomeLightingFrameState,
 };
 pub use point_cloud_shading::PointCloudShading;
+pub use polyline_collection::{Polyline, PolylineCollection, PolylineOptions};
 pub use empty_3d_tile_content::Empty3DTileContent;
 pub use equirectangular_panorama::{
     EquirectangularAppearance, EquirectangularMaterial, EquirectangularPanorama,
