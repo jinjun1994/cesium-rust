@@ -550,6 +550,7 @@ pub use vector_3d_tile_polygons::{
 };
 pub use vector_3d_tile_polylines::{Vector3DTilePolylines, Vector3DTilePolylinesOptions};
 pub use viewport_quad::ViewportQuad;
+pub use voxel_box_shape::{VoxelBoxShape, VoxelShape};
 pub use voxel_cell::VoxelCell;
 pub use voxel_cylinder_shape::VoxelCylinderShape;
 pub use voxel_ellipsoid_shape::VoxelEllipsoidShape;

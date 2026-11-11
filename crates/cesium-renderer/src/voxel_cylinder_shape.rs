@@ -7,6 +7,7 @@ use glam::{DMat3, DMat4, DVec3};
 
 use crate::spatial_node::SpatialNode;
 use crate::voxel_box_shape::VoxelShape;
+use crate::voxel_shape_type::VoxelShapeType;
 
 /// A cylinder-shaped voxel region with configurable bounds and transform.
 #[derive(Debug, Clone, PartialEq)]
@@ -176,6 +177,10 @@ fn negative_pi_to_pi(angle: f64) -> f64 {
 }
 
 impl VoxelShape for VoxelCylinderShape {
+    fn shape_type(&self) -> VoxelShapeType {
+        VoxelShapeType::Cylinder
+    }
+
     fn compute_oriented_bounding_box_for_tile(
         &self,
         tile_level: u32,

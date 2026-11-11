@@ -4,9 +4,13 @@ use cesium_math::{BoundingSphere, Cartesian3, DeveloperError, Matrix4};
 use glam::{DMat3, DVec3};
 
 use crate::spatial_node::SpatialNode;
+use crate::voxel_shape_type::VoxelShapeType;
 
 /// Trait implemented by voxel shapes capable of calculating tile bounding volumes.
 pub trait VoxelShape {
+    /// Returns the shape type enum for this voxel shape.
+    fn shape_type(&self) -> VoxelShapeType;
+
     /// Computes the oriented bounding box containing the specified tile coordinate.
     fn compute_oriented_bounding_box_for_tile(
         &self,
@@ -210,6 +214,10 @@ fn bound_scale(min_bound: f64, max_bound: f64) -> f64 {
 }
 
 impl VoxelShape for VoxelBoxShape {
+    fn shape_type(&self) -> VoxelShapeType {
+        VoxelShapeType::Box
+    }
+
     fn compute_oriented_bounding_box_for_tile(
         &self,
         tile_level: u32,

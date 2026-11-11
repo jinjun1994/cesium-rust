@@ -10,6 +10,7 @@ use glam::{DMat3, DVec3};
 
 use crate::spatial_node::SpatialNode;
 use crate::voxel_box_shape::VoxelShape;
+use crate::voxel_shape_type::VoxelShapeType;
 
 /// An ellipsoid-shaped voxel region with configurable bounds and transform.
 #[derive(Debug, Clone, PartialEq)]
@@ -238,6 +239,10 @@ impl VoxelEllipsoidShape {
 }
 
 impl VoxelShape for VoxelEllipsoidShape {
+    fn shape_type(&self) -> VoxelShapeType {
+        VoxelShapeType::Ellipsoid
+    }
+
     fn compute_oriented_bounding_box_for_tile(
         &self,
         tile_level: u32,
