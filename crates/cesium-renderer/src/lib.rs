@@ -260,6 +260,7 @@ pub mod tile_metadata;
 pub mod tile_oriented_bounding_box;
 pub mod tile_replacement_queue;
 pub mod tileset_3d_tile_content;
+pub mod tileset_metadata;
 pub mod voxel_box_shape;
 pub mod resource_cache;
 pub mod resource_cache_key;

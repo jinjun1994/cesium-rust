@@ -241,6 +241,9 @@ impl MetadataEntity {
                 Ok(serde_json::json!(num))
             }
             Value::Array(arr) => {
+                if !prop_def.normalized && !prop_def.has_value_transform {
+                    return Ok(Value::Array(arr));
+                }
                 let mut transformed_arr = Vec::new();
                 for (i, elem) in arr.into_iter().enumerate() {
                     let mut num = elem.as_f64().unwrap_or(0.0);
@@ -312,6 +315,9 @@ impl MetadataEntity {
                 Ok(serde_json::json!(num))
             }
             Value::Array(arr) => {
+                if !prop_def.normalized && !prop_def.has_value_transform {
+                    return Ok(Value::Array(arr));
+                }
                 let mut transformed_arr = Vec::new();
                 for (i, elem) in arr.into_iter().enumerate() {
                     let mut num = elem.as_f64().unwrap_or(0.0);
