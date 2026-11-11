@@ -282,6 +282,7 @@ pub mod voxel_shape_type;
 pub mod voxel_primitive;
 pub mod voxel_render_resources;
 pub mod voxel_traversal;
+pub mod web_map_service_imagery_provider;
 pub mod resource_cache;
 pub mod resource_cache_key;
 pub mod resource_cache_statistics;
@@ -561,6 +562,9 @@ pub use voxel_primitive::{
 };
 pub use voxel_render_resources::VoxelRenderResources;
 pub use voxel_traversal::VoxelTraversal;
+pub use web_map_service_imagery_provider::{
+    WebMapServiceImageryProvider, WebMapServiceImageryProviderOptions,
+};
 pub use keyframe_node::{KeyframeLoadState, KeyframeNode};
 pub use open_street_map_imagery_provider::{
     OpenStreetMapImageryProvider, OpenStreetMapImageryProviderOptions,
