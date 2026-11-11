@@ -785,7 +785,7 @@
 | [packages/engine/Specs/Scene/processVoxelPropertiesSpec.js](../../cesium/packages/engine/Specs/Scene/processVoxelPropertiesSpec.js) | 已完成 (1/1 单测通过，覆盖体素属性着色器宏定义、统计/属性/输入结构体注入与插值/采样/统计函数生成) |
 | [packages/engine/Specs/Scene/renderBufferPointCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/renderBufferPointCollectionSpec.js) | 已完成 (15/15 单测通过，覆盖点缓冲集合基础渲染、混合模式切换、颜色/透明度动态更新、位置变换、重排序、奇异变换、空集与隐藏剔除、单点拾取与穿透拾取) |
 | [packages/engine/Specs/Scene/renderBufferPolygonCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/renderBufferPolygonCollectionSpec.js) | 已完成 (16/16 单测通过，覆盖多边形缓冲集合基础渲染、混合模式切换、贴地不绘制特性、颜色/透明度动态更新、位置变换、重排序、奇异变换、空集与隐藏剔除、单多边形拾取与穿透拾取) |
-| [packages/engine/Specs/Scene/renderBufferPolylineCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/renderBufferPolylineCollectionSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/renderBufferPolylineCollectionSpec.js](../../cesium/packages/engine/Specs/Scene/renderBufferPolylineCollectionSpec.js) | 已完成 (16/16 单测通过，覆盖线缓冲集合基础渲染、混合模式切换、贴地不绘制特性、颜色/透明度动态更新、位置变换、重排序、奇异变换、空集与隐藏剔除、单折线拾取与穿透拾取) |
 | [packages/engine/Specs/Widget/CesiumWidgetSpec.js](../../cesium/packages/engine/Specs/Widget/CesiumWidgetSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/ForEachSpec.js](../../cesium/packages/gltf/Specs/ForEachSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/addBufferSpec.js](../../cesium/packages/gltf/Specs/addBufferSpec.js) | 待逐项核对 |

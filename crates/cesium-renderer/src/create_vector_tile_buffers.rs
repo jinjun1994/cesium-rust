@@ -233,6 +233,11 @@ impl BufferPolyline {
     }
 
     #[inline]
+    pub fn set_positions(&mut self, positions: &[f32]) {
+        self.positions = positions.to_vec();
+    }
+
+    #[inline]
     pub fn vertex_count(&self) -> usize {
         self.positions.len() / 3
     }
@@ -254,10 +259,11 @@ pub struct BufferPolylineOptions {
     pub positions: Vec<f32>,
     pub feature_id: Option<u32>,
     pub show: Option<bool>,
+    pub material: Option<BufferPolylineMaterial>,
 }
 
 /// Collection of polylines held in continuous storage.
-#[derive(Debug, Clone, Default, PartialEq)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct BufferPolylineCollection {
     pub positions: Vec<f32>,
     pub offsets: Vec<usize>,
@@ -270,6 +276,32 @@ pub struct BufferPolylineCollection {
     pub vertex_count_max: usize,
     pub position_normalized: bool,
     pub position_datatype: Option<ComponentDatatype>,
+    pub show: bool,
+    pub allow_picking: bool,
+    pub model_matrix: Matrix4,
+    pub height_reference: Option<HeightReference>,
+}
+
+impl Default for BufferPolylineCollection {
+    fn default() -> Self {
+        Self {
+            positions: Vec::new(),
+            offsets: Vec::new(),
+            counts: Vec::new(),
+            feature_ids: Vec::new(),
+            shows: Vec::new(),
+            materials: Vec::new(),
+            blend_option: BlendOption::Opaque,
+            primitive_count_max: 0,
+            vertex_count_max: 0,
+            position_normalized: false,
+            position_datatype: None,
+            show: true,
+            allow_picking: false,
+            model_matrix: Matrix4::IDENTITY,
+            height_reference: None,
+        }
+    }
 }
 
 impl BufferPolylineCollection {
@@ -309,13 +341,74 @@ impl BufferPolylineCollection {
             .unwrap_or_default();
     }
 
+    #[inline]
+    pub fn set(&mut self, index: usize, line: &BufferPolyline) {
+        if index < self.offsets.len() {
+            self.shows[index] = line.show;
+            self.feature_ids[index] = line.feature_id;
+            self.materials[index] = line.material.clone();
+            self.set_positions(index, &line.positions);
+        }
+    }
+
+    pub fn set_positions(&mut self, index: usize, positions: &[f32]) {
+        if index < self.offsets.len() {
+            let start = self.offsets[index] * 3;
+            let current_count = self.counts[index] * 3;
+            if positions.len() == current_count && start + current_count <= self.positions.len() {
+                self.positions[start..start + current_count].copy_from_slice(positions);
+            }
+        }
+    }
+
+    pub fn sort<F>(&mut self, mut compare: F)
+    where
+        F: FnMut(&BufferPolyline, &BufferPolyline) -> std::cmp::Ordering,
+    {
+        let count = self.primitive_count();
+        let mut lines: Vec<BufferPolyline> = (0..count)
+            .map(|i| {
+                let mut line = BufferPolyline::default();
+                self.get(i, &mut line);
+                line
+            })
+            .collect();
+
+        lines.sort_by(|a, b| compare(a, b));
+
+        let mut new_positions = Vec::new();
+        let mut new_offsets = Vec::new();
+        let mut new_counts = Vec::new();
+        let mut new_feature_ids = Vec::new();
+        let mut new_shows = Vec::new();
+        let mut new_materials = Vec::new();
+
+        for line in lines {
+            let offset = new_positions.len() / 3;
+            let count = line.positions.len() / 3;
+            new_positions.extend_from_slice(&line.positions);
+            new_offsets.push(offset);
+            new_counts.push(count);
+            new_feature_ids.push(line.feature_id);
+            new_shows.push(line.show);
+            new_materials.push(line.material);
+        }
+
+        self.positions = new_positions;
+        self.offsets = new_offsets;
+        self.counts = new_counts;
+        self.feature_ids = new_feature_ids;
+        self.shows = new_shows;
+        self.materials = new_materials;
+    }
+
     pub fn add(&mut self, options: BufferPolylineOptions, result: &mut BufferPolyline) {
         let index = self.offsets.len();
         let vertex_offset = self.positions.len() / 3;
         let vertex_count = options.positions.len() / 3;
         let fid = options.feature_id.unwrap_or(index as u32);
         let show = options.show.unwrap_or(true);
-        let material = BufferPolylineMaterial::default();
+        let material = options.material.unwrap_or_default();
 
         self.positions.extend_from_slice(&options.positions);
         self.offsets.push(vertex_offset);
@@ -1607,6 +1700,7 @@ fn append_buffer_polylines(
                 positions: line_positions,
                 feature_id,
                 show: Some(true),
+                ..Default::default()
             },
             &mut scratch,
         );
