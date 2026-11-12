@@ -813,7 +813,7 @@
 | [packages/gltf/Specs/updateAccessorComponentTypeSpec.js](../../cesium/packages/gltf/Specs/updateAccessorComponentTypeSpec.js) | 已完成 (2/2 单测通过，覆盖 JOINTS_0 与 WEIGHTS_0 顶点属性引用的 accessor 数据类型向标准无符号字节/短整型重写转换与新增 buffer/bufferView) |
 | [packages/gltf/Specs/updateVersionSpec.js](../../cesium/packages/gltf/Specs/updateVersionSpec.js) | 已完成 (8/8 单测通过，覆盖 glTF 0.8 至 1.0 轴角到四元数升级、1.0 字典向 2.0 数组与索引重映射升级、KHR_techniques_webgl / KHR_materials_common 向 PBR/Unlit 转换及 sRGB 伽马校正) |
 | [packages/gltf/Specs/usesExtensionSpec.js](../../cesium/packages/gltf/Specs/usesExtensionSpec.js) | 已完成 (1/1 单测通过，覆盖 extensionsUsed 匹配判定及空资产未声明判定) |
-| [packages/widgets/Specs/Animation/AnimationSpec.js](../../cesium/packages/widgets/Specs/Animation/AnimationSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/Animation/AnimationSpec.js](../../cesium/packages/widgets/Specs/Animation/AnimationSpec.js) | 已完成 (3/3 单测通过，覆盖 Animation 挂载到 DOM 容器与销毁、非 DOM 容器延迟挂载时触发主题变更 applyThemeChanges 及无挂载状态安全销毁) |
 | [packages/widgets/Specs/Animation/AnimationViewModelSpec.js](../../cesium/packages/widgets/Specs/Animation/AnimationViewModelSpec.js) | 已完成 (19/19 单测通过，覆盖 AnimationViewModel 构造参数与初始暂停态、自定义与默认日期/时间/倍率标签格式化、正反向播放与倍率符号翻转、区间边界启停与拖拽穿透、slower/faster 离散步进倍率循环、实时模式系统时钟可用性、穿梭环非线性角度映射与贴合刻度) |
 | [packages/widgets/Specs/BaseLayerPicker/BaseLayerPickerSpec.js](../../cesium/packages/widgets/Specs/BaseLayerPicker/BaseLayerPickerSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/BaseLayerPicker/BaseLayerPickerViewModelSpec.js](../../cesium/packages/widgets/Specs/BaseLayerPicker/BaseLayerPickerViewModelSpec.js) | 待逐项核对 |
