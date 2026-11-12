@@ -164,6 +164,11 @@ pub use gaussian_splat_primitive::{
     GaussianSplatSnapshot, GaussianSplatSortingState, SnapshotState,
 };
 pub use geo_json_primitive::GeoJsonPrimitive;
+pub mod globe_surface_tile;
+pub use globe_surface_tile::{
+    GlobeSurfaceTile, MeshCreationOutcome, SurfaceImageryAttachment, SurfaceTerrainData,
+    TerrainProviderActions, TerrainRequestOutcome, TerrainState, WaterMaskData, WaterMaskTexture,
+};
 pub mod globe_translucency_framebuffer;
 pub use globe_translucency_framebuffer::GlobeTranslucencyFramebuffer;
 pub mod globe_translucency_state;

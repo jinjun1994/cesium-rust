@@ -530,7 +530,7 @@
 | [packages/engine/Specs/Scene/GeometryRenderingSpec.js](../../cesium/packages/engine/Specs/Scene/GeometryRenderingSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GlobeSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GlobeSurfaceTileProviderSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeSurfaceTileProviderSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/GlobeSurfaceTileSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeSurfaceTileSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GlobeSurfaceTileSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeSurfaceTileSpec.js) | 已补齐 (`cesium-renderer`: `globe_surface_tile` / `globe_surface_tile_spec` 4/4) |
 | [packages/engine/Specs/Scene/GlobeTranslucencyFramebufferSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeTranslucencyFramebufferSpec.js) | 已补齐 (`cesium-renderer`: `globe_translucency_framebuffer` / `globe_translucency_framebuffer_spec` 4/4) |
 | [packages/engine/Specs/Scene/GlobeTranslucencyStateSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeTranslucencyStateSpec.js) | 已补齐 (`cesium-renderer`: `globe_translucency_state` / `globe_translucency_state_spec` 4/4) |
 | [packages/engine/Specs/Scene/GltfBufferViewLoaderSpec.js](../../cesium/packages/engine/Specs/Scene/GltfBufferViewLoaderSpec.js) | 已移植：glTF 缓冲区视图加载器（GltfBufferViewLoader / GltfBufferViewLoaderOptions）、内嵌（embedded）与外部（external）二进制切片提取、支持 meshopt 压缩扩展元数据解析（KHR_meshopt_compression / EXT_meshopt_compression）、异步生命周期流转（Unloaded / Loading / Ready / Failed）、切片越界与网络异常拦截报错（DeveloperError / RuntimeError）、资源缓存键（cacheKey）及卸载销毁控制（gltf_buffer_view_loader_spec.rs，6 项测试全部通过） |
