@@ -14,6 +14,7 @@ pub mod builtin_functions;
 pub mod buffer;
 pub mod buffer_loader;
 pub mod camera_event_aggregator;
+pub mod camera_flight_path;
 pub mod buffer_primitive_material;
 pub mod capabilities;
 pub mod cesium_3d_tile_content_type;
@@ -350,6 +351,10 @@ pub use builtin_functions::{BuiltinFunctions, Ray};
 pub use buffer::{Buffer, BufferOptions, BufferTarget, BufferUsage, IndexBufferOptions};
 pub use buffer_loader::{BufferLoader, BufferLoaderOptions, ResourceLoaderState};
 pub use camera_event_aggregator::{CameraEventAggregator, CameraEventType, CameraMovement};
+pub use camera_flight_path::{
+    CameraFlightOptions, CameraFlightPath, CameraFlightTween, CameraFrustum, FlightCamera,
+    FlightScene,
+};
 pub use buffer_primitive_material::{
     BufferPointMaterial, BufferPointMaterialOptions, BufferPolygonMaterial,
     BufferPolygonMaterialOptions, BufferPolylineMaterial, BufferPolylineMaterialOptions,
