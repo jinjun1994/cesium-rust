@@ -153,6 +153,11 @@ pub mod gltf_texture_loader;
 pub mod gltf_vertex_buffer_loader;
 pub mod geo_json_loader;
 pub mod geo_json_primitive;
+pub mod gaussian_splat_3d_tile_content;
+pub use gaussian_splat_3d_tile_content::{
+    GaussianSplat3DTileContent, GaussianSplat3DTileContentOptions, GaussianSplatAttribute,
+    GaussianSplatGltfPrimitive,
+};
 pub use geo_json_primitive::GeoJsonPrimitive;
 pub mod globe_translucency_framebuffer;
 pub use globe_translucency_framebuffer::GlobeTranslucencyFramebuffer;
