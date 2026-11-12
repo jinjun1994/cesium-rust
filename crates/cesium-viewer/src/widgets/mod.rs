@@ -14,6 +14,8 @@ pub mod geocoder;
 pub mod geocoder_view_model;
 pub mod home_button;
 pub mod home_button_view_model;
+pub mod i3s_building_scene_layer_explorer;
+pub mod i3s_building_scene_layer_explorer_view_model;
 pub mod provider_view_model;
 pub mod toggle_button_view_model;
 
@@ -45,5 +47,12 @@ pub use geocoder_view_model::{
 };
 pub use home_button::{HomeButton, HomeButtonContainer};
 pub use home_button_view_model::{HomeButtonSceneState, HomeButtonViewModel, SceneMode};
+pub use i3s_building_scene_layer_explorer::{
+    I3SBuildingSceneLayerExplorer, I3SBuildingSceneLayerExplorerContainer, I3SExplorerNode,
+};
+pub use i3s_building_scene_layer_explorer_view_model::{
+    I3SBuildingSceneLayerExplorerViewModel, I3SDataProviderSource, I3SLevel, SimpleI3SDataProvider,
+    TopLayerItem,
+};
 pub use provider_view_model::{ProviderViewModel, ProviderViewModelOptions};
 pub use toggle_button_view_model::ToggleButtonViewModel;

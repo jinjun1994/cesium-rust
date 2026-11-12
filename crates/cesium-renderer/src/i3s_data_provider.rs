@@ -6,6 +6,23 @@ use serde_json::Value;
 use std::collections::HashMap;
 use std::future::Future;
 
+/// An attribute filter applied to an I3S building scene layer.
+#[derive(Clone, Debug, PartialEq, Serialize, Deserialize)]
+pub struct I3SAttributeFilter {
+    pub name: String,
+    pub values: Vec<Value>,
+}
+
+impl I3SAttributeFilter {
+    /// Creates a new `I3SAttributeFilter`.
+    pub fn new(name: impl Into<String>, values: Vec<Value>) -> Self {
+        Self {
+            name: name.into(),
+            values,
+        }
+    }
+}
+
 /// Statistics about attributes in an I3S building or scene layer.
 #[derive(Clone, Debug, Default, PartialEq, Serialize, Deserialize)]
 pub struct I3SStatistics {
@@ -146,6 +163,7 @@ pub struct I3SDataProvider {
     layers: Vec<I3SLayer>,
     sublayers: Vec<I3SSublayer>,
     attribute_statistics: Vec<I3SStatistics>,
+    filters: Vec<I3SAttributeFilter>,
     is_destroyed: bool,
 }
 
@@ -165,6 +183,7 @@ impl I3SDataProvider {
             layers: Vec::new(),
             sublayers: Vec::new(),
             attribute_statistics: Vec::new(),
+            filters: Vec::new(),
             is_destroyed: false,
         }
     }
@@ -426,6 +445,20 @@ impl I3SDataProvider {
         glb.resize(glb.len() + padding, b' ');
 
         glb
+    }
+
+    /// Gets active attribute filters.
+    pub fn active_filters(&self) -> &[I3SAttributeFilter] {
+        &self.filters
+    }
+
+    /// Filters features by attributes. Passing `None` clears active filters.
+    pub fn filter_by_attributes(&mut self, filters: Option<&[I3SAttributeFilter]>) {
+        if let Some(f) = filters {
+            self.filters = f.to_vec();
+        } else {
+            self.filters.clear();
+        }
     }
 
     /// Returns true if this object was destroyed.
