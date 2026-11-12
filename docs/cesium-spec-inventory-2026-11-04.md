@@ -820,8 +820,8 @@
 | [packages/widgets/Specs/BaseLayerPicker/ProviderViewModelSpec.js](../../cesium/packages/widgets/Specs/BaseLayerPicker/ProviderViewModelSpec.js) | 已完成 (6/6 单测通过，覆盖 ProviderViewModel 必需参数与命令/闭包构造、参数缺失异常校验、属性读取与图层创建指令触发) |
 | [packages/widgets/Specs/Cesium3DTilesInspector/Cesium3DTilesInspectorSpec.js](../../cesium/packages/widgets/Specs/Cesium3DTilesInspector/Cesium3DTilesInspectorSpec.js) | 已完成 (4/4 单测通过，覆盖 Cesium3DTilesInspector 容器挂载与销毁、容器与 scene 缺失异常拦截及无效容器元素校验) |
 | [packages/widgets/Specs/Cesium3DTilesInspector/Cesium3DTilesInspectorViewModelSpec.js](../../cesium/packages/widgets/Specs/Cesium3DTilesInspector/Cesium3DTilesInspectorViewModelSpec.js) | 已完成 (5/5 单测通过，覆盖 Cesium3DTilesInspectorViewModel 必需参数校验、3D Tiles 调试显示选项与点云着色/EDL 参数绑定、最大与动态屏幕空间误差指数滑块映射及 JSON 样式热加载与动态重编译) |
-| [packages/widgets/Specs/CesiumInspector/CesiumInspectorSpec.js](../../cesium/packages/widgets/Specs/CesiumInspector/CesiumInspectorSpec.js) | 待逐项核对 |
-| [packages/widgets/Specs/CesiumInspector/CesiumInspectorViewModelSpec.js](../../cesium/packages/widgets/Specs/CesiumInspector/CesiumInspectorViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/CesiumInspector/CesiumInspectorSpec.js](../../cesium/packages/widgets/Specs/CesiumInspector/CesiumInspectorSpec.js) | 已完成 (4/4 单测通过，覆盖 CesiumInspector 容器挂载与销毁、容器与 scene 缺失异常拦截及无效容器元素校验) |
+| [packages/widgets/Specs/CesiumInspector/CesiumInspectorViewModelSpec.js](../../cesium/packages/widgets/Specs/CesiumInspector/CesiumInspectorViewModelSpec.js) | 已完成 (6/6 单测通过，覆盖 CesiumInspectorViewModel 必需参数校验、视锥与性能监控状态切换、图元包围球/命令过滤/参考系坐标轴绑定、地表线框/LOD挂起/瓦片坐标切换及单个瓦片包围球与渲染过滤) |
 | [packages/widgets/Specs/ClockViewModelSpec.js](../../cesium/packages/widgets/Specs/ClockViewModelSpec.js) | 已完成 (4/4 单测通过，覆盖 ClockViewModel 默认构造与初始属性绑定、Clock onTick 事件双向属性同步、ViewModel 属性写入向 Clock 同步传播及生命周期销毁) |
 | [packages/widgets/Specs/FullscreenButton/FullscreenButtonSpec.js](../../cesium/packages/widgets/Specs/FullscreenButton/FullscreenButtonSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/FullscreenButton/FullscreenButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/FullscreenButton/FullscreenButtonViewModelSpec.js) | 待逐项核对 |

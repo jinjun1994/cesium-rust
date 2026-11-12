@@ -4,6 +4,8 @@ pub mod base_layer_picker;
 pub mod base_layer_picker_view_model;
 pub mod cesium_3d_tiles_inspector;
 pub mod cesium_3d_tiles_inspector_view_model;
+pub mod cesium_inspector;
+pub mod cesium_inspector_view_model;
 pub mod clock_view_model;
 pub mod create_command;
 pub mod provider_view_model;
@@ -19,6 +21,10 @@ pub use base_layer_picker_view_model::{
 pub use cesium_3d_tiles_inspector::{Cesium3DTilesInspector, Cesium3DTilesInspectorContainer};
 pub use cesium_3d_tiles_inspector_view_model::{
     Cesium3DTilesInspectorViewModel, InspectorTileset, TilesetDebugOptions,
+};
+pub use cesium_inspector::{CesiumInspector, CesiumInspectorContainer};
+pub use cesium_inspector_view_model::{
+    CesiumInspectorViewModel, InspectorPrimitive, InspectorTile, SceneInspectorState,
 };
 pub use clock_view_model::ClockViewModel;
 pub use create_command::{
