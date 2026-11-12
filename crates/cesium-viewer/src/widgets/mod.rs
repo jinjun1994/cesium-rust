@@ -8,6 +8,8 @@ pub mod cesium_inspector;
 pub mod cesium_inspector_view_model;
 pub mod clock_view_model;
 pub mod create_command;
+pub mod fullscreen_button;
+pub mod fullscreen_button_view_model;
 pub mod provider_view_model;
 pub mod toggle_button_view_model;
 
@@ -30,5 +32,7 @@ pub use clock_view_model::ClockViewModel;
 pub use create_command::{
     create_command, create_command_with_can_execute, Command, CommandBeforeExecute,
 };
+pub use fullscreen_button::{FullscreenButton, FullscreenButtonContainer};
+pub use fullscreen_button_view_model::FullscreenButtonViewModel;
 pub use provider_view_model::{ProviderViewModel, ProviderViewModelOptions};
 pub use toggle_button_view_model::ToggleButtonViewModel;

@@ -823,8 +823,8 @@
 | [packages/widgets/Specs/CesiumInspector/CesiumInspectorSpec.js](../../cesium/packages/widgets/Specs/CesiumInspector/CesiumInspectorSpec.js) | 已完成 (4/4 单测通过，覆盖 CesiumInspector 容器挂载与销毁、容器与 scene 缺失异常拦截及无效容器元素校验) |
 | [packages/widgets/Specs/CesiumInspector/CesiumInspectorViewModelSpec.js](../../cesium/packages/widgets/Specs/CesiumInspector/CesiumInspectorViewModelSpec.js) | 已完成 (6/6 单测通过，覆盖 CesiumInspectorViewModel 必需参数校验、视锥与性能监控状态切换、图元包围球/命令过滤/参考系坐标轴绑定、地表线框/LOD挂起/瓦片坐标切换及单个瓦片包围球与渲染过滤) |
 | [packages/widgets/Specs/ClockViewModelSpec.js](../../cesium/packages/widgets/Specs/ClockViewModelSpec.js) | 已完成 (4/4 单测通过，覆盖 ClockViewModel 默认构造与初始属性绑定、Clock onTick 事件双向属性同步、ViewModel 属性写入向 Clock 同步传播及生命周期销毁) |
-| [packages/widgets/Specs/FullscreenButton/FullscreenButtonSpec.js](../../cesium/packages/widgets/Specs/FullscreenButton/FullscreenButtonSpec.js) | 待逐项核对 |
-| [packages/widgets/Specs/FullscreenButton/FullscreenButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/FullscreenButton/FullscreenButtonViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/FullscreenButton/FullscreenButtonSpec.js](../../cesium/packages/widgets/Specs/FullscreenButton/FullscreenButtonSpec.js) | 已完成 (5/5 单测通过，覆盖 FullscreenButton 容器与元素绑定、默认值构造、容器不存在及缺失异常校验) |
+| [packages/widgets/Specs/FullscreenButton/FullscreenButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/FullscreenButton/FullscreenButtonViewModelSpec.js) | 已完成 (5/5 单测通过，覆盖 FullscreenButtonViewModel 默认与自定义全屏目标元素、全屏可用性切换与指令可执行性联动、提示语动态更新及命令触发全屏状态翻转) |
 | [packages/widgets/Specs/Geocoder/GeocoderSpec.js](../../cesium/packages/widgets/Specs/Geocoder/GeocoderSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/Geocoder/GeocoderViewModelSpec.js](../../cesium/packages/widgets/Specs/Geocoder/GeocoderViewModelSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/HomeButton/HomeButtonSpec.js](../../cesium/packages/widgets/Specs/HomeButton/HomeButtonSpec.js) | 待逐项核对 |
