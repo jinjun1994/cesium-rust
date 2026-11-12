@@ -12,6 +12,8 @@ pub mod fullscreen_button;
 pub mod fullscreen_button_view_model;
 pub mod geocoder;
 pub mod geocoder_view_model;
+pub mod home_button;
+pub mod home_button_view_model;
 pub mod provider_view_model;
 pub mod toggle_button_view_model;
 
@@ -41,5 +43,7 @@ pub use geocoder_view_model::{
     DestinationFoundFn, GeocoderResult, GeocoderServiceFn, GeocoderViewModel,
     GeocoderViewModelOptions,
 };
+pub use home_button::{HomeButton, HomeButtonContainer};
+pub use home_button_view_model::{HomeButtonSceneState, HomeButtonViewModel, SceneMode};
 pub use provider_view_model::{ProviderViewModel, ProviderViewModelOptions};
 pub use toggle_button_view_model::ToggleButtonViewModel;
