@@ -107,3 +107,15 @@ impl<R: Clone + 'static> ProviderViewModel<R> {
         &self.creation_command
     }
 }
+
+impl<R: Clone + 'static> PartialEq for ProviderViewModel<R> {
+    fn eq(&self, other: &Self) -> bool {
+        self.name == other.name
+            && self.tooltip == other.tooltip
+            && self.icon_url == other.icon_url
+            && self.category == other.category
+    }
+}
+
+impl<R: Clone + 'static> Eq for ProviderViewModel<R> {}
+
