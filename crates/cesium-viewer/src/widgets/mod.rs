@@ -33,6 +33,8 @@ pub mod provider_view_model;
 pub mod svg_path_binding_handler;
 pub mod timeline;
 pub mod toggle_button_view_model;
+pub mod voxel_inspector;
+pub mod voxel_inspector_view_model;
 pub mod vr_button;
 pub mod vr_button_view_model;
 
@@ -118,5 +120,7 @@ pub use timeline::{
 };
 pub use vr_button::{VRButton, VRButtonContainer};
 pub use vr_button_view_model::{VRButtonViewModel, VRScene};
+pub use voxel_inspector::{VoxelInspector, VoxelInspectorContainer};
+pub use voxel_inspector_view_model::VoxelInspectorViewModel;
 pub use provider_view_model::{ProviderViewModel, ProviderViewModelOptions};
 pub use toggle_button_view_model::ToggleButtonViewModel;

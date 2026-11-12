@@ -851,5 +851,5 @@
 | [packages/widgets/Specs/Viewer/ViewerSpec.js](../../cesium/packages/widgets/Specs/Viewer/ViewerSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/Viewer/viewerDragDropMixinSpec.js](../../cesium/packages/widgets/Specs/Viewer/viewerDragDropMixinSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/Viewer/viewerPerformanceWatchdogMixinSpec.js](../../cesium/packages/widgets/Specs/Viewer/viewerPerformanceWatchdogMixinSpec.js) | 待逐项核对 |
-| [packages/widgets/Specs/VoxelInspector/VoxelInspectorSpec.js](../../cesium/packages/widgets/Specs/VoxelInspector/VoxelInspectorSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/VoxelInspector/VoxelInspectorSpec.js](../../cesium/packages/widgets/Specs/VoxelInspector/VoxelInspectorSpec.js) | 已完成 (5/5 单测通过，覆盖 VoxelInspector 容器与 DOM 绑定、字符串 ID 查询挂载、默认构建与生命周期销毁、容器/场景参数缺失及无效容器异常校验、各面板折叠与体素调试属性开关响应) |
 | [packages/widgets/Specs/createCommandSpec.js](../../cesium/packages/widgets/Specs/createCommandSpec.js) | 已完成 (5/5 单测通过，覆盖 Command 构造默认 canExecute、canExecute 为 false 拒绝执行并抛出 DeveloperError、动态可观察 canExecute 状态切换、beforeExecute/afterExecute 事件分发及 beforeExecute 拦截取消) |
