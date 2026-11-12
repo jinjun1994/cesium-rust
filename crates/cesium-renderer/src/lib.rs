@@ -257,6 +257,7 @@ pub mod tile_coordinates_imagery_provider;
 pub mod tile_imagery;
 pub mod arc_gis_map_server_imagery_provider;
 pub mod azure_2d_imagery_provider;
+pub mod batch_table;
 pub mod bing_maps_imagery_provider;
 pub mod tile_map_service_imagery_provider;
 pub mod tile_metadata;
@@ -502,6 +503,7 @@ pub use arc_gis_map_server_imagery_provider::{
     ArcGisBaseMapType, ArcGisMapServerImageryProvider, ArcGisMapServerImageryProviderOptions,
 };
 pub use azure_2d_imagery_provider::{Azure2DImageryProvider, Azure2DImageryProviderOptions};
+pub use batch_table::{BatchTable, BatchTableAttribute, BatchTableTextureData};
 pub use bing_maps_imagery_provider::{
     BingMapsImageryProvider, BingMapsImageryProviderOptions, BingMapsStyle,
 };
