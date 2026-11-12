@@ -18,6 +18,7 @@ pub mod camera_flight_path;
 pub mod buffer_primitive_material;
 pub mod capabilities;
 pub mod cesium_3d_tile_content_type;
+pub mod cesium_3d_tile_feature;
 pub mod cesium_3d_tile_feature_table;
 pub mod cesium_3d_tile_pass_state;
 pub mod clipping_plane;
@@ -362,6 +363,7 @@ pub use buffer_primitive_material::{
 };
 pub use capabilities::RendererCapabilities;
 pub use cesium_3d_tile_content_type::Cesium3DTileContentType;
+pub use cesium_3d_tile_feature::{Cesium3DTileFeature, Cesium3DTileFeatureContent};
 pub use cesium_3d_tile_feature_table::Cesium3DTileFeatureTable;
 pub use cesium_3d_tile_pass_state::{
     Cesium3DTilePass, Cesium3DTilePassState, Cesium3DTilePassStateOptions,
