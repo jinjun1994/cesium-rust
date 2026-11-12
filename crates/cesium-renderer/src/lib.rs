@@ -122,6 +122,10 @@ pub mod quadtree_tile_load_state;
 pub mod scene_primitive;
 pub mod edge_visibility_pipeline_stage;
 pub mod empty_3d_tile_content;
+pub mod composite_3d_tile_content;
+pub use composite_3d_tile_content::{
+    Composite3DTileContent, CompositeInnerContent, CompositeLeafContent,
+};
 pub mod equirectangular_panorama;
 pub mod ellipsoid_primitive;
 pub mod ellipsoid_surface_appearance;
