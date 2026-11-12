@@ -18,6 +18,7 @@ pub mod i3s_building_scene_layer_explorer;
 pub mod i3s_building_scene_layer_explorer_view_model;
 pub mod info_box;
 pub mod info_box_view_model;
+pub mod knockout;
 pub mod navigation_help_button;
 pub mod navigation_help_button_view_model;
 pub mod performance_watchdog;
@@ -29,6 +30,7 @@ pub mod scene_mode_picker_view_model;
 pub mod selection_indicator;
 pub mod selection_indicator_view_model;
 pub mod provider_view_model;
+pub mod svg_path_binding_handler;
 pub mod toggle_button_view_model;
 
 pub use animation::{Animation, AnimationContainer};
@@ -96,5 +98,17 @@ pub use scene_mode_picker::{
     SceneModePicker, SceneModePickerContainer, SceneModePickerElement,
 };
 pub use scene_mode_picker_view_model::{SceneModePickerScene, SceneModePickerViewModel};
+pub use selection_indicator::SelectionIndicator;
+pub use selection_indicator_view_model::{
+    SelectionIndicatorContainer, SelectionIndicatorElement, SelectionIndicatorScene,
+    SelectionIndicatorViewModel,
+};
+pub use knockout::{
+    Knockout, KnockoutElement, KnockoutObservable, KnockoutValue, SubscriptionToken,
+    TrackableObject,
+};
+pub use svg_path_binding_handler::{
+    SvgPathBindingHandler, SvgPathOptions, SVG_CLASS_NAME,
+};
 pub use provider_view_model::{ProviderViewModel, ProviderViewModelOptions};
 pub use toggle_button_view_model::ToggleButtonViewModel;
