@@ -833,8 +833,8 @@
 | [packages/widgets/Specs/I3SBSLExplorer/I3SBSLExplorerViewModelSpec.js](../../cesium/packages/widgets/Specs/I3SBSLExplorer/I3SBSLExplorerViewModelSpec.js) | 已完成 (5/5 单测通过，覆盖 I3SBuildingSceneLayerExplorerViewModel 默认构造、层级排序抽取、缺失 Overview 自动合成 FullModel、按楼层属性过滤联动以及顶层模型切换与 UI 面板可见性同步) |
 | [packages/widgets/Specs/InfoBox/InfoBoxSpec.js](../../cesium/packages/widgets/Specs/InfoBox/InfoBoxSpec.js) | 已完成 (5/5 单测通过，覆盖 InfoBox 容器/元素/IFrame 绑定、默认构造与生命周期销毁、容器 string ID 查找及缺失容器异常校验、动态描述文本与背景样式同步) |
 | [packages/widgets/Specs/InfoBox/InfoBoxViewModelSpec.js](../../cesium/packages/widgets/Specs/InfoBox/InfoBoxViewModelSpec.js) | 已完成 (4/4 单测通过，覆盖 InfoBoxViewModel 默认属性与高度计算、描述设置与 _bodyless 状态判断、相机跟踪可用性及激活状态下的相机图标路径动态切换) |
-| [packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonSpec.js](../../cesium/packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonSpec.js) | 待逐项核对 |
-| [packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonSpec.js](../../cesium/packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonSpec.js) | 已完成 (8/8 单测通过，覆盖 NavigationHelpButton 容器与 DOM 绑定、默认与自定义初始可见性、生命周期销毁、容器缺失与无效容器异常校验以及外部点击自动收起下拉面板) |
+| [packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonViewModelSpec.js) | 已完成 (2/2 单测通过，覆盖 NavigationHelpButtonViewModel 构造默认状态与工具提示、Command 命令触发帮助面板可见性显示/隐藏翻转) |
 | [packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogSpec.js](../../cesium/packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogViewModelSpec.js](../../cesium/packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogViewModelSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/ProjectionPicker/ProjectionPickerSpec.js](../../cesium/packages/widgets/Specs/ProjectionPicker/ProjectionPickerSpec.js) | 待逐项核对 |

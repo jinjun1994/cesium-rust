@@ -18,6 +18,8 @@ pub mod i3s_building_scene_layer_explorer;
 pub mod i3s_building_scene_layer_explorer_view_model;
 pub mod info_box;
 pub mod info_box_view_model;
+pub mod navigation_help_button;
+pub mod navigation_help_button_view_model;
 pub mod provider_view_model;
 pub mod toggle_button_view_model;
 
@@ -63,5 +65,10 @@ pub use info_box::{
 pub use info_box_view_model::{
     InfoBoxViewModel, CAMERA_DISABLED_PATH, CAMERA_ENABLED_PATH,
 };
+pub use navigation_help_button::{
+    NavigationHelpButton, NavigationHelpButtonContainer, NavigationHelpButtonOptions,
+    NavigationHelpElement,
+};
+pub use navigation_help_button_view_model::NavigationHelpButtonViewModel;
 pub use provider_view_model::{ProviderViewModel, ProviderViewModelOptions};
 pub use toggle_button_view_model::ToggleButtonViewModel;
