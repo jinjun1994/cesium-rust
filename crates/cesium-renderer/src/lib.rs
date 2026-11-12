@@ -124,6 +124,7 @@ pub mod ellipsoid_primitive;
 pub mod ellipsoid_surface_appearance;
 pub mod framebuffer;
 pub mod frame_rate_monitor;
+pub mod fog;
 pub mod frustum_commands;
 pub mod multi_frustum;
 pub mod multiple_3d_tile_content;
@@ -559,6 +560,7 @@ pub use frame_rate_monitor::{
     FrameRateMonitor, FrameRateMonitorOptions, DEFAULT_MIN_FPS_AFTER_WARMUP, DEFAULT_MIN_FPS_WARMUP,
     DEFAULT_QUIET_PERIOD, DEFAULT_SAMPLING_WINDOW, DEFAULT_WARMUP_PERIOD,
 };
+pub use fog::{Fog, FogCameraState, FogFrameOutput, FogFrameState};
 pub use frustum_commands::FrustumCommands;
 pub use multi_frustum::{
     CommandExtent, DebugFrustumStatistics, MultiFrustum, MultiFrustumOptions,
