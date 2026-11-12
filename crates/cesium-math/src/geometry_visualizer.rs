@@ -31,6 +31,7 @@ impl PrimitiveAppearanceType {
 pub struct VisualizerGeometryAttributes {
     pub show: Option<[u8; 1]>,
     pub color: Option<[u8; 4]>,
+    pub depth_fail_color: Option<[u8; 4]>,
     pub distance_display_condition: Option<[f32; 2]>,
     pub bounding_sphere: Option<BoundingSphere>,
 }
@@ -44,6 +45,7 @@ pub struct VisualizerGeometryPrimitive {
     pub classification_type: Option<ClassificationType>,
     pub model_matrix: Matrix4,
     pub attributes_by_entity: HashMap<String, VisualizerGeometryAttributes>,
+    pub show: bool,
     pub is_destroyed: bool,
 }
 
@@ -256,6 +258,7 @@ impl GeometryVisualizer {
                         VisualizerGeometryAttributes {
                             show: Some(show_val),
                             color: Some(color_val),
+                            depth_fail_color: None,
                             distance_display_condition: None,
                             bounding_sphere,
                         },
@@ -268,6 +271,7 @@ impl GeometryVisualizer {
                         classification_type: classification,
                         model_matrix: Matrix4::IDENTITY,
                         attributes_by_entity: attrs,
+                        show: true,
                         is_destroyed: false,
                     };
 
@@ -318,6 +322,7 @@ impl GeometryVisualizer {
                         VisualizerGeometryAttributes {
                             show: Some(show_val),
                             color: color_val,
+                            depth_fail_color: None,
                             distance_display_condition: None,
                             bounding_sphere,
                         },
@@ -330,6 +335,7 @@ impl GeometryVisualizer {
                         classification_type: classification,
                         model_matrix: Matrix4::IDENTITY,
                         attributes_by_entity: attrs,
+                        show: true,
                         is_destroyed: false,
                     };
 

@@ -106,6 +106,7 @@ impl StaticGeometryColorBatch {
                 VisualizerGeometryAttributes {
                     show: Some(show_val),
                     color: Some(color_val),
+                    depth_fail_color: None,
                     distance_display_condition: Some(ddc_val),
                     bounding_sphere: Some(BoundingSphere::new(center, 10.0)),
                 },
@@ -121,6 +122,7 @@ impl StaticGeometryColorBatch {
             classification_type: None,
             model_matrix: Matrix4::IDENTITY,
             attributes_by_entity,
+            show: true,
             is_destroyed: false,
         };
 

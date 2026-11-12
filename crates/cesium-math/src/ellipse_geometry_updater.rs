@@ -342,7 +342,7 @@ impl EllipseGeometryUpdater {
 
     /// Callback invoked when an entity property changes.
     pub fn on_entity_property_changed(&mut self, entity: &Entity, property_name: &str) {
-        let observed = ["availability", "position", "orientation", "ellipse"];
+        let observed = ["availability", "position", "orientation", "ellipse", "isShowing", "show"];
         if !observed.contains(&property_name) {
             return;
         }
