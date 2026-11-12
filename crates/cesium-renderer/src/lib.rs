@@ -193,6 +193,8 @@ pub mod google_street_view_cube_map_panorama_provider;
 pub mod grid_imagery_provider;
 pub mod ground_polyline_primitive;
 pub mod ground_primitive;
+pub mod classification_primitive;
+pub use classification_primitive::{ClassificationPrimitive, ClassificationPrimitiveOptions};
 pub mod group_metadata;
 pub mod heightmap_tessellator;
 pub mod i3dm_loader;
