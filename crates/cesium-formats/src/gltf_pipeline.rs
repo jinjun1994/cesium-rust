@@ -1544,6 +1544,88 @@ pub fn read_accessor_packed(gltf: &Value, accessor: &Value) -> Result<Vec<f64>, 
     Ok(values)
 }
 
+fn convert_accessor_type(gltf: &mut Value, accessor_id: usize, updated_component_type: u32) {
+    let values = match read_accessor_packed(gltf, &gltf["accessors"][accessor_id]) {
+        Ok(v) => v,
+        Err(_) => return,
+    };
+
+    let mut new_bytes = Vec::new();
+    match updated_component_type {
+        5121 => {
+            // UNSIGNED_BYTE
+            for val in values {
+                new_bytes.push(val as u8);
+            }
+        }
+        5123 => {
+            // UNSIGNED_SHORT
+            for val in values {
+                let u = val as u16;
+                new_bytes.extend_from_slice(&u.to_le_bytes());
+            }
+        }
+        _ => return,
+    }
+
+    let buffer_view_id = add_buffer(gltf, &new_bytes);
+
+    if let Some(accessors) = gltf.get_mut("accessors").and_then(|v| v.as_array_mut()) {
+        if let Some(accessor) = accessors.get_mut(accessor_id) {
+            accessor["bufferView"] = json!(buffer_view_id);
+            accessor["componentType"] = json!(updated_component_type);
+            accessor["byteOffset"] = json!(0);
+        }
+    }
+}
+
+/// Updates accessors referenced by `JOINTS_0` and `WEIGHTS_0` attributes to use correct component types.
+pub fn update_accessor_component_types(gltf: &mut Value) {
+    let mut joints_conversions = Vec::new();
+    let mut weights_conversions = Vec::new();
+
+    if let Some(meshes) = gltf.get("meshes").and_then(|v| v.as_array()) {
+        for mesh in meshes {
+            if let Some(primitives) = mesh.get("primitives").and_then(|v| v.as_array()) {
+                for prim in primitives {
+                    if let Some(attrs) = prim.get("attributes").and_then(|v| v.as_object()) {
+                        if let Some(joints_acc_id) = attrs.get("JOINTS_0").and_then(|v| v.as_u64()) {
+                            let acc_id = joints_acc_id as usize;
+                            if let Some(acc) = gltf.get("accessors").and_then(|a| a.get(acc_id)) {
+                                let comp_type = acc.get("componentType").and_then(|v| v.as_u64()).unwrap_or(0) as u32;
+                                if comp_type == 5120 {
+                                    joints_conversions.push((acc_id, 5121));
+                                } else if comp_type != 5121 && comp_type != 5123 {
+                                    joints_conversions.push((acc_id, 5123));
+                                }
+                            }
+                        }
+                        if let Some(weights_acc_id) = attrs.get("WEIGHTS_0").and_then(|v| v.as_u64()) {
+                            let acc_id = weights_acc_id as usize;
+                            if let Some(acc) = gltf.get("accessors").and_then(|a| a.get(acc_id)) {
+                                let comp_type = acc.get("componentType").and_then(|v| v.as_u64()).unwrap_or(0) as u32;
+                                if comp_type == 5120 {
+                                    weights_conversions.push((acc_id, 5121));
+                                } else if comp_type == 5122 {
+                                    weights_conversions.push((acc_id, 5123));
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    for (acc_id, new_type) in joints_conversions {
+        convert_accessor_type(gltf, acc_id, new_type);
+    }
+    for (acc_id, new_type) in weights_conversions {
+        convert_accessor_type(gltf, acc_id, new_type);
+    }
+}
+
+
 
 
 

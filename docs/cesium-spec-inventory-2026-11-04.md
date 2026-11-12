@@ -810,7 +810,7 @@
 | [packages/gltf/Specs/removeExtensionsUsedSpec.js](../../cesium/packages/gltf/Specs/removeExtensionsUsedSpec.js) | 已完成 (1/1 单测通过，覆盖指定扩展移除、extensionsUsed 与级联 extensionsRequired 同时清理及空数组删除) |
 | [packages/gltf/Specs/removePipelineExtrasSpec.js](../../cesium/packages/gltf/Specs/removePipelineExtrasSpec.js) | 已完成 (1/1 单测通过，覆盖缓冲区与扩展着色器中 extras._pipeline 属性深度删除及空 extras 对象清理) |
 | [packages/gltf/Specs/removeUnusedElementsSpec.js](../../cesium/packages/gltf/Specs/removeUnusedElementsSpec.js) | 待逐项核对 |
-| [packages/gltf/Specs/updateAccessorComponentTypeSpec.js](../../cesium/packages/gltf/Specs/updateAccessorComponentTypeSpec.js) | 待逐项核对 |
+| [packages/gltf/Specs/updateAccessorComponentTypeSpec.js](../../cesium/packages/gltf/Specs/updateAccessorComponentTypeSpec.js) | 已完成 (2/2 单测通过，覆盖 JOINTS_0 与 WEIGHTS_0 顶点属性引用的 accessor 数据类型向标准无符号字节/短整型重写转换与新增 buffer/bufferView) |
 | [packages/gltf/Specs/updateVersionSpec.js](../../cesium/packages/gltf/Specs/updateVersionSpec.js) | 待逐项核对 |
 | [packages/gltf/Specs/usesExtensionSpec.js](../../cesium/packages/gltf/Specs/usesExtensionSpec.js) | 已完成 (1/1 单测通过，覆盖 extensionsUsed 匹配判定及空资产未声明判定) |
 | [packages/widgets/Specs/Animation/AnimationSpec.js](../../cesium/packages/widgets/Specs/Animation/AnimationSpec.js) | 待逐项核对 |
