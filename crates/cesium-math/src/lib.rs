@@ -136,6 +136,7 @@ mod point_graphics;
 mod point_primitive_collection;
 mod point_visualizer;
 mod model_visualizer;
+mod path_visualizer;
 mod cesium_3dtileset_visualizer;
 mod property;
 mod property_bag;
@@ -481,6 +482,9 @@ pub use point_primitive_collection::{
 };
 pub use model_visualizer::{
     ModelPrimitive, ModelVisualizer, ModelVisualizerScene,
+};
+pub use path_visualizer::{
+    PathPrimitive, PathVisualizer, PathVisualizerScene,
 };
 pub use point_visualizer::PointVisualizer;
 pub use cesium_3dtileset_visualizer::{
