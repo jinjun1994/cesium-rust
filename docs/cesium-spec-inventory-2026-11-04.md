@@ -846,8 +846,8 @@
 | [packages/widgets/Specs/SvgPathBindingHandlerSpec.js](../../cesium/packages/widgets/Specs/SvgPathBindingHandlerSpec.js) | 已完成 (3/3 单测通过，覆盖 SvgPathBindingHandler 常量参数绑定、可观察变量响应式绑定与动态更新同步、参数对象包装绑定与 cleanNode 节点清理) |
 | [packages/widgets/Specs/ThirdParty/knockoutSpec.js](../../cesium/packages/widgets/Specs/ThirdParty/knockoutSpec.js) | 已完成 (1/1 单测通过，覆盖 Knockout::track 动态属性观察追踪、追踪前后的 observable 提取及状态订阅传递机制) |
 | [packages/widgets/Specs/Timeline/TimelineSpec.js](../../cesium/packages/widgets/Specs/Timeline/TimelineSpec.js) | 已完成 (4/4 单测通过，覆盖 Timeline 容器与 DOM 结构挂载、默认构建与生命周期销毁、容器/Clock 参数校验与字符串 ID 绑定、zoomTo 视图缩放与指针 X 坐标映射、高亮区间及轨道动态注册) |
-| [packages/widgets/Specs/VRButton/VRButtonSpec.js](../../cesium/packages/widgets/Specs/VRButton/VRButtonSpec.js) | 待逐项核对 |
-| [packages/widgets/Specs/VRButton/VRButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/VRButton/VRButtonViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/VRButton/VRButtonSpec.js](../../cesium/packages/widgets/Specs/VRButton/VRButtonSpec.js) | 已完成 (6/6 单测通过，覆盖 VRButton 容器与 DOM 绑定、自定义 vrElement 属性绑定、字符串 ID 查询挂载、默认构建与生命周期销毁、容器/场景参数缺失及无效容器异常校验) |
+| [packages/widgets/Specs/VRButton/VRButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/VRButton/VRButtonViewModelSpec.js) | 已完成 (7/7 单测通过，覆盖 VRButtonViewModel 场景缺失校验、vrElement 读取与动态变更及空值异常、isVREnabled 属性读写、WebVR 沉浸式场景切换指令执行与销毁管理) |
 | [packages/widgets/Specs/Viewer/ViewerSpec.js](../../cesium/packages/widgets/Specs/Viewer/ViewerSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/Viewer/viewerDragDropMixinSpec.js](../../cesium/packages/widgets/Specs/Viewer/viewerDragDropMixinSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/Viewer/viewerPerformanceWatchdogMixinSpec.js](../../cesium/packages/widgets/Specs/Viewer/viewerPerformanceWatchdogMixinSpec.js) | 待逐项核对 |

@@ -33,6 +33,8 @@ pub mod provider_view_model;
 pub mod svg_path_binding_handler;
 pub mod timeline;
 pub mod toggle_button_view_model;
+pub mod vr_button;
+pub mod vr_button_view_model;
 
 pub use animation::{Animation, AnimationContainer};
 pub use animation_view_model::AnimationViewModel;
@@ -114,5 +116,7 @@ pub use svg_path_binding_handler::{
 pub use timeline::{
     Timeline, TimelineContainer, TimelineHighlightRange, TimelineTrack,
 };
+pub use vr_button::{VRButton, VRButtonContainer};
+pub use vr_button_view_model::{VRButtonViewModel, VRScene};
 pub use provider_view_model::{ProviderViewModel, ProviderViewModelOptions};
 pub use toggle_button_view_model::ToggleButtonViewModel;
