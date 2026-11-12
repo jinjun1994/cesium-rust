@@ -22,6 +22,8 @@ pub mod navigation_help_button;
 pub mod navigation_help_button_view_model;
 pub mod performance_watchdog;
 pub mod performance_watchdog_view_model;
+pub mod projection_picker;
+pub mod projection_picker_view_model;
 pub mod provider_view_model;
 pub mod toggle_button_view_model;
 
@@ -79,6 +81,12 @@ pub use performance_watchdog::{
 pub use performance_watchdog_view_model::{
     PerformanceWatchdogViewModel, PerformanceWatchdogViewModelOptions, WatchdogScene,
     DEFAULT_LOW_FRAME_RATE_MESSAGE,
+};
+pub use projection_picker::{
+    ProjectionPicker, ProjectionPickerContainer, ProjectionPickerElement,
+};
+pub use projection_picker_view_model::{
+    FrustumType, ProjectionPickerCamera, ProjectionPickerScene, ProjectionPickerViewModel,
 };
 pub use provider_view_model::{ProviderViewModel, ProviderViewModelOptions};
 pub use toggle_button_view_model::ToggleButtonViewModel;
