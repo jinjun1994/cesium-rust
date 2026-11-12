@@ -24,6 +24,8 @@ pub mod performance_watchdog;
 pub mod performance_watchdog_view_model;
 pub mod projection_picker;
 pub mod projection_picker_view_model;
+pub mod scene_mode_picker;
+pub mod scene_mode_picker_view_model;
 pub mod provider_view_model;
 pub mod toggle_button_view_model;
 
@@ -88,5 +90,9 @@ pub use projection_picker::{
 pub use projection_picker_view_model::{
     FrustumType, ProjectionPickerCamera, ProjectionPickerScene, ProjectionPickerViewModel,
 };
+pub use scene_mode_picker::{
+    SceneModePicker, SceneModePickerContainer, SceneModePickerElement,
+};
+pub use scene_mode_picker_view_model::{SceneModePickerScene, SceneModePickerViewModel};
 pub use provider_view_model::{ProviderViewModel, ProviderViewModelOptions};
 pub use toggle_button_view_model::ToggleButtonViewModel;

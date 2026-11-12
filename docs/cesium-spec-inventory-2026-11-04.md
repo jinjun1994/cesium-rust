@@ -839,8 +839,8 @@
 | [packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogViewModelSpec.js](../../cesium/packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogViewModelSpec.js) | 已完成 (7/7 单测通过，覆盖 PerformanceWatchdogViewModel 场景缺失校验、默认提示文案与自定义文案、FrameRateMonitor 低帧率报警触发、静默期保护、帧率回升自动恢复以及用户手动关闭后不再重复弹窗) |
 | [packages/widgets/Specs/ProjectionPicker/ProjectionPickerSpec.js](../../cesium/packages/widgets/Specs/ProjectionPicker/ProjectionPickerSpec.js) | 已完成 (7/7 单测通过，覆盖 ProjectionPicker 容器与 DOM 绑定、默认构建与生命周期销毁、容器/场景参数缺失及无效容器异常校验、相机飞行期间及 2D 模式下禁止弹出下拉面板以及外部点击自动收起) |
 | [packages/widgets/Specs/ProjectionPicker/ProjectionPickerViewModelSpec.js](../../cesium/packages/widgets/Specs/ProjectionPicker/ProjectionPickerViewModelSpec.js) | 已完成 (6/6 单测通过，覆盖 ProjectionPickerViewModel 场景缺失校验、下拉状态切换、相机视锥正交/透视双向切换、2D 模式变换响应及选中提示文案动态更新) |
-| [packages/widgets/Specs/SceneModePicker/SceneModePickerSpec.js](../../cesium/packages/widgets/Specs/SceneModePicker/SceneModePickerSpec.js) | 待逐项核对 |
-| [packages/widgets/Specs/SceneModePicker/SceneModePickerViewModelSpec.js](../../cesium/packages/widgets/Specs/SceneModePicker/SceneModePickerViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/SceneModePicker/SceneModePickerSpec.js](../../cesium/packages/widgets/Specs/SceneModePicker/SceneModePickerSpec.js) | 已完成 (5/5 单测通过，覆盖 SceneModePicker 容器与 DOM 绑定、默认构建与生命周期销毁、容器/场景参数缺失及无效容器异常校验、外部点击自动收起下拉面板) |
+| [packages/widgets/Specs/SceneModePicker/SceneModePickerViewModelSpec.js](../../cesium/packages/widgets/Specs/SceneModePicker/SceneModePickerViewModelSpec.js) | 已完成 (6/6 单测通过，覆盖 SceneModePickerViewModel 场景缺失校验、下拉状态切换、morphStart 自动折叠下拉面板、2D/3D/哥伦布视图状态双向迁移及动态提示文案同步更新) |
 | [packages/widgets/Specs/SelectionIndicator/SelectionIndicatorSpec.js](../../cesium/packages/widgets/Specs/SelectionIndicator/SelectionIndicatorSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/SelectionIndicator/SelectionIndicatorViewModelSpec.js](../../cesium/packages/widgets/Specs/SelectionIndicator/SelectionIndicatorViewModelSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/SvgPathBindingHandlerSpec.js](../../cesium/packages/widgets/Specs/SvgPathBindingHandlerSpec.js) | 待逐项核对 |
