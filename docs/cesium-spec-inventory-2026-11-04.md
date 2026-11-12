@@ -360,7 +360,7 @@
 | [packages/engine/Specs/DataSources/GeoJsonDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/GeoJsonDataSourceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/GeometryUpdaterSetSpec.js](../../cesium/packages/engine/Specs/DataSources/GeometryUpdaterSetSpec.js) | 全绿通过 (crates/cesium-math/tests/geometry_updater_set_spec.rs，实现 GeometryUpdaterSet、默认装配 10 种几何更新器集合、支持全局动态注册与注销 CustomUpdater、事件转发与生命周期管理，3 项测试全绿) |
 | [packages/engine/Specs/DataSources/GeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/GeometryUpdaterSpec.js) | 已移植：基础几何更新器选项校验、实体关联、常量与动态填充/轮廓判定、dynamicUpdater创建校验与事件调度（geometry_updater_spec.rs，4 项测试全部通过） |
-| [packages/engine/Specs/DataSources/GeometryVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/GeometryVisualizerSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/DataSources/GeometryVisualizerSpec.js](../../cesium/packages/engine/Specs/DataSources/GeometryVisualizerSpec.js) | 已完成 (crates/cesium-math/tests/geometry_visualizer_spec.rs) |
 | [packages/engine/Specs/DataSources/GpxDataSourceSpec.js](../../cesium/packages/engine/Specs/DataSources/GpxDataSourceSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/DataSources/GridMaterialPropertySpec.js](../../cesium/packages/engine/Specs/DataSources/GridMaterialPropertySpec.js) | 已移植：网格材质属性封装、默认白色/0.1单元透明度/8x8线数/1.0线宽/0.0偏移回退、常量与动态属性求值、isConstant联合判定及equals属性比较（grid_material_property_spec.rs，3 项测试全部通过） |
 | [packages/engine/Specs/DataSources/GroundGeometryUpdaterSpec.js](../../cesium/packages/engine/Specs/DataSources/GroundGeometryUpdaterSpec.js) | 已移植：贴地几何更新器抽象基类、高度参考系解析（NONE/RELATIVE/CLAMP换算）、高度偏移标志位计算（computeGeometryOffsetAttribute多状态真值表推导）、destroy释放与生命周期管理（ground_geometry_updater_spec.rs，6 项测试全部通过） |

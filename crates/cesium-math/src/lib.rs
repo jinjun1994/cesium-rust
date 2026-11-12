@@ -138,6 +138,7 @@ mod point_visualizer;
 mod model_visualizer;
 mod path_visualizer;
 mod polyline_visualizer;
+mod geometry_visualizer;
 mod cesium_3dtileset_visualizer;
 mod property;
 mod property_bag;
@@ -493,6 +494,10 @@ pub use polyline_visualizer::{
 pub use point_visualizer::PointVisualizer;
 pub use cesium_3dtileset_visualizer::{
     Cesium3DTilesetPrimitive, Cesium3DTilesetVisualizer, TilesetVisualizerScene,
+};
+pub use geometry_visualizer::{
+    GeometryVisualizer, GeometryVisualizerScene, PrimitiveAppearanceType,
+    VisualizerGeometryAttributes, VisualizerGeometryPrimitive,
 };
 pub use point_inside_triangle::{
     point_inside_triangle, point_inside_triangle_2d, point_inside_triangle_3d,
