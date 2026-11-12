@@ -135,6 +135,7 @@ mod plane_graphics;
 mod point_graphics;
 mod point_primitive_collection;
 mod point_visualizer;
+mod model_visualizer;
 mod cesium_3dtileset_visualizer;
 mod property;
 mod property_bag;
@@ -477,6 +478,9 @@ pub use pin_builder::{PinBuilder, PinImage};
 pub use point_graphics::{PointGraphics, PointGraphicsOptions, PointGraphicsValues};
 pub use point_primitive_collection::{
     PointPrimitive, PointPrimitiveCollection, PointPrimitiveOptions,
+};
+pub use model_visualizer::{
+    ModelPrimitive, ModelVisualizer, ModelVisualizerScene,
 };
 pub use point_visualizer::PointVisualizer;
 pub use cesium_3dtileset_visualizer::{
