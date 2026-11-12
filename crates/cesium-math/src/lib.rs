@@ -64,6 +64,7 @@ mod cylinder_graphics;
 mod data_source_clock;
 mod custom_data_source;
 mod czml_data_source;
+mod export_kml;
 mod geo_json_data_source;
 mod gpx_data_source;
 mod kml_data_source;
@@ -307,6 +308,7 @@ pub use cylinder_graphics::{
 pub use data_source_clock::DataSourceClock;
 pub use custom_data_source::CustomDataSource;
 pub use czml_data_source::{CzmlDataSource, CzmlLoadOptions};
+pub use export_kml::{export_kml, ExportKmlOptions, ExportKmlResult};
 pub use gpx_data_source::{
     GpxBounds, GpxCopyright, GpxDataSource, GpxLink, GpxLoadOptions, GpxMetadata, GpxPerson,
 };
