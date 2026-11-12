@@ -183,6 +183,7 @@ mod static_geometry_per_material_batch;
 mod static_ground_geometry_color_batch;
 mod static_ground_geometry_per_material_batch;
 mod static_ground_polyline_per_material_batch;
+mod static_outline_geometry_batch;
 mod rectangle_outline_geometry;
 mod rectangle_graphics;
 mod rectangle_collision_checker;
@@ -600,6 +601,7 @@ pub use static_ground_geometry_per_material_batch::{
     GroundMaterialKey, GroundMaterialSubBatch, StaticGroundGeometryPerMaterialBatch,
 };
 pub use static_ground_polyline_per_material_batch::StaticGroundPolylinePerMaterialBatch;
+pub use static_outline_geometry_batch::StaticOutlineGeometryBatch;
 pub use reference_property::{ReferenceProperty, ResolvedPropertyTarget};
 pub use rectangle_graphics::{
     RectangleGraphics, RectangleGraphicsOptions, RectangleGraphicsValues,
