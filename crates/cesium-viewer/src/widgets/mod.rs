@@ -16,6 +16,8 @@ pub mod home_button;
 pub mod home_button_view_model;
 pub mod i3s_building_scene_layer_explorer;
 pub mod i3s_building_scene_layer_explorer_view_model;
+pub mod info_box;
+pub mod info_box_view_model;
 pub mod provider_view_model;
 pub mod toggle_button_view_model;
 
@@ -53,6 +55,13 @@ pub use i3s_building_scene_layer_explorer::{
 pub use i3s_building_scene_layer_explorer_view_model::{
     I3SBuildingSceneLayerExplorerViewModel, I3SDataProviderSource, I3SLevel, SimpleI3SDataProvider,
     TopLayerItem,
+};
+pub use info_box::{
+    InfoBox, InfoBoxContainer, InfoBoxContentDocument, InfoBoxElement, InfoBoxFrame,
+    InfoBoxFrameNode,
+};
+pub use info_box_view_model::{
+    InfoBoxViewModel, CAMERA_DISABLED_PATH, CAMERA_ENABLED_PATH,
 };
 pub use provider_view_model::{ProviderViewModel, ProviderViewModelOptions};
 pub use toggle_button_view_model::ToggleButtonViewModel;

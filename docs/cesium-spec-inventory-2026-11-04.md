@@ -831,8 +831,8 @@
 | [packages/widgets/Specs/HomeButton/HomeButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/HomeButton/HomeButtonViewModelSpec.js) | 已完成 (4/4 单测通过，覆盖 HomeButtonViewModel 默认与自定义飞行持续时间、场景缺失异常校验、Home 命令触发视角飞行复位并尊重负时长抛错及 commandBeforeExecute 取消钩子) |
 | [packages/widgets/Specs/I3SBSLExplorer/I3SBSLExplorerSpec.js](../../cesium/packages/widgets/Specs/I3SBSLExplorer/I3SBSLExplorerSpec.js) | 已完成 (4/4 单测通过，覆盖 I3SBuildingSceneLayerExplorer 虚拟/浏览器容器与 DOM 绑定、默认构建与生命周期销毁、容器/Provider 缺失校验及分类树 expand/collapse 折叠与展开联动) |
 | [packages/widgets/Specs/I3SBSLExplorer/I3SBSLExplorerViewModelSpec.js](../../cesium/packages/widgets/Specs/I3SBSLExplorer/I3SBSLExplorerViewModelSpec.js) | 已完成 (5/5 单测通过，覆盖 I3SBuildingSceneLayerExplorerViewModel 默认构造、层级排序抽取、缺失 Overview 自动合成 FullModel、按楼层属性过滤联动以及顶层模型切换与 UI 面板可见性同步) |
-| [packages/widgets/Specs/InfoBox/InfoBoxSpec.js](../../cesium/packages/widgets/Specs/InfoBox/InfoBoxSpec.js) | 待逐项核对 |
-| [packages/widgets/Specs/InfoBox/InfoBoxViewModelSpec.js](../../cesium/packages/widgets/Specs/InfoBox/InfoBoxViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/InfoBox/InfoBoxSpec.js](../../cesium/packages/widgets/Specs/InfoBox/InfoBoxSpec.js) | 已完成 (5/5 单测通过，覆盖 InfoBox 容器/元素/IFrame 绑定、默认构造与生命周期销毁、容器 string ID 查找及缺失容器异常校验、动态描述文本与背景样式同步) |
+| [packages/widgets/Specs/InfoBox/InfoBoxViewModelSpec.js](../../cesium/packages/widgets/Specs/InfoBox/InfoBoxViewModelSpec.js) | 已完成 (4/4 单测通过，覆盖 InfoBoxViewModel 默认属性与高度计算、描述设置与 _bodyless 状态判断、相机跟踪可用性及激活状态下的相机图标路径动态切换) |
 | [packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonSpec.js](../../cesium/packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonViewModelSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogSpec.js](../../cesium/packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogSpec.js) | 待逐项核对 |
