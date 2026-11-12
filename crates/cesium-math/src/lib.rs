@@ -756,6 +756,7 @@ pub use uri_helpers::{
 pub use vertex_format::VertexFormat;
 pub use vertical_exaggeration::VerticalExaggeration;
 pub use vector_provider::{
+    BufferPoint, BufferPointCollection, BufferPointCollectionOptions, BufferPointMaterial,
     BufferPolygon, BufferPolygonCollection, BufferPolygonCollectionOptions, BufferPolygonMaterial,
     BufferPolyline, BufferPolylineCollection, BufferPolylineCollectionOptions,
     BufferPolylineMaterial, HeightReference, VectorDirtyRegion, VectorPipeline, VectorProvider,

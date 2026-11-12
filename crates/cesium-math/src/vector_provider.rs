@@ -244,6 +244,236 @@ impl BufferPolygon {
     }
 }
 
+/// Material properties for a point.
+#[derive(Debug, Clone, PartialEq)]
+pub struct BufferPointMaterial {
+    pub color: Color,
+    pub outline_color: Color,
+    pub outline_width: f32,
+    pub size: f32,
+}
+
+impl Default for BufferPointMaterial {
+    fn default() -> Self {
+        Self {
+            color: Color::WHITE,
+            outline_color: Color::BLACK,
+            outline_width: 0.0,
+            size: 1.0,
+        }
+    }
+}
+
+/// A point primitive inside a [`BufferPointCollection`].
+#[derive(Debug, Clone, PartialEq)]
+pub struct BufferPoint {
+    pub position: Cartesian3,
+    pub material: BufferPointMaterial,
+    pub show: bool,
+    pub feature_id: usize,
+    pub pick_id: u32,
+}
+
+impl Default for BufferPoint {
+    fn default() -> Self {
+        Self {
+            position: Cartesian3::ZERO,
+            material: BufferPointMaterial::default(),
+            show: true,
+            feature_id: 0,
+            pick_id: NEXT_PRIMITIVE_PICK_ID.fetch_add(1, Ordering::Relaxed) as u32,
+        }
+    }
+}
+
+impl BufferPoint {
+    pub fn new(position: Cartesian3, material: BufferPointMaterial) -> Self {
+        Self {
+            position,
+            material,
+            show: true,
+            feature_id: 0,
+            pick_id: NEXT_PRIMITIVE_PICK_ID.fetch_add(1, Ordering::Relaxed) as u32,
+        }
+    }
+
+    pub fn set_position(&mut self, position: Cartesian3) {
+        self.position = position;
+    }
+
+    pub fn set_material(&mut self, material: BufferPointMaterial) {
+        self.material = material;
+    }
+}
+
+/// Options for creating a [`BufferPointCollection`].
+#[derive(Debug, Clone, Default)]
+pub struct BufferPointCollectionOptions {
+    pub primitive_count_max: Option<usize>,
+    pub height_reference: Option<HeightReference>,
+    pub allow_picking: Option<bool>,
+    pub bounding_volume: Option<BoundingSphere>,
+}
+
+#[derive(Debug)]
+struct PointCollectionInner {
+    id: usize,
+    points: Vec<BufferPoint>,
+    height_reference: HeightReference,
+    allow_picking: bool,
+    bounding_volume: Option<BoundingSphere>,
+    version: u64,
+    dirty_count: usize,
+}
+
+/// A collection of buffered points.
+#[derive(Debug, Clone)]
+pub struct BufferPointCollection {
+    inner: Arc<RwLock<PointCollectionInner>>,
+}
+
+impl BufferPointCollection {
+    pub fn new(options: BufferPointCollectionOptions) -> Self {
+        let id = NEXT_COLLECTION_ID.fetch_add(1, Ordering::Relaxed);
+        let inner = PointCollectionInner {
+            id,
+            points: Vec::new(),
+            height_reference: options.height_reference.unwrap_or(HeightReference::None),
+            allow_picking: options.allow_picking.unwrap_or(false),
+            bounding_volume: options.bounding_volume,
+            version: 1,
+            dirty_count: 1,
+        };
+        Self {
+            inner: Arc::new(RwLock::new(inner)),
+        }
+    }
+
+    pub fn id(&self) -> usize {
+        self.inner.read().unwrap().id
+    }
+
+    pub fn height_reference(&self) -> HeightReference {
+        self.inner.read().unwrap().height_reference
+    }
+
+    pub fn allow_picking(&self) -> bool {
+        self.inner.read().unwrap().allow_picking
+    }
+
+    pub fn version(&self) -> u64 {
+        self.inner.read().unwrap().version
+    }
+
+    pub fn dirty_count(&self) -> usize {
+        self.inner.read().unwrap().dirty_count
+    }
+
+    pub fn primitive_count(&self) -> usize {
+        self.inner.read().unwrap().points.len()
+    }
+
+    pub fn add(&self, mut point: BufferPoint) -> usize {
+        let mut inner = self.inner.write().unwrap();
+        let idx = inner.points.len();
+        point.feature_id = idx;
+        inner.points.push(point);
+        inner.version += 1;
+        inner.dirty_count += 1;
+        idx
+    }
+
+    pub fn get(&self, index: usize) -> Option<BufferPoint> {
+        self.inner.read().unwrap().points.get(index).cloned()
+    }
+
+    pub fn set_point_position(&self, index: usize, position: Cartesian3) {
+        let mut inner = self.inner.write().unwrap();
+        if let Some(p) = inner.points.get_mut(index) {
+            p.set_position(position);
+            inner.version += 1;
+            inner.dirty_count += 1;
+        }
+    }
+
+    pub fn set_point_material(&self, index: usize, material: BufferPointMaterial) {
+        let mut inner = self.inner.write().unwrap();
+        if let Some(p) = inner.points.get_mut(index) {
+            p.set_material(material);
+            inner.version += 1;
+            inner.dirty_count += 1;
+        }
+    }
+
+    pub fn set_point_show(&self, index: usize, show: bool) {
+        let mut inner = self.inner.write().unwrap();
+        if let Some(p) = inner.points.get_mut(index) {
+            p.show = show;
+            inner.version += 1;
+            inner.dirty_count += 1;
+        }
+    }
+
+    pub fn sort_by<F>(&self, mut cmp: F)
+    where
+        F: FnMut(&BufferPoint, &BufferPoint) -> std::cmp::Ordering,
+    {
+        let mut inner = self.inner.write().unwrap();
+        inner.points.sort_by(&mut cmp);
+        for (idx, p) in inner.points.iter_mut().enumerate() {
+            p.feature_id = idx;
+        }
+        inner.version += 1;
+        inner.dirty_count += 1;
+    }
+
+    pub fn byte_length(&self) -> usize {
+        let inner = self.inner.read().unwrap();
+        inner.points.len() * std::mem::size_of::<BufferPoint>()
+    }
+
+    pub fn clone_collection(&self) -> Self {
+        let inner = self.inner.read().unwrap();
+        let cloned = Self::new(BufferPointCollectionOptions {
+            primitive_count_max: Some(inner.points.len()),
+            height_reference: Some(inner.height_reference),
+            allow_picking: Some(inner.allow_picking),
+            bounding_volume: inner.bounding_volume,
+        });
+        for p in &inner.points {
+            cloned.add(p.clone());
+        }
+        cloned
+    }
+
+    pub fn bounding_volume(&self, ellipsoid: &Ellipsoid) -> BoundingSphere {
+        let inner = self.inner.read().unwrap();
+        if let Some(bv) = inner.bounding_volume {
+            return bv;
+        }
+        if inner.points.is_empty() {
+            BoundingSphere::new(DVec3::ZERO, 0.0)
+        } else {
+            let pts: Vec<DVec3> = inner.points.iter().map(|p| DVec3::from(p.position)).collect();
+            BoundingSphere::from_points(&pts).unwrap_or_else(|_| {
+                let carto = ellipsoid
+                    .cartesian_to_cartographic(pts[0])
+                    .unwrap_or(Cartographic::ZERO);
+                let center = ellipsoid.cartographic_to_cartesian(carto).unwrap_or(DVec3::ZERO);
+                BoundingSphere::new(center, 10.0)
+            })
+        }
+    }
+
+    pub fn make_clean(&self) {
+        let mut inner = self.inner.write().unwrap();
+        if inner.dirty_count > 0 {
+            inner.version += 1;
+            inner.dirty_count = 0;
+        }
+    }
+}
+
 /// Options for creating a BufferPolylineCollection.
 #[derive(Debug, Clone, Default)]
 pub struct BufferPolylineCollectionOptions {
