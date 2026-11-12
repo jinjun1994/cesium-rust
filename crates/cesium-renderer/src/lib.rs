@@ -237,6 +237,12 @@ pub mod particle;
 pub mod particle_emitter;
 pub mod particle_system;
 pub mod per_instance_color_appearance;
+pub mod point_cloud_styling_pipeline_stage;
+pub use point_cloud_styling_pipeline_stage::{
+    PointCloudAttributeInfo, PointCloudFrameState, PointCloudModelType, PointCloudPrimitiveInfo,
+    PointCloudStylingModel, PointCloudStylingPipelineStage, PointCloudStylingRenderResources,
+    PointCloudStylingUniformMap, PointCloudTileContentInfo, PointCloudTileRefine,
+};
 pub mod pick_id;
 pub mod picking;
 pub mod pipelines;

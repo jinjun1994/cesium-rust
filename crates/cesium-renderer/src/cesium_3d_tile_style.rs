@@ -70,6 +70,10 @@ impl TileStyleExpression {
         }
     }
 
+    pub fn expression_source(&self) -> String {
+        format!("{self:?}")
+    }
+
     pub fn evaluate<F: TileFeature>(&self, feature: &F) -> Result<StyleValue, DeveloperError> {
         match self {
             Self::Expression(e) => e.evaluate(feature),
