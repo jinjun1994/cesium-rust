@@ -246,6 +246,11 @@ pub use point_cloud_styling_pipeline_stage::{
 pub mod pick_id;
 pub mod picking;
 pub mod pipelines;
+pub mod pnts_loader;
+pub use pnts_loader::{
+    PntsAttribute, PntsAttributeType, PntsComponentDatatype, PntsComponents, PntsLoader,
+    PntsLoaderOptions, PntsNode, PntsPrimitive, PntsQuantization,
+};
 pub mod render_state;
 pub mod sampler;
 pub mod shader_builder;
