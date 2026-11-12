@@ -822,7 +822,7 @@
 | [packages/widgets/Specs/Cesium3DTilesInspector/Cesium3DTilesInspectorViewModelSpec.js](../../cesium/packages/widgets/Specs/Cesium3DTilesInspector/Cesium3DTilesInspectorViewModelSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/CesiumInspector/CesiumInspectorSpec.js](../../cesium/packages/widgets/Specs/CesiumInspector/CesiumInspectorSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/CesiumInspector/CesiumInspectorViewModelSpec.js](../../cesium/packages/widgets/Specs/CesiumInspector/CesiumInspectorViewModelSpec.js) | 待逐项核对 |
-| [packages/widgets/Specs/ClockViewModelSpec.js](../../cesium/packages/widgets/Specs/ClockViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/ClockViewModelSpec.js](../../cesium/packages/widgets/Specs/ClockViewModelSpec.js) | 已完成 (4/4 单测通过，覆盖 ClockViewModel 默认构造与初始属性绑定、Clock onTick 事件双向属性同步、ViewModel 属性写入向 Clock 同步传播及生命周期销毁) |
 | [packages/widgets/Specs/FullscreenButton/FullscreenButtonSpec.js](../../cesium/packages/widgets/Specs/FullscreenButton/FullscreenButtonSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/FullscreenButton/FullscreenButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/FullscreenButton/FullscreenButtonViewModelSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/Geocoder/GeocoderSpec.js](../../cesium/packages/widgets/Specs/Geocoder/GeocoderSpec.js) | 待逐项核对 |
