@@ -123,6 +123,10 @@ pub mod scene_primitive;
 pub mod edge_visibility_pipeline_stage;
 pub mod empty_3d_tile_content;
 pub mod composite_3d_tile_content;
+pub mod cesium_3d_tiles_voxel_provider;
+pub use cesium_3d_tiles_voxel_provider::{
+    Cesium3DTilesVoxelContent, Cesium3DTilesVoxelProvider, Cesium3DTilesVoxelProviderOptions,
+};
 pub use composite_3d_tile_content::{
     Composite3DTileContent, CompositeInnerContent, CompositeLeafContent,
 };
