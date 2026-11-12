@@ -256,6 +256,7 @@ pub mod tile_bounding_volume;
 pub mod tile_coordinates_imagery_provider;
 pub mod tile_imagery;
 pub mod arc_gis_map_server_imagery_provider;
+pub mod azure_2d_imagery_provider;
 pub mod tile_map_service_imagery_provider;
 pub mod tile_metadata;
 pub mod tile_oriented_bounding_box;
@@ -499,6 +500,7 @@ pub use tile_imagery::{ImageryNode, TileImagery};
 pub use arc_gis_map_server_imagery_provider::{
     ArcGisBaseMapType, ArcGisMapServerImageryProvider, ArcGisMapServerImageryProviderOptions,
 };
+pub use azure_2d_imagery_provider::{Azure2DImageryProvider, Azure2DImageryProviderOptions};
 pub use tile_map_service_imagery_provider::{
     TileMapServiceImageryProvider, TileMapServiceImageryProviderOptions,
 };
