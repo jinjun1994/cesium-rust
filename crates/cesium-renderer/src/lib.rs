@@ -22,6 +22,7 @@ pub mod cesium_3d_tile_feature;
 pub mod cesium_3d_tile_feature_table;
 pub mod cesium_3d_tile_vector_feature;
 pub mod cesium_3d_tileset_heatmap;
+pub mod cesium_3d_tileset_metadata;
 pub mod cesium_3d_tile_pass_state;
 pub mod clipping_plane;
 pub mod clipping_plane_collection;
@@ -371,6 +372,7 @@ pub use cesium_3d_tile_vector_feature::Cesium3DTileVectorFeature;
 pub use cesium_3d_tileset_heatmap::{
     Cesium3DTilesetHeatmap, HeatmapReferenceValue, HeatmapTile,
 };
+pub use cesium_3d_tileset_metadata::{Cesium3DTilesetMetadata, Cesium3DTilesetMetadataOptions};
 pub use cesium_3d_tile_pass_state::{
     Cesium3DTilePass, Cesium3DTilePassState, Cesium3DTilePassStateOptions,
 };
