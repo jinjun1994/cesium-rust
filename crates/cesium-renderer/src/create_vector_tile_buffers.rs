@@ -923,6 +923,7 @@ pub struct VectorGltf3DTileContent {
     pub collection_feature_table_ids: Vec<Option<usize>>,
     pub features_by_table_id: HashMap<Option<usize>, HashMap<usize, VectorGltfFeature>>,
     pub feature_tables: Vec<FeatureTableInfo>,
+    pub pick_ids: HashMap<(usize, usize), u32>,
     pub ready: bool,
     pub is_destroyed: bool,
 }

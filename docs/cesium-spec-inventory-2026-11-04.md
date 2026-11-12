@@ -483,7 +483,7 @@
 | [packages/engine/Specs/Scene/Cesium3DTilePassStateSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTilePassStateSpec.js) | 已移植：3D Tiles 更新通道状态抽象（Cesium3DTilePass / Cesium3DTilePassState / Cesium3DTilePassStateOptions）、8 种通道类型与标志位（is_render, request_tiles, ignore_commands）、参数校验拦截（options.pass 必填 DeveloperError）、渲染命令队列与相机/裁剪视锥体覆盖配置（cesium_3d_tile_pass_state_spec.rs，5 项测试全部通过） |
 | [packages/engine/Specs/Scene/Cesium3DTileSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTileSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Cesium3DTileStyleSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTileStyleSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/Cesium3DTileVectorFeatureSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTileVectorFeatureSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Cesium3DTileVectorFeatureSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTileVectorFeatureSpec.js) | 已补齐（[cesium_3d_tile_vector_feature.rs](../crates/cesium-renderer/src/cesium_3d_tile_vector_feature.rs)、[cesium_3d_tile_vector_feature_spec.rs](../crates/cesium-renderer/tests/cesium_3d_tile_vector_feature_spec.rs)：`Cesium3DTileVectorFeature` 多集合图元关联、`pick_ids`/`show`/`color` 传播及属性查询，3/3 通过、clippy 与 wasm32 check 通过） |
 | [packages/engine/Specs/Scene/Cesium3DTilesVoxelProviderSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTilesVoxelProviderSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Cesium3DTilesetBaseTraversalSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTilesetBaseTraversalSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/Cesium3DTilesetHeatmapSpec.js](../../cesium/packages/engine/Specs/Scene/Cesium3DTilesetHeatmapSpec.js) | 待逐项核对 |
