@@ -31,6 +31,7 @@ pub mod selection_indicator;
 pub mod selection_indicator_view_model;
 pub mod provider_view_model;
 pub mod svg_path_binding_handler;
+pub mod timeline;
 pub mod toggle_button_view_model;
 
 pub use animation::{Animation, AnimationContainer};
@@ -109,6 +110,9 @@ pub use knockout::{
 };
 pub use svg_path_binding_handler::{
     SvgPathBindingHandler, SvgPathOptions, SVG_CLASS_NAME,
+};
+pub use timeline::{
+    Timeline, TimelineContainer, TimelineHighlightRange, TimelineTrack,
 };
 pub use provider_view_model::{ProviderViewModel, ProviderViewModelOptions};
 pub use toggle_button_view_model::ToggleButtonViewModel;
