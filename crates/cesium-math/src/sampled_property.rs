@@ -1,7 +1,7 @@
 //! SampledProperty and SampledPositionProperty matching CesiumJS `DataSources/SampledProperty.js` and `SampledPositionProperty.js` (Apache-2.0).
 
 use crate::{
-    Cartesian2, Cartesian3, Cartesian4, DynPositionProperty, DynProperty, Event,
+    Cartesian2, Cartesian3, Cartesian4, Color, DynPositionProperty, DynProperty, Event,
     HermitePolynomialApproximation, JulianDate, LagrangePolynomialApproximation,
     LinearApproximation, PositionProperty, Quaternion, ReferenceFrame,
 };
@@ -151,6 +151,19 @@ impl Sampleable for Quaternion {
     }
     fn unpack(src: &[f64]) -> Self {
         Quaternion::new(src[0], src[1], src[2], src[3])
+    }
+}
+
+impl Sampleable for Color {
+    const PACKED_LENGTH: usize = 4;
+    fn pack(&self, dest: &mut [f64]) {
+        dest[0] = self.red as f64;
+        dest[1] = self.green as f64;
+        dest[2] = self.blue as f64;
+        dest[3] = self.alpha as f64;
+    }
+    fn unpack(src: &[f64]) -> Self {
+        Color::new(src[0] as f32, src[1] as f32, src[2] as f32, src[3] as f32)
     }
 }
 
@@ -796,6 +809,9 @@ impl SampledPositionProperty {
 impl DynPositionProperty for SampledPositionProperty {
     fn is_constant(&self) -> bool {
         self.is_constant()
+    }
+    fn reference_frame(&self) -> ReferenceFrame {
+        self.reference_frame()
     }
     fn definition_changed(&self) -> &Event<()> {
         self.definition_changed()

@@ -122,11 +122,21 @@ impl PositionProperty {
 }
 
 /// A PositionProperty whose value does not change with respect to simulation time.
-#[derive(Debug)]
 pub struct ConstantPositionProperty {
     value: RefCell<Option<Cartesian3>>,
     reference_frame: Cell<ReferenceFrame>,
+    dynamic_position: Option<Rc<dyn DynPositionProperty>>,
     definition_changed: Event<()>,
+}
+
+impl std::fmt::Debug for ConstantPositionProperty {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("ConstantPositionProperty")
+            .field("value", &self.value)
+            .field("reference_frame", &self.reference_frame)
+            .field("has_dynamic", &self.dynamic_position.is_some())
+            .finish()
+    }
 }
 
 impl Clone for ConstantPositionProperty {
@@ -134,6 +144,7 @@ impl Clone for ConstantPositionProperty {
         Self {
             value: RefCell::new(*self.value.borrow()),
             reference_frame: Cell::new(self.reference_frame.get()),
+            dynamic_position: self.dynamic_position.clone(),
             definition_changed: self.definition_changed.clone(),
         }
     }
@@ -144,7 +155,23 @@ impl ConstantPositionProperty {
         Self {
             value: RefCell::new(value),
             reference_frame: Cell::new(reference_frame.unwrap_or(ReferenceFrame::Fixed)),
+            dynamic_position: None,
             definition_changed: Event::new(),
+        }
+    }
+
+    pub fn from_dynamic(dyn_pos: Rc<dyn DynPositionProperty>) -> Self {
+        let definition_changed = Event::new();
+        let dc = definition_changed.clone();
+        dyn_pos.definition_changed().add_listener(move |_| {
+            dc.raise_event(&());
+        });
+        let ref_frame = dyn_pos.reference_frame();
+        Self {
+            value: RefCell::new(None),
+            reference_frame: Cell::new(ref_frame),
+            dynamic_position: Some(dyn_pos),
+            definition_changed,
         }
     }
 
@@ -153,7 +180,11 @@ impl ConstantPositionProperty {
     }
 
     pub fn is_constant(&self) -> bool {
-        true
+        if let Some(ref dp) = self.dynamic_position {
+            dp.is_constant()
+        } else {
+            true
+        }
     }
 
     pub fn definition_changed(&self) -> &Event<()> {
@@ -169,6 +200,9 @@ impl ConstantPositionProperty {
         time: Option<&JulianDate>,
         target_frame: ReferenceFrame,
     ) -> Option<Cartesian3> {
+        if let Some(ref dp) = self.dynamic_position {
+            return dp.get_value_in_reference_frame(time, target_frame);
+        }
         PositionProperty::convert_to_reference_frame(
             time,
             *self.value.borrow(),
@@ -920,6 +954,9 @@ impl<T: Clone + PartialEq + 'static> DynProperty<T> for TimeIntervalCollectionPr
 /// Dynamic trait object interface for PositionProperty instances.
 pub trait DynPositionProperty: std::any::Any {
     fn is_constant(&self) -> bool;
+    fn reference_frame(&self) -> ReferenceFrame {
+        ReferenceFrame::Fixed
+    }
     fn definition_changed(&self) -> &Event<()>;
     fn get_value(&self, time: Option<&JulianDate>) -> Option<Cartesian3>;
     fn get_value_in_reference_frame(
@@ -934,6 +971,9 @@ pub trait DynPositionProperty: std::any::Any {
 impl DynPositionProperty for ConstantPositionProperty {
     fn is_constant(&self) -> bool {
         self.is_constant()
+    }
+    fn reference_frame(&self) -> ReferenceFrame {
+        self.reference_frame()
     }
     fn definition_changed(&self) -> &Event<()> {
         self.definition_changed()
