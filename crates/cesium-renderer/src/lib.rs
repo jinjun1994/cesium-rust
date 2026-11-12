@@ -166,6 +166,10 @@ pub use gaussian_splat_primitive::{
 pub use geo_json_primitive::GeoJsonPrimitive;
 pub mod globe_translucency_framebuffer;
 pub use globe_translucency_framebuffer::GlobeTranslucencyFramebuffer;
+pub mod globe_translucency_state;
+pub use globe_translucency_state::{
+    DerivedCommandType, GlobeTranslucencyConfig, GlobeTranslucencyInput, GlobeTranslucencyState,
+};
 pub mod geometry_pipeline_stage;
 pub mod geometry_3d_tile_content;
 pub use geometry_3d_tile_content::{
