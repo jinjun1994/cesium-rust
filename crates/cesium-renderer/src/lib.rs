@@ -72,7 +72,9 @@ pub mod feature_id_pipeline_stage;
 pub mod cloud_collection;
 pub mod commands;
 pub mod compute_command;
+pub mod conditions_expression;
 pub mod content_metadata;
+pub mod expression;
 pub mod cpu_styling_pipeline_stage;
 pub mod custom_shader;
 pub mod custom_shader_pipeline_stage;
@@ -408,7 +410,9 @@ pub use commands::{
     NUMBER_OF_PASSES,
 };
 pub use compute_command::{ComputeCommand, ComputeCommandOptions};
+pub use conditions_expression::ConditionsExpression;
 pub use content_metadata::{ContentMetadata, ContentMetadataOptions};
+pub use expression::Expression;
 pub use cpu_styling_pipeline_stage::{
     CPUStylingModelOptions, CPUStylingPipelineStage, CPUStylingRenderResources,
     CPUStylingUniformCallback, CPU_STYLING_STAGE_FS, CPU_STYLING_STAGE_VS,
