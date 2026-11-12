@@ -13,6 +13,7 @@ pub mod bounding_volume_semantics;
 pub mod builtin_functions;
 pub mod buffer;
 pub mod buffer_loader;
+pub mod camera_event_aggregator;
 pub mod buffer_primitive_material;
 pub mod capabilities;
 pub mod cesium_3d_tile_content_type;
@@ -348,6 +349,7 @@ pub use bounding_volume_semantics::{
 pub use builtin_functions::{BuiltinFunctions, Ray};
 pub use buffer::{Buffer, BufferOptions, BufferTarget, BufferUsage, IndexBufferOptions};
 pub use buffer_loader::{BufferLoader, BufferLoaderOptions, ResourceLoaderState};
+pub use camera_event_aggregator::{CameraEventAggregator, CameraEventType, CameraMovement};
 pub use buffer_primitive_material::{
     BufferPointMaterial, BufferPointMaterialOptions, BufferPolygonMaterial,
     BufferPolygonMaterialOptions, BufferPolylineMaterial, BufferPolylineMaterialOptions,
