@@ -158,6 +158,11 @@ pub use gaussian_splat_3d_tile_content::{
     GaussianSplat3DTileContent, GaussianSplat3DTileContentOptions, GaussianSplatAttribute,
     GaussianSplatGltfPrimitive,
 };
+pub mod gaussian_splat_primitive;
+pub use gaussian_splat_primitive::{
+    GaussianSplatFrameContext, GaussianSplatPrimitive, GaussianSplatPrimitiveOptions,
+    GaussianSplatSnapshot, GaussianSplatSortingState, SnapshotState,
+};
 pub use geo_json_primitive::GeoJsonPrimitive;
 pub mod globe_translucency_framebuffer;
 pub use globe_translucency_framebuffer::GlobeTranslucencyFramebuffer;
