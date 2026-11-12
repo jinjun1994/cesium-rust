@@ -848,8 +848,8 @@
 | [packages/widgets/Specs/Timeline/TimelineSpec.js](../../cesium/packages/widgets/Specs/Timeline/TimelineSpec.js) | 已完成 (4/4 单测通过，覆盖 Timeline 容器与 DOM 结构挂载、默认构建与生命周期销毁、容器/Clock 参数校验与字符串 ID 绑定、zoomTo 视图缩放与指针 X 坐标映射、高亮区间及轨道动态注册) |
 | [packages/widgets/Specs/VRButton/VRButtonSpec.js](../../cesium/packages/widgets/Specs/VRButton/VRButtonSpec.js) | 已完成 (6/6 单测通过，覆盖 VRButton 容器与 DOM 绑定、自定义 vrElement 属性绑定、字符串 ID 查询挂载、默认构建与生命周期销毁、容器/场景参数缺失及无效容器异常校验) |
 | [packages/widgets/Specs/VRButton/VRButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/VRButton/VRButtonViewModelSpec.js) | 已完成 (7/7 单测通过，覆盖 VRButtonViewModel 场景缺失校验、vrElement 读取与动态变更及空值异常、isVREnabled 属性读写、WebVR 沉浸式场景切换指令执行与销毁管理) |
-| [packages/widgets/Specs/Viewer/ViewerSpec.js](../../cesium/packages/widgets/Specs/Viewer/ViewerSpec.js) | 待逐项核对 |
-| [packages/widgets/Specs/Viewer/viewerDragDropMixinSpec.js](../../cesium/packages/widgets/Specs/Viewer/viewerDragDropMixinSpec.js) | 待逐项核对 |
-| [packages/widgets/Specs/Viewer/viewerPerformanceWatchdogMixinSpec.js](../../cesium/packages/widgets/Specs/Viewer/viewerPerformanceWatchdogMixinSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/Viewer/ViewerSpec.js](../../cesium/packages/widgets/Specs/Viewer/ViewerSpec.js) | 已完成 (5/5 单测通过，覆盖 Viewer 顶层部件聚合装配、默认子部件绑定与生命周期销毁、自定义 ClockViewModel 与 shouldAnimate 覆盖、字符串 ID 挂载及可选子部件按需关闭与渲染) |
+| [packages/widgets/Specs/Viewer/viewerDragDropMixinSpec.js](../../cesium/packages/widgets/Specs/Viewer/viewerDragDropMixinSpec.js) | 已完成 (3/3 单测通过，覆盖 viewerDragDropMixin 默认拖放参数挂载、自定义 dropTarget/clearOnDrop/clampToGround 选项及 Viewer 实例缺失异常校验) |
+| [packages/widgets/Specs/Viewer/viewerPerformanceWatchdogMixinSpec.js](../../cesium/packages/widgets/Specs/Viewer/viewerPerformanceWatchdogMixinSpec.js) | 已完成 (3/3 单测通过，覆盖 viewerPerformanceWatchdogMixin 默认看门狗装配、低帧率自定义提示文案透传及 Viewer 实例缺失异常校验) |
 | [packages/widgets/Specs/VoxelInspector/VoxelInspectorSpec.js](../../cesium/packages/widgets/Specs/VoxelInspector/VoxelInspectorSpec.js) | 已完成 (5/5 单测通过，覆盖 VoxelInspector 容器与 DOM 绑定、字符串 ID 查询挂载、默认构建与生命周期销毁、容器/场景参数缺失及无效容器异常校验、各面板折叠与体素调试属性开关响应) |
 | [packages/widgets/Specs/createCommandSpec.js](../../cesium/packages/widgets/Specs/createCommandSpec.js) | 已完成 (5/5 单测通过，覆盖 Command 构造默认 canExecute、canExecute 为 false 拒绝执行并抛出 DeveloperError、动态可观察 canExecute 状态切换、beforeExecute/afterExecute 事件分发及 beforeExecute 拦截取消) |

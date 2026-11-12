@@ -3,6 +3,7 @@ use std::rc::Rc;
 
 use cesium_math::{Clock, ClockRange, ClockStep, JulianDate, ListenerId};
 
+#[derive(Debug)]
 struct ClockViewModelState {
     clock: Rc<RefCell<Clock>>,
     system_time: JulianDate,
@@ -33,7 +34,7 @@ impl ClockViewModelState {
 }
 
 /// A view model which exposes a `Clock` for user interfaces and keeps observable state in sync.
-#[derive(Clone)]
+#[derive(Clone, Debug)]
 pub struct ClockViewModel {
     inner: Rc<RefCell<ClockViewModelState>>,
 }
