@@ -26,6 +26,8 @@ pub mod projection_picker;
 pub mod projection_picker_view_model;
 pub mod scene_mode_picker;
 pub mod scene_mode_picker_view_model;
+pub mod selection_indicator;
+pub mod selection_indicator_view_model;
 pub mod provider_view_model;
 pub mod toggle_button_view_model;
 

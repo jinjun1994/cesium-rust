@@ -841,8 +841,8 @@
 | [packages/widgets/Specs/ProjectionPicker/ProjectionPickerViewModelSpec.js](../../cesium/packages/widgets/Specs/ProjectionPicker/ProjectionPickerViewModelSpec.js) | 已完成 (6/6 单测通过，覆盖 ProjectionPickerViewModel 场景缺失校验、下拉状态切换、相机视锥正交/透视双向切换、2D 模式变换响应及选中提示文案动态更新) |
 | [packages/widgets/Specs/SceneModePicker/SceneModePickerSpec.js](../../cesium/packages/widgets/Specs/SceneModePicker/SceneModePickerSpec.js) | 已完成 (5/5 单测通过，覆盖 SceneModePicker 容器与 DOM 绑定、默认构建与生命周期销毁、容器/场景参数缺失及无效容器异常校验、外部点击自动收起下拉面板) |
 | [packages/widgets/Specs/SceneModePicker/SceneModePickerViewModelSpec.js](../../cesium/packages/widgets/Specs/SceneModePicker/SceneModePickerViewModelSpec.js) | 已完成 (6/6 单测通过，覆盖 SceneModePickerViewModel 场景缺失校验、下拉状态切换、morphStart 自动折叠下拉面板、2D/3D/哥伦布视图状态双向迁移及动态提示文案同步更新) |
-| [packages/widgets/Specs/SelectionIndicator/SelectionIndicatorSpec.js](../../cesium/packages/widgets/Specs/SelectionIndicator/SelectionIndicatorSpec.js) | 待逐项核对 |
-| [packages/widgets/Specs/SelectionIndicator/SelectionIndicatorViewModelSpec.js](../../cesium/packages/widgets/Specs/SelectionIndicator/SelectionIndicatorViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/SelectionIndicator/SelectionIndicatorSpec.js](../../cesium/packages/widgets/Specs/SelectionIndicator/SelectionIndicatorSpec.js) | 已完成 (4/4 单测通过，覆盖 SelectionIndicator 容器与 DOM 绑定、字符串 ID 查询与挂载、默认构建与生命周期销毁、容器/场景参数缺失及无效容器异常校验) |
+| [packages/widgets/Specs/SelectionIndicator/SelectionIndicatorViewModelSpec.js](../../cesium/packages/widgets/Specs/SelectionIndicator/SelectionIndicatorViewModelSpec.js) | 已完成 (6/6 单测通过，覆盖 SelectionIndicatorViewModel 场景/容器/指示器元素缺失校验、自定义屏幕空间位置映射与视口坐标裁剪偏移计算、无位置或屏幕外隐匿以及出入场动画缩放状态迁移) |
 | [packages/widgets/Specs/SvgPathBindingHandlerSpec.js](../../cesium/packages/widgets/Specs/SvgPathBindingHandlerSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/ThirdParty/knockoutSpec.js](../../cesium/packages/widgets/Specs/ThirdParty/knockoutSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/Timeline/TimelineSpec.js](../../cesium/packages/widgets/Specs/Timeline/TimelineSpec.js) | 待逐项核对 |
