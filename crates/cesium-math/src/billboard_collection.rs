@@ -1,8 +1,8 @@
 //! Billboard and BillboardCollection matching CesiumJS `Scene/BillboardCollection.js` and `Scene/Billboard.js` (Apache-2.0).
 
 use crate::{
-    BoundingRectangle, Cartesian2, Cartesian3, Color, DistanceDisplayCondition, HeightReference,
-    HorizontalOrigin, NearFarScalar, SplitDirection, VerticalOrigin,
+    BoundingRectangle, Cartesian2, Cartesian3, Color, DeveloperError, DistanceDisplayCondition,
+    HeightReference, HorizontalOrigin, Matrix4, NearFarScalar, SplitDirection, VerticalOrigin,
 };
 
 /// A single billboard representation managed by BillboardCollection.
@@ -65,16 +65,74 @@ impl Default for Billboard {
     }
 }
 
+impl Billboard {
+    /// Validates `NearFarScalar`, `DistanceDisplayCondition`, and `disable_depth_test_distance` invariants.
+    pub fn validate(&self) -> Result<(), DeveloperError> {
+        if let Some(ref s) = self.scale_by_distance {
+            if s.near >= s.far {
+                return Err(DeveloperError::new(
+                    "scaleByDistance.farDistance must be greater than scaleByDistance.nearDistance.",
+                ));
+            }
+        }
+        if let Some(ref t) = self.translucency_by_distance {
+            if t.near >= t.far {
+                return Err(DeveloperError::new(
+                    "translucencyByDistance.farDistance must be greater than translucencyByDistance.nearDistance.",
+                ));
+            }
+        }
+        if let Some(ref p) = self.pixel_offset_scale_by_distance {
+            if p.near >= p.far {
+                return Err(DeveloperError::new(
+                    "pixelOffsetScaleByDistance.farDistance must be greater than pixelOffsetScaleByDistance.nearDistance.",
+                ));
+            }
+        }
+        if let Some(ref d) = self.distance_display_condition {
+            if d.near >= d.far {
+                return Err(DeveloperError::new(
+                    "distanceDisplayCondition.far must be greater than distanceDisplayCondition.near.",
+                ));
+            }
+        }
+        if let Some(dist) = self.disable_depth_test_distance {
+            if dist < 0.0 {
+                return Err(DeveloperError::new(
+                    "disableDepthTestDistance must be greater than or equal to 0.0.",
+                ));
+            }
+        }
+        Ok(())
+    }
+}
+
 /// A renderable collection of billboards.
-#[derive(Clone, Debug, Default)]
+#[derive(Clone, Debug)]
 pub struct BillboardCollection {
     pub billboards: Vec<Billboard>,
+    pub model_matrix: Matrix4,
+    pub show: bool,
+    pub debug_show_bounding_volume: bool,
+    pub destroy_texture_atlas: bool,
+    destroyed: bool,
+}
+
+impl Default for BillboardCollection {
+    fn default() -> Self {
+        Self::new()
+    }
 }
 
 impl BillboardCollection {
     pub fn new() -> Self {
         Self {
             billboards: Vec::new(),
+            model_matrix: Matrix4::IDENTITY,
+            show: true,
+            debug_show_bounding_volume: false,
+            destroy_texture_atlas: true,
+            destroyed: false,
         }
     }
 
@@ -99,13 +157,40 @@ impl BillboardCollection {
         self.billboards.len() - 1
     }
 
+    pub fn add_checked(&mut self, billboard: Billboard) -> Result<usize, DeveloperError> {
+        billboard.validate()?;
+        Ok(self.add(billboard))
+    }
+
+    pub fn contains(&self, billboard: &Billboard) -> bool {
+        self.billboards.contains(billboard)
+    }
+
     pub fn remove(&mut self, index: usize) {
         if index < self.billboards.len() {
             self.billboards.remove(index);
         }
     }
 
+    pub fn remove_billboard(&mut self, billboard: &Billboard) -> bool {
+        if let Some(pos) = self.billboards.iter().position(|b| b == billboard) {
+            self.billboards.remove(pos);
+            true
+        } else {
+            false
+        }
+    }
+
     pub fn remove_all(&mut self) {
         self.billboards.clear();
+    }
+
+    pub fn is_destroyed(&self) -> bool {
+        self.destroyed
+    }
+
+    pub fn destroy(&mut self) {
+        self.billboards.clear();
+        self.destroyed = true;
     }
 }
