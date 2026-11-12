@@ -4,19 +4,24 @@ use std::cell::RefCell;
 use std::rc::Rc;
 
 use crate::{
-    Cartesian2, Color, ConstantProperty, Event, EventHelper, JulianDate, TimeIntervalCollection,
+    Cartesian2, Color, ConstantProperty, DynProperty, Event, EventHelper, JulianDate,
+    TimeIntervalCollection,
 };
 
 /// A MaterialProperty that maps to flat Color materials.
-#[derive(Debug, Default)]
+#[derive(Clone, Default)]
 pub struct ColorMaterialProperty {
     pub color: Option<ConstantProperty<Color>>,
+    pub dynamic_color: Option<Rc<dyn DynProperty<Color>>>,
     definition_changed: Event<()>,
 }
 
-impl Clone for ColorMaterialProperty {
-    fn clone(&self) -> Self {
-        Self::new(self.color.clone())
+impl std::fmt::Debug for ColorMaterialProperty {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("ColorMaterialProperty")
+            .field("color", &self.color)
+            .field("has_dynamic_color", &self.dynamic_color.is_some())
+            .finish()
     }
 }
 
@@ -31,6 +36,20 @@ impl ColorMaterialProperty {
         }
         Self {
             color,
+            dynamic_color: None,
+            definition_changed,
+        }
+    }
+
+    pub fn from_dynamic_color(dyn_color: Rc<dyn DynProperty<Color>>) -> Self {
+        let definition_changed = Event::new();
+        let dc = definition_changed.clone();
+        dyn_color.definition_changed().add_listener(move |_| {
+            dc.raise_event(&());
+        });
+        Self {
+            color: None,
+            dynamic_color: Some(dyn_color),
             definition_changed,
         }
     }
@@ -44,7 +63,9 @@ impl ColorMaterialProperty {
     }
 
     pub fn is_constant(&self) -> bool {
-        self.color.as_ref().is_none_or(|c| c.is_constant())
+        let const_color = self.color.as_ref().is_none_or(|c| c.is_constant());
+        let const_dyn = self.dynamic_color.as_ref().is_none_or(|c| c.is_constant());
+        const_color && const_dyn
     }
 
     pub fn definition_changed(&self) -> &Event<()> {
@@ -52,15 +73,26 @@ impl ColorMaterialProperty {
     }
 
     pub fn get_value(&self, time: Option<&JulianDate>) -> Color {
-        self.color
-            .as_ref()
-            .and_then(|c| c.get_value(time))
-            .unwrap_or(Color::WHITE)
+        if let Some(ref dc) = self.dynamic_color {
+            dc.get_value(time).unwrap_or(Color::WHITE)
+        } else if let Some(ref c) = self.color {
+            c.get_value(time).unwrap_or(Color::WHITE)
+        } else {
+            Color::WHITE
+        }
     }
 
     pub fn equals(&self, other: Option<&Self>) -> bool {
         match other {
-            Some(o) => self.color == o.color,
+            Some(o) => {
+                let color_equal = self.color == o.color;
+                let dyn_equal = match (&self.dynamic_color, &o.dynamic_color) {
+                    (None, None) => true,
+                    (Some(a), Some(b)) => a.equals_dyn(b.as_ref()),
+                    _ => false,
+                };
+                color_equal && dyn_equal
+            }
             None => false,
         }
     }

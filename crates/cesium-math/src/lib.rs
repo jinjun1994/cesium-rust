@@ -178,6 +178,7 @@ mod reference_property;
 mod rectangle_geometry;
 mod rectangle_geometry_library;
 mod rectangle_geometry_updater;
+mod static_geometry_color_batch;
 mod rectangle_outline_geometry;
 mod rectangle_graphics;
 mod rectangle_collision_checker;
@@ -584,6 +585,7 @@ pub use rectangle_geometry_updater::{
     DynamicRectangleGeometryUpdater, RectangleFillGeometryInstance, RectangleGeometryUpdater,
     RectangleOutlineGeometryInstance, RectangleUpdaterOptions,
 };
+pub use static_geometry_color_batch::StaticGeometryColorBatch;
 pub use reference_property::{ReferenceProperty, ResolvedPropertyTarget};
 pub use rectangle_graphics::{
     RectangleGraphics, RectangleGraphicsOptions, RectangleGraphicsValues,
