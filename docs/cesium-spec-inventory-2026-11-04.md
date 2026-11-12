@@ -835,8 +835,8 @@
 | [packages/widgets/Specs/InfoBox/InfoBoxViewModelSpec.js](../../cesium/packages/widgets/Specs/InfoBox/InfoBoxViewModelSpec.js) | 已完成 (4/4 单测通过，覆盖 InfoBoxViewModel 默认属性与高度计算、描述设置与 _bodyless 状态判断、相机跟踪可用性及激活状态下的相机图标路径动态切换) |
 | [packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonSpec.js](../../cesium/packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonSpec.js) | 已完成 (8/8 单测通过，覆盖 NavigationHelpButton 容器与 DOM 绑定、默认与自定义初始可见性、生命周期销毁、容器缺失与无效容器异常校验以及外部点击自动收起下拉面板) |
 | [packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonViewModelSpec.js](../../cesium/packages/widgets/Specs/NavigationHelpButton/NavigationHelpButtonViewModelSpec.js) | 已完成 (2/2 单测通过，覆盖 NavigationHelpButtonViewModel 构造默认状态与工具提示、Command 命令触发帮助面板可见性显示/隐藏翻转) |
-| [packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogSpec.js](../../cesium/packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogSpec.js) | 待逐项核对 |
-| [packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogViewModelSpec.js](../../cesium/packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogSpec.js](../../cesium/packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogSpec.js) | 已完成 (5/5 单测通过，覆盖 PerformanceWatchdog 容器与 DOM 绑定、默认构建与生命周期销毁、容器/场景参数缺失及无效容器异常校验) |
+| [packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogViewModelSpec.js](../../cesium/packages/widgets/Specs/PerformanceWatchdog/PerformanceWatchdogViewModelSpec.js) | 已完成 (7/7 单测通过，覆盖 PerformanceWatchdogViewModel 场景缺失校验、默认提示文案与自定义文案、FrameRateMonitor 低帧率报警触发、静默期保护、帧率回升自动恢复以及用户手动关闭后不再重复弹窗) |
 | [packages/widgets/Specs/ProjectionPicker/ProjectionPickerSpec.js](../../cesium/packages/widgets/Specs/ProjectionPicker/ProjectionPickerSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/ProjectionPicker/ProjectionPickerViewModelSpec.js](../../cesium/packages/widgets/Specs/ProjectionPicker/ProjectionPickerViewModelSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/SceneModePicker/SceneModePickerSpec.js](../../cesium/packages/widgets/Specs/SceneModePicker/SceneModePickerSpec.js) | 待逐项核对 |

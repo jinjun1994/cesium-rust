@@ -20,6 +20,8 @@ pub mod info_box;
 pub mod info_box_view_model;
 pub mod navigation_help_button;
 pub mod navigation_help_button_view_model;
+pub mod performance_watchdog;
+pub mod performance_watchdog_view_model;
 pub mod provider_view_model;
 pub mod toggle_button_view_model;
 
@@ -70,5 +72,13 @@ pub use navigation_help_button::{
     NavigationHelpElement,
 };
 pub use navigation_help_button_view_model::NavigationHelpButtonViewModel;
+pub use performance_watchdog::{
+    PerformanceWatchdog, PerformanceWatchdogContainer, PerformanceWatchdogElement,
+    PerformanceWatchdogOptions,
+};
+pub use performance_watchdog_view_model::{
+    PerformanceWatchdogViewModel, PerformanceWatchdogViewModelOptions, WatchdogScene,
+    DEFAULT_LOW_FRAME_RATE_MESSAGE,
+};
 pub use provider_view_model::{ProviderViewModel, ProviderViewModelOptions};
 pub use toggle_button_view_model::ToggleButtonViewModel;
