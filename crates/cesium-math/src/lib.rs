@@ -65,6 +65,8 @@ mod data_source_clock;
 mod custom_data_source;
 mod czml_data_source;
 mod geo_json_data_source;
+mod gpx_data_source;
+mod xml;
 mod data_source_collection;
 mod data_source_display;
 mod defined;
@@ -304,6 +306,9 @@ pub use cylinder_graphics::{
 pub use data_source_clock::DataSourceClock;
 pub use custom_data_source::CustomDataSource;
 pub use czml_data_source::{CzmlDataSource, CzmlLoadOptions};
+pub use gpx_data_source::{
+    GpxBounds, GpxCopyright, GpxDataSource, GpxLink, GpxLoadOptions, GpxMetadata, GpxPerson,
+};
 pub use geo_json_data_source::{
     CrsLinkHandlerFn, CrsTransformFn, DescribeFeatureFn, GeoJsonDataSource, GeoJsonDefaults,
     GeoJsonLoadOptions,
