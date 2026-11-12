@@ -66,6 +66,7 @@ mod custom_data_source;
 mod czml_data_source;
 mod geo_json_data_source;
 mod gpx_data_source;
+mod kml_data_source;
 mod xml;
 mod data_source_collection;
 mod data_source_display;
@@ -309,6 +310,7 @@ pub use czml_data_source::{CzmlDataSource, CzmlLoadOptions};
 pub use gpx_data_source::{
     GpxBounds, GpxCopyright, GpxDataSource, GpxLink, GpxLoadOptions, GpxMetadata, GpxPerson,
 };
+pub use kml_data_source::{KmlDataSource, KmlLoadOptions};
 pub use geo_json_data_source::{
     CrsLinkHandlerFn, CrsTransformFn, DescribeFeatureFn, GeoJsonDataSource, GeoJsonDefaults,
     GeoJsonLoadOptions,
