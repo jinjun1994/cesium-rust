@@ -63,6 +63,7 @@ mod cylinder_geometry_updater;
 mod cylinder_graphics;
 mod data_source_clock;
 mod custom_data_source;
+mod geo_json_data_source;
 mod data_source_collection;
 mod data_source_display;
 mod defined;
@@ -301,6 +302,10 @@ pub use cylinder_graphics::{
 };
 pub use data_source_clock::DataSourceClock;
 pub use custom_data_source::CustomDataSource;
+pub use geo_json_data_source::{
+    CrsLinkHandlerFn, CrsTransformFn, DescribeFeatureFn, GeoJsonDataSource, GeoJsonDefaults,
+    GeoJsonLoadOptions,
+};
 pub use data_source_collection::DataSourceCollection;
 pub use data_source_display::{
     DataSourceDisplay, DataSourceDisplayOptions, DataSourceDisplayScene,
