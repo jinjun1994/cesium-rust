@@ -258,6 +258,7 @@ pub mod tile_imagery;
 pub mod arc_gis_map_server_imagery_provider;
 pub mod azure_2d_imagery_provider;
 pub mod batch_table;
+pub mod batch_texture;
 pub mod bing_maps_imagery_provider;
 pub mod tile_map_service_imagery_provider;
 pub mod tile_metadata;
@@ -504,6 +505,7 @@ pub use arc_gis_map_server_imagery_provider::{
 };
 pub use azure_2d_imagery_provider::{Azure2DImageryProvider, Azure2DImageryProviderOptions};
 pub use batch_table::{BatchTable, BatchTableAttribute, BatchTableTextureData};
+pub use batch_texture::{BatchTexture, BatchTextureOptions};
 pub use bing_maps_imagery_provider::{
     BingMapsImageryProvider, BingMapsImageryProviderOptions, BingMapsStyle,
 };
