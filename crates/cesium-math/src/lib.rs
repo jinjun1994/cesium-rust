@@ -135,6 +135,7 @@ mod plane_graphics;
 mod point_graphics;
 mod point_primitive_collection;
 mod point_visualizer;
+mod cesium_3dtileset_visualizer;
 mod property;
 mod property_bag;
 mod reference_frame;
@@ -478,6 +479,9 @@ pub use point_primitive_collection::{
     PointPrimitive, PointPrimitiveCollection, PointPrimitiveOptions,
 };
 pub use point_visualizer::PointVisualizer;
+pub use cesium_3dtileset_visualizer::{
+    Cesium3DTilesetPrimitive, Cesium3DTilesetVisualizer, TilesetVisualizerScene,
+};
 pub use point_inside_triangle::{
     point_inside_triangle, point_inside_triangle_2d, point_inside_triangle_3d,
 };
