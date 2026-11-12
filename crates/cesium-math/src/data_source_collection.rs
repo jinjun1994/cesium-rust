@@ -68,6 +68,11 @@ impl DataSourceCollection {
             .collect()
     }
 
+    /// Gets a data source by ID from the collection.
+    pub fn get_by_id(&self, id: &str) -> Option<&CustomDataSource> {
+        self.data_sources.iter().find(|ds| ds.id() == id)
+    }
+
     /// Adds a data source to the collection.
     pub fn add(&mut self, data_source: CustomDataSource) -> &mut CustomDataSource {
         let clone_for_event = data_source.clone();

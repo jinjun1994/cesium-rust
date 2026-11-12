@@ -422,3 +422,34 @@ impl Drop for GeometryVisualizer {
         self.destroy();
     }
 }
+
+impl std::fmt::Debug for GeometryVisualizer {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("GeometryVisualizer")
+            .field("is_destroyed", &self.is_destroyed)
+            .finish()
+    }
+}
+
+impl crate::visualizer::Visualizer for GeometryVisualizer {
+    fn update(&mut self, time: &JulianDate) -> bool {
+        self.update(Some(*time)).unwrap_or(false)
+    }
+
+    fn get_bounding_sphere(
+        &self,
+        entity: &Entity,
+        result: &mut BoundingSphere,
+    ) -> BoundingSphereState {
+        self.get_bounding_sphere(Some(entity), Some(result))
+            .unwrap_or(BoundingSphereState::Failed)
+    }
+
+    fn is_destroyed(&self) -> bool {
+        self.is_destroyed()
+    }
+
+    fn destroy(&mut self) {
+        self.destroy();
+    }
+}

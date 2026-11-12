@@ -64,6 +64,7 @@ mod cylinder_graphics;
 mod data_source_clock;
 mod custom_data_source;
 mod data_source_collection;
+mod data_source_display;
 mod defined;
 mod distance_display_condition;
 mod distance_display_condition_geometry_instance_attribute;
@@ -243,6 +244,7 @@ mod tridiagonal_system_solver;
 mod translation_rotation_scale;
 mod typed_array_helpers;
 mod uri_helpers;
+mod visualizer;
 mod vertex_format;
 mod vertical_exaggeration;
 mod vector_provider;
@@ -294,6 +296,10 @@ pub use cylinder_graphics::{
 pub use data_source_clock::DataSourceClock;
 pub use custom_data_source::CustomDataSource;
 pub use data_source_collection::DataSourceCollection;
+pub use data_source_display::{
+    DataSourceDisplay, DataSourceDisplayOptions, DataSourceDisplayScene,
+    DisplayPrimitiveCollection, VisualizersCallback,
+};
 pub use ellipse_graphics::{EllipseGraphics, EllipseGraphicsOptions, EllipseGraphicsValues};
 pub use ellipsoid_graphics::{
     EllipsoidGraphics, EllipsoidGraphicsOptions, EllipsoidGraphicsValues,
@@ -499,6 +505,7 @@ pub use geometry_visualizer::{
     GeometryVisualizer, GeometryVisualizerScene, PrimitiveAppearanceType,
     VisualizerGeometryAttributes, VisualizerGeometryPrimitive,
 };
+pub use visualizer::Visualizer;
 pub use point_inside_triangle::{
     point_inside_triangle, point_inside_triangle_2d, point_inside_triangle_3d,
 };
