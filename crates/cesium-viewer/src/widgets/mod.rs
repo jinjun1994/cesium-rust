@@ -10,6 +10,8 @@ pub mod clock_view_model;
 pub mod create_command;
 pub mod fullscreen_button;
 pub mod fullscreen_button_view_model;
+pub mod geocoder;
+pub mod geocoder_view_model;
 pub mod provider_view_model;
 pub mod toggle_button_view_model;
 
@@ -34,5 +36,10 @@ pub use create_command::{
 };
 pub use fullscreen_button::{FullscreenButton, FullscreenButtonContainer};
 pub use fullscreen_button_view_model::FullscreenButtonViewModel;
+pub use geocoder::{Geocoder, GeocoderContainer};
+pub use geocoder_view_model::{
+    DestinationFoundFn, GeocoderResult, GeocoderServiceFn, GeocoderViewModel,
+    GeocoderViewModelOptions,
+};
 pub use provider_view_model::{ProviderViewModel, ProviderViewModelOptions};
 pub use toggle_button_view_model::ToggleButtonViewModel;
