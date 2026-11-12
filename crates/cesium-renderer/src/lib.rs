@@ -152,6 +152,8 @@ pub mod gltf_structural_metadata_loader;
 pub mod gltf_texture_loader;
 pub mod gltf_vertex_buffer_loader;
 pub mod geo_json_loader;
+pub mod geo_json_primitive;
+pub use geo_json_primitive::GeoJsonPrimitive;
 pub mod globe_translucency_framebuffer;
 pub use globe_translucency_framebuffer::GlobeTranslucencyFramebuffer;
 pub mod geometry_pipeline_stage;

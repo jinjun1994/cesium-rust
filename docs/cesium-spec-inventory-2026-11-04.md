@@ -525,7 +525,7 @@
 | [packages/engine/Specs/Scene/FrustumCommandsSpec.js](../../cesium/packages/engine/Specs/Scene/FrustumCommandsSpec.js) | 已移植：视锥分段渲染命令列表抽象（FrustumCommands）、近远截面距离属性（near、far 默认 0.0）、各 Pass 绘制命令集合初始化（commands 长度 Pass.NUMBER_OF_PASSES 且均为空数组）、各 Pass 命令活动索引计数（indices 长度 Pass.NUMBER_OF_PASSES 且初值均为 0）（frustum_commands_spec.rs，2 项测试全部通过） |
 | [packages/engine/Specs/Scene/GaussianSplat3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/GaussianSplat3DTileContentSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GaussianSplatPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/GaussianSplatPrimitiveSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/GeoJsonPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/GeoJsonPrimitiveSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GeoJsonPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/GeoJsonPrimitiveSpec.js) | 已补齐 (`cesium-renderer`: `geo_json_primitive` / `geo_json_primitive_spec` 4/4) |
 | [packages/engine/Specs/Scene/Geometry3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Geometry3DTileContentSpec.js) | 已补齐 (`cesium-renderer`: `geometry_3d_tile_content` / `geometry_3d_tile_content_spec` 5/5) |
 | [packages/engine/Specs/Scene/GeometryRenderingSpec.js](../../cesium/packages/engine/Specs/Scene/GeometryRenderingSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GlobeSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeSpec.js) | 待逐项核对 |
