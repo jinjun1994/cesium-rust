@@ -2633,6 +2633,603 @@ pub fn remove_unused_elements(gltf: &mut Value, element_types: Option<&[&str]>) 
     }
 }
 
+/// Options for updating glTF version.
+#[derive(Clone, Debug, Default)]
+pub struct UpdateVersionOptions {
+    pub target_version: Option<String>,
+    pub base_color_texture_names: Option<Vec<String>>,
+    pub base_color_factor_names: Option<Vec<String>>,
+    pub keep_legacy_extensions: bool,
+}
+
+#[allow(clippy::needless_range_loop)]
+fn srgb_to_linear(srgb: &[f64]) -> Vec<f64> {
+    let mut linear = vec![0.0; 4];
+    linear[3] = srgb.get(3).cloned().unwrap_or(1.0);
+    for i in 0..3 {
+        let c = srgb.get(i).cloned().unwrap_or(0.0);
+        if c <= 0.04045 {
+            linear[i] = c * 0.07739938080495356;
+        } else {
+            linear[i] = ((c + 0.055) * 0.947867298578199).powf(2.4);
+        }
+    }
+    linear
+}
+
+fn object_to_array_mapping(
+    obj_val: &mut Value,
+    mapping: &mut std::collections::HashMap<String, usize>,
+) -> Value {
+    if let Some(map) = obj_val.as_object_mut() {
+        let mut arr = Vec::new();
+        // Keep order or keys
+        for (id, val) in map.iter_mut() {
+            let idx = arr.len();
+            mapping.insert(id.clone(), idx);
+            arr.push(val.take());
+        }
+        Value::Array(arr)
+    } else if let Some(arr) = obj_val.as_array() {
+        for (idx, _) in arr.iter().enumerate() {
+            mapping.insert(idx.to_string(), idx);
+        }
+        obj_val.clone()
+    } else {
+        Value::Array(Vec::new())
+    }
+}
+
+fn gltf_08_to_10(gltf: &mut Value) {
+    if let Some(materials) = gltf.get_mut("materials").and_then(|v| v.as_object_mut()) {
+        for (_, mat) in materials.iter_mut() {
+            if let Some(inst) = mat.as_object_mut().and_then(|m| m.remove("instanceTechnique")) {
+                if let Some(t) = inst.get("technique") {
+                    mat["technique"] = t.clone();
+                }
+                if let Some(v) = inst.get("values") {
+                    mat["values"] = v.clone();
+                }
+            }
+        }
+    }
+
+    if let Some(meshes) = gltf.get_mut("meshes").and_then(|v| v.as_object_mut()) {
+        for (_, mesh) in meshes.iter_mut() {
+            if let Some(prims) = mesh.get_mut("primitives").and_then(|v| v.as_array_mut()) {
+                for prim in prims {
+                    let default_mode = prim.get("primitive").and_then(|v| v.as_u64()).unwrap_or(4);
+                    if prim.get("mode").is_none() {
+                        prim["mode"] = json!(default_mode);
+                    }
+                    if let Some(p_obj) = prim.as_object_mut() {
+                        p_obj.remove("primitive");
+                    }
+                }
+            }
+        }
+    }
+
+    if let Some(nodes) = gltf.get_mut("nodes").and_then(|v| v.as_object_mut()) {
+        for (_, node) in nodes.iter_mut() {
+            if let Some(rot) = node.get("rotation").and_then(|v| v.as_array()) {
+                if rot.len() == 4 {
+                    let axis = Vec3::new(
+                        rot[0].as_f64().unwrap_or(0.0) as f32,
+                        rot[1].as_f64().unwrap_or(0.0) as f32,
+                        rot[2].as_f64().unwrap_or(0.0) as f32,
+                    );
+                    let angle = rot[3].as_f64().unwrap_or(0.0) as f32;
+                    let axis_norm = if axis.length_squared() > 0.0 {
+                        axis.normalize()
+                    } else {
+                        Vec3::Z
+                    };
+                    let quat = Quat::from_axis_angle(axis_norm, angle);
+                    node["rotation"] = json!([quat.x as f64, quat.y as f64, quat.z as f64, quat.w as f64]);
+                }
+            }
+            if let Some(inst_skin) = node.as_object_mut().and_then(|n| n.remove("instanceSkin")) {
+                if let Some(sk) = inst_skin.get("skeletons") {
+                    node["skeletons"] = sk.clone();
+                }
+                if let Some(sk) = inst_skin.get("skin") {
+                    node["skin"] = sk.clone();
+                }
+                if let Some(m) = inst_skin.get("meshes") {
+                    node["meshes"] = m.clone();
+                }
+            }
+        }
+    }
+
+    if let Some(exts) = gltf.as_object_mut().and_then(|obj| obj.remove("allExtensions")) {
+        gltf["extensionsUsed"] = exts;
+    }
+
+    if gltf.get("asset").is_none() {
+        gltf["asset"] = json!({});
+    }
+    gltf["asset"]["version"] = json!("1.0");
+}
+
+fn gltf_10_to_20(gltf: &mut Value) {
+    let top_levels = [
+        "accessors", "animations", "buffers", "bufferViews", "cameras",
+        "images", "materials", "meshes", "nodes", "programs",
+        "samplers", "scenes", "shaders", "skins", "textures", "techniques",
+    ];
+
+    let mut global_mapping: std::collections::HashMap<String, std::collections::HashMap<String, usize>> =
+        std::collections::HashMap::new();
+
+    // Map jointName to id
+    let mut joint_name_to_id: std::collections::HashMap<String, String> = std::collections::HashMap::new();
+    if let Some(nodes) = gltf.get("nodes").and_then(|v| v.as_object()) {
+        for (id, node) in nodes {
+            if let Some(jn) = node.get("jointName").and_then(|v| v.as_str()) {
+                joint_name_to_id.insert(jn.to_string(), id.clone());
+            }
+        }
+    }
+
+    for key in top_levels {
+        let mut mapping = std::collections::HashMap::new();
+        if let Some(val) = gltf.get_mut(key) {
+            *val = object_to_array_mapping(val, &mut mapping);
+        }
+        global_mapping.insert(key.to_string(), mapping);
+    }
+
+    // Remap jointName to node index
+    let mut joint_name_to_index: std::collections::HashMap<String, usize> = std::collections::HashMap::new();
+    for (jn, id) in joint_name_to_id {
+        if let Some(&node_idx) = global_mapping.get("nodes").and_then(|m| m.get(&id)) {
+            joint_name_to_index.insert(jn, node_idx);
+        }
+    }
+
+    // Fix references
+    if let Some(scene_val) = gltf.get("scene").and_then(|v| v.as_str()) {
+        if let Some(&new_id) = global_mapping.get("scenes").and_then(|m| m.get(scene_val)) {
+            gltf["scene"] = json!(new_id);
+        }
+    }
+
+    if let Some(bvs) = gltf.get_mut("bufferViews").and_then(|v| v.as_array_mut()) {
+        for bv in bvs {
+            if let Some(b_str) = bv.get("buffer").and_then(|v| v.as_str()) {
+                if let Some(&new_b) = global_mapping.get("buffers").and_then(|m| m.get(b_str)) {
+                    bv["buffer"] = json!(new_b);
+                }
+            }
+        }
+    }
+
+    if let Some(accessors) = gltf.get_mut("accessors").and_then(|v| v.as_array_mut()) {
+        for acc in accessors {
+            if let Some(bv_str) = acc.get("bufferView").and_then(|v| v.as_str()) {
+                if let Some(&new_bv) = global_mapping.get("bufferViews").and_then(|m| m.get(bv_str)) {
+                    acc["bufferView"] = json!(new_bv);
+                }
+            }
+        }
+    }
+
+    if let Some(shaders) = gltf.get_mut("shaders").and_then(|v| v.as_array_mut()) {
+        for sh in shaders {
+            if let Some(ext) = sh.get_mut("extensions").and_then(|e| e.as_object_mut()) {
+                if let Some(bin) = ext.remove("KHR_binary_glTF") {
+                    if let Some(bv_str) = bin.get("bufferView").and_then(|v| v.as_str()) {
+                        if let Some(&new_bv) = global_mapping.get("bufferViews").and_then(|m| m.get(bv_str)) {
+                            sh["bufferView"] = json!(new_bv);
+                        }
+                    }
+                }
+            }
+            if let Some(ext) = sh.get("extensions").and_then(|e| e.as_object()) {
+                if ext.is_empty() {
+                    if let Some(obj) = sh.as_object_mut() {
+                        obj.remove("extensions");
+                    }
+                }
+            }
+        }
+    }
+
+    if let Some(programs) = gltf.get_mut("programs").and_then(|v| v.as_array_mut()) {
+        for prog in programs {
+            if let Some(vs_str) = prog.get("vertexShader").and_then(|v| v.as_str()) {
+                if let Some(&new_vs) = global_mapping.get("shaders").and_then(|m| m.get(vs_str)) {
+                    prog["vertexShader"] = json!(new_vs);
+                }
+            }
+            if let Some(fs_str) = prog.get("fragmentShader").and_then(|v| v.as_str()) {
+                if let Some(&new_fs) = global_mapping.get("shaders").and_then(|m| m.get(fs_str)) {
+                    prog["fragmentShader"] = json!(new_fs);
+                }
+            }
+        }
+    }
+
+    if let Some(techniques) = gltf.get_mut("techniques").and_then(|v| v.as_array_mut()) {
+        for tech in techniques {
+            if let Some(pr_str) = tech.get("program").and_then(|v| v.as_str()) {
+                if let Some(&new_pr) = global_mapping.get("programs").and_then(|m| m.get(pr_str)) {
+                    tech["program"] = json!(new_pr);
+                }
+            }
+            if let Some(params) = tech.get_mut("parameters").and_then(|v| v.as_object_mut()) {
+                for (_, p) in params.iter_mut() {
+                    if let Some(n_str) = p.get("node").and_then(|v| v.as_str()) {
+                        if let Some(&new_n) = global_mapping.get("nodes").and_then(|m| m.get(n_str)) {
+                            p["node"] = json!(new_n);
+                        }
+                    }
+                    if let Some(v_str) = p.get("value").and_then(|v| v.as_str()) {
+                        if let Some(&tex_id) = global_mapping.get("textures").and_then(|m| m.get(v_str)) {
+                            p["value"] = json!({ "index": tex_id });
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    if let Some(meshes) = gltf.get_mut("meshes").and_then(|v| v.as_array_mut()) {
+        for mesh in meshes {
+            if let Some(prims) = mesh.get_mut("primitives").and_then(|v| v.as_array_mut()) {
+                for prim in prims {
+                    if let Some(ind_str) = prim.get("indices").and_then(|v| v.as_str()) {
+                        if let Some(&new_ind) = global_mapping.get("accessors").and_then(|m| m.get(ind_str)) {
+                            prim["indices"] = json!(new_ind);
+                        }
+                    }
+                    if let Some(attrs) = prim.get_mut("attributes").and_then(|v| v.as_object_mut()) {
+                        for (_, acc_val) in attrs.iter_mut() {
+                            if let Some(acc_str) = acc_val.as_str() {
+                                if let Some(&new_acc) = global_mapping.get("accessors").and_then(|m| m.get(acc_str)) {
+                                    *acc_val = json!(new_acc);
+                                }
+                            }
+                        }
+                    }
+                    if let Some(mat_str) = prim.get("material").and_then(|v| v.as_str()) {
+                        if let Some(&new_mat) = global_mapping.get("materials").and_then(|m| m.get(mat_str)) {
+                            prim["material"] = json!(new_mat);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    if let Some(nodes) = gltf.get_mut("nodes").and_then(|v| v.as_array_mut()) {
+        for node in nodes {
+            if let Some(children) = node.get_mut("children").and_then(|v| v.as_array_mut()) {
+                for ch in children {
+                    if let Some(ch_str) = ch.as_str() {
+                        if let Some(&new_ch) = global_mapping.get("nodes").and_then(|m| m.get(ch_str)) {
+                            *ch = json!(new_ch);
+                        }
+                    }
+                }
+            }
+            if let Some(mesh_str) = node.get("mesh").and_then(|v| v.as_str()) {
+                if let Some(&new_m) = global_mapping.get("meshes").and_then(|m| m.get(mesh_str)) {
+                    node["mesh"] = json!(new_m);
+                }
+            }
+            if let Some(cam_str) = node.get("camera").and_then(|v| v.as_str()) {
+                if let Some(&new_c) = global_mapping.get("cameras").and_then(|m| m.get(cam_str)) {
+                    node["camera"] = json!(new_c);
+                }
+            }
+            if let Some(sk_str) = node.get("skin").and_then(|v| v.as_str()) {
+                if let Some(&new_s) = global_mapping.get("skins").and_then(|m| m.get(sk_str)) {
+                    node["skin"] = json!(new_s);
+                }
+            }
+            if let Some(obj) = node.as_object_mut() {
+                obj.remove("jointName");
+            }
+        }
+    }
+
+    if let Some(skins) = gltf.get_mut("skins").and_then(|v| v.as_array_mut()) {
+        for skin in skins {
+            if let Some(ibm_str) = skin.get("inverseBindMatrices").and_then(|v| v.as_str()) {
+                if let Some(&new_ibm) = global_mapping.get("accessors").and_then(|m| m.get(ibm_str)) {
+                    skin["inverseBindMatrices"] = json!(new_ibm);
+                }
+            }
+            if let Some(jn_arr) = skin.get("jointNames").and_then(|v| v.as_array()) {
+                let joints: Vec<Value> = jn_arr
+                    .iter()
+                    .filter_map(|jn| jn.as_str().and_then(|s| joint_name_to_index.get(s)).map(|&idx| json!(idx)))
+                    .collect();
+                skin["joints"] = Value::Array(joints);
+                if let Some(obj) = skin.as_object_mut() {
+                    obj.remove("jointNames");
+                }
+            }
+        }
+    }
+
+    if let Some(scenes) = gltf.get_mut("scenes").and_then(|v| v.as_array_mut()) {
+        for sc in scenes {
+            if let Some(nodes) = sc.get_mut("nodes").and_then(|v| v.as_array_mut()) {
+                for n in nodes {
+                    if let Some(n_str) = n.as_str() {
+                        if let Some(&new_n) = global_mapping.get("nodes").and_then(|m| m.get(n_str)) {
+                            *n = json!(new_n);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    if let Some(materials) = gltf.get_mut("materials").and_then(|v| v.as_array_mut()) {
+        for mat in materials {
+            if let Some(t_str) = mat.get("technique").and_then(|v| v.as_str()) {
+                if let Some(&new_t) = global_mapping.get("techniques").and_then(|m| m.get(t_str)) {
+                    mat["technique"] = json!(new_t);
+                }
+            }
+            if let Some(vals) = mat.get_mut("values").and_then(|v| v.as_object_mut()) {
+                for (_, val) in vals.iter_mut() {
+                    if let Some(s) = val.as_str() {
+                        if let Some(&tex_id) = global_mapping.get("textures").and_then(|m| m.get(s)) {
+                            *val = json!({ "index": tex_id });
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    if let Some(textures) = gltf.get_mut("textures").and_then(|v| v.as_array_mut()) {
+        for tex in textures {
+            if let Some(s_str) = tex.get("sampler").and_then(|v| v.as_str()) {
+                if let Some(&new_s) = global_mapping.get("samplers").and_then(|m| m.get(s_str)) {
+                    tex["sampler"] = json!(new_s);
+                }
+            }
+            if let Some(src_str) = tex.get("source").and_then(|v| v.as_str()) {
+                if let Some(&new_src) = global_mapping.get("images").and_then(|m| m.get(src_str)) {
+                    tex["source"] = json!(new_src);
+                }
+            }
+        }
+    }
+
+    if let Some(asset) = gltf.get_mut("asset").and_then(|v| v.as_object_mut()) {
+        asset.remove("profile");
+    }
+
+    *gltf = move_technique_render_states(gltf.clone());
+    *gltf = move_techniques_to_extension(gltf.clone());
+    update_accessor_component_types(gltf);
+    remove_unused_elements(gltf, None);
+
+    if gltf.get("asset").is_none() {
+        gltf["asset"] = json!({});
+    }
+    gltf["asset"]["version"] = json!("2.0");
+}
+
+fn convert_techniques_to_pbr(gltf: &mut Value, options: &UpdateVersionOptions) {
+    let default_tex_names = vec!["diffuse".to_string(), "u_diffuse".to_string()];
+    let default_factor_names = vec![
+        "diffuse".to_string(),
+        "u_diffuse".to_string(),
+        "diffuse_mat".to_string(),
+        "u_diffuse_mat".to_string(),
+    ];
+
+    let tex_names = options.base_color_texture_names.as_ref().unwrap_or(&default_tex_names);
+    let factor_names = options.base_color_factor_names.as_ref().unwrap_or(&default_factor_names);
+
+    if let Some(materials) = gltf.get_mut("materials").and_then(|v| v.as_array_mut()) {
+        for mat in materials {
+            let mut base_tex_opt = None;
+            let mut base_factor_opt = None;
+
+            if let Some(ext) = mat.get("extensions").and_then(|e| e.get("KHR_techniques_webgl")) {
+                if let Some(vals) = ext.get("values").and_then(|v| v.as_object()) {
+                    for (k, v) in vals {
+                        if tex_names.contains(k) && v.get("index").is_some() {
+                            base_tex_opt = Some(v.clone());
+                        } else if factor_names.contains(k) && v.as_array().map(|a| a.len() == 4).unwrap_or(false) {
+                            let floats: Vec<f64> = v.as_array().unwrap().iter().filter_map(|n| n.as_f64()).collect();
+                            base_factor_opt = Some(srgb_to_linear(&floats));
+                        }
+                    }
+                }
+            }
+
+            if base_tex_opt.is_some() || base_factor_opt.is_some() {
+                if mat.get("pbrMetallicRoughness").is_none() {
+                    mat["pbrMetallicRoughness"] = json!({
+                        "roughnessFactor": 1.0,
+                        "metallicFactor": 0.0
+                    });
+                }
+                let pbr = mat.get_mut("pbrMetallicRoughness").unwrap();
+                pbr["roughnessFactor"] = json!(1.0);
+                pbr["metallicFactor"] = json!(0.0);
+
+                if let Some(tex) = base_tex_opt {
+                    pbr["baseColorTexture"] = tex;
+                }
+                if let Some(factor) = base_factor_opt {
+                    pbr["baseColorFactor"] = json!(factor);
+                }
+            }
+        }
+    }
+
+    remove_extension(gltf, "KHR_techniques_webgl");
+    remove_extension(gltf, "KHR_blend");
+}
+
+fn convert_materials_common_to_pbr(gltf: &mut Value) {
+    let mut add_unlit = false;
+    if let Some(materials) = gltf.get_mut("materials").and_then(|v| v.as_array_mut()) {
+        for mat in materials {
+            let has_mc = mat.get("extensions").and_then(|e| e.get("KHR_materials_common")).is_some();
+            if !has_mc {
+                continue;
+            }
+
+            let mc = mat["extensions"]["KHR_materials_common"].clone();
+            let technique = mc.get("technique").and_then(|v| v.as_str()).unwrap_or("PHONG").to_string();
+            let values = mc.get("values").cloned().unwrap_or_else(|| json!({}));
+
+            let ambient = values.get("ambient");
+            let diffuse = values.get("diffuse");
+            let emission = values.get("emission");
+            let transparency = values.get("transparency").and_then(|v| v.as_f64());
+
+            let double_sided = mc.get("doubleSided").and_then(|v| v.as_bool());
+            let transparent = mc.get("transparent").and_then(|v| v.as_bool());
+
+            if mat.get("pbrMetallicRoughness").is_none() {
+                mat["pbrMetallicRoughness"] = json!({
+                    "roughnessFactor": 1.0,
+                    "metallicFactor": 0.0
+                });
+            } else {
+                mat["pbrMetallicRoughness"]["roughnessFactor"] = json!(1.0);
+                mat["pbrMetallicRoughness"]["metallicFactor"] = json!(0.0);
+            }
+
+            let assign_base_color = |mat: &mut Value, val: Option<&Value>| {
+                if let Some(v) = val {
+                    if let Some(arr) = v.as_array() {
+                        if arr.len() == 4 {
+                            let floats: Vec<f64> = arr.iter().filter_map(|x| x.as_f64()).collect();
+                            mat["pbrMetallicRoughness"]["baseColorFactor"] = json!(srgb_to_linear(&floats));
+                        }
+                    } else if v.get("index").is_some() {
+                        mat["pbrMetallicRoughness"]["baseColorTexture"] = v.clone();
+                    }
+                }
+            };
+
+            let assign_emissive = |mat: &mut Value, val: Option<&Value>| {
+                if let Some(v) = val {
+                    if let Some(arr) = v.as_array() {
+                        if arr.len() >= 3 {
+                            let floats: Vec<f64> = arr.iter().take(3).filter_map(|x| x.as_f64()).collect();
+                            mat["emissiveFactor"] = json!(floats);
+                        }
+                    } else if v.get("index").is_some() {
+                        mat["emissiveTexture"] = v.clone();
+                    }
+                }
+            };
+
+            if technique == "CONSTANT" {
+                add_unlit = true;
+                if mat.get("extensions").is_none() {
+                    mat["extensions"] = json!({});
+                }
+                mat["extensions"]["KHR_materials_unlit"] = json!({});
+
+                assign_base_color(mat, emission);
+                assign_base_color(mat, ambient);
+            } else {
+                assign_base_color(mat, diffuse);
+                assign_emissive(mat, ambient);
+                assign_emissive(mat, emission);
+            }
+
+            if let Some(ds) = double_sided {
+                mat["doubleSided"] = json!(ds);
+            }
+            if let Some(tr) = transparency {
+                if let Some(factor) = mat.get_mut("pbrMetallicRoughness").and_then(|p| p.get_mut("baseColorFactor")).and_then(|f| f.as_array_mut()) {
+                    if factor.len() == 4 {
+                        let cur = factor[3].as_f64().unwrap_or(1.0);
+                        factor[3] = json!(cur * tr);
+                    }
+                } else {
+                    mat["pbrMetallicRoughness"]["baseColorFactor"] = json!([1.0, 1.0, 1.0, tr]);
+                }
+            }
+            if let Some(tr_bool) = transparent {
+                mat["alphaMode"] = json!(if tr_bool { "BLEND" } else { "OPAQUE" });
+            }
+        }
+    }
+
+    if add_unlit {
+        add_extensions_used(gltf, "KHR_materials_unlit");
+    }
+    remove_extension(gltf, "KHR_materials_common");
+}
+
+/// Updates the glTF version to the latest version (2.0), or targetVersion if specified.
+pub fn update_version(gltf: &mut Value, options: Option<UpdateVersionOptions>) {
+    let opts = options.unwrap_or_default();
+    let target_version = opts.target_version.as_deref();
+
+    if gltf.get("asset").is_none() {
+        gltf["asset"] = json!({ "version": "1.0" });
+    }
+    if gltf["asset"].get("version").is_none() {
+        gltf["asset"]["version"] = json!("1.0");
+    }
+
+    let mut current_version = gltf
+        .get("version")
+        .and_then(|v| v.as_str())
+        .or_else(|| gltf["asset"].get("version").and_then(|v| v.as_str()))
+        .unwrap_or("1.0")
+        .to_string();
+
+    if current_version != "0.8" && current_version != "1.0" && current_version != "2.0" {
+        if current_version.len() >= 3 {
+            current_version = current_version[0..3].to_string();
+        }
+        if current_version != "0.8" && current_version != "1.0" && current_version != "2.0" {
+            current_version = "1.0".to_string();
+        }
+    }
+
+    while current_version == "0.8" || current_version == "1.0" {
+        if Some(current_version.as_str()) == target_version {
+            break;
+        }
+
+        if current_version == "0.8" {
+            gltf_08_to_10(gltf);
+            current_version = "1.0".to_string();
+        } else if current_version == "1.0" {
+            gltf_10_to_20(gltf);
+            current_version = "2.0".to_string();
+        }
+    }
+
+    if let Some(target) = target_version {
+        gltf["asset"]["version"] = json!(target);
+    } else {
+        gltf["asset"]["version"] = json!("2.0");
+    }
+
+    if let Some(obj) = gltf.as_object_mut() {
+        obj.remove("version");
+    }
+
+    if !opts.keep_legacy_extensions {
+        convert_techniques_to_pbr(gltf, &opts);
+        convert_materials_common_to_pbr(gltf);
+    }
+}
+
+
 
 
 
