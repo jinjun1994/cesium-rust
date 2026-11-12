@@ -817,7 +817,7 @@
 | [packages/widgets/Specs/Animation/AnimationViewModelSpec.js](../../cesium/packages/widgets/Specs/Animation/AnimationViewModelSpec.js) | 已完成 (19/19 单测通过，覆盖 AnimationViewModel 构造参数与初始暂停态、自定义与默认日期/时间/倍率标签格式化、正反向播放与倍率符号翻转、区间边界启停与拖拽穿透、slower/faster 离散步进倍率循环、实时模式系统时钟可用性、穿梭环非线性角度映射与贴合刻度) |
 | [packages/widgets/Specs/BaseLayerPicker/BaseLayerPickerSpec.js](../../cesium/packages/widgets/Specs/BaseLayerPicker/BaseLayerPickerSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/BaseLayerPicker/BaseLayerPickerViewModelSpec.js](../../cesium/packages/widgets/Specs/BaseLayerPicker/BaseLayerPickerViewModelSpec.js) | 待逐项核对 |
-| [packages/widgets/Specs/BaseLayerPicker/ProviderViewModelSpec.js](../../cesium/packages/widgets/Specs/BaseLayerPicker/ProviderViewModelSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/BaseLayerPicker/ProviderViewModelSpec.js](../../cesium/packages/widgets/Specs/BaseLayerPicker/ProviderViewModelSpec.js) | 已完成 (6/6 单测通过，覆盖 ProviderViewModel 必需参数与命令/闭包构造、参数缺失异常校验、属性读取与图层创建指令触发) |
 | [packages/widgets/Specs/Cesium3DTilesInspector/Cesium3DTilesInspectorSpec.js](../../cesium/packages/widgets/Specs/Cesium3DTilesInspector/Cesium3DTilesInspectorSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/Cesium3DTilesInspector/Cesium3DTilesInspectorViewModelSpec.js](../../cesium/packages/widgets/Specs/Cesium3DTilesInspector/Cesium3DTilesInspectorViewModelSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/CesiumInspector/CesiumInspectorSpec.js](../../cesium/packages/widgets/Specs/CesiumInspector/CesiumInspectorSpec.js) | 待逐项核对 |

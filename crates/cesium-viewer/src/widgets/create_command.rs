@@ -29,6 +29,14 @@ pub struct Command<Args: Clone + 'static = (), R: Clone + 'static = ()> {
     pub after_execute: Event<R>,
 }
 
+impl<Args: Clone + 'static, R: Clone + 'static> std::fmt::Debug for Command<Args, R> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("Command")
+            .field("can_execute", &self.can_execute())
+            .finish()
+    }
+}
+
 impl<Args: Clone + 'static, R: Clone + 'static> Command<Args, R> {
     /// Creates a command with default `can_execute = true`.
     pub fn new<F>(func: F) -> Self
