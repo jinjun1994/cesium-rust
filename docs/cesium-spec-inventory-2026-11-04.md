@@ -526,7 +526,7 @@
 | [packages/engine/Specs/Scene/GaussianSplat3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/GaussianSplat3DTileContentSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GaussianSplatPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/GaussianSplatPrimitiveSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GeoJsonPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/GeoJsonPrimitiveSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/Geometry3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Geometry3DTileContentSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/Geometry3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Geometry3DTileContentSpec.js) | 已补齐 (`cesium-renderer`: `geometry_3d_tile_content` / `geometry_3d_tile_content_spec` 5/5) |
 | [packages/engine/Specs/Scene/GeometryRenderingSpec.js](../../cesium/packages/engine/Specs/Scene/GeometryRenderingSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GlobeSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeSpec.js) | 待逐项核对 |
 | [packages/engine/Specs/Scene/GlobeSurfaceTileProviderSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeSurfaceTileProviderSpec.js) | 待逐项核对 |

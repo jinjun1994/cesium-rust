@@ -155,6 +155,10 @@ pub mod geo_json_loader;
 pub mod globe_translucency_framebuffer;
 pub use globe_translucency_framebuffer::GlobeTranslucencyFramebuffer;
 pub mod geometry_pipeline_stage;
+pub mod geometry_3d_tile_content;
+pub use geometry_3d_tile_content::{
+    generate_geometry_tile_buffer, Geometry3DTileContent, GeometryTileBufferOptions,
+};
 pub mod google_2d_imagery_provider;
 pub mod google_earth_enterprise_imagery_provider;
 pub mod google_earth_enterprise_maps_provider;
