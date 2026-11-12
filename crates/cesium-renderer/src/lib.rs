@@ -169,6 +169,10 @@ pub use globe_surface_tile::{
     GlobeSurfaceTile, MeshCreationOutcome, SurfaceImageryAttachment, SurfaceTerrainData,
     TerrainProviderActions, TerrainRequestOutcome, TerrainState, WaterMaskData, WaterMaskTexture,
 };
+pub mod globe_surface_tile_provider;
+pub use globe_surface_tile_provider::{
+    GlobeSurfaceTileProvider, GlobeSurfaceTileProviderOptions, ImageryLayerRecord, SurfaceTileEntry,
+};
 pub mod globe_translucency_framebuffer;
 pub use globe_translucency_framebuffer::GlobeTranslucencyFramebuffer;
 pub mod globe_translucency_state;
