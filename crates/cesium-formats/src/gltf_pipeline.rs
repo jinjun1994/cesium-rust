@@ -1625,6 +1625,1015 @@ pub fn update_accessor_component_types(gltf: &mut Value) {
     }
 }
 
+fn node_is_empty(gltf: &Value, node_id: usize, used_node_ids: &HashSet<usize>) -> bool {
+    let nodes = match gltf.get("nodes").and_then(|v| v.as_array()) {
+        Some(n) => n,
+        None => return true,
+    };
+    let node = match nodes.get(node_id) {
+        Some(n) => n,
+        None => return true,
+    };
+
+    if node.get("mesh").is_some()
+        || node.get("camera").is_some()
+        || node.get("skin").is_some()
+        || node.get("weights").is_some()
+        || node.get("extras").is_some()
+        || node.get("extensions").and_then(|e| e.as_object()).map(|o| !o.is_empty()).unwrap_or(false)
+        || used_node_ids.contains(&node_id)
+    {
+        return false;
+    }
+
+    if let Some(children) = node.get("children").and_then(|v| v.as_array()) {
+        for child in children {
+            if let Some(child_id) = child.as_u64().map(|c| c as usize) {
+                if !node_is_empty(gltf, child_id, used_node_ids) {
+                    return false;
+                }
+            }
+        }
+    }
+
+    true
+}
+
+fn get_used_element_ids(gltf: &Value, element_type: &str) -> HashSet<usize> {
+    let mut used = HashSet::new();
+    match element_type {
+        "mesh" => {
+            if let Some(nodes) = gltf.get("nodes").and_then(|v| v.as_array()) {
+                for node in nodes {
+                    if let Some(mesh_id) = node.get("mesh").and_then(|v| v.as_u64()) {
+                        let m_idx = mesh_id as usize;
+                        if let Some(mesh) = gltf.get("meshes").and_then(|m| m.get(m_idx)) {
+                            if let Some(prims) = mesh.get("primitives").and_then(|p| p.as_array()) {
+                                if !prims.is_empty() {
+                                    used.insert(m_idx);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        "node" => {
+            if let Some(skins) = gltf.get("skins").and_then(|v| v.as_array()) {
+                for skin in skins {
+                    if let Some(sk) = skin.get("skeleton").and_then(|v| v.as_u64()) {
+                        used.insert(sk as usize);
+                    }
+                    if let Some(joints) = skin.get("joints").and_then(|v| v.as_array()) {
+                        for j in joints {
+                            if let Some(id) = j.as_u64() {
+                                used.insert(id as usize);
+                            }
+                        }
+                    }
+                }
+            }
+            if let Some(animations) = gltf.get("animations").and_then(|v| v.as_array()) {
+                for anim in animations {
+                    if let Some(channels) = anim.get("channels").and_then(|v| v.as_array()) {
+                        for ch in channels {
+                            if let Some(target) = ch.get("target") {
+                                if let Some(node_id) = target.get("node").and_then(|v| v.as_u64()) {
+                                    used.insert(node_id as usize);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if let Some(techniques) = gltf.get("techniques") {
+                let mut check_tech = |tech: &Value| {
+                    if let Some(uniforms) = tech.get("uniforms").and_then(|u| u.as_object()) {
+                        for (_, u) in uniforms {
+                            if let Some(node_id) = u.get("node").and_then(|v| v.as_u64()) {
+                                used.insert(node_id as usize);
+                            }
+                        }
+                    }
+                };
+                if let Some(arr) = techniques.as_array() {
+                    for t in arr {
+                        check_tech(t);
+                    }
+                } else if let Some(map) = techniques.as_object() {
+                    for (_, t) in map {
+                        check_tech(t);
+                    }
+                }
+            }
+            if let Some(nodes) = gltf.get("nodes").and_then(|v| v.as_array()) {
+                for (id, _) in nodes.iter().enumerate() {
+                    if !node_is_empty(gltf, id, &used) {
+                        used.insert(id);
+                    }
+                }
+            }
+        }
+        "material" => {
+            if let Some(meshes) = gltf.get("meshes").and_then(|v| v.as_array()) {
+                for mesh in meshes {
+                    if let Some(prims) = mesh.get("primitives").and_then(|v| v.as_array()) {
+                        for prim in prims {
+                            if let Some(mat_id) = prim.get("material").and_then(|v| v.as_u64()) {
+                                used.insert(mat_id as usize);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        "accessor" => {
+            if let Some(meshes) = gltf.get("meshes").and_then(|v| v.as_array()) {
+                for mesh in meshes {
+                    if let Some(prims) = mesh.get("primitives").and_then(|v| v.as_array()) {
+                        for prim in prims {
+                            if let Some(attrs) = prim.get("attributes").and_then(|v| v.as_object()) {
+                                for (_, acc_id_val) in attrs {
+                                    if let Some(id) = acc_id_val.as_u64() {
+                                        used.insert(id as usize);
+                                    }
+                                }
+                            }
+                            if let Some(targets) = prim.get("targets").and_then(|v| v.as_array()) {
+                                for target in targets {
+                                    if let Some(t_attrs) = target.as_object() {
+                                        for (_, acc_id_val) in t_attrs {
+                                            if let Some(id) = acc_id_val.as_u64() {
+                                                used.insert(id as usize);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            if let Some(indices) = prim.get("indices").and_then(|v| v.as_u64()) {
+                                used.insert(indices as usize);
+                            }
+                            if let Some(ext) = prim.get("extensions").and_then(|e| e.get("CESIUM_primitive_outline")) {
+                                if let Some(id) = ext.get("indices").and_then(|v| v.as_u64()) {
+                                    used.insert(id as usize);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if let Some(skins) = gltf.get("skins").and_then(|v| v.as_array()) {
+                for skin in skins {
+                    if let Some(ibm) = skin.get("inverseBindMatrices").and_then(|v| v.as_u64()) {
+                        used.insert(ibm as usize);
+                    }
+                }
+            }
+            if let Some(anims) = gltf.get("animations").and_then(|v| v.as_array()) {
+                for anim in anims {
+                    if let Some(samplers) = anim.get("samplers").and_then(|v| v.as_array()) {
+                        for s in samplers {
+                            if let Some(input) = s.get("input").and_then(|v| v.as_u64()) {
+                                used.insert(input as usize);
+                            }
+                            if let Some(output) = s.get("output").and_then(|v| v.as_u64()) {
+                                used.insert(output as usize);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        "bufferView" => {
+            if let Some(accessors) = gltf.get("accessors").and_then(|v| v.as_array()) {
+                for acc in accessors {
+                    if let Some(bv) = acc.get("bufferView").and_then(|v| v.as_u64()) {
+                        used.insert(bv as usize);
+                    }
+                }
+            }
+            if let Some(shaders) = gltf.get("shaders") {
+                let mut check_shader = |sh: &Value| {
+                    if let Some(bv) = sh.get("bufferView").and_then(|v| v.as_u64()) {
+                        used.insert(bv as usize);
+                    }
+                };
+                if let Some(arr) = shaders.as_array() {
+                    for s in arr {
+                        check_shader(s);
+                    }
+                } else if let Some(map) = shaders.as_object() {
+                    for (_, s) in map {
+                        check_shader(s);
+                    }
+                }
+            }
+            if let Some(images) = gltf.get("images") {
+                let mut check_image = |img: &Value| {
+                    if let Some(bv) = img.get("bufferView").and_then(|v| v.as_u64()) {
+                        used.insert(bv as usize);
+                    }
+                    if let Some(ext) = img.get("extensions").and_then(|e| e.get("KHR_binary_glTF")) {
+                        if let Some(bv) = ext.get("bufferView").and_then(|v| v.as_u64()) {
+                            used.insert(bv as usize);
+                        }
+                    }
+                };
+                if let Some(arr) = images.as_array() {
+                    for img in arr {
+                        check_image(img);
+                    }
+                } else if let Some(map) = images.as_object() {
+                    for (_, img) in map {
+                        check_image(img);
+                    }
+                }
+            }
+            if let Some(meshes) = gltf.get("meshes").and_then(|v| v.as_array()) {
+                for mesh in meshes {
+                    if let Some(prims) = mesh.get("primitives").and_then(|v| v.as_array()) {
+                        for prim in prims {
+                            if let Some(ext) = prim.get("extensions").and_then(|e| e.get("KHR_draco_mesh_compression")) {
+                                if let Some(bv) = ext.get("bufferView").and_then(|v| v.as_u64()) {
+                                    used.insert(bv as usize);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if let Some(ext) = gltf.get("extensions").and_then(|e| e.get("EXT_feature_metadata")) {
+                if let Some(tables) = ext.get("featureTables").and_then(|t| t.as_object()) {
+                    for (_, table) in tables {
+                        if let Some(props) = table.get("properties").and_then(|p| p.as_object()) {
+                            for (_, prop) in props {
+                                if let Some(bv) = prop.get("bufferView").and_then(|v| v.as_u64()) {
+                                    used.insert(bv as usize);
+                                }
+                                if let Some(bv) = prop.get("arrayOffsetBufferView").and_then(|v| v.as_u64()) {
+                                    used.insert(bv as usize);
+                                }
+                                if let Some(bv) = prop.get("stringOffsetBufferView").and_then(|v| v.as_u64()) {
+                                    used.insert(bv as usize);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if let Some(ext) = gltf.get("extensions").and_then(|e| e.get("EXT_structural_metadata")) {
+                if let Some(tables) = ext.get("propertyTables").and_then(|t| t.as_array()) {
+                    for table in tables {
+                        if let Some(props) = table.get("properties").and_then(|p| p.as_object()) {
+                            for (_, prop) in props {
+                                if let Some(bv) = prop.get("values").and_then(|v| v.as_u64()) {
+                                    used.insert(bv as usize);
+                                }
+                                if let Some(bv) = prop.get("arrayOffsets").and_then(|v| v.as_u64()) {
+                                    used.insert(bv as usize);
+                                }
+                                if let Some(bv) = prop.get("stringOffsets").and_then(|v| v.as_u64()) {
+                                    used.insert(bv as usize);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        "buffer" => {
+            if let Some(bvs) = gltf.get("bufferViews").and_then(|v| v.as_array()) {
+                for bv in bvs {
+                    if let Some(b) = bv.get("buffer").and_then(|v| v.as_u64()) {
+                        used.insert(b as usize);
+                    }
+                    if let Some(ext) = bv.get("extensions") {
+                        if let Some(meshopt) = ext.get("EXT_meshopt_compression").or_else(|| ext.get("KHR_meshopt_compression")) {
+                            if let Some(b) = meshopt.get("buffer").and_then(|v| v.as_u64()) {
+                                used.insert(b as usize);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        "texture" => {
+            if let Some(materials) = gltf.get("materials").and_then(|v| v.as_array()) {
+                for mat in materials {
+                    crate::gltf_for_each::for_each_texture_in_material(Some(mat), |tex_id, _| {
+                        used.insert(tex_id);
+                        None::<()>
+                    });
+                }
+            }
+            if let Some(meshes) = gltf.get("meshes").and_then(|v| v.as_array()) {
+                for mesh in meshes {
+                    if let Some(prims) = mesh.get("primitives").and_then(|v| v.as_array()) {
+                        for prim in prims {
+                            if let Some(ext) = prim.get("extensions") {
+                                if let Some(feat_meta) = ext.get("EXT_feature_metadata") {
+                                    if let Some(arr) = feat_meta.get("featureIdTextures").and_then(|v| v.as_array()) {
+                                        for item in arr {
+                                            if let Some(idx) = item.get("featureIds").and_then(|f| f.get("texture")).and_then(|t| t.get("index")).and_then(|v| v.as_u64()) {
+                                                used.insert(idx as usize);
+                                            }
+                                        }
+                                    }
+                                }
+                                if let Some(mesh_feat) = ext.get("EXT_mesh_features") {
+                                    if let Some(arr) = mesh_feat.get("featureIds").and_then(|v| v.as_array()) {
+                                        for item in arr {
+                                            if let Some(idx) = item.get("texture").and_then(|t| t.get("index")).and_then(|v| v.as_u64()) {
+                                                used.insert(idx as usize);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if let Some(ext) = gltf.get("extensions").and_then(|e| e.get("EXT_feature_metadata")) {
+                if let Some(feat_textures) = ext.get("featureTextures").and_then(|v| v.as_object()) {
+                    for (_, ft) in feat_textures {
+                        if let Some(props) = ft.get("properties").and_then(|v| v.as_object()) {
+                            for (_, prop) in props {
+                                if let Some(idx) = prop.get("texture").and_then(|t| t.get("index")).and_then(|v| v.as_u64()) {
+                                    used.insert(idx as usize);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if let Some(ext) = gltf.get("extensions").and_then(|e| e.get("EXT_structural_metadata")) {
+                if let Some(arr) = ext.get("propertyTextures").and_then(|v| v.as_array()) {
+                    for pt in arr {
+                        if let Some(props) = pt.get("properties").and_then(|v| v.as_object()) {
+                            for (_, prop) in props {
+                                if let Some(idx) = prop.get("index").and_then(|v| v.as_u64()) {
+                                    used.insert(idx as usize);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        "sampler" => {
+            if let Some(textures) = gltf.get("textures").and_then(|v| v.as_array()) {
+                for tex in textures {
+                    if let Some(s) = tex.get("sampler").and_then(|v| v.as_u64()) {
+                        used.insert(s as usize);
+                    }
+                }
+            }
+        }
+        "image" => {
+            if let Some(textures) = gltf.get("textures").and_then(|v| v.as_array()) {
+                for tex in textures {
+                    if let Some(s) = tex.get("source").and_then(|v| v.as_u64()) {
+                        used.insert(s as usize);
+                    }
+                    if let Some(ext) = tex.get("extensions") {
+                        if let Some(s) = ext.get("EXT_texture_webp").and_then(|w| w.get("source")).and_then(|v| v.as_u64()) {
+                            used.insert(s as usize);
+                        }
+                        if let Some(s) = ext.get("KHR_texture_basisu").and_then(|b| b.get("source")).and_then(|v| v.as_u64()) {
+                            used.insert(s as usize);
+                        }
+                    }
+                }
+            }
+        }
+        _ => {}
+    }
+    used
+}
+
+fn remove_element_by_index(gltf: &mut Value, element_type: &str, id: usize) {
+    match element_type {
+        "accessor" => {
+            if let Some(accessors) = gltf.get_mut("accessors").and_then(|v| v.as_array_mut()) {
+                if id < accessors.len() {
+                    accessors.remove(id);
+                }
+            }
+            if let Some(meshes) = gltf.get_mut("meshes").and_then(|v| v.as_array_mut()) {
+                for mesh in meshes {
+                    if let Some(prims) = mesh.get_mut("primitives").and_then(|v| v.as_array_mut()) {
+                        for prim in prims {
+                            if let Some(attrs) = prim.get_mut("attributes").and_then(|v| v.as_object_mut()) {
+                                for (_, acc_id_val) in attrs.iter_mut() {
+                                    if let Some(cur) = acc_id_val.as_u64() {
+                                        if cur as usize > id {
+                                            *acc_id_val = json!(cur - 1);
+                                        }
+                                    }
+                                }
+                            }
+                            if let Some(targets) = prim.get_mut("targets").and_then(|v| v.as_array_mut()) {
+                                for target in targets {
+                                    if let Some(t_attrs) = target.as_object_mut() {
+                                        for (_, acc_id_val) in t_attrs.iter_mut() {
+                                            if let Some(cur) = acc_id_val.as_u64() {
+                                                if cur as usize > id {
+                                                    *acc_id_val = json!(cur - 1);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                            if let Some(indices) = prim.get("indices").and_then(|v| v.as_u64()) {
+                                if indices as usize > id {
+                                    prim["indices"] = json!(indices - 1);
+                                }
+                            }
+                            if let Some(ext) = prim.get_mut("extensions").and_then(|e| e.get_mut("CESIUM_primitive_outline")) {
+                                if let Some(ind) = ext.get("indices").and_then(|v| v.as_u64()) {
+                                    if ind as usize > id {
+                                        ext["indices"] = json!(ind - 1);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if let Some(skins) = gltf.get_mut("skins").and_then(|v| v.as_array_mut()) {
+                for skin in skins {
+                    if let Some(ibm) = skin.get("inverseBindMatrices").and_then(|v| v.as_u64()) {
+                        if ibm as usize > id {
+                            skin["inverseBindMatrices"] = json!(ibm - 1);
+                        }
+                    }
+                }
+            }
+            if let Some(anims) = gltf.get_mut("animations").and_then(|v| v.as_array_mut()) {
+                for anim in anims {
+                    if let Some(samplers) = anim.get_mut("samplers").and_then(|v| v.as_array_mut()) {
+                        for s in samplers {
+                            if let Some(input) = s.get("input").and_then(|v| v.as_u64()) {
+                                if input as usize > id {
+                                    s["input"] = json!(input - 1);
+                                }
+                            }
+                            if let Some(output) = s.get("output").and_then(|v| v.as_u64()) {
+                                if output as usize > id {
+                                    s["output"] = json!(output - 1);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        "buffer" => {
+            if let Some(buffers) = gltf.get_mut("buffers").and_then(|v| v.as_array_mut()) {
+                if id < buffers.len() {
+                    buffers.remove(id);
+                }
+            }
+            if let Some(bvs) = gltf.get_mut("bufferViews").and_then(|v| v.as_array_mut()) {
+                for bv in bvs {
+                    if let Some(b) = bv.get("buffer").and_then(|v| v.as_u64()) {
+                        if b as usize > id {
+                            bv["buffer"] = json!(b - 1);
+                        }
+                    }
+                    if let Some(ext) = bv.get_mut("extensions") {
+                        if let Some(meshopt) = ext.get_mut("EXT_meshopt_compression") {
+                            if let Some(b) = meshopt.get("buffer").and_then(|v| v.as_u64()) {
+                                if b as usize > id {
+                                    meshopt["buffer"] = json!(b - 1);
+                                }
+                            }
+                        }
+                        if let Some(meshopt) = ext.get_mut("KHR_meshopt_compression") {
+                            if let Some(b) = meshopt.get("buffer").and_then(|v| v.as_u64()) {
+                                if b as usize > id {
+                                    meshopt["buffer"] = json!(b - 1);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        "bufferView" => {
+            if let Some(bvs) = gltf.get_mut("bufferViews").and_then(|v| v.as_array_mut()) {
+                if id < bvs.len() {
+                    bvs.remove(id);
+                }
+            }
+            if let Some(accessors) = gltf.get_mut("accessors").and_then(|v| v.as_array_mut()) {
+                for acc in accessors {
+                    if let Some(bv) = acc.get("bufferView").and_then(|v| v.as_u64()) {
+                        if bv as usize > id {
+                            acc["bufferView"] = json!(bv - 1);
+                        }
+                    }
+                }
+            }
+            if let Some(shaders) = gltf.get_mut("shaders") {
+                let update_sh = |sh: &mut Value| {
+                    if let Some(bv) = sh.get("bufferView").and_then(|v| v.as_u64()) {
+                        if bv as usize > id {
+                            sh["bufferView"] = json!(bv - 1);
+                        }
+                    }
+                };
+                if let Some(arr) = shaders.as_array_mut() {
+                    for s in arr {
+                        update_sh(s);
+                    }
+                } else if let Some(map) = shaders.as_object_mut() {
+                    for (_, s) in map {
+                        update_sh(s);
+                    }
+                }
+            }
+            if let Some(images) = gltf.get_mut("images") {
+                let update_img = |img: &mut Value| {
+                    if let Some(bv) = img.get("bufferView").and_then(|v| v.as_u64()) {
+                        if bv as usize > id {
+                            img["bufferView"] = json!(bv - 1);
+                        }
+                    }
+                    if let Some(ext) = img.get_mut("extensions").and_then(|e| e.get_mut("KHR_binary_glTF")) {
+                        if let Some(bv) = ext.get("bufferView").and_then(|v| v.as_u64()) {
+                            if bv as usize > id {
+                                ext["bufferView"] = json!(bv - 1);
+                            }
+                        }
+                    }
+                };
+                if let Some(arr) = images.as_array_mut() {
+                    for img in arr {
+                        update_img(img);
+                    }
+                } else if let Some(map) = images.as_object_mut() {
+                    for (_, img) in map {
+                        update_img(img);
+                    }
+                }
+            }
+            if let Some(meshes) = gltf.get_mut("meshes").and_then(|v| v.as_array_mut()) {
+                for mesh in meshes {
+                    if let Some(prims) = mesh.get_mut("primitives").and_then(|v| v.as_array_mut()) {
+                        for prim in prims {
+                            if let Some(ext) = prim.get_mut("extensions").and_then(|e| e.get_mut("KHR_draco_mesh_compression")) {
+                                if let Some(bv) = ext.get("bufferView").and_then(|v| v.as_u64()) {
+                                    if bv as usize > id {
+                                        ext["bufferView"] = json!(bv - 1);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if let Some(ext) = gltf.get_mut("extensions").and_then(|e| e.get_mut("EXT_feature_metadata")) {
+                if let Some(tables) = ext.get_mut("featureTables").and_then(|t| t.as_object_mut()) {
+                    for (_, table) in tables {
+                        if let Some(props) = table.get_mut("properties").and_then(|p| p.as_object_mut()) {
+                            for (_, prop) in props {
+                                if let Some(bv) = prop.get("bufferView").and_then(|v| v.as_u64()) {
+                                    if bv as usize > id {
+                                        prop["bufferView"] = json!(bv - 1);
+                                    }
+                                }
+                                if let Some(bv) = prop.get("arrayOffsetBufferView").and_then(|v| v.as_u64()) {
+                                    if bv as usize > id {
+                                        prop["arrayOffsetBufferView"] = json!(bv - 1);
+                                    }
+                                }
+                                if let Some(bv) = prop.get("stringOffsetBufferView").and_then(|v| v.as_u64()) {
+                                    if bv as usize > id {
+                                        prop["stringOffsetBufferView"] = json!(bv - 1);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if let Some(ext) = gltf.get_mut("extensions").and_then(|e| e.get_mut("EXT_structural_metadata")) {
+                if let Some(tables) = ext.get_mut("propertyTables").and_then(|t| t.as_array_mut()) {
+                    for table in tables {
+                        if let Some(props) = table.get_mut("properties").and_then(|p| p.as_object_mut()) {
+                            for (_, prop) in props {
+                                if let Some(bv) = prop.get("values").and_then(|v| v.as_u64()) {
+                                    if bv as usize > id {
+                                        prop["values"] = json!(bv - 1);
+                                    }
+                                }
+                                if let Some(bv) = prop.get("arrayOffsets").and_then(|v| v.as_u64()) {
+                                    if bv as usize > id {
+                                        prop["arrayOffsets"] = json!(bv - 1);
+                                    }
+                                }
+                                if let Some(bv) = prop.get("stringOffsets").and_then(|v| v.as_u64()) {
+                                    if bv as usize > id {
+                                        prop["stringOffsets"] = json!(bv - 1);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        "image" => {
+            if let Some(images) = gltf.get_mut("images").and_then(|v| v.as_array_mut()) {
+                if id < images.len() {
+                    images.remove(id);
+                }
+            }
+            if let Some(textures) = gltf.get_mut("textures").and_then(|v| v.as_array_mut()) {
+                for tex in textures {
+                    if let Some(s) = tex.get("source").and_then(|v| v.as_u64()) {
+                        if s as usize > id {
+                            tex["source"] = json!(s - 1);
+                        }
+                    }
+                    if let Some(ext) = tex.get_mut("extensions") {
+                        if let Some(webp) = ext.get_mut("EXT_texture_webp") {
+                            if let Some(s) = webp.get("source").and_then(|v| v.as_u64()) {
+                                if s as usize > id {
+                                    webp["source"] = json!(s - 1);
+                                }
+                            }
+                        }
+                        if let Some(basisu) = ext.get_mut("KHR_texture_basisu") {
+                            if let Some(s) = basisu.get("source").and_then(|v| v.as_u64()) {
+                                if s as usize > id {
+                                    basisu["source"] = json!(s - 1);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        "mesh" => {
+            if let Some(meshes) = gltf.get_mut("meshes").and_then(|v| v.as_array_mut()) {
+                if id < meshes.len() {
+                    meshes.remove(id);
+                }
+            }
+            if let Some(nodes) = gltf.get_mut("nodes").and_then(|v| v.as_array_mut()) {
+                for node in nodes {
+                    if let Some(m) = node.get("mesh").and_then(|v| v.as_u64()) {
+                        let m_idx = m as usize;
+                        if m_idx > id {
+                            node["mesh"] = json!(m - 1);
+                        } else if m_idx == id {
+                            if let Some(obj) = node.as_object_mut() {
+                                obj.remove("mesh");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        "node" => {
+            if let Some(nodes) = gltf.get_mut("nodes").and_then(|v| v.as_array_mut()) {
+                if id < nodes.len() {
+                    nodes.remove(id);
+                }
+            }
+            if let Some(skins) = gltf.get_mut("skins").and_then(|v| v.as_array_mut()) {
+                for skin in skins {
+                    if let Some(sk) = skin.get("skeleton").and_then(|v| v.as_u64()) {
+                        if sk as usize > id {
+                            skin["skeleton"] = json!(sk - 1);
+                        }
+                    }
+                    if let Some(joints) = skin.get_mut("joints").and_then(|v| v.as_array_mut()) {
+                        for j in joints {
+                            if let Some(val) = j.as_u64() {
+                                if val as usize > id {
+                                    *j = json!(val - 1);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if let Some(anims) = gltf.get_mut("animations").and_then(|v| v.as_array_mut()) {
+                for anim in anims {
+                    if let Some(channels) = anim.get_mut("channels").and_then(|v| v.as_array_mut()) {
+                        for ch in channels {
+                            if let Some(target) = ch.get_mut("target") {
+                                if let Some(n) = target.get("node").and_then(|v| v.as_u64()) {
+                                    if n as usize > id {
+                                        target["node"] = json!(n - 1);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if let Some(techniques) = gltf.get_mut("techniques") {
+                let update_tech = |tech: &mut Value| {
+                    if let Some(uniforms) = tech.get_mut("uniforms").and_then(|u| u.as_object_mut()) {
+                        for (_, u) in uniforms {
+                            if let Some(n) = u.get("node").and_then(|v| v.as_u64()) {
+                                if n as usize > id {
+                                    u["node"] = json!(n - 1);
+                                }
+                            }
+                        }
+                    }
+                };
+                if let Some(arr) = techniques.as_array_mut() {
+                    for t in arr {
+                        update_tech(t);
+                    }
+                } else if let Some(map) = techniques.as_object_mut() {
+                    for (_, t) in map {
+                        update_tech(t);
+                    }
+                }
+            }
+            if let Some(nodes) = gltf.get_mut("nodes").and_then(|v| v.as_array_mut()) {
+                for node in nodes {
+                    if let Some(children) = node.get_mut("children").and_then(|v| v.as_array_mut()) {
+                        let new_children: Vec<Value> = children
+                            .iter()
+                            .filter_map(|ch| {
+                                let c = ch.as_u64()? as usize;
+                                if c == id {
+                                    None
+                                } else if c > id {
+                                    Some(json!(c - 1))
+                                } else {
+                                    Some(json!(c))
+                                }
+                            })
+                            .collect();
+                        node["children"] = Value::Array(new_children);
+                    }
+                }
+            }
+            if let Some(scenes) = gltf.get_mut("scenes").and_then(|v| v.as_array_mut()) {
+                for scene in scenes {
+                    if let Some(nodes_arr) = scene.get_mut("nodes").and_then(|v| v.as_array_mut()) {
+                        let new_nodes: Vec<Value> = nodes_arr
+                            .iter()
+                            .filter_map(|ch| {
+                                let c = ch.as_u64()? as usize;
+                                if c == id {
+                                    None
+                                } else if c > id {
+                                    Some(json!(c - 1))
+                                } else {
+                                    Some(json!(c))
+                                }
+                            })
+                            .collect();
+                        scene["nodes"] = Value::Array(new_nodes);
+                    }
+                }
+            }
+        }
+        "material" => {
+            if let Some(materials) = gltf.get_mut("materials").and_then(|v| v.as_array_mut()) {
+                if id < materials.len() {
+                    materials.remove(id);
+                }
+            }
+            if let Some(meshes) = gltf.get_mut("meshes").and_then(|v| v.as_array_mut()) {
+                for mesh in meshes {
+                    if let Some(prims) = mesh.get_mut("primitives").and_then(|v| v.as_array_mut()) {
+                        for prim in prims {
+                            if let Some(m) = prim.get("material").and_then(|v| v.as_u64()) {
+                                if m as usize > id {
+                                    prim["material"] = json!(m - 1);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        "sampler" => {
+            if let Some(samplers) = gltf.get_mut("samplers").and_then(|v| v.as_array_mut()) {
+                if id < samplers.len() {
+                    samplers.remove(id);
+                }
+            }
+            if let Some(textures) = gltf.get_mut("textures").and_then(|v| v.as_array_mut()) {
+                for tex in textures {
+                    if let Some(s) = tex.get("sampler").and_then(|v| v.as_u64()) {
+                        if s as usize > id {
+                            tex["sampler"] = json!(s - 1);
+                        }
+                    }
+                }
+            }
+        }
+        "texture" => {
+            if let Some(textures) = gltf.get_mut("textures").and_then(|v| v.as_array_mut()) {
+                if id < textures.len() {
+                    textures.remove(id);
+                }
+            }
+            if let Some(materials) = gltf.get_mut("materials").and_then(|v| v.as_array_mut()) {
+                for mat in materials {
+                    let update_tex = |tex: &mut Value| {
+                        if let Some(cur) = tex.get("index").and_then(|v| v.as_u64()) {
+                            if cur as usize > id {
+                                tex["index"] = json!(cur - 1);
+                            }
+                        }
+                    };
+                    if let Some(pbr) = mat.get_mut("pbrMetallicRoughness") {
+                        if let Some(t) = pbr.get_mut("baseColorTexture") {
+                            update_tex(t);
+                        }
+                        if let Some(t) = pbr.get_mut("metallicRoughnessTexture") {
+                            update_tex(t);
+                        }
+                    }
+                    if let Some(ext) = mat.get_mut("extensions") {
+                        if let Some(sg) = ext.get_mut("KHR_materials_pbrSpecularGlossiness") {
+                            if let Some(t) = sg.get_mut("diffuseTexture") {
+                                update_tex(t);
+                            }
+                            if let Some(t) = sg.get_mut("specularGlossinessTexture") {
+                                update_tex(t);
+                            }
+                        }
+                        if let Some(spec) = ext.get_mut("KHR_materials_specular") {
+                            if let Some(t) = spec.get_mut("specularTexture") {
+                                update_tex(t);
+                            }
+                            if let Some(t) = spec.get_mut("specularColorTexture") {
+                                update_tex(t);
+                            }
+                        }
+                        if let Some(trans) = ext.get_mut("KHR_materials_transmission") {
+                            if let Some(t) = trans.get_mut("transmissionTexture") {
+                                update_tex(t);
+                            }
+                        }
+                        if let Some(mc) = ext.get_mut("KHR_materials_common") {
+                            if let Some(vals) = mc.get_mut("values").and_then(|v| v.as_object_mut()) {
+                                for (_, v) in vals {
+                                    if v.is_object() {
+                                        update_tex(v);
+                                    }
+                                }
+                            }
+                        }
+                        if let Some(tech) = ext.get_mut("KHR_techniques_webgl") {
+                            if let Some(vals) = tech.get_mut("values").and_then(|v| v.as_object_mut()) {
+                                for (_, v) in vals {
+                                    if v.is_object() {
+                                        update_tex(v);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    if let Some(t) = mat.get_mut("emissiveTexture") {
+                        update_tex(t);
+                    }
+                    if let Some(t) = mat.get_mut("normalTexture") {
+                        update_tex(t);
+                    }
+                    if let Some(t) = mat.get_mut("occlusionTexture") {
+                        update_tex(t);
+                    }
+                }
+            }
+            if let Some(meshes) = gltf.get_mut("meshes").and_then(|v| v.as_array_mut()) {
+                for mesh in meshes {
+                    if let Some(prims) = mesh.get_mut("primitives").and_then(|v| v.as_array_mut()) {
+                        for prim in prims {
+                            if let Some(ext) = prim.get_mut("extensions") {
+                                if let Some(feat_meta) = ext.get_mut("EXT_feature_metadata") {
+                                    if let Some(arr) = feat_meta.get_mut("featureIdTextures").and_then(|v| v.as_array_mut()) {
+                                        for item in arr {
+                                            if let Some(tex) = item.get_mut("featureIds").and_then(|f| f.get_mut("texture")) {
+                                                if let Some(cur) = tex.get("index").and_then(|v| v.as_u64()) {
+                                                    if cur as usize > id {
+                                                        tex["index"] = json!(cur - 1);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if let Some(mesh_feat) = ext.get_mut("EXT_mesh_features") {
+                                    if let Some(arr) = mesh_feat.get_mut("featureIds").and_then(|v| v.as_array_mut()) {
+                                        for item in arr {
+                                            if let Some(tex) = item.get_mut("texture") {
+                                                if let Some(cur) = tex.get("index").and_then(|v| v.as_u64()) {
+                                                    if cur as usize > id {
+                                                        tex["index"] = json!(cur - 1);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if let Some(ext) = gltf.get_mut("extensions").and_then(|e| e.get_mut("EXT_feature_metadata")) {
+                if let Some(feat_textures) = ext.get_mut("featureTextures").and_then(|v| v.as_object_mut()) {
+                    for (_, ft) in feat_textures {
+                        if let Some(props) = ft.get_mut("properties").and_then(|v| v.as_object_mut()) {
+                            for (_, prop) in props {
+                                if let Some(tex) = prop.get_mut("texture") {
+                                    if let Some(cur) = tex.get("index").and_then(|v| v.as_u64()) {
+                                        if cur as usize > id {
+                                            tex["index"] = json!(cur - 1);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if let Some(ext) = gltf.get_mut("extensions").and_then(|e| e.get_mut("EXT_structural_metadata")) {
+                if let Some(arr) = ext.get_mut("propertyTextures").and_then(|v| v.as_array_mut()) {
+                    for pt in arr {
+                        if let Some(props) = pt.get_mut("properties").and_then(|v| v.as_object_mut()) {
+                            for (_, prop) in props {
+                                if let Some(cur) = prop.get("index").and_then(|v| v.as_u64()) {
+                                    if cur as usize > id {
+                                        prop["index"] = json!(cur - 1);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        _ => {}
+    }
+}
+
+/// Removes unused elements from glTF.
+pub fn remove_unused_elements(gltf: &mut Value, element_types: Option<&[&str]>) {
+    let all_types = [
+        "mesh",
+        "node",
+        "material",
+        "accessor",
+        "bufferView",
+        "buffer",
+        "texture",
+        "sampler",
+        "image",
+    ];
+
+    for &type_name in &all_types {
+        if let Some(types) = element_types {
+            if !types.contains(&type_name) {
+                continue;
+            }
+        }
+
+        let array_prop = match type_name {
+            "mesh" => "meshes",
+            "node" => "nodes",
+            "material" => "materials",
+            "accessor" => "accessors",
+            "bufferView" => "bufferViews",
+            "buffer" => "buffers",
+            "texture" => "textures",
+            "sampler" => "samplers",
+            "image" => "images",
+            _ => continue,
+        };
+
+        let len = gltf.get(array_prop).and_then(|v| v.as_array()).map(|a| a.len()).unwrap_or(0);
+        if len > 0 {
+            let used_ids = get_used_element_ids(gltf, type_name);
+            let mut removed = 0;
+            for i in 0..len {
+                if !used_ids.contains(&i) {
+                    remove_element_by_index(gltf, type_name, i - removed);
+                    removed += 1;
+                }
+            }
+        }
+    }
+}
+
+
 
 
 
