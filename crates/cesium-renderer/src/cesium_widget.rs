@@ -20,21 +20,7 @@ use crate::imagery_layer_collection::ImageryLayerCollection;
 use crate::sky_atmosphere::SkyAtmosphere;
 use crate::sky_box::{SkyBox, SkyBoxOptions};
 
-/// Globe primitive in scene.
-#[derive(Debug, Clone, PartialEq)]
-pub struct Globe {
-    pub ellipsoid: Ellipsoid,
-    pub show: bool,
-}
-
-impl Globe {
-    pub fn new(ellipsoid: Ellipsoid) -> Self {
-        Self {
-            ellipsoid,
-            show: true,
-        }
-    }
-}
+pub use crate::globe::Globe;
 
 /// Map projection options for CesiumWidget.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Default)]

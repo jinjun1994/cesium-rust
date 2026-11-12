@@ -164,6 +164,8 @@ pub use gaussian_splat_primitive::{
     GaussianSplatSnapshot, GaussianSplatSortingState, SnapshotState,
 };
 pub use geo_json_primitive::GeoJsonPrimitive;
+pub mod globe;
+pub use globe::Globe;
 pub mod globe_surface_tile;
 pub use globe_surface_tile::{
     GlobeSurfaceTile, MeshCreationOutcome, SurfaceImageryAttachment, SurfaceTerrainData,

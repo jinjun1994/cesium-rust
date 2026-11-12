@@ -528,7 +528,7 @@
 | [packages/engine/Specs/Scene/GeoJsonPrimitiveSpec.js](../../cesium/packages/engine/Specs/Scene/GeoJsonPrimitiveSpec.js) | 已补齐 (`cesium-renderer`: `geo_json_primitive` / `geo_json_primitive_spec` 4/4) |
 | [packages/engine/Specs/Scene/Geometry3DTileContentSpec.js](../../cesium/packages/engine/Specs/Scene/Geometry3DTileContentSpec.js) | 已补齐 (`cesium-renderer`: `geometry_3d_tile_content` / `geometry_3d_tile_content_spec` 5/5) |
 | [packages/engine/Specs/Scene/GeometryRenderingSpec.js](../../cesium/packages/engine/Specs/Scene/GeometryRenderingSpec.js) | 待逐项核对 |
-| [packages/engine/Specs/Scene/GlobeSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeSpec.js) | 待逐项核对 |
+| [packages/engine/Specs/Scene/GlobeSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeSpec.js) | 已补齐 (`cesium-renderer`: `globe` / `globe_spec` 4/4) |
 | [packages/engine/Specs/Scene/GlobeSurfaceTileProviderSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeSurfaceTileProviderSpec.js) | 已补齐 (`cesium-renderer`: `globe_surface_tile_provider` / `globe_surface_tile_provider_spec` 4/4) |
 | [packages/engine/Specs/Scene/GlobeSurfaceTileSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeSurfaceTileSpec.js) | 已补齐 (`cesium-renderer`: `globe_surface_tile` / `globe_surface_tile_spec` 4/4) |
 | [packages/engine/Specs/Scene/GlobeTranslucencyFramebufferSpec.js](../../cesium/packages/engine/Specs/Scene/GlobeTranslucencyFramebufferSpec.js) | 已补齐 (`cesium-renderer`: `globe_translucency_framebuffer` / `globe_translucency_framebuffer_spec` 4/4) |
