@@ -20,6 +20,7 @@ pub mod capabilities;
 pub mod cesium_3d_tile_content_type;
 pub mod cesium_3d_tile_feature;
 pub mod cesium_3d_tile_feature_table;
+pub mod cesium_3d_tile_style;
 pub mod cesium_3d_tile_vector_feature;
 pub mod cesium_3d_tileset_heatmap;
 pub mod cesium_3d_tileset_metadata;
@@ -371,6 +372,7 @@ pub use capabilities::RendererCapabilities;
 pub use cesium_3d_tile_content_type::Cesium3DTileContentType;
 pub use cesium_3d_tile_feature::{Cesium3DTileFeature, Cesium3DTileFeatureContent};
 pub use cesium_3d_tile_feature_table::Cesium3DTileFeatureTable;
+pub use cesium_3d_tile_style::{Cesium3DTileStyleDocument, TileStyleExpression};
 pub use cesium_3d_tile_vector_feature::Cesium3DTileVectorFeature;
 pub use cesium_3d_tileset_heatmap::{
     Cesium3DTilesetHeatmap, HeatmapReferenceValue, HeatmapTile,
