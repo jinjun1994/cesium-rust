@@ -38,6 +38,7 @@ pub mod primitive_instances;
 pub mod screen;
 pub mod screen_options;
 pub mod terrain;
+pub mod widgets;
 
 pub fn limits() -> DecodeLimits {
     DecodeLimits {

@@ -1,10 +1,15 @@
 //! Real public terrain HTTP streaming plus offscreen GPU/readback verification.
+#[cfg(not(target_arch = "wasm32"))]
 use cesium_renderer::{device, instance, Renderer};
+#[cfg(not(target_arch = "wasm32"))]
 use cesium_viewer::{
     terrain::{self, Provider},
     Scene,
 };
+#[cfg(not(target_arch = "wasm32"))]
 use std::{io::Write, path::Path, sync::mpsc, time::Duration};
+
+#[cfg(not(target_arch = "wasm32"))]
 fn pixels(renderer: &mut Renderer, scene: &Scene) -> Result<Vec<u8>, Box<dyn std::error::Error>> {
     let texture = renderer.device.create_texture(&wgpu::TextureDescriptor {
         label: Some("terrain check"),
@@ -67,6 +72,7 @@ fn pixels(renderer: &mut Renderer, scene: &Scene) -> Result<Vec<u8>, Box<dyn std
     scene.render(renderer, &view, None)?;
     Ok(out)
 }
+#[cfg(not(target_arch = "wasm32"))]
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<_> = std::env::args().skip(1).collect();
     let offline = args.iter().any(|a| a == "--cached-only");
@@ -200,3 +206,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         Ok::<(), Box<dyn std::error::Error>>(())
     })
 }
+
+#[cfg(target_arch = "wasm32")]
+fn main() {}
+

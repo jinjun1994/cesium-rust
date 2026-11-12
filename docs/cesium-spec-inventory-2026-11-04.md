@@ -852,4 +852,4 @@
 | [packages/widgets/Specs/Viewer/viewerDragDropMixinSpec.js](../../cesium/packages/widgets/Specs/Viewer/viewerDragDropMixinSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/Viewer/viewerPerformanceWatchdogMixinSpec.js](../../cesium/packages/widgets/Specs/Viewer/viewerPerformanceWatchdogMixinSpec.js) | 待逐项核对 |
 | [packages/widgets/Specs/VoxelInspector/VoxelInspectorSpec.js](../../cesium/packages/widgets/Specs/VoxelInspector/VoxelInspectorSpec.js) | 待逐项核对 |
-| [packages/widgets/Specs/createCommandSpec.js](../../cesium/packages/widgets/Specs/createCommandSpec.js) | 待逐项核对 |
+| [packages/widgets/Specs/createCommandSpec.js](../../cesium/packages/widgets/Specs/createCommandSpec.js) | 已完成 (5/5 单测通过，覆盖 Command 构造默认 canExecute、canExecute 为 false 拒绝执行并抛出 DeveloperError、动态可观察 canExecute 状态切换、beforeExecute/afterExecute 事件分发及 beforeExecute 拦截取消) |
