@@ -20,6 +20,13 @@ impl Cesium3DContentGroup {
     pub fn new(metadata: GroupMetadata) -> Self {
         Self { metadata }
     }
+
+    /// Creates a new `Cesium3DContentGroup`, returning `DeveloperError` when metadata is missing.
+    pub fn try_new(metadata: Option<GroupMetadata>) -> Result<Self, DeveloperError> {
+        let metadata =
+            metadata.ok_or_else(|| DeveloperError::new("options.metadata is required."))?;
+        Ok(Self { metadata })
+    }
 }
 
 /// Header describing one inner content item in a multiple content tile.
