@@ -1,7 +1,7 @@
 //! Ray-casting picking for 3D Models matching CesiumJS `Scene/Model/pickModel.js` (Apache-2.0).
 
 use cesium_math::{
-    BoundingSphere, Cartesian3, Ellipsoid, FixedFrameTransforms, IntersectionTests, MapProjection,
+    Cartesian3, Ellipsoid, FixedFrameTransforms, IntersectionTests, MapProjection,
     Matrix4, Quaternion, Ray, SceneMode, VerticalExaggeration,
 };
 
@@ -10,44 +10,7 @@ use crate::model_reader::ModelReader;
 use crate::model_runtime_node::ModelRuntimeNode;
 use crate::model_scene_graph::ModelSceneGraph;
 
-/// In-memory 3D Model container for rendering and picking.
-#[derive(Clone, Debug)]
-pub struct Model {
-    pub ready: bool,
-    pub scene_graph: Option<ModelSceneGraph>,
-    pub back_face_culling: Option<bool>,
-    pub bounding_sphere: Option<BoundingSphere>,
-    pub model_matrix: Matrix4,
-}
-
-impl Default for Model {
-    fn default() -> Self {
-        Self {
-            ready: true,
-            scene_graph: None,
-            back_face_culling: Some(true),
-            bounding_sphere: None,
-            model_matrix: Matrix4::IDENTITY,
-        }
-    }
-}
-
-impl Model {
-    pub fn new() -> Self {
-        Self::default()
-    }
-
-    pub fn with_scene_graph(scene_graph: ModelSceneGraph) -> Self {
-        let bounding_sphere = scene_graph.bounding_sphere;
-        Self {
-            ready: true,
-            scene_graph: Some(scene_graph),
-            back_face_culling: Some(true),
-            bounding_sphere,
-            model_matrix: Matrix4::IDENTITY,
-        }
-    }
-}
+pub use crate::model::Model;
 
 /// Frame state options passed to `pick_model`.
 #[derive(Clone, Debug)]

@@ -12,7 +12,7 @@ pub use crate::model_animation::{
 pub type RuntimeModelAnimation = ModelAnimation;
 
 /// A collection of active model animations matching CesiumJS `ModelAnimationCollection`.
-#[derive(Default)]
+#[derive(Clone, Default)]
 pub struct ModelAnimationCollection {
     pub model_ready: bool,
     pub model_clamp_animations: bool,
@@ -22,6 +22,19 @@ pub struct ModelAnimationCollection {
     pub previous_time: Option<JulianDate>,
     pub animation_added_listeners: Vec<AnimationCollectionCallback>,
     pub animation_removed_listeners: Vec<AnimationCollectionCallback>,
+}
+
+impl std::fmt::Debug for ModelAnimationCollection {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("ModelAnimationCollection")
+            .field("model_ready", &self.model_ready)
+            .field("model_clamp_animations", &self.model_clamp_animations)
+            .field("animate_while_paused", &self.animate_while_paused)
+            .field("animations_metadata", &self.animations_metadata)
+            .field("runtime_animations_count", &self.runtime_animations.len())
+            .field("previous_time", &self.previous_time)
+            .finish()
+    }
 }
 
 impl ModelAnimationCollection {

@@ -105,6 +105,7 @@ fn create_triangle_model(
         back_face_culling: Some(back_face_culling),
         bounding_sphere: Some(BoundingSphere::new(Cartesian3::ZERO, 10.0)),
         model_matrix: Matrix4::IDENTITY,
+        ..Default::default()
     }
 }
 
@@ -351,6 +352,7 @@ fn test_returns_intersection_with_instanced_model() {
         back_face_culling: Some(true),
         bounding_sphere: None,
         model_matrix: Matrix4::IDENTITY,
+        ..Default::default()
     };
 
     // Ray aimed at instance 1 at (0, 10, 0)

@@ -265,6 +265,12 @@ pub struct ModelDrawCommand {
     has_2d_commands: bool,
 }
 
+impl Default for ModelDrawCommand {
+    fn default() -> Self {
+        Self::from_command(DrawCommand::default())
+    }
+}
+
 impl ModelDrawCommand {
     /// Creates a ModelDrawCommand directly wrapping a DrawCommand.
     pub fn from_command(command: DrawCommand) -> Self {
