@@ -1,0 +1,16 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><style>
+html, body { margin: 0; background: black; } canvas { width: 960px; height: 540px; display: block; }
+</style></head><body><canvas id="canvas"></canvas>
+<script type="module">
+import {attachCanvas} from '/bindings/web/sdk.js';
+window.testErrors = [];
+try {
+  window.viewer = await attachCanvas(document.querySelector('canvas'), {
+    terrain: false,
+    onError: error => window.testErrors.push(error),
+    onPick: result => { window.lastPick = result; },
+  });
+  window.viewer.setImageryTemplate('/tests/fixtures/imagery/neutral-256.png', true, 0);
+} catch (error) { window.testErrors.push(String(error)); }
+</script></body></html>

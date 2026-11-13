@@ -19,6 +19,8 @@ pnpm-debug.log*
 
 # Test output / temporary images
 *.ppm
+/tests/e2e/sandcastle-reference/*.png
+/tests/e2e/sandcastle-compare.spec.cjs-snapshots/
 
 # OS files
 .DS_Store

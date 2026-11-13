@@ -4,6 +4,11 @@
   "version": "0.0.26",
   "scripts": {
     "test:web": "node scripts/browser-smoke.cjs",
+    "test:e2e": "playwright test --config tests/e2e/playwright.config.cjs",
+    "test:e2e:update": "playwright test --config tests/e2e/playwright.config.cjs --update-snapshots",
+    "test:e2e:sandcastle": "playwright test --config tests/e2e/sandcastle.config.cjs",
+    "test:e2e:sandcastle:update": "REGRESSION_SNAPSHOTS=1 playwright test --config tests/e2e/sandcastle.config.cjs --update-snapshots",
+    "capture:sandcastle:refs": "node scripts/capture-sandcastle-references.mjs",
     "test:controls": "node scripts/controls-test.mjs",
     "test:sdk": "node scripts/sdk-lifecycle-test.mjs",
     "start": "python3 scripts/start-test-ui.py",

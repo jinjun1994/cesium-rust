@@ -1,0 +1,2204 @@
+{
+  "cesiumUrl": "http://localhost:8080",
+  "fixedTime": "2023-12-25T14:00:00Z",
+  "viewport": {
+    "width": 960,
+    "height": 540
+  },
+  "cases": {
+    "box": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:27:44.065Z",
+      "file": "box.png"
+    },
+    "cylinders-and-cones": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:27:50.390Z",
+      "file": "cylinders-and-cones.png"
+    },
+    "spheres-and-ellipsoids": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:27:57.286Z",
+      "file": "spheres-and-ellipsoids.png"
+    },
+    "wall": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:28:01.247Z",
+      "file": "wall.png"
+    },
+    "polygon": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:28:07.667Z",
+      "file": "polygon.png"
+    },
+    "polyline": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:28:14.250Z",
+      "file": "polyline.png"
+    },
+    "czml-box": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:28:22.303Z",
+      "file": "czml-box.png"
+    },
+    "czml-point": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:28:30.773Z",
+      "file": "czml-point.png"
+    },
+    "box-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:28:35.761Z",
+      "file": "box-dev.png"
+    },
+    "show-or-hide-entities": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:28:44.634Z",
+      "file": "show-or-hide-entities.png"
+    },
+    "offline": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:28:46.504Z",
+      "file": "offline.png"
+    },
+    "html-overlays": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:28:52.861Z",
+      "file": "html-overlays.png"
+    },
+    "hello-world": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:28:57.471Z",
+      "file": "hello-world.png"
+    },
+    "points": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:29:02.558Z",
+      "file": "points.png"
+    },
+    "3d-models-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:31:46.634Z",
+      "file": "3d-models-dev.png"
+    },
+    "3d-models-coloring": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:31:49.628Z",
+      "file": "3d-models-coloring.png"
+    },
+    "3d-models": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:31:50.829Z",
+      "file": "3d-models.png"
+    },
+    "3d-models-node-explorer-dev": {
+      "status": "ok",
+      "consoleErrors": [
+        "An error occurred while rendering.  Rendering has stopped.\nTypeError: Cannot read properties of undefined (reading 'onselect')\nTypeError: Cannot read properties of undefined (reading 'onselect')\n    at <anonymous>:140:16\n    at Event.raiseEvent (http://localhost:8081/packages/core/Build/Unminified/index.js:23803:16)\n    at Array.<anonymous> (http://localhost:8081/packages/engine/Build/Unminified/index.js:113400:24)\n    at callAfterRenderFunctions (http://localhost:8081/packages/engine/Build/Unminified/index.js:194353:48)\n    at Scene4.render (http://localhost:8081/packages/engine/Build/Unminified/index.js:194702:3)\n    at CesiumWidget.render (http://localhost:8081/packages/engine/Build/Unminified/index.js:198189:17)\n    at render2 (http://localhost:8081/packages/engine/Build/Unminified/index.js:197435:18)\n    at ClockController._callFirstTimer (<anonymous>:285:20)\n    at ClockController._runTo (<anonymous>:120:33)\n    at <anonymous>:168:38"
+      ],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:31:52.731Z",
+      "file": "3d-models-node-explorer-dev.png"
+    },
+    "3d-models-articulations-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:31:52.821Z",
+      "file": "3d-models-articulations-dev.png"
+    },
+    "3d-tiles-1.1-cdb-yemen": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:31:53.357Z",
+      "file": "3d-tiles-1.1-cdb-yemen.png"
+    },
+    "3d-tiles-1.1-photogrammetry": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:31:53.987Z",
+      "file": "3d-tiles-1.1-photogrammetry.png"
+    },
+    "3d-tiles-adjust-height": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:02.219Z",
+      "file": "3d-tiles-adjust-height.png"
+    },
+    "3d-tiles-batch-table-hierarchy": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:09.173Z",
+      "file": "3d-tiles-batch-table-hierarchy.png"
+    },
+    "3d-tiles-1.1-s2-globe": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:18.493Z",
+      "file": "3d-tiles-1.1-s2-globe.png"
+    },
+    "3d-tiles-1.1-photogrammetry-classification": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:18.823Z",
+      "file": "3d-tiles-1.1-photogrammetry-classification.png"
+    },
+    "3d-tiles-bim": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:19.416Z",
+      "file": "3d-tiles-bim.png"
+    },
+    "3d-tiles-3d-native-vector": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:21.227Z",
+      "file": "3d-tiles-3d-native-vector.png"
+    },
+    "3d-tiles-edge-visibility": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:21.725Z",
+      "file": "3d-tiles-edge-visibility.png"
+    },
+    "3d-tiles-clipping-planes": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:24.482Z",
+      "file": "3d-tiles-clipping-planes.png"
+    },
+    "3d-tiles-feature-styling": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:25.489Z",
+      "file": "3d-tiles-feature-styling.png"
+    },
+    "3d-tiles-formats": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:29.626Z",
+      "file": "3d-tiles-formats.png"
+    },
+    "3d-tiles-compare": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:46.216Z",
+      "file": "3d-tiles-compare.png"
+    },
+    "3d-tiles-gaussian-splats-with-lod": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:53.339Z",
+      "file": "3d-tiles-gaussian-splats-with-lod.png"
+    },
+    "3d-tiles-gaussian-splatting": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:53.484Z",
+      "file": "3d-tiles-gaussian-splatting.png"
+    },
+    "3d-tiles-feature-picking": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:55.852Z",
+      "file": "3d-tiles-feature-picking.png"
+    },
+    "3d-tiles-interactivity": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:57.529Z",
+      "file": "3d-tiles-interactivity.png"
+    },
+    "3d-tiles-inspector": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:57.711Z",
+      "file": "3d-tiles-inspector.png"
+    },
+    "3d-tiles-gaussian-splatting-comparison": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:32:58.036Z",
+      "file": "3d-tiles-gaussian-splatting-comparison.png"
+    },
+    "3d-tiles-photogrammetry": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:03.858Z",
+      "file": "3d-tiles-photogrammetry.png"
+    },
+    "3d-tiles-performance-testing-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:07.893Z",
+      "file": "3d-tiles-performance-testing-dev.png"
+    },
+    "3d-tiles-photogrammetry-classification": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:11.695Z",
+      "file": "3d-tiles-photogrammetry-classification.png"
+    },
+    "3d-tiles-picking-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:17.449Z",
+      "file": "3d-tiles-picking-dev.png"
+    },
+    "3d-tiles-point-cloud": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:20.124Z",
+      "file": "3d-tiles-point-cloud.png"
+    },
+    "3d-tiles-interior": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:30.316Z",
+      "file": "3d-tiles-interior.png"
+    },
+    "3d-tiles-point-cloud-shading": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:30.413Z",
+      "file": "3d-tiles-point-cloud-shading.png"
+    },
+    "3d-tiles-point-cloud-classification": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:30.503Z",
+      "file": "3d-tiles-point-cloud-classification.png"
+    },
+    "3d-tiles-nga-gpm-visualization": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:32.056Z",
+      "file": "3d-tiles-nga-gpm-visualization.png"
+    },
+    "3d-tiles-property-lod-river": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:33.182Z",
+      "file": "3d-tiles-property-lod-river.png"
+    },
+    "3d-tiles-split-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:33.651Z",
+      "file": "3d-tiles-split-dev.png"
+    },
+    "3d-tiles-point-cloud-styling": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:34.021Z",
+      "file": "3d-tiles-point-cloud-styling.png"
+    },
+    "3d-tiles-vertical-exaggeration": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:37.638Z",
+      "file": "3d-tiles-vertical-exaggeration.png"
+    },
+    "3d-tiles-terrain-classification": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:49.332Z",
+      "file": "3d-tiles-terrain-classification.png"
+    },
+    "aec-elements-api-query": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:51.352Z",
+      "file": "aec-elements-api-query.png"
+    },
+    "aec-clipping": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:33:54.410Z",
+      "file": "aec-clipping.png"
+    },
+    "aec-metadata-styling": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:09.415Z",
+      "file": "aec-metadata-styling.png"
+    },
+    "aec-isolate-by-category": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:11.527Z",
+      "file": "aec-isolate-by-category.png"
+    },
+    "aec-snapping": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:12.994Z",
+      "file": "aec-snapping.png"
+    },
+    "aec-architectural-design": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:18.991Z",
+      "file": "aec-architectural-design.png"
+    },
+    "aerometrex-san-francisco": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:20.264Z",
+      "file": "aerometrex-san-francisco.png"
+    },
+    "aec-tileset-metadata-filtering": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:21.296Z",
+      "file": "aec-tileset-metadata-filtering.png"
+    },
+    "ambient-occlusion": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:21.643Z",
+      "file": "ambient-occlusion.png"
+    },
+    "arcgis-mapserver": {
+      "status": "ok",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()"
+      ],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:22.498Z",
+      "file": "arcgis-mapserver.png"
+    },
+    "arcgis-tiled-elevation-terrain": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:22.704Z",
+      "file": "arcgis-tiled-elevation-terrain.png"
+    },
+    "atmosphere": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:23.826Z",
+      "file": "atmosphere.png"
+    },
+    "bathymetry": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:35.906Z",
+      "file": "bathymetry.png"
+    },
+    "billboardclamptoground-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:40.815Z",
+      "file": "billboardclamptoground-dev.png"
+    },
+    "azure-2d-tiles": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:47.826Z",
+      "file": "azure-2d-tiles.png"
+    },
+    "arcticdem": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:48.170Z",
+      "file": "arcticdem.png"
+    },
+    "billboards-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:49.563Z",
+      "file": "billboards-dev.png"
+    },
+    "billboards": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:49.748Z",
+      "file": "billboards.png"
+    },
+    "bing-maps-labels-only": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:53.190Z",
+      "file": "bing-maps-labels-only.png"
+    },
+    "billboards-instancing-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:56.777Z",
+      "file": "billboards-instancing-dev.png"
+    },
+    "blue-marble": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:57.618Z",
+      "file": "blue-marble.png"
+    },
+    "box-outline-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:58.907Z",
+      "file": "box-outline-dev.png"
+    },
+    "bloom": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:34:59.624Z",
+      "file": "bloom.png"
+    },
+    "callback-property": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:01.672Z",
+      "file": "callback-property.png"
+    },
+    "callback-position-property": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:01.992Z",
+      "file": "callback-position-property.png"
+    },
+    "camera-controllers": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:03.501Z",
+      "file": "camera-controllers.png"
+    },
+    "camera-tutorial": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:04.351Z",
+      "file": "camera-tutorial.png"
+    },
+    "camera": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:05.595Z",
+      "file": "camera.png"
+    },
+    "cartographic-limit-rectangle": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:07.598Z",
+      "file": "cartographic-limit-rectangle.png"
+    },
+    "cardboard": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:07.956Z",
+      "file": "cardboard.png"
+    },
+    "cesium-osm-buildings": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:09.264Z",
+      "file": "cesium-osm-buildings.png"
+    },
+    "cesium-world-terrain": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:11.762Z",
+      "file": "cesium-world-terrain.png"
+    },
+    "circle-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:13.219Z",
+      "file": "circle-dev.png"
+    },
+    "cesium-inspector": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:13.241Z",
+      "file": "cesium-inspector.png"
+    },
+    "cesium-widget": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:14.220Z",
+      "file": "cesium-widget.png"
+    },
+    "circle-outline-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:15.211Z",
+      "file": "circle-outline-dev.png"
+    },
+    "clamp-model-to-ground": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:18.926Z",
+      "file": "clamp-model-to-ground.png"
+    },
+    "circles-and-ellipses": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:22.640Z",
+      "file": "circles-and-ellipses.png"
+    },
+    "clamp-entities-to-ground": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:24.847Z",
+      "file": "clamp-entities-to-ground.png"
+    },
+    "classification": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:26.547Z",
+      "file": "classification.png"
+    },
+    "clamp-to-3d-model": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:26.904Z",
+      "file": "clamp-to-3d-model.png"
+    },
+    "classification-types": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:26.941Z",
+      "file": "classification-types.png"
+    },
+    "client-side-snapping-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:27.699Z",
+      "file": "client-side-snapping-dev.png"
+    },
+    "clipping-performance-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:33.644Z",
+      "file": "clipping-performance-dev.png"
+    },
+    "cloud-parameters": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:34.219Z",
+      "file": "cloud-parameters.png"
+    },
+    "clock": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:36.402Z",
+      "file": "clock.png"
+    },
+    "clouds": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:37.450Z",
+      "file": "clouds.png"
+    },
+    "clipping-regions": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:37.614Z",
+      "file": "clipping-regions.png"
+    },
+    "coplanar-polygon-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:42.768Z",
+      "file": "coplanar-polygon-dev.png"
+    },
+    "clustering": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:43.506Z",
+      "file": "clustering.png"
+    },
+    "constant-lod-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:43.658Z",
+      "file": "constant-lod-dev.png"
+    },
+    "coplanar-polygon-outline-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:44.061Z",
+      "file": "coplanar-polygon-outline-dev.png"
+    },
+    "corridor": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:47.506Z",
+      "file": "corridor.png"
+    },
+    "corridor-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:48.930Z",
+      "file": "corridor-dev.png"
+    },
+    "custom-geocoder": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:52.706Z",
+      "file": "custom-geocoder.png"
+    },
+    "custom-datasource": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:53.001Z",
+      "file": "custom-datasource.png"
+    },
+    "corridor-outline-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:54.092Z",
+      "file": "corridor-outline-dev.png"
+    },
+    "custom-per-feature-post-process": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:56.320Z",
+      "file": "custom-per-feature-post-process.png"
+    },
+    "custom-primitive-dev": {
+      "status": "ok",
+      "consoleErrors": [
+        "Uncaught TypeError: primitive.isDestroyed is not a function",
+        "An error occurred while rendering.  Rendering has stopped.\nTypeError: primitive.isDestroyed is not a function\nTypeError: primitive.isDestroyed is not a function\n    at createPrimitiveEventListener (http://localhost:8081/packages/engine/Build/Unminified/index.js:194450:36)\n    at Scene4.updateHeight (http://localhost:8081/packages/engine/Build/Unminified/index.js:194464:7)\n    at Scene4.initializeFrame (http://localhost:8081/packages/engine/Build/Unminified/index.js:194522:45)\n    at CesiumWidget.render (http://localhost:8081/packages/engine/Build/Unminified/index.js:198187:17)\n    at render2 (http://localhost:8081/packages/engine/Build/Unminified/index.js:197435:18)\n    at ClockController._callFirstTimer (<anonymous>:285:20)\n    at ClockController._runTo (<anonymous>:120:33)\n    at <anonymous>:168:38"
+      ],
+      "pageErrors": [
+        "primitive.isDestroyed is not a function"
+      ],
+      "capturedAt": "2026-11-13T03:35:57.068Z",
+      "file": "custom-primitive-dev.png"
+    },
+    "custom-post-process": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:57.853Z",
+      "file": "custom-post-process.png"
+    },
+    "custom-shaders-3d-tiles": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:58.005Z",
+      "file": "custom-shaders-3d-tiles.png"
+    },
+    "custom-shaders-property-textures": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:35:59.240Z",
+      "file": "custom-shaders-property-textures.png"
+    },
+    "cylinder-outline-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:00.674Z",
+      "file": "cylinder-outline-dev.png"
+    },
+    "cylinder-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:01.918Z",
+      "file": "cylinder-dev.png"
+    },
+    "czml": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:04.858Z",
+      "file": "czml.png"
+    },
+    "czml-3d-tiles": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:07.409Z",
+      "file": "czml-3d-tiles.png"
+    },
+    "custom-shaders-models": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:08.483Z",
+      "file": "custom-shaders-models.png"
+    },
+    "czml-billboard-and-label": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:08.813Z",
+      "file": "czml-billboard-and-label.png"
+    },
+    "czml-circles-and-ellipses": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:10.430Z",
+      "file": "czml-circles-and-ellipses.png"
+    },
+    "czml-colors": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:10.691Z",
+      "file": "czml-colors.png"
+    },
+    "czml-corridor": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:13.878Z",
+      "file": "czml-corridor.png"
+    },
+    "czml-cones-and-cylinders": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:20.103Z",
+      "file": "czml-cones-and-cylinders.png"
+    },
+    "czml-custom-properties": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:20.344Z",
+      "file": "czml-custom-properties.png"
+    },
+    "czml-model-articulations": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:22.055Z",
+      "file": "czml-model-articulations.png"
+    },
+    "czml-model": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:25.737Z",
+      "file": "czml-model.png"
+    },
+    "czml-model-data-url": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:27.340Z",
+      "file": "czml-model-data-url.png"
+    },
+    "czml-model-node-transformations": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:28.868Z",
+      "file": "czml-model-node-transformations.png"
+    },
+    "czml-path": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:29.240Z",
+      "file": "czml-path.png"
+    },
+    "czml-point-time-dynamic": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:29.897Z",
+      "file": "czml-point-time-dynamic.png"
+    },
+    "czml-polygon": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:32.227Z",
+      "file": "czml-polygon.png"
+    },
+    "czml-polygon-interpolating-references": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:34.530Z",
+      "file": "czml-polygon-interpolating-references.png"
+    },
+    "czml-polyline": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:36.456Z",
+      "file": "czml-polyline.png"
+    },
+    "czml-polyline-volume": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:37.209Z",
+      "file": "czml-polyline-volume.png"
+    },
+    "czml-polygon-intervals-availability": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:37.400Z",
+      "file": "czml-polygon-intervals-availability.png"
+    },
+    "czml-position-definitions": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:38.572Z",
+      "file": "czml-position-definitions.png"
+    },
+    "czml-rectangle": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:40.226Z",
+      "file": "czml-rectangle.png"
+    },
+    "czml-wall": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:43.082Z",
+      "file": "czml-wall.png"
+    },
+    "czml-reference-properties": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:43.436Z",
+      "file": "czml-reference-properties.png"
+    },
+    "czml-spheres-and-ellipsoids": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:44.475Z",
+      "file": "czml-spheres-and-ellipsoids.png"
+    },
+    "czml-zindex": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:44.859Z",
+      "file": "czml-zindex.png"
+    },
+    "datasource-ordering": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:46.200Z",
+      "file": "datasource-ordering.png"
+    },
+    "drape-imagery-on-3d-tiles": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:51.462Z",
+      "file": "drape-imagery-on-3d-tiles.png"
+    },
+    "depth-of-field": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:52.956Z",
+      "file": "depth-of-field.png"
+    },
+    "distance-display-conditions": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:53.521Z",
+      "file": "distance-display-conditions.png"
+    },
+    "display-conditions-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:53.834Z",
+      "file": "display-conditions-dev.png"
+    },
+    "earth-at-night": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:54.733Z",
+      "file": "earth-at-night.png"
+    },
+    "drawing-on-terrain": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:55.397Z",
+      "file": "drawing-on-terrain.png"
+    },
+    "elevation-band-material": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:57.277Z",
+      "file": "elevation-band-material.png"
+    },
+    "ellipse-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:58.131Z",
+      "file": "ellipse-dev.png"
+    },
+    "ellipse-outline-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:36:59.190Z",
+      "file": "ellipse-outline-dev.png"
+    },
+    "ellipsoid-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:01.234Z",
+      "file": "ellipsoid-dev.png"
+    },
+    "ellipsoid-outline-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:02.469Z",
+      "file": "ellipsoid-outline-dev.png"
+    },
+    "ellipsoid-surface-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:08.193Z",
+      "file": "ellipsoid-surface-dev.png"
+    },
+    "edge-visibility-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:10.997Z",
+      "file": "edge-visibility-dev.png"
+    },
+    "export-kml": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:12.124Z",
+      "file": "export-kml.png"
+    },
+    "entity-tracking": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:12.318Z",
+      "file": "entity-tracking.png"
+    },
+    "fog-post-process": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:13.135Z",
+      "file": "fog-post-process.png"
+    },
+    "fog": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:13.506Z",
+      "file": "fog.png"
+    },
+    "frustum-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:18.389Z",
+      "file": "frustum-dev.png"
+    },
+    "geojson-simplestyle": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:20.304Z",
+      "file": "geojson-simplestyle.png"
+    },
+    "fxaa": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:23.342Z",
+      "file": "fxaa.png"
+    },
+    "geojson-and-topojson": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:23.572Z",
+      "file": "geojson-and-topojson.png"
+    },
+    "geometry-and-appearances": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:25.020Z",
+      "file": "geometry-and-appearances.png"
+    },
+    "geometry-and-appearances-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:26.481Z",
+      "file": "geometry-and-appearances-dev.png"
+    },
+    "geometry-height-reference": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:27.975Z",
+      "file": "geometry-height-reference.png"
+    },
+    "geometry-offset-attribute-box-cylinder-ellipsoid-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:28.076Z",
+      "file": "geometry-offset-attribute-box-cylinder-ellipsoid-dev.png"
+    },
+    "geometry-offset-attribute-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:28.681Z",
+      "file": "geometry-offset-attribute-dev.png"
+    },
+    "globe-interior": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:32.878Z",
+      "file": "globe-interior.png"
+    },
+    "globe-materials-water-mask-elevation-map": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:36.821Z",
+      "file": "globe-materials-water-mask-elevation-map.png"
+    },
+    "globe-materials-3d-tiles-terrain": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:38.878Z",
+      "file": "globe-materials-3d-tiles-terrain.png"
+    },
+    "globe-translucency": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:39.199Z",
+      "file": "globe-translucency.png"
+    },
+    "globe-materials": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:39.477Z",
+      "file": "globe-materials.png"
+    },
+    "gltf-pbr-extensions": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:40.226Z",
+      "file": "gltf-pbr-extensions.png"
+    },
+    "google-earth-enterprise": {
+      "status": "ok",
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "Failed to load resource: the server responded with a status of 404 (Not Found)"
+      ],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:46.682Z",
+      "file": "google-earth-enterprise.png"
+    },
+    "google-2d-tiles-with-custom-styles": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:47.202Z",
+      "file": "google-2d-tiles-with-custom-styles.png"
+    },
+    "gltf-planar-fill-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:47.714Z",
+      "file": "gltf-planar-fill-dev.png"
+    },
+    "google-2d-tiles": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:48.218Z",
+      "file": "google-2d-tiles.png"
+    },
+    "google-photorealistic-3d-tiles-with-building-insert": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:51.856Z",
+      "file": "google-photorealistic-3d-tiles-with-building-insert.png"
+    },
+    "gpx": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:53.392Z",
+      "file": "gpx.png"
+    },
+    "ground-polyline-material-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:55.774Z",
+      "file": "ground-polyline-material-dev.png"
+    },
+    "ground-primitive-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:37:59.016Z",
+      "file": "ground-primitive-dev.png"
+    },
+    "ground-primitive-materials-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:00.906Z",
+      "file": "ground-primitive-materials-dev.png"
+    },
+    "headingpitchroll": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:04.472Z",
+      "file": "headingpitchroll.png"
+    },
+    "high-dynamic-range": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:10.071Z",
+      "file": "high-dynamic-range.png"
+    },
+    "google-photorealistic-3d-tiles": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:10.621Z",
+      "file": "google-photorealistic-3d-tiles.png"
+    },
+    "hybrid-snapping-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:10.994Z",
+      "file": "hybrid-snapping-dev.png"
+    },
+    "google-streetview-panorama": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:12.145Z",
+      "file": "google-streetview-panorama.png"
+    },
+    "i3s-feature-picking": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:13.006Z",
+      "file": "i3s-feature-picking.png"
+    },
+    "i3s-integratedmesh-layer": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:14.044Z",
+      "file": "i3s-integratedmesh-layer.png"
+    },
+    "image-based-lighting": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:18.303Z",
+      "file": "image-based-lighting.png"
+    },
+    "imagery-adjustment": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:20.752Z",
+      "file": "imagery-adjustment.png"
+    },
+    "i3s-3d-object-layer": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:32.705Z",
+      "file": "i3s-3d-object-layer.png"
+    },
+    "imagery-color-to-alpha": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:37.264Z",
+      "file": "imagery-color-to-alpha.png"
+    },
+    "i3s-building-scene-layer": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:42.573Z",
+      "file": "i3s-building-scene-layer.png"
+    },
+    "imagery-assets-available-from-ion": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:42.698Z",
+      "file": "imagery-assets-available-from-ion.png"
+    },
+    "imagery-layers": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:45.198Z",
+      "file": "imagery-layers.png"
+    },
+    "imagery-cutout": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:46.577Z",
+      "file": "imagery-cutout.png"
+    },
+    "imodel-mesh-export-service": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:52.848Z",
+      "file": "imodel-mesh-export-service.png"
+    },
+    "imagery-layers-texture-filters": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:38:53.350Z",
+      "file": "imagery-layers-texture-filters.png"
+    },
+    "ion-snapping-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:00.533Z",
+      "file": "ion-snapping-dev.png"
+    },
+    "imagery-layers-manipulation": {
+      "status": "ok",
+      "consoleErrors": [
+        "Failed to load resource: net::ERR_CERT_COMMON_NAME_INVALID",
+        "Failed to load resource: net::ERR_CERT_COMMON_NAME_INVALID",
+        "Failed to load resource: net::ERR_CERT_COMMON_NAME_INVALID",
+        "Failed to load resource: net::ERR_CERT_COMMON_NAME_INVALID",
+        "Failed to load resource: net::ERR_CERT_COMMON_NAME_INVALID",
+        "Failed to load resource: net::ERR_CERT_COMMON_NAME_INVALID",
+        "Failed to load resource: net::ERR_CERT_COMMON_NAME_INVALID",
+        "Failed to load resource: net::ERR_CERT_COMMON_NAME_INVALID",
+        "Failed to load resource: net::ERR_CERT_COMMON_NAME_INVALID",
+        "Failed to load resource: net::ERR_CERT_COMMON_NAME_INVALID",
+        "Failed to load resource: net::ERR_CERT_COMMON_NAME_INVALID",
+        "Failed to load resource: net::ERR_CERT_COMMON_NAME_INVALID",
+        "Failed to load resource: net::ERR_CERT_COMMON_NAME_INVALID"
+      ],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:05.204Z",
+      "file": "imagery-layers-manipulation.png"
+    },
+    "imagery-layers-split": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:05.776Z",
+      "file": "imagery-layers-split.png"
+    },
+    "interpolation": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:06.835Z",
+      "file": "interpolation.png"
+    },
+    "itwin-feature-service": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:07.753Z",
+      "file": "itwin-feature-service.png"
+    },
+    "itwin-gaussian-splats": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:08.770Z",
+      "file": "itwin-gaussian-splats.png"
+    },
+    "kml-tours": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:18.052Z",
+      "file": "kml-tours.png"
+    },
+    "kml": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:26.985Z",
+      "file": "kml.png"
+    },
+    "khr-mesh-primitive-restart-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:28.517Z",
+      "file": "khr-mesh-primitive-restart-dev.png"
+    },
+    "japan-buildings": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:30.584Z",
+      "file": "japan-buildings.png"
+    },
+    "labels": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:31.575Z",
+      "file": "labels.png"
+    },
+    "labels-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:32.401Z",
+      "file": "labels-dev.png"
+    },
+    "lensflare": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:33.529Z",
+      "file": "lensflare.png"
+    },
+    "lighting": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:35.317Z",
+      "file": "lighting.png"
+    },
+    "localtofixedframe": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:39.927Z",
+      "file": "localtofixedframe.png"
+    },
+    "many-clipping-planes-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:40.737Z",
+      "file": "many-clipping-planes-dev.png"
+    },
+    "manually-controlled-animation": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:41.604Z",
+      "file": "manually-controlled-animation.png"
+    },
+    "map-pins": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:41.971Z",
+      "file": "map-pins.png"
+    },
+    "mars": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:45.399Z",
+      "file": "mars.png"
+    },
+    "material-with-custom-glsl": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:46.369Z",
+      "file": "material-with-custom-glsl.png"
+    },
+    "material-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:51.479Z",
+      "file": "material-dev.png"
+    },
+    "materials": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:51.541Z",
+      "file": "materials.png"
+    },
+    "moon": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:52.677Z",
+      "file": "moon.png"
+    },
+    "montreal-point-cloud": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:53.430Z",
+      "file": "montreal-point-cloud.png"
+    },
+    "msaa": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:55.084Z",
+      "file": "msaa.png"
+    },
+    "multiple-shadows-dev": {
+      "status": "ok",
+      "consoleErrors": [
+        "Uncaught TypeError: primitive.isDestroyed is not a function",
+        "An error occurred while rendering.  Rendering has stopped.\nTypeError: primitive.isDestroyed is not a function\nTypeError: primitive.isDestroyed is not a function\n    at createPrimitiveEventListener (http://localhost:8081/packages/engine/Build/Unminified/index.js:194450:36)\n    at Scene4.updateHeight (http://localhost:8081/packages/engine/Build/Unminified/index.js:194464:7)\n    at Scene4.initializeFrame (http://localhost:8081/packages/engine/Build/Unminified/index.js:194522:45)\n    at CesiumWidget.render (http://localhost:8081/packages/engine/Build/Unminified/index.js:198187:17)\n    at render2 (http://localhost:8081/packages/engine/Build/Unminified/index.js:197435:18)\n    at ClockController._callFirstTimer (<anonymous>:285:20)\n    at ClockController._runTo (<anonymous>:120:33)\n    at <anonymous>:168:38"
+      ],
+      "pageErrors": [
+        "primitive.isDestroyed is not a function"
+      ],
+      "capturedAt": "2026-11-13T03:39:56.412Z",
+      "file": "multiple-shadows-dev.png"
+    },
+    "multi-part-czml": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:39:57.987Z",
+      "file": "multi-part-czml.png"
+    },
+    "natural-earth-ii": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:01.441Z",
+      "file": "natural-earth-ii.png"
+    },
+    "multiple-synced-views": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:03.058Z",
+      "file": "multiple-synced-views.png"
+    },
+    "pamap-terrain": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:04.098Z",
+      "file": "pamap-terrain.png"
+    },
+    "panorama": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:07.062Z",
+      "file": "panorama.png"
+    },
+    "parallels-and-meridians": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:07.391Z",
+      "file": "parallels-and-meridians.png"
+    },
+    "partial-ellipsoids": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:13.109Z",
+      "file": "partial-ellipsoids.png"
+    },
+    "multifrustum-snapping-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:17.334Z",
+      "file": "multifrustum-snapping-dev.png"
+    },
+    "particle-system": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:18.967Z",
+      "file": "particle-system.png"
+    },
+    "particle-system-fireworks": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:21.585Z",
+      "file": "particle-system-fireworks.png"
+    },
+    "particle-system-weather": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:27.799Z",
+      "file": "particle-system-weather.png"
+    },
+    "particle-system-tails": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:27.938Z",
+      "file": "particle-system-tails.png"
+    },
+    "pbr-lighting-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:27.947Z",
+      "file": "pbr-lighting-dev.png"
+    },
+    "per-feature-post-processing": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:31.449Z",
+      "file": "per-feature-post-processing.png"
+    },
+    "per-instance-color-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:32.847Z",
+      "file": "per-instance-color-dev.png"
+    },
+    "physically-based-materials": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:33.547Z",
+      "file": "physically-based-materials.png"
+    },
+    "pick-from-ray-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:34.698Z",
+      "file": "pick-from-ray-dev.png"
+    },
+    "picking": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:34.891Z",
+      "file": "picking.png"
+    },
+    "plane": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:36.197Z",
+      "file": "plane.png"
+    },
+    "picking-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:36.750Z",
+      "file": "picking-dev.png"
+    },
+    "polygon-texture-coordinates-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:40.284Z",
+      "file": "polygon-texture-coordinates-dev.png"
+    },
+    "pointprimitives-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:42.023Z",
+      "file": "pointprimitives-dev.png"
+    },
+    "polygon-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:42.847Z",
+      "file": "polygon-dev.png"
+    },
+    "polyline-color-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:46.056Z",
+      "file": "polyline-color-dev.png"
+    },
+    "polygon-outline-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:46.937Z",
+      "file": "polygon-outline-dev.png"
+    },
+    "polyline-dash": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:47.004Z",
+      "file": "polyline-dash.png"
+    },
+    "polyline-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:49.372Z",
+      "file": "polyline-dev.png"
+    },
+    "polyline-material-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:50.907Z",
+      "file": "polyline-material-dev.png"
+    },
+    "polyline-volume-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:53.575Z",
+      "file": "polyline-volume-dev.png"
+    },
+    "polyline-volume-outline-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:54.647Z",
+      "file": "polyline-volume-outline-dev.png"
+    },
+    "polyline-volume": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:55.442Z",
+      "file": "polyline-volume.png"
+    },
+    "polylines-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:55.721Z",
+      "file": "polylines-dev.png"
+    },
+    "polylines-on-3d-tiles": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:56.229Z",
+      "file": "polylines-on-3d-tiles.png"
+    },
+    "polylines-on-terrain-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:40:57.410Z",
+      "file": "polylines-on-terrain-dev.png"
+    },
+    "projection": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:01.029Z",
+      "file": "projection.png"
+    },
+    "post-processing": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:03.034Z",
+      "file": "post-processing.png"
+    },
+    "procedural-terrain": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:04.337Z",
+      "file": "procedural-terrain.png"
+    },
+    "rectangle": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:04.538Z",
+      "file": "rectangle.png"
+    },
+    "rectangle-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:05.991Z",
+      "file": "rectangle-dev.png"
+    },
+    "resolution-scaling": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:08.352Z",
+      "file": "resolution-scaling.png"
+    },
+    "rectangle-outline-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:08.732Z",
+      "file": "rectangle-outline-dev.png"
+    },
+    "rotatable-2d-map": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:09.681Z",
+      "file": "rotatable-2d-map.png"
+    },
+    "relative-paths": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:10.461Z",
+      "file": "relative-paths.png"
+    },
+    "sample-height-from-3d-tiles": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:10.874Z",
+      "file": "sample-height-from-3d-tiles.png"
+    },
+    "scene-rendering-performance": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:11.088Z",
+      "file": "scene-rendering-performance.png"
+    },
+    "sentinel-2": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:18.526Z",
+      "file": "sentinel-2.png"
+    },
+    "shadows": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:24.357Z",
+      "file": "shadows.png"
+    },
+    "shadows-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:26.016Z",
+      "file": "shadows-dev.png"
+    },
+    "shared-context": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:27.143Z",
+      "file": "shared-context.png"
+    },
+    "simple-polyline-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:27.169Z",
+      "file": "simple-polyline-dev.png"
+    },
+    "sphere-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:29.603Z",
+      "file": "sphere-dev.png"
+    },
+    "sphere-outline-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:30.292Z",
+      "file": "sphere-outline-dev.png"
+    },
+    "splitdirection": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:36.227Z",
+      "file": "splitdirection.png"
+    },
+    "star-burst": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:36.520Z",
+      "file": "star-burst.png"
+    },
+    "styled-gltf-lines-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:38.136Z",
+      "file": "styled-gltf-lines-dev.png"
+    },
+    "styled-gltf-points-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:38.792Z",
+      "file": "styled-gltf-points-dev.png"
+    },
+    "terrain": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:39.445Z",
+      "file": "terrain.png"
+    },
+    "terrain-clipping-planes": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:41.804Z",
+      "file": "terrain-clipping-planes.png"
+    },
+    "terrain-exaggeration": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:42.997Z",
+      "file": "terrain-exaggeration.png"
+    },
+    "terrain-performance-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:43.183Z",
+      "file": "terrain-performance-dev.png"
+    },
+    "terrain-tweaks-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:45.130Z",
+      "file": "terrain-tweaks-dev.png"
+    },
+    "time-dependent-path-graphics": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:48.486Z",
+      "file": "time-dependent-path-graphics.png"
+    },
+    "time-dynamic-point-cloud": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:49.908Z",
+      "file": "time-dynamic-point-cloud.png"
+    },
+    "timeline": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:49.942Z",
+      "file": "timeline.png"
+    },
+    "terrain-entity-batching-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:51.479Z",
+      "file": "terrain-entity-batching-dev.png"
+    },
+    "time-dynamic-wheels": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:53.504Z",
+      "file": "time-dynamic-wheels.png"
+    },
+    "underground-color": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:53.768Z",
+      "file": "underground-color.png"
+    },
+    "vector-3d-tiles": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:53.912Z",
+      "file": "vector-3d-tiles.png"
+    },
+    "viewerless": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:55.121Z",
+      "file": "viewerless.png"
+    },
+    "video": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:56.420Z",
+      "file": "video.png"
+    },
+    "volumecloud": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:41:57.710Z",
+      "file": "volumecloud.png"
+    },
+    "volumes-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:42:02.557Z",
+      "file": "volumes-dev.png"
+    },
+    "voxel-picking": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:42:02.843Z",
+      "file": "voxel-picking.png"
+    },
+    "voxels": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:42:05.805Z",
+      "file": "voxels.png"
+    },
+    "voxels-in-3d-tiles": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:42:06.413Z",
+      "file": "voxels-in-3d-tiles.png"
+    },
+    "wall-outline-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:42:07.971Z",
+      "file": "wall-outline-dev.png"
+    },
+    "wall-dev": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:42:08.320Z",
+      "file": "wall-dev.png"
+    },
+    "washington-dc-2017": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:42:08.841Z",
+      "file": "washington-dc-2017.png"
+    },
+    "web-map-tile-service-with-time": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:42:16.591Z",
+      "file": "web-map-tile-service-with-time.png"
+    },
+    "web-map-service-wms": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:42:18.635Z",
+      "file": "web-map-service-wms.png"
+    },
+    "z-indexing-geometry": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:42:18.823Z",
+      "file": "z-indexing-geometry.png"
+    },
+    "web-map-tile-service-picking": {
+      "status": "ok",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "capturedAt": "2026-11-13T03:42:20.005Z",
+      "file": "web-map-tile-service-picking.png"
+    }
+  }
+}
