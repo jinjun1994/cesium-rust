@@ -31,6 +31,10 @@ pub use cesium_3d_tileset_traversal::{
     Cesium3DTilesetBaseTraversal, Cesium3DTilesetMostDetailedTraversal, Cesium3DTilesetSkipTraversal,
     Cesium3DTilesetTraversal, TraversalFrameState, TraversalTileNode, TraversalTilesetContext,
 };
+pub mod cesium_3d_tileset;
+pub use cesium_3d_tileset::{
+    Cesium3DTileset, Cesium3DTilesetOptions, TilesetAsset, TilesetHeightReference,
+};
 pub mod cesium_3d_tile_pass_state;
 pub mod clipping_plane;
 pub mod clipping_plane_collection;
