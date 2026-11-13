@@ -17,6 +17,8 @@ pub mod camera_event_aggregator;
 pub mod camera_flight_path;
 pub mod buffer_primitive_material;
 pub mod capabilities;
+pub mod cesium_3d_tile;
+pub use cesium_3d_tile::{Cesium3DTile, Cesium3DTileBoundingVolume, Cesium3DTileRefine, MockTileset};
 pub mod cesium_3d_tile_content_type;
 pub mod cesium_3d_tile_feature;
 pub mod cesium_3d_tile_feature_table;

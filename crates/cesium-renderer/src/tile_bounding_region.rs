@@ -51,7 +51,7 @@ pub struct TileBoundingRegionFrameState<'a> {
 }
 
 /// A tile bounding volume specified as a longitude/latitude/height region.
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, PartialEq)]
 pub struct TileBoundingRegion {
     pub rectangle: GeoRectangle,
     pub minimum_height: f64,
