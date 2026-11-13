@@ -559,11 +559,6 @@
       "url": "/tests/SampleData/simplestyles.geojson"
     }
   },
-  "geojson-and-topojson": {
-    "geojson": {
-      "url": "/tests/SampleData/ne_10m_us_states.topojson"
-    }
-  },
   "gpx": {
     "terrain": true
   },
@@ -612,7 +607,7 @@
         "destinationDegrees": [
           -73.0,
           42.0,
-          50000000.0
+          29000000.0
         ],
         "heading": -0.7853981633974483,
         "pitch": -1.5707963,
@@ -1805,11 +1800,6 @@
   "vector-3d-tiles": {
     "tileset": {
       "ionAssetId": 4854512
-    }
-  },
-  "voxels-in-3d-tiles": {
-    "tileset": {
-      "url": "/tests/SampleData/Cesium3DTiles/Voxel/VoxelBox3DTiles/tileset.json"
     }
   }
 }

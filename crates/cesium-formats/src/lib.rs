@@ -610,7 +610,7 @@ fn resolve_texture(
     })
 }
 pub fn decode_content(data: &[u8], limits: &DecodeLimits) -> Result<Content, DecodeError> {
-    if [b"pnts", b"i3dm", b"cmpt"]
+    if [b"pnts", b"cmpt"]
         .iter()
         .any(|magic| data.starts_with(*magic))
     {
@@ -619,7 +619,69 @@ pub fn decode_content(data: &[u8], limits: &DecodeLimits) -> Result<Content, Dec
             String::from_utf8_lossy(&data[..4])
         )));
     }
-    let (glb, rtc_center, metadata, batch_length, metadata_bytes) = if data.starts_with(b"b3dm") {
+    let mut instance_positions: Vec<DVec3> = Vec::new();
+    let (glb, rtc_center, metadata, batch_length, metadata_bytes) = if data.starts_with(b"i3dm") {
+        check_input(data, limits)?;
+        if data.len() < 32 || u32_at(data, 4)? != 1 {
+            return Err(invalid("i3dm header"));
+        }
+        let byte_len = u32_at(data, 8)? as usize;
+        if byte_len > data.len() || byte_len < 32 {
+            return Err(invalid("i3dm byteLength"));
+        }
+        let ft_json_len = u32_at(data, 12)? as usize;
+        let ft_bin_len = u32_at(data, 16)? as usize;
+        let bt_json_len = u32_at(data, 20)? as usize;
+        let bt_bin_len = u32_at(data, 24)? as usize;
+        let gltf_format = u32_at(data, 28)?;
+        let mut cursor = 32usize;
+        let ft_json = checked_range(data, cursor, ft_json_len)?;
+        cursor += ft_json_len;
+        let ft_bin = checked_range(data, cursor, ft_bin_len)?;
+        cursor += ft_bin_len;
+        let bt_json = checked_range(data, cursor, bt_json_len)?;
+        cursor += bt_json_len;
+        let bt_bin = checked_range(data, cursor, bt_bin_len)?;
+        cursor += bt_bin_len;
+        let feature_table = json_section(ft_json)?;
+        let count = feature_table
+            .get("INSTANCES_LENGTH")
+            .and_then(Value::as_u64)
+            .unwrap_or(0) as usize;
+        if let Some(pos_off) = feature_table
+            .get("POSITION")
+            .and_then(|v| v.get("byteOffset"))
+            .and_then(Value::as_u64)
+        {
+            let off = pos_off as usize;
+            for i in 0..count.min(4096) {
+                if let Ok(b) = checked_range(ft_bin, off + i * 12, 12) {
+                    let x = f32::from_le_bytes(b[0..4].try_into().unwrap()) as f64;
+                    let y = f32::from_le_bytes(b[4..8].try_into().unwrap()) as f64;
+                    let z = f32::from_le_bytes(b[8..12].try_into().unwrap()) as f64;
+                    if x.is_finite() && y.is_finite() && z.is_finite() {
+                        instance_positions.push(DVec3::new(x, y, z));
+                    }
+                }
+            }
+        }
+        let rtc = match feature_table.get("RTC_CENTER") {
+            Some(v) if v.is_array() => finite_vec3(v).unwrap_or(DVec3::ZERO),
+            _ => DVec3::ZERO,
+        };
+        if gltf_format != 1 {
+            return Ok(Content {
+                tile_frame: true,
+                primitives: vec![],
+                rtc_center: rtc,
+                metadata: Value::Object(Default::default()),
+                decoded_bytes: 0,
+            });
+        }
+        let glb = checked_range(data, cursor, byte_len.saturating_sub(cursor))?;
+        let bt = decode_batch_table(json_section(bt_json)?, bt_bin, count, limits)?;
+        (glb, rtc, bt, None, 0)
+    } else if data.starts_with(b"b3dm") {
         let b = parse_b3dm(data, limits)?;
         (
             b.glb,
@@ -955,11 +1017,27 @@ pub fn decode_content(data: &[u8], limits: &DecodeLimits) -> Result<Content, Dec
             return Err(DecodeError::Limit("primitive count"));
         }
     }
-    if primitives.is_empty() && !data.starts_with(b"b3dm") {
+    if primitives.is_empty() && !data.starts_with(b"b3dm") && !data.starts_with(b"i3dm") {
         return Err(invalid("no renderable triangle primitives"));
     }
+    if !instance_positions.is_empty() && !primitives.is_empty() {
+        let base = primitives;
+        let mut expanded = Vec::with_capacity((base.len() * instance_positions.len()).min(4096));
+        for pos in instance_positions {
+            let xform = DMat4::from_translation(pos);
+            for p in &base {
+                if expanded.len() >= limits.max_nodes {
+                    break;
+                }
+                let mut inst = p.clone();
+                inst.transform = xform * p.transform;
+                expanded.push(inst);
+            }
+        }
+        primitives = expanded;
+    }
     Ok(Content {
-        tile_frame: data.starts_with(b"b3dm"),
+        tile_frame: data.starts_with(b"b3dm") || data.starts_with(b"i3dm"),
         primitives,
         rtc_center,
         metadata,

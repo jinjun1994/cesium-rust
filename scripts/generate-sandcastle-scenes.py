@@ -28,27 +28,65 @@ def eval_num(expr):
 
 
 def extract_camera(src):
-    # Match camera.setView({ destination: Cesium.Cartesian3.fromDegrees(lon, lat, h), orientation: { heading: ..., pitch: ..., roll: ... } })
+    # First collect any named Cartesian3.fromDegrees(...) variables
+    pos_vars = {}
+    for vm in re.finditer(
+        r"(?:const|let|var)\s+(\w+)\s*=\s*(?:new\s+)?Cesium\.Cartesian3\.fromDegrees\(\s*([^,]+),\s*([^,]+)(?:,\s*([^)]+))?\)",
+        src,
+    ):
+        lon = eval_num(vm.group(2))
+        lat = eval_num(vm.group(3))
+        h = eval_num(vm.group(4)) if vm.group(4) else 1000.0
+        if lon is not None and lat is not None and h is not None:
+            pos_vars[vm.group(1)] = [lon, lat, h]
+
+    # Match inline setView({ destination: Cartesian3.fromDegrees(...) })
     m = re.search(
         r"setView\(\s*\{[\s\S]*?destination\s*:\s*(?:new\s+)?Cesium\.Cartesian3\.fromDegrees\(\s*([^,]+),\s*([^,]+)(?:,\s*([^)]+))?\)",
         src,
     )
+    dest = None
+    search_start = 0
     if m:
         lon = eval_num(m.group(1))
         lat = eval_num(m.group(2))
         h = eval_num(m.group(3)) if m.group(3) else 1000.0
         if lon is not None and lat is not None and h is not None:
-            cam = {"setView": {"destinationDegrees": [lon, lat, h], "heading": 0.0, "pitch": -1.5707963, "roll": 0.0}}
-            om = re.search(r"orientation\s*:\s*\{([^}]+)\}", src[m.start() : m.start() + 500])
-            if om:
-                body = om.group(1)
-                for key in ("heading", "pitch", "roll"):
-                    km = re.search(rf"{key}\s*:\s*([^,\n}}]+)", body)
-                    if km:
-                        val = eval_num(km.group(1))
+            dest = [lon, lat, h]
+            search_start = m.start()
+    else:
+        # Match setView({ destination: varName })
+        vm = re.search(r"setView\(\s*\{[\s\S]*?destination\s*:\s*(\w+)", src)
+        if vm and vm.group(1) in pos_vars:
+            dest = pos_vars[vm.group(1)]
+            search_start = vm.start()
+
+    if dest is not None:
+        dest[2] = min(max(dest[2], 15.0), 29000000.0)
+        cam = {"setView": {"destinationDegrees": dest, "heading": 0.0, "pitch": -1.5707963, "roll": 0.0}}
+        om = re.search(r"orientation\s*:\s*\{([^}]+)\}", src[search_start : search_start + 500])
+        if om:
+            body = om.group(1)
+            for key in ("heading", "pitch", "roll"):
+                km = re.search(rf"{key}\s*:\s*([^,\n}}]+)", body)
+                if km:
+                    val = eval_num(km.group(1))
+                    if val is not None:
+                        cam["setView"][key] = val
+        else:
+            # Check orientation: initialOrientation where initialOrientation = HeadingPitchRoll.fromDegrees(h, p, r)
+            ovm = re.search(r"orientation\s*:\s*(\w+)", src[search_start : search_start + 500])
+            if ovm:
+                hpr_m = re.search(
+                    rf"{ovm.group(1)}\s*=\s*(?:new\s+)?Cesium\.HeadingPitchRoll\.fromDegrees\(\s*([^,]+),\s*([^,]+),\s*([^)]+)\)",
+                    src,
+                )
+                if hpr_m:
+                    for key, idx in (("heading", 1), ("pitch", 2), ("roll", 3)):
+                        val = eval_num(hpr_m.group(idx))
                         if val is not None:
-                            cam["setView"][key] = val
-            return cam
+                            cam["setView"][key] = val * 3.141592653589793 / 180.0
+        return cam
     return None
 
 
@@ -157,11 +195,14 @@ def main():
                 ]
                 counts["model"] += 1
 
-        # 3. GeoJSON
-        geo_m = re.search(r"GeoJsonDataSource\.load\(\s*[\"'](\.\./\.\./SampleData/[^\"']+)[\"']", src)
+        # 3. GeoJSON (skip TopoJSON)
+        geo_m = re.search(r"GeoJsonDataSource\.load\(\s*[\"'](\.\./\.\./SampleData/[^\"']+\.(?:geo)?json)[\"']", src)
         if geo_m and "tileset" not in scene and "entities" not in scene:
             scene["geojson"] = {"url": geo_m.group(1).replace("../../SampleData/", "/tests/SampleData/")}
             counts["geojson"] += 1
+
+        if vid == "voxels-in-3d-tiles":
+            scene.pop("tileset", None)
 
         if cam and "tileset" not in scene:
             # For tilesets without explicit camera override, keep Scene's auto-orbit on root bounds unless setView was given

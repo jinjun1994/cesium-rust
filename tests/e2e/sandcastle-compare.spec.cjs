@@ -66,22 +66,35 @@ test.describe('Sandcastle same-scene screenshot comparison', () => {
   test.afterAll(async () => {
     if (page) await page.context().close().catch(() => {});
 
+    let merged = results;
+    if (fs.existsSync(REPORT_JSON)) {
+      try {
+        const prev = JSON.parse(fs.readFileSync(REPORT_JSON, 'utf8'));
+        if (Array.isArray(prev.cases)) {
+          const byId = new Map(prev.cases.map(c => [c.id, c]));
+          for (const r of results) byId.set(r.id, r);
+          const order = new Map(ALL_CASES.map((c, i) => [c.id, i]));
+          merged = Array.from(byId.values()).sort((a, b) => (order.get(a.id) ?? 9999) - (order.get(b.id) ?? 9999));
+        }
+      } catch (_) {}
+    }
+
     const summary = {
       generatedAt: new Date().toISOString(),
-      totalSelected: results.length,
-      rustRendered: results.filter(r => r.rustStatus === 'passed').length,
-      rustFailed: results.filter(r => r.rustStatus === 'failed').length,
-      withReference: results.filter(r => r.hasReference).length,
-      refMatchedWithin2Pct: results.filter(r => r.hasReference && r.diffPixelRatio <= 0.02).length,
+      totalSelected: merged.length,
+      rustRendered: merged.filter(r => r.rustStatus === 'passed').length,
+      rustFailed: merged.filter(r => r.rustStatus === 'failed').length,
+      withReference: merged.filter(r => r.hasReference).length,
+      refMatchedWithin2Pct: merged.filter(r => r.hasReference && r.diffPixelRatio <= 0.02).length,
       avgDiffPixelRatio: (() => {
-        const compared = results.filter(r => r.hasReference && typeof r.diffPixelRatio === 'number');
+        const compared = merged.filter(r => r.hasReference && typeof r.diffPixelRatio === 'number');
         return compared.length ? compared.reduce((s, r) => s + r.diffPixelRatio, 0) / compared.length : null;
       })(),
       avgRmse: (() => {
-        const compared = results.filter(r => r.hasReference && typeof r.rmse === 'number');
+        const compared = merged.filter(r => r.hasReference && typeof r.rmse === 'number');
         return compared.length ? compared.reduce((s, r) => s + r.rmse, 0) / compared.length : null;
       })(),
-      cases: results,
+      cases: merged,
     };
 
     fs.writeFileSync(REPORT_JSON, JSON.stringify(summary, null, 2) + '\n');
@@ -100,7 +113,7 @@ test.describe('Sandcastle same-scene screenshot comparison', () => {
       '| 案例 ID | 格式 | Rust 状态 | 非空像素 | 原版基准 | 差异像素率 | RMSE | 差异图 |',
       '| --- | --- | --- | ---: | --- | ---: | ---: | --- |',
     ];
-    for (const r of results) {
+    for (const r of merged) {
       const diffPct = r.hasReference && typeof r.diffPixelRatio === 'number' ? `${(r.diffPixelRatio * 100).toFixed(2)}%` : '-';
       const rmse = r.hasReference && typeof r.rmse === 'number' ? r.rmse.toFixed(4) : '-';
       const diffImg = r.diffImage ? `[diff](${path.relative(path.join(ROOT, 'docs'), r.diffImage)})` : '-';
