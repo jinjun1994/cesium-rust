@@ -72,11 +72,11 @@ impl Scene {
         // ECEF linear interpolation may put a sampled point below the ellipsoid.
         // Keep the eye above ground without changing the object's position/occlusion.
         let clearance_range = if center.height < 0. {
-            (1000. - center.height) * std::f64::consts::SQRT_2
+            (100. - center.height) * std::f64::consts::SQRT_2
         } else {
-            1000.
+            50.
         };
-        let range = (b.radius.max(100.) / vertical.min(horizontal).sin() * 1.1)
+        let range = (b.radius.max(10.) / vertical.min(horizontal).sin())
             .max(clearance_range)
             .min(29_000_000.);
         let orbit = LookOffset {

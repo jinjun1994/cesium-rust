@@ -122,7 +122,13 @@ async function main() {
         await page.clock.setFixedTime(new Date('2023-12-25T14:00:00Z'));
         await page.goto(`${BASE_URL}/Apps/Sandcastle2/standalone.html?id=${encodeURIComponent(id)}`, { timeout: 30000 });
         for (let t = 0; t < 4; t++) await page.clock.runFor(1000);
+        await page.waitForFunction(() => {
+          const iframe = document.querySelector('iframe');
+          const text = iframe?.contentDocument?.body?.innerText || '';
+          return iframe?.contentDocument?.readyState === 'complete' && !text.includes('Loading...');
+        }, { timeout: 15000 }).catch(() => {});
         await page.waitForLoadState('networkidle', { timeout: 20000 }).catch(() => {});
+        for (let t = 0; t < 8; t++) await page.clock.runFor(500);
         if (!opts.keepUi) await hideUiChrome(page);
         await page.waitForTimeout(300);
         await page.screenshot({ path: outPath });
