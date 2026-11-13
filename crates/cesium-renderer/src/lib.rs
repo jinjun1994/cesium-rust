@@ -13,6 +13,7 @@ pub mod bounding_volume_semantics;
 pub mod builtin_functions;
 pub mod buffer;
 pub mod buffer_loader;
+pub mod camera;
 pub mod camera_event_aggregator;
 pub mod camera_flight_path;
 pub mod buffer_primitive_material;
@@ -391,7 +392,7 @@ pub mod resource_cache_statistics;
 pub mod resource_loader;
 
 use cesium_formats::Primitive as FormatPrimitive;
-use cesium_math::{linear_part, relative_model_view, Camera};
+use cesium_math::{linear_part, relative_model_view, Camera as MathCamera};
 use glam::{DMat4, DVec3};
 use std::num::NonZeroU64;
 use std::sync::mpsc;
@@ -423,6 +424,7 @@ pub use bounding_volume_semantics::{
 pub use builtin_functions::{BuiltinFunctions, Ray};
 pub use buffer::{Buffer, BufferOptions, BufferTarget, BufferUsage, IndexBufferOptions};
 pub use buffer_loader::{BufferLoader, BufferLoaderOptions, ResourceLoaderState};
+pub use camera::{BoundingSphere, Camera, CameraCanvas, CameraOrientation, CameraViewOptions};
 pub use camera_event_aggregator::{CameraEventAggregator, CameraEventType, CameraMovement};
 pub use camera_flight_path::{
     CameraFlightOptions, CameraFlightPath, CameraFlightTween, CameraFrustum, FlightCamera,
@@ -1957,7 +1959,7 @@ impl Renderer {
     pub fn render(
         &mut self,
         target: &wgpu::TextureView,
-        camera: Camera,
+        camera: MathCamera,
         draws: &[&GpuMesh],
         pick: Option<(u32, u32)>,
     ) -> Result<(), RenderError> {
@@ -2438,7 +2440,7 @@ mod tests {
                 draws.push(&mesh);
             }
 
-            let camera = Camera::look_at(
+            let camera = MathCamera::look_at(
                 DVec3::new(0., 20., 100.),
                 DVec3::new(0., 20., 0.),
                 DVec3::Y,
@@ -2521,7 +2523,7 @@ mod tests {
             p.material.unlit = true;
             let mesh = r.upload(&p, DMat4::IDENTITY, false).unwrap();
 
-            let camera = Camera::look_at(
+            let camera = MathCamera::look_at(
                 DVec3::new(0., 20., 100.),
                 DVec3::new(0., 20., 0.),
                 DVec3::Y,
@@ -2584,7 +2586,7 @@ mod tests {
                 ..Default::default()
             };
             let mut point = r.upload_points(&p, DMat4::IDENTITY, true).unwrap();
-            let camera = Camera::look_at(
+            let camera = MathCamera::look_at(
                 DVec3::new(0., 20., 100.),
                 DVec3::new(0., 20., 0.),
                 DVec3::Y,
@@ -2655,7 +2657,7 @@ mod tests {
             .unwrap();
             wait(&r);
             assert!(r.poll_pick().unwrap().is_some(), "near attenuated point");
-            let far_camera = Camera::look_at(
+            let far_camera = MathCamera::look_at(
                 DVec3::new(0., 20., 200.),
                 DVec3::new(0., 20., 0.),
                 DVec3::Y,
@@ -2757,7 +2759,7 @@ mod tests {
                 "back-facing point must not be picked"
             );
             assert_ne!(pixel_at(&r, &target, x, y), [0, 255, 0, 255]);
-            let opposite = Camera::look_at(
+            let opposite = MathCamera::look_at(
                 DVec3::new(0., 20., -100.),
                 DVec3::new(0., 20., 0.),
                 DVec3::Y,
@@ -2871,7 +2873,7 @@ mod tests {
             p.indices = vec![0, 1];
             let line = r.upload_lines(&p, DMat4::IDENTITY, true).unwrap();
             assert!(line.line);
-            let camera = Camera::look_at(
+            let camera = MathCamera::look_at(
                 DVec3::new(0., 20., 100.),
                 DVec3::new(0., 20., 0.),
                 DVec3::Y,
@@ -2936,7 +2938,7 @@ mod tests {
             .remove(0);
             p.material.unlit = true;
             p.material.double_sided = true;
-            let camera = Camera::look_at(
+            let camera = MathCamera::look_at(
                 DVec3::new(0., 20., 100.),
                 DVec3::new(0., 20., 0.),
                 DVec3::Y,
@@ -3080,7 +3082,7 @@ mod tests {
             )
             .unwrap();
             let mut p = content.primitives[0].clone();
-            let camera = Camera::look_at(
+            let camera = MathCamera::look_at(
                 DVec3::new(0.0, 20.0, 100.0),
                 DVec3::new(0.0, 20.0, 0.0),
                 DVec3::Y,
@@ -3178,7 +3180,7 @@ mod tests {
             )
             .unwrap();
             let mesh = r.upload(&c.primitives[0], DMat4::IDENTITY, true).unwrap();
-            let camera = Camera::look_at(
+            let camera = MathCamera::look_at(
                 DVec3::new(0.0, 20.0, 100.0),
                 DVec3::new(0.0, 20.0, 0.0),
                 DVec3::Y,
