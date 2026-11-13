@@ -27,6 +27,7 @@ const overlay = document.getElementById('htmlOverlay');
 
 let cleanup = () => {};
 let fullRecipes = null;
+let sceneOverrides = null;
 let worldImageryActive = false;
 
 async function fetchJson(url) {
@@ -93,6 +94,10 @@ window.runSandcastleCase = async (id) => {
   cleanup();
   cleanup = () => {};
   overlay.hidden = true;
+  viewer.clearEntities();
+  viewer.clearTileset();
+  viewer.clearGeoJson();
+  viewer.clearTerrain();
   viewer.resolutionScale = 1;
   viewer.useBrowserRecommendedResolution = false;
   viewer.setClock({ startTime: 0, stopTime: 60, currentTime: 0, multiplier: 1, range: 'LOOP_STOP', shouldAnimate: false });
@@ -100,10 +105,22 @@ window.runSandcastleCase = async (id) => {
   if (!fullRecipes) {
     fullRecipes = await fetchJson('/tests/sandcastle/full-recipes.json');
   }
+  if (!sceneOverrides) {
+    try {
+      sceneOverrides = await fetchJson('/tests/e2e/sandcastle-scenes.json');
+    } catch (_) {
+      sceneOverrides = {};
+    }
+  }
   const entry = fullRecipes.cases.find(c => c.id === id);
   if (!entry) throw new Error(`Unknown Sandcastle case: ${id}`);
 
-  if (id === 'offline' || id === 'natural-earth-ii') {
+  const override = sceneOverrides[id] || null;
+  if (override && override.imagery) {
+    const im = override.imagery;
+    viewer.setImageryTemplate(im.template, im.geographic !== false, im.maxLevel ?? 2, im.credit || 'Configured imagery');
+    worldImageryActive = false;
+  } else if (id === 'offline' || id === 'natural-earth-ii') {
     viewer.setImageryTemplate('/assets/NaturalEarthII/{z}/{x}/{reverseY}.jpg', true, 2, 'Natural Earth II');
     worldImageryActive = false;
   } else {
@@ -112,6 +129,55 @@ window.runSandcastleCase = async (id) => {
 
   const sandcastlePageUrl = new URL('/bindings/web/sandcastle.html', location.href);
   const dataUrl = new URL(entry.path, sandcastlePageUrl).href;
+
+  if (override) {
+    if (override.terrain) {
+      await viewer.loadWorldTerrain(ionToken);
+    }
+    if (override.tileset) {
+      if (override.tileset.ionAssetId) {
+        try {
+          await viewer.loadIonTileset(override.tileset.ionAssetId, ionToken);
+        } catch (err) {
+          if (/missing endpoint URL/i.test(err?.message || '')) console.warn(err.message);
+          else throw err;
+        }
+      } else if (override.tileset.url) {
+        await viewer.load(override.tileset.url);
+      }
+    }
+    if (override.geojson) {
+      await viewer.loadGeoJson(override.geojson.url, override.geojson.style || {});
+    }
+    if (override.czml) {
+      await viewer.loadCzml(override.czml.url);
+    }
+    if (override.entities) {
+      await viewer.loadEntities(override.entities, { baseUrl: location.href });
+    }
+    if (override.clock) {
+      viewer.setClock({ ...override.clock, shouldAnimate: false });
+    }
+    if (override.camera) {
+      if (override.camera.setView) {
+        viewer.setView(override.camera.setView);
+      } else if (override.camera.lookAt) {
+        viewer.lookAt(override.camera.lookAt.targetDegrees, override.camera.lookAt.offset || {});
+      } else if (override.camera === 'zoomToEntities') {
+        viewer.zoomToEntities();
+      }
+    } else if (override.entities && override.entities.length > 0) {
+      viewer.zoomToEntities();
+    }
+    await window.waitSettled(10000);
+    return {
+      id: entry.id,
+      format: entry.format,
+      framing: override.camera ? 'override' : entry.framing,
+      entityCount: viewer.entities.length,
+    };
+  }
+
   const data = await fetchJson(dataUrl);
 
   if (entry.format === 'scene') {

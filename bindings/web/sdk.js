@@ -32,7 +32,7 @@ export async function attachCanvas(canvas, {onPick = () => {}, onStatus = () => 
   let terrainConfig=terrain ? {kind:"public"} : null;
   let terrainCompleted=0,terrainFailed=0;
   let terrainOptions={exaggeration:1,sse:8};
-  let tileRequested=0,tileCompleted=0,tileFailed=0,tileErrors=[];
+  let tileRequested=0,tileCompleted=0,tileFailed=0,tileErrors=[],tilesetHeaders={};
   let controller = new AbortController(); const cleanups = [];
   function invalidateEntities(){entityRevision++;entityController.abort();entityController=new AbortController();}
   async function imageFetch(url,signal,maxBytes){
@@ -78,10 +78,10 @@ export async function attachCanvas(canvas, {onPick = () => {}, onStatus = () => 
   function stream() {
     for (const request of JSON.parse(viewer.takeRequests(4-active))) {
       const generation=epoch; const signal=controller.signal; active++;tileRequested++;
-      boundedFetch(request.url,signal).then(bytes => {
+      boundedFetch(request.url,signal,MAX_BYTES,tilesetHeaders).then(bytes => {
         if (!destroyed && generation===epoch) {viewer.submitTile(request.id,bytes);tileCompleted++;}
       }).catch(error => {
-        if (!destroyed && generation===epoch && error.name !== 'AbortError') {tileFailed++;tileErrors.push({id:request.id,error:error.message});if(tileErrors.length>64)tileErrors.shift();viewer.failTile(request.id); onError(`Tile ${request.id}: ${error.message}`); }
+        if (!destroyed && generation===epoch && error?.name !== 'AbortError') {const msg=error?.message||String(error);tileFailed++;tileErrors.push({id:request.id,error:msg});if(tileErrors.length>64)tileErrors.shift();viewer.failTile(request.id); onError(`Tile ${request.id}: ${msg}`); }
       }).finally(() => { if (generation===epoch) active--; });
     }
   }
@@ -227,6 +227,22 @@ export async function attachCanvas(canvas, {onPick = () => {}, onStatus = () => 
     setClock(options) {if(destroyed)throw Error('viewer destroyed');viewer.setClock(JSON.stringify({...JSON.parse(viewer.clockState),...options}));},
     removeEntity(id) {return viewer.removeEntity(id);},
     clearEntities() {if(!destroyed){invalidateEntities();viewer.clearEntities();}},
+    clearTileset() {if(!destroyed){invalidate();tilesetHeaders={};viewer.clearTileset();}},
+    async loadIonTileset(assetId, token = ionToken) {
+      if (destroyed) throw Error('viewer destroyed');
+      if (!token) throw Error('Cesium Ion token required');
+      const generation = epoch;
+      const endpointRes = await boundedFetch(`https://api.cesium.com/v1/assets/${encodeURIComponent(assetId)}/endpoint?access_token=${encodeURIComponent(token)}`, controller.signal, 1024 * 1024);
+      const endpoint = JSON.parse(new TextDecoder().decode(endpointRes));
+      if (!endpoint || !endpoint.url) throw Error(`Ion asset ${assetId}: missing endpoint URL`);
+      const headers = endpoint.accessToken ? { Authorization: `Bearer ${endpoint.accessToken}` } : {};
+      const bytes = await boundedFetch(endpoint.url, controller.signal, MAX_BYTES, headers);
+      if (destroyed || generation !== epoch) return;
+      invalidate();
+      tilesetHeaders = headers;
+      viewer.loadTileset(bytes, endpoint.url);
+      applyTerrain();
+    },
     focusEntity(id,range=100000) {return viewer.focusEntity(id,range);},
     async load(url) {
       invalidate(); const generation=epoch; const absolute=new URL(url,location.href).href;

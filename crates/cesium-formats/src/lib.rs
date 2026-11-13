@@ -140,13 +140,12 @@ fn decode_batch_table(
             }
             continue;
         }
-        let descriptor = property
-            .as_object()
-            .ok_or_else(|| invalid("batch property descriptor"))?;
-        let offset = descriptor
-            .get("byteOffset")
-            .and_then(Value::as_u64)
-            .ok_or_else(|| invalid("batch property byteOffset"))?;
+        let Some(descriptor) = property.as_object() else {
+            continue;
+        };
+        let Some(offset) = descriptor.get("byteOffset").and_then(Value::as_u64) else {
+            continue;
+        };
         let offset = usize::try_from(offset).map_err(|_| DecodeError::Overflow)?;
         let component = descriptor
             .get("componentType")
@@ -349,9 +348,11 @@ pub fn parse_glb<'a>(data: &'a [u8], limits: &DecodeLimits) -> Result<Glb<'a>, D
     if checked_range(data, 0, 4)? != b"glTF" || u32_at(data, 4)? != 2 {
         return Err(invalid("GLB magic/version"));
     }
-    if u32_at(data, 8)? as usize != data.len() {
+    let glb_len = u32_at(data, 8)? as usize;
+    if glb_len < 12 || glb_len > data.len() {
         return Err(invalid("GLB byteLength"));
     }
+    let data = &data[..glb_len];
     let mut cursor = 12usize;
     let mut json = None;
     let mut binary = None;
@@ -359,9 +360,6 @@ pub fn parse_glb<'a>(data: &'a [u8], limits: &DecodeLimits) -> Result<Glb<'a>, D
     while cursor < data.len() {
         let len = u32_at(data, cursor)? as usize;
         let kind = u32_at(data, cursor + 4)?;
-        if !len.is_multiple_of(4) {
-            return Err(invalid("GLB chunk alignment"));
-        }
         cursor = cursor.checked_add(8).ok_or(DecodeError::Overflow)?;
         let bytes = checked_range(data, cursor, len)?;
         match kind {
@@ -957,7 +955,7 @@ pub fn decode_content(data: &[u8], limits: &DecodeLimits) -> Result<Content, Dec
             return Err(DecodeError::Limit("primitive count"));
         }
     }
-    if primitives.is_empty() {
+    if primitives.is_empty() && !data.starts_with(b"b3dm") {
         return Err(invalid("no renderable triangle primitives"));
     }
     Ok(Content {

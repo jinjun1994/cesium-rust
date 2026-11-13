@@ -43,7 +43,7 @@ pub mod widgets;
 pub fn limits() -> DecodeLimits {
     DecodeLimits {
         max_decoded_bytes: 64 * 1024 * 1024,
-        max_nodes: 10_000,
+        max_nodes: 200_000,
         ..Default::default()
     }
 }
@@ -663,6 +663,19 @@ impl Scene {
             }
         }
         Ok(())
+    }
+    pub fn set_tileset(&mut self, t: Tileset) {
+        let (target, radius) = (t.tiles[t.root].bounds.center, t.tiles[t.root].bounds.radius);
+        self.clear_tileset();
+        self.tileset = Some(t);
+        self.release_camera();
+        self.orbit = Orbit::new(target, radius);
+    }
+    pub fn clear_tileset(&mut self) {
+        self.tileset = None;
+        self.contents.clear();
+        self.draws.clear();
+        self.cache = Residency::new(256 * 1024 * 1024);
     }
     pub fn imagery_credits(&self) -> &str {
         self.imagery

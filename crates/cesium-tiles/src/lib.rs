@@ -91,10 +91,15 @@ impl Tileset {
         if !["1.0", "1.1"].contains(&raw.asset.version.as_str()) {
             return Err(DecodeError::Unsupported("3D Tiles asset.version".into()));
         }
-        if !raw.extensions_required.is_empty() {
+        let unsupported: Vec<_> = raw
+            .extensions_required
+            .iter()
+            .filter(|e| e.as_str() != "3DTILES_batch_table_hierarchy")
+            .collect();
+        if !unsupported.is_empty() {
             return Err(DecodeError::Unsupported(format!(
                 "required tileset extensions: {:?}",
-                raw.extensions_required
+                unsupported
             )));
         }
         if !raw.geometric_error.is_finite() || raw.geometric_error < 0.0 {

@@ -470,14 +470,18 @@ impl WebViewer {
             .running
             .as_mut()
             .ok_or_else(|| js("viewer destroyed"))?;
-        let scene = Scene::new(&mut r.renderer, Some(t)).map_err(js)?;
-        r.renderer
-            .resize(r.renderer.width, r.renderer.height)
-            .map_err(js)?;
+        r.scene.set_tileset(t);
         r.renderer.selected = None;
-        r.scene = scene;
         self.last_pick = "null".into();
         Ok(())
+    }
+    #[wasm_bindgen(js_name=clearTileset)]
+    pub fn clear_tileset(&mut self) {
+        if let Some(r) = &mut self.running {
+            r.scene.clear_tileset();
+            r.renderer.selected = None;
+            self.last_pick = "null".into();
+        }
     }
     #[wasm_bindgen(js_name=setPublicTerrain)]
     pub fn set_public_terrain(&mut self) -> Result<(), JsValue> {

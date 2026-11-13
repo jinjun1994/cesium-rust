@@ -1,0 +1,1815 @@
+{
+  "distance-display-conditions": {
+    "entities": [
+      {
+        "id": "distance-display-conditions-model",
+        "name": "distance-display-conditions",
+        "positionDegrees": [
+          -77.0,
+          40.5,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/GroundVehicle/GroundVehicle.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "billboards": {
+    "terrain": true
+  },
+  "3d-models": {
+    "entities": [
+      {
+        "id": "3d-models-model",
+        "name": "3d-models",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          5000.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumAir/Cesium_Air.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0,
+          "maximumScale": 20000.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "3d-models-coloring": {
+    "entities": [
+      {
+        "id": "3d-models-coloring-model",
+        "name": "3d-models-coloring",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          5000.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumAir/Cesium_Air.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0,
+          "maximumScale": 20000.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "3d-models-dev": {
+    "entities": [
+      {
+        "id": "3d-models-dev-model",
+        "name": "3d-models-dev",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumAir/Cesium_Air.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "3d-models-node-explorer-dev": {
+    "entities": [
+      {
+        "id": "3d-models-node-explorer-dev-model",
+        "name": "3d-models-node-explorer-dev",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumMan/Cesium_Man.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "headingpitchroll": {
+    "entities": [
+      {
+        "id": "headingpitchroll-model",
+        "name": "headingpitchroll",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          5000.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumAir/Cesium_Air.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "entity-tracking": {
+    "terrain": true
+  },
+  "billboardclamptoground-dev": {
+    "terrain": true
+  },
+  "display-conditions-dev": {
+    "entities": [
+      {
+        "id": "display-conditions-dev-model",
+        "name": "display-conditions-dev",
+        "positionDegrees": [
+          -77.0,
+          40.5,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/GroundVehicle/GroundVehicle.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "interpolation": {
+    "terrain": true,
+    "entities": [
+      {
+        "id": "interpolation-model",
+        "name": "interpolation",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumAir/Cesium_Air.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 64.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "manually-controlled-animation": {
+    "entities": [
+      {
+        "id": "manually-controlled-animation-model",
+        "name": "manually-controlled-animation",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumMan/Cesium_Man.glb",
+          "scale": 4.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "localtofixedframe": {
+    "entities": [
+      {
+        "id": "localtofixedframe-model",
+        "name": "localtofixedframe",
+        "positionDegrees": [
+          -123.075,
+          44.045,
+          5000.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumAir/Cesium_Air.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "cartographic-limit-rectangle": {
+    "terrain": true
+  },
+  "clamp-entities-to-ground": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 2275207
+    }
+  },
+  "billboards-instancing-dev": {
+    "terrain": true
+  },
+  "bloom": {
+    "entities": [
+      {
+        "id": "bloom-model",
+        "name": "bloom",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "cesium-widget": {
+    "entities": [
+      {
+        "id": "cesium-widget-model",
+        "name": "cesium-widget",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          500.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumAir/Cesium_Air.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0,
+          "maximumScale": 20000.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "cardboard": {
+    "terrain": true,
+    "entities": [
+      {
+        "id": "cardboard-model",
+        "name": "cardboard",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 64.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "picking": {
+    "entities": [
+      {
+        "id": "picking-model",
+        "name": "picking",
+        "positionDegrees": [
+          -75.59777,
+          40.03883,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "clamp-model-to-ground": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 40866
+    }
+  },
+  "camera": {
+    "camera": {
+      "setView": {
+        "destinationDegrees": [
+          -75.5847,
+          40.0397,
+          1000.0
+        ],
+        "heading": 0.0,
+        "pitch": -1.5707963,
+        "roll": 0.0
+      }
+    }
+  },
+  "czml": {
+    "camera": {
+      "setView": {
+        "destinationDegrees": [
+          -116.52,
+          35.02,
+          95000.0
+        ],
+        "heading": 6.0,
+        "pitch": -1.5707963,
+        "roll": 0.0
+      }
+    }
+  },
+  "time-dynamic-wheels": {
+    "entities": [
+      {
+        "id": "time-dynamic-wheels-model",
+        "name": "time-dynamic-wheels",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/GroundVehicle/GroundVehicle.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "geojson-simplestyle": {
+    "geojson": {
+      "url": "/tests/SampleData/simplestyles.geojson"
+    }
+  },
+  "geojson-and-topojson": {
+    "geojson": {
+      "url": "/tests/SampleData/ne_10m_us_states.topojson"
+    }
+  },
+  "gpx": {
+    "terrain": true
+  },
+  "export-kml": {
+    "entities": [
+      {
+        "id": "export-kml-model",
+        "name": "export-kml",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "ground-polyline-material-dev": {
+    "terrain": true
+  },
+  "drawing-on-terrain": {
+    "terrain": true
+  },
+  "rotatable-2d-map": {
+    "camera": {
+      "setView": {
+        "destinationDegrees": [
+          -73.0,
+          42.0,
+          50000000.0
+        ],
+        "heading": -0.7853981633974483,
+        "pitch": -1.5707963,
+        "roll": 0.0
+      }
+    }
+  },
+  "polylines-on-terrain-dev": {
+    "terrain": true
+  },
+  "elevation-band-material": {
+    "terrain": true
+  },
+  "shadows": {
+    "terrain": true,
+    "entities": [
+      {
+        "id": "shadows-model",
+        "name": "shadows",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumAir/Cesium_Air.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "atmosphere": {
+    "terrain": true
+  },
+  "fog-post-process": {
+    "tileset": {
+      "ionAssetId": 40866
+    }
+  },
+  "globe-materials": {
+    "terrain": true
+  },
+  "lighting": {
+    "terrain": true,
+    "entities": [
+      {
+        "id": "lighting-model",
+        "name": "lighting",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+          "scale": 7.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "fog": {
+    "terrain": true
+  },
+  "clouds": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 96188
+    }
+  },
+  "ambient-occlusion": {
+    "tileset": {
+      "ionAssetId": 2464651
+    }
+  },
+  "camera-controllers": {
+    "tileset": {
+      "ionAssetId": 2464651
+    }
+  },
+  "azure-2d-tiles": {
+    "terrain": true
+  },
+  "3d-tiles-1.1-cdb-yemen": {
+    "tileset": {
+      "ionAssetId": 2389063
+    }
+  },
+  "3d-tiles-1.1-photogrammetry": {
+    "terrain": true
+  },
+  "3d-tiles-1.1-photogrammetry-classification": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 2333904
+    }
+  },
+  "3d-tiles-1.1-s2-globe": {
+    "tileset": {
+      "ionAssetId": 1208297
+    }
+  },
+  "3d-tiles-3d-native-vector": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 5135767
+    }
+  },
+  "3d-tiles-adjust-height": {
+    "tileset": {
+      "url": "/tests/SampleData/Cesium3DTiles/Tilesets/Tileset/tileset.json"
+    }
+  },
+  "3d-tiles-batch-table-hierarchy": {
+    "tileset": {
+      "url": "/tests/SampleData/Cesium3DTiles/Hierarchy/BatchTableHierarchy/tileset.json"
+    }
+  },
+  "3d-tiles-bim": {
+    "tileset": {
+      "ionAssetId": 2464651
+    }
+  },
+  "3d-tiles-clipping-planes": {
+    "tileset": {
+      "url": "/tests/SampleData/Cesium3DTiles/Instanced/InstancedOrientation/tileset.json"
+    }
+  },
+  "3d-tiles-compare": {
+    "tileset": {
+      "ionAssetId": 96188
+    }
+  },
+  "3d-tiles-edge-visibility": {
+    "tileset": {
+      "ionAssetId": 4665927
+    }
+  },
+  "3d-tiles-feature-picking": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 75343
+    }
+  },
+  "3d-tiles-feature-styling": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 96188
+    },
+    "camera": {
+      "setView": {
+        "destinationDegrees": [
+          -122.3472,
+          47.598,
+          370.0
+        ],
+        "heading": 0.17453292519943295,
+        "pitch": -0.17453292519943295,
+        "roll": 0.0
+      }
+    }
+  },
+  "3d-tiles-formats": {
+    "tileset": {
+      "url": "/tests/SampleData/Cesium3DTiles/Tilesets/Tileset/tileset.json"
+    }
+  },
+  "3d-tiles-gaussian-splats-with-lod": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 4547222
+    }
+  },
+  "3d-tiles-gaussian-splatting": {
+    "tileset": {
+      "ionAssetId": 3667783
+    }
+  },
+  "3d-tiles-gaussian-splatting-comparison": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 3667784
+    }
+  },
+  "3d-tiles-inspector": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 75343
+    }
+  },
+  "3d-tiles-interactivity": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 75343
+    }
+  },
+  "3d-tiles-interior": {
+    "tileset": {
+      "ionAssetId": 125737
+    }
+  },
+  "3d-tiles-performance-testing-dev": {
+    "tileset": {
+      "ionAssetId": 75343
+    }
+  },
+  "3d-tiles-photogrammetry": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 40866
+    }
+  },
+  "3d-tiles-photogrammetry-classification": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 40866
+    }
+  },
+  "3d-tiles-picking-dev": {
+    "tileset": {
+      "ionAssetId": 2275207
+    }
+  },
+  "3d-tiles-point-cloud": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 16421
+    }
+  },
+  "3d-tiles-point-cloud-classification": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 16421
+    }
+  },
+  "3d-tiles-point-cloud-shading": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 5713
+    }
+  },
+  "3d-tiles-point-cloud-styling": {
+    "tileset": {
+      "url": "/tests/SampleData/Cesium3DTiles/PointCloud/PointCloudWithPerPointProperties/tileset.json"
+    }
+  },
+  "3d-tiles-property-lod-river": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 5135960
+    }
+  },
+  "3d-tiles-split-dev": {
+    "tileset": {
+      "url": "/tests/SampleData/Cesium3DTiles/Tilesets/Tileset/tileset.json"
+    }
+  },
+  "3d-tiles-terrain-classification": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 5737
+    }
+  },
+  "3d-tiles-vertical-exaggeration": {
+    "tileset": {
+      "ionAssetId": 2275207
+    }
+  },
+  "aec-architectural-design": {
+    "tileset": {
+      "ionAssetId": 2275207
+    },
+    "camera": {
+      "setView": {
+        "destinationDegrees": [
+          -79.886626,
+          40.021649,
+          235.65
+        ],
+        "heading": 0.0,
+        "pitch": -0.3490658503988659,
+        "roll": 0.0
+      }
+    }
+  },
+  "aec-clipping": {
+    "tileset": {
+      "ionAssetId": 2275207
+    }
+  },
+  "aec-elements-api-query": {
+    "terrain": true
+  },
+  "aec-isolate-by-category": {
+    "tileset": {
+      "ionAssetId": 2275207
+    },
+    "camera": {
+      "setView": {
+        "destinationDegrees": [
+          -79.886626,
+          40.021649,
+          235.65
+        ],
+        "heading": 0.0,
+        "pitch": -0.3490658503988659,
+        "roll": 0.0
+      }
+    }
+  },
+  "aec-metadata-styling": {
+    "tileset": {
+      "ionAssetId": 2275207
+    },
+    "camera": {
+      "setView": {
+        "destinationDegrees": [
+          -79.886626,
+          40.021649,
+          235.65
+        ],
+        "heading": 0.0,
+        "pitch": -0.3490658503988659,
+        "roll": 0.0
+      }
+    }
+  },
+  "aec-snapping": {
+    "terrain": true
+  },
+  "aec-tileset-metadata-filtering": {
+    "terrain": true
+  },
+  "aerometrex-san-francisco": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 1415196
+    }
+  },
+  "arcticdem": {
+    "terrain": true
+  },
+  "cesium-inspector": {
+    "terrain": true
+  },
+  "cesium-osm-buildings": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 96188
+    }
+  },
+  "cesium-world-terrain": {
+    "terrain": true
+  },
+  "clamp-to-3d-model": {
+    "entities": [
+      {
+        "id": "clamp-to-3d-model-model",
+        "name": "clamp-to-3d-model",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/GroundVehicle/GroundVehicle.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "classification": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 40866
+    }
+  },
+  "classification-types": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 40866
+    }
+  },
+  "client-side-snapping-dev": {
+    "tileset": {
+      "ionAssetId": 4665927
+    }
+  },
+  "clipping-performance-dev": {
+    "tileset": {
+      "ionAssetId": 2275207
+    }
+  },
+  "clipping-regions": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 2275207
+    }
+  },
+  "custom-per-feature-post-process": {
+    "entities": [
+      {
+        "id": "custom-per-feature-post-process-model",
+        "name": "custom-per-feature-post-process",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumMan/Cesium_Man.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "custom-post-process": {
+    "entities": [
+      {
+        "id": "custom-post-process-model",
+        "name": "custom-post-process",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumMan/Cesium_Man.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "custom-shaders-3d-tiles": {
+    "tileset": {
+      "ionAssetId": 75343
+    }
+  },
+  "custom-shaders-models": {
+    "entities": [
+      {
+        "id": "custom-shaders-models-model",
+        "name": "custom-shaders-models",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "custom-shaders-property-textures": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 2342602
+    }
+  },
+  "czml-3d-tiles": {
+    "tileset": {
+      "url": "/tests/SampleData/Cesium3DTiles/Batched/BatchedColors/tileset.json"
+    }
+  },
+  "depth-of-field": {
+    "entities": [
+      {
+        "id": "depth-of-field-model",
+        "name": "depth-of-field",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "fxaa": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 75343
+    }
+  },
+  "globe-materials-water-mask-elevation-map": {
+    "terrain": true
+  },
+  "globe-translucency": {
+    "terrain": true,
+    "entities": [
+      {
+        "id": "globe-translucency-model",
+        "name": "globe-translucency",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/ParcLeadMine/ParcLeadMine.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "google-2d-tiles": {
+    "terrain": true
+  },
+  "google-2d-tiles-with-custom-styles": {
+    "terrain": true
+  },
+  "google-photorealistic-3d-tiles": {
+    "tileset": {
+      "ionAssetId": 2275207
+    }
+  },
+  "google-photorealistic-3d-tiles-with-building-insert": {
+    "tileset": {
+      "ionAssetId": 2275207
+    }
+  },
+  "google-streetview-panorama": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 2275207
+    }
+  },
+  "ground-primitive-dev": {
+    "terrain": true
+  },
+  "ground-primitive-materials-dev": {
+    "terrain": true
+  },
+  "high-dynamic-range": {
+    "terrain": true,
+    "entities": [
+      {
+        "id": "high-dynamic-range-model",
+        "name": "high-dynamic-range",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/DracoCompressed/CesiumMilkTruck.gltf",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "hybrid-snapping-dev": {
+    "terrain": true
+  },
+  "i3s-3d-object-layer": {
+    "terrain": true
+  },
+  "i3s-feature-picking": {
+    "terrain": true
+  },
+  "i3s-integratedmesh-layer": {
+    "terrain": true
+  },
+  "image-based-lighting": {
+    "entities": [
+      {
+        "id": "image-based-lighting-model",
+        "name": "image-based-lighting",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/Pawns/Pawns.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "imagery-assets-available-from-ion": {
+    "terrain": true
+  },
+  "imodel-mesh-export-service": {
+    "terrain": true
+  },
+  "ion-snapping-dev": {
+    "terrain": true
+  },
+  "itwin-gaussian-splats": {
+    "terrain": true
+  },
+  "japan-buildings": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 2602291
+    }
+  },
+  "khr-mesh-primitive-restart-dev": {
+    "entities": [
+      {
+        "id": "khr-mesh-primitive-restart-dev-model",
+        "name": "khr-mesh-primitive-restart-dev",
+        "positionDegrees": [
+          -75.152408,
+          39.946975,
+          50.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/PrimitiveRestart/PrimitiveRestartLineStrip.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "many-clipping-planes-dev": {
+    "terrain": true,
+    "tileset": {
+      "url": "/tests/SampleData/Cesium3DTiles/Instanced/InstancedOrientation/tileset.json"
+    }
+  },
+  "mars": {
+    "tileset": {
+      "ionAssetId": 3644333
+    }
+  },
+  "montreal-point-cloud": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 28945
+    }
+  },
+  "moon": {
+    "tileset": {
+      "ionAssetId": 2684829
+    }
+  },
+  "msaa": {
+    "terrain": true,
+    "entities": [
+      {
+        "id": "msaa-model",
+        "name": "msaa",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumBalloon/CesiumBalloon.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0,
+          "maximumScale": 20000.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "multifrustum-snapping-dev": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 4665927
+    }
+  },
+  "multiple-shadows-dev": {
+    "terrain": true,
+    "entities": [
+      {
+        "id": "multiple-shadows-dev-model",
+        "name": "multiple-shadows-dev",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/ShadowTester/Shadow_Tester_Point.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "pamap-terrain": {
+    "terrain": true
+  },
+  "particle-system": {
+    "entities": [
+      {
+        "id": "particle-system-model",
+        "name": "particle-system",
+        "positionDegrees": [
+          -75.15787310614596,
+          39.97862668312678,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 64.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "particle-system-tails": {
+    "entities": [
+      {
+        "id": "particle-system-tails-model",
+        "name": "particle-system-tails",
+        "positionDegrees": [
+          -75.59777,
+          40.03883,
+          800.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumAir/Cesium_Air.glb",
+          "scale": 3.5,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "particle-system-weather": {
+    "terrain": true
+  },
+  "per-feature-post-processing": {
+    "entities": [
+      {
+        "id": "per-feature-post-processing-model",
+        "name": "per-feature-post-processing",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumMan/Cesium_Man.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "physically-based-materials": {
+    "terrain": true,
+    "entities": [
+      {
+        "id": "physically-based-materials-model",
+        "name": "physically-based-materials",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/GroundVehicle/GroundVehicle.glb",
+          "scale": 8.0,
+          "minimumPixelSize": 128.0,
+          "maximumScale": 20.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "pick-from-ray-dev": {
+    "tileset": {
+      "url": "/tests/SampleData/Cesium3DTiles/Tilesets/Tileset/tileset.json"
+    }
+  },
+  "picking-dev": {
+    "terrain": true,
+    "tileset": {
+      "url": "/tests/SampleData/Cesium3DTiles/Tilesets/Tileset/tileset.json"
+    }
+  },
+  "polylines-on-3d-tiles": {
+    "tileset": {
+      "ionAssetId": 2464651
+    }
+  },
+  "post-processing": {
+    "entities": [
+      {
+        "id": "post-processing-model",
+        "name": "post-processing",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumMan/Cesium_Man.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "projection": {
+    "entities": [
+      {
+        "id": "projection-model",
+        "name": "projection",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/CesiumMilkTruck/CesiumMilkTruck.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0,
+          "maximumScale": 20000.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "sample-height-from-3d-tiles": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 40866
+    }
+  },
+  "scene-rendering-performance": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 40866
+    }
+  },
+  "shadows-dev": {
+    "terrain": true,
+    "tileset": {
+      "url": "/tests/SampleData/Cesium3DTiles/Tilesets/Tileset/tileset.json"
+    }
+  },
+  "shared-context": {
+    "tileset": {
+      "ionAssetId": 2464651
+    }
+  },
+  "terrain": {
+    "terrain": true
+  },
+  "terrain-clipping-planes": {
+    "terrain": true,
+    "tileset": {
+      "ionAssetId": 5713
+    }
+  },
+  "terrain-entity-batching-dev": {
+    "terrain": true
+  },
+  "terrain-exaggeration": {
+    "terrain": true
+  },
+  "terrain-performance-dev": {
+    "terrain": true
+  },
+  "underground-color": {
+    "entities": [
+      {
+        "id": "underground-color-model",
+        "name": "underground-color",
+        "positionDegrees": [
+          -123.0744619,
+          44.0503706,
+          0.0
+        ],
+        "shape": {
+          "type": "model",
+          "uri": "/tests/SampleData/models/ParcLeadMine/ParcLeadMine.glb",
+          "scale": 1.0,
+          "minimumPixelSize": 128.0
+        },
+        "color": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "fill": true,
+        "outline": false,
+        "outlineColor": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "vector-3d-tiles": {
+    "tileset": {
+      "ionAssetId": 4854512
+    }
+  },
+  "voxels-in-3d-tiles": {
+    "tileset": {
+      "url": "/tests/SampleData/Cesium3DTiles/Voxel/VoxelBox3DTiles/tileset.json"
+    }
+  }
+}

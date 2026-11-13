@@ -45,7 +45,7 @@ export async function hydrateImages(value, base, read, signal) {
     while(next<urls.length){const url=urls[next++];if(active.signal.aborted)throw new DOMException('Aborted','AbortError');cache.set(url,dataUri(await read(url,active.signal,4*1024*1024)));}
   }));
   let mNext=0;await Promise.all(Array.from({length:Math.min(4,modelUrls.length)},async()=>{
-    while(mNext<modelUrls.length){const url=modelUrls[mNext++];if(active.signal.aborted)throw new DOMException('Aborted','AbortError');try{cache.set(url,modelDataUri(await read(url,active.signal,4*1024*1024)));}catch{cache.delete(url);}}
+    while(mNext<modelUrls.length){const url=modelUrls[mNext++];if(active.signal.aborted)throw new DOMException('Aborted','AbortError');try{cache.set(url,modelDataUri(await read(url,active.signal,16*1024*1024)));}catch{cache.delete(url);}}
   }));}catch(e){active.abort();throw e;}finally{signal?.removeEventListener('abort',abort);}
   for(const ref of refs)if(cache.has(ref.image))ref.image=cache.get(ref.image);
   for(const ref of modelRefs)if(cache.has(ref.obj[ref.key]))ref.obj[ref.key]=cache.get(ref.obj[ref.key]);
