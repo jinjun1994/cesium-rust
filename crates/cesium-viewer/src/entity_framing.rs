@@ -47,13 +47,15 @@ impl Scene {
             let Some(model) = e.spec.model(self.clock.current_time) else {
                 continue;
             };
-            let p = e.spec.primitive().map_err(RenderError)?;
+            let prims = e.spec.primitives().map_err(RenderError)?;
             if e.spec.shape.screen() {
                 points.push(model.transform_point3(DVec3::ZERO));
             } else {
-                for v in &p.vertices {
-                    points
-                        .push(model.transform_point3(DVec3::from_array(v.position.map(f64::from))));
+                for p in &prims {
+                    let xform = model * p.transform;
+                    for v in &p.vertices {
+                        points.push(xform.transform_point3(DVec3::from_array(v.position.map(f64::from))));
+                    }
                 }
             }
         }

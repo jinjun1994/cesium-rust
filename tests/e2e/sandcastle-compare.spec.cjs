@@ -46,6 +46,12 @@ test.describe('Sandcastle same-scene screenshot comparison', () => {
     page.on('pageerror', err => pageErrors.push(err.message));
     await page.route('**/*', route => {
       const url = new URL(route.request().url());
+      if ((url.hostname === '127.0.0.1' || url.hostname === 'localhost') && url.pathname.startsWith('/tests/SampleData/')) {
+        const localPath = path.join('/Users/jinjun/study/cesium-rust/cesium/Apps/SampleData', url.pathname.slice('/tests/SampleData/'.length));
+        if (fs.existsSync(localPath) && fs.statSync(localPath).isFile()) {
+          return route.fulfill({ path: localPath });
+        }
+      }
       if (url.hostname === '127.0.0.1' || url.protocol === 'data:') return route.continue();
       if (process.env.OFFLINE_ONLY === '1') return route.abort();
       return route.continue();

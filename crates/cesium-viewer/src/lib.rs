@@ -269,8 +269,70 @@ struct GeoLayer {
 struct ResidentEntity {
     spec: entities::Entity,
     mesh: GpuMesh,
+    local_transform: DMat4,
+    extra_meshes: Vec<(GpuMesh, DMat4)>,
+    model_radius: f64,
     outline: Option<GpuMesh>,
     visible: bool,
+}
+
+fn upload_entity(
+    renderer: &mut Renderer,
+    spec: entities::Entity,
+    current_time: f64,
+) -> Result<ResidentEntity, RenderError> {
+    let mut prims = spec.primitives().map_err(RenderError)?;
+    let mut r_sq = 0.0f64;
+    for p in &prims {
+        for v in &p.vertices {
+            let pt = p.transform.transform_point3(DVec3::from_array(v.position.map(f64::from)));
+            r_sq = r_sq.max(pt.length_squared());
+        }
+    }
+    let model_radius = r_sq.sqrt();
+    let model = spec.model(current_time);
+    let base_model = model.unwrap_or(DMat4::IDENTITY);
+    let first = prims.remove(0);
+    let local_transform = first.transform;
+    let mut mesh = if spec.shape.screen() {
+        renderer.upload_screen(&first, base_model * local_transform, true)?
+    } else if matches!(spec.shape, entities::Shape::WidePolyline { .. }) {
+        renderer.upload_wide_line(&first, base_model * local_transform, true)?
+    } else {
+        renderer.upload(&first, base_model * local_transform, true)?
+    };
+    mesh.z_index = spec.z_index;
+    if spec.shape.screen() {
+        Renderer::configure_screen_distance(
+            &mut mesh,
+            spec.screen.distance(),
+            crate::screen::pixel_offset(&spec),
+            spec.screen.rotation as f32,
+        )?;
+    }
+    let mut extra_meshes = Vec::with_capacity(prims.len());
+    for p in prims {
+        let local = p.transform;
+        let mut m = renderer.upload(&p, base_model * local, true)?;
+        m.z_index = spec.z_index;
+        extra_meshes.push((m, local));
+    }
+    let mut outline = crate::outline::primitive(&spec)
+        .map_err(RenderError)?
+        .map(|p| renderer.upload_lines(&p, base_model, true))
+        .transpose()?;
+    if let Some(o) = &mut outline {
+        o.z_index = spec.z_index;
+    }
+    Ok(ResidentEntity {
+        spec,
+        mesh,
+        local_transform,
+        extra_meshes,
+        model_radius,
+        outline,
+        visible: model.is_some(),
+    })
 }
 pub struct Scene {
     pub clock: clock::Clock,
@@ -354,40 +416,8 @@ impl Scene {
         let specs = entities::decode(&encoded).map_err(RenderError)?;
         let mut residents = BTreeMap::new();
         for spec in specs {
-            let primitive = spec.primitive().map_err(RenderError)?;
-            let model = spec.model(self.clock.current_time);
-            let mut mesh = if spec.shape.screen() {
-                renderer.upload_screen(&primitive, model.unwrap_or(DMat4::IDENTITY), true)?
-            } else if matches!(spec.shape, entities::Shape::WidePolyline { .. }) {
-                renderer.upload_wide_line(&primitive, model.unwrap_or(DMat4::IDENTITY), true)?
-            } else {
-                renderer.upload(&primitive, model.unwrap_or(DMat4::IDENTITY), true)?
-            };
-            mesh.z_index = spec.z_index;
-            if spec.shape.screen() {
-                Renderer::configure_screen_distance(
-                    &mut mesh,
-                    spec.screen.distance(),
-                    crate::screen::pixel_offset(&spec),
-                    spec.screen.rotation as f32,
-                )?;
-            }
-            let mut outline = crate::outline::primitive(&spec)
-                .map_err(RenderError)?
-                .map(|p| renderer.upload_lines(&p, model.unwrap_or(DMat4::IDENTITY), true))
-                .transpose()?;
-            if let Some(o) = &mut outline {
-                o.z_index = spec.z_index;
-            }
-            residents.insert(
-                spec.id.clone(),
-                ResidentEntity {
-                    spec,
-                    mesh,
-                    outline,
-                    visible: model.is_some(),
-                },
-            );
+            let resident = upload_entity(renderer, spec, self.clock.current_time)?;
+            residents.insert(resident.spec.id.clone(), resident);
         }
         self.stop_tracking();
         self.entities = residents;
@@ -419,37 +449,7 @@ impl Scene {
         entities::decode(&bytes).map_err(RenderError)?;
         let mut residents = Vec::new();
         for spec in updates {
-            let primitive = spec.primitive().map_err(RenderError)?;
-            let model = spec.model(self.clock.current_time);
-            let mut mesh = if spec.shape.screen() {
-                renderer.upload_screen(&primitive, model.unwrap_or(DMat4::IDENTITY), true)?
-            } else if matches!(spec.shape, entities::Shape::WidePolyline { .. }) {
-                renderer.upload_wide_line(&primitive, model.unwrap_or(DMat4::IDENTITY), true)?
-            } else {
-                renderer.upload(&primitive, model.unwrap_or(DMat4::IDENTITY), true)?
-            };
-            mesh.z_index = spec.z_index;
-            if spec.shape.screen() {
-                Renderer::configure_screen_distance(
-                    &mut mesh,
-                    spec.screen.distance(),
-                    crate::screen::pixel_offset(&spec),
-                    spec.screen.rotation as f32,
-                )?;
-            }
-            let mut outline = crate::outline::primitive(&spec)
-                .map_err(RenderError)?
-                .map(|p| renderer.upload_lines(&p, model.unwrap_or(DMat4::IDENTITY), true))
-                .transpose()?;
-            if let Some(o) = &mut outline {
-                o.z_index = spec.z_index;
-            }
-            residents.push(ResidentEntity {
-                spec,
-                mesh,
-                outline,
-                visible: model.is_some(),
-            });
+            residents.push(upload_entity(renderer, spec, self.clock.current_time)?);
         }
         for resident in residents {
             self.entities.insert(resident.spec.id.clone(), resident);
@@ -504,6 +504,8 @@ impl Scene {
     }
     pub fn tick(&mut self, elapsed: f64) {
         self.clock.tick(elapsed);
+        self.advance_camera(elapsed);
+        let cam = self.orbit.camera(960, 540);
         for entity in self.entities.values_mut() {
             let model = entity.spec.model(self.clock.current_time);
             entity.visible = model.is_some()
@@ -512,13 +514,39 @@ impl Scene {
                     .iter()
                     .all(|g| g.show || !g.entity_ids.contains(&entity.spec.id));
             if let Some(model) = model {
-                entity.mesh.model = model;
+                let mut scale_mat = DMat4::IDENTITY;
+                if entity.model_radius > 0.0 {
+                    if let entities::Shape::Model {
+                        minimum_pixel_size,
+                        maximum_scale,
+                        scale,
+                        ..
+                    } = entity.spec.shape
+                    {
+                        if minimum_pixel_size > 0.0 {
+                            let dist = cam.eye.distance(model.w_axis.truncate());
+                            let world_per_px =
+                                2.0 * dist * (cam.fovy * 0.5).tan() / (cam.height.max(1) as f64);
+                            let mut extra = ((minimum_pixel_size * world_per_px)
+                                / (2.0 * entity.model_radius))
+                                .max(1.0);
+                            if let Some(max_s) = maximum_scale {
+                                extra = extra.min((max_s / scale.max(1e-6)).max(1.0));
+                            }
+                            scale_mat = DMat4::from_scale(DVec3::splat(extra));
+                        }
+                    }
+                }
+                let scaled = model * scale_mat;
+                entity.mesh.model = scaled * entity.local_transform;
+                for (m, local) in &mut entity.extra_meshes {
+                    m.model = scaled * *local;
+                }
                 if let Some(o) = &mut entity.outline {
-                    o.model = model;
+                    o.model = scaled;
                 }
             }
         }
-        self.advance_camera(elapsed);
     }
     pub fn focus_entity(&mut self, id: &str, range: f64) -> bool {
         if !range.is_finite() || !(10.0..=30_000_000.0).contains(&range) {
@@ -939,6 +967,9 @@ impl Scene {
         for e in sorted_entities {
             if e.spec.fill {
                 meshes.push(&e.mesh);
+                for (m, _) in &e.extra_meshes {
+                    meshes.push(m);
+                }
             }
             if let Some(o) = &e.outline {
                 meshes.push(o);
@@ -1156,13 +1187,13 @@ impl Scene {
             self.contents.len(),
             (self.cache.budget.used()
                 + geo_bytes
-                + self.entities.values().map(|e|e.mesh.bytes+e.outline.as_ref().map_or(0,|o|o.bytes)).sum::<usize>()
+                + self.entities.values().map(|e|e.mesh.bytes+e.extra_meshes.iter().map(|(m,_)|m.bytes).sum::<usize>()+e.outline.as_ref().map_or(0,|o|o.bytes)).sum::<usize>()
                 + globe_bytes
                 + self.imagery.as_ref().map_or(0, |i| i.gpu_bytes())
                 + self.terrain.as_ref().map_or(0,|t|t.gpu_bytes())
                 + self.poles.iter().map(|m| m.bytes).sum::<usize>()) as f64
                 / 1048576.0,
-            draw_calls+geo_draws+self.entities.values().filter(|e|e.visible).map(|e|usize::from(e.spec.fill)+usize::from(e.outline.is_some())).sum::<usize>(),
+            draw_calls+geo_draws+self.entities.values().filter(|e|e.visible).map(|e|if e.spec.fill {1+e.extra_meshes.len()} else {0}+usize::from(e.outline.is_some())).sum::<usize>(),
             self.errors,
             self.geo_layers.len(),
             self.entities.len(),

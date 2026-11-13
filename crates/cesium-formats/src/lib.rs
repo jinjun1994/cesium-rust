@@ -639,10 +639,44 @@ pub fn decode_content(data: &[u8], limits: &DecodeLimits) -> Result<Content, Dec
             0,
         )
     };
-    let mut container = parse_glb(glb, limits)?;
+    let owned_bin: Vec<u8>;
+    let mut json_gltf = false;
+    let mut container = if glb.iter().find(|b| !b.is_ascii_whitespace()) == Some(&b'{') {
+        check_input(glb, limits)?;
+        let mut json: Value = serde_json::from_slice(glb).map_err(|_| invalid("glTF JSON"))?;
+        let uri = json
+            .get("buffers")
+            .and_then(|b| b.get(0))
+            .and_then(|b| b.get("uri"))
+            .and_then(Value::as_str)
+            .map(str::to_owned);
+        owned_bin = if let Some(b64) = uri
+            .as_deref()
+            .and_then(|u| u.strip_prefix("data:"))
+            .and_then(|s| s.split_once(";base64,"))
+            .map(|(_, b)| b)
+        {
+            use base64::Engine;
+            if let Some(buf0) = json.get_mut("buffers").and_then(|b| b.get_mut(0)).and_then(Value::as_object_mut) {
+                buf0.remove("uri");
+            }
+            base64::engine::general_purpose::STANDARD
+                .decode(b64.trim())
+                .map_err(|_| invalid("glTF data URI"))?
+        } else {
+            Vec::new()
+        };
+        json_gltf = true;
+        Glb {
+            json,
+            binary: (!owned_bin.is_empty()).then_some(owned_bin.as_slice()),
+        }
+    } else {
+        parse_glb(glb, limits)?
+    };
     // Historical b3dm used BATCHID before glTF custom attributes required an
     // underscore. Normalize only that legacy semantic before glTF validation.
-    let mut normalized = false;
+    let mut normalized = json_gltf;
     if batch_length.is_some() {
         if let Some(meshes) = container
             .json
@@ -677,9 +711,6 @@ pub fn decode_content(data: &[u8], limits: &DecodeLimits) -> Result<Content, Dec
     let g = gltf::Gltf::from_slice(normalized_json.as_deref().unwrap_or(glb))?;
     if g.extensions_required().next().is_some() {
         return Err(DecodeError::Unsupported("required glTF extensions".into()));
-    }
-    if g.skins().next().is_some() || g.animations().next().is_some() {
-        return Err(DecodeError::Unsupported("skins/animations".into()));
     }
     if g.buffers()
         .any(|b| matches!(b.source(), gltf::buffer::Source::Uri(_)))

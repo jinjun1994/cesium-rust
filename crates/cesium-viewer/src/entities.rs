@@ -817,6 +817,29 @@ impl Entity {
         }
         Ok(())
     }
+    /// Returns all renderable primitives for this entity (multiple for glTF/GLB models).
+    pub fn primitives(&self) -> Result<Vec<Primitive>, String> {
+        self.validate()?;
+        if let Shape::Model { uri, scale, .. } = &self.shape {
+            if let Some(b64) = uri.strip_prefix("data:").and_then(|s| s.split_once(";base64,")).map(|(_, b)| b) {
+                use base64::Engine;
+                if let Ok(bytes) = base64::engine::general_purpose::STANDARD.decode(b64.trim()) {
+                    if let Ok(mut content) = cesium_formats::decode_content(&bytes, &cesium_formats::DecodeLimits::default()) {
+                        if !content.primitives.is_empty() {
+                            let base_xform = DMat4::from_scale(DVec3::splat(*scale))
+                                * DMat4::from_translation(content.rtc_center)
+                                * cesium_formats::gltf_y_up_to_z_up();
+                            for p in &mut content.primitives {
+                                p.transform = base_xform * p.transform;
+                            }
+                            return Ok(content.primitives);
+                        }
+                    }
+                }
+            }
+        }
+        Ok(vec![self.primitive()?])
+    }
     pub fn primitive(&self) -> Result<Primitive, String> {
         self.validate()?;
         if let Shape::WidePolyline { data } = &self.shape {
