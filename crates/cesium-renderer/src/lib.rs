@@ -26,6 +26,11 @@ pub mod cesium_3d_tile_style;
 pub mod cesium_3d_tile_vector_feature;
 pub mod cesium_3d_tileset_heatmap;
 pub mod cesium_3d_tileset_metadata;
+pub mod cesium_3d_tileset_traversal;
+pub use cesium_3d_tileset_traversal::{
+    Cesium3DTilesetBaseTraversal, Cesium3DTilesetMostDetailedTraversal, Cesium3DTilesetSkipTraversal,
+    Cesium3DTilesetTraversal, TraversalFrameState, TraversalTileNode, TraversalTilesetContext,
+};
 pub mod cesium_3d_tile_pass_state;
 pub mod clipping_plane;
 pub mod clipping_plane_collection;
