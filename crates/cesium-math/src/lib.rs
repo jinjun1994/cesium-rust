@@ -1144,11 +1144,22 @@ impl Camera {
         Ok(Self {
             eye,
             camera_to_ecef: DMat3::from_cols(x, z.cross(x), z),
-            fovy: 60f64.to_radians(),
+            fovy: Self::cesium_fovy(width, height),
             near: 0.1,
             width,
             height,
         })
+    }
+
+    /// Vertical FOV (radians) matching CesiumJS `PerspectiveFrustum` (60° on the wider axis).
+    pub fn cesium_fovy(width: u32, height: u32) -> f64 {
+        let fov = 60f64.to_radians();
+        let aspect = (width.max(1) as f64) / (height.max(1) as f64);
+        if aspect <= 1.0 {
+            fov
+        } else {
+            2.0 * ((fov * 0.5).tan() / aspect).atan()
+        }
     }
     pub fn projection(self) -> Result<Mat4, MathError> {
         if self.width == 0 || self.height == 0 {

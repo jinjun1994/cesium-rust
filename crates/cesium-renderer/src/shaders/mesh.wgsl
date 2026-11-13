@@ -183,8 +183,14 @@ fn surface_normal(v:VertexOutput,sample:vec3<f32>)->vec3<f32> {
  let specular=distribution*visibility*fresnel/max(4.0*nl*nv,0.0001);
  let diffuse=(vec3<f32>(1.0)-fresnel)*(1.0-metal)*base.rgb/3.14159265;
  let ao=mix(1.0,occ,material.params.x);
- var color=(diffuse+specular)*nl*2.5+base.rgb*0.12*ao+emissive;
- if material.factors.w>0.5 {let rim=pow(1.0-nv,4.0);color+=vec3<f32>(0.035,0.16,0.32)*rim*(0.35+0.65*nl);}
+ var color: vec3<f32>;
+ if material.factors.w>0.5 {
+  let fresnel=1.0-nv;
+  let haze=vec3<f32>(0.06,0.16,0.34)*pow(fresnel,1.6)+vec3<f32>(0.18,0.45,0.88)*pow(fresnel,4.0);
+  color=base.rgb*1.15+haze+emissive;
+ } else {
+  color=(diffuse+specular)*nl*2.0+base.rgb*0.35*ao+emissive;
+ }
  if object.feature_params.y==v.feature_id {color=mix(color,vec3<f32>(1.0,0.7,0.05),0.7);}
  return vec4<f32>(color*global.viewport_exposure.z,select(1.0,base.a,material.factors.z>=0.0 || material.factors.z== -2.0));
 }

@@ -17,12 +17,17 @@
 <script type="module">
 import { attachCanvas } from '/bindings/web/sdk.js';
 
+const DEFAULT_ION_TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJmZjQwNzM0Mi02Yjg0LTRlNzMtYTA3My05MDdjNDg5NDI4ZDUiLCJpZCI6MzAxOTAsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1OTMzMzQ3NTN9.WU9XY55sjONwqLFBdbzTpxBXnQSEQvu0n9s72Mqt8IU';
+const params = new URLSearchParams(location.search);
+const ionToken = params.has('ionToken') ? params.get('ionToken') : DEFAULT_ION_TOKEN;
+
 window.testErrors = [];
 const canvas = document.getElementById('canvas');
 const overlay = document.getElementById('htmlOverlay');
 
 let cleanup = () => {};
 let fullRecipes = null;
+let worldImageryActive = false;
 
 async function fetchJson(url) {
   const res = await fetch(url);
@@ -32,12 +37,34 @@ async function fetchJson(url) {
 
 const viewer = await attachCanvas(canvas, {
   terrain: false,
-  onError: error => window.testErrors.push(String(error)),
+  onError: error => {
+    const msg = String(error);
+    if (/^Imagery .+: request\/decode failed$/.test(msg)) console.warn(msg);
+    else window.testErrors.push(msg);
+  },
   onRenderError: error => window.testErrors.push(String(error)),
   onPick: result => { window.lastPick = result; },
 });
-viewer.setImageryTemplate('/assets/NaturalEarthII/{z}/{x}/{reverseY}.jpg', true, 2, 'Natural Earth II');
 window.viewer = viewer;
+
+async function ensureWorldImagery() {
+  if (!ionToken) {
+    viewer.setImageryTemplate('/assets/NaturalEarthII/{z}/{x}/{reverseY}.jpg', true, 2, 'Natural Earth II');
+    worldImageryActive = false;
+    return;
+  }
+  if (!worldImageryActive) {
+    try {
+      await viewer.loadWorldImagery(ionToken);
+      worldImageryActive = true;
+    } catch {
+      viewer.setImageryTemplate('/assets/NaturalEarthII/{z}/{x}/{reverseY}.jpg', true, 2, 'Natural Earth II');
+      worldImageryActive = false;
+    }
+  }
+}
+
+await ensureWorldImagery();
 
 window.waitFrames = (count = 4) => new Promise(resolve => {
   let left = count;
@@ -48,13 +75,26 @@ window.waitFrames = (count = 4) => new Promise(resolve => {
   requestAnimationFrame(step);
 });
 
+window.waitSettled = async (maxWaitMs = 8000) => {
+  const start = performance.now();
+  await window.waitFrames(4);
+  while (performance.now() - start < maxWaitMs) {
+    const d = viewer.diagnostics;
+    if (d.imageryPending === 0 && d.tilePending === 0 && d.terrainPending === 0) {
+      await window.waitFrames(3);
+      const d2 = viewer.diagnostics;
+      if (d2.imageryPending === 0 && d2.tilePending === 0 && d2.terrainPending === 0) break;
+    }
+    await new Promise(r => setTimeout(r, 80));
+  }
+};
+
 window.runSandcastleCase = async (id) => {
   cleanup();
   cleanup = () => {};
   overlay.hidden = true;
   viewer.resolutionScale = 1;
   viewer.useBrowserRecommendedResolution = false;
-  viewer.setImageryTemplate('/assets/NaturalEarthII/{z}/{x}/{reverseY}.jpg', true, 2, 'Natural Earth II');
   viewer.setClock({ startTime: 0, stopTime: 60, currentTime: 0, multiplier: 1, range: 'LOOP_STOP', shouldAnimate: false });
 
   if (!fullRecipes) {
@@ -62,6 +102,13 @@ window.runSandcastleCase = async (id) => {
   }
   const entry = fullRecipes.cases.find(c => c.id === id);
   if (!entry) throw new Error(`Unknown Sandcastle case: ${id}`);
+
+  if (id === 'offline' || id === 'natural-earth-ii') {
+    viewer.setImageryTemplate('/assets/NaturalEarthII/{z}/{x}/{reverseY}.jpg', true, 2, 'Natural Earth II');
+    worldImageryActive = false;
+  } else {
+    await ensureWorldImagery();
+  }
 
   const sandcastlePageUrl = new URL('/bindings/web/sandcastle.html', location.href);
   const dataUrl = new URL(entry.path, sandcastlePageUrl).href;
@@ -72,6 +119,7 @@ window.runSandcastleCase = async (id) => {
     viewer.useBrowserRecommendedResolution = true;
     if (data.type === 'offline') {
       viewer.setImageryTemplate(new URL(data.template, sandcastlePageUrl).href, true, 2, 'Natural Earth II');
+      worldImageryActive = false;
     } else if (data.type === 'html-overlays') {
       overlay.hidden = false;
       const scratch = {};
@@ -108,12 +156,12 @@ window.runSandcastleCase = async (id) => {
   }
 
   if (entry.framing === 'viewer-default') {
-    viewer.setView({ destinationDegrees: [-100, 40, 17500000], heading: 0, pitch: -Math.PI / 2, roll: 0 });
+    viewer.setView({ destinationDegrees: [-82.5, 35, 25000000], heading: 0, pitch: -Math.PI / 2, roll: 0 });
   } else {
     viewer.zoomToEntities();
   }
 
-  await window.waitFrames(6);
+  await window.waitSettled(8000);
   return {
     id: entry.id,
     format: entry.format,

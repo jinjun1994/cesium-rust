@@ -34,7 +34,7 @@ for (const fixture of ['batched', 'point-cloud']) {
     expect(visiblePixels).toBeGreaterThan(100);
     await expect(canvas).toHaveScreenshot(`${fixture}.png`, {timeout: 20000, animations: 'disabled'});
     if (fixture === 'batched') {
-      await canvas.click({position: {x: 430, y: 230}});
+      await canvas.click({position: {x: 390, y: 205}});
       await page.waitForFunction(() => window.lastPick?.properties?.Height !== undefined);
       const properties = await page.evaluate(() => window.lastPick.properties);
       expect(properties.Height).toBeGreaterThan(0);

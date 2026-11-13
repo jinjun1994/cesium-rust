@@ -2011,7 +2011,7 @@ impl Renderer {
             .ensure_capacity(&self.device, &self.object_layout, draws.len());
         self.paged_uniforms.begin_frame();
 
-        let sun = (camera.camera_to_ecef.transpose() * DVec3::new(1.0, 0.5, 0.8).normalize())
+        let sun = (camera.camera_to_ecef.transpose() * DVec3::new(0.794, -0.459, -0.397).normalize())
             .as_vec3()
             .extend(0.0)
             .to_array();
@@ -2254,12 +2254,7 @@ impl Renderer {
         let clear = if pick {
             wgpu::Color::TRANSPARENT
         } else {
-            wgpu::Color {
-                r: 0.005,
-                g: 0.008,
-                b: 0.015,
-                a: 1.0,
-            }
+            wgpu::Color::BLACK
         };
         let mut pass = encoder.begin_render_pass(&wgpu::RenderPassDescriptor {
             label: Some(if pick { "ID pass" } else { "color pass" }),

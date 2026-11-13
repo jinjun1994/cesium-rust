@@ -58,7 +58,7 @@ impl Scene {
             }
         }
         let b = bounds(&points).ok_or_else(|| RenderError("no visible entity bounds".into()))?;
-        let vertical = 30f64.to_radians();
+        let vertical = cesium_math::Camera::cesium_fovy(width, height) * 0.5;
         let horizontal = (vertical.tan() * width as f64 / height as f64).atan();
         let (center, target) = if b.center.length() < 100.0 {
             let c = cesium_math::Cartographic::degrees(0., 0., 0.).unwrap();

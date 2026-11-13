@@ -46,9 +46,14 @@ test.describe('Sandcastle same-scene screenshot comparison', () => {
     page.on('pageerror', err => pageErrors.push(err.message));
     await page.route('**/*', route => {
       const url = new URL(route.request().url());
-      return url.hostname === '127.0.0.1' || url.protocol === 'data:' ? route.continue() : route.abort();
+      if (url.hostname === '127.0.0.1' || url.protocol === 'data:') return route.continue();
+      if (process.env.OFFLINE_ONLY === '1') return route.abort();
+      return route.continue();
     });
-    await page.goto('/tests/e2e/sandcastle-harness.html');
+    const harnessUrl = process.env.CESIUM_ION_TOKEN !== undefined
+      ? `/tests/e2e/sandcastle-harness.html?ionToken=${encodeURIComponent(process.env.CESIUM_ION_TOKEN)}`
+      : '/tests/e2e/sandcastle-harness.html';
+    await page.goto(harnessUrl);
     await page.waitForFunction(() => Boolean(window.viewer && window.runSandcastleCase), null, { timeout: 30000 });
   });
 

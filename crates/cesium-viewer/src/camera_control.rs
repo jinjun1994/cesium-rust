@@ -139,7 +139,7 @@ impl Pose {
         Camera {
             eye: self.eye,
             camera_to_ecef: DMat3::from_quat(self.rotation),
-            fovy: 60f64.to_radians(),
+            fovy: Camera::cesium_fovy(w, h),
             near: (height * 0.01).clamp(0.1, 1000.),
             width: w,
             height: h,
