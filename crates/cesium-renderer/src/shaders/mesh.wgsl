@@ -186,8 +186,8 @@ fn surface_normal(v:VertexOutput,sample:vec3<f32>)->vec3<f32> {
  var color: vec3<f32>;
  if material.factors.w>0.5 {
   let fresnel=1.0-nv;
-  let haze=vec3<f32>(0.16,0.42,0.85)*pow(fresnel,4.2)*0.85;
-  color=base.rgb*1.06+haze+emissive;
+  let haze=vec3<f32>(0.35,0.58,0.95)*pow(fresnel,8.5)*0.4;
+  color=base.rgb+haze+emissive;
  } else {
   color=(diffuse+specular)*nl*2.0+base.rgb*0.35*ao+emissive;
  }

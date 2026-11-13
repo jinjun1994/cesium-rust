@@ -76,9 +76,9 @@ impl Scene {
         let clearance_range = if center.height < 0. {
             (100. - center.height) * std::f64::consts::SQRT_2
         } else {
-            50.
+            16.
         };
-        let range = (b.radius.max(10.) / vertical.min(horizontal).sin())
+        let range = (b.radius.max(1.5) / vertical.min(horizontal).sin())
             .max(clearance_range)
             .min(29_000_000.);
         let orbit = LookOffset {
